@@ -8,16 +8,19 @@ export default {
       title: 'Wineater',
     }
   },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "@/assets/styles/colors.scss" as *;'
-        }
-      }
-    }
-  },
-  css: ['@/assets/styles/main.scss'],
+  // vite: {
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {
+  //         additionalData: '@use "@/assets/styles/colors.scss" as *;'
+  //       }
+  //     }
+  //   }
+  // },
+  css: [
+    '@/assets/styles/main.scss',
+    '@/assets/styles/colors.scss'
+  ],
   modules: [
     '@nuxtjs/i18n',
   ],

@@ -1,11 +1,13 @@
-$brand1: #7E27ED;
-$brand2: #2FC0BF;
-$brand3: #BA27ED;
-$brand4: #FFFFFF;
-$brand5: #EDEDED;
-$brand6: #C1C1C1;
-$brand7: #F5F2FF;
-$text: #333333;
-$dark-100: #696969;
-$dark-90: #989898;
-$gradient: #7E27ED #2FC0BF #BA27ED (linear);
+:root {
+  --brand-1: #7E27ED;
+  --brand-2: #2FC0BF;
+  --brand-3: #BA27ED;
+  --brand-4: #FFFFFF;
+  --brand-5: #EDEDED;
+  --brand-6: #C1C1C1;
+  --brand-7: #F5F2FF;
+  --text: #333333;
+  --dark-100: #696969;
+  --dark-90: #989898;
+  --gradient: #7E27ED #2FC0BF #BA27ED (linear);
+}
