@@ -45,17 +45,44 @@
       "assets": [
         "../assets"
       ],
+      "assets/*": [
+        "../assets/*"
+      ],
       "public": [
         "../public"
       ],
       "public/*": [
         "../public/*"
+      ],
+      "vue-i18n": [
+        "../node_modules/vue-i18n/dist/vue-i18n"
+      ],
+      "@intlify/shared": [
+        "../node_modules/@intlify/shared/dist/shared"
+      ],
+      "@intlify/message-compiler": [
+        "../node_modules/@intlify/message-compiler/dist/message-compiler"
+      ],
+      "@intlify/core-base": [
+        "../node_modules/@intlify/core-base/dist/core-base"
+      ],
+      "@intlify/vue-router-bridge": [
+        "../node_modules/@nuxtjs/i18n/node_modules/@intlify/vue-router-bridge/lib/index"
+      ],
+      "@intlify/vue-i18n-bridge": [
+        "../node_modules/@nuxtjs/i18n/node_modules/@intlify/vue-i18n-bridge/lib/index"
+      ],
+      "vue-i18n-routing": [
+        "../node_modules/@nuxtjs/i18n/node_modules/vue-i18n-routing/dist/vue-i18n-routing"
+      ],
+      "#i18n": [
+        "../node_modules/@nuxtjs/i18n/dist/runtime/composables"
       ]
     }
   },
   "include": [
     "./types/nitro-nuxt.d.ts",
-    "../node_modules/@nuxt/devtools/runtime/server",
+    "../node_modules/@nuxtjs/i18n/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",
     "../**/*",

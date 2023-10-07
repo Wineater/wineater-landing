@@ -6,11 +6,13 @@ type Decorate<T extends Record<string, any>> = { [K in keyof T as K extends stri
 type InjectionType<A extends Plugin> = A extends Plugin<infer T> ? Decorate<T> : unknown
 
 type NuxtAppInjections = 
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/payload.client").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.server").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.client").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/plugins/unhead").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/router").default> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/router").default> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client").default> &
+  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/composition").default> &
+  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/i18n").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/chunk-reload.client").default>
 
 declare module '#app' {

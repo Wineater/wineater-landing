@@ -13,12 +13,16 @@ declare global {
   const defineAppConfig: typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']
   const defineAsyncComponent: typeof import('../../node_modules/vue')['defineAsyncComponent']
   const defineComponent: typeof import('../../node_modules/vue')['defineComponent']
+  const defineI18nConfig: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nConfig']
+  const defineI18nLocale: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nLocale']
+  const defineI18nRoute: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nRoute']
   const defineModel: typeof import('../../node_modules/vue')['defineModel']
   const defineNuxtComponent: typeof import('../../node_modules/nuxt/dist/app')['defineNuxtComponent']
   const defineNuxtLink: typeof import('../../node_modules/nuxt/dist/app')['defineNuxtLink']
   const defineNuxtPlugin: typeof import('../../node_modules/nuxt/dist/app')['defineNuxtPlugin']
   const defineNuxtRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app')['defineNuxtRouteMiddleware']
   const defineOptions: typeof import('../../node_modules/vue')['defineOptions']
+  const definePageMeta: typeof import('../../node_modules/nuxt/dist/pages/runtime/composables')['definePageMeta']
   const definePayloadPlugin: typeof import('../../node_modules/nuxt/dist/app')['definePayloadPlugin']
   const definePayloadReducer: typeof import('../../node_modules/nuxt/dist/app')['definePayloadReducer']
   const definePayloadReviver: typeof import('../../node_modules/nuxt/dist/app')['definePayloadReviver']
@@ -49,8 +53,8 @@ declare global {
   const nextTick: typeof import('../../node_modules/vue')['nextTick']
   const onActivated: typeof import('../../node_modules/vue')['onActivated']
   const onBeforeMount: typeof import('../../node_modules/vue')['onBeforeMount']
-  const onBeforeRouteLeave: typeof import('../../node_modules/nuxt/dist/app')['onBeforeRouteLeave']
-  const onBeforeRouteUpdate: typeof import('../../node_modules/nuxt/dist/app')['onBeforeRouteUpdate']
+  const onBeforeRouteLeave: typeof import('../vue-router')['onBeforeRouteLeave']
+  const onBeforeRouteUpdate: typeof import('../vue-router')['onBeforeRouteUpdate']
   const onBeforeUnmount: typeof import('../../node_modules/vue')['onBeforeUnmount']
   const onBeforeUpdate: typeof import('../../node_modules/vue')['onBeforeUpdate']
   const onDeactivated: typeof import('../../node_modules/vue')['onDeactivated']
@@ -92,15 +96,22 @@ declare global {
   const useAppConfig: typeof import('../../node_modules/nuxt/dist/app')['useAppConfig']
   const useAsyncData: typeof import('../../node_modules/nuxt/dist/app')['useAsyncData']
   const useAttrs: typeof import('../../node_modules/vue')['useAttrs']
+  const useBrowserLocale: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useBrowserLocale']
   const useCookie: typeof import('../../node_modules/nuxt/dist/app')['useCookie']
+  const useCookieLocale: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useCookieLocale']
   const useCssModule: typeof import('../../node_modules/vue')['useCssModule']
   const useCssVars: typeof import('../../node_modules/vue')['useCssVars']
   const useError: typeof import('../../node_modules/nuxt/dist/app')['useError']
   const useFetch: typeof import('../../node_modules/nuxt/dist/app')['useFetch']
   const useHead: typeof import('../../node_modules/@unhead/vue')['useHead']
   const useHeadSafe: typeof import('../../node_modules/@unhead/vue')['useHeadSafe']
+  const useI18n: typeof import('../../node_modules/vue-i18n/dist/vue-i18n')['useI18n']
   const useLazyAsyncData: typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']
   const useLazyFetch: typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']
+  const useLink: typeof import('../vue-router')['useLink']
+  const useLocaleHead: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocaleHead']
+  const useLocalePath: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocalePath']
+  const useLocaleRoute: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocaleRoute']
   const useModel: typeof import('../../node_modules/vue')['useModel']
   const useNuxtApp: typeof import('../../node_modules/nuxt/dist/app')['useNuxtApp']
   const useNuxtData: typeof import('../../node_modules/nuxt/dist/app')['useNuxtData']
@@ -109,6 +120,7 @@ declare global {
   const useRequestHeaders: typeof import('../../node_modules/nuxt/dist/app')['useRequestHeaders']
   const useRequestURL: typeof import('../../node_modules/nuxt/dist/app')['useRequestURL']
   const useRoute: typeof import('../../node_modules/nuxt/dist/app')['useRoute']
+  const useRouteBaseName: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useRouteBaseName']
   const useRouter: typeof import('../../node_modules/nuxt/dist/app')['useRouter']
   const useRuntimeConfig: typeof import('../../node_modules/nuxt/dist/app')['useRuntimeConfig']
   const useSeoMeta: typeof import('../../node_modules/@unhead/vue')['useSeoMeta']
@@ -117,6 +129,7 @@ declare global {
   const useServerSeoMeta: typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']
   const useSlots: typeof import('../../node_modules/vue')['useSlots']
   const useState: typeof import('../../node_modules/nuxt/dist/app')['useState']
+  const useSwitchLocalePath: typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useSwitchLocalePath']
   const useTransitionState: typeof import('../../node_modules/vue')['useTransitionState']
   const watch: typeof import('../../node_modules/vue')['watch']
   const watchEffect: typeof import('../../node_modules/vue')['watchEffect']
@@ -150,12 +163,16 @@ declare module 'vue' {
     readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('../../node_modules/vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('../../node_modules/vue')['defineComponent']>
+    readonly defineI18nConfig: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nConfig']>
+    readonly defineI18nLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nLocale']>
+    readonly defineI18nRoute: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nRoute']>
     readonly defineModel: UnwrapRef<typeof import('../../node_modules/vue')['defineModel']>
     readonly defineNuxtComponent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtComponent']>
     readonly defineNuxtLink: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtLink']>
     readonly defineNuxtPlugin: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtPlugin']>
     readonly defineNuxtRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtRouteMiddleware']>
     readonly defineOptions: UnwrapRef<typeof import('../../node_modules/vue')['defineOptions']>
+    readonly definePageMeta: UnwrapRef<typeof import('../../node_modules/nuxt/dist/pages/runtime/composables')['definePageMeta']>
     readonly definePayloadPlugin: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['definePayloadPlugin']>
     readonly definePayloadReducer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['definePayloadReducer']>
     readonly definePayloadReviver: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['definePayloadReviver']>
@@ -186,8 +203,8 @@ declare module 'vue' {
     readonly nextTick: UnwrapRef<typeof import('../../node_modules/vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('../../node_modules/vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('../../node_modules/vue')['onBeforeMount']>
-    readonly onBeforeRouteLeave: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['onBeforeRouteLeave']>
-    readonly onBeforeRouteUpdate: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['onBeforeRouteUpdate']>
+    readonly onBeforeRouteLeave: UnwrapRef<typeof import('../vue-router')['onBeforeRouteLeave']>
+    readonly onBeforeRouteUpdate: UnwrapRef<typeof import('../vue-router')['onBeforeRouteUpdate']>
     readonly onBeforeUnmount: UnwrapRef<typeof import('../../node_modules/vue')['onBeforeUnmount']>
     readonly onBeforeUpdate: UnwrapRef<typeof import('../../node_modules/vue')['onBeforeUpdate']>
     readonly onDeactivated: UnwrapRef<typeof import('../../node_modules/vue')['onDeactivated']>
@@ -229,15 +246,22 @@ declare module 'vue' {
     readonly useAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useAppConfig']>
     readonly useAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useAsyncData']>
     readonly useAttrs: UnwrapRef<typeof import('../../node_modules/vue')['useAttrs']>
+    readonly useBrowserLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useBrowserLocale']>
     readonly useCookie: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useCookie']>
+    readonly useCookieLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useCookieLocale']>
     readonly useCssModule: UnwrapRef<typeof import('../../node_modules/vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('../../node_modules/vue')['useCssVars']>
     readonly useError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useError']>
     readonly useFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useFetch']>
     readonly useHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHead']>
     readonly useHeadSafe: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHeadSafe']>
+    readonly useI18n: UnwrapRef<typeof import('../../node_modules/vue-i18n/dist/vue-i18n')['useI18n']>
     readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']>
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']>
+    readonly useLink: UnwrapRef<typeof import('../vue-router')['useLink']>
+    readonly useLocaleHead: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocaleHead']>
+    readonly useLocalePath: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocalePath']>
+    readonly useLocaleRoute: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocaleRoute']>
     readonly useModel: UnwrapRef<typeof import('../../node_modules/vue')['useModel']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useNuxtData']>
@@ -246,6 +270,7 @@ declare module 'vue' {
     readonly useRequestHeaders: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRequestHeaders']>
     readonly useRequestURL: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRequestURL']>
     readonly useRoute: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRoute']>
+    readonly useRouteBaseName: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useRouteBaseName']>
     readonly useRouter: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRouter']>
     readonly useRuntimeConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRuntimeConfig']>
     readonly useSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useSeoMeta']>
@@ -254,6 +279,7 @@ declare module 'vue' {
     readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']>
     readonly useSlots: UnwrapRef<typeof import('../../node_modules/vue')['useSlots']>
     readonly useState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useState']>
+    readonly useSwitchLocalePath: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useSwitchLocalePath']>
     readonly useTransitionState: UnwrapRef<typeof import('../../node_modules/vue')['useTransitionState']>
     readonly watch: UnwrapRef<typeof import('../../node_modules/vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('../../node_modules/vue')['watchEffect']>
@@ -281,12 +307,16 @@ declare module '@vue/runtime-core' {
     readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineAppConfig']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('../../node_modules/vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('../../node_modules/vue')['defineComponent']>
+    readonly defineI18nConfig: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nConfig']>
+    readonly defineI18nLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nLocale']>
+    readonly defineI18nRoute: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['defineI18nRoute']>
     readonly defineModel: UnwrapRef<typeof import('../../node_modules/vue')['defineModel']>
     readonly defineNuxtComponent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtComponent']>
     readonly defineNuxtLink: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtLink']>
     readonly defineNuxtPlugin: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtPlugin']>
     readonly defineNuxtRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['defineNuxtRouteMiddleware']>
     readonly defineOptions: UnwrapRef<typeof import('../../node_modules/vue')['defineOptions']>
+    readonly definePageMeta: UnwrapRef<typeof import('../../node_modules/nuxt/dist/pages/runtime/composables')['definePageMeta']>
     readonly definePayloadPlugin: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['definePayloadPlugin']>
     readonly definePayloadReducer: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['definePayloadReducer']>
     readonly definePayloadReviver: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['definePayloadReviver']>
@@ -317,8 +347,8 @@ declare module '@vue/runtime-core' {
     readonly nextTick: UnwrapRef<typeof import('../../node_modules/vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('../../node_modules/vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('../../node_modules/vue')['onBeforeMount']>
-    readonly onBeforeRouteLeave: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['onBeforeRouteLeave']>
-    readonly onBeforeRouteUpdate: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['onBeforeRouteUpdate']>
+    readonly onBeforeRouteLeave: UnwrapRef<typeof import('../vue-router')['onBeforeRouteLeave']>
+    readonly onBeforeRouteUpdate: UnwrapRef<typeof import('../vue-router')['onBeforeRouteUpdate']>
     readonly onBeforeUnmount: UnwrapRef<typeof import('../../node_modules/vue')['onBeforeUnmount']>
     readonly onBeforeUpdate: UnwrapRef<typeof import('../../node_modules/vue')['onBeforeUpdate']>
     readonly onDeactivated: UnwrapRef<typeof import('../../node_modules/vue')['onDeactivated']>
@@ -360,15 +390,22 @@ declare module '@vue/runtime-core' {
     readonly useAppConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useAppConfig']>
     readonly useAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useAsyncData']>
     readonly useAttrs: UnwrapRef<typeof import('../../node_modules/vue')['useAttrs']>
+    readonly useBrowserLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useBrowserLocale']>
     readonly useCookie: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useCookie']>
+    readonly useCookieLocale: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useCookieLocale']>
     readonly useCssModule: UnwrapRef<typeof import('../../node_modules/vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('../../node_modules/vue')['useCssVars']>
     readonly useError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useError']>
     readonly useFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useFetch']>
     readonly useHead: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHead']>
     readonly useHeadSafe: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useHeadSafe']>
+    readonly useI18n: UnwrapRef<typeof import('../../node_modules/vue-i18n/dist/vue-i18n')['useI18n']>
     readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']>
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']>
+    readonly useLink: UnwrapRef<typeof import('../vue-router')['useLink']>
+    readonly useLocaleHead: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocaleHead']>
+    readonly useLocalePath: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocalePath']>
+    readonly useLocaleRoute: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useLocaleRoute']>
     readonly useModel: UnwrapRef<typeof import('../../node_modules/vue')['useModel']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useNuxtData']>
@@ -377,6 +414,7 @@ declare module '@vue/runtime-core' {
     readonly useRequestHeaders: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRequestHeaders']>
     readonly useRequestURL: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRequestURL']>
     readonly useRoute: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRoute']>
+    readonly useRouteBaseName: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useRouteBaseName']>
     readonly useRouter: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRouter']>
     readonly useRuntimeConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRuntimeConfig']>
     readonly useSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useSeoMeta']>
@@ -385,6 +423,7 @@ declare module '@vue/runtime-core' {
     readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/@unhead/vue')['useServerSeoMeta']>
     readonly useSlots: UnwrapRef<typeof import('../../node_modules/vue')['useSlots']>
     readonly useState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useState']>
+    readonly useSwitchLocalePath: UnwrapRef<typeof import('../../node_modules/@nuxtjs/i18n/dist/runtime/composables')['useSwitchLocalePath']>
     readonly useTransitionState: UnwrapRef<typeof import('../../node_modules/vue')['useTransitionState']>
     readonly watch: UnwrapRef<typeof import('../../node_modules/vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('../../node_modules/vue')['watchEffect']>
