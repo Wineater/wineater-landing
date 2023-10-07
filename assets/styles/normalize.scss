@@ -1,0 +1,135 @@
+html,
+body {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  // -moz-font-smoothing: antialiased;
+  // -o-font-smoothing: antialiased;
+  .ui-widget-overlay {
+    background-color: rgba(7, 42, 115, 0.2);
+  }
+}
+
+input {
+  font-family: inherit;
+
+  border: none;
+  border-radius: 0;
+  outline: none;
+  opacity: 1;
+
+  -webkit-appearance: none;
+  -webkit-text-fill-color: currentcolor;
+}
+
+input::-webkit-contacts-auto-fill-button {
+  position: absolute;
+  right: 0;
+
+  display: none;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+// HIDE INPUT NUMBER ARROWS
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  /* display: none; <- Crashes Chrome on hover */
+
+  -webkit-appearance: none;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  opacity: 1;
+
+  resize: none;
+
+  -webkit-text-fill-color: currentcolor;
+}
+
+button {
+  padding: 0;
+  overflow: visible;
+
+  font: inherit;
+  line-height: normal;
+  color: inherit;
+
+  background: none;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+dl,
+dt,
+dd,
+p{
+  margin: 0;
+  padding: 0;
+
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+
+  border: 0;
+}
+
+hr {
+  display: block;
+  height: 0;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: "";
+}
+
+a,
+label {
+  -webkit-tap-highlight-color: transparent;
+}

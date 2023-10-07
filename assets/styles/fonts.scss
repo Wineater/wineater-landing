@@ -1,7 +1,150 @@
-//@font-face {
-//  font-family: 'FarAwayGalaxy';
-//  src: url('/fonts/FarAwayGalaxy.woff') format('woff');
-//  font-weight: normal;
-//  font-style: normal;
-//  font-display: swap;
-//}
+@font-face {
+  font-family: 'PoppinsMedium';
+  src: url('../../public/fonts/Poppins-Medium.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PoppinsRegular';
+  src: url('../../public/fonts/Poppins-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lumios';
+  src: url('../../public/fonts/Lumios-Marker.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.h1 {
+  font-family: 'PoppinsMedium';
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 90%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 120px;
+    line-height: 100%;
+  }
+  @media only screen and (max-width: 1280px) {
+    font-size: 100px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 70px;
+  }
+  @media only screen and (max-width: 768px) {
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 48px;
+  }
+}
+
+.h2 {
+  font-family: 'PoppinsMedium';
+  font-size: 85px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 105%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 65px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 45px;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 32px;
+  }
+}
+.h3 {
+  font-family: 'PoppinsMedium';
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 115%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 40px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 28px;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 24px;
+  }
+}
+.p1 {
+  font-family: 'PoppinsRegular';
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 18px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+.p2 {
+  font-family: 'PoppinsMedium';
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 18px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+.decorative-1 {
+  font-family: 'Lumios';
+  font-size: 130px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 110px;
+  }
+  @media only screen and (max-width: 1280px) {
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 80px;
+  }
+  @media only screen and (max-width: 768px) {
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 60px;
+  }
+}
+.decorative-2 {
+  font-family: 'Lumios';
+  font-size: 85px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 65%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 65px;
+  }
+  @media only screen and (max-width: 1024px) {
+    font-size: 55px;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 40px;
+  }
+}
+.decorative-3 {
+  font-family: 'Lumios';
+  font-size: 65px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 70%;
+  @media only screen and (max-width: 1440px) {
+    font-size: 45px;
+  }
+}

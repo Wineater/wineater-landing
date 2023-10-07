@@ -17,6 +17,7 @@ export default {
       }
     }
   },
+  css: ['@/assets/styles/main.scss'],
   modules: [
     '@nuxtjs/i18n',
   ],

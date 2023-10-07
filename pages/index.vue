@@ -1,11 +1,7 @@
 <template>
   <div>
-    <!--    <label for="language">Select Language:</label>-->
-    <!--    <select id="language" v-model="selectedLanguage" @change="changeLanguage">-->
-    <!--      <option v-for="locale in supportedLocales" :key="locale.code" :value="locale.code">{{ locale.name }}</option>-->
-    <!--    </select>-->
     <LangSwitcher></LangSwitcher>
-    <p>{{ $t('about') }}</p> {{ message }}
+    <p class="decorative-1">{{ $t('about') }}</p> {{ message }}
 
   </div>
 </template>
