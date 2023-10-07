@@ -1,0 +1,1 @@
+export const baseApiUrl = 'https://api.wineater.com/'

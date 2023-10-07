@@ -49,22 +49,7 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {
-    "i18n": {
-      "experimental": {
-        "jsTsFormatResource": false
-      },
-      "baseUrl": "",
-      "locales": {
-        "en": {
-          "domain": ""
-        },
-        "fr": {
-          "domain": ""
-        }
-      }
-    }
-  }
+  "public": {}
 };
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
@@ -131,7 +116,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200/server/assets"}];
 
 const assets = createStorage();
 
@@ -143,11 +128,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200/server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200/.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200/.nuxt/cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200/.data/kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -873,7 +858,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[],"style":[],"script":[],"noscript":[],"title":"Wineater"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
 
 const appRootId = "__nuxt";
 
@@ -892,8 +877,8 @@ function publicAssetsURL(...path) {
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('file:///Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getServerEntry = () => import('file:///Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file:///Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file:///Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/4200/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
 const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
