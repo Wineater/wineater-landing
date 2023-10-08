@@ -2,8 +2,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     'ButtonsButton': typeof import("../components/Buttons/Button.vue")['default']
+    'ButtonsLangSwitcher': typeof import("../components/Buttons/LangSwitcher.vue")['default']
     'Header': typeof import("../components/Header.vue")['default']
-    'LangSwitcher': typeof import("../components/LangSwitcher.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -24,8 +24,8 @@ declare module 'vue' {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyButtonsButton': typeof import("../components/Buttons/Button.vue")['default']
+    'LazyButtonsLangSwitcher': typeof import("../components/Buttons/LangSwitcher.vue")['default']
     'LazyHeader': typeof import("../components/Header.vue")['default']
-    'LazyLangSwitcher': typeof import("../components/LangSwitcher.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
     'LazyNuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'LazyNuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -49,8 +49,8 @@ declare module 'vue' {
 }
 
 export const ButtonsButton: typeof import("../components/Buttons/Button.vue")['default']
+export const ButtonsLangSwitcher: typeof import("../components/Buttons/LangSwitcher.vue")['default']
 export const Header: typeof import("../components/Header.vue")['default']
-export const LangSwitcher: typeof import("../components/LangSwitcher.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']
@@ -71,8 +71,8 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyButtonsButton: typeof import("../components/Buttons/Button.vue")['default']
+export const LazyButtonsLangSwitcher: typeof import("../components/Buttons/LangSwitcher.vue")['default']
 export const LazyHeader: typeof import("../components/Header.vue")['default']
-export const LazyLangSwitcher: typeof import("../components/LangSwitcher.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
 export const LazyNuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const LazyNuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary")['default']

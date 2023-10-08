@@ -1,14 +1,3 @@
-<script setup lang="ts">
-const { locales, locale, setLocale } = useI18n();
-
-const language = computed({
-  get: () => locale.value,
-  set: (value) => {
-    setLocale(value);
-  },
-});
-</script>
-
 <template>
   <div>Switch Language</div>
   <select v-model="language">
@@ -21,3 +10,13 @@ const language = computed({
     </option>
   </select>
 </template>
+<script setup lang="ts">
+const { locales, locale, setLocale } = useI18n();
+
+const language = computed({
+  get: () => locale.value,
+  set: (value) => {
+    setLocale(value);
+  },
+});
+</script>
