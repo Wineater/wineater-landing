@@ -1,1 +1,0 @@
-export { default } from "file:///Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
