@@ -1,3 +1,16 @@
 {
-  "about": "Hello"
+	"playground": {
+		"BeSureToProvideDetails": "Be sure to provide details about your dish, such as whether your tartare is made with salmon or beef. This helps the algorithm determine the ideal wine for your meal.",
+		"BookDemo": "Book demo",
+		"Buy": "Buy",
+		"FindAMatch": "Find a match",
+		"forYour": "for your",
+		"Grape": "Grape",
+		"perfectDinner": "perfect&nbsp;dinner",
+		"perfectWine": "perfect&nbsp;wine",
+		"Region": "Region",
+		"Type": "Type",
+		"WhatDoYouWannaEat": "What do you wanna eat?",
+		"WineaterFind": "Wineater find"
+	}
 }

@@ -1,3 +1,16 @@
 {
-  "about": "Бонжур епта"
+	"playground": {
+		"BeSureToProvideDetails": "Assurez-vous de fournir des détails sur votre plat, par exemple si votre tartare est à base de saumon ou de bœuf. Cela aide l'algorithme à déterminer le vin idéal pour votre repas.",
+		"BookDemo": "Démo du livre",
+		"Buy": "Acheter",
+		"FindAMatch": "Trouver une correspondance",
+		"forYour": "pour votre",
+		"Grape": "Grain de raisin",
+		"perfectDinner": "parfait&nbsp;dîner",
+		"perfectWine": "vin&nbsp;parfait",
+		"Region": "Région",
+		"Type": "Type",
+		"WhatDoYouWannaEat": "Que veux-tu manger ?",
+		"WineaterFind": " Wineater trouver"
+	}
 }

@@ -2,19 +2,19 @@
   <Header/>
   <div class="playground">
     <h2 class="h2 playground__title">
-      Wineater find <span class="playground__title-circle">perfect wine <br/></span> for your <span
-        class="playground__title-underline">perfect dinner</span>
+      {{ $t('playground.WineaterFind') }} <span class="playground__title-circle" v-html="$t('playground.perfectWine') + '<br/>'"></span>
+      {{ $t('playground.forYour') }} <span
+        class="playground__title-underline" v-html="$t('playground.perfectDinner')"></span>
     </h2>
     <p class="p1 playground__description">
-      Be sure to provide details about your dish, such as whether your tartare is made with salmon or beef. This helps
-      the algorithm determine the ideal wine for your meal.
+      {{ $t('playground.BeSureToProvideDetails') }}
     </p>
     <div class="playground__input">
       <div class="playground__input-icon"></div>
       <input
           ref="searchInput"
           type="text"
-          :placeholder="'What do you wanna eat? newtext'"
+          :placeholder="$t('playground.WhatDoYouWannaEat')"
           @input="searchChange"
           @keydown.enter.prevent="handleInput"
       />
@@ -22,15 +22,18 @@
           @click="handleInput"
           :disabled="!searchQuery"
           class="playground__input-btn">
-        Find a match
+        {{ $t('playground.FindAMatch') }}
       </Button>
+      <div class="playground__input-btn--mobile">
+        <div class="playground__input-btn-icon"></div>
+      </div>
     </div>
     {{ loading ? 'loading' : '' }}
     <div class="playground__cards" v-if="results.length">
       <div v-for="(card, cardIndex) in results.slice(0, 3)" class="playground__card-wrapper">
         <div class="playground__card">
           <div class="playground__card-header">
-            <p class="p1">Type</p>
+            <p class="p1">{{ $t('playground.Type') }}</p>
             <p class="p1">{{ card.Type }}</p>
           </div>
           <div class="playground__card-title h3">
@@ -38,19 +41,21 @@
           </div>
           <div class="playground__card-info">
             <div class="playground__card-info-header">
-              <p class="p1">Region</p>
+              <p class="p1">{{ $t('playground.Region') }}</p>
               <p class="p2">{{ card.Region }}</p>
             </div>
             <div class="playground__card-info-grape">
-              <p class="p1">Grape</p>
+              <p class="p1">{{ $t('playground.Grape') }}</p>
               <p class="p2"><p v-for="(grape) in card.Grape.split(',')">{{ grape }}</p></p>
             </div>
             <div
                 class="playground__card-img"
                 :style="{'background-image': 'url(' + card.Image + ')'}"
             ></div>
-            <Button class="playground__card-btn">
-              Buy
+            <Button
+                @click="openLink(card.Url)"
+                class="playground__card-btn">
+              {{ $t('playground.Buy') }}
             </Button>
           </div>
         </div>
@@ -77,6 +82,9 @@ export default {
   methods: {
     searchChange(event) {
       this.searchQuery = event.target.value;
+    },
+    openLink(link) {
+      window.open(link, '_blank')
     },
     async handleInput() {
       if (!this.loading) {
@@ -105,7 +113,7 @@ export default {
 .playground {
   min-height: 100vh;
   background: var(--brand-7);
-  padding-top: 309px;
+  padding-top: 250px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -126,6 +134,7 @@ export default {
 
 .playground__title-circle {
   position: relative;
+  display: inline-flex;
 
   &:before {
     content: '';
@@ -142,6 +151,7 @@ export default {
 
 .playground__title-underline {
   position: relative;
+  display: inline-flex;
 
   &:before {
     content: '';
@@ -204,6 +214,7 @@ export default {
   display: flex;
   gap: 34px;
   width: calc(100% - 180px);
+  max-width: 1750px;
 }
 
 .playground__card-wrapper {
@@ -221,7 +232,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 30px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #FFFFFF;
 
   .p1 {
@@ -233,7 +244,7 @@ export default {
 .playground__card-title {
   padding: 24px 24px 32px 0px;
   color: #FFFFFF;
-  font-size: 40px;
+  font-size: 30px;
   text-align: left;
 }
 
@@ -278,10 +289,10 @@ export default {
 }
 
 .playground__card-img {
-  height: 364px;
+  height: 262px;
   width: 100%;
   background-repeat: no-repeat;
-  background-position: 0 20px;
+  background-position: center;
   background-size: contain;
 }
 
@@ -294,7 +305,14 @@ export default {
   }
 }
 
+.playground__input-btn--mobile {
+  display: none;
+}
+
 @media only screen and (max-width: 1440px) {
+  .playground{
+    padding-top: 200px;
+  }
   .playground__title-circle {
     &:before {
       top: -2px;
@@ -311,9 +329,81 @@ export default {
       height: 21px;
     }
   }
+  .playground__title {
+    max-width: 933px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .playground__cards {
+    width: calc(100% - 80px);
+  }
+
+  .playground__card {
+    padding: 32px 16px 20px 25px;
+  }
+  .playground__cards {
+    gap: 24px;
+  }
+
+  .playground__card-header {
+    padding-bottom: 16px;
+  }
+
+  .playground__card-title {
+    padding: 16px 0px 24px 0px;
+    font-size: 30px;
+  }
+
+  .playground__card-info {
+    padding: 24px 16px 16px 16px;
+  }
+
+  .playground__card-info-header {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .playground__card-img {
+    height: 218px;
+  }
+
+  .playground__card-btn {
+    padding: 13px 56px;
+
+    .p1 {
+    }
+  }
 }
 
 @media only screen and (max-width: 1024px) {
+  .playground__title {
+    max-width: 633px;
+  }
+  .playground__description {
+    max-width: 633px;
+  }
+  .playground__input {
+    max-width: 633px;
+  }
+  .playground {
+    padding: 200px 40px 0px;
+  }
+  .playground__input {
+    width: 100%;
+    height: 58px;
+
+    input {
+      font-size: 16px;
+      height: 58px;
+      flex: 1;
+    }
+  }
+  .playground__input-btn {
+    height: 46px;
+    padding: 16px 24px;
+  }
+
   .playground__title-circle {
     &:before {
       top: 0px;
@@ -330,11 +420,53 @@ export default {
       height: 21px;
     }
   }
+
+  .playground__card-wrapper {
+    width: calc(50% - 12px);
+    max-width: calc(50% - 12px);
+    flex: auto;
+  }
+  .playground__cards {
+    width: calc(100% - 25px);
+    flex-wrap: wrap;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .playground {
-    padding-top: 162px;
+    padding: 140px 12px 0px;
+  }
+  .playground__title {
+    max-width: 433px;
+  }
+  .playground__description {
+    max-width: 433px;
+  }
+  .playground__input {
+    max-width: 433px;
+    margin-bottom: 40px;
+
+    input {
+      font-size: 14px;
+    }
+  }
+  .playground__input-btn {
+    display: none !important;
+  }
+  .playground__input-btn--mobile {
+    display: flex !important;
+    width: 50px;
+    height: 50px;
+    background-color: var(--text);
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .playground__input-btn-icon {
+    width: 32px;
+    height: 32px;
+    background-image: url(assets/imgs/search--white.svg);
   }
   .playground__title-circle {
     &:before {
@@ -354,6 +486,47 @@ export default {
       width: 230px;
       height: 21px;
     }
+  }
+  .playground__input-icon {
+    display: none !important;
+  }
+  .playground__card-wrapper {
+    max-width: 400px;
+    width: 100%;
+  }
+  .playground__cards {
+    justify-content: center;
+    gap: 16px;
+  }
+  .playground__card {
+    padding: 22px 16px 22px 16px;
+  }
+  .playground__card-header{
+    padding-bottom: 8px;
+    .p1{
+      font-size: 16px;
+    }
+  }
+  .playground__card-info-header {
+    .p1, .p2 {
+      font-size: 16px;
+    }
+  }
+  .playground__card-title {
+    padding: 11px 0px 16px 0px;
+    font-size: 22px;
+  }
+  .playground__card-info-header {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  .playground__card-info-grape{
+    .p1, .p2{
+      font-size: 16px;
+    }
+  }
+  .playground__card-img {
+    height: 158px;
   }
 }
 

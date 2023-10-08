@@ -11,7 +11,7 @@
       <div class="header__btns">
         <LangSwitcher></LangSwitcher>
         <div class="header__btn">
-          <Button @btnClick="openDemoPage">Book demo</Button>
+          <Button @btnClick="openDemoPage">{{ $t('playground.BookDemo') }}</Button>
         </div>
       </div>
     </div>
@@ -28,8 +28,8 @@ export default {
     LangSwitcher,
   },
   methods: {
-    openDemoPage(name) {
-      alert(`Hello, ${name}!`);
+    openDemoPage() {
+      window.open('', '_blank')
     },
   },
 };
