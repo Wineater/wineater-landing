@@ -208,6 +208,7 @@ export default {
 
 .playground__card-wrapper {
   flex: 1;
+  width: 33%;
 }
 
 .playground__card {
