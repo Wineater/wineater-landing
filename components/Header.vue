@@ -60,4 +60,9 @@ export default {
   width: 273px;
   background-image: url(assets/imgs/logo.svg);
 }
+.header__btns{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
 </style>
