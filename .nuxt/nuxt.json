@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "_hash": "Q19miQLYZV",
   "project": {
     "rootDir": "/Users/cdmx/Desktop/development/wineater-landing"
+=======
+  "_hash": "hmFVkzCzjf",
+  "project": {
+    "rootDir": "/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing"
+>>>>>>> 15f3b1fa96acc30d35cda59722a891aac702a652
   },
   "versions": {
     "nuxt": "3.7.4"
