@@ -14,7 +14,9 @@ body {
     background-color: rgba(7, 42, 115, 0.2);
   }
 }
-
+*{
+  box-sizing: border-box;
+}
 input {
   font-family: inherit;
 

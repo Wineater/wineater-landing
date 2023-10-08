@@ -8,17 +8,10 @@ export const localeCodes = [
 
 export const localeMessages = { 
   "en": [
-<<<<<<< HEAD
       { key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__Users_cdmx_Desktop_development_wineater_landing_locales_en_json" */), cache: true },
   ],
   "fr": [
       { key: "../locales/fr.json", load: () => import("../locales/fr.json" /* webpackChunkName: "locale__Users_cdmx_Desktop_development_wineater_landing_locales_fr_json" */), cache: true },
-=======
-      { key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__Users_alexolkhovoi_Desktop_Development_Wineater_wineater_landing_locales_en_json" */), cache: true },
-  ],
-  "fr": [
-      { key: "../locales/fr.json", load: () => import("../locales/fr.json" /* webpackChunkName: "locale__Users_alexolkhovoi_Desktop_Development_Wineater_wineater_landing_locales_fr_json" */), cache: true },
->>>>>>> 15f3b1fa96acc30d35cda59722a891aac702a652
   ],
 }
 

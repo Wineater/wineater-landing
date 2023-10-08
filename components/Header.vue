@@ -10,7 +10,9 @@
       <!--      </div>-->
       <div class="header__btns">
         <LangSwitcher></LangSwitcher>
-        <Button @btnClick="openDemoPage" :disabled="true">123123</Button>
+        <div class="header__btn">
+          <Button @btnClick="openDemoPage">Book demo</Button>
+        </div>
       </div>
     </div>
   </div>
@@ -59,10 +61,57 @@ export default {
   height: 54px;
   width: 273px;
   background-image: url(assets/imgs/logo.svg);
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.header__btns{
+
+.header__btns {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .header {
+    height: 70px;
+    padding: 0px 3px 0px 40px;
+    width: calc(100% - 80px);
+    left: 40px;
+  }
+  .header__logo {
+    height: 44px;
+    width: 220px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .header {
+    height: 70px;
+    padding-left: 31px;
+  }
+  .header__logo {
+    height: 31px;
+    width: 157px;
+  }
+  .header__btn{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .header {
+    height: 60px;
+    padding-left: 28px;
+    width: calc(100% - 24px);
+    left: 12px;
+    padding-right: 11px;
+    top: 16px;
+  }
+  .header__logo {
+    height: 38px;
+    width: 30px;
+    background-image: url(assets/imgs/logo-small.svg);
+  }
 }
 </style>

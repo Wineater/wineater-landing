@@ -7,20 +7,12 @@
     "module": true,
     "resourceType": "script"
   },
-<<<<<<< HEAD
   "/Users/cdmx/Desktop/development/wineater-landing/node_modules/nuxt/dist/app/entry.js": {
-=======
-  "/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/node_modules/nuxt/dist/app/entry.js": {
->>>>>>> 15f3b1fa96acc30d35cda59722a891aac702a652
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "isEntry": true,
-<<<<<<< HEAD
     "file": "/Users/cdmx/Desktop/development/wineater-landing/node_modules/nuxt/dist/app/entry.js"
-=======
-    "file": "/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/node_modules/nuxt/dist/app/entry.js"
->>>>>>> 15f3b1fa96acc30d35cda59722a891aac702a652
   }
 }
