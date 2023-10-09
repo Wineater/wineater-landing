@@ -90,6 +90,11 @@ const changeLanguage = (value) => {
       height: 30px;
       border-radius: 34px;
     }
+    &--active{
+      &:before{
+        transform: translateX(30px);
+      }
+    }
   }
 }
 </style>

@@ -28,8 +28,8 @@
         <div class="playground__input-btn-icon"></div>
       </div>
     </div>
-    {{ loading ? 'loading' : '' }}
-    <div class="playground__cards" v-if="results.length">
+    <Preloader v-if="loading"></Preloader>
+    <div class="playground__cards" v-if="results.length && !loading">
       <div v-for="(card, cardIndex) in results.slice(0, 3)" class="playground__card-wrapper">
         <div class="playground__card">
           <div class="playground__card-header">
@@ -67,9 +67,10 @@
 <script>
 import {fetchRecommendations} from '../services/api-layer';
 import Button from '~/components/Buttons/Button.vue';
+import Preloader from "~/components/Buttons/Preloader.vue";
 
 export default {
-  components: {Button},
+  components: {Preloader, Button},
   data() {
     return {
       selectedLanguage: this.$i18n.locale,
