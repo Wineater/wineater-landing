@@ -17,6 +17,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "sass": "^1.69.0"
+    "@openreplay/tracker": "^9.0.9",
+    "sass": "^1.69.0",
+    "uuid": "^9.0.1"
   }
 }

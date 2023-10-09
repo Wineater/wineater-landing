@@ -8,15 +8,6 @@ export default {
       title: 'Wineater',
     }
   },
-  // vite: {
-  //   css: {
-  //     preprocessorOptions: {
-  //       scss: {
-  //         additionalData: '@use "@/assets/styles/colors.scss" as *;'
-  //       }
-  //     }
-  //   }
-  // },
   css: [
     '@/assets/styles/main.scss',
     '@/assets/styles/colors.scss'
@@ -40,8 +31,5 @@ export default {
       },
     ],
     defaultLocale: "en",
-    // vueI18n: {
-    //   fallbackLocale: "en",
-    // },
   },
 }
