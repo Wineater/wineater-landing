@@ -13,9 +13,11 @@ import 'node:fs';
 import 'node:path';
 import 'fs';
 import 'path';
-import 'unhead';
 import '@unhead/shared';
+import 'vue-router';
+import 'is-https';
 import 'vue/server-renderer';
+import '@openreplay/tracker/cjs/index.js';
 
 const components_islands = {};
 const islandComponents = /* @__PURE__ */ Object.freeze({
@@ -42,4 +44,4 @@ const islandRenderer = /* @__PURE__ */ defineComponent({
 });
 
 export { islandRenderer as default };
-//# sourceMappingURL=island-renderer-309840cb.mjs.map
+//# sourceMappingURL=island-renderer-7582ee55.mjs.map
