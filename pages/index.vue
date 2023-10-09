@@ -2,7 +2,8 @@
   <Header/>
   <div class="playground">
     <h2 class="h2 playground__title">
-      {{ $t('playground.WineaterFind') }} <span class="playground__title-circle" v-html="$t('playground.perfectWine') + '<br/>'"></span>
+      {{ $t('playground.WineaterFind') }} <span class="playground__title-circle"
+                                                v-html="$t('playground.perfectWine') + '<br/>'"></span>
       {{ $t('playground.forYour') }} <span
         class="playground__title-underline" v-html="$t('playground.perfectDinner')"></span>
     </h2>
@@ -24,7 +25,9 @@
           class="playground__input-btn">
         {{ $t('playground.FindAMatch') }}
       </Button>
-      <div class="playground__input-btn--mobile">
+      <div
+          @click="handleInput"
+          class="playground__input-btn--mobile">
         <div class="playground__input-btn-icon"></div>
       </div>
     </div>
@@ -311,7 +314,7 @@ export default {
 }
 
 @media only screen and (max-width: 1440px) {
-  .playground{
+  .playground {
     padding-top: 200px;
   }
   .playground__title-circle {
@@ -502,9 +505,10 @@ export default {
   .playground__card {
     padding: 22px 16px 22px 16px;
   }
-  .playground__card-header{
+  .playground__card-header {
     padding-bottom: 8px;
-    .p1{
+
+    .p1 {
       font-size: 16px;
     }
   }
@@ -521,8 +525,8 @@ export default {
     padding-bottom: 8px;
     margin-bottom: 8px;
   }
-  .playground__card-info-grape{
-    .p1, .p2{
+  .playground__card-info-grape {
+    .p1, .p2 {
       font-size: 16px;
     }
   }
