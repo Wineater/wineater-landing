@@ -70,12 +70,15 @@ onUnmounted(() => {
   max-width: 1920px;
   padding: 0 80px;
   margin: 0 auto;
+  overflow: hidden;
+  min-height: 1000vh;
 }
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1440px) {
   .main-page {
     padding: 0 40px;
   }
+}
+@media only screen and (max-width: 768px) {
 }
 @media only screen and (max-width: 600px) {
   .main-page {

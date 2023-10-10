@@ -19,8 +19,7 @@ const props = defineProps({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 1080px;
-  height: 100vh;
+  min-height: 800px;
   opacity: 0;
   transition: 1s ease;
   transform: translateY(100px);
@@ -38,7 +37,7 @@ const props = defineProps({
 }
 @media only screen and (max-width: 1440px) {
   .algorithm-info {
-    min-height: 1024px;
+    min-height: 700px;
   }
   .algorithm-info__text {
     max-width: 1150px;
@@ -46,7 +45,7 @@ const props = defineProps({
 }
 @media only screen and (max-width: 1280px) {
   .algorithm-info {
-    min-height: 720px;
+    min-height: 620px;
   }
   .algorithm-info__text {
     max-width: 1150px;

@@ -111,8 +111,8 @@ export default {
   .header {
     height: 60px;
     padding-left: 28px;
-    width: calc(100% - 24px);
-    left: 12px;
+    width: calc(100% - 36px);
+    left: 16px;
     padding-right: 11px;
     top: 16px;
   }

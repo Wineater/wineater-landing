@@ -59,7 +59,7 @@
   .main-banner {
     align-items: flex-start;
     padding-top: 244px;
-    min-height: 1024px;
+    min-height: 772px;
   }
   .main-banner__info{
   }
