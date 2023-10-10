@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     openDemoPage() {
-      window.open('', '_blank')
+      window.open('https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8', '_blank')
     },
   },
 };
