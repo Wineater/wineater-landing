@@ -159,7 +159,6 @@
     min-height: auto;
     height: auto;
     flex-direction: column;
-    width: calc(100vw + 16px);
   }
   .main-banner__info-title{
     width: 100%;

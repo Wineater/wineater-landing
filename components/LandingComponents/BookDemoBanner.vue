@@ -3,6 +3,7 @@
 </script>
 
 <template>
+  <div class="">book demo</div>
 
 </template>
 
