@@ -39,7 +39,7 @@ const props = defineProps({
 .science-behind__bottles {
   display: flex;
   width: 956px;
-  height: 1018px;
+  height: 950px;
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url(assets/imgs/bottles.png);
@@ -66,7 +66,7 @@ const props = defineProps({
   display: flex;
   flex: 1;
   max-width: 800px;
-  height: 1048px;
+  height: 950px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

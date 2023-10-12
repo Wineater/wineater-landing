@@ -4,7 +4,7 @@
     <StartBanner />
     <AlgorithmInfo :visible="algorithmInfoVisible" />
     <ScienceBehind :visible="scienceBehindVisible" />
-<!--    <StatisticBanner :visible="statisticBannerVisible" />-->
+    <StatisticBanner :visible="statisticBannerVisible" />
 <!--    <AboutBanner :visible="aboutBannerVisible" />-->
 <!--    <BookDemoBanner :visible="bookDemoBannerVisible" />-->
 <!--    <HowItWorks :visible="howItWorksVisible" />-->
