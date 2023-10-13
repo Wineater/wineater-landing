@@ -52,7 +52,7 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   gap: 30px;
-
+  padding-top: 55px;
   .h2 {
     max-width: 509px;
   }
@@ -90,6 +90,7 @@ const props = defineProps({
   }
   .science-behind__bottles-text {
     gap: 20px;
+    padding-top: 0;
 
     .h2 {
       max-width: 409px;

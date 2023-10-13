@@ -5,7 +5,8 @@
     <AlgorithmInfo :visible="algorithmInfoVisible" />
     <ScienceBehind :visible="scienceBehindVisible" />
     <StatisticBanner :visible="statisticBannerVisible" />
-<!--    <AboutBanner :visible="aboutBannerVisible" />-->
+    <ForWhom :visible="forWhomVisible" />
+
 <!--    <BookDemoBanner :visible="bookDemoBannerVisible" />-->
 <!--    <HowItWorks :visible="howItWorksVisible" />-->
 <!--    <Footer :visible="footerVisible" />-->
@@ -22,11 +23,13 @@ import HowItWorks from "~/components/LandingComponents/HowItWorks.vue";
 import Footer from "~/components/LandingComponents/Footer.vue";
 import BookDemoBanner from "~/components/LandingComponents/BookDemoBanner.vue";
 import { ref, onMounted, onUnmounted } from 'vue';
+import ForWhom from "~/components/LandingComponents/ForWhom.vue";
 
 const algorithmInfoVisible = ref(false);
 const scienceBehindVisible = ref(false);
 const statisticBannerVisible = ref(false);
 const aboutBannerVisible = ref(false);
+const forWhomVisible = ref(false);
 const bookDemoBannerVisible = ref(false);
 const howItWorksVisible = ref(false);
 const footerVisible = ref(false);
@@ -34,7 +37,7 @@ const footerVisible = ref(false);
 const isElementInViewport = (element, isVisible) => {
   const rect = element.getBoundingClientRect();
   const windowHeight = window.innerHeight;
-  const elementCenterY = (rect.top + rect.bottom) / 2;
+  const elementCenterY = ((rect.top - (windowHeight / 2)) + rect.bottom) / 2;
   return  elementCenterY >= windowHeight / 3 && elementCenterY <= (windowHeight * 2) / 3;
 };
 
@@ -43,6 +46,7 @@ const updateVisibility = () => {
   const scienceBehind = document.querySelector('.science-behind');
   const statisticBanner = document.querySelector('.statistic-banner');
   const aboutBanner = document.querySelector('.about-banner');
+  const forWhom = document.querySelector('.for-whom');
   const bookDemoBanner = document.querySelector('.book-demo-banner');
   const howItWorks = document.querySelector('.how-it-works');
   const footer = document.querySelector('.footer');
@@ -51,6 +55,8 @@ const updateVisibility = () => {
   if (scienceBehind) scienceBehindVisible.value = scienceBehindVisible.value ? true : isElementInViewport(scienceBehind);
   if (statisticBanner) statisticBannerVisible.value = statisticBannerVisible.value ? true : isElementInViewport(statisticBanner);
   if (aboutBanner) aboutBannerVisible.value = aboutBannerVisible.value ? true : isElementInViewport(aboutBanner);
+  if (forWhom) forWhomVisible.value = forWhomVisible.value ? true : isElementInViewport(forWhom);
+
   if (bookDemoBanner) bookDemoBannerVisible.value = bookDemoBannerVisible.value ? true : isElementInViewport(bookDemoBanner);
   if (howItWorks) howItWorksVisible.value = howItWorksVisible.value ? true : isElementInViewport(howItWorks);
   if (footer) footerVisible.value = footerVisible.value ? true : isElementInViewport(footer);

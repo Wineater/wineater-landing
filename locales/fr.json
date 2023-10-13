@@ -1,4 +1,23 @@
 {
+	"forWhom": {
+		"cards": [
+			{
+				"description": "Téléchargez tous les SKU de vins et de produits alimentaires, l'algorithme analysera votre catalogue et sélectionnera des combinaisons et des SKU spécifiques.",
+				"infographic": "some infographics",
+				"title": "Détaillants"
+			},
+			{
+				"description": "Téléchargez votre menu, l'algorithme analysera les ingrédients et vous aidera à établir une carte des vins adaptée.",
+				"infographic": "some infographics",
+				"title": "Horeca"
+			},
+			{
+				"description": "some text",
+				"infographic": "some infographics",
+				"title": "Les fabricants"
+			}
+		]
+	},
 	"playground": {
 		"BeSureToProvideDetails": "Assurez-vous de fournir des détails sur votre plat, par exemple si votre tartare est à base de saumon ou de bœuf. Cela aide l'algorithme à déterminer le vin idéal pour votre repas.",
 		"BookDemo": "Démo du livre",
