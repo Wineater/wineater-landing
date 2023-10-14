@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header__logo"
          :class="{'header__logo--wineater' : logo === 'Wineater'}"
-         :style="{'background-image': `url(${logos[logo]})`}"></div>
+         :style="{'background-image': `url(${getLogo})`}"></div>
     <div class="header__links" v-if="showLinks">
       <div class="header__link p1 color-text" @click="scrollToBlock('.algorithm-info')">{{ $t('Header.About') }}</div>
       <div class="header__link p1 color-text" @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
@@ -48,6 +48,12 @@ export default {
         Telckel: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Telckel.png',
         Climats: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Climats.png'
       }
+    }
+  },
+  computed: {
+    getLogo(){
+      console.log(this.$route.query['store'], 777777);
+      return this.$route.query['store'] ? this.logos[this.$route.query['store']] : logos.Wineater;
     }
   },
   methods: {
