@@ -1,5 +1,5 @@
 <template>
-  <Header :show-links="false" :logo="$route.query['store']"/>
+  <Header :show-links="false" :logo="logo"/>
   <div class="playground">
     <h2 class="h2 playground__title">
       {{ $t('playground.WineaterFind') }} <span class="playground__title-circle"
@@ -82,7 +82,12 @@ export default {
       searchQuery: '',
       results: [],
       loading: false,
+      logo: null,
     };
+  },
+  created() {
+    this.logo = this.$route.query['store'];
+    console.log(123);
   },
   methods: {
     searchChange(event) {
