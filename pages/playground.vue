@@ -1,5 +1,5 @@
 <template>
-  <Header :show-links="true"/>
+  <Header :show-links="false" :logo="$route.query['store']"/>
   <div class="playground">
     <h2 class="h2 playground__title">
       {{ $t('playground.WineaterFind') }} <span class="playground__title-circle"
@@ -72,12 +72,9 @@ import {fetchRecommendations} from '../services/api-layer';
 import Button from '~/components/Buttons/Button.vue';
 import Preloader from "~/components/Buttons/Preloader.vue";
 import Header from "~/components/LandingComponents/Header.vue";
+
 export default {
-  components: {
-    Preloader,
-    Button,
-    Header,
-  },
+  components: {Preloader, Button, Header},
   data() {
     return {
       selectedLanguage: this.$i18n.locale,
@@ -98,7 +95,8 @@ export default {
       if (!this.loading) {
         this.loading = true;
         try {
-          const apiData = await fetchRecommendations(this.searchQuery);
+          const store = this.$route.query['store'];
+          const apiData = await fetchRecommendations(this.searchQuery, store);
           this.results = apiData;
           this.loading = false;
         } catch (error) {
@@ -151,7 +149,7 @@ export default {
     left: -25px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(assets/imgs/text-circle.png);
+    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/text-circle.png);
     width: 614px;
     height: 155px;
   }
@@ -168,7 +166,7 @@ export default {
     left: 1px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(assets/imgs/text-underline.png);
+    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/text-underline.png);
     width: 588px;
     height: 21px;
   }
@@ -214,7 +212,7 @@ export default {
   height: 40px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(assets/imgs/search.svg);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/search.svg);
   margin-right: 8px;
 }
 
@@ -223,11 +221,13 @@ export default {
   gap: 34px;
   width: calc(100% - 180px);
   max-width: 1750px;
+  justify-content: center;
 }
 
 .playground__card-wrapper {
   flex: 1;
   width: 33%;
+  max-width: 33%;
 }
 
 .playground__card {
@@ -474,7 +474,7 @@ export default {
   .playground__input-btn-icon {
     width: 32px;
     height: 32px;
-    background-image: url(assets/imgs/search--white.svg);
+    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/search--white.svg);
   }
   .playground__title-circle {
     &:before {

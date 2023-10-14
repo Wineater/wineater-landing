@@ -12,6 +12,9 @@ export default {
     '@/assets/styles/main.scss',
     '@/assets/styles/colors.scss'
   ],
+  plugins: [
+    { src: '~/plugins/gtm.client.js', ssr: false },
+  ],
   modules: [
     '@nuxtjs/i18n',
   ],

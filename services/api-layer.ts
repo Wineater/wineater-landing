@@ -15,7 +15,8 @@ export interface WineDetail {
     Url: string;
   }
 
-export async function fetchRecommendations(dish: string, store: string = "Climats") {
+export async function fetchRecommendations(dish: string, store?: string) {
+  console.log(dish, store);
     try {
       const response = await useFetch(`${baseApiUrl}dish/recommendations`, {
         method: 'POST',

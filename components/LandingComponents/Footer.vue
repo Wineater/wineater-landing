@@ -32,7 +32,7 @@
   height: 890px;
   background-size: cover;
   background-position: top center;
-  background-image: url(assets/imgs/footer.png);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/footer.png);
 }
 
 .footer__content {
@@ -65,7 +65,7 @@
   top: 0;
   height: 137px;
   width: 109px;
-  background-image: url(assets/imgs/footer-arrow.svg);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/footer-arrow.svg);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -92,7 +92,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
-  background-image: url(assets/imgs/logo--white.svg);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/logo--white.svg);
 }
 @media only screen and (max-width: 1440px) {
   .footer{

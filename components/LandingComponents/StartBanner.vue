@@ -41,7 +41,7 @@
   height: 172px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/imgs/learn-more.png);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/learn-more.png);
   bottom: -226px;
   right: -110px;
 }
@@ -53,7 +53,7 @@
   background-position: right top;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/imgs/main-banner.png);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/main-banner.png);
   position: absolute;
 }
 @media only screen and (max-width: 1440px) {

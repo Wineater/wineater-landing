@@ -1,11 +1,16 @@
 <template>
   <div class="header">
-    <div class="header__logo"></div>
+    <div class="header__logo"
+         :class="{'header__logo--wineater' : logo === 'Wineater'}"
+         :style="{'background-image': `url(${logos[logo]})`}"></div>
     <div class="header__links" v-if="showLinks">
       <div class="header__link p1 color-text" @click="scrollToBlock('.algorithm-info')">{{ $t('Header.About') }}</div>
-      <div class="header__link p1 color-text"  @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
-      <div class="header__link p1 color-text"  @click="scrollToBlock('.for-whom')">{{$t('Header.ForWhom')}}</div>
-      <div class="header__link p1 color-text"  @click="scrollToBlock('.how-it-works')">{{ $t('Header.HowItWorks') }}</div>
+      <div class="header__link p1 color-text" @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
+      <div class="header__link p1 color-text" @click="scrollToBlock('.for-whom')">{{ $t('Header.ForWhom') }}</div>
+      <div class="header__link p1 color-text" @click="scrollToBlock('.how-it-works')">{{
+          $t('Header.HowItWorks')
+        }}
+      </div>
     </div>
     <div class="header__right-container">
       <div class="header__btns">
@@ -30,13 +35,26 @@ export default {
   props: {
     showLinks: {
       type: Boolean
+    },
+    logo: {
+      type: String,
+      default: 'Wineater',
+    }
+  },
+  data: () => {
+    return {
+      logos: {
+        Wineater: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/logo.svg',
+        Telckel: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Telckel.png',
+        Climats: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Climats.png'
+      }
     }
   },
   methods: {
     openDemoPage() {
       window.open('https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8', '_blank')
     },
-    scrollToBlock(block){
+    scrollToBlock(block) {
       const element = document.querySelector(block);
       window.scrollTo({
         top: element.offsetTop - 200,
@@ -73,20 +91,23 @@ export default {
   display: flex;
   gap: 24px;
 }
-.header__link{
+
+.header__link {
   cursor: pointer;
   transition: .3s;
-  &:hover{
+
+  &:hover {
     color: var(--brand-1);
   }
 }
+
 .header__logo {
   height: 54px;
   width: 273px;
-  background-image: url(assets/imgs/logo.svg);
   cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: left center;
 }
 
 .header__btns {
@@ -120,7 +141,7 @@ export default {
   .header__btn {
     display: none;
   }
-  .header__links{
+  .header__links {
     display: none;
   }
 }
@@ -137,7 +158,10 @@ export default {
   .header__logo {
     height: 38px;
     width: 30px;
-    background-image: url(assets/imgs/logo-small.svg);
+
+    &--wineater {
+      background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/logo-small.svg) !important;
+    }
   }
 }
 </style>
