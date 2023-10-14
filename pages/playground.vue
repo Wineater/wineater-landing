@@ -124,6 +124,7 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 50px;
 }
 
 .playground__title {
