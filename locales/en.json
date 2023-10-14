@@ -1,4 +1,45 @@
 {
+	"algorithm": {
+		"title1": "We’ve created an algorithm ",
+		"title2": "with help to pair wine with a meal",
+		"title3": "to elevate  dining  experience"
+	},
+	"BookDemo": {
+		"title1": "Grow your grocery or horeca business",
+		"title2": "with Ai sommelier"
+	},
+	"Footer": {
+		"text": "book a demo & make money",
+		"title": "Do you like it?"
+	},
+	"forWhom": {
+		"cards": [
+			{
+				"description": "",
+				"infographic": "",
+				"title": ""
+			},
+			{
+				"description": "",
+				"infographic": "",
+				"title": ""
+			},
+			{
+				"description": "",
+				"infographic": "",
+				"title": ""
+			}
+		]
+	},
+	"ForWhom": {
+		"title": "For whom"
+	},
+	"Header": {
+		"About": "About",
+		"ForWhom": "For whom",
+		"HowItWorks": "How it works",
+		"TryMe": "Try me"
+	},
 	"playground": {
 		"BeSureToProvideDetails": "Be sure to provide details about your dish, such as whether your tartare is made with salmon or beef. This helps the algorithm determine the ideal wine for your meal.",
 		"BookDemo": "Book demo",
@@ -12,5 +53,21 @@
 		"Type": "Type",
 		"WhatDoYouWannaEat": "What do you wanna eat?",
 		"WineaterFind": "Wineater find"
+	},
+	"scienceBehind": {
+		"text": "The algorithm selects combinations based on the taste characteristics of wine and food, their compatibility, analyzing a huge amount of information.",
+		"title": "The science behind"
+	},
+	"startBanner": {
+		"title1": "Enhance a dining experience with the AI sommelier, ensuring",
+		"title2": "impeccable wine and food pairings",
+		"title3": " every time.",
+		"WineAndFoodPairing": "Wine and food pairing"
+	},
+	"StatisticBanner": {
+		"text1": "of consumers choose a wine for dinner, not vice versa",
+		"text2": "feel difficulties to choose a wine for dinner due to the lack of knowledge about wine",
+		"title1": "Consumers hate to choose",
+		"title2": "a wine for dinner"
 	}
 }

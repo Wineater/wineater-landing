@@ -3,11 +3,12 @@
     <div class="science-behind__bottles">
       <div class="science-behind__bottles-text">
         <h2 class="h2 color-brand-4">
-          The science behind
+          {{ $t('scienceBehind.title') }}
         </h2>
         <p class="p1 color-brand-4">
-          The algorithm selects combinations based on the taste characteristics of wine and food, their compatibility,
-          analyzing a huge amount of information.
+          {{
+            $t('scienceBehind.text')
+          }}
         </p>
       </div>
     </div>

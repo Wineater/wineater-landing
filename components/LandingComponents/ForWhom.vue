@@ -1,7 +1,7 @@
 <template>
   <div class="for-whom" :class="{ 'visible': visible }">
     <h2 class="h2 color-brand-6">
-      For whom
+      {{ $t('ForWhom.title') }}
     </h2>
     <div class="for-whom__cards">
       <div class="for-whom__card" v-for="card in cards[$i18n.locale]">
@@ -49,19 +49,19 @@ export default {
         ],
         'fr': [
           {
-            "description": "Upload all wine and food SKUs, the algorithm will analyze your catalog and select combinations and specific SKU.",
-            "infographic": "some infographics",
-            "title": "Retailers"
+            "description": "Téléchargez tous les SKU de vins et de produits alimentaires, l'algorithme analysera votre catalogue et sélectionnera des combinaisons et des SKU spécifiques.",
+            "infographic": "quelques infographies",
+            "title": "Détaillants"
           },
           {
-            "description": "Upload your menu, the algorithm will analyze the ingredients and help you make a suitable wine list.",
-            "infographic": "some infographics",
+            "description": "Téléchargez votre menu, l'algorithme analysera les ingrédients et vous aidera à établir une liste de vins appropriée.",
+            "infographic": "quelques infographies",
             "title": "Horeca"
           },
           {
-            "description": "some text",
-            "infographic": "some infographics",
-            "title": "Manufacturers"
+            "description": "quelque texte",
+            "infographic": "quelques infographies",
+            "title": "Fabricants"
           }
         ]
       }

@@ -1,4 +1,17 @@
 {
+	"algorithm": {
+		"title1": "Nous avons créé un algorithme",
+		"title2": "avec aide pour accompagner le vin avec un repas",
+		"title3": "pour rehausser l'expérience culinaire"
+	},
+	"BookDemo": {
+		"title1": "Développez votre activité d'épicerie ou d'horeca",
+		"title2": "avec Ai sommelier"
+	},
+	"Footer": {
+		"text": "une démo & gagner de l'argent",
+		"title": "Aimez-vous?"
+	},
 	"forWhom": {
 		"cards": [
 			{
@@ -18,6 +31,15 @@
 			}
 		]
 	},
+	"ForWhom": {
+		"title": "Pour qui"
+	},
+	"Header": {
+		"About": "Sur",
+		"ForWhom": "Pour qui",
+		"HowItWorks": "Comment ça marche",
+		"TryMe": "Essaie-moi"
+	},
 	"playground": {
 		"BeSureToProvideDetails": "Assurez-vous de fournir des détails sur votre plat, par exemple si votre tartare est à base de saumon ou de bœuf. Cela aide l'algorithme à déterminer le vin idéal pour votre repas.",
 		"BookDemo": "Démo du livre",
@@ -31,5 +53,21 @@
 		"Type": "Type",
 		"WhatDoYouWannaEat": "Que veux-tu manger ?",
 		"WineaterFind": " Wineater trouver"
+	},
+	"scienceBehind": {
+		"text": "L'algorithme sélectionne les combinaisons en fonction des caractéristiques gustatives du vin et des aliments, de leur compatibilité, analyser une énorme quantité d’informations.",
+		"title": "La science derrière"
+	},
+	"startBanner": {
+		"title1": "Améliorez votre expérience culinaire avec le sommelier IA, en garantissant des ",
+		"title2": "accords mets et vins impeccables",
+		"title3": " à chaque fois.",
+		"WineAndFoodPairing": "Accords mets et vins"
+	},
+	"StatisticBanner": {
+		"text1": "des consommateurs choisissent un vin pour le dîner, et non l'inverse",
+		"text2": "éprouver des difficultés à choisir un vin pour le dîner en raison du manque de connaissances sur le vin",
+		"title1": "Les consommateurs détestent choisir",
+		"title2": "un vin pour le dîner"
 	}
 }

@@ -1,13 +1,13 @@
 <template>
   <div class="header">
     <div class="header__logo"></div>
+    <div class="header__links" v-if="showLinks">
+      <div class="header__link p1 color-text" @click="scrollToBlock('.algorithm-info')">{{ $t('Header.About') }}</div>
+      <div class="header__link p1 color-text"  @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
+      <div class="header__link p1 color-text"  @click="scrollToBlock('.for-whom')">{{$t('Header.ForWhom')}}</div>
+      <div class="header__link p1 color-text"  @click="scrollToBlock('.how-it-works')">{{ $t('Header.HowItWorks') }}</div>
+    </div>
     <div class="header__right-container">
-<!--      <div class="header__links" v-if="showLinks">-->
-<!--        <div class="header__link">About</div>-->
-<!--        <div class="header__link">Try me</div>-->
-<!--        <div class="header__link">For whom</div>-->
-<!--        <div class="header__link">How it works</div>-->
-<!--      </div>-->
       <div class="header__btns">
         <LangSwitcher></LangSwitcher>
         <div class="header__btn">
@@ -36,6 +36,13 @@ export default {
     openDemoPage() {
       window.open('https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8', '_blank')
     },
+    scrollToBlock(block){
+      const element = document.querySelector(block);
+      window.scrollTo({
+        top: element.offsetTop - 200,
+        behavior: 'smooth',
+      })
+    }
   },
 };
 </script>
@@ -56,15 +63,23 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
-.header__right-container{
+
+.header__right-container {
   display: flex;
   align-items: center;
 }
+
 .header__links {
   display: flex;
   gap: 24px;
 }
-
+.header__link{
+  cursor: pointer;
+  transition: .3s;
+  &:hover{
+    color: var(--brand-1);
+  }
+}
 .header__logo {
   height: 54px;
   width: 273px;
@@ -103,6 +118,9 @@ export default {
     width: 157px;
   }
   .header__btn {
+    display: none;
+  }
+  .header__links{
     display: none;
   }
 }

@@ -1,9 +1,10 @@
 <template>
   <div class="main-banner">
     <div class="main-banner__info">
-      <h1 class="h1 main-banner__info-title color-text">Wine and food pairing</h1>
+      <h1 class="h1 main-banner__info-title color-text">{{ $t('startBanner.WineAndFoodPairing') }}</h1>
       <div class="main-banner__info-description">
-        <p class="p1 color-text">Enhance a dining experience with the AI sommelier, ensuring <span class="color-brand-1">impeccable wine and food pairings</span> every time.</p>
+        <p class="p1 color-text">{{ $t('startBanner.title1') }} <span class="color-brand-1">{{ $t('startBanner.title2') }}</span>
+          {{ $t('startBanner.title2') }}</p>
         <div class="main-banner__info-hint"></div>
       </div>
     </div>

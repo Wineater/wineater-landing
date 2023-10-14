@@ -1,18 +1,18 @@
 <template>
   <div class="statistic-banner" :class="{ 'visible': visible }">
     <div class="statistic-banner__title h2 color-text">
-      Consumers hate to choose <br>
-      <span class="color-brand-6">a wine for dinner</span>
+      {{$t('StatisticBanner.title1')}} <br>
+      <span class="color-brand-6">{{ $t('StatisticBanner.title2') }}</span>
     </div>
     <div class="statistic-banner__descriptions">
       <div class="statistic-banner__description statistic-banner__description--left">
         <span class="statistic-banner__description-percent h2 color-text">
           <span>{{ animatedPercent1 }}</span>%</span>
-        <span class="statistic-banner__description-text p1 color-dark-100">of consumers choose a wine for dinner, not vice versa</span>
+        <span class="statistic-banner__description-text p1 color-dark-100">{{ $t('StatisticBanner.text1') }}</span>
       </div>
       <div class="statistic-banner__description statistic-banner__description--right">
         <span class="statistic-banner__description-percent h2 color-text"><span>{{ animatedPercent2 }}</span>%</span>
-        <span class="statistic-banner__description-text p1 color-dark-100">feel difficulties to choose a wine for dinner due to the lack of knowledge about wine</span>
+        <span class="statistic-banner__description-text p1 color-dark-100">{{ $t('StatisticBanner.text2') }}</span>
       </div>
     </div>
   </div>
@@ -194,7 +194,7 @@ export default {
 
 @media only screen and (max-width: 600px) {
   .statistic-banner {
-    padding: 60px 16px 80px 0px;
+    padding: 60px 16px 40px 0px;
     min-height: auto;
     height: auto;
     transform: translateY(30px);
