@@ -87,7 +87,7 @@ export default {
   },
   created() {
     this.logo = this.$route.query['store'];
-    console.log(123);
+    console.log(this.logo, 123);
   },
   methods: {
     searchChange(event) {
