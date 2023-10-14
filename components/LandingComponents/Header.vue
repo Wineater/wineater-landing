@@ -52,8 +52,7 @@ export default {
   },
   computed: {
     getLogo(){
-      console.log(this.$route.query['store'], 777777);
-      return this.$route.query['store'] ? this.logos[this.$route.query['store']] : logos.Wineater;
+      return this.$route.query['store'] ? this.logos[this.$route.query['store']] : this.logos.Wineater;
     }
   },
   methods: {
