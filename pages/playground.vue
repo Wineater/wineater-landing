@@ -1,5 +1,5 @@
 <template>
-  <Header :show-links="false" :logo="logo"/>
+  <Header :show-links="false"/>
   <div class="playground">
     <h2 class="h2 playground__title">
       {{ $t('playground.WineaterFind') }} <span class="playground__title-circle"
@@ -68,10 +68,10 @@
   </div>
 </template>
 <script>
-import {fetchRecommendations} from '../services/api-layer';
 import Button from '~/components/Buttons/Button.vue';
 import Preloader from "~/components/Buttons/Preloader.vue";
 import Header from "~/components/LandingComponents/Header.vue";
+import {fetchRecommendations} from "~/services/api-layer.ts";
 
 export default {
   components: {Preloader, Button, Header},
@@ -82,11 +82,9 @@ export default {
       searchQuery: '',
       results: [],
       loading: false,
-      logo: null,
     };
   },
   created() {
-    this.logo = this.$route.query['store'];
   },
   methods: {
     searchChange(event) {
