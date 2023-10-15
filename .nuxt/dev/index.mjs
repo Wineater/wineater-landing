@@ -873,7 +873,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"},{"hid":"description","name":"description","content":"Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings"},{"hid":"og:title","property":"og:title","content":"Wineater | Wine and food pairing"},{"hid":"og:image","property":"og:image","content":"https://landing-static.s3.eu-central-1.amazonaws.com/images/Wineater-social_preview.png"}],"link":[],"style":[],"script":[],"noscript":[],"title":"Wineater | Wine and food pairing"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"},{"hid":"description","name":"description","content":"Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings"},{"hid":"og:title","property":"og:title","content":"Wineater | Wine and food pairing"},{"hid":"og:image","property":"og:image","content":"https://landing-static.s3.eu-central-1.amazonaws.com/images/Wineater-social_preview.png"}],"link":[],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"en"},"title":"Wineater | Wine and food pairing"};
 
 const appRootId = "__nuxt";
 
