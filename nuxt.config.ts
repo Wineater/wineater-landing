@@ -2,7 +2,7 @@ export default {
   app: {
     head: {
       meta: [
-        {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'},
+        {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5'},
         {
           hid: 'description',
           name: 'description',
@@ -35,6 +35,7 @@ export default {
   i18n: {
     /* module options */
     lazy: true,
+    seo: true,
     langDir: "locales",
     strategy: "prefix_except_default",
     locales: [
