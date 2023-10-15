@@ -35,6 +35,17 @@ export default {
   modules: [
     '@nuxtjs/i18n',
   ],
+  // router: {
+  //   extendRoutes(routes: any, resolve: any) {
+  //     routes.push(
+  //       {
+  //         name: 'playground',
+  //         path: '/playground/:store?',
+  //         component: resolve(__dirname, 'pages/store.vue')
+  //       }
+  //     );
+  //   }
+  // },
   i18n: {
     /* module options */
     lazy: true,

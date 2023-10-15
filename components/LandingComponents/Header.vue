@@ -1,9 +1,8 @@
 <template>
   <div class="header">
     <div class="header__logo"
-        @click="openMainPage"
-         :class="{'header__logo--wineater' : getLogo() === 'Wineater'}"
-         :style="{'background-image': `url(${getLogo()})`}"></div>
+         @click="openMainPage"
+         :style="{'background-image': `url(${route ? logos[route.query.store] : logos.Wineater})`}"></div>
     <div class="header__links" v-if="showLinks">
       <div class="header__link p1 color-text" @click="scrollToBlock('.algorithm-info')">{{ $t('Header.About') }}</div>
       <div class="header__link p1 color-text" @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
@@ -23,6 +22,10 @@
     </div>
   </div>
 </template>
+<script setup>
+const route = useRoute()
+console.log(route.query.store, 333);
+</script>
 <script>
 import Button from "~/components/Buttons/Button.vue";
 import LangSwitcher from "~/components/Buttons/LangSwitcher.vue";
@@ -52,15 +55,10 @@ export default {
     }
   },
   methods: {
-    getLogo(){
-      console.log(this.$route.query['store'], 3333);
-      return this.$route.query['store'] ? this.logos[this.$route.query['store']] : this.logos.Wineater;
-    },
     openDemoPage() {
       window.open('https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8', '_blank')
     },
     openMainPage() {
-      console.log('привет');
       navigateTo('/');
     },
     scrollToBlock(block) {
