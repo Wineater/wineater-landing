@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header__logo"
          @click="openMainPage"
-         :style="{'background-image': `url(${route ? logos[route.query.store] : logos.Wineater})`}"></div>
+         :style="{'background-image': `url(${store ? logos[store] : logos.Wineater})`}"></div>
     <div class="header__links" v-if="showLinks">
       <div class="header__link p1 color-text" @click="scrollToBlock('.algorithm-info')">{{ $t('Header.About') }}</div>
       <div class="header__link p1 color-text" @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
@@ -24,7 +24,9 @@
 </template>
 <script setup>
 const route = useRoute()
-console.log(route.query.store, 333);
+const store = ref(route.query.store ? route.query.store : '')
+console.log(store.value, 333);
+
 </script>
 <script>
 import Button from "~/components/Buttons/Button.vue";
