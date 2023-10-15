@@ -1,6 +1,7 @@
 <template>
   <div class="header">
     <div class="header__logo"
+        @click="openMainPage"
          :class="{'header__logo--wineater' : logo === 'Wineater'}"
          :style="{'background-image': `url(${getLogo})`}"></div>
     <div class="header__links" v-if="showLinks">
@@ -58,6 +59,10 @@ export default {
   methods: {
     openDemoPage() {
       window.open('https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8', '_blank')
+    },
+    openMainPage() {
+      console.log('привет');
+      navigateTo('/');
     },
     scrollToBlock(block) {
       const element = document.querySelector(block);

@@ -3,9 +3,24 @@ export default {
   app: {
     head: {
       meta: [
-        {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'}
+        {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1'},
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Wineater | Wine and food pairing',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Wineater-social_preview.png', // Replace with the URL of your image
+        },
       ],
-      title: 'Wineater',
+      title: 'Wineater | Wine and food pairing',
     }
   },
   css: [

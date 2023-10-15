@@ -1,10 +1,9 @@
 import { hasInjectionContext, getCurrentInstance, version, defineComponent, h, inject, onUnmounted, unref, ref, computed, watch, Fragment, useSSRContext, createApp, reactive, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, shallowReactive, isReadonly, Text, defineAsyncComponent, isRef, isShallow, isReactive, toRaw, effectScope, nextTick, Suspense, Transition } from 'vue';
-import { f as useRuntimeConfig$1, i as createError$1, $ as $fetch, m as createHooks, n as withQuery, o as hasProtocol, p as parseURL, q as isScriptProtocol, j as joinURL, r as isEqual, t as sanitizeStatusCode, v as getRequestHeaders, x as defu } from '../nitro/node-server.mjs';
+import { f as useRuntimeConfig$1, m as withQuery, n as hasProtocol, p as parseURL, o as isScriptProtocol, j as joinURL, i as createError$1, $ as $fetch, q as sanitizeStatusCode, r as createHooks, t as isEqual, v as getRequestHeaders, x as defu } from '../nitro/node-server.mjs';
 import { defineHeadPlugin } from '@unhead/shared';
 import { createMemoryHistory, createRouter, START_LOCATION, useRouter as useRouter$1, useRoute as useRoute$1, RouterView } from 'vue-router';
 import isHTTPS from 'is-https';
 import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode, ssrRenderAttrs } from 'vue/server-renderer';
-import Tracker from '@openreplay/tracker/cjs/index.js';
 import 'node:http';
 import 'node:https';
 import 'node:zlib';
@@ -758,7 +757,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-183e64d4.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-076d0671.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
@@ -766,7 +765,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-183e64d4.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-076d0671.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___en",
@@ -774,7 +773,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/playground-059149cd.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/playground-87da3366.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___fr",
@@ -782,7 +781,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/playground-059149cd.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/playground-87da3366.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -849,8 +848,14 @@ const validate = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
     return result;
   }
 });
+const route_45global = /* @__PURE__ */ defineNuxtRouteMiddleware((to, from) => {
+  if (to.path !== from.path && false) {
+    window.scrollTo(0, 0);
+  }
+});
 const globalMiddleware = [
-  validate
+  validate,
+  route_45global
 ];
 const namedMiddleware = {};
 const plugin = /* @__PURE__ */ defineNuxtPlugin({
@@ -5624,14 +5629,14 @@ const localeCodes = [
 const localeMessages = {
   "en": [
     { key: "../locales/en.json", load: () => import(
-      './_nuxt/en-02a35980.mjs'
-      /* webpackChunkName: "locale__Users_cdmx_Desktop_development_wineater_landing_locales_en_json" */
+      './_nuxt/en-f530fafb.mjs'
+      /* webpackChunkName: "locale__Users_alexolkhovoi_Desktop_Development_Wineater_wineater_landing_locales_en_json" */
     ), cache: true }
   ],
   "fr": [
     { key: "../locales/fr.json", load: () => import(
-      './_nuxt/fr-15d822b0.mjs'
-      /* webpackChunkName: "locale__Users_cdmx_Desktop_development_wineater_landing_locales_fr_json" */
+      './_nuxt/fr-8ddde9a3.mjs'
+      /* webpackChunkName: "locale__Users_alexolkhovoi_Desktop_Development_Wineater_wineater_landing_locales_fr_json" */
     ), cache: true }
   ]
 };
@@ -6819,6 +6824,25 @@ function _mergeTransitionProps(routeProps) {
   }));
   return defu(..._props);
 }
+const _sfc_main$2 = {
+  __name: "app",
+  __ssrInlineRender: true,
+  setup(__props) {
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtPage = __nuxt_component_0;
+      _push(`<div${ssrRenderAttrs(_attrs)}>`);
+      _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
+      _push(`</div>`);
+    };
+  }
+};
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const AppComponent = _sfc_main$2;
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -6826,27 +6850,6 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const tracker = new Tracker({
-  projectKey: "XkscRWp9UTyrXtkhPbQV"
-});
-const _sfc_main$2 = {
-  created() {
-    tracker.start();
-  }
-};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_NuxtPage = __nuxt_component_0;
-  _push(`<div${ssrRenderAttrs(_attrs)}>`);
-  _push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
-  _push(`</div>`);
-}
-const _sfc_setup$2 = _sfc_main$2.setup;
-_sfc_main$2.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
-  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
-};
-const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$1]]);
 const _sfc_main$1 = {
   beforeCreate() {
     this.$router.push("/");
@@ -6865,7 +6868,7 @@ const _sfc_main = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/island-renderer-7582ee55.mjs').then((r) => r.default || r));
+    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/island-renderer-1c9e6efe.mjs').then((r) => r.default || r));
     const nuxtApp = /* @__PURE__ */ useNuxtApp();
     nuxtApp.deferHydration();
     nuxtApp.ssrContext.url;
@@ -6932,5 +6935,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, useRequestFetch as a, useI18n as b, createError as c, entry$1 as default, useNuxtApp as u };
+export { _export_sfc as _, useNuxtApp as a, useRequestFetch as b, createError as c, useI18n as d, entry$1 as default, navigateTo as n, useRouter as u };
 //# sourceMappingURL=server.mjs.map

@@ -1,7 +1,7 @@
-import { B as Button, _ as __nuxt_component_0 } from './Header-1d2a47ca.mjs';
 import { useSSRContext, resolveComponent, withCtx, createTextVNode, toDisplayString, computed, unref, reactive, mergeProps, ref, toRef, getCurrentInstance, onServerPrefetch } from 'vue';
-import { y as hash } from '../../nitro/node-server.mjs';
-import { _ as _export_sfc, a as useRequestFetch, u as useNuxtApp, c as createError } from '../server.mjs';
+import { B as hash } from '../../nitro/node-server.mjs';
+import { _ as _export_sfc, b as useRequestFetch, a as useNuxtApp, c as createError } from '../server.mjs';
+import { B as Button, H as Header } from './Header-ad5c3303.mjs';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderStyle, ssrRenderAttrs } from 'vue/server-renderer';
 import 'node:http';
 import 'node:https';
@@ -18,7 +18,6 @@ import 'path';
 import '@unhead/shared';
 import 'vue-router';
 import 'is-https';
-import '@openreplay/tracker/cjs/index.js';
 
 const getDefault = () => null;
 function useAsyncData(...args) {
@@ -185,7 +184,8 @@ function useFetch(request, arg1, arg2) {
   return asyncData;
 }
 const baseApiUrl = "https://api.wineater.com/";
-async function fetchRecommendations(dish, store = "Climats") {
+async function fetchRecommendations(dish, store) {
+  console.log(dish, store);
   try {
     const response = await useFetch(`${baseApiUrl}dish/recommendations`, {
       method: "POST",
@@ -212,15 +212,19 @@ _sfc_main$1.setup = (props, ctx) => {
 };
 const Preloader = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-aa6ba8e6"]]);
 const _sfc_main = {
-  components: { Preloader, Button },
+  components: { Preloader, Button, Header },
   data() {
     return {
       selectedLanguage: this.$i18n.locale,
       supportedLocales: this.$i18n.locales,
       searchQuery: "",
       results: [],
-      loading: false
+      loading: false,
+      logo: null
     };
+  },
+  created() {
+    this.logo = this.$route.query["store"];
   },
   methods: {
     searchChange(event) {
@@ -233,7 +237,8 @@ const _sfc_main = {
       if (!this.loading) {
         this.loading = true;
         try {
-          const apiData = await fetchRecommendations(this.searchQuery);
+          const store = this.$route.query["store"];
+          const apiData = await fetchRecommendations(this.searchQuery, store);
           this.results = apiData;
           this.loading = false;
         } catch (error) {
@@ -252,11 +257,14 @@ const _sfc_main = {
   }
 };
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_Header = __nuxt_component_0;
+  const _component_Header = resolveComponent("Header");
   const _component_Button = resolveComponent("Button");
   const _component_Preloader = resolveComponent("Preloader");
   _push(`<!--[-->`);
-  _push(ssrRenderComponent(_component_Header, null, null, _parent));
+  _push(ssrRenderComponent(_component_Header, {
+    "show-links": false,
+    logo: $data.logo
+  }, null, _parent));
   _push(`<div class="playground"><h2 class="h2 playground__title">${ssrInterpolate(_ctx.$t("playground.WineaterFind"))} <span class="playground__title-circle">${_ctx.$t("playground.perfectWine") + "<br/>"}</span> ${ssrInterpolate(_ctx.$t("playground.forYour"))} <span class="playground__title-underline">${_ctx.$t("playground.perfectDinner")}</span></h2><p class="p1 playground__description">${ssrInterpolate(_ctx.$t("playground.BeSureToProvideDetails"))}</p><div class="playground__input"><div class="playground__input-icon"></div><input type="text"${ssrRenderAttr("placeholder", _ctx.$t("playground.WhatDoYouWannaEat"))}>`);
   _push(ssrRenderComponent(_component_Button, {
     onClick: $options.handleInput,
@@ -314,10 +322,10 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/playground.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+const playground = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { index as default };
-//# sourceMappingURL=index-183e64d4.mjs.map
+export { playground as default };
+//# sourceMappingURL=playground-87da3366.mjs.map
