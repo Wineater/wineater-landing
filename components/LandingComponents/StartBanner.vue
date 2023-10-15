@@ -53,7 +53,7 @@
   background-position: right top;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/main-banner.png);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/main-banner.webp);
   position: absolute;
 }
 @media only screen and (max-width: 1440px) {

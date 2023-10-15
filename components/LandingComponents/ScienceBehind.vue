@@ -71,7 +71,7 @@ const props = defineProps({
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottle.png);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottle.webp);
 }
 
 @media only screen and (max-width: 1440px) {
@@ -87,7 +87,7 @@ const props = defineProps({
     height: 825px;
     margin-right: -100px;
     background-position: right;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottle-2.png);
+    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottle-2.webp);
   }
   .science-behind__bottles-text {
     gap: 20px;

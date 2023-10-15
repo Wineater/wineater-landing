@@ -32,7 +32,7 @@
   height: 890px;
   background-size: cover;
   background-position: top center;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/footer.png);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/footer.webp);
 }
 
 .footer__content {
