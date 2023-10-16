@@ -22,10 +22,6 @@
     </div>
   </div>
 </template>
-<script setup>
-const route = useRoute()
-const store = ref(route.query.store ? route.query.store : '')
-</script>
 <script>
 import Button from "~/components/Buttons/Button.vue";
 import LangSwitcher from "~/components/Buttons/LangSwitcher.vue";
