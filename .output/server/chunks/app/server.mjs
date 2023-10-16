@@ -757,7 +757,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-076d0671.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-762dea5a.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
@@ -765,23 +765,23 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-076d0671.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-762dea5a.mjs').then((m) => m.default || m)
   },
   {
-    name: "playground___en",
-    path: "/playground",
+    name: "playground-store___en",
+    path: "/playground/:store()",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/playground-87da3366.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_store_-cfc9f398.mjs').then((m) => m.default || m)
   },
   {
-    name: "playground___fr",
-    path: "/fr/playground",
+    name: "playground-store___fr",
+    path: "/fr/playground/:store()",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/playground-87da3366.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/_store_-cfc9f398.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -5630,13 +5630,13 @@ const localeMessages = {
   "en": [
     { key: "../locales/en.json", load: () => import(
       './_nuxt/en-f530fafb.mjs'
-      /* webpackChunkName: "locale__Users_alexolkhovoi_Desktop_Development_Wineater_wineater_landing_locales_en_json" */
+      /* webpackChunkName: "locale__Users_cdmx_Desktop_development_wineater_landing_locales_en_json" */
     ), cache: true }
   ],
   "fr": [
     { key: "../locales/fr.json", load: () => import(
       './_nuxt/fr-8ddde9a3.mjs'
-      /* webpackChunkName: "locale__Users_alexolkhovoi_Desktop_Development_Wineater_wineater_landing_locales_fr_json" */
+      /* webpackChunkName: "locale__Users_cdmx_Desktop_development_wineater_landing_locales_fr_json" */
     ), cache: true }
   ]
 };

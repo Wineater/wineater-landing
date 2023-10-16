@@ -1,8 +1,11 @@
+import { B as Button, H as Header } from './Header-7c31786a.mjs';
 import { useSSRContext, resolveComponent, withCtx, createTextVNode, toDisplayString, computed, unref, reactive, mergeProps, ref, toRef, getCurrentInstance, onServerPrefetch } from 'vue';
-import { B as hash } from '../../nitro/node-server.mjs';
-import { _ as _export_sfc, b as useRequestFetch, a as useNuxtApp, c as createError } from '../server.mjs';
-import { B as Button, H as Header } from './Header-ad5c3303.mjs';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderStyle, ssrRenderAttrs } from 'vue/server-renderer';
+import { _ as _export_sfc, b as useRequestFetch, a as useNuxtApp, c as createError } from '../server.mjs';
+import { B as hash } from '../../nitro/node-server.mjs';
+import '@unhead/shared';
+import 'vue-router';
+import 'is-https';
 import 'node:http';
 import 'node:https';
 import 'node:zlib';
@@ -15,9 +18,6 @@ import 'node:fs';
 import 'node:path';
 import 'fs';
 import 'path';
-import '@unhead/shared';
-import 'vue-router';
-import 'is-https';
 
 const getDefault = () => null;
 function useAsyncData(...args) {
@@ -183,6 +183,17 @@ function useFetch(request, arg1, arg2) {
   }, _asyncDataOptions);
   return asyncData;
 }
+const _sfc_main$1 = {};
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "lds-ripple" }, _attrs))} data-v-aa6ba8e6><div data-v-aa6ba8e6></div><div data-v-aa6ba8e6></div></div>`);
+}
+const _sfc_setup$1 = _sfc_main$1.setup;
+_sfc_main$1.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Buttons/Preloader.vue");
+  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+};
+const Preloader = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-aa6ba8e6"]]);
 const baseApiUrl = "https://api.wineater.com/";
 async function fetchRecommendations(dish, store) {
   console.log(dish, store);
@@ -200,17 +211,6 @@ async function fetchRecommendations(dish, store) {
     throw error;
   }
 }
-const _sfc_main$1 = {};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "lds-ripple" }, _attrs))} data-v-aa6ba8e6><div data-v-aa6ba8e6></div><div data-v-aa6ba8e6></div></div>`);
-}
-const _sfc_setup$1 = _sfc_main$1.setup;
-_sfc_main$1.setup = (props, ctx) => {
-  const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Buttons/Preloader.vue");
-  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
-};
-const Preloader = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-aa6ba8e6"]]);
 const _sfc_main = {
   components: { Preloader, Button, Header },
   data() {
@@ -219,12 +219,10 @@ const _sfc_main = {
       supportedLocales: this.$i18n.locales,
       searchQuery: "",
       results: [],
-      loading: false,
-      logo: null
+      loading: false
     };
   },
   created() {
-    this.logo = this.$route.query["store"];
   },
   methods: {
     searchChange(event) {
@@ -237,7 +235,7 @@ const _sfc_main = {
       if (!this.loading) {
         this.loading = true;
         try {
-          const store = this.$route.query["store"];
+          const store = this.$route.params.store;
           const apiData = await fetchRecommendations(this.searchQuery, store);
           this.results = apiData;
           this.loading = false;
@@ -261,10 +259,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
   const _component_Button = resolveComponent("Button");
   const _component_Preloader = resolveComponent("Preloader");
   _push(`<!--[-->`);
-  _push(ssrRenderComponent(_component_Header, {
-    "show-links": false,
-    logo: $data.logo
-  }, null, _parent));
+  _push(ssrRenderComponent(_component_Header, { "show-links": false }, null, _parent));
   _push(`<div class="playground"><h2 class="h2 playground__title">${ssrInterpolate(_ctx.$t("playground.WineaterFind"))} <span class="playground__title-circle">${_ctx.$t("playground.perfectWine") + "<br/>"}</span> ${ssrInterpolate(_ctx.$t("playground.forYour"))} <span class="playground__title-underline">${_ctx.$t("playground.perfectDinner")}</span></h2><p class="p1 playground__description">${ssrInterpolate(_ctx.$t("playground.BeSureToProvideDetails"))}</p><div class="playground__input"><div class="playground__input-icon"></div><input type="text"${ssrRenderAttr("placeholder", _ctx.$t("playground.WhatDoYouWannaEat"))}>`);
   _push(ssrRenderComponent(_component_Button, {
     onClick: $options.handleInput,
@@ -322,10 +317,10 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/playground.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/playground/[store].vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const playground = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+const _store_ = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { playground as default };
-//# sourceMappingURL=playground-87da3366.mjs.map
+export { _store_ as default };
+//# sourceMappingURL=_store_-cfc9f398.mjs.map

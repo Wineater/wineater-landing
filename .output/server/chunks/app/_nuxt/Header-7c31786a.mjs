@@ -1,6 +1,6 @@
 import { useSSRContext, resolveComponent, mergeProps, withCtx, createTextVNode, toDisplayString, ref, unref } from 'vue';
-import { ssrRenderAttrs, ssrRenderClass, ssrRenderStyle, ssrInterpolate, ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
-import { _ as _export_sfc, d as useI18n } from '../server.mjs';
+import { _ as _export_sfc, n as navigateTo, d as useI18n } from '../server.mjs';
+import { ssrRenderAttrs, ssrRenderStyle, ssrInterpolate, ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 
 const _sfc_main$2 = {
   __name: "Button",
@@ -77,17 +77,12 @@ const _sfc_main = {
       }
     };
   },
-  computed: {
-    getLogo() {
-      return this.$route.query["store"] ? this.logos[this.$route.query["store"]] : this.logos.Wineater;
-    }
-  },
   methods: {
     openDemoPage() {
       window.open("https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8", "_blank");
     },
     openMainPage() {
-      this.$router.go("/");
+      navigateTo("/");
     },
     scrollToBlock(block) {
       const element = document.querySelector(block);
@@ -101,15 +96,15 @@ const _sfc_main = {
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_LangSwitcher = resolveComponent("LangSwitcher");
   const _component_Button = resolveComponent("Button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "header" }, _attrs))} data-v-d2d886a3><div class="${ssrRenderClass([{ "header__logo--wineater": $props.logo === "Wineater" }, "header__logo"])}" style="${ssrRenderStyle({ "background-image": `url(${$options.getLogo})` })}" data-v-d2d886a3></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "header" }, _attrs))} data-v-c68f337d><div class="header__logo" style="${ssrRenderStyle({ "background-image": `url(${_ctx.$route.params.store && _ctx.logos[_ctx.$route.params.store] ? _ctx.logos[_ctx.$route.params.store] : _ctx.logos.Wineater})` })}" data-v-c68f337d></div>`);
   if ($props.showLinks) {
-    _push(`<div class="header__links" data-v-d2d886a3><div class="header__link p1 color-text" data-v-d2d886a3>${ssrInterpolate(_ctx.$t("Header.About"))}</div><div class="header__link p1 color-text" data-v-d2d886a3>${ssrInterpolate(_ctx.$t("Header.TryMe"))}</div><div class="header__link p1 color-text" data-v-d2d886a3>${ssrInterpolate(_ctx.$t("Header.ForWhom"))}</div><div class="header__link p1 color-text" data-v-d2d886a3>${ssrInterpolate(_ctx.$t("Header.HowItWorks"))}</div></div>`);
+    _push(`<div class="header__links" data-v-c68f337d><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.About"))}</div><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.TryMe"))}</div><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.ForWhom"))}</div><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.HowItWorks"))}</div></div>`);
   } else {
     _push(`<!---->`);
   }
-  _push(`<div class="header__right-container" data-v-d2d886a3><div class="header__btns" data-v-d2d886a3>`);
+  _push(`<div class="header__right-container" data-v-c68f337d><div class="header__btns" data-v-c68f337d>`);
   _push(ssrRenderComponent(_component_LangSwitcher, null, null, _parent));
-  _push(`<div class="header__btn" data-v-d2d886a3>`);
+  _push(`<div class="header__btn" data-v-c68f337d>`);
   _push(ssrRenderComponent(_component_Button, { onBtnClick: $options.openDemoPage }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -130,7 +125,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/Header.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const Header = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-d2d886a3"]]);
+const Header = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-c68f337d"]]);
 
 export { Button as B, Header as H };
-//# sourceMappingURL=Header-ad5c3303.mjs.map
+//# sourceMappingURL=Header-7c31786a.mjs.map

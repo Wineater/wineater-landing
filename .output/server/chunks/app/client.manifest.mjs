@@ -3,24 +3,24 @@ const client_manifest = {
     "resourceType": "style",
     "prefetch": true,
     "preload": true,
-    "file": "Header.1b8e9531.css",
+    "file": "Header.86afe2f3.css",
     "src": "Header.css"
   },
-  "_Header.34cce5f7.js": {
+  "_Header.646fccfe.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "css": [
-      "Header.1b8e9531.css"
+      "Header.86afe2f3.css"
     ],
-    "file": "Header.34cce5f7.js",
+    "file": "Header.646fccfe.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "Header.1b8e9531.css": {
-    "file": "Header.1b8e9531.css",
+  "Header.86afe2f3.css": {
+    "file": "Header.86afe2f3.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -52,7 +52,7 @@ const client_manifest = {
       "locales/en.json",
       "locales/fr.json"
     ],
-    "file": "entry.386621ee.js",
+    "file": "entry.5ea0ece4.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js",
     "_globalCSS": true
@@ -61,7 +61,7 @@ const client_manifest = {
     "resourceType": "style",
     "prefetch": true,
     "preload": true,
-    "file": "index.30a860d2.css",
+    "file": "index.92220a17.css",
     "src": "pages/index.css"
   },
   "pages/index.vue": {
@@ -70,43 +70,43 @@ const client_manifest = {
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "index.4b90798f.js",
+    "file": "index.c6135227.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_Header.34cce5f7.js"
+      "_Header.646fccfe.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/index.vue"
   },
-  "index.30a860d2.css": {
-    "file": "index.30a860d2.css",
+  "index.92220a17.css": {
+    "file": "index.92220a17.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
   },
-  "pages/playground.css": {
+  "pages/playground/[store].css": {
     "resourceType": "style",
     "prefetch": true,
     "preload": true,
-    "file": "playground.7cf92620.css",
-    "src": "pages/playground.css"
+    "file": "_store_.7cf92620.css",
+    "src": "pages/playground/[store].css"
   },
-  "pages/playground.vue": {
+  "pages/playground/[store].vue": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
     "css": [],
-    "file": "playground.d3acd839.js",
+    "file": "_store_.96481aa6.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js",
-      "_Header.34cce5f7.js"
+      "_Header.646fccfe.js",
+      "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
-    "src": "pages/playground.vue"
+    "src": "pages/playground/[store].vue"
   },
-  "playground.7cf92620.css": {
-    "file": "playground.7cf92620.css",
+  "_store_.7cf92620.css": {
+    "file": "_store_.7cf92620.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
