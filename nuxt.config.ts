@@ -21,6 +21,26 @@ export default {
           property: 'og:image',
           content: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Wineater-social_preview.png', // Replace with the URL of your image
         },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image', // Twitter card type (use 'summary_large_image' for image cards)
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: 'Wineater | Wine and food pairing',
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: 'Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings',
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Wineater-social_preview.png', // Replace with the URL of your image
+        },
       ],
       title: 'Wineater | Wine and food pairing',
     }
