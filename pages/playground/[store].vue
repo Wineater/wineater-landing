@@ -97,7 +97,7 @@ export default {
       if (!this.loading) {
         this.loading = true;
         try {
-          const store = this.$route.query['store'];
+          const store = this.$route.params.store;
           const apiData = await fetchRecommendations(this.searchQuery, store);
           this.results = apiData;
           this.loading = false;

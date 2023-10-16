@@ -3,7 +3,7 @@
     <h2 class="h2 color-text algorithm-info__text">
       {{ $t('algorithm.title1') }} <span class="color-brand-6">{{ $t('algorithm.title2') }}</span> {{$t('algorithm.title3') }}
     </h2>
-    <NuxtLink to="/playground">
+    <NuxtLink to="/playground/all">
       <Button class="algorithm-info__btn">
         {{ $t('playground.FindAMatch') }}
       </Button>
