@@ -4911,79 +4911,79 @@ const assets = {
   "/.DS_Store": {
     "type": "text/plain; charset=utf-8",
     "etag": "\"1804-CzaS1YnAAaI3qT0rd/hG6B9Hmqo\"",
-    "mtime": "2023-10-16T00:11:54.375Z",
+    "mtime": "2023-10-16T00:19:43.784Z",
     "size": 6148,
     "path": "../public/.DS_Store"
   },
   "/favicon.ico": {
     "type": "image/vnd.microsoft.icon",
     "etag": "\"10be-LkOxpjzpEdufS9Og3Rva4lX8w6I\"",
-    "mtime": "2023-10-16T00:11:54.375Z",
+    "mtime": "2023-10-16T00:19:43.784Z",
     "size": 4286,
     "path": "../public/favicon.ico"
   },
-  "/_nuxt/Header.646fccfe.js": {
-    "type": "application/javascript",
-    "etag": "\"b41-v9nyp7hCDtz6sTvaKyBn6u+NNys\"",
-    "mtime": "2023-10-16T00:11:54.368Z",
-    "size": 2881,
-    "path": "../public/_nuxt/Header.646fccfe.js"
-  },
-  "/_nuxt/Header.86afe2f3.css": {
+  "/_nuxt/Header.a231e55c.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"b0c-lJHUPK3yyjpopOPkzSUCaROtFus\"",
-    "mtime": "2023-10-16T00:11:54.368Z",
+    "etag": "\"b0c-nGNA/ivnBM5yTtGBN3PqpvEgGcg\"",
+    "mtime": "2023-10-16T00:19:43.779Z",
     "size": 2828,
-    "path": "../public/_nuxt/Header.86afe2f3.css"
+    "path": "../public/_nuxt/Header.a231e55c.css"
   },
-  "/_nuxt/_store_.7cf92620.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"191a-Q+UV2BKTkIjBb7YRUIFPju8+7NI\"",
-    "mtime": "2023-10-16T00:11:54.368Z",
-    "size": 6426,
-    "path": "../public/_nuxt/_store_.7cf92620.css"
-  },
-  "/_nuxt/_store_.96481aa6.js": {
+  "/_nuxt/Header.e442ed09.js": {
     "type": "application/javascript",
-    "etag": "\"3d0d-6rrSdLc9IYzJoSFBhnELuXZuyC0\"",
-    "mtime": "2023-10-16T00:11:54.369Z",
-    "size": 15629,
-    "path": "../public/_nuxt/_store_.96481aa6.js"
+    "etag": "\"add-GS6RcSRF3OsjYaOsmdxX425b+fQ\"",
+    "mtime": "2023-10-16T00:19:43.779Z",
+    "size": 2781,
+    "path": "../public/_nuxt/Header.e442ed09.js"
   },
   "/_nuxt/en.47bcaf97.js": {
     "type": "application/javascript",
     "etag": "\"ade-sh9KCfTI5sO7nOG2cWs/N/vvoak\"",
-    "mtime": "2023-10-16T00:11:54.368Z",
+    "mtime": "2023-10-16T00:19:43.779Z",
     "size": 2782,
     "path": "../public/_nuxt/en.47bcaf97.js"
   },
-  "/_nuxt/entry.5ea0ece4.js": {
+  "/_nuxt/entry.34a0e9ee.js": {
     "type": "application/javascript",
-    "etag": "\"4d166-6gbl3ZvLPO1hhgr8IWrUB5GsVNg\"",
-    "mtime": "2023-10-16T00:11:54.370Z",
-    "size": 315750,
-    "path": "../public/_nuxt/entry.5ea0ece4.js"
+    "etag": "\"4d15a-C+IekgxWQSBqFlyDlwnDZ1A0IFk\"",
+    "mtime": "2023-10-16T00:19:43.780Z",
+    "size": 315738,
+    "path": "../public/_nuxt/entry.34a0e9ee.js"
   },
   "/_nuxt/fr.0c2f42e5.js": {
     "type": "application/javascript",
     "etag": "\"d46-UAXIISknauHrY23J9N1rG4csiNY\"",
-    "mtime": "2023-10-16T00:11:54.369Z",
+    "mtime": "2023-10-16T00:19:43.779Z",
     "size": 3398,
     "path": "../public/_nuxt/fr.0c2f42e5.js"
   },
-  "/_nuxt/index.92220a17.css": {
+  "/_nuxt/index.30a860d2.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"4831-258YJ6OWaOFRb1KKh4ZSuSKM2fM\"",
-    "mtime": "2023-10-16T00:11:54.369Z",
+    "etag": "\"4831-3Sm0XpWOUmZHZTQeD0X5yxutG+k\"",
+    "mtime": "2023-10-16T00:19:43.780Z",
     "size": 18481,
-    "path": "../public/_nuxt/index.92220a17.css"
+    "path": "../public/_nuxt/index.30a860d2.css"
   },
-  "/_nuxt/index.c6135227.js": {
+  "/_nuxt/index.38bc84f6.js": {
     "type": "application/javascript",
-    "etag": "\"31bf-4p4iv+OYcVPCSNxdVH0lgFKNlMA\"",
-    "mtime": "2023-10-16T00:11:54.368Z",
-    "size": 12735,
-    "path": "../public/_nuxt/index.c6135227.js"
+    "etag": "\"31bb-ts10i6MloY0RFc4ecZNqzMYH8NU\"",
+    "mtime": "2023-10-16T00:19:43.780Z",
+    "size": 12731,
+    "path": "../public/_nuxt/index.38bc84f6.js"
+  },
+  "/_nuxt/playground.7cf92620.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"191a-Q+UV2BKTkIjBb7YRUIFPju8+7NI\"",
+    "mtime": "2023-10-16T00:19:43.780Z",
+    "size": 6426,
+    "path": "../public/_nuxt/playground.7cf92620.css"
+  },
+  "/_nuxt/playground.f4d7d434.js": {
+    "type": "application/javascript",
+    "etag": "\"3d0c-n7R+Q1Ut9hxWGwk1kOVAEfEKIUg\"",
+    "mtime": "2023-10-16T00:19:43.780Z",
+    "size": 15628,
+    "path": "../public/_nuxt/playground.f4d7d434.js"
   }
 };
 

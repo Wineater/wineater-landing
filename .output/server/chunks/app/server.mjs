@@ -1,4 +1,4 @@
-import { hasInjectionContext, getCurrentInstance, version, defineComponent, h, inject, onUnmounted, unref, ref, computed, watch, Fragment, useSSRContext, createApp, reactive, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, shallowReactive, isReadonly, Text, defineAsyncComponent, isRef, isShallow, isReactive, toRaw, effectScope, nextTick, Suspense, Transition } from 'vue';
+import { hasInjectionContext, getCurrentInstance, version, inject, defineComponent, h, onUnmounted, unref, ref, computed, watch, Fragment, useSSRContext, createApp, reactive, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, shallowReactive, isReadonly, Text, defineAsyncComponent, isRef, isShallow, isReactive, toRaw, effectScope, nextTick, Suspense, Transition } from 'vue';
 import { f as useRuntimeConfig$1, m as withQuery, n as hasProtocol, p as parseURL, o as isScriptProtocol, j as joinURL, i as createError$1, $ as $fetch, q as sanitizeStatusCode, r as createHooks, t as isEqual, v as getRequestHeaders, x as defu } from '../nitro/node-server.mjs';
 import { defineHeadPlugin } from '@unhead/shared';
 import { createMemoryHistory, createRouter, START_LOCATION, useRouter as useRouter$1, useRoute as useRoute$1, RouterView } from 'vue-router';
@@ -757,7 +757,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-762dea5a.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-4c1fe36d.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
@@ -765,23 +765,23 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-762dea5a.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-4c1fe36d.mjs').then((m) => m.default || m)
   },
   {
-    name: "playground-store___en",
-    path: "/playground/:store()",
+    name: "playground___en",
+    path: "/playground",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_store_-cfc9f398.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/playground-f3e5e953.mjs').then((m) => m.default || m)
   },
   {
-    name: "playground-store___fr",
-    path: "/fr/playground/:store()",
+    name: "playground___fr",
+    path: "/fr/playground",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_store_-cfc9f398.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/playground-f3e5e953.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -6935,5 +6935,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, useNuxtApp as a, useRequestFetch as b, createError as c, useI18n as d, entry$1 as default, navigateTo as n, useRouter as u };
+export { _export_sfc as _, useNuxtApp as a, useRequestFetch as b, createError as c, useI18n as d, entry$1 as default, useRoute as e, navigateTo as n, useRouter as u };
 //# sourceMappingURL=server.mjs.map

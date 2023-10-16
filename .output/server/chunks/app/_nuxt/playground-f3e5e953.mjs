@@ -1,4 +1,4 @@
-import { B as Button, H as Header } from './Header-7c31786a.mjs';
+import { B as Button, H as Header } from './Header-545f1d35.mjs';
 import { useSSRContext, resolveComponent, withCtx, createTextVNode, toDisplayString, computed, unref, reactive, mergeProps, ref, toRef, getCurrentInstance, onServerPrefetch } from 'vue';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderStyle, ssrRenderAttrs } from 'vue/server-renderer';
 import { _ as _export_sfc, b as useRequestFetch, a as useNuxtApp, c as createError } from '../server.mjs';
@@ -235,7 +235,7 @@ const _sfc_main = {
       if (!this.loading) {
         this.loading = true;
         try {
-          const store = this.$route.params.store;
+          const store = this.$route.query["store"];
           const apiData = await fetchRecommendations(this.searchQuery, store);
           this.results = apiData;
           this.loading = false;
@@ -317,10 +317,10 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $op
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/playground/[store].vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/playground.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const _store_ = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+const playground = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
-export { _store_ as default };
-//# sourceMappingURL=_store_-cfc9f398.mjs.map
+export { playground as default };
+//# sourceMappingURL=playground-f3e5e953.mjs.map

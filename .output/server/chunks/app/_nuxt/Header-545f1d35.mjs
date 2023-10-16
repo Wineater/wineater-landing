@@ -1,5 +1,5 @@
-import { useSSRContext, resolveComponent, mergeProps, withCtx, createTextVNode, toDisplayString, ref, unref } from 'vue';
-import { _ as _export_sfc, n as navigateTo, d as useI18n } from '../server.mjs';
+import { useSSRContext, ref, mergeProps, unref, withCtx, createTextVNode, toDisplayString } from 'vue';
+import { _ as _export_sfc, e as useRoute, d as useI18n, n as navigateTo } from '../server.mjs';
 import { ssrRenderAttrs, ssrRenderStyle, ssrInterpolate, ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 
 const _sfc_main$2 = {
@@ -54,7 +54,7 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const LangSwitcher = _sfc_main$1;
-const _sfc_main = {
+const __default__ = {
   components: {
     Button,
     LangSwitcher
@@ -93,39 +93,45 @@ const _sfc_main = {
     }
   }
 };
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_LangSwitcher = resolveComponent("LangSwitcher");
-  const _component_Button = resolveComponent("Button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "header" }, _attrs))} data-v-c68f337d><div class="header__logo" style="${ssrRenderStyle({ "background-image": `url(${_ctx.$route.params.store && _ctx.logos[_ctx.$route.params.store] ? _ctx.logos[_ctx.$route.params.store] : _ctx.logos.Wineater})` })}" data-v-c68f337d></div>`);
-  if ($props.showLinks) {
-    _push(`<div class="header__links" data-v-c68f337d><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.About"))}</div><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.TryMe"))}</div><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.ForWhom"))}</div><div class="header__link p1 color-text" data-v-c68f337d>${ssrInterpolate(_ctx.$t("Header.HowItWorks"))}</div></div>`);
-  } else {
-    _push(`<!---->`);
-  }
-  _push(`<div class="header__right-container" data-v-c68f337d><div class="header__btns" data-v-c68f337d>`);
-  _push(ssrRenderComponent(_component_LangSwitcher, null, null, _parent));
-  _push(`<div class="header__btn" data-v-c68f337d>`);
-  _push(ssrRenderComponent(_component_Button, { onBtnClick: $options.openDemoPage }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`${ssrInterpolate(_ctx.$t("playground.BookDemo"))}`);
+const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
+  __name: "Header",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const route = useRoute();
+    const store = ref(route.query.store ? route.query.store : "");
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "header" }, _attrs))} data-v-500845b4><div class="header__logo" style="${ssrRenderStyle({ "background-image": `url(${unref(store) && _ctx.logos[unref(store)] ? _ctx.logos[unref(store)] : _ctx.logos.Wineater})` })}" data-v-500845b4></div>`);
+      if (__props.showLinks) {
+        _push(`<div class="header__links" data-v-500845b4><div class="header__link p1 color-text" data-v-500845b4>${ssrInterpolate(_ctx.$t("Header.About"))}</div><div class="header__link p1 color-text" data-v-500845b4>${ssrInterpolate(_ctx.$t("Header.TryMe"))}</div><div class="header__link p1 color-text" data-v-500845b4>${ssrInterpolate(_ctx.$t("Header.ForWhom"))}</div><div class="header__link p1 color-text" data-v-500845b4>${ssrInterpolate(_ctx.$t("Header.HowItWorks"))}</div></div>`);
       } else {
-        return [
-          createTextVNode(toDisplayString(_ctx.$t("playground.BookDemo")), 1)
-        ];
+        _push(`<!---->`);
       }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div></div></div></div>`);
-}
+      _push(`<div class="header__right-container" data-v-500845b4><div class="header__btns" data-v-500845b4>`);
+      _push(ssrRenderComponent(LangSwitcher, null, null, _parent));
+      _push(`<div class="header__btn" data-v-500845b4>`);
+      _push(ssrRenderComponent(Button, { onBtnClick: _ctx.openDemoPage }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`${ssrInterpolate(_ctx.$t("playground.BookDemo"))}`);
+          } else {
+            return [
+              createTextVNode(toDisplayString(_ctx.$t("playground.BookDemo")), 1)
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div></div></div></div>`);
+    };
+  }
+});
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/Header.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const Header = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-c68f337d"]]);
+const Header = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-500845b4"]]);
 
 export { Button as B, Header as H };
-//# sourceMappingURL=Header-7c31786a.mjs.map
+//# sourceMappingURL=Header-545f1d35.mjs.map

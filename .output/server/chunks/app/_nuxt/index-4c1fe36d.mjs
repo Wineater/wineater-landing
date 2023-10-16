@@ -2,7 +2,7 @@ import { ssrRenderComponent, ssrRenderAttrs, ssrInterpolate, ssrRenderList } fro
 import { ref, onUnmounted, useSSRContext, mergeProps, withCtx, createTextVNode, toDisplayString, createVNode, resolveComponent, defineComponent, computed, h } from 'vue';
 import { _ as _export_sfc, u as useRouter, n as navigateTo } from '../server.mjs';
 import { n as hasProtocol, p as parseURL, y as parseQuery, z as withTrailingSlash, A as withoutTrailingSlash } from '../../nitro/node-server.mjs';
-import { H as Header, B as Button } from './Header-7c31786a.mjs';
+import { H as Header, B as Button } from './Header-545f1d35.mjs';
 import '@unhead/shared';
 import 'vue-router';
 import 'is-https';
@@ -235,8 +235,8 @@ const _sfc_main$7 = {
       const _component_NuxtLink = __nuxt_component_0;
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: ["algorithm-info", { "visible": __props.visible }]
-      }, _attrs))} data-v-1a07d4a0><h2 class="h2 color-text algorithm-info__text" data-v-1a07d4a0>${ssrInterpolate(_ctx.$t("algorithm.title1"))} <span class="color-brand-6" data-v-1a07d4a0>${ssrInterpolate(_ctx.$t("algorithm.title2"))}</span> ${ssrInterpolate(_ctx.$t("algorithm.title3"))}</h2>`);
-      _push(ssrRenderComponent(_component_NuxtLink, { to: "/playground/all" }, {
+      }, _attrs))} data-v-c8b6d4bd><h2 class="h2 color-text algorithm-info__text" data-v-c8b6d4bd>${ssrInterpolate(_ctx.$t("algorithm.title1"))} <span class="color-brand-6" data-v-c8b6d4bd>${ssrInterpolate(_ctx.$t("algorithm.title2"))}</span> ${ssrInterpolate(_ctx.$t("algorithm.title3"))}</h2>`);
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/playground" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(ssrRenderComponent(Button, { class: "algorithm-info__btn" }, {
@@ -274,7 +274,7 @@ _sfc_main$7.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/AlgorithmInfo.vue");
   return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const AlgorithmInfo = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1a07d4a0"]]);
+const AlgorithmInfo = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-c8b6d4bd"]]);
 const _sfc_main$6 = {
   __name: "ScienceBehind",
   __ssrInlineRender: true,
@@ -578,4 +578,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-762dea5a.mjs.map
+//# sourceMappingURL=index-4c1fe36d.mjs.map
