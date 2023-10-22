@@ -41,7 +41,7 @@
 		"TryMe": "Essaie-moi"
 	},
 	"playground": {
-		"BeSureToProvideDetails": "Sublimez votre expérience gastronomique avec Wineater, l'expert des accords mets et vins parfaits. Il vous suffit de nous donner les détails de votre plat, et nous vous recommanderons le compagnon vin idéal ex., Tuna Salad",
+		"BeSureToProvideDetails": "Sublimez votre expérience gastronomique avec Wineater, l'expert des accords mets et vins parfaits. Il vous suffit de nous donner les détails de votre plat, et nous vous recommanderons le compagnon vin idéal",
 		"BookDemo": "Demander une démo",
 		"Buy": "Acheter",
 		"FindAMatch": "Accorder",
@@ -51,7 +51,7 @@
 		"perfectWine": "vin&nbsp;parfait",
 		"Region": "Région",
 		"Type": "Couleur",
-		"WhatDoYouWannaEat": "Que veux-tu manger ?",
+		"WhatDoYouWannaEat": "Que voulez-vous manger? ex., Salade de thon",
 		"WineaterFind": " Wineater trouver"
 	},
 	"scienceBehind": {

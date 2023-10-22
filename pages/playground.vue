@@ -188,7 +188,7 @@ export default {
 
   input {
     font-family: 'PoppinsMedium';
-    font-size: 28px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: 28px;
@@ -234,7 +234,7 @@ export default {
 }
 
 .playground__card {
-  padding: 32px 20px 20px 44px;
+  padding: 32px 20px 20px 20px;
   background-color: #7E27ED;
   border-radius: 32px;
 }
@@ -278,6 +278,9 @@ export default {
 .playground__card-info-description {
   color: var(--text);
   max-width: 90px;
+}
+.playground__card-info-grape {
+  min-height: 80px;
 }
 
 .playground__card-info-grape, .playground__card-info-header {
@@ -533,6 +536,7 @@ export default {
     margin-bottom: 8px;
   }
   .playground__card-info-grape {
+    min-height: 0;
     .p1, .p2 {
       font-size: 16px;
     }

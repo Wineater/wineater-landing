@@ -164,7 +164,7 @@ export default {
   }
   .header__logo {
     height: 38px;
-    width: 30px;
+    width: 157px;
 
     &--wineater {
       background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/logo-small.svg) !important;
