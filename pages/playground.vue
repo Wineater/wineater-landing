@@ -35,10 +35,10 @@
     <div class="playground__cards" v-if="results.length && !loading">
       <div v-for="(card, cardIndex) in results.slice(0, 3)" class="playground__card-wrapper">
         <div class="playground__card">
-          <div class="playground__card-header">
+         <!--  <div class="playground__card-header">
             <p class="p1">{{ $t('playground.Type') }}</p>
             <p class="p1">{{ card.Type }}</p>
-          </div>
+          </div> -->
           <div class="playground__card-title h3">
             {{ card.Title }}
           </div>
