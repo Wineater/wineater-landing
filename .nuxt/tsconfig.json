@@ -6,13 +6,15 @@
     "jsxImportSource": "vue",
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "skipLibCheck": true,
     "isolatedModules": true,
     "useDefineForClassFields": true,
     "strict": true,
     "noImplicitThis": true,
     "esModuleInterop": true,
+    "types": [],
+    "verbatimModuleSyntax": true,
     "allowJs": true,
     "noEmit": true,
     "resolveJsonModule": true,
@@ -75,20 +77,23 @@
       "@intlify/core-base": [
         "../node_modules/@intlify/core-base/dist/core-base"
       ],
-      "@intlify/vue-router-bridge": [
-        "../node_modules/@nuxtjs/i18n/node_modules/@intlify/vue-router-bridge/lib/index"
+      "@intlify/core": [
+        "../node_modules/@intlify/core/dist/core.node"
       ],
-      "@intlify/vue-i18n-bridge": [
-        "../node_modules/@nuxtjs/i18n/node_modules/@intlify/vue-i18n-bridge/lib/index"
+      "@intlify/utils/h3": [
+        "../node_modules/@intlify/utils/dist/h3"
       ],
-      "vue-i18n-routing": [
-        "../node_modules/@nuxtjs/i18n/node_modules/vue-i18n-routing/dist/vue-i18n-routing"
+      "ufo": [
+        "../node_modules/ufo/dist/index"
+      ],
+      "is-https": [
+        "../node_modules/is-https/dist/index"
       ],
       "#i18n": [
-        "../node_modules/@nuxtjs/i18n/dist/runtime/composables"
+        "../node_modules/@nuxtjs/i18n/dist/runtime/composables/index"
       ],
       "#vue-router": [
-        "./vue-router"
+        "./vue-router-stub"
       ],
       "#imports": [
         "./imports"
@@ -108,6 +113,7 @@
     "./nuxt.d.ts",
     "../**/*",
     "../node_modules/@nuxtjs/i18n/runtime",
+    "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
     ".."
   ],
@@ -115,6 +121,7 @@
     "../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/i18n/runtime/server",
+    "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../dist",
     "../.output"

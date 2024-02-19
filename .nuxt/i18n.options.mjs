@@ -1,24 +1,24 @@
+
 // @ts-nocheck
 
 
-export const localeCodes = [
+export const localeCodes =  [
   "en",
   "fr"
 ]
 
-export const localeMessages = { 
-  "en": [
-      { key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__workspaces_wineater_landing_locales_en_json" */), cache: true },
-  ],
-  "fr": [
-      { key: "../locales/fr.json", load: () => import("../locales/fr.json" /* webpackChunkName: "locale__workspaces_wineater_landing_locales_fr_json" */), cache: true },
-  ],
+export const localeLoaders = {
+  "en": [{ key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__workspaces_wineater_landing_locales_en_json" */), cache: true }],
+  "fr": [{ key: "../locales/fr.json", load: () => import("../locales/fr.json" /* webpackChunkName: "locale__workspaces_wineater_landing_locales_fr_json" */), cache: true }]
 }
 
-export const resolveNuxtI18nOptions = async (context) => {
-  const nuxtI18nOptions = {
+export const vueI18nConfigs = [
+  
+]
+
+export const nuxtI18nOptions = {
   "experimental": {
-    "jsTsFormatResource": false
+    "localeDetector": ""
   },
   "bundle": {
     "compositionOnly": true,
@@ -81,53 +81,10 @@ export const resolveNuxtI18nOptions = async (context) => {
   "seo": true,
   "i18nModules": []
 }
-  
-  const vueI18nConfigLoader = async loader => {
-    const config = await loader().then(r => r.default || r)
-    if (typeof config === 'object') return config
-    if (typeof config === 'function') return await config()
-    return {}
-  }
-
-  const deepCopy = (src, des, predicate) => {
-    for (const key in src) {
-      if (typeof src[key] === 'object') {
-        if (!(typeof des[key] === 'object')) des[key] = {}
-        deepCopy(src[key], des[key], predicate)
-      } else {
-        if (predicate) {
-          if (predicate(src[key], des[key])) {
-            des[key] = src[key]
-          }
-        } else {
-          des[key] = src[key]
-        }
-      }
-    }
-  }
-  
-  const mergeVueI18nConfigs = async (loader) => {
-    const layerConfig = await vueI18nConfigLoader(loader)
-    const cfg = layerConfig || {}
-    
-    for (const [k, v] of Object.entries(cfg)) {
-      if(nuxtI18nOptions.vueI18n?.[k] === undefined || typeof nuxtI18nOptions.vueI18n?.[k] !== 'object') {
-        nuxtI18nOptions.vueI18n[k] = v
-      } else {
-        deepCopy(v, nuxtI18nOptions.vueI18n[k])
-      }
-    }
-  }
-
-  nuxtI18nOptions.vueI18n = { messages: {} }
-  
-    
-  return nuxtI18nOptions
-}
 
 export const nuxtI18nOptionsDefault = {
   "experimental": {
-    "jsTsFormatResource": false
+    "localeDetector": ""
   },
   "bundle": {
     "compositionOnly": true,
@@ -176,27 +133,42 @@ export const nuxtI18nOptionsDefault = {
   "parallelPlugin": false
 }
 
-export const nuxtI18nInternalOptions = {
-  "__normalizedLocales": [
-    {
-      "code": "en",
-      "files": [
-        {
-          "path": "locales/en.json"
-        }
-      ]
-    },
-    {
-      "code": "fr",
-      "files": [
-        {
-          "path": "locales/fr.json"
-        }
-      ]
-    }
-  ]
-}
- 
+export const normalizedLocales = [
+  {
+    "code": "en",
+    "files": [
+      {
+        "path": "locales/en.json"
+      }
+    ]
+  },
+  {
+    "code": "fr",
+    "files": [
+      {
+        "path": "locales/fr.json"
+      }
+    ]
+  }
+]
+
 export const NUXT_I18N_MODULE_ID = "@nuxtjs/i18n"
 export const parallelPlugin = false
 export const isSSG = false
+
+export const STRATEGIES = {
+  "PREFIX": "prefix",
+  "PREFIX_EXCEPT_DEFAULT": "prefix_except_default",
+  "PREFIX_AND_DEFAULT": "prefix_and_default",
+  "NO_PREFIX": "no_prefix"
+}
+export const DEFAULT_LOCALE = ""
+export const DEFAULT_STRATEGY = "prefix_except_default"
+export const DEFAULT_TRAILING_SLASH = false
+export const DEFAULT_ROUTES_NAME_SEPARATOR = "___"
+export const DEFAULT_LOCALE_ROUTE_NAME_SUFFIX = "default"
+export const DEFAULT_DETECTION_DIRECTION = "ltr"
+export const DEFAULT_BASE_URL = ""
+export const DEFAULT_DYNAMIC_PARAMS_KEY = "nuxtI18n"
+
+
