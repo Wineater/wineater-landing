@@ -1,6 +1,6 @@
 
 import { updateAppConfig } from '#app'
-import { defuFn } from '/Users/alexolkhovoi/Desktop/Development/Wineater/wineater-landing/node_modules/defu/dist/defu.mjs'
+import { defuFn } from '/workspaces/wineater-landing/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {
   "nuxt": {}

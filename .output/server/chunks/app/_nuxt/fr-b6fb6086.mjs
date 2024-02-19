@@ -41,17 +41,17 @@ const resource = {
     "TryMe": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Essaie-moi" } }
   },
   "playground": {
-    "BeSureToProvideDetails": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Am\xE9liorez votre exp\xE9rience culinaire avec Wineater, l'expert des accords mets-vins parfaits pour votre repas. Fournissez simplement les d\xE9tails de votre plat et nous vous recommanderons le compagnon de vin id\xE9al" } },
-    "BookDemo": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "D\xE9mo du livre" } },
+    "BeSureToProvideDetails": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sublimez votre exp\xE9rience gastronomique avec Wineater, l'expert des accords mets et vins parfaits. Il vous suffit de nous donner les d\xE9tails de votre plat, et nous vous recommanderons le compagnon vin id\xE9al" } },
+    "BookDemo": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Demander une d\xE9mo" } },
     "Buy": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Acheter" } },
-    "FindAMatch": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Trouver une correspondance" } },
+    "FindAMatch": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Accorder" } },
     "forYour": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "pour votre" } },
-    "Grape": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Grain de raisin" } },
+    "Grape": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "C\xE9pages" } },
     "perfectDinner": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "parfait&nbsp;d\xEEner" } },
     "perfectWine": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "vin&nbsp;parfait" } },
     "Region": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "R\xE9gion" } },
-    "Type": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Type" } },
-    "WhatDoYouWannaEat": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Que veux-tu manger ?" } },
+    "Type": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Couleur" } },
+    "WhatDoYouWannaEat": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Que voulez-vous manger? ex., Salade de thon" } },
     "WineaterFind": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " Wineater trouver" } }
   },
   "scienceBehind": {
@@ -73,4 +73,4 @@ const resource = {
 };
 
 export { resource as default };
-//# sourceMappingURL=fr-8ddde9a3.mjs.map
+//# sourceMappingURL=fr-b6fb6086.mjs.map

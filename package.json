@@ -19,6 +19,7 @@
   "dependencies": {
     "@openreplay/tracker": "^9.0.9",
     "sass": "^1.69.0",
+    "save": "^2.9.0",
     "uuid": "^9.0.1"
   }
 }

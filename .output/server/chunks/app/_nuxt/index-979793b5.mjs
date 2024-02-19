@@ -2,7 +2,7 @@ import { ssrRenderComponent, ssrRenderAttrs, ssrInterpolate, ssrRenderList } fro
 import { ref, onUnmounted, useSSRContext, mergeProps, withCtx, createTextVNode, toDisplayString, createVNode, resolveComponent, defineComponent, computed, h } from 'vue';
 import { _ as _export_sfc, u as useRouter, n as navigateTo } from '../server.mjs';
 import { n as hasProtocol, p as parseURL, y as parseQuery, z as withTrailingSlash, A as withoutTrailingSlash } from '../../nitro/node-server.mjs';
-import { H as Header, B as Button } from './Header-7c31786a.mjs';
+import { H as Header, B as Button } from './Header-45297ae1.mjs';
 import '@unhead/shared';
 import 'vue-router';
 import 'is-https';
@@ -215,7 +215,7 @@ function defineNuxtLink(options) {
 const __nuxt_component_0 = /* @__PURE__ */ defineNuxtLink({ componentName: "NuxtLink" });
 const _sfc_main$8 = {};
 function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "main-banner" }, _attrs))} data-v-6c741c91><div class="main-banner__info" data-v-6c741c91><h1 class="h1 main-banner__info-title color-text" data-v-6c741c91>${ssrInterpolate(_ctx.$t("startBanner.WineAndFoodPairing"))}</h1><div class="main-banner__info-description" data-v-6c741c91><p class="p1 color-text" data-v-6c741c91>${ssrInterpolate(_ctx.$t("startBanner.title1"))} <span class="color-brand-1" data-v-6c741c91>${ssrInterpolate(_ctx.$t("startBanner.title2"))}</span> ${ssrInterpolate(_ctx.$t("startBanner.title2"))}</p><div class="main-banner__info-hint" data-v-6c741c91></div></div></div><div class="main-banner__img" data-v-6c741c91></div></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "main-banner" }, _attrs))} data-v-fe1dda4f><div class="main-banner__info" data-v-fe1dda4f><h1 class="h1 main-banner__info-title color-text" data-v-fe1dda4f>${ssrInterpolate(_ctx.$t("startBanner.WineAndFoodPairing"))}</h1><div class="main-banner__info-description" data-v-fe1dda4f><p class="p1 color-text" data-v-fe1dda4f>${ssrInterpolate(_ctx.$t("startBanner.title1"))} <span class="color-brand-1" data-v-fe1dda4f>${ssrInterpolate(_ctx.$t("startBanner.title2"))}</span> ${ssrInterpolate(_ctx.$t("startBanner.title2"))}</p><div class="main-banner__info-hint" data-v-fe1dda4f></div></div></div><div class="main-banner__img" data-v-fe1dda4f></div></div>`);
 }
 const _sfc_setup$8 = _sfc_main$8.setup;
 _sfc_main$8.setup = (props, ctx) => {
@@ -223,7 +223,7 @@ _sfc_main$8.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/StartBanner.vue");
   return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const StartBanner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-6c741c91"]]);
+const StartBanner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-fe1dda4f"]]);
 const _sfc_main$7 = {
   __name: "AlgorithmInfo",
   __ssrInlineRender: true,
@@ -235,8 +235,8 @@ const _sfc_main$7 = {
       const _component_NuxtLink = __nuxt_component_0;
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: ["algorithm-info", { "visible": __props.visible }]
-      }, _attrs))} data-v-1a07d4a0><h2 class="h2 color-text algorithm-info__text" data-v-1a07d4a0>${ssrInterpolate(_ctx.$t("algorithm.title1"))} <span class="color-brand-6" data-v-1a07d4a0>${ssrInterpolate(_ctx.$t("algorithm.title2"))}</span> ${ssrInterpolate(_ctx.$t("algorithm.title3"))}</h2>`);
-      _push(ssrRenderComponent(_component_NuxtLink, { to: "/playground/all" }, {
+      }, _attrs))} data-v-c8b6d4bd><h2 class="h2 color-text algorithm-info__text" data-v-c8b6d4bd>${ssrInterpolate(_ctx.$t("algorithm.title1"))} <span class="color-brand-6" data-v-c8b6d4bd>${ssrInterpolate(_ctx.$t("algorithm.title2"))}</span> ${ssrInterpolate(_ctx.$t("algorithm.title3"))}</h2>`);
+      _push(ssrRenderComponent(_component_NuxtLink, { to: "/playground" }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
             _push2(ssrRenderComponent(Button, { class: "algorithm-info__btn" }, {
@@ -274,7 +274,7 @@ _sfc_main$7.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/AlgorithmInfo.vue");
   return _sfc_setup$7 ? _sfc_setup$7(props, ctx) : void 0;
 };
-const AlgorithmInfo = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-1a07d4a0"]]);
+const AlgorithmInfo = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-c8b6d4bd"]]);
 const _sfc_main$6 = {
   __name: "ScienceBehind",
   __ssrInlineRender: true,
@@ -285,7 +285,7 @@ const _sfc_main$6 = {
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: ["science-behind", { "visible": __props.visible }]
-      }, _attrs))} data-v-166fe7a0><div class="science-behind__bottles" data-v-166fe7a0><div class="science-behind__bottles-text" data-v-166fe7a0><h2 class="h2 color-brand-4" data-v-166fe7a0>${ssrInterpolate(_ctx.$t("scienceBehind.title"))}</h2><p class="p1 color-brand-4" data-v-166fe7a0>${ssrInterpolate(_ctx.$t("scienceBehind.text"))}</p></div></div><div class="science-behind__bottle" data-v-166fe7a0></div></div>`);
+      }, _attrs))} data-v-a4069acb><div class="science-behind__bottles" data-v-a4069acb><div class="science-behind__bottles-text" data-v-a4069acb><h2 class="h2 color-brand-4" data-v-a4069acb>${ssrInterpolate(_ctx.$t("scienceBehind.title"))}</h2><p class="p1 color-brand-4" data-v-a4069acb>${ssrInterpolate(_ctx.$t("scienceBehind.text"))}</p></div></div><div class="science-behind__bottle" data-v-a4069acb></div></div>`);
     };
   }
 };
@@ -295,7 +295,7 @@ _sfc_main$6.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/ScienceBehind.vue");
   return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const ScienceBehind = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-166fe7a0"]]);
+const ScienceBehind = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-a4069acb"]]);
 const _sfc_main$5 = {
   props: {
     visible: Boolean
@@ -384,7 +384,7 @@ const _sfc_main$3 = {
 };
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Button = resolveComponent("Button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "footer" }, _attrs))} data-v-71c17de9><div class="footer__content" data-v-71c17de9><div class="footer__texts" data-v-71c17de9><div class="footer__title color-brand-4 decorative-1" data-v-71c17de9>${ssrInterpolate(_ctx.$t("Footer.title"))}</div><div class="footer__text h2 color-brand-4" data-v-71c17de9>${ssrInterpolate(_ctx.$t("Footer.text"))} <div class="footer__text-arrow" data-v-71c17de9></div></div><div class="footer__btn" data-v-71c17de9>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "footer" }, _attrs))} data-v-fdbf181b><div class="footer__content" data-v-fdbf181b><div class="footer__texts" data-v-fdbf181b><div class="footer__title color-brand-4 decorative-1" data-v-fdbf181b>${ssrInterpolate(_ctx.$t("Footer.title"))}</div><div class="footer__text h2 color-brand-4" data-v-fdbf181b>${ssrInterpolate(_ctx.$t("Footer.text"))} <div class="footer__text-arrow" data-v-fdbf181b></div></div><div class="footer__btn" data-v-fdbf181b>`);
   _push(ssrRenderComponent(_component_Button, { onBtnClick: $options.openDemoPage }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -397,7 +397,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div><div class="footer__info" data-v-71c17de9><div class="footer__logo" data-v-71c17de9></div><div class="footer__links" data-v-71c17de9><a class="p1 color-brand-4" href="vladimir@wineater.com" data-v-71c17de9>vladimir@wineater.com</a><a class="p1 color-brand-4" href="https://instagram.com/ah_vladimir?igshid=MzRlODBiNWFlZA==" target="_blank" data-v-71c17de9>Instagram</a></div></div></div></div>`);
+  _push(`</div></div><div class="footer__info" data-v-fdbf181b><div class="footer__logo" data-v-fdbf181b></div><div class="footer__links" data-v-fdbf181b><a class="p1 color-brand-4" href="vladimir@wineater.com" data-v-fdbf181b>vladimir@wineater.com</a><a class="p1 color-brand-4" href="https://instagram.com/ah_vladimir?igshid=MzRlODBiNWFlZA==" target="_blank" data-v-fdbf181b>Instagram</a></div></div></div></div>`);
 }
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
@@ -405,7 +405,7 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/Footer.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const Footer = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$2], ["__scopeId", "data-v-71c17de9"]]);
+const Footer = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$2], ["__scopeId", "data-v-fdbf181b"]]);
 const _sfc_main$2 = {
   components: {
     Button
@@ -578,4 +578,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-762dea5a.mjs.map
+//# sourceMappingURL=index-979793b5.mjs.map

@@ -257,6 +257,7 @@ export default {
   color: #FFFFFF;
   font-size: 30px;
   text-align: left;
+  min-height: 120px;
 }
 
 .playground__card-info {
@@ -376,6 +377,7 @@ export default {
   .playground__card-info-header {
     padding-bottom: 16px;
     margin-bottom: 16px;
+    min-height: 60px;
   }
 
   .playground__card-img {
