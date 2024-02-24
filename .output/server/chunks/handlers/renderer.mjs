@@ -1,5 +1,5 @@
 import { getRequestDependencies, getPreloadLinks, getPrefetchLinks, createRenderer } from 'vue-bundle-renderer/runtime';
-import { e as eventHandler, s as setResponseHeader, a as send, g as getResponseStatus, b as setResponseStatus, c as setResponseHeaders, u as useNitroApp, j as joinURL, f as useRuntimeConfig, h as getQuery, i as createError, k as getRouteRules, l as getResponseStatusText } from '../nitro/node-server.mjs';
+import { e as eventHandler, s as setResponseHeader, a as send, g as getResponseStatus, b as setResponseStatus, u as useNitroApp, c as setResponseHeaders, j as joinURL, d as useRuntimeConfig, f as getQuery, h as createError, i as getRouteRules, k as getResponseStatusText } from '../nitro/node-server.mjs';
 import { stringify, uneval } from 'devalue';
 import { renderToString } from 'vue/server-renderer';
 import { renderSSRHead } from '@unhead/ssr';
@@ -8,16 +8,10 @@ import { createServerHead as createServerHead$1 } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
 import 'node:http';
 import 'node:https';
-import 'node:zlib';
-import 'node:stream';
-import 'node:buffer';
-import 'node:util';
-import 'node:url';
-import 'node:net';
-import 'node:fs';
-import 'node:path';
 import 'fs';
 import 'path';
+import 'node:fs';
+import 'node:url';
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -45,7 +39,7 @@ function defineRenderHandler(handler) {
     if (response.statusCode || response.statusMessage) {
       setResponseStatus(event, response.statusCode, response.statusMessage);
     }
-    return typeof response.body === "string" ? response.body : JSON.stringify(response.body);
+    return response.body;
   });
 }
 
@@ -118,7 +112,8 @@ function buildAssetsURL(...path) {
   return joinURL(publicAssetsURL(), buildAssetsDir(), ...path);
 }
 function publicAssetsURL(...path) {
-  const publicBase = useRuntimeConfig().app.cdnURL || useRuntimeConfig().app.baseURL;
+  const app = useRuntimeConfig().app;
+  const publicBase = app.cdnURL || app.baseURL;
   return path.length ? joinURL(publicBase, ...path) : publicBase;
 }
 
@@ -172,7 +167,8 @@ const getSPARenderer = lazyCachedFunction(async () => {
       _errors: {},
       serverRendered: false,
       data: {},
-      state: {}
+      state: {},
+      once: /* @__PURE__ */ new Set()
     };
     ssrContext.config = {
       public: config.public,
@@ -198,9 +194,10 @@ const renderer = defineRenderHandler(async (event) => {
       statusMessage: "Page Not Found: /__nuxt_error"
     });
   }
+  const isRenderingIsland = false ;
   const islandContext = void 0;
   let url = ssrError?.url || islandContext?.url || event.path;
-  const isRenderingPayload = PAYLOAD_URL_RE.test(url) && !islandContext;
+  const isRenderingPayload = PAYLOAD_URL_RE.test(url) && !isRenderingIsland;
   if (isRenderingPayload) {
     url = url.substring(0, url.lastIndexOf("/")) || "/";
     event._path = url;
@@ -211,21 +208,35 @@ const renderer = defineRenderHandler(async (event) => {
     plugins: unheadPlugins
   });
   const headEntryOptions = { mode: "server" };
-  head.push(appHead, headEntryOptions);
+  {
+    head.push(appHead, headEntryOptions);
+  }
   const ssrContext = {
     url,
     event,
     runtimeConfig: useRuntimeConfig(),
-    noSSR: event.context.nuxt?.noSSR || routeOptions.ssr === false && !islandContext || (false),
+    noSSR: event.context.nuxt?.noSSR || routeOptions.ssr === false && !isRenderingIsland || (false),
     head,
     error: !!ssrError,
     nuxt: void 0,
     /* NuxtApp */
     payload: ssrError ? { error: ssrError } : {},
     _payloadReducers: {},
+    modules: /* @__PURE__ */ new Set(),
+    set _registeredComponents(value) {
+      this.modules = value;
+    },
+    get _registeredComponents() {
+      return this.modules;
+    },
     islandContext
   };
   const renderer = ssrContext.noSSR ? await getSPARenderer() : await getSSRRenderer();
+  {
+    for (const id of await getEntryIds()) {
+      ssrContext.modules.add(id);
+    }
+  }
   const _rendered = await renderer.renderToString(ssrContext).catch(async (error) => {
     if (ssrContext._renderResponse && error.message === "skipping render") {
       return {};
@@ -245,24 +256,21 @@ const renderer = defineRenderHandler(async (event) => {
     const response2 = renderPayloadResponse(ssrContext);
     return response2;
   }
-  {
-    const source = ssrContext.modules ?? ssrContext._registeredComponents;
-    if (source) {
-      for (const id of await getEntryIds()) {
-        source.add(id);
-      }
-    }
-  }
-  const inlinedStyles = await renderInlineStyles(ssrContext.modules ?? ssrContext._registeredComponents ?? []) ;
+  const inlinedStyles = await renderInlineStyles(ssrContext.modules ?? []) ;
   const NO_SCRIPTS = routeOptions.experimentalNoScripts;
   const { styles, scripts } = getRequestDependencies(ssrContext, renderer.rendererContext);
   head.push({ style: inlinedStyles });
-  head.push({
-    link: Object.values(styles).map(
-      (resource) => ({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file) })
-    )
-  }, headEntryOptions);
-  if (!NO_SCRIPTS) {
+  {
+    const link = [];
+    for (const style in styles) {
+      const resource = styles[style];
+      {
+        link.push({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file) });
+      }
+    }
+    head.push({ link }, headEntryOptions);
+  }
+  if (!NO_SCRIPTS && !isRenderingIsland) {
     head.push({
       link: getPreloadLinks(ssrContext, renderer.rendererContext)
     }, headEntryOptions);
@@ -278,7 +286,7 @@ const renderer = defineRenderHandler(async (event) => {
       tagPriority: "high"
     });
   }
-  if (!routeOptions.experimentalNoScripts) {
+  if (!routeOptions.experimentalNoScripts && !isRenderingIsland) {
     head.push({
       script: Object.values(scripts).map((resource) => ({
         type: resource.module ? "module" : null,
@@ -290,10 +298,10 @@ const renderer = defineRenderHandler(async (event) => {
   }
   const { headTags, bodyTags, bodyTagsOpen, htmlAttrs, bodyAttrs } = await renderSSRHead(head);
   const htmlContext = {
-    island: Boolean(islandContext),
-    htmlAttrs: [htmlAttrs],
+    island: isRenderingIsland,
+    htmlAttrs: htmlAttrs ? [htmlAttrs] : [],
     head: normalizeChunks([headTags, ssrContext.styles]),
-    bodyAttrs: [bodyAttrs],
+    bodyAttrs: bodyAttrs ? [bodyAttrs] : [],
     bodyPrepend: normalizeChunks([bodyTagsOpen, ssrContext.teleports?.body]),
     body: [_rendered.html],
     bodyAppend: [bodyTags]
@@ -332,11 +340,7 @@ function joinAttrs(chunks) {
   return chunks.join(" ");
 }
 function renderHTMLDocument(html) {
-  return `<!DOCTYPE html>
-<html ${joinAttrs(html.htmlAttrs)}>
-<head>${joinTags(html.head)}</head>
-<body ${joinAttrs(html.bodyAttrs)}>${joinTags(html.bodyPrepend)}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body>
-</html>`;
+  return `<!DOCTYPE html><html${joinAttrs(html.htmlAttrs)}><head>${joinTags(html.head)}</head><body${joinAttrs(html.bodyAttrs)}>${joinTags(html.bodyPrepend)}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body></html>`;
 }
 async function renderInlineStyles(usedModules) {
   const styleMap = await getSSRStyles();

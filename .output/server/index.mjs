@@ -1,14 +1,8 @@
-globalThis._importMeta_={url:import.meta.url,env:process.env};export { C as default } from './chunks/nitro/node-server.mjs';
-import 'node:http';
+globalThis._importMeta_={url:import.meta.url,env:process.env};import 'node:http';
 import 'node:https';
-import 'node:zlib';
-import 'node:stream';
-import 'node:buffer';
-import 'node:util';
-import 'node:url';
-import 'node:net';
-import 'node:fs';
-import 'node:path';
+export { A as default } from './chunks/nitro/node-server.mjs';
 import 'fs';
 import 'path';
+import 'node:fs';
+import 'node:url';
 //# sourceMappingURL=index.mjs.map

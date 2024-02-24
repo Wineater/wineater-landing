@@ -1,153 +1,14 @@
-import { hasInjectionContext, getCurrentInstance, version, inject, defineComponent, h, onUnmounted, unref, ref, computed, watch, Fragment, useSSRContext, createApp, reactive, provide, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, shallowReactive, isReadonly, Text, defineAsyncComponent, isRef, isShallow, isReactive, toRaw, effectScope, nextTick, Suspense, Transition } from 'vue';
-import { f as useRuntimeConfig$1, m as withQuery, n as hasProtocol, p as parseURL, o as isScriptProtocol, j as joinURL, i as createError$1, $ as $fetch, q as sanitizeStatusCode, r as createHooks, t as isEqual, v as getRequestHeaders, x as defu } from '../nitro/node-server.mjs';
+import { hasInjectionContext, inject, version, defineComponent, h, getCurrentInstance, onUnmounted, provide, shallowReactive, ref, watch, Suspense, nextTick, Transition, unref, computed, Fragment, useSSRContext, createApp, effectScope, reactive, shallowRef, defineAsyncComponent, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, isReadonly, Text, isRef, isShallow, isReactive, toRaw } from 'vue';
+import { d as useRuntimeConfig$1, $ as $fetch, h as createError$1, l as defu, m as sanitizeStatusCode, n as createHooks, o as klona, p as parse$1, q as getRequestHeader, r as getRequestHeaders, t as destr, v as isEqual$1, w as setCookie, x as getCookie, y as deleteCookie } from '../nitro/node-server.mjs';
 import { defineHeadPlugin } from '@unhead/shared';
-import { createMemoryHistory, createRouter, START_LOCATION, useRouter as useRouter$1, useRoute as useRoute$1, RouterView } from 'vue-router';
-import isHTTPS from 'is-https';
+import { RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode, ssrRenderAttrs } from 'vue/server-renderer';
 import 'node:http';
 import 'node:https';
-import 'node:zlib';
-import 'node:stream';
-import 'node:buffer';
-import 'node:util';
-import 'node:url';
-import 'node:net';
-import 'node:fs';
-import 'node:path';
 import 'fs';
 import 'path';
-
-const fieldContentRegExp = /^[\u0009\u0020-\u007E\u0080-\u00FF]+$/;
-function parse$1(str, options) {
-  if (typeof str !== "string") {
-    throw new TypeError("argument str must be a string");
-  }
-  const obj = {};
-  const opt = options || {};
-  const dec = opt.decode || decode;
-  let index = 0;
-  while (index < str.length) {
-    const eqIdx = str.indexOf("=", index);
-    if (eqIdx === -1) {
-      break;
-    }
-    let endIdx = str.indexOf(";", index);
-    if (endIdx === -1) {
-      endIdx = str.length;
-    } else if (endIdx < eqIdx) {
-      index = str.lastIndexOf(";", eqIdx - 1) + 1;
-      continue;
-    }
-    const key = str.slice(index, eqIdx).trim();
-    if (void 0 === obj[key]) {
-      let val = str.slice(eqIdx + 1, endIdx).trim();
-      if (val.codePointAt(0) === 34) {
-        val = val.slice(1, -1);
-      }
-      obj[key] = tryDecode(val, dec);
-    }
-    index = endIdx + 1;
-  }
-  return obj;
-}
-function serialize(name, value, options) {
-  const opt = options || {};
-  const enc = opt.encode || encode;
-  if (typeof enc !== "function") {
-    throw new TypeError("option encode is invalid");
-  }
-  if (!fieldContentRegExp.test(name)) {
-    throw new TypeError("argument name is invalid");
-  }
-  const encodedValue = enc(value);
-  if (encodedValue && !fieldContentRegExp.test(encodedValue)) {
-    throw new TypeError("argument val is invalid");
-  }
-  let str = name + "=" + encodedValue;
-  if (void 0 !== opt.maxAge && opt.maxAge !== null) {
-    const maxAge = opt.maxAge - 0;
-    if (Number.isNaN(maxAge) || !Number.isFinite(maxAge)) {
-      throw new TypeError("option maxAge is invalid");
-    }
-    str += "; Max-Age=" + Math.floor(maxAge);
-  }
-  if (opt.domain) {
-    if (!fieldContentRegExp.test(opt.domain)) {
-      throw new TypeError("option domain is invalid");
-    }
-    str += "; Domain=" + opt.domain;
-  }
-  if (opt.path) {
-    if (!fieldContentRegExp.test(opt.path)) {
-      throw new TypeError("option path is invalid");
-    }
-    str += "; Path=" + opt.path;
-  }
-  if (opt.expires) {
-    if (!isDate$1(opt.expires) || Number.isNaN(opt.expires.valueOf())) {
-      throw new TypeError("option expires is invalid");
-    }
-    str += "; Expires=" + opt.expires.toUTCString();
-  }
-  if (opt.httpOnly) {
-    str += "; HttpOnly";
-  }
-  if (opt.secure) {
-    str += "; Secure";
-  }
-  if (opt.priority) {
-    const priority = typeof opt.priority === "string" ? opt.priority.toLowerCase() : opt.priority;
-    switch (priority) {
-      case "low":
-        str += "; Priority=Low";
-        break;
-      case "medium":
-        str += "; Priority=Medium";
-        break;
-      case "high":
-        str += "; Priority=High";
-        break;
-      default:
-        throw new TypeError("option priority is invalid");
-    }
-  }
-  if (opt.sameSite) {
-    const sameSite = typeof opt.sameSite === "string" ? opt.sameSite.toLowerCase() : opt.sameSite;
-    switch (sameSite) {
-      case true:
-        str += "; SameSite=Strict";
-        break;
-      case "lax":
-        str += "; SameSite=Lax";
-        break;
-      case "strict":
-        str += "; SameSite=Strict";
-        break;
-      case "none":
-        str += "; SameSite=None";
-        break;
-      default:
-        throw new TypeError("option sameSite is invalid");
-    }
-  }
-  return str;
-}
-function isDate$1(val) {
-  return Object.prototype.toString.call(val) === "[object Date]" || val instanceof Date;
-}
-function tryDecode(str, decode2) {
-  try {
-    return decode2(str);
-  } catch {
-    return str;
-  }
-}
-function decode(str) {
-  return str.includes("%") ? decodeURIComponent(str) : str;
-}
-function encode(val) {
-  return encodeURIComponent(val);
-}
+import 'node:fs';
+import 'node:url';
 
 function createContext$1(opts = {}) {
   let currentInstance;
@@ -246,8 +107,239 @@ const getContext = (key, opts = {}) => defaultNamespace.get(key, opts);
 const asyncHandlersKey$1 = "__unctx_async_handlers__";
 const asyncHandlers$1 = _globalThis[asyncHandlersKey$1] || (_globalThis[asyncHandlersKey$1] = /* @__PURE__ */ new Set());
 
+const HASH_RE = /#/g;
+const AMPERSAND_RE = /&/g;
+const SLASH_RE = /\//g;
+const EQUAL_RE = /=/g;
+const PLUS_RE = /\+/g;
+const ENC_CARET_RE = /%5e/gi;
+const ENC_BACKTICK_RE = /%60/gi;
+const ENC_PIPE_RE = /%7c/gi;
+const ENC_SPACE_RE = /%20/gi;
+function encode(text) {
+  return encodeURI("" + text).replace(ENC_PIPE_RE, "|");
+}
+function encodeQueryValue(input) {
+  return encode(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CARET_RE, "^").replace(SLASH_RE, "%2F");
+}
+function encodeQueryKey(text) {
+  return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
+}
+function decode(text = "") {
+  try {
+    return decodeURIComponent("" + text);
+  } catch {
+    return "" + text;
+  }
+}
+function decodeQueryKey(text) {
+  return decode(text.replace(PLUS_RE, " "));
+}
+function decodeQueryValue(text) {
+  return decode(text.replace(PLUS_RE, " "));
+}
+function parseQuery(parametersString = "") {
+  const object = {};
+  if (parametersString[0] === "?") {
+    parametersString = parametersString.slice(1);
+  }
+  for (const parameter of parametersString.split("&")) {
+    const s = parameter.match(/([^=]+)=?(.*)/) || [];
+    if (s.length < 2) {
+      continue;
+    }
+    const key = decodeQueryKey(s[1]);
+    if (key === "__proto__" || key === "constructor") {
+      continue;
+    }
+    const value = decodeQueryValue(s[2] || "");
+    if (object[key] === void 0) {
+      object[key] = value;
+    } else if (Array.isArray(object[key])) {
+      object[key].push(value);
+    } else {
+      object[key] = [object[key], value];
+    }
+  }
+  return object;
+}
+function encodeQueryItem(key, value) {
+  if (typeof value === "number" || typeof value === "boolean") {
+    value = String(value);
+  }
+  if (!value) {
+    return encodeQueryKey(key);
+  }
+  if (Array.isArray(value)) {
+    return value.map((_value) => `${encodeQueryKey(key)}=${encodeQueryValue(_value)}`).join("&");
+  }
+  return `${encodeQueryKey(key)}=${encodeQueryValue(value)}`;
+}
+function stringifyQuery(query) {
+  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem(k, query[k])).filter(Boolean).join("&");
+}
+const PROTOCOL_STRICT_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
+const PROTOCOL_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{2})?/;
+const PROTOCOL_RELATIVE_REGEX = /^([/\\]\s*){2,}[^/\\]/;
+const PROTOCOL_SCRIPT_RE = /^[\s\0]*(blob|data|javascript|vbscript):$/i;
+const TRAILING_SLASH_RE = /\/$|\/\?|\/#/;
+const JOIN_LEADING_SLASH_RE = /^\.?\//;
+function hasProtocol(inputString, opts = {}) {
+  if (typeof opts === "boolean") {
+    opts = { acceptRelative: opts };
+  }
+  if (opts.strict) {
+    return PROTOCOL_STRICT_REGEX.test(inputString);
+  }
+  return PROTOCOL_REGEX.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false);
+}
+function isScriptProtocol(protocol) {
+  return !!protocol && PROTOCOL_SCRIPT_RE.test(protocol);
+}
+function hasTrailingSlash(input = "", respectQueryAndFragment) {
+  if (!respectQueryAndFragment) {
+    return input.endsWith("/");
+  }
+  return TRAILING_SLASH_RE.test(input);
+}
+function withoutTrailingSlash(input = "", respectQueryAndFragment) {
+  if (!respectQueryAndFragment) {
+    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
+  }
+  if (!hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  let path = input;
+  let fragment = "";
+  const fragmentIndex = input.indexOf("#");
+  if (fragmentIndex >= 0) {
+    path = input.slice(0, fragmentIndex);
+    fragment = input.slice(fragmentIndex);
+  }
+  const [s0, ...s] = path.split("?");
+  return (s0.slice(0, -1) || "/") + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
+}
+function withTrailingSlash(input = "", respectQueryAndFragment) {
+  if (!respectQueryAndFragment) {
+    return input.endsWith("/") ? input : input + "/";
+  }
+  if (hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  let path = input;
+  let fragment = "";
+  const fragmentIndex = input.indexOf("#");
+  if (fragmentIndex >= 0) {
+    path = input.slice(0, fragmentIndex);
+    fragment = input.slice(fragmentIndex);
+    if (!path) {
+      return fragment;
+    }
+  }
+  const [s0, ...s] = path.split("?");
+  return s0 + "/" + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
+}
+function hasLeadingSlash(input = "") {
+  return input.startsWith("/");
+}
+function withLeadingSlash(input = "") {
+  return hasLeadingSlash(input) ? input : "/" + input;
+}
+function withQuery(input, query) {
+  const parsed = parseURL(input);
+  const mergedQuery = { ...parseQuery(parsed.search), ...query };
+  parsed.search = stringifyQuery(mergedQuery);
+  return stringifyParsedURL(parsed);
+}
+function isNonEmptyURL(url) {
+  return url && url !== "/";
+}
+function joinURL(base, ...input) {
+  let url = base || "";
+  for (const segment of input.filter((url2) => isNonEmptyURL(url2))) {
+    if (url) {
+      const _segment = segment.replace(JOIN_LEADING_SLASH_RE, "");
+      url = withTrailingSlash(url) + _segment;
+    } else {
+      url = segment;
+    }
+  }
+  return url;
+}
+function isEqual(a, b, options = {}) {
+  if (!options.trailingSlash) {
+    a = withTrailingSlash(a);
+    b = withTrailingSlash(b);
+  }
+  if (!options.leadingSlash) {
+    a = withLeadingSlash(a);
+    b = withLeadingSlash(b);
+  }
+  if (!options.encoding) {
+    a = decode(a);
+    b = decode(b);
+  }
+  return a === b;
+}
+const protocolRelative = Symbol.for("ufo:protocolRelative");
+function parseURL(input = "", defaultProto) {
+  const _specialProtoMatch = input.match(
+    /^[\s\0]*(blob:|data:|javascript:|vbscript:)(.*)/i
+  );
+  if (_specialProtoMatch) {
+    const [, _proto, _pathname = ""] = _specialProtoMatch;
+    return {
+      protocol: _proto.toLowerCase(),
+      pathname: _pathname,
+      href: _proto + _pathname,
+      auth: "",
+      host: "",
+      search: "",
+      hash: ""
+    };
+  }
+  if (!hasProtocol(input, { acceptRelative: true })) {
+    return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
+  }
+  const [, protocol = "", auth, hostAndPath = ""] = input.replace(/\\/g, "/").match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
+  const [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
+  const { pathname, search, hash } = parsePath(
+    path.replace(/\/(?=[A-Za-z]:)/, "")
+  );
+  return {
+    protocol: protocol.toLowerCase(),
+    auth: auth ? auth.slice(0, Math.max(0, auth.length - 1)) : "",
+    host,
+    pathname,
+    search,
+    hash,
+    [protocolRelative]: !protocol
+  };
+}
+function parsePath(input = "") {
+  const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
+  return {
+    pathname,
+    search,
+    hash
+  };
+}
+function stringifyParsedURL(parsed) {
+  const pathname = parsed.pathname || "";
+  const search = parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "";
+  const hash = parsed.hash || "";
+  const auth = parsed.auth ? parsed.auth + "@" : "";
+  const host = parsed.host || "";
+  const proto = parsed.protocol || parsed[protocolRelative] ? (parsed.protocol || "") + "//" : "";
+  return proto + auth + host + pathname + search + hash;
+}
 const appConfig = useRuntimeConfig$1().app;
 const baseURL = () => appConfig.baseURL;
+if (!globalThis.$fetch) {
+  globalThis.$fetch = $fetch.create({
+    baseURL: baseURL()
+  });
+}
 const nuxtAppCtx = /* @__PURE__ */ getContext("nuxt-app", {
   asyncContext: false
 });
@@ -255,11 +347,12 @@ const NuxtPluginIndicator = "__nuxt_plugin";
 function createNuxtApp(options) {
   let hydratingCount = 0;
   const nuxtApp = {
+    _scope: effectScope(),
     provide: void 0,
     globalName: "nuxt",
     versions: {
       get nuxt() {
-        return "3.7.4";
+        return "3.10.2";
       },
       get vue() {
         return nuxtApp.vueApp.version;
@@ -268,13 +361,14 @@ function createNuxtApp(options) {
     payload: reactive({
       data: {},
       state: {},
+      once: /* @__PURE__ */ new Set(),
       _errors: {},
       ...{ serverRendered: true }
     }),
     static: {
       data: {}
     },
-    runWithContext: (fn) => callWithNuxt(nuxtApp, fn),
+    runWithContext: (fn) => nuxtApp._scope.run(() => callWithNuxt(nuxtApp, fn)),
     isHydrating: false,
     deferHydration() {
       if (!nuxtApp.isHydrating) {
@@ -303,11 +397,11 @@ function createNuxtApp(options) {
   nuxtApp.hooks = createHooks();
   nuxtApp.hook = nuxtApp.hooks.hook;
   {
-    async function contextCaller(hooks, args) {
+    const contextCaller = async function(hooks, args) {
       for (const hook of hooks) {
         await nuxtApp.runWithContext(() => hook(...args));
       }
-    }
+    };
     nuxtApp.hooks.callHook = (name, ...args) => nuxtApp.hooks.callHookWith(contextCaller, name, ...args);
   }
   nuxtApp.callHook = nuxtApp.hooks.callHook;
@@ -353,33 +447,63 @@ async function applyPlugin(nuxtApp, plugin2) {
 }
 async function applyPlugins(nuxtApp, plugins2) {
   var _a, _b;
+  const resolvedPlugins = [];
+  const unresolvedPlugins = [];
   const parallels = [];
   const errors = [];
+  let promiseDepth = 0;
+  async function executePlugin(plugin2) {
+    var _a2;
+    const unresolvedPluginsForThisPlugin = ((_a2 = plugin2.dependsOn) == null ? void 0 : _a2.filter((name) => plugins2.some((p) => p._name === name) && !resolvedPlugins.includes(name))) ?? [];
+    if (unresolvedPluginsForThisPlugin.length > 0) {
+      unresolvedPlugins.push([new Set(unresolvedPluginsForThisPlugin), plugin2]);
+    } else {
+      const promise = applyPlugin(nuxtApp, plugin2).then(async () => {
+        if (plugin2._name) {
+          resolvedPlugins.push(plugin2._name);
+          await Promise.all(unresolvedPlugins.map(async ([dependsOn, unexecutedPlugin]) => {
+            if (dependsOn.has(plugin2._name)) {
+              dependsOn.delete(plugin2._name);
+              if (dependsOn.size === 0) {
+                promiseDepth++;
+                await executePlugin(unexecutedPlugin);
+              }
+            }
+          }));
+        }
+      });
+      if (plugin2.parallel) {
+        parallels.push(promise.catch((e) => errors.push(e)));
+      } else {
+        await promise;
+      }
+    }
+  }
   for (const plugin2 of plugins2) {
     if (((_a = nuxtApp.ssrContext) == null ? void 0 : _a.islandContext) && ((_b = plugin2.env) == null ? void 0 : _b.islands) === false) {
       continue;
     }
-    const promise = applyPlugin(nuxtApp, plugin2);
-    if (plugin2.parallel) {
-      parallels.push(promise.catch((e) => errors.push(e)));
-    } else {
-      await promise;
-    }
+    await executePlugin(plugin2);
   }
   await Promise.all(parallels);
+  if (promiseDepth) {
+    for (let i = 0; i < promiseDepth; i++) {
+      await Promise.all(parallels);
+    }
+  }
   if (errors.length) {
     throw errors[0];
   }
 }
-/*! @__NO_SIDE_EFFECTS__ */
 // @__NO_SIDE_EFFECTS__
 function defineNuxtPlugin(plugin2) {
   if (typeof plugin2 === "function") {
     return plugin2;
   }
+  const _name = plugin2._name || plugin2.name;
   delete plugin2.name;
   return Object.assign(plugin2.setup || (() => {
-  }), plugin2, { [NuxtPluginIndicator]: true });
+  }), plugin2, { [NuxtPluginIndicator]: true, _name });
 }
 function callWithNuxt(nuxt, setup, args) {
   const fn = () => args ? setup(...args) : setup();
@@ -387,15 +511,19 @@ function callWithNuxt(nuxt, setup, args) {
     return nuxt.vueApp.runWithContext(() => nuxtAppCtx.callAsync(nuxt, fn));
   }
 }
-/*! @__NO_SIDE_EFFECTS__ */
 // @__NO_SIDE_EFFECTS__
-function useNuxtApp() {
+function tryUseNuxtApp() {
   var _a;
   let nuxtAppInstance;
   if (hasInjectionContext()) {
     nuxtAppInstance = (_a = getCurrentInstance()) == null ? void 0 : _a.appContext.app.$nuxt;
   }
   nuxtAppInstance = nuxtAppInstance || nuxtAppCtx.tryUse();
+  return nuxtAppInstance || null;
+}
+// @__NO_SIDE_EFFECTS__
+function useNuxtApp() {
+  const nuxtAppInstance = /* @__PURE__ */ tryUseNuxtApp();
   if (!nuxtAppInstance) {
     {
       throw new Error("[nuxt] instance unavailable");
@@ -403,49 +531,12 @@ function useNuxtApp() {
   }
   return nuxtAppInstance;
 }
-/*! @__NO_SIDE_EFFECTS__ */
 // @__NO_SIDE_EFFECTS__
-function useRuntimeConfig() {
+function useRuntimeConfig(_event) {
   return (/* @__PURE__ */ useNuxtApp()).$config;
 }
 function defineGetter$1(obj, key, val) {
   Object.defineProperty(obj, key, { get: () => val });
-}
-version.startsWith("3");
-function resolveUnref(r) {
-  return typeof r === "function" ? r() : unref(r);
-}
-function resolveUnrefHeadInput(ref2, lastKey = "") {
-  if (ref2 instanceof Promise)
-    return ref2;
-  const root = resolveUnref(ref2);
-  if (!ref2 || !root)
-    return root;
-  if (Array.isArray(root))
-    return root.map((r) => resolveUnrefHeadInput(r, lastKey));
-  if (typeof root === "object") {
-    return Object.fromEntries(
-      Object.entries(root).map(([k, v]) => {
-        if (k === "titleTemplate" || k.startsWith("on"))
-          return [k, unref(v)];
-        return [k, resolveUnrefHeadInput(v, k)];
-      })
-    );
-  }
-  return root;
-}
-defineHeadPlugin({
-  hooks: {
-    "entries:resolve": function(ctx) {
-      for (const entry2 of ctx.entries)
-        entry2.resolvedInput = resolveUnrefHeadInput(entry2.input);
-    }
-  }
-});
-const _global = typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-const globalKey$1 = "__unhead_injection_handler__";
-function setHeadInjectionHandler(handler) {
-  _global[globalKey$1] = handler;
 }
 const LayoutMetaSymbol = Symbol("layout-meta");
 const PageRouteSymbol = Symbol("route");
@@ -459,7 +550,6 @@ const useRoute = () => {
   }
   return (/* @__PURE__ */ useNuxtApp())._route;
 };
-/*! @__NO_SIDE_EFFECTS__ */
 // @__NO_SIDE_EFFECTS__
 function defineNuxtRouteMiddleware(middleware) {
   return middleware;
@@ -513,7 +603,7 @@ const navigateTo = (to, options) => {
     if (nuxtApp.ssrContext) {
       const fullPath = typeof to === "string" || isExternal ? toPath : router.resolve(to).fullPath || "/";
       const location2 = isExternal ? toPath : joinURL((/* @__PURE__ */ useRuntimeConfig()).app.baseURL, fullPath);
-      async function redirect(response) {
+      const redirect = async function(response) {
         await nuxtApp.callHook("app:redirected");
         const encodedLoc = location2.replace(/"/g, "%22");
         nuxtApp.ssrContext._renderResponse = {
@@ -522,7 +612,7 @@ const navigateTo = (to, options) => {
           headers: { location: location2 }
         };
         return response;
-      }
+      };
       if (!isExternal && inMiddleware) {
         router.afterEach((final) => final.fullPath === fullPath ? redirect(false) : void 0);
         return to;
@@ -534,10 +624,11 @@ const navigateTo = (to, options) => {
     }
   }
   if (isExternal) {
+    nuxtApp._scope.stop();
     if (options == null ? void 0 : options.replace) {
-      location.replace(toPath);
+      (void 0).replace(toPath);
     } else {
-      location.href = toPath;
+      (void 0).href = toPath;
     }
     if (inMiddleware) {
       if (!nuxtApp.isHydrating) {
@@ -550,76 +641,66 @@ const navigateTo = (to, options) => {
   }
   return (options == null ? void 0 : options.replace) ? router.replace(to) : router.push(to);
 };
+const NUXT_ERROR_SIGNATURE = "__nuxt_error";
 const useError = () => toRef((/* @__PURE__ */ useNuxtApp()).payload, "error");
-const showError = (_err) => {
-  const err = createError(_err);
+const showError = (error) => {
+  const nuxtError = createError(error);
   try {
     const nuxtApp = /* @__PURE__ */ useNuxtApp();
-    const error = useError();
+    const error2 = useError();
     if (false)
       ;
-    error.value = error.value || err;
+    error2.value = error2.value || nuxtError;
   } catch {
-    throw err;
+    throw nuxtError;
   }
-  return err;
+  return nuxtError;
 };
-const isNuxtError = (err) => !!(err && typeof err === "object" && "__nuxt_error" in err);
-const createError = (err) => {
-  const _err = createError$1(err);
-  _err.__nuxt_error = true;
-  return _err;
+const isNuxtError = (error) => !!error && typeof error === "object" && NUXT_ERROR_SIGNATURE in error;
+const createError = (error) => {
+  const nuxtError = createError$1(error);
+  Object.defineProperty(nuxtError, NUXT_ERROR_SIGNATURE, {
+    value: true,
+    configurable: false,
+    writable: false
+  });
+  return nuxtError;
 };
-const useStateKeyPrefix = "$s";
-function useState(...args) {
-  const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
-  if (typeof args[0] !== "string") {
-    args.unshift(autoKey);
+version.startsWith("3");
+function resolveUnref(r) {
+  return typeof r === "function" ? r() : unref(r);
+}
+function resolveUnrefHeadInput(ref2, lastKey = "") {
+  if (ref2 instanceof Promise)
+    return ref2;
+  const root = resolveUnref(ref2);
+  if (!ref2 || !root)
+    return root;
+  if (Array.isArray(root))
+    return root.map((r) => resolveUnrefHeadInput(r, lastKey));
+  if (typeof root === "object") {
+    return Object.fromEntries(
+      Object.entries(root).map(([k, v]) => {
+        if (k === "titleTemplate" || k.startsWith("on"))
+          return [k, unref(v)];
+        return [k, resolveUnrefHeadInput(v, k)];
+      })
+    );
   }
-  const [_key, init] = args;
-  if (!_key || typeof _key !== "string") {
-    throw new TypeError("[nuxt] [useState] key must be a string: " + _key);
-  }
-  if (init !== void 0 && typeof init !== "function") {
-    throw new Error("[nuxt] [useState] init must be a function: " + init);
-  }
-  const key = useStateKeyPrefix + _key;
-  const nuxt = /* @__PURE__ */ useNuxtApp();
-  const state = toRef(nuxt.payload.state, key);
-  if (state.value === void 0 && init) {
-    const initialValue = init();
-    if (isRef(initialValue)) {
-      nuxt.payload.state[key] = initialValue;
-      return initialValue;
+  return root;
+}
+defineHeadPlugin({
+  hooks: {
+    "entries:resolve": function(ctx) {
+      for (const entry2 of ctx.entries)
+        entry2.resolvedInput = resolveUnrefHeadInput(entry2.input);
     }
-    state.value = initialValue;
   }
-  return state;
-}
-function useRequestHeaders(include) {
-  var _a;
-  const event = (_a = (/* @__PURE__ */ useNuxtApp()).ssrContext) == null ? void 0 : _a.event;
-  const headers = event ? getRequestHeaders(event) : {};
-  if (!include) {
-    return headers;
-  }
-  return Object.fromEntries(include.map((key) => key.toLowerCase()).filter((key) => headers[key]).map((key) => [key, headers[key]]));
-}
-function useRequestEvent(nuxtApp = /* @__PURE__ */ useNuxtApp()) {
-  var _a;
-  return (_a = nuxtApp.ssrContext) == null ? void 0 : _a.event;
-}
-function useRequestFetch() {
-  var _a;
-  const event = (_a = (/* @__PURE__ */ useNuxtApp()).ssrContext) == null ? void 0 : _a.event;
-  return (event == null ? void 0 : event.$fetch) || globalThis.$fetch;
-}
-const appPageTransition = false;
-const appKeepalive = false;
-function definePayloadReducer(name, reduce) {
-  {
-    (/* @__PURE__ */ useNuxtApp()).ssrContext._payloadReducers[name] = reduce;
-  }
+});
+const _global = typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+const globalKey$1 = "__unhead_injection_handler__";
+function setHeadInjectionHandler(handler) {
+  _global[globalKey$1] = handler;
 }
 const unhead_KgADcZ0jPj = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:head",
@@ -750,40 +831,97 @@ function executeAsync(function_) {
   }
   return [awaitable, restore];
 }
+const interpolatePath = (route, match) => {
+  return match.path.replace(/(:\w+)\([^)]+\)/g, "$1").replace(/(:\w+)[?+*]/g, "$1").replace(/:\w+/g, (r) => {
+    var _a;
+    return ((_a = route.params[r.slice(1)]) == null ? void 0 : _a.toString()) || "";
+  });
+};
+const generateRouteKey$1 = (routeProps, override) => {
+  const matchedRoute = routeProps.route.matched.find((m) => {
+    var _a;
+    return ((_a = m.components) == null ? void 0 : _a.default) === routeProps.Component.type;
+  });
+  const source = override ?? (matchedRoute == null ? void 0 : matchedRoute.meta.key) ?? (matchedRoute && interpolatePath(routeProps.route, matchedRoute));
+  return typeof source === "function" ? source(routeProps.route) : source;
+};
+const wrapInKeepAlive = (props, children) => {
+  return { default: () => children };
+};
+function toArray(value) {
+  return Array.isArray(value) ? value : [value];
+}
 const _routes = [
   {
     name: "index___en",
     path: "/",
     meta: {},
     alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/index-979793b5.mjs').then((m) => m.default || m)
+    redirect: void 0 ,
+    component: () => import('./_nuxt/index-BmBq3zIO.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
     path: "/fr",
     meta: {},
     alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/index-979793b5.mjs').then((m) => m.default || m)
+    redirect: void 0 ,
+    component: () => import('./_nuxt/index-BmBq3zIO.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___en",
     path: "/playground",
     meta: {},
     alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/playground-466990f8.mjs').then((m) => m.default || m)
+    redirect: void 0 ,
+    component: () => import('./_nuxt/playground-fhilEsHe.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___fr",
     path: "/fr/playground",
     meta: {},
     alias: [],
-    redirect: void 0,
-    component: () => import('./_nuxt/playground-466990f8.mjs').then((m) => m.default || m)
+    redirect: void 0 ,
+    component: () => import('./_nuxt/playground-fhilEsHe.mjs').then((m) => m.default || m)
   }
 ];
+const _wrapIf = (component, props, slots) => {
+  props = props === true ? {} : props;
+  return { default: () => {
+    var _a;
+    return props ? h(component, props, slots) : (_a = slots.default) == null ? void 0 : _a.call(slots);
+  } };
+};
+function generateRouteKey(route) {
+  const source = (route == null ? void 0 : route.meta.key) ?? route.path.replace(/(:\w+)\([^)]+\)/g, "$1").replace(/(:\w+)[?+*]/g, "$1").replace(/:\w+/g, (r) => {
+    var _a;
+    return ((_a = route.params[r.slice(1)]) == null ? void 0 : _a.toString()) || "";
+  });
+  return typeof source === "function" ? source(route) : source;
+}
+function isChangingPage(to, from) {
+  if (to === from || from === START_LOCATION) {
+    return false;
+  }
+  if (generateRouteKey(to) !== generateRouteKey(from)) {
+    return true;
+  }
+  const areComponentsSame = to.matched.every(
+    (comp, index) => {
+      var _a, _b;
+      return comp.components && comp.components.default === ((_b = (_a = from.matched[index]) == null ? void 0 : _a.components) == null ? void 0 : _b.default);
+    }
+  );
+  if (areComponentsSame) {
+    return false;
+  }
+  return true;
+}
+const appPageTransition = false;
+const appKeepalive = false;
+const nuxtLinkDefaults = { "componentName": "NuxtLink" };
+const asyncDataDefaults = { "deep": true };
+const fetchDefaults = {};
 const routerOptions0 = {
   scrollBehavior(to, from, savedPosition) {
     var _a;
@@ -791,7 +929,7 @@ const routerOptions0 = {
     const behavior = ((_a = useRouter().options) == null ? void 0 : _a.scrollBehaviorType) ?? "auto";
     let position = savedPosition || void 0;
     const routeAllowsScrollToTop = typeof to.meta.scrollToTop === "function" ? to.meta.scrollToTop(to, from) : to.meta.scrollToTop;
-    if (!position && from && to && routeAllowsScrollToTop !== false && _isDifferentRoute(from, to)) {
+    if (!position && from && to && routeAllowsScrollToTop !== false && isChangingPage(to, from)) {
       position = { left: 0, top: 0 };
     }
     if (to.path === from.path) {
@@ -817,7 +955,7 @@ const routerOptions0 = {
 };
 function _getHashElementScrollMarginTop(selector) {
   try {
-    const elem = document.querySelector(selector);
+    const elem = (void 0).querySelector(selector);
     if (elem) {
       return parseFloat(getComputedStyle(elem).scrollMarginTop);
     }
@@ -825,10 +963,10 @@ function _getHashElementScrollMarginTop(selector) {
   }
   return 0;
 }
-function _isDifferentRoute(from, to) {
-  return to.path !== from.path || JSON.stringify(from.params) !== JSON.stringify(to.params);
-}
-const configRouterOptions = {};
+const configRouterOptions = {
+  hashMode: false,
+  scrollBehaviorType: "auto"
+};
 const routerOptions = {
   ...configRouterOptions,
   ...routerOptions0
@@ -850,19 +988,25 @@ const validate = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
 });
 const route_45global = /* @__PURE__ */ defineNuxtRouteMiddleware((to, from) => {
   if (to.path !== from.path && false) {
-    window.scrollTo(0, 0);
+    (void 0).scrollTo(0, 0);
+  }
+});
+const manifest_45route_45rule = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
+  {
+    return;
   }
 });
 const globalMiddleware = [
   validate,
-  route_45global
+  route_45global,
+  manifest_45route_45rule
 ];
 const namedMiddleware = {};
 const plugin = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:router",
   enforce: "pre",
   async setup(nuxtApp) {
-    var _a, _b;
+    var _a, _b, _c;
     let __temp, __restore;
     let routerBase = (/* @__PURE__ */ useRuntimeConfig()).app.baseURL;
     if (routerOptions.hashMode && !routerBase.includes("#")) {
@@ -875,13 +1019,20 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     const router = createRouter({
       ...routerOptions,
       scrollBehavior: (to, from, savedPosition) => {
-        var _a2;
         if (from === START_LOCATION) {
           startPosition = savedPosition;
           return;
         }
-        router.options.scrollBehavior = routerOptions.scrollBehavior;
-        return (_a2 = routerOptions.scrollBehavior) == null ? void 0 : _a2.call(routerOptions, to, START_LOCATION, startPosition || savedPosition);
+        if (routerOptions.scrollBehavior) {
+          router.options.scrollBehavior = routerOptions.scrollBehavior;
+          if ("scrollRestoration" in (void 0).history) {
+            const unsub = router.beforeEach(() => {
+              unsub();
+              (void 0).history.scrollRestoration = "manual";
+            });
+          }
+          return routerOptions.scrollBehavior(to, START_LOCATION, startPosition || savedPosition);
+        }
       },
       history,
       routes
@@ -900,8 +1051,8 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     };
     nuxtApp.hook("page:finish", syncCurrentRoute);
     router.afterEach((to, from) => {
-      var _a2, _b2, _c, _d;
-      if (((_b2 = (_a2 = to.matched[0]) == null ? void 0 : _a2.components) == null ? void 0 : _b2.default) === ((_d = (_c = from.matched[0]) == null ? void 0 : _c.components) == null ? void 0 : _d.default)) {
+      var _a2, _b2, _c2, _d;
+      if (((_b2 = (_a2 = to.matched[0]) == null ? void 0 : _a2.components) == null ? void 0 : _b2.default) === ((_d = (_c2 = from.matched[0]) == null ? void 0 : _c2.components) == null ? void 0 : _d.default)) {
         syncCurrentRoute();
       }
     });
@@ -929,9 +1080,13 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     } catch (error2) {
       [__temp, __restore] = executeAsync(() => nuxtApp.runWithContext(() => showError(error2))), await __temp, __restore();
     }
+    if ((_c = nuxtApp.ssrContext) == null ? void 0 : _c.islandContext) {
+      return { provide: { router } };
+    }
     const initialLayout = nuxtApp.payload.state._layout;
     router.beforeEach(async (to, from) => {
       var _a2, _b2;
+      await nuxtApp.callHook("page:loading:start");
       to.meta = reactive(to.meta);
       if (nuxtApp.isHydrating && initialLayout && !isReadonly(to.meta.layout)) {
         to.meta.layout = initialLayout;
@@ -944,12 +1099,8 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
           if (!componentMiddleware) {
             continue;
           }
-          if (Array.isArray(componentMiddleware)) {
-            for (const entry2 of componentMiddleware) {
-              middlewareEntries.add(entry2);
-            }
-          } else {
-            middlewareEntries.add(componentMiddleware);
+          for (const entry2 of toArray(componentMiddleware)) {
+            middlewareEntries.add(entry2);
           }
         }
         for (const entry2 of middlewareEntries) {
@@ -977,20 +1128,26 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
         }
       }
     });
-    router.onError(() => {
+    router.onError(async () => {
       delete nuxtApp._processingMiddleware;
+      await nuxtApp.callHook("page:loading:end");
     });
     router.afterEach(async (to, _from, failure) => {
-      var _a2;
       delete nuxtApp._processingMiddleware;
+      if (failure) {
+        await nuxtApp.callHook("page:loading:end");
+      }
       if ((failure == null ? void 0 : failure.type) === 4) {
         return;
       }
-      if (to.matched.length === 0 && !((_a2 = nuxtApp.ssrContext) == null ? void 0 : _a2.islandContext)) {
+      if (to.matched.length === 0) {
         await nuxtApp.runWithContext(() => showError(createError$1({
           statusCode: 404,
           fatal: false,
-          statusMessage: `Page not found: ${to.fullPath}`
+          statusMessage: `Page not found: ${to.fullPath}`,
+          data: {
+            path: to.fullPath
+          }
         })));
       } else if (to.redirectedFrom && to.fullPath !== initialURL) {
         await nuxtApp.runWithContext(() => navigateTo(to.fullPath || "/"));
@@ -1012,6 +1169,11 @@ const plugin = /* @__PURE__ */ defineNuxtPlugin({
     return { provide: { router } };
   }
 });
+function definePayloadReducer(name, reduce) {
+  {
+    (/* @__PURE__ */ useNuxtApp()).ssrContext._payloadReducers[name] = reduce;
+  }
+}
 const reducers = {
   NuxtError: (data) => isNuxtError(data) && data.toJSON(),
   EmptyShallowRef: (data) => isRef(data) && isShallow(data) && !data.value && (typeof data.value === "bigint" ? "0n" : JSON.stringify(data.value) || "_"),
@@ -1032,22 +1194,20 @@ const revive_payload_server_eJ33V7gbc6 = /* @__PURE__ */ defineNuxtPlugin({
 const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:global-components"
 });
-const composition_sLxaNGmlSL = /* @__PURE__ */ defineNuxtPlugin(() => {
-});
 /*!
-  * shared v9.5.0
-  * (c) 2023 kazuya kawaguchi
+  * shared v9.9.1
+  * (c) 2024 kazuya kawaguchi
   * Released under the MIT License.
   */
 const inBrowser = false;
-const makeSymbol$1 = (name, shareable = false) => !shareable ? Symbol(name) : Symbol.for(name);
+const makeSymbol = (name, shareable = false) => !shareable ? Symbol(name) : Symbol.for(name);
 const generateFormatCacheKey = (locale, key, source) => friendlyJSONstringify({ l: locale, k: key, s: source });
 const friendlyJSONstringify = (json) => JSON.stringify(json).replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029").replace(/\u0027/g, "\\u0027");
 const isNumber = (val) => typeof val === "number" && isFinite(val);
 const isDate = (val) => toTypeString(val) === "[object Date]";
 const isRegExp = (val) => toTypeString(val) === "[object RegExp]";
 const isEmptyObject = (val) => isPlainObject(val) && Object.keys(val).length === 0;
-const assign$1 = Object.assign;
+const assign = Object.assign;
 function escapeHtml(rawText) {
   return rawText.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 }
@@ -1055,21 +1215,25 @@ const hasOwnProperty = Object.prototype.hasOwnProperty;
 function hasOwn(obj, key) {
   return hasOwnProperty.call(obj, key);
 }
-const isArray$1 = Array.isArray;
-const isFunction$1 = (val) => typeof val === "function";
-const isString$1 = (val) => typeof val === "string";
+const isArray = Array.isArray;
+const isFunction = (val) => typeof val === "function";
+const isString = (val) => typeof val === "string";
 const isBoolean = (val) => typeof val === "boolean";
-const isObject$1 = (val) => val !== null && typeof val === "object";
+const isSymbol = (val) => typeof val === "symbol";
+const isObject = (val) => val !== null && typeof val === "object";
+const isPromise = (val) => {
+  return isObject(val) && isFunction(val.then) && isFunction(val.catch);
+};
 const objectToString = Object.prototype.toString;
 const toTypeString = (value) => objectToString.call(value);
 const isPlainObject = (val) => {
-  if (!isObject$1(val))
+  if (!isObject(val))
     return false;
   const proto = Object.getPrototypeOf(val);
   return proto === null || proto.constructor === Object;
 };
 const toDisplayString = (val) => {
-  return val == null ? "" : isArray$1(val) || isPlainObject(val) && val.toString === objectToString ? JSON.stringify(val, null, 2) : String(val);
+  return val == null ? "" : isArray(val) || isPlainObject(val) && val.toString === objectToString ? JSON.stringify(val, null, 2) : String(val);
 };
 function join(items, separator = "") {
   return items.reduce((str, item, index) => index === 0 ? str + item : str + separator + item, "");
@@ -1078,7 +1242,7 @@ function incrementer(code2) {
   let current = code2;
   return () => ++current;
 }
-function warn$1(msg, err) {
+function warn(msg, err) {
   if (typeof console !== "undefined") {
     console.warn(`[intlify] ` + msg);
     if (err) {
@@ -1086,9 +1250,26 @@ function warn$1(msg, err) {
     }
   }
 }
+const isNotObjectOrIsArray = (val) => !isObject(val) || isArray(val);
+function deepCopy(src, des) {
+  if (isNotObjectOrIsArray(src) || isNotObjectOrIsArray(des)) {
+    throw new Error("Invalid value");
+  }
+  const stack = [{ src, des }];
+  while (stack.length) {
+    const { src: src2, des: des2 } = stack.pop();
+    Object.keys(src2).forEach((key) => {
+      if (isNotObjectOrIsArray(src2[key]) || isNotObjectOrIsArray(des2[key])) {
+        des2[key] = src2[key];
+      } else {
+        stack.push({ src: src2[key], des: des2[key] });
+      }
+    });
+  }
+}
 /*!
-  * message-compiler v9.5.0
-  * (c) 2023 kazuya kawaguchi
+  * message-compiler v9.9.1
+  * (c) 2024 kazuya kawaguchi
   * Released under the MIT License.
   */
 function createPosition(line, column, offset) {
@@ -1220,7 +1401,7 @@ const DOT = ".";
 const LITERAL_DELIMITER = "'";
 const ERROR_DOMAIN$3 = "tokenizer";
 function createTokenizer(source, options = {}) {
-  const location2 = options.location !== false;
+  const location = options.location !== false;
   const _scnr = createScanner(source);
   const currentOffset = () => _scnr.index();
   const currentPosition = () => createPosition(_scnr.line(), _scnr.column(), _scnr.index());
@@ -1246,7 +1427,7 @@ function createTokenizer(source, options = {}) {
     pos.column += offset;
     pos.offset += offset;
     if (onError) {
-      const loc = location2 ? createLocation(ctx.startLoc, pos) : null;
+      const loc = location ? createLocation(ctx.startLoc, pos) : null;
       const err = createCompileError(code2, loc, {
         domain: ERROR_DOMAIN$3,
         args
@@ -1258,7 +1439,7 @@ function createTokenizer(source, options = {}) {
     context2.endLoc = currentPosition();
     context2.currentType = type;
     const token = { type };
-    if (location2) {
+    if (location) {
       token.loc = createLocation(context2.startLoc, context2.endLoc);
     }
     if (value != null) {
@@ -1883,14 +2064,14 @@ function fromEscapeSequence(match, codePoint4, codePoint6) {
   }
 }
 function createParser(options = {}) {
-  const location2 = options.location !== false;
+  const location = options.location !== false;
   const { onError } = options;
   function emitError(tokenzer, code2, start, offset, ...args) {
     const end = tokenzer.currentPosition();
     end.offset += offset;
     end.column += offset;
     if (onError) {
-      const loc = location2 ? createLocation(start, end) : null;
+      const loc = location ? createLocation(start, end) : null;
       const err = createCompileError(code2, loc, {
         domain: ERROR_DOMAIN$2,
         args
@@ -1900,7 +2081,7 @@ function createParser(options = {}) {
   }
   function startNode(type, offset, loc) {
     const node = { type };
-    if (location2) {
+    if (location) {
       node.start = offset;
       node.end = offset;
       node.loc = { start: loc, end: loc };
@@ -1911,7 +2092,7 @@ function createParser(options = {}) {
     if (type) {
       node.type = type;
     }
-    if (location2) {
+    if (location) {
       node.end = offset;
       if (node.loc) {
         node.loc.end = pos;
@@ -2118,10 +2299,10 @@ function createParser(options = {}) {
     }
   }
   function parse2(source) {
-    const tokenizer = createTokenizer(source, assign$1({}, options));
+    const tokenizer = createTokenizer(source, assign({}, options));
     const context = tokenizer.context();
     const node = startNode(0, context.offset, context.startLoc);
-    if (location2 && node.loc) {
+    if (location && node.loc) {
       node.loc.source = source;
     }
     node.body = parseResource(tokenizer);
@@ -2322,7 +2503,7 @@ function minify(node) {
 }
 function createCodeGenerator(ast, options) {
   const { sourceMap, filename, breakLineCode, needIndent: _needIndent } = options;
-  const location2 = options.location !== false;
+  const location = options.location !== false;
   const _context = {
     filename,
     code: "",
@@ -2334,7 +2515,7 @@ function createCodeGenerator(ast, options) {
     needIndent: _needIndent,
     indentLevel: 0
   };
-  if (location2 && ast.loc) {
+  if (location && ast.loc) {
     _context.source = ast.loc.source;
   }
   const context = () => _context;
@@ -2477,8 +2658,8 @@ function generateNode(generator, node) {
   }
 }
 const generate = (ast, options = {}) => {
-  const mode = isString$1(options.mode) ? options.mode : "normal";
-  const filename = isString$1(options.filename) ? options.filename : "message.intl";
+  const mode = isString(options.mode) ? options.mode : "normal";
+  const filename = isString(options.filename) ? options.filename : "message.intl";
   const sourceMap = !!options.sourceMap;
   const breakLineCode = options.breakLineCode != null ? options.breakLineCode : mode === "arrow" ? ";" : "\n";
   const needIndent = options.needIndent ? options.needIndent : mode !== "arrow";
@@ -2510,7 +2691,7 @@ const generate = (ast, options = {}) => {
   };
 };
 function baseCompile$1(source, options = {}) {
-  const assignedOptions = assign$1({}, options);
+  const assignedOptions = assign({}, options);
   const jit = !!assignedOptions.jit;
   const enalbeMinify = !!assignedOptions.minify;
   const enambeOptimize = assignedOptions.optimize == null ? true : assignedOptions.optimize;
@@ -2929,10 +3110,10 @@ function parse(path) {
 }
 const cache = /* @__PURE__ */ new Map();
 function resolveWithKeyValue(obj, path) {
-  return isObject$1(obj) ? obj[path] : null;
+  return isObject(obj) ? obj[path] : null;
 }
 function resolveValue(obj, path) {
-  if (!isObject$1(obj)) {
+  if (!isObject(obj)) {
     return null;
   }
   let hit = cache.get(path);
@@ -2951,6 +3132,9 @@ function resolveValue(obj, path) {
   while (i < len) {
     const val = last[hit[i]];
     if (val === void 0) {
+      return null;
+    }
+    if (isFunction(last)) {
       return null;
     }
     last = val;
@@ -2985,8 +3169,8 @@ function normalizeNamed(pluralIndex, props) {
 function createMessageContext(options = {}) {
   const locale = options.locale;
   const pluralIndex = getPluralIndex(options);
-  const pluralRule = isObject$1(options.pluralRules) && isString$1(locale) && isFunction$1(options.pluralRules[locale]) ? options.pluralRules[locale] : pluralDefault;
-  const orgPluralRule = isObject$1(options.pluralRules) && isString$1(locale) && isFunction$1(options.pluralRules[locale]) ? pluralDefault : void 0;
+  const pluralRule = isObject(options.pluralRules) && isString(locale) && isFunction(options.pluralRules[locale]) ? options.pluralRules[locale] : pluralDefault;
+  const orgPluralRule = isObject(options.pluralRules) && isString(locale) && isFunction(options.pluralRules[locale]) ? pluralDefault : void 0;
   const plural = (messages) => {
     return messages[pluralRule(pluralIndex, messages.length, orgPluralRule)];
   };
@@ -2996,36 +3180,36 @@ function createMessageContext(options = {}) {
   isNumber(options.pluralIndex) && normalizeNamed(pluralIndex, _named);
   const named = (key) => _named[key];
   function message(key) {
-    const msg = isFunction$1(options.messages) ? options.messages(key) : isObject$1(options.messages) ? options.messages[key] : false;
+    const msg = isFunction(options.messages) ? options.messages(key) : isObject(options.messages) ? options.messages[key] : false;
     return !msg ? options.parent ? options.parent.message(key) : DEFAULT_MESSAGE : msg;
   }
   const _modifier = (name) => options.modifiers ? options.modifiers[name] : DEFAULT_MODIFIER;
-  const normalize = isPlainObject(options.processor) && isFunction$1(options.processor.normalize) ? options.processor.normalize : DEFAULT_NORMALIZE;
-  const interpolate = isPlainObject(options.processor) && isFunction$1(options.processor.interpolate) ? options.processor.interpolate : DEFAULT_INTERPOLATE;
-  const type = isPlainObject(options.processor) && isString$1(options.processor.type) ? options.processor.type : DEFAULT_MESSAGE_DATA_TYPE;
+  const normalize = isPlainObject(options.processor) && isFunction(options.processor.normalize) ? options.processor.normalize : DEFAULT_NORMALIZE;
+  const interpolate = isPlainObject(options.processor) && isFunction(options.processor.interpolate) ? options.processor.interpolate : DEFAULT_INTERPOLATE;
+  const type = isPlainObject(options.processor) && isString(options.processor.type) ? options.processor.type : DEFAULT_MESSAGE_DATA_TYPE;
   const linked = (key, ...args) => {
     const [arg1, arg2] = args;
     let type2 = "text";
     let modifier = "";
     if (args.length === 1) {
-      if (isObject$1(arg1)) {
+      if (isObject(arg1)) {
         modifier = arg1.modifier || modifier;
         type2 = arg1.type || type2;
-      } else if (isString$1(arg1)) {
+      } else if (isString(arg1)) {
         modifier = arg1 || modifier;
       }
     } else if (args.length === 2) {
-      if (isString$1(arg1)) {
+      if (isString(arg1)) {
         modifier = arg1 || modifier;
       }
-      if (isString$1(arg2)) {
+      if (isString(arg2)) {
         type2 = arg2 || type2;
       }
     }
     const ret = message(key)(ctx);
     const msg = (
       // The message in vnode resolved with linked are returned as an array by processor.nomalize
-      type2 === "vnode" && isArray$1(ret) && modifier ? ret[0] : ret
+      type2 === "vnode" && isArray(ret) && modifier ? ret[0] : ret
     );
     return modifier ? _modifier(modifier)(msg, type2) : msg;
   };
@@ -3065,7 +3249,7 @@ function createMessageContext(options = {}) {
     [
       "values"
       /* HelperNameMap.VALUES */
-    ]: assign$1({}, _list, _named)
+    ]: assign({}, _list, _named)
   };
   return ctx;
 }
@@ -3079,21 +3263,55 @@ const CoreWarnCodes = {
   EXPERIMENTAL_CUSTOM_MESSAGE_COMPILER: 7,
   __EXTEND_POINT__: 8
 };
+const code$2 = CompileErrorCodes.__EXTEND_POINT__;
+const inc$2 = incrementer(code$2);
+const CoreErrorCodes = {
+  INVALID_ARGUMENT: code$2,
+  INVALID_DATE_ARGUMENT: inc$2(),
+  INVALID_ISO_DATE_ARGUMENT: inc$2(),
+  NOT_SUPPORT_NON_STRING_MESSAGE: inc$2(),
+  NOT_SUPPORT_LOCALE_PROMISE_VALUE: inc$2(),
+  NOT_SUPPORT_LOCALE_ASYNC_FUNCTION: inc$2(),
+  NOT_SUPPORT_LOCALE_TYPE: inc$2(),
+  __EXTEND_POINT__: inc$2()
+  // 25
+};
+function createCoreError(code2) {
+  return createCompileError(code2, null, void 0);
+}
 function getLocale$1(context, options) {
   return options.locale != null ? resolveLocale(options.locale) : resolveLocale(context.locale);
 }
 let _resolveLocale;
 function resolveLocale(locale) {
-  return isString$1(locale) ? locale : _resolveLocale != null && locale.resolvedOnce ? _resolveLocale : _resolveLocale = locale();
+  if (isString(locale)) {
+    return locale;
+  } else {
+    if (isFunction(locale)) {
+      if (locale.resolvedOnce && _resolveLocale != null) {
+        return _resolveLocale;
+      } else if (locale.constructor.name === "Function") {
+        const resolve2 = locale();
+        if (isPromise(resolve2)) {
+          throw createCoreError(CoreErrorCodes.NOT_SUPPORT_LOCALE_PROMISE_VALUE);
+        }
+        return _resolveLocale = resolve2;
+      } else {
+        throw createCoreError(CoreErrorCodes.NOT_SUPPORT_LOCALE_ASYNC_FUNCTION);
+      }
+    } else {
+      throw createCoreError(CoreErrorCodes.NOT_SUPPORT_LOCALE_TYPE);
+    }
+  }
 }
 function fallbackWithSimple(ctx, fallback, start) {
   return [.../* @__PURE__ */ new Set([
     start,
-    ...isArray$1(fallback) ? fallback : isObject$1(fallback) ? Object.keys(fallback) : isString$1(fallback) ? [fallback] : [start]
+    ...isArray(fallback) ? fallback : isObject(fallback) ? Object.keys(fallback) : isString(fallback) ? [fallback] : [start]
   ])];
 }
 function fallbackWithLocaleChain(ctx, fallback, start) {
-  const startLocale = isString$1(start) ? start : DEFAULT_LOCALE$1;
+  const startLocale = isString(start) ? start : DEFAULT_LOCALE;
   const context = ctx;
   if (!context.__localeChainCache) {
     context.__localeChainCache = /* @__PURE__ */ new Map();
@@ -3102,12 +3320,12 @@ function fallbackWithLocaleChain(ctx, fallback, start) {
   if (!chain) {
     chain = [];
     let block = [start];
-    while (isArray$1(block)) {
+    while (isArray(block)) {
       block = appendBlockToChain(chain, block, fallback);
     }
-    const defaults = isArray$1(fallback) || !isPlainObject(fallback) ? fallback : fallback["default"] ? fallback["default"] : null;
-    block = isString$1(defaults) ? [defaults] : defaults;
-    if (isArray$1(block)) {
+    const defaults = isArray(fallback) || !isPlainObject(fallback) ? fallback : fallback["default"] ? fallback["default"] : null;
+    block = isString(defaults) ? [defaults] : defaults;
+    if (isArray(block)) {
       appendBlockToChain(chain, block, false);
     }
     context.__localeChainCache.set(startLocale, chain);
@@ -3118,7 +3336,7 @@ function appendBlockToChain(chain, block, blocks) {
   let follow = true;
   for (let i = 0; i < block.length && isBoolean(follow); i++) {
     const locale = block[i];
-    if (isString$1(locale)) {
+    if (isString(locale)) {
       follow = appendLocaleToChain(chain, block[i], blocks);
     }
   }
@@ -3142,28 +3360,28 @@ function appendItemToChain(chain, target, blocks) {
       follow = target[target.length - 1] !== "!";
       const locale = target.replace(/!/g, "");
       chain.push(locale);
-      if ((isArray$1(blocks) || isPlainObject(blocks)) && blocks[locale]) {
+      if ((isArray(blocks) || isPlainObject(blocks)) && blocks[locale]) {
         follow = blocks[locale];
       }
     }
   }
   return follow;
 }
-const VERSION$1 = "9.5.0";
+const VERSION$1 = "9.9.1";
 const NOT_REOSLVED = -1;
-const DEFAULT_LOCALE$1 = "en-US";
+const DEFAULT_LOCALE = "en-US";
 const MISSING_RESOLVE_VALUE = "";
 const capitalize = (str) => `${str.charAt(0).toLocaleUpperCase()}${str.substr(1)}`;
 function getDefaultLinkedModifiers() {
   return {
     upper: (val, type) => {
-      return type === "text" && isString$1(val) ? val.toUpperCase() : type === "vnode" && isObject$1(val) && "__v_isVNode" in val ? val.children.toUpperCase() : val;
+      return type === "text" && isString(val) ? val.toUpperCase() : type === "vnode" && isObject(val) && "__v_isVNode" in val ? val.children.toUpperCase() : val;
     },
     lower: (val, type) => {
-      return type === "text" && isString$1(val) ? val.toLowerCase() : type === "vnode" && isObject$1(val) && "__v_isVNode" in val ? val.children.toLowerCase() : val;
+      return type === "text" && isString(val) ? val.toLowerCase() : type === "vnode" && isObject(val) && "__v_isVNode" in val ? val.children.toLowerCase() : val;
     },
     capitalize: (val, type) => {
-      return type === "text" && isString$1(val) ? capitalize(val) : type === "vnode" && isObject$1(val) && "__v_isVNode" in val ? capitalize(val.children) : val;
+      return type === "text" && isString(val) ? capitalize(val) : type === "vnode" && isObject(val) && "__v_isVNode" in val ? capitalize(val.children) : val;
     }
   };
 }
@@ -3179,7 +3397,7 @@ let _fallbacker;
 function registerLocaleFallbacker(fallbacker) {
   _fallbacker = fallbacker;
 }
-const setAdditionalMeta = (meta) => {
+const setAdditionalMeta = /* @__NO_SIDE_EFFECTS__ */ (meta) => {
 };
 let _fallbackContext = null;
 const setFallbackContext = (context) => {
@@ -3188,33 +3406,33 @@ const setFallbackContext = (context) => {
 const getFallbackContext = () => _fallbackContext;
 let _cid = 0;
 function createCoreContext(options = {}) {
-  const onWarn = isFunction$1(options.onWarn) ? options.onWarn : warn$1;
-  const version2 = isString$1(options.version) ? options.version : VERSION$1;
-  const locale = isString$1(options.locale) || isFunction$1(options.locale) ? options.locale : DEFAULT_LOCALE$1;
-  const _locale = isFunction$1(locale) ? DEFAULT_LOCALE$1 : locale;
-  const fallbackLocale = isArray$1(options.fallbackLocale) || isPlainObject(options.fallbackLocale) || isString$1(options.fallbackLocale) || options.fallbackLocale === false ? options.fallbackLocale : _locale;
+  const onWarn = isFunction(options.onWarn) ? options.onWarn : warn;
+  const version2 = isString(options.version) ? options.version : VERSION$1;
+  const locale = isString(options.locale) || isFunction(options.locale) ? options.locale : DEFAULT_LOCALE;
+  const _locale = isFunction(locale) ? DEFAULT_LOCALE : locale;
+  const fallbackLocale = isArray(options.fallbackLocale) || isPlainObject(options.fallbackLocale) || isString(options.fallbackLocale) || options.fallbackLocale === false ? options.fallbackLocale : _locale;
   const messages = isPlainObject(options.messages) ? options.messages : { [_locale]: {} };
   const datetimeFormats = isPlainObject(options.datetimeFormats) ? options.datetimeFormats : { [_locale]: {} };
   const numberFormats = isPlainObject(options.numberFormats) ? options.numberFormats : { [_locale]: {} };
-  const modifiers = assign$1({}, options.modifiers || {}, getDefaultLinkedModifiers());
+  const modifiers = assign({}, options.modifiers || {}, getDefaultLinkedModifiers());
   const pluralRules = options.pluralRules || {};
-  const missing = isFunction$1(options.missing) ? options.missing : null;
+  const missing = isFunction(options.missing) ? options.missing : null;
   const missingWarn = isBoolean(options.missingWarn) || isRegExp(options.missingWarn) ? options.missingWarn : true;
   const fallbackWarn = isBoolean(options.fallbackWarn) || isRegExp(options.fallbackWarn) ? options.fallbackWarn : true;
   const fallbackFormat = !!options.fallbackFormat;
   const unresolving = !!options.unresolving;
-  const postTranslation = isFunction$1(options.postTranslation) ? options.postTranslation : null;
+  const postTranslation = isFunction(options.postTranslation) ? options.postTranslation : null;
   const processor = isPlainObject(options.processor) ? options.processor : null;
   const warnHtmlMessage = isBoolean(options.warnHtmlMessage) ? options.warnHtmlMessage : true;
   const escapeParameter = !!options.escapeParameter;
-  const messageCompiler = isFunction$1(options.messageCompiler) ? options.messageCompiler : _compiler;
-  const messageResolver = isFunction$1(options.messageResolver) ? options.messageResolver : _resolver || resolveWithKeyValue;
-  const localeFallbacker = isFunction$1(options.localeFallbacker) ? options.localeFallbacker : _fallbacker || fallbackWithSimple;
-  const fallbackContext = isObject$1(options.fallbackContext) ? options.fallbackContext : void 0;
+  const messageCompiler = isFunction(options.messageCompiler) ? options.messageCompiler : _compiler;
+  const messageResolver = isFunction(options.messageResolver) ? options.messageResolver : _resolver || resolveWithKeyValue;
+  const localeFallbacker = isFunction(options.localeFallbacker) ? options.localeFallbacker : _fallbacker || fallbackWithSimple;
+  const fallbackContext = isObject(options.fallbackContext) ? options.fallbackContext : void 0;
   const internalOptions = options;
-  const __datetimeFormatters = isObject$1(internalOptions.__datetimeFormatters) ? internalOptions.__datetimeFormatters : /* @__PURE__ */ new Map();
-  const __numberFormatters = isObject$1(internalOptions.__numberFormatters) ? internalOptions.__numberFormatters : /* @__PURE__ */ new Map();
-  const __meta = isObject$1(internalOptions.__meta) ? internalOptions.__meta : {};
+  const __datetimeFormatters = isObject(internalOptions.__datetimeFormatters) ? internalOptions.__datetimeFormatters : /* @__PURE__ */ new Map();
+  const __numberFormatters = isObject(internalOptions.__numberFormatters) ? internalOptions.__numberFormatters : /* @__PURE__ */ new Map();
+  const __meta = isObject(internalOptions.__meta) ? internalOptions.__meta : {};
   _cid++;
   const context = {
     version: version2,
@@ -3252,7 +3470,7 @@ function handleMissing(context, key, locale, missingWarn, type) {
   const { missing, onWarn } = context;
   if (missing !== null) {
     const ret = missing(context, locale, key, type);
-    return isString$1(ret) ? ret : key;
+    return isString(ret) ? ret : key;
   } else {
     return key;
   }
@@ -3317,22 +3535,9 @@ function formatMessagePart(ctx, node) {
       throw new Error(`unhandled node type on format message part: ${type}`);
   }
 }
-const code$2 = CompileErrorCodes.__EXTEND_POINT__;
-const inc$2 = incrementer(code$2);
-const CoreErrorCodes = {
-  INVALID_ARGUMENT: code$2,
-  INVALID_DATE_ARGUMENT: inc$2(),
-  INVALID_ISO_DATE_ARGUMENT: inc$2(),
-  NOT_SUPPORT_NON_STRING_MESSAGE: inc$2(),
-  __EXTEND_POINT__: inc$2()
-  // 22
-};
-function createCoreError(code2) {
-  return createCompileError(code2, null, void 0);
-}
 const defaultOnCacheKey = (message) => message;
 let compileCache = /* @__PURE__ */ Object.create(null);
-const isMessageAST = (val) => isObject$1(val) && (val.t === 0 || val.type === 0) && ("b" in val || "body" in val);
+const isMessageAST = (val) => isObject(val) && (val.t === 0 || val.type === 0) && ("b" in val || "body" in val);
 function baseCompile(message, options = {}) {
   let detectError = false;
   const onError = options.onError || defaultOnError;
@@ -3343,7 +3548,7 @@ function baseCompile(message, options = {}) {
   return { ...baseCompile$1(message, options), detectError };
 }
 function compile(message, context) {
-  if (isString$1(message)) {
+  if (isString(message)) {
     isBoolean(context.warnHtmlMessage) ? context.warnHtmlMessage : true;
     const onCacheKey = context.onCacheKey || defaultOnCacheKey;
     const cacheKey = onCacheKey(message);
@@ -3372,7 +3577,7 @@ function compile(message, context) {
   }
 }
 const NOOP_MESSAGE_FUNCTION = () => "";
-const isMessageFunction = (val) => isFunction$1(val);
+const isMessageFunction = (val) => isFunction(val);
 function translate(context, ...args) {
   const { fallbackFormat, postTranslation, unresolving, messageCompiler, fallbackLocale, messages } = context;
   const [key, options] = parseTranslateArgs(...args);
@@ -3380,7 +3585,7 @@ function translate(context, ...args) {
   const fallbackWarn = isBoolean(options.fallbackWarn) ? options.fallbackWarn : context.fallbackWarn;
   const escapeParameter = isBoolean(options.escapeParameter) ? options.escapeParameter : context.escapeParameter;
   const resolvedMessage = !!options.resolvedMessage;
-  const defaultMsgOrKey = isString$1(options.default) || isBoolean(options.default) ? !isBoolean(options.default) ? options.default : !messageCompiler ? () => key : key : fallbackFormat ? !messageCompiler ? () => key : key : "";
+  const defaultMsgOrKey = isString(options.default) || isBoolean(options.default) ? !isBoolean(options.default) ? options.default : !messageCompiler ? () => key : key : fallbackFormat ? !messageCompiler ? () => key : key : "";
   const enableDefaultMsg = fallbackFormat || defaultMsgOrKey !== "";
   const locale = getLocale$1(context, options);
   escapeParameter && escapeParams(options);
@@ -3391,13 +3596,13 @@ function translate(context, ...args) {
   ];
   let format2 = formatScope;
   let cacheBaseKey = key;
-  if (!resolvedMessage && !(isString$1(format2) || isMessageAST(format2) || isMessageFunction(format2))) {
+  if (!resolvedMessage && !(isString(format2) || isMessageAST(format2) || isMessageFunction(format2))) {
     if (enableDefaultMsg) {
       format2 = defaultMsgOrKey;
       cacheBaseKey = format2;
     }
   }
-  if (!resolvedMessage && (!(isString$1(format2) || isMessageAST(format2) || isMessageFunction(format2)) || !isString$1(targetLocale))) {
+  if (!resolvedMessage && (!(isString(format2) || isMessageAST(format2) || isMessageFunction(format2)) || !isString(targetLocale))) {
     return unresolving ? NOT_REOSLVED : key;
   }
   let occurred = false;
@@ -3415,11 +3620,11 @@ function translate(context, ...args) {
   return ret;
 }
 function escapeParams(options) {
-  if (isArray$1(options.list)) {
-    options.list = options.list.map((item) => isString$1(item) ? escapeHtml(item) : item);
-  } else if (isObject$1(options.named)) {
+  if (isArray(options.list)) {
+    options.list = options.list.map((item) => isString(item) ? escapeHtml(item) : item);
+  } else if (isObject(options.named)) {
     Object.keys(options.named).forEach((key) => {
-      if (isString$1(options.named[key])) {
+      if (isString(options.named[key])) {
         options.named[key] = escapeHtml(options.named[key]);
       }
     });
@@ -3438,7 +3643,7 @@ function resolveMessageFormat(context, key, locale, fallbackLocale, fallbackWarn
     if ((format2 = resolveValue2(message, key)) === null) {
       format2 = message[key];
     }
-    if (isString$1(format2) || isMessageAST(format2) || isMessageFunction(format2)) {
+    if (isString(format2) || isMessageAST(format2) || isMessageFunction(format2)) {
       break;
     }
     const missingRet = handleMissing(
@@ -3482,25 +3687,25 @@ function evaluateMessage(context, msg, msgCtx) {
 function parseTranslateArgs(...args) {
   const [arg1, arg2, arg3] = args;
   const options = {};
-  if (!isString$1(arg1) && !isNumber(arg1) && !isMessageFunction(arg1) && !isMessageAST(arg1)) {
+  if (!isString(arg1) && !isNumber(arg1) && !isMessageFunction(arg1) && !isMessageAST(arg1)) {
     throw createCoreError(CoreErrorCodes.INVALID_ARGUMENT);
   }
   const key = isNumber(arg1) ? String(arg1) : isMessageFunction(arg1) ? arg1 : arg1;
   if (isNumber(arg2)) {
     options.plural = arg2;
-  } else if (isString$1(arg2)) {
+  } else if (isString(arg2)) {
     options.default = arg2;
   } else if (isPlainObject(arg2) && !isEmptyObject(arg2)) {
     options.named = arg2;
-  } else if (isArray$1(arg2)) {
+  } else if (isArray(arg2)) {
     options.list = arg2;
   }
   if (isNumber(arg3)) {
     options.plural = arg3;
-  } else if (isString$1(arg3)) {
+  } else if (isString(arg3)) {
     options.default = arg3;
   } else if (isPlainObject(arg3)) {
-    assign$1(options, arg3);
+    assign(options, arg3);
   }
   return [key, options];
 }
@@ -3526,7 +3731,7 @@ function getMessageContextOptions(context, locale, message, options) {
       const [, , message2] = resolveMessageFormat(fallbackContext, key, locale, fallbackLocale, fallbackWarn, missingWarn);
       val = resolveValue2(message2, key);
     }
-    if (isString$1(val) || isMessageAST(val)) {
+    if (isString(val) || isMessageAST(val)) {
       let occurred = false;
       const onError = () => {
         occurred = true;
@@ -3573,7 +3778,7 @@ function datetime(context, ...args) {
     fallbackLocale,
     locale
   );
-  if (!isString$1(key) || key === "") {
+  if (!isString(key) || key === "") {
     return new Intl.DateTimeFormat(locale, overrides).format(value);
   }
   let datetimeFormat = {};
@@ -3588,7 +3793,7 @@ function datetime(context, ...args) {
       break;
     handleMissing(context, key, targetLocale, missingWarn, type);
   }
-  if (!isPlainObject(format2) || !isString$1(targetLocale)) {
+  if (!isPlainObject(format2) || !isString(targetLocale)) {
     return unresolving ? NOT_REOSLVED : key;
   }
   let id = `${targetLocale}__${key}`;
@@ -3597,7 +3802,7 @@ function datetime(context, ...args) {
   }
   let formatter = __datetimeFormatters.get(id);
   if (!formatter) {
-    formatter = new Intl.DateTimeFormat(targetLocale, assign$1({}, format2, overrides));
+    formatter = new Intl.DateTimeFormat(targetLocale, assign({}, format2, overrides));
     __datetimeFormatters.set(id, formatter);
   }
   return !part ? formatter.format(value) : formatter.formatToParts(value);
@@ -3629,7 +3834,7 @@ function parseDateTimeArgs(...args) {
   const options = {};
   let overrides = {};
   let value;
-  if (isString$1(arg1)) {
+  if (isString(arg1)) {
     const matches = arg1.match(/(\d{4}-\d{2}-\d{2})(T|\s)?(.*)/);
     if (!matches) {
       throw createCoreError(CoreErrorCodes.INVALID_ISO_DATE_ARGUMENT);
@@ -3651,7 +3856,7 @@ function parseDateTimeArgs(...args) {
   } else {
     throw createCoreError(CoreErrorCodes.INVALID_ARGUMENT);
   }
-  if (isString$1(arg2)) {
+  if (isString(arg2)) {
     options.key = arg2;
   } else if (isPlainObject(arg2)) {
     Object.keys(arg2).forEach((key) => {
@@ -3662,7 +3867,7 @@ function parseDateTimeArgs(...args) {
       }
     });
   }
-  if (isString$1(arg3)) {
+  if (isString(arg3)) {
     options.locale = arg3;
   } else if (isPlainObject(arg3)) {
     overrides = arg3;
@@ -3696,7 +3901,7 @@ function number(context, ...args) {
     fallbackLocale,
     locale
   );
-  if (!isString$1(key) || key === "") {
+  if (!isString(key) || key === "") {
     return new Intl.NumberFormat(locale, overrides).format(value);
   }
   let numberFormat = {};
@@ -3711,7 +3916,7 @@ function number(context, ...args) {
       break;
     handleMissing(context, key, targetLocale, missingWarn, type);
   }
-  if (!isPlainObject(format2) || !isString$1(targetLocale)) {
+  if (!isPlainObject(format2) || !isString(targetLocale)) {
     return unresolving ? NOT_REOSLVED : key;
   }
   let id = `${targetLocale}__${key}`;
@@ -3720,7 +3925,7 @@ function number(context, ...args) {
   }
   let formatter = __numberFormatters.get(id);
   if (!formatter) {
-    formatter = new Intl.NumberFormat(targetLocale, assign$1({}, format2, overrides));
+    formatter = new Intl.NumberFormat(targetLocale, assign({}, format2, overrides));
     __numberFormatters.set(id, formatter);
   }
   return !part ? formatter.format(value) : formatter.formatToParts(value);
@@ -3755,7 +3960,7 @@ function parseNumberArgs(...args) {
     throw createCoreError(CoreErrorCodes.INVALID_ARGUMENT);
   }
   const value = arg1;
-  if (isString$1(arg2)) {
+  if (isString(arg2)) {
     options.key = arg2;
   } else if (isPlainObject(arg2)) {
     Object.keys(arg2).forEach((key) => {
@@ -3766,7 +3971,7 @@ function parseNumberArgs(...args) {
       }
     });
   }
-  if (isString$1(arg3)) {
+  if (isString(arg3)) {
     options.locale = arg3;
   } else if (isPlainObject(arg3)) {
     overrides = arg3;
@@ -3787,11 +3992,11 @@ function clearNumberFormat(ctx, locale, format2) {
   }
 }
 /*!
-  * vue-i18n v9.5.0
-  * (c) 2023 kazuya kawaguchi
+  * vue-i18n v9.9.1
+  * (c) 2024 kazuya kawaguchi
   * Released under the MIT License.
   */
-const VERSION = "9.5.0";
+const VERSION = "9.9.1";
 const code$1 = CoreWarnCodes.__EXTEND_POINT__;
 const inc$1 = incrementer(code$1);
 ({
@@ -3835,19 +4040,19 @@ const I18nErrorCodes = {
   NOT_AVAILABLE_COMPOSITION_IN_LEGACY: inc(),
   // for enhancement
   __EXTEND_POINT__: inc()
-  // 37
+  // 40
 };
 function createI18nError(code2, ...args) {
   return createCompileError(code2, null, void 0);
 }
-const TranslateVNodeSymbol = /* @__PURE__ */ makeSymbol$1("__translateVNode");
-const DatetimePartsSymbol = /* @__PURE__ */ makeSymbol$1("__datetimeParts");
-const NumberPartsSymbol = /* @__PURE__ */ makeSymbol$1("__numberParts");
-const SetPluralRulesSymbol = makeSymbol$1("__setPluralRules");
-const InejctWithOptionSymbol = /* @__PURE__ */ makeSymbol$1("__injectWithOption");
-const DisposeSymbol = /* @__PURE__ */ makeSymbol$1("__dispose");
+const TranslateVNodeSymbol = /* @__PURE__ */ makeSymbol("__translateVNode");
+const DatetimePartsSymbol = /* @__PURE__ */ makeSymbol("__datetimeParts");
+const NumberPartsSymbol = /* @__PURE__ */ makeSymbol("__numberParts");
+const SetPluralRulesSymbol = makeSymbol("__setPluralRules");
+const InejctWithOptionSymbol = /* @__PURE__ */ makeSymbol("__injectWithOption");
+const DisposeSymbol = /* @__PURE__ */ makeSymbol("__dispose");
 function handleFlatJson(obj) {
-  if (!isObject$1(obj)) {
+  if (!isObject(obj)) {
     return obj;
   }
   for (const key in obj) {
@@ -3855,7 +4060,7 @@ function handleFlatJson(obj) {
       continue;
     }
     if (!key.includes(".")) {
-      if (isObject$1(obj[key])) {
+      if (isObject(obj[key])) {
         handleFlatJson(obj[key]);
       }
     } else {
@@ -3867,7 +4072,7 @@ function handleFlatJson(obj) {
         if (!(subKeys[i] in currentObj)) {
           currentObj[subKeys[i]] = {};
         }
-        if (!isObject$1(currentObj[subKeys[i]])) {
+        if (!isObject(currentObj[subKeys[i]])) {
           hasStringValue = true;
           break;
         }
@@ -3877,7 +4082,7 @@ function handleFlatJson(obj) {
         currentObj[subKeys[lastIndex]] = obj[key];
         delete obj[key];
       }
-      if (isObject$1(currentObj[subKeys[lastIndex]])) {
+      if (isObject(currentObj[subKeys[lastIndex]])) {
         handleFlatJson(currentObj[subKeys[lastIndex]]);
       }
     }
@@ -3886,19 +4091,19 @@ function handleFlatJson(obj) {
 }
 function getLocaleMessages(locale, options) {
   const { messages, __i18n, messageResolver, flatJson } = options;
-  const ret = isPlainObject(messages) ? messages : isArray$1(__i18n) ? {} : { [locale]: {} };
-  if (isArray$1(__i18n)) {
+  const ret = isPlainObject(messages) ? messages : isArray(__i18n) ? {} : { [locale]: {} };
+  if (isArray(__i18n)) {
     __i18n.forEach((custom) => {
       if ("locale" in custom && "resource" in custom) {
         const { locale: locale2, resource } = custom;
         if (locale2) {
           ret[locale2] = ret[locale2] || {};
-          deepCopy$1(resource, ret[locale2]);
+          deepCopy(resource, ret[locale2]);
         } else {
-          deepCopy$1(resource, ret);
+          deepCopy(resource, ret);
         }
       } else {
-        isString$1(custom) && deepCopy$1(JSON.parse(custom), ret);
+        isString(custom) && deepCopy(JSON.parse(custom), ret);
       }
     });
   }
@@ -3911,26 +4116,11 @@ function getLocaleMessages(locale, options) {
   }
   return ret;
 }
-const isNotObjectOrIsArray = (val) => !isObject$1(val) || isArray$1(val);
-function deepCopy$1(src, des) {
-  if (isNotObjectOrIsArray(src) || isNotObjectOrIsArray(des)) {
-    throw createI18nError(I18nErrorCodes.INVALID_VALUE);
-  }
-  for (const key in src) {
-    if (hasOwn(src, key)) {
-      if (isNotObjectOrIsArray(src[key]) || isNotObjectOrIsArray(des[key])) {
-        des[key] = src[key];
-      } else {
-        deepCopy$1(src[key], des[key]);
-      }
-    }
-  }
-}
 function getComponentOptions(instance) {
   return instance.type;
 }
 function adjustI18nResources(gl, options, componentOptions) {
-  let messages = isObject$1(options.messages) ? options.messages : {};
+  let messages = isObject(options.messages) ? options.messages : {};
   if ("__i18nGlobal" in componentOptions) {
     messages = getLocaleMessages(gl.locale.value, {
       messages,
@@ -3944,7 +4134,7 @@ function adjustI18nResources(gl, options, componentOptions) {
     });
   }
   {
-    if (isObject$1(options.datetimeFormats)) {
+    if (isObject(options.datetimeFormats)) {
       const locales2 = Object.keys(options.datetimeFormats);
       if (locales2.length) {
         locales2.forEach((locale) => {
@@ -3952,7 +4142,7 @@ function adjustI18nResources(gl, options, componentOptions) {
         });
       }
     }
-    if (isObject$1(options.numberFormats)) {
+    if (isObject(options.numberFormats)) {
       const locales2 = Object.keys(options.numberFormats);
       if (locales2.length) {
         locales2.forEach((locale) => {
@@ -3966,13 +4156,15 @@ function createTextNode(key) {
   return createVNode(Text, null, key, 0);
 }
 const DEVTOOLS_META = "__INTLIFY_META__";
+const NOOP_RETURN_ARRAY = () => [];
+const NOOP_RETURN_FALSE = () => false;
 let composerID = 0;
 function defineCoreMissingHandler(missing) {
   return (ctx, locale, key, type) => {
     return missing(locale, key, getCurrentInstance() || void 0, type);
   };
 }
-const getMetaInfo = () => {
+const getMetaInfo = /* @__NO_SIDE_EFFECTS__ */ () => {
   const instance = getCurrentInstance();
   let meta = null;
   return instance && (meta = getComponentOptions(instance)[DEVTOOLS_META]) ? { [DEVTOOLS_META]: meta } : null;
@@ -3980,25 +4172,27 @@ const getMetaInfo = () => {
 function createComposer(options = {}, VueI18nLegacy) {
   const { __root, __injectWithOption } = options;
   const _isGlobal = __root === void 0;
+  const flatJson = options.flatJson;
+  const _ref = shallowRef;
   let _inheritLocale = isBoolean(options.inheritLocale) ? options.inheritLocale : true;
-  const _locale = ref(
+  const _locale = _ref(
     // prettier-ignore
-    __root && _inheritLocale ? __root.locale.value : isString$1(options.locale) ? options.locale : DEFAULT_LOCALE$1
+    __root && _inheritLocale ? __root.locale.value : isString(options.locale) ? options.locale : DEFAULT_LOCALE
   );
-  const _fallbackLocale = ref(
+  const _fallbackLocale = _ref(
     // prettier-ignore
-    __root && _inheritLocale ? __root.fallbackLocale.value : isString$1(options.fallbackLocale) || isArray$1(options.fallbackLocale) || isPlainObject(options.fallbackLocale) || options.fallbackLocale === false ? options.fallbackLocale : _locale.value
+    __root && _inheritLocale ? __root.fallbackLocale.value : isString(options.fallbackLocale) || isArray(options.fallbackLocale) || isPlainObject(options.fallbackLocale) || options.fallbackLocale === false ? options.fallbackLocale : _locale.value
   );
-  const _messages = ref(getLocaleMessages(_locale.value, options));
-  const _datetimeFormats = ref(isPlainObject(options.datetimeFormats) ? options.datetimeFormats : { [_locale.value]: {} });
-  const _numberFormats = ref(isPlainObject(options.numberFormats) ? options.numberFormats : { [_locale.value]: {} });
+  const _messages = _ref(getLocaleMessages(_locale.value, options));
+  const _datetimeFormats = _ref(isPlainObject(options.datetimeFormats) ? options.datetimeFormats : { [_locale.value]: {} });
+  const _numberFormats = _ref(isPlainObject(options.numberFormats) ? options.numberFormats : { [_locale.value]: {} });
   let _missingWarn = __root ? __root.missingWarn : isBoolean(options.missingWarn) || isRegExp(options.missingWarn) ? options.missingWarn : true;
   let _fallbackWarn = __root ? __root.fallbackWarn : isBoolean(options.fallbackWarn) || isRegExp(options.fallbackWarn) ? options.fallbackWarn : true;
   let _fallbackRoot = __root ? __root.fallbackRoot : isBoolean(options.fallbackRoot) ? options.fallbackRoot : true;
   let _fallbackFormat = !!options.fallbackFormat;
-  let _missing = isFunction$1(options.missing) ? options.missing : null;
-  let _runtimeMissing = isFunction$1(options.missing) ? defineCoreMissingHandler(options.missing) : null;
-  let _postTranslation = isFunction$1(options.postTranslation) ? options.postTranslation : null;
+  let _missing = isFunction(options.missing) ? options.missing : null;
+  let _runtimeMissing = isFunction(options.missing) ? defineCoreMissingHandler(options.missing) : null;
+  let _postTranslation = isFunction(options.postTranslation) ? options.postTranslation : null;
   let _warnHtmlMessage = __root ? __root.warnHtmlMessage : isBoolean(options.warnHtmlMessage) ? options.warnHtmlMessage : true;
   let _escapeParameter = !!options.escapeParameter;
   const _modifiers = __root ? __root.modifiers : isPlainObject(options.modifiers) ? options.modifiers : {};
@@ -4065,7 +4259,7 @@ function createComposer(options = {}, VueI18nLegacy) {
   const datetimeFormats = /* @__PURE__ */ computed(() => _datetimeFormats.value);
   const numberFormats = /* @__PURE__ */ computed(() => _numberFormats.value);
   function getPostTranslationHandler() {
-    return isFunction$1(_postTranslation) ? _postTranslation : null;
+    return isFunction(_postTranslation) ? _postTranslation : null;
   }
   function setPostTranslationHandler(handler) {
     _postTranslation = handler;
@@ -4095,7 +4289,8 @@ function createComposer(options = {}, VueI18nLegacy) {
         _context.fallbackContext = void 0;
       }
     }
-    if (isNumber(ret) && ret === NOT_REOSLVED) {
+    if (warnType !== "translate exists" && // for not `te` (e.g `t`)
+    isNumber(ret) && ret === NOT_REOSLVED || warnType === "translate exists" && !ret) {
       const [key, arg2] = argumentParser();
       return __root && _fallbackRoot ? fallbackSuccess(__root) : fallbackFail(key);
     } else if (successCondition(ret)) {
@@ -4105,23 +4300,23 @@ function createComposer(options = {}, VueI18nLegacy) {
     }
   };
   function t(...args) {
-    return wrapWithDeps((context) => Reflect.apply(translate, null, [context, ...args]), () => parseTranslateArgs(...args), "translate", (root) => Reflect.apply(root.t, root, [...args]), (key) => key, (val) => isString$1(val));
+    return wrapWithDeps((context) => Reflect.apply(translate, null, [context, ...args]), () => parseTranslateArgs(...args), "translate", (root) => Reflect.apply(root.t, root, [...args]), (key) => key, (val) => isString(val));
   }
   function rt(...args) {
     const [arg1, arg2, arg3] = args;
-    if (arg3 && !isObject$1(arg3)) {
+    if (arg3 && !isObject(arg3)) {
       throw createI18nError(I18nErrorCodes.INVALID_ARGUMENT);
     }
-    return t(...[arg1, arg2, assign$1({ resolvedMessage: true }, arg3 || {})]);
+    return t(...[arg1, arg2, assign({ resolvedMessage: true }, arg3 || {})]);
   }
   function d(...args) {
-    return wrapWithDeps((context) => Reflect.apply(datetime, null, [context, ...args]), () => parseDateTimeArgs(...args), "datetime format", (root) => Reflect.apply(root.d, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => isString$1(val));
+    return wrapWithDeps((context) => Reflect.apply(datetime, null, [context, ...args]), () => parseDateTimeArgs(...args), "datetime format", (root) => Reflect.apply(root.d, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => isString(val));
   }
   function n(...args) {
-    return wrapWithDeps((context) => Reflect.apply(number, null, [context, ...args]), () => parseNumberArgs(...args), "number format", (root) => Reflect.apply(root.n, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => isString$1(val));
+    return wrapWithDeps((context) => Reflect.apply(number, null, [context, ...args]), () => parseNumberArgs(...args), "number format", (root) => Reflect.apply(root.n, root, [...args]), () => MISSING_RESOLVE_VALUE, (val) => isString(val));
   }
   function normalize(values) {
-    return values.map((val) => isString$1(val) || isNumber(val) || isBoolean(val) ? createTextNode(String(val)) : val);
+    return values.map((val) => isString(val) || isNumber(val) || isBoolean(val) ? createTextNode(String(val)) : val);
   }
   const interpolate = (val) => val;
   const processor = {
@@ -4147,7 +4342,7 @@ function createComposer(options = {}, VueI18nLegacy) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (root) => root[TranslateVNodeSymbol](...args),
       (key) => [createTextNode(key)],
-      (val) => isArray$1(val)
+      (val) => isArray(val)
     );
   }
   function numberParts(...args) {
@@ -4157,8 +4352,8 @@ function createComposer(options = {}, VueI18nLegacy) {
       "number format",
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (root) => root[NumberPartsSymbol](...args),
-      () => [],
-      (val) => isString$1(val) || isArray$1(val)
+      NOOP_RETURN_ARRAY,
+      (val) => isString(val) || isArray(val)
     );
   }
   function datetimeParts(...args) {
@@ -4168,8 +4363,8 @@ function createComposer(options = {}, VueI18nLegacy) {
       "datetime format",
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (root) => root[DatetimePartsSymbol](...args),
-      () => [],
-      (val) => isString$1(val) || isArray$1(val)
+      NOOP_RETURN_ARRAY,
+      (val) => isString(val) || isArray(val)
     );
   }
   function setPluralRules(rules) {
@@ -4177,11 +4372,17 @@ function createComposer(options = {}, VueI18nLegacy) {
     _context.pluralRules = _pluralRules;
   }
   function te(key, locale2) {
-    if (!key)
-      return false;
-    const targetLocale = isString$1(locale2) ? locale2 : _locale.value;
-    const message = getLocaleMessage(targetLocale);
-    return _context.messageResolver(message, key) !== null;
+    return wrapWithDeps(() => {
+      if (!key) {
+        return false;
+      }
+      const targetLocale = isString(locale2) ? locale2 : _locale.value;
+      const message = getLocaleMessage(targetLocale);
+      const resolved = _context.messageResolver(message, key);
+      return isMessageAST(resolved) || isMessageFunction(resolved) || isString(resolved);
+    }, () => [key], "translate exists", (root) => {
+      return Reflect.apply(root.te, root, [key, locale2]);
+    }, NOOP_RETURN_FALSE, (val) => isBoolean(val));
   }
   function resolveMessages(key) {
     let messages2 = null;
@@ -4204,12 +4405,30 @@ function createComposer(options = {}, VueI18nLegacy) {
     return _messages.value[locale2] || {};
   }
   function setLocaleMessage(locale2, message) {
+    if (flatJson) {
+      const _message = { [locale2]: message };
+      for (const key in _message) {
+        if (hasOwn(_message, key)) {
+          handleFlatJson(_message[key]);
+        }
+      }
+      message = _message[locale2];
+    }
     _messages.value[locale2] = message;
     _context.messages = _messages.value;
   }
   function mergeLocaleMessage2(locale2, message) {
     _messages.value[locale2] = _messages.value[locale2] || {};
-    deepCopy$1(message, _messages.value[locale2]);
+    const _message = { [locale2]: message };
+    if (flatJson) {
+      for (const key in _message) {
+        if (hasOwn(_message, key)) {
+          handleFlatJson(_message[key]);
+        }
+      }
+    }
+    message = _message[locale2];
+    deepCopy(message, _messages.value[locale2]);
     _context.messages = _messages.value;
   }
   function getDateTimeFormat(locale2) {
@@ -4221,7 +4440,7 @@ function createComposer(options = {}, VueI18nLegacy) {
     clearDateTimeFormat(_context, locale2, format2);
   }
   function mergeDateTimeFormat(locale2, format2) {
-    _datetimeFormats.value[locale2] = assign$1(_datetimeFormats.value[locale2] || {}, format2);
+    _datetimeFormats.value[locale2] = assign(_datetimeFormats.value[locale2] || {}, format2);
     _context.datetimeFormats = _datetimeFormats.value;
     clearDateTimeFormat(_context, locale2, format2);
   }
@@ -4234,7 +4453,7 @@ function createComposer(options = {}, VueI18nLegacy) {
     clearNumberFormat(_context, locale2, format2);
   }
   function mergeNumberFormat(locale2, format2) {
-    _numberFormats.value[locale2] = assign$1(_numberFormats.value[locale2] || {}, format2);
+    _numberFormats.value[locale2] = assign(_numberFormats.value[locale2] || {}, format2);
     _context.numberFormats = _numberFormats.value;
     clearNumberFormat(_context, locale2, format2);
   }
@@ -4399,7 +4618,7 @@ function getFragmentableTag(tag) {
 const TranslationImpl = /* @__PURE__ */ defineComponent({
   /* eslint-disable */
   name: "i18n-t",
-  props: assign$1({
+  props: assign({
     keypath: {
       type: String,
       required: true
@@ -4425,19 +4644,19 @@ const TranslationImpl = /* @__PURE__ */ defineComponent({
         options.locale = props.locale;
       }
       if (props.plural !== void 0) {
-        options.plural = isString$1(props.plural) ? +props.plural : props.plural;
+        options.plural = isString(props.plural) ? +props.plural : props.plural;
       }
       const arg = getInterpolateArg(context, keys);
       const children = i18n[TranslateVNodeSymbol](props.keypath, arg, options);
-      const assignedAttrs = assign$1({}, attrs);
-      const tag = isString$1(props.tag) || isObject$1(props.tag) ? props.tag : getFragmentableTag();
+      const assignedAttrs = assign({}, attrs);
+      const tag = isString(props.tag) || isObject(props.tag) ? props.tag : getFragmentableTag();
       return h(tag, assignedAttrs, children);
     };
   }
 });
 const Translation = TranslationImpl;
 function isVNode(target) {
-  return isArray$1(target) && !isString$1(target[0]);
+  return isArray(target) && !isString(target[0]);
 }
 function renderFormatter(props, context, slotKeys, partFormatter) {
   const { slots, attrs } = context;
@@ -4447,19 +4666,19 @@ function renderFormatter(props, context, slotKeys, partFormatter) {
     if (props.locale) {
       options.locale = props.locale;
     }
-    if (isString$1(props.format)) {
+    if (isString(props.format)) {
       options.key = props.format;
-    } else if (isObject$1(props.format)) {
-      if (isString$1(props.format.key)) {
+    } else if (isObject(props.format)) {
+      if (isString(props.format.key)) {
         options.key = props.format.key;
       }
       overrides = Object.keys(props.format).reduce((options2, prop) => {
-        return slotKeys.includes(prop) ? assign$1({}, options2, { [prop]: props.format[prop] }) : options2;
+        return slotKeys.includes(prop) ? assign({}, options2, { [prop]: props.format[prop] }) : options2;
       }, {});
     }
     const parts = partFormatter(...[props.value, options, overrides]);
     let children = [options.key];
-    if (isArray$1(parts)) {
+    if (isArray(parts)) {
       children = parts.map((part, index) => {
         const slot = slots[part.type];
         const node = slot ? slot({ [part.type]: part.value, index, parts }) : [part.value];
@@ -4468,18 +4687,18 @@ function renderFormatter(props, context, slotKeys, partFormatter) {
         }
         return node;
       });
-    } else if (isString$1(parts)) {
+    } else if (isString(parts)) {
       children = [parts];
     }
-    const assignedAttrs = assign$1({}, attrs);
-    const tag = isString$1(props.tag) || isObject$1(props.tag) ? props.tag : getFragmentableTag();
+    const assignedAttrs = assign({}, attrs);
+    const tag = isString(props.tag) || isObject(props.tag) ? props.tag : getFragmentableTag();
     return h(tag, assignedAttrs, children);
   };
 }
 const NumberFormatImpl = /* @__PURE__ */ defineComponent({
   /* eslint-disable */
   name: "i18n-n",
-  props: assign$1({
+  props: assign({
     value: {
       type: Number,
       required: true
@@ -4505,7 +4724,7 @@ const NumberFormat = NumberFormatImpl;
 const DatetimeFormatImpl = /* @__PURE__ */ defineComponent({
   /* eslint-disable */
   name: "i18n-d",
-  props: assign$1({
+  props: assign({
     value: {
       type: [Number, Date],
       required: true
@@ -4582,7 +4801,7 @@ function vTDirective(i18n) {
   };
 }
 function parseValue(value) {
-  if (isString$1(value)) {
+  if (isString(value)) {
     return { path: value };
   } else if (isPlainObject(value)) {
     if (!("path" in value)) {
@@ -4597,7 +4816,7 @@ function makeParams(value) {
   const { path, locale, args, choice, plural } = value;
   const options = {};
   const named = args || {};
-  if (isString$1(locale)) {
+  if (isString(locale)) {
     options.locale = locale;
   }
   if (isNumber(choice)) {
@@ -4621,13 +4840,13 @@ function apply(app, i18n, ...options) {
     app.directive("t", vTDirective(i18n));
   }
 }
-const I18nInjectionKey = /* @__PURE__ */ makeSymbol$1("global-vue-i18n");
+const I18nInjectionKey = /* @__PURE__ */ makeSymbol("global-vue-i18n");
 function createI18n(options = {}, VueI18nLegacy) {
   const __globalInjection = isBoolean(options.globalInjection) ? options.globalInjection : true;
   const __allowComposition = true;
   const __instances = /* @__PURE__ */ new Map();
   const [globalScope, __global] = createGlobal(options);
-  const symbol = /* @__PURE__ */ makeSymbol$1("");
+  const symbol = /* @__PURE__ */ makeSymbol("");
   function __getInstance(component) {
     return __instances.get(component) || null;
   }
@@ -4715,7 +4934,7 @@ function useI18n(options = {}) {
   const i18nInternal = i18n;
   let composer = i18nInternal.__getInstance(instance);
   if (composer == null) {
-    const composerOptions = assign$1({}, options);
+    const composerOptions = assign({}, options);
     if ("__i18n" in componentOptions) {
       composerOptions.__i18n = componentOptions.__i18n;
     }
@@ -4845,65 +5064,316 @@ function injectGlobalFields(app, composer) {
 }
 registerMessageResolver(resolveValue);
 registerLocaleFallbacker(fallbackWithLocaleChain);
-const isVue3 = true;
-const STRATEGIES = {
-  PREFIX: "prefix",
-  PREFIX_EXCEPT_DEFAULT: "prefix_except_default",
-  PREFIX_AND_DEFAULT: "prefix_and_default",
-  NO_PREFIX: "no_prefix"
+const localeCodes = [
+  "en",
+  "fr"
+];
+const localeLoaders = {
+  "en": [{ key: "../locales/en.json", load: () => import(
+    './_nuxt/en-v6eHroP4.mjs'
+    /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_development_Wineater_wineater_landing_locales_en_json" */
+  ), cache: true }],
+  "fr": [{ key: "../locales/fr.json", load: () => import(
+    './_nuxt/fr-Cp_5pEgj.mjs'
+    /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_development_Wineater_wineater_landing_locales_fr_json" */
+  ), cache: true }]
 };
-const DEFAULT_LOCALE = "";
-const DEFAULT_STRATEGY = STRATEGIES.PREFIX_EXCEPT_DEFAULT;
-const DEFAULT_TRAILING_SLASH = false;
-const DEFAULT_ROUTES_NAME_SEPARATOR = "___";
-const DEFAULT_LOCALE_ROUTE_NAME_SUFFIX = "default";
-const DEFAULT_DETECTION_DIRECTION = "ltr";
+const vueI18nConfigs = [];
+const nuxtI18nOptions = {
+  "experimental": {
+    "localeDetector": ""
+  },
+  "bundle": {
+    "compositionOnly": true,
+    "runtimeOnly": false,
+    "fullInstall": true,
+    "dropMessageCompiler": false
+  },
+  "compilation": {
+    "jit": true,
+    "strictMessage": true,
+    "escapeHtml": false
+  },
+  "customBlocks": {
+    "defaultSFCLang": "json",
+    "globalSFCScope": false
+  },
+  "vueI18n": "",
+  "locales": [
+    {
+      "code": "en",
+      "files": [
+        "locales/en.json"
+      ]
+    },
+    {
+      "code": "fr",
+      "files": [
+        "locales/fr.json"
+      ]
+    }
+  ],
+  "defaultLocale": "en",
+  "defaultDirection": "ltr",
+  "routesNameSeparator": "___",
+  "trailingSlash": false,
+  "defaultLocaleRouteNameSuffix": "default",
+  "strategy": "prefix_except_default",
+  "lazy": true,
+  "langDir": "locales",
+  "rootRedirect": null,
+  "detectBrowserLanguage": {
+    "alwaysRedirect": false,
+    "cookieCrossOrigin": false,
+    "cookieDomain": null,
+    "cookieKey": "i18n_redirected",
+    "cookieSecure": false,
+    "fallbackLocale": "",
+    "redirectOn": "root",
+    "useCookie": true
+  },
+  "differentDomains": false,
+  "baseUrl": "",
+  "dynamicRouteParams": false,
+  "customRoutes": "page",
+  "pages": {},
+  "skipSettingLocaleOnNavigate": false,
+  "types": "composition",
+  "debug": false,
+  "parallelPlugin": false,
+  "seo": true,
+  "i18nModules": []
+};
+const nuxtI18nOptionsDefault = {
+  "experimental": {
+    "localeDetector": ""
+  },
+  "bundle": {
+    "compositionOnly": true,
+    "runtimeOnly": false,
+    "fullInstall": true,
+    "dropMessageCompiler": false
+  },
+  "compilation": {
+    "jit": true,
+    "strictMessage": true,
+    "escapeHtml": false
+  },
+  "customBlocks": {
+    "defaultSFCLang": "json",
+    "globalSFCScope": false
+  },
+  "vueI18n": "",
+  "locales": [],
+  "defaultLocale": "",
+  "defaultDirection": "ltr",
+  "routesNameSeparator": "___",
+  "trailingSlash": false,
+  "defaultLocaleRouteNameSuffix": "default",
+  "strategy": "prefix_except_default",
+  "lazy": false,
+  "langDir": null,
+  "rootRedirect": null,
+  "detectBrowserLanguage": {
+    "alwaysRedirect": false,
+    "cookieCrossOrigin": false,
+    "cookieDomain": null,
+    "cookieKey": "i18n_redirected",
+    "cookieSecure": false,
+    "fallbackLocale": "",
+    "redirectOn": "root",
+    "useCookie": true
+  },
+  "differentDomains": false,
+  "baseUrl": "",
+  "dynamicRouteParams": false,
+  "customRoutes": "page",
+  "pages": {},
+  "skipSettingLocaleOnNavigate": false,
+  "types": "composition",
+  "debug": false,
+  "parallelPlugin": false
+};
+const normalizedLocales = [
+  {
+    "code": "en",
+    "files": [
+      {
+        "path": "locales/en.json"
+      }
+    ]
+  },
+  {
+    "code": "fr",
+    "files": [
+      {
+        "path": "locales/fr.json"
+      }
+    ]
+  }
+];
+const parallelPlugin = false;
+const isSSG = false;
+const STRATEGIES = {
+  "PREFIX": "prefix",
+  "PREFIX_EXCEPT_DEFAULT": "prefix_except_default",
+  "PREFIX_AND_DEFAULT": "prefix_and_default",
+  "NO_PREFIX": "no_prefix"
+};
 const DEFAULT_BASE_URL = "";
-const DEFAULT_DYNAMIC_PARAMS_KEY = "";
-/*!
-  * shared v9.4.1
-  * (c) 2023 kazuya kawaguchi
-  * Released under the MIT License.
-  */
-const makeSymbol = (name, shareable = false) => !shareable ? Symbol(name) : Symbol.for(name);
-const assign = Object.assign;
-const isArray = Array.isArray;
-const isFunction = (val) => typeof val === "function";
-const isString = (val) => typeof val === "string";
-const isSymbol = (val) => typeof val === "symbol";
-const isObject = (val) => val !== null && typeof val === "object";
-const TRAILING_SLASH_RE = /\/$|\/\?/;
-function hasTrailingSlash(input = "", queryParameters = false) {
-  if (!queryParameters) {
-    return input.endsWith("/");
+const DEFAULT_DYNAMIC_PARAMS_KEY = "nuxtI18n";
+const cacheMessages = /* @__PURE__ */ new Map();
+async function loadVueI18nOptions(vueI18nConfigs2, nuxt) {
+  const vueI18nOptions = { messages: {} };
+  for (const configFile of vueI18nConfigs2) {
+    const { default: resolver } = await configFile();
+    const resolved = typeof resolver === "function" ? await nuxt.runWithContext(async () => await resolver()) : resolver;
+    deepCopy(resolved, vueI18nOptions);
   }
-  return TRAILING_SLASH_RE.test(input);
+  return vueI18nOptions;
 }
-function withoutTrailingSlash(input = "", queryParameters = false) {
-  if (!queryParameters) {
-    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
+function makeFallbackLocaleCodes(fallback, locales) {
+  let fallbackLocales = [];
+  if (isArray(fallback)) {
+    fallbackLocales = fallback;
+  } else if (isObject(fallback)) {
+    const targets = [...locales, "default"];
+    for (const locale of targets) {
+      if (fallback[locale]) {
+        fallbackLocales = [...fallbackLocales, ...fallback[locale].filter(Boolean)];
+      }
+    }
+  } else if (isString(fallback) && locales.every((locale) => locale !== fallback)) {
+    fallbackLocales.push(fallback);
   }
-  if (!hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-  const [s0, ...s] = input.split("?");
-  return (s0.slice(0, -1) || "/") + (s.length > 0 ? `?${s.join("?")}` : "");
+  return fallbackLocales;
 }
-function withTrailingSlash(input = "", queryParameters = false) {
-  if (!queryParameters) {
-    return input.endsWith("/") ? input : input + "/";
+async function loadInitialMessages(messages, localeLoaders2, options) {
+  const { defaultLocale, initialLocale, localeCodes: localeCodes2, fallbackLocale, lazy } = options;
+  if (lazy && fallbackLocale) {
+    const fallbackLocales = makeFallbackLocaleCodes(fallbackLocale, [defaultLocale, initialLocale]);
+    await Promise.all(fallbackLocales.map((locale) => loadAndSetLocaleMessages(locale, localeLoaders2, messages)));
   }
-  if (hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-  const [s0, ...s] = input.split("?");
-  return s0 + "/" + (s.length > 0 ? `?${s.join("?")}` : "");
+  const locales = lazy ? [...(/* @__PURE__ */ new Set()).add(defaultLocale).add(initialLocale)] : localeCodes2;
+  await Promise.all(locales.map((locale) => loadAndSetLocaleMessages(locale, localeLoaders2, messages)));
+  return messages;
 }
-function warn(msg, err) {
-  if (typeof console !== "undefined") {
-    console.warn(`[vue-i18n-routing] ` + msg);
-    if (err) {
-      console.warn(err.stack);
+async function loadMessage(locale, { key, load }) {
+  let message = null;
+  try {
+    const getter = await load().then((r) => r.default || r);
+    if (isFunction(getter)) {
+      message = await getter(locale);
+    } else {
+      message = getter;
+      if (message != null && cacheMessages) {
+        cacheMessages.set(key, message);
+      }
+    }
+  } catch (e) {
+    console.error("Failed locale loading: " + e.message);
+  }
+  return message;
+}
+async function loadLocale(locale, localeLoaders2, setter) {
+  const loaders = localeLoaders2[locale];
+  if (loaders == null) {
+    console.warn("Could not find messages for locale code: " + locale);
+    return;
+  }
+  const targetMessage = {};
+  for (const loader of loaders) {
+    let message = null;
+    if (cacheMessages && cacheMessages.has(loader.key) && loader.cache) {
+      message = cacheMessages.get(loader.key);
+    } else {
+      message = await loadMessage(locale, loader);
+    }
+    if (message != null) {
+      deepCopy(message, targetMessage);
+    }
+  }
+  setter(locale, targetMessage);
+}
+async function loadAndSetLocaleMessages(locale, localeLoaders2, messages) {
+  const setter = (locale2, message) => {
+    const base = messages[locale2] || {};
+    deepCopy(message, base);
+    messages[locale2] = base;
+  };
+  await loadLocale(locale, localeLoaders2, setter);
+}
+function useRequestEvent(nuxtApp = /* @__PURE__ */ useNuxtApp()) {
+  var _a;
+  return (_a = nuxtApp.ssrContext) == null ? void 0 : _a.event;
+}
+function useRequestHeaders(include) {
+  const event = useRequestEvent();
+  const _headers = event ? getRequestHeaders(event) : {};
+  if (!include || !event) {
+    return _headers;
+  }
+  const headers = /* @__PURE__ */ Object.create(null);
+  for (const _key of include) {
+    const key = _key.toLowerCase();
+    const header = _headers[key];
+    if (header) {
+      headers[key] = header;
+    }
+  }
+  return headers;
+}
+function useRequestFetch() {
+  var _a;
+  return ((_a = useRequestEvent()) == null ? void 0 : _a.$fetch) || globalThis.$fetch;
+}
+const CookieDefaults = {
+  path: "/",
+  watch: true,
+  decode: (val) => destr(decodeURIComponent(val)),
+  encode: (val) => encodeURIComponent(typeof val === "string" ? val : JSON.stringify(val))
+};
+function useCookie(name, _opts) {
+  var _a;
+  const opts = { ...CookieDefaults, ..._opts };
+  const cookies = readRawCookies(opts) || {};
+  let delay;
+  if (opts.maxAge !== void 0) {
+    delay = opts.maxAge * 1e3;
+  } else if (opts.expires) {
+    delay = opts.expires.getTime() - Date.now();
+  }
+  const hasExpired = delay !== void 0 && delay <= 0;
+  const cookieValue = klona(hasExpired ? void 0 : cookies[name] ?? ((_a = opts.default) == null ? void 0 : _a.call(opts)));
+  const cookie = ref(cookieValue);
+  {
+    const nuxtApp = /* @__PURE__ */ useNuxtApp();
+    const writeFinalCookieValue = () => {
+      if (opts.readonly || isEqual$1(cookie.value, cookies[name])) {
+        return;
+      }
+      writeServerCookie(useRequestEvent(nuxtApp), name, cookie.value, opts);
+    };
+    const unhook = nuxtApp.hooks.hookOnce("app:rendered", writeFinalCookieValue);
+    nuxtApp.hooks.hookOnce("app:error", () => {
+      unhook();
+      return writeFinalCookieValue();
+    });
+  }
+  return cookie;
+}
+function readRawCookies(opts = {}) {
+  {
+    return parse$1(getRequestHeader(useRequestEvent(), "cookie") || "", opts);
+  }
+}
+function writeServerCookie(event, name, value, opts = {}) {
+  if (event) {
+    if (value !== null && value !== void 0) {
+      return setCookie(event, name, value, opts);
+    }
+    if (getCookie(event, name) !== void 0) {
+      return deleteCookie(event, name, opts);
     }
   }
 }
@@ -4923,46 +5393,45 @@ function isI18nInstance(i18n) {
   return i18n != null && "global" in i18n && "mode" in i18n;
 }
 function isComposer(target) {
-  return target != null && !("__composer" in target) && isRef(target.locale);
+  return target != null && !("__composer" in target) && "locale" in target && isRef(target.locale);
 }
 function isVueI18n(target) {
   return target != null && "__composer" in target;
 }
-function isExportedGlobalComposer(target) {
-  return target != null && !("__composer" in target) && !isRef(target.locale);
-}
-function isLegacyVueI18n$1(target) {
-  return target != null && ("__VUE_I18N_BRIDGE__" in target || "_sync" in target);
+function getI18nTarget(i18n) {
+  return isI18nInstance(i18n) ? i18n.global : i18n;
 }
 function getComposer(i18n) {
-  return isI18nInstance(i18n) ? isComposer(i18n.global) ? i18n.global : i18n.global.__composer : isVueI18n(i18n) ? i18n.__composer : i18n;
+  const target = getI18nTarget(i18n);
+  if (isComposer(target))
+    return target;
+  if (isVueI18n(target))
+    return target.__composer;
+  return target;
 }
 function getLocale(i18n) {
-  const target = isI18nInstance(i18n) ? i18n.global : i18n;
-  return isComposer(target) ? target.locale.value : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n$1(target) ? target.locale : target.locale;
+  return unref(getI18nTarget(i18n).locale);
 }
 function getLocales(i18n) {
-  const target = isI18nInstance(i18n) ? i18n.global : i18n;
-  return isComposer(target) ? target.locales.value : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n$1(target) ? target.locales : target.locales;
+  return unref(getI18nTarget(i18n).locales);
 }
 function getLocaleCodes(i18n) {
-  const target = isI18nInstance(i18n) ? i18n.global : i18n;
-  return isComposer(target) ? target.localeCodes.value : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n$1(target) ? target.localeCodes : target.localeCodes;
+  return unref(getI18nTarget(i18n).localeCodes);
 }
 function setLocale(i18n, locale) {
-  const target = isI18nInstance(i18n) ? i18n.global : i18n;
-  if (isComposer(target)) {
-    {
-      target.locale.value = locale;
-    }
-  } else if (isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n$1(target)) {
-    target.locale = locale;
+  const target = getI18nTarget(i18n);
+  if (isRef(target.locale)) {
+    target.locale.value = locale;
   } else {
-    throw new Error("TODO:");
+    target.locale = locale;
   }
 }
 function getRouteName(routeName) {
-  return isString(routeName) ? routeName : isSymbol(routeName) ? routeName.toString() : "(null)";
+  if (isString(routeName))
+    return routeName;
+  if (isSymbol(routeName))
+    return routeName.toString();
+  return "(null)";
 }
 function getLocaleRouteName(routeName, locale, {
   defaultLocale,
@@ -5010,37 +5479,665 @@ function compareBrowserLocale(a, b) {
 }
 const DefaultBrowerLocaleComparer = compareBrowserLocale;
 function findBrowserLocale(locales, browserLocales, { matcher = DefaultBrowserLocaleMatcher, comparer = DefaultBrowerLocaleComparer } = {}) {
-  const normalizedLocales = [];
+  const normalizedLocales2 = [];
   for (const l of locales) {
     const { code: code2 } = l;
     const iso = l.iso || code2;
-    normalizedLocales.push({ code: code2, iso });
+    normalizedLocales2.push({ code: code2, iso });
   }
-  const matchedLocales = matcher(normalizedLocales, browserLocales);
+  const matchedLocales = matcher(normalizedLocales2, browserLocales);
   if (matchedLocales.length > 1) {
     matchedLocales.sort(comparer);
   }
   return matchedLocales.length ? matchedLocales[0].code : "";
 }
-function proxyVueInstance(target) {
-  return function() {
-    return Reflect.apply(
-      target,
-      {
-        getRouteBaseName: this.getRouteBaseName,
-        localePath: this.localePath,
-        localeRoute: this.localeRoute,
-        localeLocation: this.localeLocation,
-        resolveRoute: this.resolveRoute,
-        switchLocalePath: this.switchLocalePath,
-        localeHead: this.localeHead,
-        i18n: this.$i18n,
-        route: this.$route,
-        router: this.$router
-      },
-      // eslint-disable-next-line prefer-rest-params
-      arguments
+function getLocalesRegex(localeCodes2) {
+  return new RegExp(`^/(${localeCodes2.join("|")})(?:/|$)`, "i");
+}
+function callVueI18nInterfaces(i18n, name, ...args) {
+  const target = getI18nTarget(i18n);
+  const [obj, method] = [target, target[name]];
+  return Reflect.apply(method, obj, [...args]);
+}
+function getVueI18nPropertyValue(i18n, name) {
+  const target = getI18nTarget(i18n);
+  return unref(target[name]);
+}
+function defineGetter(obj, key, val) {
+  Object.defineProperty(obj, key, { get: () => val });
+}
+function wrapComposable(fn, common = initCommonComposableOptions()) {
+  return (...args) => fn(common, ...args);
+}
+function parseAcceptLanguage(input) {
+  return input.split(",").map((tag) => tag.split(";")[0]);
+}
+function getBrowserLocale() {
+  let ret;
+  {
+    const header = useRequestHeaders(["accept-language"]);
+    const accept = header["accept-language"];
+    if (accept) {
+      ret = findBrowserLocale(normalizedLocales, parseAcceptLanguage(accept));
+    }
+  }
+  return ret;
+}
+function getI18nCookie() {
+  const detect = nuxtI18nOptions.detectBrowserLanguage;
+  const cookieKey = detect && detect.cookieKey || nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey;
+  const date = /* @__PURE__ */ new Date();
+  const cookieOptions = {
+    expires: new Date(date.setDate(date.getDate() + 365)),
+    path: "/",
+    sameSite: detect && detect.cookieCrossOrigin ? "none" : "lax",
+    secure: detect && detect.cookieCrossOrigin || detect && detect.cookieSecure
+  };
+  if (detect && detect.cookieDomain) {
+    cookieOptions.domain = detect.cookieDomain;
+  }
+  return useCookie(cookieKey, cookieOptions);
+}
+function getLocaleCookie(cookieRef) {
+  const detect = nuxtI18nOptions.detectBrowserLanguage;
+  if (!detect || !detect.useCookie) {
+    return;
+  }
+  const localeCode = cookieRef.value ?? void 0;
+  if (localeCode && localeCodes.includes(localeCode)) {
+    return localeCode;
+  }
+}
+function setLocaleCookie(cookieRef, locale) {
+  const { useCookie: useCookie2 } = nuxtI18nOptions.detectBrowserLanguage || nuxtI18nOptionsDefault.detectBrowserLanguage;
+  if (!useCookie2) {
+    return;
+  }
+  cookieRef.value = locale;
+}
+const DefaultDetectBrowserLanguageFromResult = {
+  locale: "",
+  stat: false,
+  reason: "unknown",
+  from: "unknown"
+};
+function detectBrowserLanguage(route, vueI18nOptionsLocale, detectLocaleContext, locale = "") {
+  const { strategy } = nuxtI18nOptions;
+  const { ssg, callType, firstAccess, localeCookie } = detectLocaleContext;
+  if (!firstAccess) {
+    return { locale: strategy === "no_prefix" ? locale : "", stat: false, reason: "first_access_only" };
+  }
+  const { redirectOn, alwaysRedirect, useCookie: useCookie2, fallbackLocale } = nuxtI18nOptions.detectBrowserLanguage;
+  const path = isString(route) ? route : route.path;
+  if (strategy !== "no_prefix") {
+    if (redirectOn === "root") {
+      if (path !== "/") {
+        return { locale: "", stat: false, reason: "not_redirect_on_root" };
+      }
+    } else if (redirectOn === "no prefix") {
+      if (!alwaysRedirect && path.match(getLocalesRegex(localeCodes))) {
+        return { locale: "", stat: false, reason: "not_redirect_on_no_prefix" };
+      }
+    }
+  }
+  let localeFrom = "unknown";
+  let cookieLocale;
+  let matchedLocale;
+  if (useCookie2) {
+    matchedLocale = cookieLocale = localeCookie.value;
+    localeFrom = "cookie";
+  }
+  if (!matchedLocale) {
+    matchedLocale = getBrowserLocale();
+    localeFrom = "navigator_or_header";
+  }
+  const finalLocale = matchedLocale || fallbackLocale;
+  if (!matchedLocale && fallbackLocale) {
+    localeFrom = "fallback";
+  }
+  const vueI18nLocale = locale || vueI18nOptionsLocale;
+  if (finalLocale && (!useCookie2 || alwaysRedirect || !cookieLocale)) {
+    if (strategy === "no_prefix") {
+      return { locale: finalLocale, stat: true, from: localeFrom };
+    } else {
+      if (callType === "setup") {
+        if (finalLocale !== vueI18nLocale) {
+          return { locale: finalLocale, stat: true, from: localeFrom };
+        }
+      }
+      if (alwaysRedirect) {
+        const redirectOnRoot = path === "/";
+        const redirectOnAll = redirectOn === "all";
+        const redirectOnNoPrefix = redirectOn === "no prefix" && !path.match(getLocalesRegex(localeCodes));
+        if (redirectOnRoot || redirectOnAll || redirectOnNoPrefix) {
+          return { locale: finalLocale, stat: true, from: localeFrom };
+        }
+      }
+    }
+  }
+  if (ssg === "ssg_setup" && finalLocale) {
+    return { locale: finalLocale, stat: true, from: localeFrom };
+  }
+  if ((localeFrom === "navigator_or_header" || localeFrom === "cookie") && finalLocale) {
+    return { locale: finalLocale, stat: true, from: localeFrom };
+  }
+  return { locale: "", stat: false, reason: "not_found_match" };
+}
+function getHost() {
+  let host;
+  {
+    const header = useRequestHeaders(["x-forwarded-host", "host"]);
+    let detectedHost;
+    if ("x-forwarded-host" in header) {
+      detectedHost = header["x-forwarded-host"];
+    } else if ("host" in header) {
+      detectedHost = header["host"];
+    }
+    host = isArray(detectedHost) ? detectedHost[0] : detectedHost;
+  }
+  return host;
+}
+function getLocaleDomain(locales) {
+  let host = getHost() || "";
+  if (host) {
+    const matchingLocale = locales.find((locale) => {
+      if (locale && locale.domain) {
+        let domain = locale.domain;
+        if (hasProtocol(locale.domain)) {
+          domain = locale.domain.replace(/(http|https):\/\//, "");
+        }
+        return domain === host;
+      }
+      return false;
+    });
+    if (matchingLocale) {
+      return matchingLocale.code;
+    } else {
+      host = "";
+    }
+  }
+  return host;
+}
+function split(str, index) {
+  const result = [str.slice(0, index), str.slice(index)];
+  return result;
+}
+function routeToObject(route) {
+  const { fullPath, query, hash, name, path, params, meta, redirectedFrom, matched } = route;
+  return {
+    fullPath,
+    params,
+    query,
+    hash,
+    name,
+    path,
+    meta,
+    matched,
+    redirectedFrom
+  };
+}
+function resolve({ router }, route, strategy, locale) {
+  var _a, _b;
+  if (strategy !== "prefix") {
+    return router.resolve(route);
+  }
+  const [rootSlash, restPath] = split(route.path, 1);
+  const targetPath = `${rootSlash}${locale}${restPath === "" ? restPath : `/${restPath}`}`;
+  const _route = (_b = (_a = router.options) == null ? void 0 : _a.routes) == null ? void 0 : _b.find((r) => r.path === targetPath);
+  if (_route == null) {
+    return route;
+  }
+  const _resolvableRoute = assign({}, route, _route);
+  _resolvableRoute.path = targetPath;
+  return router.resolve(_resolvableRoute);
+}
+const RESOLVED_PREFIXED = /* @__PURE__ */ new Set(["prefix_and_default", "prefix_except_default"]);
+function prefixable(options) {
+  const { currentLocale, defaultLocale, strategy } = options;
+  const isDefaultLocale = currentLocale === defaultLocale;
+  return !(isDefaultLocale && RESOLVED_PREFIXED.has(strategy)) && // no prefix for any language
+  !(strategy === "no_prefix");
+}
+const DefaultPrefixable = prefixable;
+function getRouteBaseName(givenRoute) {
+  const { routesNameSeparator } = nuxtI18nOptions;
+  const route = unref(givenRoute);
+  if (route == null || !route.name) {
+    return;
+  }
+  const name = getRouteName(route.name);
+  return name.split(routesNameSeparator)[0];
+}
+function localePath(common, route, locale) {
+  var _a;
+  if (typeof route === "string" && hasProtocol(route, { acceptRelative: true })) {
+    return route;
+  }
+  const localizedRoute = resolveRoute(common, route, locale);
+  return localizedRoute == null ? "" : ((_a = localizedRoute.redirectedFrom) == null ? void 0 : _a.fullPath) || localizedRoute.fullPath;
+}
+function localeRoute(common, route, locale) {
+  const resolved = resolveRoute(common, route, locale);
+  return resolved ?? void 0;
+}
+function localeLocation(common, route, locale) {
+  const resolved = resolveRoute(common, route, locale);
+  return resolved ?? void 0;
+}
+function resolveRoute(common, route, locale) {
+  const { router, i18n } = common;
+  const _locale = locale || getLocale(i18n);
+  const { routesNameSeparator, defaultLocale, defaultLocaleRouteNameSuffix, strategy, trailingSlash } = nuxtI18nOptions;
+  const prefixable2 = extendPrefixable();
+  let _route;
+  if (isString(route)) {
+    if (route[0] === "/") {
+      const { pathname: path, search, hash } = parsePath(route);
+      const query = parseQuery(search);
+      _route = { path, query, hash };
+    } else {
+      _route = { name: route };
+    }
+  } else {
+    _route = route;
+  }
+  let localizedRoute = assign({}, _route);
+  const isRouteLocationPathRaw = (val) => "path" in val && !!val.path && !("name" in val);
+  if (isRouteLocationPathRaw(localizedRoute)) {
+    const resolvedRoute = resolve(common, localizedRoute, strategy, _locale);
+    const resolvedRouteName = getRouteBaseName(resolvedRoute);
+    if (isString(resolvedRouteName)) {
+      localizedRoute = {
+        name: getLocaleRouteName(resolvedRouteName, _locale, {
+          defaultLocale,
+          strategy,
+          routesNameSeparator,
+          defaultLocaleRouteNameSuffix
+        }),
+        // @ts-ignore
+        params: resolvedRoute.params,
+        query: resolvedRoute.query,
+        hash: resolvedRoute.hash
+      };
+      localizedRoute.state = resolvedRoute.state;
+    } else {
+      if (prefixable2({ currentLocale: _locale, defaultLocale, strategy })) {
+        localizedRoute.path = `/${_locale}${localizedRoute.path}`;
+      }
+      localizedRoute.path = trailingSlash ? withTrailingSlash(localizedRoute.path, true) : withoutTrailingSlash(localizedRoute.path, true);
+    }
+  } else {
+    if (!localizedRoute.name && !("path" in localizedRoute)) {
+      localizedRoute.name = getRouteBaseName(router.currentRoute.value);
+    }
+    localizedRoute.name = getLocaleRouteName(localizedRoute.name, _locale, {
+      defaultLocale,
+      strategy,
+      routesNameSeparator,
+      defaultLocaleRouteNameSuffix
+    });
+  }
+  try {
+    const resolvedRoute = router.resolve(localizedRoute);
+    if (resolvedRoute.name) {
+      return resolvedRoute;
+    }
+    return router.resolve(route);
+  } catch (e) {
+    if (typeof e === "object" && "type" in e && e.type === 1) {
+      return null;
+    }
+  }
+}
+const DefaultSwitchLocalePathIntercepter = (path) => path;
+function getLocalizableMetaFromDynamicParams(route) {
+  var _a;
+  const meta = route.meta || {};
+  return ((_a = unref(meta)) == null ? void 0 : _a[DEFAULT_DYNAMIC_PARAMS_KEY]) || {};
+}
+function switchLocalePath(common, locale, _route) {
+  const route = _route ?? common.router.currentRoute.value;
+  const name = getRouteBaseName(route);
+  if (!name) {
+    return "";
+  }
+  const switchLocalePathIntercepter = extendSwitchLocalePathIntercepter();
+  const routeCopy = routeToObject(route);
+  const resolvedParams = getLocalizableMetaFromDynamicParams(route)[locale];
+  const baseRoute = { ...routeCopy, name, params: { ...routeCopy.params, ...resolvedParams } };
+  const path = localePath(common, baseRoute, locale);
+  return switchLocalePathIntercepter(path, locale);
+}
+function localeHead(common, {
+  addDirAttribute = false,
+  addSeoAttributes: seoAttributes = true,
+  identifierAttribute: idAttribute = "hid"
+}) {
+  const { defaultDirection } = nuxtI18nOptions;
+  const i18n = getComposer(common.i18n);
+  const metaObject = {
+    htmlAttrs: {},
+    link: [],
+    meta: []
+  };
+  if (unref(i18n.locales) == null || unref(i18n.baseUrl) == null) {
+    return metaObject;
+  }
+  const locale = getLocale(common.i18n);
+  const locales = getLocales(common.i18n);
+  const currentLocale = getNormalizedLocales(locales).find((l) => l.code === locale) || {
+    code: locale
+  };
+  const currentIso = currentLocale.iso;
+  const currentDir = currentLocale.dir || defaultDirection;
+  if (addDirAttribute) {
+    metaObject.htmlAttrs.dir = currentDir;
+  }
+  if (seoAttributes && locale && unref(i18n.locales)) {
+    if (currentIso) {
+      metaObject.htmlAttrs.lang = currentIso;
+    }
+    metaObject.link.push(
+      ...getHreflangLinks(common, unref(locales), idAttribute),
+      ...getCanonicalLink(common, idAttribute, seoAttributes)
     );
+    metaObject.meta.push(
+      ...getOgUrl(common, idAttribute, seoAttributes),
+      ...getCurrentOgLocale(currentLocale, currentIso, idAttribute),
+      ...getAlternateOgLocales(unref(locales), currentIso, idAttribute)
+    );
+  }
+  return metaObject;
+}
+function getBaseUrl() {
+  const i18n = getComposer((/* @__PURE__ */ useNuxtApp()).$i18n);
+  return unref(i18n.baseUrl);
+}
+function getHreflangLinks(common, locales, idAttribute) {
+  const baseUrl = getBaseUrl();
+  const { defaultLocale, strategy } = nuxtI18nOptions;
+  const links = [];
+  if (strategy === STRATEGIES.NO_PREFIX)
+    return links;
+  const localeMap = /* @__PURE__ */ new Map();
+  for (const locale of locales) {
+    const localeIso = locale.iso;
+    if (!localeIso) {
+      console.warn("Locale ISO code is required to generate alternate link");
+      continue;
+    }
+    const [language, region] = localeIso.split("-");
+    if (language && region && (locale.isCatchallLocale || !localeMap.has(language))) {
+      localeMap.set(language, locale);
+    }
+    localeMap.set(localeIso, locale);
+  }
+  for (const [iso, mapLocale] of localeMap.entries()) {
+    const localePath2 = switchLocalePath(common, mapLocale.code);
+    if (localePath2) {
+      links.push({
+        [idAttribute]: `i18n-alt-${iso}`,
+        rel: "alternate",
+        href: toAbsoluteUrl(localePath2, baseUrl),
+        hreflang: iso
+      });
+    }
+  }
+  if (defaultLocale) {
+    const localePath2 = switchLocalePath(common, defaultLocale);
+    if (localePath2) {
+      links.push({
+        [idAttribute]: "i18n-xd",
+        rel: "alternate",
+        href: toAbsoluteUrl(localePath2, baseUrl),
+        hreflang: "x-default"
+      });
+    }
+  }
+  return links;
+}
+function getCanonicalUrl(common, baseUrl, seoAttributes) {
+  const route = common.router.currentRoute.value;
+  const currentRoute = localeRoute(common, { ...route, name: getRouteBaseName(route) });
+  if (!currentRoute)
+    return "";
+  let href = toAbsoluteUrl(currentRoute.path, baseUrl);
+  const canonicalQueries = isObject(seoAttributes) && seoAttributes.canonicalQueries || [];
+  const currentRouteQueryParams = currentRoute.query;
+  const params = new URLSearchParams();
+  for (const queryParamName of canonicalQueries) {
+    if (queryParamName in currentRouteQueryParams) {
+      const queryParamValue = currentRouteQueryParams[queryParamName];
+      if (isArray(queryParamValue)) {
+        queryParamValue.forEach((v) => params.append(queryParamName, v || ""));
+      } else {
+        params.append(queryParamName, queryParamValue || "");
+      }
+    }
+  }
+  const queryString = params.toString();
+  if (queryString) {
+    href = `${href}?${queryString}`;
+  }
+  return href;
+}
+function getCanonicalLink(common, idAttribute, seoAttributes) {
+  const baseUrl = getBaseUrl();
+  const href = getCanonicalUrl(common, baseUrl, seoAttributes);
+  if (!href)
+    return [];
+  return [{ [idAttribute]: "i18n-can", rel: "canonical", href }];
+}
+function getOgUrl(common, idAttribute, seoAttributes) {
+  const baseUrl = getBaseUrl();
+  const href = getCanonicalUrl(common, baseUrl, seoAttributes);
+  if (!href)
+    return [];
+  return [{ [idAttribute]: "i18n-og-url", property: "og:url", content: href }];
+}
+function getCurrentOgLocale(currentLocale, currentIso, idAttribute) {
+  if (!currentLocale || !currentIso)
+    return [];
+  return [{ [idAttribute]: "i18n-og", property: "og:locale", content: hypenToUnderscore(currentIso) }];
+}
+function getAlternateOgLocales(locales, currentIso, idAttribute) {
+  const alternateLocales = locales.filter((locale) => locale.iso && locale.iso !== currentIso);
+  return alternateLocales.map((locale) => ({
+    [idAttribute]: `i18n-og-alt-${locale.iso}`,
+    property: "og:locale:alternate",
+    content: hypenToUnderscore(locale.iso)
+  }));
+}
+function hypenToUnderscore(str) {
+  return (str || "").replace(/-/g, "_");
+}
+function toAbsoluteUrl(urlOrPath, baseUrl) {
+  if (urlOrPath.match(/^https?:\/\//))
+    return urlOrPath;
+  return baseUrl + urlOrPath;
+}
+function setCookieLocale(i18n, locale) {
+  return callVueI18nInterfaces(i18n, "setLocaleCookie", locale);
+}
+function mergeLocaleMessage(i18n, locale, messages) {
+  return callVueI18nInterfaces(i18n, "mergeLocaleMessage", locale, messages);
+}
+function onBeforeLanguageSwitch(i18n, oldLocale, newLocale, initial, context) {
+  return callVueI18nInterfaces(i18n, "onBeforeLanguageSwitch", oldLocale, newLocale, initial, context);
+}
+function onLanguageSwitched(i18n, oldLocale, newLocale) {
+  return callVueI18nInterfaces(i18n, "onLanguageSwitched", oldLocale, newLocale);
+}
+function initCommonComposableOptions(i18n) {
+  return {
+    i18n: i18n ?? (/* @__PURE__ */ useNuxtApp()).$i18n,
+    router: useRouter(),
+    runtimeConfig: /* @__PURE__ */ useRuntimeConfig()
+  };
+}
+async function loadAndSetLocale(newLocale, i18n, initial = false) {
+  const _differentDomains = nuxtI18nOptions.differentDomains;
+  const useCookie2 = (nuxtI18nOptions.detectBrowserLanguage && nuxtI18nOptions.detectBrowserLanguage.useCookie) ?? nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie;
+  const nuxtApp = /* @__PURE__ */ useNuxtApp();
+  let ret = false;
+  const oldLocale = getLocale(i18n);
+  if (!newLocale) {
+    return [ret, oldLocale];
+  }
+  if (!initial && _differentDomains) {
+    return [ret, oldLocale];
+  }
+  if (oldLocale === newLocale) {
+    return [ret, oldLocale];
+  }
+  const localeOverride = await onBeforeLanguageSwitch(i18n, oldLocale, newLocale, initial, nuxtApp);
+  const localeCodes2 = getLocaleCodes(i18n);
+  if (localeOverride && localeCodes2 && localeCodes2.includes(localeOverride)) {
+    if (localeOverride === oldLocale) {
+      return [ret, oldLocale];
+    }
+    newLocale = localeOverride;
+  }
+  const i18nFallbackLocales = getVueI18nPropertyValue(i18n, "fallbackLocale");
+  {
+    const setter = (locale, message) => mergeLocaleMessage(i18n, locale, message);
+    if (i18nFallbackLocales) {
+      const fallbackLocales = makeFallbackLocaleCodes(i18nFallbackLocales, [newLocale]);
+      await Promise.all(fallbackLocales.map((locale) => loadLocale(locale, localeLoaders, setter)));
+    }
+    await loadLocale(newLocale, localeLoaders, setter);
+  }
+  if (useCookie2) {
+    setCookieLocale(i18n, newLocale);
+  }
+  setLocale(i18n, newLocale);
+  await onLanguageSwitched(i18n, oldLocale, newLocale);
+  ret = true;
+  return [ret, oldLocale];
+}
+function detectLocale(route, routeLocaleGetter, vueI18nOptionsLocale, initialLocaleLoader, detectLocaleContext) {
+  const { strategy, defaultLocale, differentDomains, detectBrowserLanguage: _detectBrowserLanguage } = nuxtI18nOptions;
+  const initialLocale = isFunction(initialLocaleLoader) ? initialLocaleLoader() : initialLocaleLoader;
+  const { ssg, callType, firstAccess, localeCookie } = detectLocaleContext;
+  const {
+    locale: browserLocale,
+    stat,
+    reason,
+    from
+  } = _detectBrowserLanguage ? detectBrowserLanguage(route, vueI18nOptionsLocale, detectLocaleContext, initialLocale) : DefaultDetectBrowserLanguageFromResult;
+  if (reason === "detect_ignore_on_ssg") {
+    return initialLocale;
+  }
+  if ((from === "navigator_or_header" || from === "cookie" || from === "fallback") && browserLocale) {
+    return browserLocale;
+  }
+  let finalLocale = browserLocale;
+  if (!finalLocale) {
+    if (differentDomains) {
+      finalLocale = getLocaleDomain(normalizedLocales);
+    } else if (strategy !== "no_prefix") {
+      finalLocale = routeLocaleGetter(route);
+    } else {
+      if (!_detectBrowserLanguage) {
+        finalLocale = initialLocale;
+      }
+    }
+  }
+  if (!finalLocale && _detectBrowserLanguage && _detectBrowserLanguage.useCookie) {
+    finalLocale = localeCookie.value || "";
+  }
+  if (!finalLocale) {
+    finalLocale = defaultLocale || "";
+  }
+  return finalLocale;
+}
+function detectRedirect({
+  route,
+  targetLocale,
+  routeLocaleGetter,
+  calledWithRouting = false
+}) {
+  const nuxtApp = /* @__PURE__ */ useNuxtApp();
+  const common = initCommonComposableOptions();
+  const { strategy, differentDomains } = nuxtI18nOptions;
+  let redirectPath = "";
+  const { fullPath: toFullPath } = route.to;
+  if (!differentDomains && (calledWithRouting || strategy !== "no_prefix") && routeLocaleGetter(route.to) !== targetLocale) {
+    const routePath = nuxtApp.$switchLocalePath(targetLocale) || nuxtApp.$localePath(toFullPath, targetLocale);
+    if (isString(routePath) && routePath && !isEqual(routePath, toFullPath) && !routePath.startsWith("//")) {
+      redirectPath = !(route.from && route.from.fullPath === routePath) ? routePath : "";
+    }
+  }
+  if ((differentDomains || isSSG) && routeLocaleGetter(route.to) !== targetLocale) {
+    const routePath = switchLocalePath(common, targetLocale, route.to);
+    if (isString(routePath) && routePath && !isEqual(routePath, toFullPath) && !routePath.startsWith("//")) {
+      redirectPath = routePath;
+    }
+  }
+  return redirectPath;
+}
+function isRootRedirectOptions(rootRedirect) {
+  return isObject(rootRedirect) && "path" in rootRedirect && "statusCode" in rootRedirect;
+}
+function _navigate(redirectPath, status) {
+  return navigateTo(redirectPath, { redirectCode: status });
+}
+async function navigate(args, { status = 302, enableNavigate = false } = {}) {
+  const rootRedirect = nuxtI18nOptionsDefault.rootRedirect;
+  const { i18n, locale, route } = args;
+  let { redirectPath } = args;
+  if (route.path === "/" && rootRedirect) {
+    if (isString(rootRedirect)) {
+      redirectPath = "/" + rootRedirect;
+    } else if (isRootRedirectOptions(rootRedirect)) {
+      redirectPath = "/" + rootRedirect.path;
+      status = rootRedirect.statusCode;
+    }
+    return _navigate(redirectPath, status);
+  }
+  {
+    if (redirectPath) {
+      return _navigate(redirectPath, status);
+    }
+  }
+}
+function injectNuxtHelpers(nuxt, i18n) {
+  defineGetter(nuxt, "$i18n", getI18nTarget(i18n));
+  defineGetter(nuxt, "$getRouteBaseName", getRouteBaseName);
+  defineGetter(nuxt, "$localePath", wrapComposable(localePath));
+  defineGetter(nuxt, "$localeRoute", wrapComposable(localeRoute));
+  defineGetter(nuxt, "$switchLocalePath", wrapComposable(switchLocalePath));
+  defineGetter(nuxt, "$localeHead", wrapComposable(localeHead));
+}
+function extendPrefixable() {
+  return (opts) => {
+    return DefaultPrefixable(opts) && !nuxtI18nOptions.differentDomains;
+  };
+}
+function extendSwitchLocalePathIntercepter() {
+  return (path, locale) => {
+    {
+      return DefaultSwitchLocalePathIntercepter(path);
+    }
+  };
+}
+function extendBaseUrl() {
+  return () => {
+    var _a;
+    const ctx = /* @__PURE__ */ useNuxtApp();
+    const runtimeConfig = /* @__PURE__ */ useRuntimeConfig();
+    const baseUrl = nuxtI18nOptions.baseUrl;
+    if (isFunction(baseUrl)) {
+      const baseUrlResult = baseUrl(ctx);
+      return baseUrlResult;
+    }
+    const localeCodeLoader = nuxtI18nOptions.defaultLocale;
+    isFunction(localeCodeLoader) ? localeCodeLoader() : localeCodeLoader;
+    const config = (_a = runtimeConfig == null ? void 0 : runtimeConfig.public) == null ? void 0 : _a.i18n;
+    if (config == null ? void 0 : config.baseUrl) {
+      return config.baseUrl;
+    }
+    return baseUrl;
   };
 }
 function extendI18n(i18n, {
@@ -5099,15 +6196,16 @@ function extendI18n(i18n, {
       extendExportedGlobal(exported, globalComposer, hooks.onExtendExportedGlobal);
     }
     if (pluginOptions.inject) {
+      const common = initCommonComposableOptions(i18n);
       vue.mixin({
         methods: {
-          resolveRoute: proxyVueInstance(resolveRoute),
-          localePath: proxyVueInstance(localePath),
-          localeRoute: proxyVueInstance(localeRoute),
-          localeLocation: proxyVueInstance(localeLocation),
-          switchLocalePath: proxyVueInstance(switchLocalePath),
-          getRouteBaseName: proxyVueInstance(getRouteBaseName),
-          localeHead: proxyVueInstance(localeHead)
+          getRouteBaseName,
+          resolveRoute: wrapComposable(resolveRoute, common),
+          localePath: wrapComposable(localePath, common),
+          localeRoute: wrapComposable(localeRoute, common),
+          localeLocation: wrapComposable(localeLocation, common),
+          switchLocalePath: wrapComposable(switchLocalePath, common),
+          localeHead: wrapComposable(localeHead, common)
         }
       });
     }
@@ -5136,7 +6234,7 @@ function extendComposer(composer, options) {
     options.hooks.onExtendComposer(composer);
   }
 }
-function extendProperyDescripters(composer, exported, hook) {
+function extendPropertyDescriptors(composer, exported, hook) {
   const properties = [
     {
       locales: {
@@ -5164,35 +6262,21 @@ function extendProperyDescripters(composer, exported, hook) {
   }
 }
 function extendExportedGlobal(exported, g, hook) {
-  extendProperyDescripters(g, exported, hook);
+  extendPropertyDescriptors(g, exported, hook);
 }
 function extendVueI18n(vueI18n, hook) {
   const c = getComposer(vueI18n);
-  extendProperyDescripters(c, vueI18n, hook);
+  extendPropertyDescriptors(c, vueI18n, hook);
 }
 function isPluginOptions(options) {
   return isObject(options) && ("inject" in options || "__composerExtend" in options || "__vueI18nExtend" in options);
 }
-const GlobalOptionsRegistory = makeSymbol("vue-i18n-routing-gor");
-function registerGlobalOptions(router, options) {
-  const _options = router[GlobalOptionsRegistory];
-  if (_options) {
-    warn("already registered global options");
-  } else {
-    router[GlobalOptionsRegistory] = options;
-  }
-}
-function getGlobalOptions(router) {
-  return router[GlobalOptionsRegistory] ?? {};
-}
-function getLocalesRegex(localeCodes2) {
-  return new RegExp(`^/(${localeCodes2.join("|")})(?:/|$)`, "i");
-}
-function createLocaleFromRouteGetter(localeCodes2, routesNameSeparator, defaultLocaleRouteNameSuffix) {
-  const localesPattern = `(${localeCodes2.join("|")})`;
+function createLocaleFromRouteGetter() {
+  const { routesNameSeparator, defaultLocaleRouteNameSuffix } = nuxtI18nOptions;
+  const localesPattern = `(${localeCodes.join("|")})`;
   const defaultSuffixPattern = `(?:${routesNameSeparator}${defaultLocaleRouteNameSuffix})?`;
   const regexpName = new RegExp(`${routesNameSeparator}${localesPattern}${defaultSuffixPattern}$`, "i");
-  const regexpPath = getLocalesRegex(localeCodes2);
+  const regexpPath = getLocalesRegex(localeCodes);
   const getLocaleFromRoute = (route) => {
     if (isObject(route)) {
       if (route.name) {
@@ -5217,1232 +6301,87 @@ function createLocaleFromRouteGetter(localeCodes2, routesNameSeparator, defaultL
   };
   return getLocaleFromRoute;
 }
-function getI18nRoutingOptions(router, proxy, {
-  defaultLocale = DEFAULT_LOCALE,
-  defaultDirection = DEFAULT_DETECTION_DIRECTION,
-  defaultLocaleRouteNameSuffix = DEFAULT_LOCALE_ROUTE_NAME_SUFFIX,
-  routesNameSeparator = DEFAULT_ROUTES_NAME_SEPARATOR,
-  strategy = DEFAULT_STRATEGY,
-  trailingSlash = DEFAULT_TRAILING_SLASH,
-  localeCodes: localeCodes2 = [],
-  prefixable: prefixable2 = DefaultPrefixable,
-  switchLocalePathIntercepter = DefaultSwitchLocalePathIntercepter,
-  dynamicRouteParamsKey = DEFAULT_DYNAMIC_PARAMS_KEY
-} = {}) {
-  const options = getGlobalOptions(router);
-  return {
-    defaultLocale: proxy.defaultLocale || options.defaultLocale || defaultLocale,
-    defaultDirection: proxy.defaultDirection || options.defaultDirection || defaultDirection,
-    defaultLocaleRouteNameSuffix: proxy.defaultLocaleRouteNameSuffix || options.defaultLocaleRouteNameSuffix || defaultLocaleRouteNameSuffix,
-    routesNameSeparator: proxy.routesNameSeparator || options.routesNameSeparator || routesNameSeparator,
-    strategy: proxy.strategy || options.strategy || strategy,
-    trailingSlash: proxy.trailingSlash || options.trailingSlash || trailingSlash,
-    localeCodes: proxy.localeCodes || options.localeCodes || localeCodes2,
-    prefixable: proxy.prefixable || options.prefixable || prefixable2,
-    switchLocalePathIntercepter: proxy.switchLocalePathIntercepter || options.switchLocalePathIntercepter || switchLocalePathIntercepter,
-    dynamicRouteParamsKey: proxy.dynamicRouteParamsKey || options.dynamicRouteParamsKey || dynamicRouteParamsKey
-  };
-}
-function split(str, index) {
-  const result = [str.slice(0, index), str.slice(index)];
-  return result;
-}
-function routeToObject(route) {
-  const { fullPath, query, hash, name, path, params, meta, redirectedFrom, matched } = route;
-  return {
-    fullPath,
-    params,
-    query,
-    hash,
-    name,
-    path,
-    meta,
-    matched,
-    redirectedFrom
-  };
-}
-function resolve(router, route, strategy, locale) {
-  if (strategy === "prefix") {
-    if (isArray(route.matched) && route.matched.length > 0) {
-      return route.matched[0];
-    }
-    const [rootSlash, restPath] = split(route.path, 1);
-    const targetPath = `${rootSlash}${locale}${restPath === "" ? restPath : `/${restPath}`}`;
-    const _route = router.options.routes.find((r) => r.path === targetPath);
-    if (_route == null) {
-      return route;
-    } else {
-      const _resolvableRoute = assign({}, route, _route);
-      _resolvableRoute.path = targetPath;
-      return router.resolve(_resolvableRoute);
-    }
-  } else {
-    return router.resolve(route);
-  }
-}
-const RESOLVED_PREFIXED = /* @__PURE__ */ new Set(["prefix_and_default", "prefix_except_default"]);
-function prefixable(optons) {
-  const { currentLocale, defaultLocale, strategy } = optons;
-  const isDefaultLocale = currentLocale === defaultLocale;
-  return !(isDefaultLocale && RESOLVED_PREFIXED.has(strategy)) && // no prefix for any language
-  !(strategy === "no_prefix");
-}
-const DefaultPrefixable = prefixable;
-function getRouteBaseName(givenRoute) {
-  const router = this.router;
-  const { routesNameSeparator } = getI18nRoutingOptions(router, this);
-  const route = givenRoute != null ? isRef(givenRoute) ? unref(givenRoute) : givenRoute : this.route;
-  if (route == null || !route.name) {
-    return;
-  }
-  const name = getRouteName(route.name);
-  return name.split(routesNameSeparator)[0];
-}
-function localePath(route, locale) {
-  const localizedRoute = resolveRoute.call(this, route, locale);
-  return localizedRoute == null ? "" : localizedRoute.redirectedFrom || localizedRoute.fullPath;
-}
-function localeRoute(route, locale) {
-  const resolved = resolveRoute.call(this, route, locale);
-  return resolved == null ? void 0 : resolved;
-}
-function localeLocation(route, locale) {
-  const resolved = resolveRoute.call(this, route, locale);
-  return resolved == null ? void 0 : resolved;
-}
-function resolveRoute(route, locale) {
-  const router = this.router;
-  const i18n = this.i18n;
-  const _locale = locale || getLocale(i18n);
-  const { routesNameSeparator, defaultLocale, defaultLocaleRouteNameSuffix, strategy, trailingSlash, prefixable: prefixable2 } = getI18nRoutingOptions(router, this);
-  let _route = route;
-  if (isString(route)) {
-    if (_route[0] === "/") {
-      const [path, search] = route.split("?");
-      const query = Object.fromEntries(new URLSearchParams(search));
-      _route = { path, query };
-    } else {
-      _route = { name: route };
-    }
-  }
-  let localizedRoute = assign({}, _route);
-  if (localizedRoute.path && !localizedRoute.name) {
-    let _resolvedRoute = null;
-    try {
-      _resolvedRoute = resolve(router, localizedRoute, strategy, _locale);
-    } catch {
-    }
-    const resolvedRoute = _resolvedRoute;
-    const resolvedRouteName = getRouteBaseName.call(this, resolvedRoute);
-    if (isString(resolvedRouteName)) {
-      localizedRoute = {
-        name: getLocaleRouteName(resolvedRouteName, _locale, {
-          defaultLocale,
-          strategy,
-          routesNameSeparator,
-          defaultLocaleRouteNameSuffix
-        }),
-        params: resolvedRoute.params,
-        query: resolvedRoute.query,
-        hash: resolvedRoute.hash
-      };
-      {
-        localizedRoute.state = resolvedRoute.state;
-      }
-    } else {
-      if (prefixable2({ currentLocale: _locale, defaultLocale, strategy })) {
-        localizedRoute.path = `/${_locale}${localizedRoute.path}`;
-      }
-      localizedRoute.path = trailingSlash ? withTrailingSlash(localizedRoute.path, true) : withoutTrailingSlash(localizedRoute.path, true);
-    }
-  } else {
-    if (!localizedRoute.name && !localizedRoute.path) {
-      localizedRoute.name = getRouteBaseName.call(this, this.route);
-    }
-    localizedRoute.name = getLocaleRouteName(localizedRoute.name, _locale, {
-      defaultLocale,
-      strategy,
-      routesNameSeparator,
-      defaultLocaleRouteNameSuffix
-    });
-  }
-  try {
-    const resolvedRoute = router.resolve(localizedRoute);
-    if (isVue3 ? resolvedRoute.name : resolvedRoute.route.name) {
-      return resolvedRoute;
-    }
-    return router.resolve(route);
-  } catch (e) {
-    if (e.type === 1) {
-      return null;
-    }
-  }
-}
-const DefaultSwitchLocalePathIntercepter = (path) => path;
-function getLocalizableMetaFromDynamicParams(route, key) {
-  const metaDefault = {};
-  if (key === DEFAULT_DYNAMIC_PARAMS_KEY) {
-    return metaDefault;
-  }
-  const meta = route.meta;
-  if (isRef(meta)) {
-    return meta.value[key] || metaDefault;
-  } else {
-    return meta[key] || metaDefault;
-  }
-}
-function switchLocalePath(locale) {
-  const route = this.route;
-  const name = getRouteBaseName.call(this, route);
-  if (!name) {
-    return "";
-  }
-  const { switchLocalePathIntercepter, dynamicRouteParamsKey } = getI18nRoutingOptions(this.router, this);
-  const routeValue = route;
-  const routeCopy = routeToObject(routeValue);
-  const langSwitchParams = getLocalizableMetaFromDynamicParams(route, dynamicRouteParamsKey)[locale] || {};
-  const _baseRoute = {
-    name,
-    params: {
-      ...routeCopy.params,
-      ...langSwitchParams
-    }
-  };
-  const baseRoute = assign({}, routeCopy, _baseRoute);
-  let path = localePath.call(this, baseRoute, locale);
-  path = switchLocalePathIntercepter(path, locale);
-  return path;
-}
-function localeHead({ addDirAttribute = false, addSeoAttributes = false, identifierAttribute = "hid" } = {}) {
-  const router = this.router;
-  const i18n = this.i18n;
-  const { defaultDirection } = getI18nRoutingOptions(router, this);
-  const metaObject = {
-    htmlAttrs: {},
-    link: [],
-    meta: []
-  };
-  if (i18n.locales == null || i18n.baseUrl == null) {
-    return metaObject;
-  }
-  const locale = getLocale(i18n);
-  const locales = getLocales(i18n);
-  const currentLocale = getNormalizedLocales(locales).find((l) => l.code === locale) || {
-    code: locale
-  };
-  const currentLocaleIso = currentLocale.iso;
-  const currentLocaleDir = currentLocale.dir || defaultDirection;
-  if (addDirAttribute) {
-    metaObject.htmlAttrs.dir = currentLocaleDir;
-  }
-  if (addSeoAttributes && locale && i18n.locales) {
-    if (currentLocaleIso) {
-      metaObject.htmlAttrs.lang = currentLocaleIso;
-    }
-    addHreflangLinks.call(this, locales, unref(i18n.baseUrl), metaObject.link, identifierAttribute);
-    addCanonicalLinksAndOgUrl.call(
-      this,
-      unref(i18n.baseUrl),
-      metaObject.link,
-      metaObject.meta,
-      identifierAttribute,
-      addSeoAttributes
-    );
-    addCurrentOgLocale(currentLocale, currentLocaleIso, metaObject.meta, identifierAttribute);
-    addAlternateOgLocales(locales, currentLocaleIso, metaObject.meta, identifierAttribute);
-  }
-  return metaObject;
-}
-function addHreflangLinks(locales, baseUrl, link, identifierAttribute) {
-  const router = this.router;
-  const { defaultLocale, strategy } = getI18nRoutingOptions(router, this);
-  if (strategy === STRATEGIES.NO_PREFIX) {
-    return;
-  }
-  const localeMap = /* @__PURE__ */ new Map();
-  for (const locale of locales) {
-    const localeIso = locale.iso;
-    if (!localeIso) {
-      warn("Locale ISO code is required to generate alternate link");
-      continue;
-    }
-    const [language, region] = localeIso.split("-");
-    if (language && region && (locale.isCatchallLocale || !localeMap.has(language))) {
-      localeMap.set(language, locale);
-    }
-    localeMap.set(localeIso, locale);
-  }
-  for (const [iso, mapLocale] of localeMap.entries()) {
-    const localePath2 = switchLocalePath.call(this, mapLocale.code);
-    if (localePath2) {
-      link.push({
-        [identifierAttribute]: `i18n-alt-${iso}`,
-        rel: "alternate",
-        href: toAbsoluteUrl(localePath2, baseUrl),
-        hreflang: iso
-      });
-    }
-  }
-  if (defaultLocale) {
-    const localePath2 = switchLocalePath.call(this, defaultLocale);
-    if (localePath2) {
-      link.push({
-        [identifierAttribute]: "i18n-xd",
-        rel: "alternate",
-        href: toAbsoluteUrl(localePath2, baseUrl),
-        hreflang: "x-default"
-      });
-    }
-  }
-}
-function addCanonicalLinksAndOgUrl(baseUrl, link, meta, identifierAttribute, seoAttributesOptions) {
-  const route = this.route;
-  const currentRoute = localeRoute.call(this, {
-    ...route,
-    // eslint-disable-line @typescript-eslint/no-explicit-any
-    name: getRouteBaseName.call(this, route)
-  });
-  if (currentRoute) {
-    let href = toAbsoluteUrl(currentRoute.path, baseUrl);
-    const canonicalQueries = isObject(seoAttributesOptions) && seoAttributesOptions.canonicalQueries || [];
-    if (canonicalQueries.length) {
-      const currentRouteQueryParams = currentRoute.query;
-      const params = new URLSearchParams();
-      for (const queryParamName of canonicalQueries) {
-        if (queryParamName in currentRouteQueryParams) {
-          const queryParamValue = currentRouteQueryParams[queryParamName];
-          if (isArray(queryParamValue)) {
-            queryParamValue.forEach((v) => params.append(queryParamName, v || ""));
-          } else {
-            params.append(queryParamName, queryParamValue || "");
-          }
-        }
-      }
-      const queryString = params.toString();
-      if (queryString) {
-        href = `${href}?${queryString}`;
-      }
-    }
-    link.push({
-      [identifierAttribute]: "i18n-can",
-      rel: "canonical",
-      href
-    });
-    meta.push({
-      [identifierAttribute]: "i18n-og-url",
-      property: "og:url",
-      content: href
-    });
-  }
-}
-function addCurrentOgLocale(currentLocale, currentLocaleIso, meta, identifierAttribute) {
-  const hasCurrentLocaleAndIso = currentLocale && currentLocaleIso;
-  if (!hasCurrentLocaleAndIso) {
-    return;
-  }
-  meta.push({
-    [identifierAttribute]: "i18n-og",
-    property: "og:locale",
-    // Replace dash with underscore as defined in spec: language_TERRITORY
-    content: hypenToUnderscore(currentLocaleIso)
-  });
-}
-function addAlternateOgLocales(locales, currentLocaleIso, meta, identifierAttribute) {
-  const localesWithoutCurrent = locales.filter((locale) => {
-    const localeIso = locale.iso;
-    return localeIso && localeIso !== currentLocaleIso;
-  });
-  if (localesWithoutCurrent.length) {
-    const alternateLocales = localesWithoutCurrent.map((locale) => ({
-      [identifierAttribute]: `i18n-og-alt-${locale.iso}`,
-      property: "og:locale:alternate",
-      content: hypenToUnderscore(locale.iso)
-    }));
-    meta.push(...alternateLocales);
-  }
-}
-function hypenToUnderscore(str) {
-  return (str || "").replace(/-/g, "_");
-}
-function toAbsoluteUrl(urlOrPath, baseUrl) {
-  if (urlOrPath.match(/^https?:\/\//)) {
-    return urlOrPath;
-  }
-  return baseUrl + urlOrPath;
-}
-function proxyForComposable(options, target) {
-  const {
-    router,
-    route,
-    i18n,
-    defaultLocale,
-    strategy,
-    defaultLocaleRouteNameSuffix,
-    trailingSlash,
-    routesNameSeparator
-  } = options;
-  return function(...args) {
-    return Reflect.apply(
-      target,
-      {
-        router,
-        route,
-        i18n,
-        defaultLocale,
-        strategy,
-        defaultLocaleRouteNameSuffix,
-        trailingSlash,
-        routesNameSeparator
-      },
-      args
-    );
-  };
-}
-function useSwitchLocalePath({
-  router = useRouter$1(),
-  route = useRoute$1(),
-  i18n = useI18n(),
-  defaultLocale = void 0,
-  defaultLocaleRouteNameSuffix = void 0,
-  routesNameSeparator = void 0,
-  strategy = void 0,
-  trailingSlash = void 0
-} = {}) {
-  return proxyForComposable(
-    {
-      router,
-      route,
-      i18n,
-      defaultLocale,
-      defaultLocaleRouteNameSuffix,
-      routesNameSeparator,
-      strategy,
-      trailingSlash
-    },
-    switchLocalePath
-  );
-}
-const localeCodes = [
-  "en",
-  "fr"
-];
-const localeMessages = {
-  "en": [
-    { key: "../locales/en.json", load: () => import(
-      './_nuxt/en-7c50b49c.mjs'
-      /* webpackChunkName: "locale__workspaces_wineater_landing_locales_en_json" */
-    ), cache: true }
-  ],
-  "fr": [
-    { key: "../locales/fr.json", load: () => import(
-      './_nuxt/fr-b6fb6086.mjs'
-      /* webpackChunkName: "locale__workspaces_wineater_landing_locales_fr_json" */
-    ), cache: true }
-  ]
-};
-const resolveNuxtI18nOptions = async (context) => {
-  const nuxtI18nOptions = {
-    "experimental": {
-      "jsTsFormatResource": false
-    },
-    "bundle": {
-      "compositionOnly": true,
-      "runtimeOnly": false,
-      "fullInstall": true,
-      "dropMessageCompiler": false
-    },
-    "compilation": {
-      "jit": true,
-      "strictMessage": true,
-      "escapeHtml": false
-    },
-    "customBlocks": {
-      "defaultSFCLang": "json",
-      "globalSFCScope": false
-    },
-    "vueI18n": "",
-    "locales": [
-      {
-        "code": "en",
-        "files": [
-          "locales/en.json"
-        ]
-      },
-      {
-        "code": "fr",
-        "files": [
-          "locales/fr.json"
-        ]
-      }
-    ],
-    "defaultLocale": "en",
-    "defaultDirection": "ltr",
-    "routesNameSeparator": "___",
-    "trailingSlash": false,
-    "defaultLocaleRouteNameSuffix": "default",
-    "strategy": "prefix_except_default",
-    "lazy": true,
-    "langDir": "locales",
-    "rootRedirect": null,
-    "detectBrowserLanguage": {
-      "alwaysRedirect": false,
-      "cookieCrossOrigin": false,
-      "cookieDomain": null,
-      "cookieKey": "i18n_redirected",
-      "cookieSecure": false,
-      "fallbackLocale": "",
-      "redirectOn": "root",
-      "useCookie": true
-    },
-    "differentDomains": false,
-    "baseUrl": "",
-    "dynamicRouteParams": false,
-    "customRoutes": "page",
-    "pages": {},
-    "skipSettingLocaleOnNavigate": false,
-    "types": "composition",
-    "debug": false,
-    "parallelPlugin": false,
-    "seo": true,
-    "i18nModules": []
-  };
-  nuxtI18nOptions.vueI18n = { messages: {} };
-  return nuxtI18nOptions;
-};
-const nuxtI18nOptionsDefault = {
-  "experimental": {
-    "jsTsFormatResource": false
-  },
-  "bundle": {
-    "compositionOnly": true,
-    "runtimeOnly": false,
-    "fullInstall": true,
-    "dropMessageCompiler": false
-  },
-  "compilation": {
-    "jit": true,
-    "strictMessage": true,
-    "escapeHtml": false
-  },
-  "customBlocks": {
-    "defaultSFCLang": "json",
-    "globalSFCScope": false
-  },
-  "vueI18n": "",
-  "locales": [],
-  "defaultLocale": "",
-  "defaultDirection": "ltr",
-  "routesNameSeparator": "___",
-  "trailingSlash": false,
-  "defaultLocaleRouteNameSuffix": "default",
-  "strategy": "prefix_except_default",
-  "lazy": false,
-  "langDir": null,
-  "rootRedirect": null,
-  "detectBrowserLanguage": {
-    "alwaysRedirect": false,
-    "cookieCrossOrigin": false,
-    "cookieDomain": null,
-    "cookieKey": "i18n_redirected",
-    "cookieSecure": false,
-    "fallbackLocale": "",
-    "redirectOn": "root",
-    "useCookie": true
-  },
-  "differentDomains": false,
-  "baseUrl": "",
-  "dynamicRouteParams": false,
-  "customRoutes": "page",
-  "pages": {},
-  "skipSettingLocaleOnNavigate": false,
-  "types": "composition",
-  "debug": false,
-  "parallelPlugin": false
-};
-const nuxtI18nInternalOptions = {
-  "__normalizedLocales": [
-    {
-      "code": "en",
-      "files": [
-        {
-          "path": "locales/en.json"
-        }
-      ]
-    },
-    {
-      "code": "fr",
-      "files": [
-        {
-          "path": "locales/fr.json"
-        }
-      ]
-    }
-  ]
-};
-const NUXT_I18N_MODULE_ID = "@nuxtjs/i18n";
-const parallelPlugin = false;
-const isSSG = false;
-function formatMessage(message) {
-  return NUXT_I18N_MODULE_ID + " " + message;
-}
-function isLegacyVueI18n(target) {
-  return target != null && ("__VUE_I18N_BRIDGE__" in target || "_sync" in target);
-}
-function callVueI18nInterfaces(i18n, name, ...args) {
-  const target = isI18nInstance(i18n) ? i18n.global : i18n;
-  const [obj, method] = [target, target[name]];
-  return Reflect.apply(method, obj, [...args]);
-}
-function getVueI18nPropertyValue(i18n, name) {
-  const target = isI18nInstance(i18n) ? i18n.global : i18n;
-  const ret = isComposer(target) ? target[name].value : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n(target) ? target[name] : target[name];
-  return ret;
-}
-function defineGetter(obj, key, val) {
-  Object.defineProperty(obj, key, { get: () => val });
-}
-function proxyNuxt(nuxt, target) {
-  return function() {
-    return Reflect.apply(
-      target,
-      {
-        i18n: nuxt.$i18n,
-        getRouteBaseName: nuxt.$getRouteBaseName,
-        localePath: nuxt.$localePath,
-        localeRoute: nuxt.$localeRoute,
-        switchLocalePath: nuxt.$switchLocalePath,
-        localeHead: nuxt.$localeHead,
-        route: nuxt.$router.currentRoute.value,
-        router: nuxt.$router
-      },
-      // eslint-disable-next-line prefer-rest-params
-      arguments
-    );
-  };
-}
-function parseAcceptLanguage(input) {
-  return input.split(",").map((tag) => tag.split(";")[0]);
-}
-function deepCopy(src, des, predicate) {
-  for (const key in src) {
-    if (isArray$1(src[key])) {
-      if (!isArray$1(des[key])) {
-        des[key] = [];
-      }
-      src[key].forEach((item, index) => {
-        if (!des[key][index]) {
-          const desItem = {};
-          deepCopy(item, desItem, predicate);
-          des[key].push(desItem);
-        }
-      });
-    } else if (isObject$1(src[key])) {
-      if (!isObject$1(des[key])) {
-        des[key] = {};
-      }
-      deepCopy(src[key], des[key], predicate);
-    } else {
-      if (predicate) {
-        if (predicate(src[key], des[key])) {
-          des[key] = src[key];
-        }
-      } else {
-        des[key] = src[key];
-      }
-    }
-  }
-}
-const loadedMessages = /* @__PURE__ */ new Map();
-async function loadMessage(context, { key, load }, locale) {
-  var _a, _b;
-  const i18nConfig = (_a = context.$config.public) == null ? void 0 : _a.i18n;
-  let message = null;
-  try {
-    const getter = await load().then((r) => r.default || r);
-    if (isFunction$1(getter)) {
-      if ((_b = i18nConfig.experimental) == null ? void 0 : _b.jsTsFormatResource) {
-        message = await getter(locale);
-      } else {
-        console.warn(
-          formatMessage(
-            "JS / TS extension format is not supported by default. This can be enabled by setting `i18n.experimental.jsTsFormatResource: true` (experimental)"
-          )
-        );
-      }
-    } else {
-      message = getter;
-      if (message != null) {
-        loadedMessages.set(key, message);
-      }
-    }
-  } catch (e) {
-    console.error(formatMessage("Failed locale loading: " + e.message));
-  }
-  return message;
-}
-async function loadLocale(context, locale, setter) {
-  const loaders = localeMessages[locale];
-  if (loaders == null) {
-    console.warn(formatMessage("Could not find messages for locale code" + locale));
-    return;
-  }
-  const targetMessage = {};
-  for (const loader of loaders) {
-    let message = null;
-    if (loadedMessages.has(loader.key) && loader.cache) {
-      message = loadedMessages.get(loader.key);
-    } else {
-      message = await loadMessage(context, loader, locale);
-    }
-    if (message != null) {
-      deepCopy(message, targetMessage);
-    }
-  }
-  setter(locale, targetMessage);
-}
-function getBrowserLocale(options, context) {
-  let ret;
-  {
-    const header = useRequestHeaders(["accept-language"]);
-    const accept = header["accept-language"];
-    if (accept) {
-      ret = findBrowserLocale(options.__normalizedLocales, parseAcceptLanguage(accept));
-    }
-  }
-  return ret;
-}
-function getLocaleCookie(context, {
-  useCookie = nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,
-  cookieKey = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,
-  localeCodes: localeCodes2 = []
-} = {}) {
-  if (useCookie) {
-    let localeCode;
-    {
-      const cookie = useRequestHeaders(["cookie"]);
-      if ("cookie" in cookie) {
-        const parsedCookie = parse$1(cookie["cookie"]);
-        localeCode = parsedCookie[cookieKey];
-      }
-    }
-    if (localeCode && localeCodes2.includes(localeCode)) {
-      return localeCode;
-    }
-  }
-}
-function setLocaleCookie(locale, context, {
-  useCookie = nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,
-  cookieKey = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,
-  cookieDomain = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieDomain,
-  cookieSecure = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieSecure,
-  cookieCrossOrigin = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieCrossOrigin
-} = {}) {
-  if (!useCookie) {
-    return;
-  }
-  const date = /* @__PURE__ */ new Date();
-  const cookieOptions = {
-    expires: new Date(date.setDate(date.getDate() + 365)),
-    path: "/",
-    sameSite: cookieCrossOrigin ? "none" : "lax",
-    secure: cookieCrossOrigin || cookieSecure
-  };
-  if (cookieDomain) {
-    cookieOptions.domain = cookieDomain;
-  }
-  {
-    if (context.res) {
-      const { res } = context;
-      let headers = res.getHeader("Set-Cookie") || [];
-      if (!isArray$1(headers)) {
-        headers = [String(headers)];
-      }
-      const redirectCookie = serialize(cookieKey, locale, cookieOptions);
-      headers.push(redirectCookie);
-      res.setHeader("Set-Cookie", headers);
-    }
-  }
-}
-const DefaultDetectBrowserLanguageFromResult = {
-  locale: "",
-  stat: false,
-  reason: "unknown",
-  from: "unknown"
-};
-function detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternalOptions2, detectLocaleContext, localeCodes2 = [], locale = "") {
-  const { strategy } = nuxtI18nOptions;
-  const { ssg, callType, firstAccess } = detectLocaleContext;
-  if (!firstAccess) {
-    return { locale: "", stat: false, reason: "first_access_only" };
-  }
-  const { redirectOn, alwaysRedirect, useCookie, fallbackLocale } = nuxtI18nOptions.detectBrowserLanguage;
-  const path = isString$1(route) ? route : route.path;
-  if (strategy !== "no_prefix") {
-    if (redirectOn === "root") {
-      if (path !== "/") {
-        return { locale: "", stat: false, reason: "not_redirect_on_root" };
-      }
-    } else if (redirectOn === "no prefix") {
-      if (!alwaysRedirect && path.match(getLocalesRegex(localeCodes2))) {
-        return { locale: "", stat: false, reason: "not_redirect_on_no_prefix" };
-      }
-    }
-  }
-  let localeFrom = "unknown";
-  let cookieLocale;
-  let matchedLocale;
-  if (useCookie) {
-    matchedLocale = cookieLocale = getLocaleCookie(context, { ...nuxtI18nOptions.detectBrowserLanguage, localeCodes: localeCodes2 });
-    localeFrom = "cookie";
-  }
-  if (!matchedLocale) {
-    matchedLocale = getBrowserLocale(nuxtI18nInternalOptions2);
-    localeFrom = "navigator_or_header";
-  }
-  const finalLocale = matchedLocale || fallbackLocale;
-  if (!matchedLocale && fallbackLocale) {
-    localeFrom = "fallback";
-  }
-  const vueI18nLocale = locale || nuxtI18nOptions.vueI18n.locale;
-  if (finalLocale && (!useCookie || alwaysRedirect || !cookieLocale)) {
-    if (strategy === "no_prefix") {
-      return { locale: finalLocale, stat: true, from: localeFrom };
-    } else {
-      if (callType === "setup") {
-        if (finalLocale !== vueI18nLocale) {
-          return { locale: finalLocale, stat: true, from: localeFrom };
-        }
-      }
-      if (alwaysRedirect) {
-        const redirectOnRoot = path === "/";
-        const redirectOnAll = redirectOn === "all";
-        const redirectOnNoPrefix = redirectOn === "no prefix" && !path.match(getLocalesRegex(localeCodes2));
-        if (redirectOnRoot || redirectOnAll || redirectOnNoPrefix) {
-          return { locale: finalLocale, stat: true, from: localeFrom };
-        }
-      }
-    }
-  }
-  if (ssg === "ssg_setup" && finalLocale) {
-    return { locale: finalLocale, stat: true, from: localeFrom };
-  }
-  if ((localeFrom === "navigator_or_header" || localeFrom === "cookie") && finalLocale) {
-    return { locale: finalLocale, stat: true, from: localeFrom };
-  }
-  return { locale: "", stat: false, reason: "not_found_match" };
-}
-function getHost() {
-  let host;
-  {
-    const header = useRequestHeaders(["x-forwarded-host", "host"]);
-    let detectedHost;
-    if ("x-forwarded-host" in header) {
-      detectedHost = header["x-forwarded-host"];
-    } else if ("host" in header) {
-      detectedHost = header["host"];
-    }
-    host = isArray$1(detectedHost) ? detectedHost[0] : detectedHost;
-  }
-  return host;
-}
-function getLocaleDomain(locales) {
-  let host = getHost() || "";
-  if (host) {
-    const matchingLocale = locales.find((locale) => {
-      if (locale && locale.domain) {
-        let domain = locale.domain;
-        if (hasProtocol(locale.domain)) {
-          domain = locale.domain.replace(/(http|https):\/\//, "");
-        }
-        return domain === host;
-      }
-      return false;
-    });
-    if (matchingLocale) {
-      return matchingLocale.code;
-    } else {
-      host = "";
-    }
-  }
-  return host;
-}
-function getDomainFromLocale(localeCode, locales, nuxt) {
-  var _a, _b;
-  const config = nuxt == null ? void 0 : nuxt.$config.public.i18n;
-  const lang = locales.find((locale) => locale.code === localeCode);
-  const domain = ((_b = (_a = config == null ? void 0 : config.locales) == null ? void 0 : _a[localeCode]) == null ? void 0 : _b.domain) ?? (lang == null ? void 0 : lang.domain);
-  if (domain) {
-    if (hasProtocol(domain, { strict: true })) {
-      return domain;
-    }
-    let protocol;
-    {
-      const {
-        node: { req }
-      } = useRequestEvent(nuxt);
-      protocol = req && isHTTPS(req) ? "https:" : "http:";
-    }
-    return protocol + "//" + domain;
-  }
-  console.warn(formatMessage("Could not find domain name for locale " + localeCode));
-}
-function setCookieLocale(i18n, locale) {
-  return callVueI18nInterfaces(i18n, "setLocaleCookie", locale);
-}
-function mergeLocaleMessage(i18n, locale, messages) {
-  return callVueI18nInterfaces(i18n, "mergeLocaleMessage", locale, messages);
-}
-function onBeforeLanguageSwitch(i18n, oldLocale, newLocale, initial, context) {
-  return callVueI18nInterfaces(i18n, "onBeforeLanguageSwitch", oldLocale, newLocale, initial, context);
-}
-function onLanguageSwitched(i18n, oldLocale, newLocale) {
-  return callVueI18nInterfaces(i18n, "onLanguageSwitched", oldLocale, newLocale);
-}
-function makeFallbackLocaleCodes(fallback, locales) {
-  let fallbackLocales = [];
-  if (isArray$1(fallback)) {
-    fallbackLocales = fallback;
-  } else if (isObject$1(fallback)) {
-    const targets = [...locales, "default"];
-    for (const locale of targets) {
-      if (fallback[locale]) {
-        fallbackLocales = [...fallbackLocales, ...fallback[locale].filter(Boolean)];
-      }
-    }
-  } else if (isString$1(fallback) && locales.every((locale) => locale !== fallback)) {
-    fallbackLocales.push(fallback);
-  }
-  return fallbackLocales;
-}
-async function loadInitialMessages(context, messages, options) {
-  const { defaultLocale, initialLocale, localeCodes: localeCodes2, fallbackLocale, lazy } = options;
-  const setter = (locale, message) => {
-    const base = messages[locale] || {};
-    messages[locale] = { ...base, ...message };
-  };
-  if (lazy && fallbackLocale) {
-    const fallbackLocales = makeFallbackLocaleCodes(fallbackLocale, [defaultLocale, initialLocale]);
-    await Promise.all(fallbackLocales.map((locale) => loadLocale(context, locale, setter)));
-  }
-  const locales = lazy ? [...(/* @__PURE__ */ new Set()).add(defaultLocale).add(initialLocale)] : localeCodes2;
-  await Promise.all(locales.map((locale) => loadLocale(context, locale, setter)));
-  return messages;
-}
-async function loadAndSetLocale(newLocale, context, i18n, {
-  useCookie = nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,
-  skipSettingLocaleOnNavigate = nuxtI18nOptionsDefault.skipSettingLocaleOnNavigate,
-  differentDomains = nuxtI18nOptionsDefault.differentDomains,
-  initial = false,
-  lazy = false
-} = {}) {
-  let ret = false;
-  const oldLocale = getLocale(i18n);
-  if (!newLocale) {
-    return [ret, oldLocale];
-  }
-  if (!initial && differentDomains) {
-    return [ret, oldLocale];
-  }
-  if (oldLocale === newLocale) {
-    return [ret, oldLocale];
-  }
-  const localeOverride = await onBeforeLanguageSwitch(i18n, oldLocale, newLocale, initial, context);
-  const localeCodes2 = getLocaleCodes(i18n);
-  if (localeOverride && localeCodes2 && localeCodes2.includes(localeOverride)) {
-    if (localeOverride === oldLocale) {
-      return [ret, oldLocale];
-    }
-    newLocale = localeOverride;
-  }
-  const i18nFallbackLocales = getVueI18nPropertyValue(i18n, "fallbackLocale");
-  if (lazy) {
-    const setter = (locale, message) => mergeLocaleMessage(i18n, locale, message);
-    if (i18nFallbackLocales) {
-      const fallbackLocales = makeFallbackLocaleCodes(i18nFallbackLocales, [newLocale]);
-      await Promise.all(fallbackLocales.map((locale) => loadLocale(context, locale, setter)));
-    }
-    await loadLocale(context, newLocale, setter);
-  }
-  if (skipSettingLocaleOnNavigate) {
-    return [ret, oldLocale];
-  }
-  if (useCookie) {
-    setCookieLocale(i18n, newLocale);
-  }
-  setLocale(i18n, newLocale);
-  await onLanguageSwitched(i18n, oldLocale, newLocale);
-  ret = true;
-  return [ret, oldLocale];
-}
-function detectLocale(route, context, routeLocaleGetter, nuxtI18nOptions, initialLocaleLoader, detectLocaleContext, normalizedLocales, localeCodes2 = []) {
-  const { strategy, defaultLocale, differentDomains } = nuxtI18nOptions;
-  const initialLocale = isFunction$1(initialLocaleLoader) ? initialLocaleLoader() : initialLocaleLoader;
-  const { locale: browserLocale, stat, reason, from } = nuxtI18nOptions.detectBrowserLanguage ? detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternalOptions, detectLocaleContext, localeCodes2, initialLocale) : DefaultDetectBrowserLanguageFromResult;
-  if (reason === "detect_ignore_on_ssg") {
-    return initialLocale;
-  }
-  if ((from === "navigator_or_header" || from === "cookie" || from === "fallback") && browserLocale) {
-    return browserLocale;
-  }
-  let finalLocale = browserLocale;
-  if (!finalLocale) {
-    if (differentDomains) {
-      finalLocale = getLocaleDomain(normalizedLocales);
-    } else if (strategy !== "no_prefix") {
-      finalLocale = routeLocaleGetter(route);
-    } else {
-      if (!nuxtI18nOptions.detectBrowserLanguage) {
-        finalLocale = initialLocale;
-      }
-    }
-  }
-  if (!finalLocale && nuxtI18nOptions.detectBrowserLanguage && nuxtI18nOptions.detectBrowserLanguage.useCookie) {
-    finalLocale = getLocaleCookie(context, { ...nuxtI18nOptions.detectBrowserLanguage, localeCodes: localeCodes2 }) || "";
-  }
-  if (!finalLocale) {
-    finalLocale = defaultLocale || "";
-  }
-  return finalLocale;
-}
-function detectRedirect({
-  route,
-  context,
-  targetLocale,
-  routeLocaleGetter,
-  nuxtI18nOptions,
-  calledWithRouting = false
-}) {
-  const { strategy, differentDomains } = nuxtI18nOptions;
-  let redirectPath = "";
-  const { fullPath: toFullPath } = route.to;
-  if (!differentDomains && (calledWithRouting || strategy !== "no_prefix" && strategy !== "prefix_and_default") && routeLocaleGetter(route.to) !== targetLocale) {
-    const routePath = context.$switchLocalePath(targetLocale) || context.$localePath(toFullPath, targetLocale);
-    if (isString$1(routePath) && routePath && !isEqual(routePath, toFullPath) && !routePath.startsWith("//")) {
-      redirectPath = !(route.from && route.from.fullPath === routePath) ? routePath : "";
-    }
-  }
-  if ((differentDomains || isSSG) && routeLocaleGetter(route.to) !== targetLocale) {
-    const switchLocalePath2 = useSwitchLocalePath({
-      i18n: getComposer(context.$i18n),
-      route: route.to,
-      router: context.$router
-    });
-    const routePath = switchLocalePath2(targetLocale);
-    if (isString$1(routePath) && routePath && !isEqual(routePath, toFullPath) && !routePath.startsWith("//")) {
-      redirectPath = routePath;
-    }
-  }
-  return redirectPath;
-}
-function isRootRedirectOptions(rootRedirect) {
-  return isObject$1(rootRedirect) && "path" in rootRedirect && "statusCode" in rootRedirect;
-}
-const useRedirectState = () => useState(NUXT_I18N_MODULE_ID + ":redirect", () => "");
-function _navigate(redirectPath, status) {
-  return navigateTo(redirectPath, { redirectCode: status });
-}
-async function navigate(args, {
-  status = 302,
-  rootRedirect = nuxtI18nOptionsDefault.rootRedirect,
-  differentDomains = nuxtI18nOptionsDefault.differentDomains,
-  skipSettingLocaleOnNavigate = nuxtI18nOptionsDefault.skipSettingLocaleOnNavigate,
-  enableNavigate = false
-} = {}) {
-  const { i18n, locale, route } = args;
-  let { redirectPath } = args;
-  if (route.path === "/" && rootRedirect) {
-    if (isString$1(rootRedirect)) {
-      redirectPath = "/" + rootRedirect;
-    } else if (isRootRedirectOptions(rootRedirect)) {
-      redirectPath = "/" + rootRedirect.path;
-      status = rootRedirect.statusCode;
-    }
-    return _navigate(redirectPath, status);
-  }
-  if (!differentDomains) {
-    if (redirectPath) {
-      return _navigate(redirectPath, status);
-    }
-  } else {
-    const state = useRedirectState();
-    if (state.value && state.value !== redirectPath) {
-      {
-        state.value = redirectPath;
-      }
-    }
-  }
-}
-function injectNuxtHelpers(nuxt, i18n) {
-  defineGetter(nuxt, "$i18n", i18n.global);
-  for (const pair of [
-    ["getRouteBaseName", getRouteBaseName],
-    ["localePath", localePath],
-    ["localeRoute", localeRoute],
-    ["switchLocalePath", switchLocalePath],
-    ["localeHead", localeHead]
-  ]) {
-    defineGetter(nuxt, "$" + pair[0], proxyNuxt(nuxt, pair[1]));
-  }
-}
-function extendPrefixable(differentDomains) {
-  return (opts) => {
-    return DefaultPrefixable(opts) && !differentDomains;
-  };
-}
-function extendSwitchLocalePathIntercepter(differentDomains, normalizedLocales, nuxt) {
-  return (path, locale) => {
-    if (differentDomains) {
-      const domain = getDomainFromLocale(locale, normalizedLocales, nuxt);
-      if (domain) {
-        return joinURL(domain, path);
-      } else {
-        return path;
-      }
-    } else {
-      return DefaultSwitchLocalePathIntercepter(path);
-    }
-  };
-}
-function extendBaseUrl(baseUrl, options) {
-  return (context) => {
-    var _a, _b;
-    if (isFunction$1(baseUrl)) {
-      const baseUrlResult = baseUrl(context);
-      return baseUrlResult;
-    }
-    const { differentDomains, localeCodeLoader, normalizedLocales } = options;
-    const localeCode = isFunction$1(localeCodeLoader) ? localeCodeLoader() : localeCodeLoader;
-    if (differentDomains && localeCode) {
-      const domain = getDomainFromLocale(localeCode, normalizedLocales, options.nuxt);
-      if (domain) {
-        return domain;
-      }
-    }
-    const config = (_b = (_a = context.$config) == null ? void 0 : _a.public) == null ? void 0 : _b.i18n;
-    if (config == null ? void 0 : config.baseUrl) {
-      return config.baseUrl;
-    }
-    return baseUrl;
-  };
-}
 const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
   name: "i18n:plugin",
   parallel: parallelPlugin,
   async setup(nuxt) {
     let __temp, __restore;
-    const router = useRouter();
     const route = useRoute();
     const { vueApp: app } = nuxt;
     const nuxtContext = nuxt;
-    const nuxtI18nOptions = ([__temp, __restore] = executeAsync(() => resolveNuxtI18nOptions()), __temp = await __temp, __restore(), __temp);
-    const useCookie = nuxtI18nOptions.detectBrowserLanguage && nuxtI18nOptions.detectBrowserLanguage.useCookie;
-    const { __normalizedLocales: normalizedLocales } = nuxtI18nInternalOptions;
-    const {
-      defaultLocale,
-      differentDomains,
-      skipSettingLocaleOnNavigate,
-      lazy,
-      routesNameSeparator,
-      defaultLocaleRouteNameSuffix,
-      strategy,
-      rootRedirect
-    } = nuxtI18nOptions;
-    nuxtI18nOptions.baseUrl = extendBaseUrl(nuxtI18nOptions.baseUrl, {
-      differentDomains,
-      nuxt: nuxtContext,
-      localeCodeLoader: defaultLocale,
-      normalizedLocales
-    });
-    const getLocaleFromRoute = createLocaleFromRouteGetter(
-      localeCodes,
-      routesNameSeparator,
-      defaultLocaleRouteNameSuffix
-    );
-    const vueI18nOptions = nuxtI18nOptions.vueI18n;
+    const nuxtI18nOptions$1 = { ...nuxtI18nOptions };
+    nuxtI18nOptions$1.baseUrl = extendBaseUrl();
+    const vueI18nOptions = ([__temp, __restore] = executeAsync(() => loadVueI18nOptions(vueI18nConfigs, /* @__PURE__ */ useNuxtApp())), __temp = await __temp, __restore(), __temp);
     vueI18nOptions.messages = vueI18nOptions.messages || {};
     vueI18nOptions.fallbackLocale = vueI18nOptions.fallbackLocale ?? false;
-    registerGlobalOptions(router, {
-      ...nuxtI18nOptions,
-      dynamicRouteParamsKey: "nuxtI18n",
-      switchLocalePathIntercepter: extendSwitchLocalePathIntercepter(differentDomains, normalizedLocales, nuxtContext),
-      prefixable: extendPrefixable(differentDomains)
-    });
-    const getDefaultLocale = (defaultLocale2) => defaultLocale2 || vueI18nOptions.locale || "en-US";
+    const getLocaleFromRoute = createLocaleFromRouteGetter();
+    const getDefaultLocale = (defaultLocale) => defaultLocale || vueI18nOptions.locale || "en-US";
+    const localeCookie = getI18nCookie();
     let initialLocale = detectLocale(
       route,
-      nuxt.ssrContext,
       getLocaleFromRoute,
-      nuxtI18nOptions,
-      getDefaultLocale(defaultLocale),
-      { ssg: "normal", callType: "setup", firstAccess: true },
-      normalizedLocales,
-      localeCodes
+      vueI18nOptions.locale,
+      getDefaultLocale(nuxtI18nOptions$1.defaultLocale),
+      {
+        ssg: "normal",
+        callType: "setup",
+        firstAccess: true,
+        localeCookie
+      }
     );
-    vueI18nOptions.messages = ([__temp, __restore] = executeAsync(() => loadInitialMessages(nuxtContext, vueI18nOptions.messages, {
-      ...nuxtI18nOptions,
+    vueI18nOptions.messages = ([__temp, __restore] = executeAsync(() => loadInitialMessages(vueI18nOptions.messages, localeLoaders, {
+      localeCodes,
       initialLocale,
-      fallbackLocale: vueI18nOptions.fallbackLocale,
-      localeCodes
+      lazy: nuxtI18nOptions$1.lazy,
+      defaultLocale: nuxtI18nOptions$1.defaultLocale,
+      fallbackLocale: vueI18nOptions.fallbackLocale
     })), __temp = await __temp, __restore(), __temp);
     initialLocale = getDefaultLocale(initialLocale);
-    const i18n = createI18n({
-      ...vueI18nOptions,
-      locale: initialLocale
-    });
+    const i18n = createI18n({ ...vueI18nOptions, locale: initialLocale });
     let notInitialSetup = true;
     const isInitialLocaleSetup = (locale) => initialLocale !== locale && notInitialSetup;
     extendI18n(i18n, {
-      locales: nuxtI18nOptions.locales,
+      // @ts-ignore
+      locales: nuxtI18nOptions$1.locales,
       localeCodes,
-      baseUrl: nuxtI18nOptions.baseUrl,
+      baseUrl: nuxtI18nOptions$1.baseUrl,
       context: nuxtContext,
       hooks: {
         onExtendComposer(composer) {
-          composer.strategy = strategy;
-          composer.localeProperties = computed(() => {
-            return normalizedLocales.find((l) => l.code === composer.locale.value) || {
-              code: composer.locale.value
-            };
-          });
+          composer.strategy = nuxtI18nOptions$1.strategy;
+          composer.localeProperties = computed(
+            () => normalizedLocales.find((l) => l.code === composer.locale.value) || { code: composer.locale.value }
+          );
           composer.setLocale = async (locale) => {
             const localeSetup = isInitialLocaleSetup(locale);
-            const [modified] = await loadAndSetLocale(locale, nuxtContext, i18n, {
-              useCookie,
-              differentDomains,
-              initial: localeSetup,
-              skipSettingLocaleOnNavigate,
-              lazy
-            });
+            const [modified] = await loadAndSetLocale(locale, i18n, localeSetup);
             if (modified && localeSetup) {
               notInitialSetup = false;
             }
-            const redirectPath = detectRedirect({
-              route: { to: route },
-              context: nuxtContext,
-              targetLocale: locale,
-              routeLocaleGetter: getLocaleFromRoute,
-              nuxtI18nOptions
-            });
-            await navigate(
-              {
-                i18n,
-                redirectPath,
-                locale,
-                route
-              },
-              {
-                differentDomains,
-                skipSettingLocaleOnNavigate,
-                rootRedirect,
-                enableNavigate: true
-              }
+            const redirectPath = await nuxtContext.runWithContext(
+              () => detectRedirect({
+                route: { to: route },
+                targetLocale: locale,
+                routeLocaleGetter: getLocaleFromRoute
+              })
+            );
+            await nuxtContext.runWithContext(
+              async () => await navigate(
+                {
+                  i18n,
+                  redirectPath,
+                  locale,
+                  route
+                },
+                { enableNavigate: true }
+              )
             );
           };
-          composer.differentDomains = differentDomains;
-          composer.defaultLocale = defaultLocale;
-          composer.getBrowserLocale = () => getBrowserLocale(nuxtI18nInternalOptions, nuxt.ssrContext);
-          composer.getLocaleCookie = () => getLocaleCookie(nuxt.ssrContext, { ...nuxtI18nOptions.detectBrowserLanguage, localeCodes });
-          composer.setLocaleCookie = (locale) => setLocaleCookie(locale, nuxt.ssrContext, nuxtI18nOptions.detectBrowserLanguage || void 0);
+          composer.differentDomains = nuxtI18nOptions$1.differentDomains;
+          composer.defaultLocale = nuxtI18nOptions$1.defaultLocale;
+          composer.getBrowserLocale = () => getBrowserLocale();
+          composer.getLocaleCookie = () => getLocaleCookie(localeCookie);
+          composer.setLocaleCookie = (locale) => setLocaleCookie(localeCookie, locale);
           composer.onBeforeLanguageSwitch = (oldLocale, newLocale, initialSetup, context) => nuxt.callHook("i18n:beforeLocaleSwitch", { oldLocale, newLocale, initialSetup, context });
           composer.onLanguageSwitched = (oldLocale, newLocale) => nuxt.callHook("i18n:localeSwitched", { oldLocale, newLocale });
           composer.finalizePendingLocaleChange = async () => {
@@ -6624,53 +6563,33 @@ const i18n_yfWm7jX06p = /* @__PURE__ */ defineNuxtPlugin({
         let __temp2, __restore2;
         const locale = detectLocale(
           to,
-          nuxt.ssrContext,
           getLocaleFromRoute,
-          nuxtI18nOptions,
+          vueI18nOptions.locale,
           () => {
-            return getLocale(i18n) || getDefaultLocale(defaultLocale);
+            return getLocale(i18n) || getDefaultLocale(nuxtI18nOptions$1.defaultLocale);
           },
           {
             ssg: "normal",
             callType: "routing",
-            firstAccess: routeChangeCount === 0
-          },
-          normalizedLocales,
-          localeCodes
+            firstAccess: routeChangeCount === 0,
+            localeCookie
+          }
         );
         const localeSetup = isInitialLocaleSetup(locale);
-        const [modified] = ([__temp2, __restore2] = executeAsync(() => loadAndSetLocale(locale, nuxtContext, i18n, {
-          useCookie,
-          differentDomains,
-          initial: localeSetup,
-          skipSettingLocaleOnNavigate,
-          lazy
-        })), __temp2 = await __temp2, __restore2(), __temp2);
+        const [modified] = ([__temp2, __restore2] = executeAsync(() => loadAndSetLocale(locale, i18n, localeSetup)), __temp2 = await __temp2, __restore2(), __temp2);
         if (modified && localeSetup) {
           notInitialSetup = false;
         }
-        const redirectPath = detectRedirect({
-          route: { to, from },
-          context: nuxtContext,
-          targetLocale: locale,
-          routeLocaleGetter: getLocaleFromRoute,
-          nuxtI18nOptions,
-          calledWithRouting: true
-        });
+        const redirectPath = ([__temp2, __restore2] = executeAsync(() => nuxtContext.runWithContext(
+          () => detectRedirect({
+            route: { to, from },
+            targetLocale: locale,
+            routeLocaleGetter: nuxtI18nOptions$1.strategy === "no_prefix" ? () => locale : getLocaleFromRoute,
+            calledWithRouting: true
+          })
+        )), __temp2 = await __temp2, __restore2(), __temp2);
         routeChangeCount++;
-        return navigate(
-          {
-            i18n,
-            redirectPath,
-            locale,
-            route: to
-          },
-          {
-            differentDomains,
-            skipSettingLocaleOnNavigate,
-            rootRedirect
-          }
-        );
+        return [__temp2, __restore2] = executeAsync(() => nuxtContext.runWithContext(async () => navigate({ i18n, redirectPath, locale, route: to }))), __temp2 = await __temp2, __restore2(), __temp2;
       }),
       { global: true }
     );
@@ -6681,28 +6600,9 @@ const plugins = [
   plugin,
   revive_payload_server_eJ33V7gbc6,
   components_plugin_KR1HBZs4kY,
-  composition_sLxaNGmlSL,
   i18n_yfWm7jX06p
 ];
-const interpolatePath = (route, match) => {
-  return match.path.replace(/(:\w+)\([^)]+\)/g, "$1").replace(/(:\w+)[?+*]/g, "$1").replace(/:\w+/g, (r) => {
-    var _a;
-    return ((_a = route.params[r.slice(1)]) == null ? void 0 : _a.toString()) || "";
-  });
-};
-const generateRouteKey = (routeProps, override) => {
-  const matchedRoute = routeProps.route.matched.find((m) => {
-    var _a;
-    return ((_a = m.components) == null ? void 0 : _a.default) === routeProps.Component.type;
-  });
-  const source = override ?? (matchedRoute == null ? void 0 : matchedRoute.meta.key) ?? (matchedRoute && interpolatePath(routeProps.route, matchedRoute));
-  return typeof source === "function" ? source(routeProps.route) : source;
-};
-const wrapInKeepAlive = (props, children) => {
-  return { default: () => children };
-};
-const RouteProvider = /* @__PURE__ */ defineComponent({
-  name: "RouteProvider",
+const RouteProvider = defineComponent({
   props: {
     vnode: {
       type: Object,
@@ -6731,14 +6631,7 @@ const RouteProvider = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _wrapIf = (component, props, slots) => {
-  props = props === true ? {} : props;
-  return { default: () => {
-    var _a;
-    return props ? h(component, props, slots) : (_a = slots.default) == null ? void 0 : _a.call(slots);
-  } };
-};
-const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_0 = defineComponent({
   name: "NuxtPage",
   inheritAttrs: false,
   props: {
@@ -6764,18 +6657,31 @@ const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
   setup(props, { attrs, expose }) {
     const nuxtApp = /* @__PURE__ */ useNuxtApp();
     const pageRef = ref();
-    inject(PageRouteSymbol, null);
+    const forkRoute = inject(PageRouteSymbol, null);
+    let previousPageKey;
     expose({ pageRef });
     inject(LayoutMetaSymbol, null);
     let vnode;
     const done = nuxtApp.deferHydration();
+    if (props.pageKey) {
+      watch(() => props.pageKey, (next, prev) => {
+        if (next !== prev) {
+          nuxtApp.callHook("page:loading:start");
+        }
+      });
+    }
     return () => {
       return h(RouterView, { name: props.name, route: props.route, ...attrs }, {
         default: (routeProps) => {
           if (!routeProps.Component) {
+            done();
             return;
           }
-          const key = generateRouteKey(routeProps, props.pageKey);
+          const key = generateRouteKey$1(routeProps, props.pageKey);
+          if (!nuxtApp.isHydrating && !hasChildrenRoutes(forkRoute, routeProps.route, routeProps.Component) && previousPageKey === key) {
+            nuxtApp.callHook("page:loading:end");
+          }
+          previousPageKey = key;
           const hasTransition = !!(props.transition ?? routeProps.route.meta.pageTransition ?? appPageTransition);
           const transitionProps = hasTransition && _mergeTransitionProps([
             props.transition,
@@ -6785,27 +6691,30 @@ const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
               nuxtApp.callHook("page:transition:finish", routeProps.Component);
             } }
           ].filter(Boolean));
+          const keepaliveConfig = props.keepalive ?? routeProps.route.meta.keepalive ?? appKeepalive;
           vnode = _wrapIf(
             Transition,
             hasTransition && transitionProps,
             wrapInKeepAlive(
-              props.keepalive ?? routeProps.route.meta.keepalive ?? appKeepalive,
+              keepaliveConfig,
               h(Suspense, {
                 suspensible: true,
                 onPending: () => nuxtApp.callHook("page:start", routeProps.Component),
                 onResolve: () => {
-                  nextTick(() => nuxtApp.callHook("page:finish", routeProps.Component).finally(done));
+                  nextTick(() => nuxtApp.callHook("page:finish", routeProps.Component).then(() => nuxtApp.callHook("page:loading:end")).finally(done));
                 }
               }, {
-                // @ts-expect-error seems to be an issue in vue types
-                default: () => h(RouteProvider, {
-                  key,
-                  vnode: routeProps.Component,
-                  route: routeProps.route,
-                  renderKey: key,
-                  trackRootNodes: hasTransition,
-                  vnodeRef: pageRef
-                })
+                default: () => {
+                  const providerVNode = h(RouteProvider, {
+                    key: key || void 0,
+                    vnode: routeProps.Component,
+                    route: routeProps.route,
+                    renderKey: key || void 0,
+                    trackRootNodes: hasTransition,
+                    vnodeRef: pageRef
+                  });
+                  return providerVNode;
+                }
               })
             )
           ).default();
@@ -6815,15 +6724,22 @@ const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-function _toArray(val) {
-  return Array.isArray(val) ? val : val ? [val] : [];
-}
 function _mergeTransitionProps(routeProps) {
   const _props = routeProps.map((prop) => ({
     ...prop,
-    onAfterLeave: _toArray(prop.onAfterLeave)
+    onAfterLeave: prop.onAfterLeave ? toArray(prop.onAfterLeave) : void 0
   }));
   return defu(..._props);
+}
+function hasChildrenRoutes(fork, newRoute, Component) {
+  if (!fork) {
+    return false;
+  }
+  const index = newRoute.matched.findIndex((m) => {
+    var _a;
+    return ((_a = m.components) == null ? void 0 : _a.default) === (Component == null ? void 0 : Component.type);
+  });
+  return index < newRoute.matched.length - 1;
 }
 const _sfc_main$2 = {
   __name: "app",
@@ -6869,7 +6785,7 @@ const _sfc_main = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
   setup(__props) {
-    const IslandRenderer = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/island-renderer-1c9e6efe.mjs').then((r) => r.default || r));
+    const IslandRenderer = defineAsyncComponent(() => import('./_nuxt/island-renderer-Dbf1n4w6.mjs').then((r) => r.default || r));
     const nuxtApp = /* @__PURE__ */ useNuxtApp();
     nuxtApp.deferHydration();
     nuxtApp.ssrContext.url;
@@ -6911,11 +6827,6 @@ _sfc_main.setup = (props, ctx) => {
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
 const RootComponent = _sfc_main;
-if (!globalThis.$fetch) {
-  globalThis.$fetch = $fetch.create({
-    baseURL: baseURL()
-  });
-}
 let entry;
 {
   entry = async function createNuxtAppServer(ssrContext) {
@@ -6924,9 +6835,9 @@ let entry;
     try {
       await applyPlugins(nuxt, plugins);
       await nuxt.hooks.callHook("app:created", vueApp);
-    } catch (err) {
-      await nuxt.hooks.callHook("app:error", err);
-      nuxt.payload.error = nuxt.payload.error || err;
+    } catch (error) {
+      await nuxt.hooks.callHook("app:error", error);
+      nuxt.payload.error = nuxt.payload.error || createError(error);
     }
     if (ssrContext == null ? void 0 : ssrContext._renderResponse) {
       throw new Error("skipping render");
@@ -6934,7 +6845,7 @@ let entry;
     return vueApp;
   };
 }
-const entry$1 = (ctx) => entry(ctx);
+const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, useNuxtApp as a, useRequestFetch as b, createError as c, useI18n as d, entry$1 as default, useRoute as e, navigateTo as n, useRouter as u };
+export { _export_sfc as _, parseQuery as a, useRuntimeConfig as b, createError as c, navigateTo as d, entry$1 as default, withoutTrailingSlash as e, asyncDataDefaults as f, useNuxtApp as g, hasProtocol as h, fetchDefaults as i, joinURL as j, useRequestFetch as k, useI18n as l, useRoute as m, nuxtLinkDefaults as n, parseURL as p, useRouter as u, withTrailingSlash as w };
 //# sourceMappingURL=server.mjs.map
