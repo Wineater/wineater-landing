@@ -33,7 +33,7 @@
     </div>
     <Preloader v-if="loading"></Preloader>
     <div class="playground__cards" v-if="results.length && !loading">
-      <div v-for="(card, cardIndex) in results.slice(0, 3)" class="playground__card-wrapper">
+      <div v-for="(card, cardIndex) in results.slice(0, 6)" class="playground__card-wrapper">
         <div class="playground__card">
          <!--  <div class="playground__card-header">
             <p class="p1">{{ $t('playground.Type') }}</p>
