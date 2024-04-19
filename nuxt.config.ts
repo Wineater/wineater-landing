@@ -4,6 +4,14 @@ export default {
       htmlAttrs: {
         lang: 'en'
       },
+      script: [
+        // Existing meta tags remain here
+        {
+          src: 'https://unpkg.com/wineater-bot@1.1.2/dist/wineater-chatbot.umd.js', // Replace this URL with the actual script URL
+          type: 'text/javascript',
+          async: true, // Optional: only if the script supports or requires asynchronous loading
+        },
+      ],
       meta: [
         {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5'},
         {

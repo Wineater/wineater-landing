@@ -19,6 +19,30 @@ declare module 'nuxt/schema' {
    i18n: {
       baseUrl: string,
 
+      defaultLocale: string,
+
+      defaultDirection: string,
+
+      strategy: string,
+
+      lazy: boolean,
+
+      rootRedirect: any,
+
+      routesNameSeparator: string,
+
+      defaultLocaleRouteNameSuffix: string,
+
+      skipSettingLocaleOnNavigate: boolean,
+
+      differentDomains: boolean,
+
+      trailingSlash: boolean,
+
+      configLocales: Array<{
+
+      }>,
+
       locales: {
          en: {
             domain: any,
@@ -27,6 +51,32 @@ declare module 'nuxt/schema' {
          fr: {
             domain: any,
          },
+      },
+
+      detectBrowserLanguage: {
+         alwaysRedirect: boolean,
+
+         cookieCrossOrigin: boolean,
+
+         cookieDomain: any,
+
+         cookieKey: string,
+
+         cookieSecure: boolean,
+
+         fallbackLocale: string,
+
+         redirectOn: string,
+
+         useCookie: boolean,
+      },
+
+      experimental: {
+         localeDetector: string,
+
+         switchLocalePathLinkSSR: boolean,
+
+         autoImportTranslationFunctions: boolean,
       },
    },
   }
