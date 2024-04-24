@@ -1,4 +1,4 @@
-import { _ as _export_sfc, m as useRoute, l as useI18n, c as navigateTo } from './server.mjs';
+import { _ as _export_sfc, u as useRoute, m as useI18n, d as navigateTo } from './server.mjs';
 import { useSSRContext, ref, mergeProps, unref, withCtx, createTextVNode, toDisplayString } from 'vue';
 import { ssrRenderAttrs, ssrRenderStyle, ssrInterpolate, ssrRenderComponent, ssrRenderSlot } from 'vue/server-renderer';
 
@@ -134,4 +134,4 @@ _sfc_main.setup = (props, ctx) => {
 const Header = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-4cdad271"]]);
 
 export { Button as B, Header as H };
-//# sourceMappingURL=Header-Bm4u3b9L.mjs.map
+//# sourceMappingURL=Header-C1OSw3fK.mjs.map

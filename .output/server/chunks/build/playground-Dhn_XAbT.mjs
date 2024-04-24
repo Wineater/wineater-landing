@@ -1,7 +1,7 @@
-import { B as Button, H as Header } from './Header-Bm4u3b9L.mjs';
+import { B as Button, H as Header } from './Header-C1OSw3fK.mjs';
 import { useSSRContext, resolveComponent, withCtx, createTextVNode, toDisplayString, computed, toValue, reactive, mergeProps, ref, shallowRef, toRef, getCurrentInstance, onServerPrefetch, unref } from 'vue';
 import { ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderStyle, ssrRenderAttrs } from 'vue/server-renderer';
-import { _ as _export_sfc, i as fetchDefaults, e as asyncDataDefaults, k as useRequestFetch, f as useNuxtApp, g as createError } from './server.mjs';
+import { _ as _export_sfc, k as fetchDefaults, f as asyncDataDefaults, l as useRequestFetch, g as useNuxtApp, i as createError } from './server.mjs';
 import { B as hash } from '../runtime.mjs';
 import '../routes/renderer.mjs';
 import 'vue-bundle-renderer/runtime';
@@ -373,4 +373,4 @@ _sfc_main.setup = (props, ctx) => {
 const playground = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
 export { playground as default };
-//# sourceMappingURL=playground-BnlgXzeF.mjs.map
+//# sourceMappingURL=playground-Dhn_XAbT.mjs.map

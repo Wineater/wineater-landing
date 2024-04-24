@@ -870,12 +870,28 @@ async function getRouteRules(url) {
 }
 const _routes = [
   {
+    name: "demo-id___en",
+    path: "/demo/:id()",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./_id_-CeWEIV7o.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "demo-id___fr",
+    path: "/fr/demo/:id()",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./_id_-CeWEIV7o.mjs').then((m) => m.default || m)
+  },
+  {
     name: "index___en",
     path: "/",
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-DoQn_ghG.mjs').then((m) => m.default || m)
+    component: () => import('./index-CN5UJ5AI.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
@@ -883,7 +899,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-DoQn_ghG.mjs').then((m) => m.default || m)
+    component: () => import('./index-CN5UJ5AI.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___en",
@@ -891,7 +907,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-BnlgXzeF.mjs').then((m) => m.default || m)
+    component: () => import('./playground-Dhn_XAbT.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___fr",
@@ -899,7 +915,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-BnlgXzeF.mjs').then((m) => m.default || m)
+    component: () => import('./playground-Dhn_XAbT.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -7087,5 +7103,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, parseQuery as a, useRuntimeConfig as b, navigateTo as c, withoutTrailingSlash as d, entry$1 as default, asyncDataDefaults as e, useNuxtApp as f, createError as g, hasProtocol as h, fetchDefaults as i, joinURL as j, useRequestFetch as k, useI18n as l, useRoute as m, nuxtLinkDefaults as n, parseURL as p, useRouter as u, withTrailingSlash as w };
+export { _export_sfc as _, useRouter as a, parseQuery as b, useRuntimeConfig as c, navigateTo as d, entry$1 as default, withoutTrailingSlash as e, asyncDataDefaults as f, useNuxtApp as g, hasProtocol as h, createError as i, joinURL as j, fetchDefaults as k, useRequestFetch as l, useI18n as m, nuxtLinkDefaults as n, parseURL as p, useRoute as u, withTrailingSlash as w };
 //# sourceMappingURL=server.mjs.map

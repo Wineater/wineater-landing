@@ -1,17 +1,17 @@
 const client_manifest = {
-  "_!~{006}~.js": {
+  "_!~{007}~.js": {
     "resourceType": "style",
     "prefetch": true,
     "preload": true,
     "file": "Header.CvWU5pzp.css",
-    "src": "_!~{006}~.js"
+    "src": "_!~{007}~.js"
   },
-  "_B7mvYRRL.js": {
+  "_CIae7hlA.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "B7mvYRRL.js",
+    "file": "CIae7hlA.js",
     "name": "Header",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
@@ -51,7 +51,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "C16bfj_4.js",
+    "file": "xs7eBsE3.js",
     "name": "entry",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -61,18 +61,38 @@ const client_manifest = {
     ],
     "_globalCSS": true
   },
+  "pages/demo/[id].vue": {
+    "resourceType": "script",
+    "module": true,
+    "prefetch": true,
+    "preload": true,
+    "file": "D6lFG2ke.js",
+    "name": "_id_",
+    "src": "pages/demo/[id].vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.js"
+    ],
+    "css": []
+  },
+  "_id_.DmKR4vcK.css": {
+    "file": "_id_.DmKR4vcK.css",
+    "resourceType": "style",
+    "prefetch": true,
+    "preload": true
+  },
   "pages/index.vue": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "D0w_ABqJ.js",
+    "file": "CU2cCkl9.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_B7mvYRRL.js"
+      "_CIae7hlA.js"
     ],
     "css": []
   },
@@ -87,12 +107,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "BHqAEVRE.js",
+    "file": "D4P2z3dO.js",
     "name": "playground",
     "src": "pages/playground.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_B7mvYRRL.js",
+      "_CIae7hlA.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "css": []

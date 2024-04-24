@@ -7,7 +7,7 @@ export default {
       script: [
         // Existing meta tags remain here
         {
-          src: 'https://unpkg.com/wineater-bot@1.1.2/dist/wineater-chatbot.umd.js', // Replace this URL with the actual script URL
+          src: 'https://unpkg.com/wineater-bot@1.1.3/dist/wineater-chatbot.umd.js', // Replace this URL with the actual script URL
           type: 'text/javascript',
           async: true, // Optional: only if the script supports or requires asynchronous loading
         },
@@ -63,17 +63,6 @@ export default {
   modules: [
     '@nuxtjs/i18n',
   ],
-  // router: {
-  //   extendRoutes(routes: any, resolve: any) {
-  //     routes.push(
-  //       {
-  //         name: 'playground',
-  //         path: '/playground/:store?',
-  //         component: resolve(__dirname, 'pages/store.vue')
-  //       }
-  //     );
-  //   }
-  // },
   i18n: {
     /* module options */
     lazy: true,
