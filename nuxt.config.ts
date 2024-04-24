@@ -7,7 +7,7 @@ export default {
       script: [
         // Existing meta tags remain here
         {
-          src: 'https://unpkg.com/wineater-bot@1.1.4/dist/wineater-chatbot.umd.js', // Replace this URL with the actual script URL
+          src: 'https://unpkg.com/wineater-bot@1.1.5/dist/wineater-chatbot.umd.js', // Replace this URL with the actual script URL
           type: 'text/javascript',
           async: true, // Optional: only if the script supports or requires asynchronous loading
         },
