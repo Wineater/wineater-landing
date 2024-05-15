@@ -35,35 +35,36 @@ const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
       Wineater: "https://landing-static.s3.eu-central-1.amazonaws.com/images/logo.svg",
       Telckel: "https://landing-static.s3.eu-central-1.amazonaws.com/images/Telckel.png",
       Climats: "https://landing-static.s3.eu-central-1.amazonaws.com/images/Climats.png",
-      Biobio: "https://landing-static.s3.eu-central-1.amazonaws.com/images/Biobio.png"
+      Biobio: "https://landing-static.s3.eu-central-1.amazonaws.com/images/Biobio.png",
+      Winepoint: "https://landing-static.s3.eu-central-1.amazonaws.com/images/Weinpoint.png"
     };
     const route = useRoute();
     const store = route.params.id;
     const storeKey = (store || "").toString().charAt(0).toUpperCase() + store.slice(1);
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "skeleton-wrapper" }, _attrs))} data-v-f65d4b97><div class="skeleton-header" data-v-f65d4b97>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "skeleton-wrapper" }, _attrs))} data-v-c1efd1b5><div class="skeleton-header" data-v-c1efd1b5>`);
       if (unref(store)) {
-        _push(`<img${ssrRenderAttr("src", unref(store) && logos[storeKey] ? logos[storeKey] : logos.Wineater)} alt="Logo" class="dynamic-logo" data-v-f65d4b97>`);
+        _push(`<img${ssrRenderAttr("src", unref(store) && logos[storeKey] ? logos[storeKey] : logos.Wineater)} alt="Logo" class="dynamic-logo" data-v-c1efd1b5>`);
       } else {
         _push(`<!---->`);
       }
       if (unref(store)) {
-        _push(`<h1 class="h3" data-v-f65d4b97>${ssrInterpolate(storeKey)}</h1>`);
+        _push(`<h1 class="h3" data-v-c1efd1b5>${ssrInterpolate(storeKey)}</h1>`);
       } else {
-        _push(`<div class="skeleton-logo" data-v-f65d4b97></div>`);
+        _push(`<div class="skeleton-logo" data-v-c1efd1b5></div>`);
       }
       if (!unref(store)) {
-        _push(`<div class="skeleton-title" data-v-f65d4b97></div>`);
+        _push(`<div class="skeleton-title" data-v-c1efd1b5></div>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`</div><div class="skeleton-content" data-v-f65d4b97><div class="skeleton-sidebar" data-v-f65d4b97><!--[-->`);
+      _push(`</div><div class="skeleton-content" data-v-c1efd1b5><div class="skeleton-sidebar" data-v-c1efd1b5><!--[-->`);
       ssrRenderList(10, (n) => {
-        _push(`<div class="skeleton-filter" data-v-f65d4b97></div>`);
+        _push(`<div class="skeleton-filter" data-v-c1efd1b5></div>`);
       });
-      _push(`<!--]--></div><div class="skeleton-cards" data-v-f65d4b97><!--[-->`);
+      _push(`<!--]--></div><div class="skeleton-cards" data-v-c1efd1b5><!--[-->`);
       ssrRenderList(9, (n) => {
-        _push(`<div class="skeleton-card" data-v-f65d4b97><div class="skeleton-card-image" data-v-f65d4b97></div><div class="skeleton-card-text" data-v-f65d4b97></div><div class="skeleton-card-text" data-v-f65d4b97></div><div class="skeleton-card-text shorter" data-v-f65d4b97></div></div>`);
+        _push(`<div class="skeleton-card" data-v-c1efd1b5><div class="skeleton-card-image" data-v-c1efd1b5></div><div class="skeleton-card-text" data-v-c1efd1b5></div><div class="skeleton-card-text" data-v-c1efd1b5></div><div class="skeleton-card-text shorter" data-v-c1efd1b5></div></div>`);
       });
       _push(`<!--]--></div></div></div>`);
     };
@@ -75,7 +76,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/demo/[id].vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const _id_ = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-f65d4b97"]]);
+const _id_ = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-c1efd1b5"]]);
 
 export { _id_ as default };
-//# sourceMappingURL=_id_-CeWEIV7o.mjs.map
+//# sourceMappingURL=_id_--eASN53-.mjs.map

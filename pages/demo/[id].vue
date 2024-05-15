@@ -46,7 +46,8 @@ const logos = {
   Wineater: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/logo.svg',
   Telckel: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Telckel.png',
   Climats: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Climats.png',
-  Biobio: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Biobio.png'
+  Biobio: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Biobio.png',
+  Winepoint: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Weinpoint.png'
 };
 
 const route = useRoute()
