@@ -875,7 +875,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_id_--eASN53-.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-ClS9pZKL.mjs').then((m) => m.default || m)
   },
   {
     name: "demo-id___fr",
@@ -883,7 +883,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_id_--eASN53-.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-ClS9pZKL.mjs').then((m) => m.default || m)
   },
   {
     name: "index___en",
