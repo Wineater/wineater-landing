@@ -5243,11 +5243,11 @@ const localeCodes = [
 const localeLoaders = {
   "en": [{ key: "../locales/en.json", load: () => import(
     './en-v6eHroP4.mjs'
-    /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_development_Wineater_wineater_landing_locales_en_json" */
+    /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_en_json" */
   ), cache: true }],
   "fr": [{ key: "../locales/fr.json", load: () => import(
     './fr-Cp_5pEgj.mjs'
-    /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_development_Wineater_wineater_landing_locales_fr_json" */
+    /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_fr_json" */
   ), cache: true }]
 };
 const vueI18nConfigs = [];
