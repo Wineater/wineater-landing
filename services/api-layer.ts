@@ -1,4 +1,5 @@
 import { baseApiUrl } from "~/global";
+import { DemoToken } from "~/global";
 
 export interface WineDetail {
     Appellation: string | null;
@@ -20,6 +21,9 @@ export async function fetchRecommendations(dish: string, store?: string) {
     try {
       const response = await useFetch(`${baseApiUrl}dish/recommendations`, {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${DemoToken}`
+        },
         body: {
             text: dish,
             store: store

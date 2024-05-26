@@ -59,10 +59,10 @@ const resource = {
     "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The science behind" } }
   },
   "startBanner": {
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Enhance a dining experience with the AI sommelier, ensuring" } },
-    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "impeccable wine and food pairings" } },
-    "title3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " every time." } },
-    "WineAndFoodPairing": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wine and food pairing" } }
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Integrate our advanced food and wine pairing algorithm into your website to" } },
+    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " help users effortlessly choose the perfect wine" } },
+    "title3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " from your assortment." } },
+    "WineAndFoodPairing": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Digital AI sommelier boosting online wine sales" } }
   },
   "StatisticBanner": {
     "text1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "of consumers choose a wine for dinner, not vice versa" } },
@@ -73,4 +73,4 @@ const resource = {
 };
 
 export { resource as default };
-//# sourceMappingURL=en-v6eHroP4.mjs.map
+//# sourceMappingURL=en-pfAxyUd0.mjs.map

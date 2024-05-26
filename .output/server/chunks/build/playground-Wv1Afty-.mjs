@@ -245,11 +245,15 @@ _sfc_main$1.setup = (props, ctx) => {
 };
 const Preloader = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1], ["__scopeId", "data-v-aa6ba8e6"]]);
 const baseApiUrl = "https://api.wineater.com/";
+const DemoToken = "OuhXJRleF6sROjsQZPWx1yqjrL6APeJxmHswqyOBWbgIqtXcht3MDadvI9DtOOoL";
 async function fetchRecommendations(dish, store) {
   console.log(dish, store);
   try {
     const response = await useFetch(`${baseApiUrl}dish/recommendations`, {
       method: "POST",
+      headers: {
+        "Authorization": `Bearer ${DemoToken}`
+      },
       body: {
         text: dish,
         store
@@ -373,4 +377,4 @@ _sfc_main.setup = (props, ctx) => {
 const playground = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
 
 export { playground as default };
-//# sourceMappingURL=playground-Dhn_XAbT.mjs.map
+//# sourceMappingURL=playground-Wv1Afty-.mjs.map

@@ -59,10 +59,10 @@ const resource = {
     "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "La science derri\xE8re" } }
   },
   "startBanner": {
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Am\xE9liorez votre exp\xE9rience culinaire avec le sommelier IA, en garantissant des " } },
-    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "accords mets et vins impeccables" } },
-    "title3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " \xE0 chaque fois." } },
-    "WineAndFoodPairing": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Accords mets et vins" } }
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Int\xE9grez notre algorithme avanc\xE9 d'accords mets et vins \xE0 votre site web pour aider vos utilisateurs \xE0" } },
+    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " choisir facilement le vin parfait parmi" } },
+    "title3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " votre assortiment." } },
+    "WineAndFoodPairing": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sommelier IA boostant les ventes de vin en ligne" } }
   },
   "StatisticBanner": {
     "text1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "des consommateurs choisissent un vin pour le d\xEEner, et non l'inverse" } },
@@ -73,4 +73,4 @@ const resource = {
 };
 
 export { resource as default };
-//# sourceMappingURL=fr-Cp_5pEgj.mjs.map
+//# sourceMappingURL=fr-Dij8Zbio.mjs.map

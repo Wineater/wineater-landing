@@ -6,12 +6,12 @@ const client_manifest = {
     "file": "Header.CvWU5pzp.css",
     "src": "_!~{007}~.js"
   },
-  "_DC6ol4h5.js": {
+  "_CM98QLsq.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DC6ol4h5.js",
+    "file": "CM98QLsq.js",
     "name": "Header",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
@@ -31,7 +31,7 @@ const client_manifest = {
     "module": true,
     "prefetch": false,
     "preload": false,
-    "file": "wJX-niNR.js",
+    "file": "CEr7MniB.js",
     "name": "en",
     "src": "locales/en.json",
     "isDynamicEntry": true
@@ -41,7 +41,7 @@ const client_manifest = {
     "module": true,
     "prefetch": false,
     "preload": false,
-    "file": "DOShFZLL.js",
+    "file": "BiqswdKy.js",
     "name": "fr",
     "src": "locales/fr.json",
     "isDynamicEntry": true
@@ -51,7 +51,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "1HptGtmT.js",
+    "file": "xDukQAZD.js",
     "name": "entry",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -66,7 +66,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DzF526Ho.js",
+    "file": "C41BtJ8C.js",
     "name": "_id_",
     "src": "pages/demo/[id].vue",
     "isDynamicEntry": true,
@@ -86,13 +86,13 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "Cu7O8tw4.js",
+    "file": "C1NKf4zX.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_DC6ol4h5.js"
+      "_CM98QLsq.js"
     ],
     "css": []
   },
@@ -107,12 +107,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "sP-xN7tb.js",
+    "file": "MKKq1KMF.js",
     "name": "playground",
     "src": "pages/playground.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_DC6ol4h5.js",
+      "_CM98QLsq.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "css": []

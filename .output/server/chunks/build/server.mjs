@@ -907,7 +907,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-Dhn_XAbT.mjs').then((m) => m.default || m)
+    component: () => import('./playground-Wv1Afty-.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___fr",
@@ -915,7 +915,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-Dhn_XAbT.mjs').then((m) => m.default || m)
+    component: () => import('./playground-Wv1Afty-.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -5242,11 +5242,11 @@ const localeCodes = [
 ];
 const localeLoaders = {
   "en": [{ key: "../locales/en.json", load: () => import(
-    './en-v6eHroP4.mjs'
+    './en-pfAxyUd0.mjs'
     /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_en_json" */
   ), cache: true }],
   "fr": [{ key: "../locales/fr.json", load: () => import(
-    './fr-Cp_5pEgj.mjs'
+    './fr-Dij8Zbio.mjs'
     /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_fr_json" */
   ), cache: true }]
 };
