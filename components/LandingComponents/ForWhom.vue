@@ -13,9 +13,9 @@
             {{ card.description }}
           </div>
         </div>
-        <div class="for-whom__card-infographic decorative-2 color-brand-1">
+        <!-- <div class="for-whom__card-infographic decorative-2 color-brand-1">
           {{ card.infographic }}
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -32,36 +32,30 @@ export default {
       cards: {
         'en': [
           {
-            "description": "Upload all wine and food SKUs, the algorithm will analyze your catalog and select combinations and specific SKU.",
-            "infographic": "some infographics",
-            "title": "Retailers"
+            "description": "Consumers are more likely to purchase wine when they are confident that the recommended bottle complements their meal",
+            "title": "Increase in the Number of Orders"
           },
           {
-            "description": "Upload your menu, the algorithm will analyze the ingredients and help you make a suitable wine list.",
-            "infographic": "some infographics",
-            "title": "Horeca"
+            "description": "Our algorithm includes the most profitable products, naturally leading to a higher average spend per purchase and boosting overall sales",
+            "title": "Average Check Growth "
           },
           {
-            "description": "some text",
-            "infographic": "some infographics",
-            "title": "Manufacturers"
+            "description": "By offering a unique value proposition, we make it convenient for users to choose wines, encouraging repeat visits and purchases",
+            "title": "Higher User Return Rate"
           }
         ],
         'fr': [
           {
-            "description": "Téléchargez tous les SKU de vins et de produits alimentaires, l'algorithme analysera votre catalogue et sélectionnera des combinaisons et des SKU spécifiques.",
-            "infographic": "quelques infographies",
-            "title": "Détaillants"
+            "description": "Les consommateurs sont plus susceptibles d'acheter du vin lorsqu'ils sont convaincus que la bouteille recommandée complète leur repas",
+            "title": "Augmentation du nombre de commandes"
           },
           {
-            "description": "Téléchargez votre menu, l'algorithme analysera les ingrédients et vous aidera à établir une liste de vins appropriée.",
-            "infographic": "quelques infographies",
-            "title": "Horeca"
+            "description": "Notre algorithme inclut les produits les plus rentables, ce qui conduit naturellement à une dépense moyenne par achat plus élevée et à une augmentation globale des ventes",
+            "title": "Croissance du panier moyen"
           },
           {
-            "description": "quelque texte",
-            "infographic": "quelques infographies",
-            "title": "Fabricants"
+            "description": "En offrant une proposition de valeur unique, nous facilitons le choix des vins pour les utilisateurs, les incitant à revenir et à acheter à nouveau",
+            "title": "Taux de retour utilisateur plus élevé"
           }
         ]
       }
@@ -102,7 +96,6 @@ export default {
   padding: 50px 50px 100px 50px;
   border-radius: 32px;
   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.08);
-  min-height: 680px;
   width: calc(33% - 12px);
 }
 
@@ -120,7 +113,6 @@ export default {
 
 @media only screen and (max-width: 1440px) {
   .for-whom {
-    min-height: 630px;
     gap: 40px;
   }
 
@@ -130,7 +122,6 @@ export default {
 
   .for-whom__card {
     padding: 50px 40px 80px 40px;
-    min-height: 522px;
     width: calc(33% - 10px);
   }
 }
@@ -141,7 +132,6 @@ export default {
   }
   .for-whom__card {
     padding: 30px 30px 80px 30px;
-    min-height: 522px;
   }
 }
 
@@ -152,7 +142,6 @@ export default {
   }
   .for-whom__card {
     padding: 30px 30px 40px 30px;
-    min-height: 400px;
   }
 }
 
@@ -165,7 +154,6 @@ export default {
   }
   .for-whom__card {
     padding: 30px 200px 40px 30px;
-    min-height: 280px;
     width: 100%;
   }
 }
@@ -179,7 +167,6 @@ export default {
   }
   .for-whom__card {
     padding: 30px 30px 40px 30px;
-    min-height: 320px;
     width: 100%;
   }
 }

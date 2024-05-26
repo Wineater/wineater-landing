@@ -1,38 +1,38 @@
 {
 	"algorithm": {
-		"title1": "We’ve created an algorithm ",
-		"title2": "with help to pair wine with a meal",
-		"title3": "to elevate  dining  experience"
+		"title1": "Preview our technology and find ",
+		"title2": "the perfect ",
+		"title3": "food and wine pairing"
 	},
 	"BookDemo": {
-		"title1": "Grow your grocery or horeca business",
-		"title2": "with Ai sommelier"
+		"title1": "Grow your online grocery business with the ",
+		"title2": "digital AI sommelier"
 	},
 	"Footer": {
-		"text": "book a demo & make money",
-		"title": "Do you like it?"
+		"text": "Schedule a 30-minutes demo",
+		"title": "Get Started!"
 	},
 	"forWhom": {
 		"cards": [
 			{
-				"description": "",
+				"description": "Consumers are more likely to purchase wine when they are confident that the recommended bottle complements their meal",
 				"infographic": "",
-				"title": ""
+				"title": "Increase in the Number of Orders"
 			},
 			{
-				"description": "",
+				"description": "Our algorithm includes the most profitable products, naturally leading to a higher average spend per purchase and boosting overall sales",
 				"infographic": "",
-				"title": ""
+				"title": "Average Check Growth "
 			},
 			{
-				"description": "",
+				"description": "By offering a unique value proposition, we make it convenient for users to choose wines, encouraging repeat visits and purchases",
 				"infographic": "",
-				"title": ""
+				"title": "Higher User Return Rate"
 			}
 		]
 	},
 	"ForWhom": {
-		"title": "For whom"
+		"title": "Advantages"
 	},
 	"Header": {
 		"About": "About",
@@ -55,7 +55,7 @@
 		"WineaterFind": "Wineater find"
 	},
 	"scienceBehind": {
-		"text": "The algorithm selects combinations based on the taste characteristics of wine and food, their compatibility, analyzing a huge amount of information.",
+		"text": "Users input the dish they plan to enjoy, and our AI algorithm will analyze their responses to suggest a selection of wines that complement the food based on science principles of food and wine pairing",
 		"title": "The science behind"
 	},
 	"startBanner": {

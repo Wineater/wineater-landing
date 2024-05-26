@@ -891,7 +891,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-CN5UJ5AI.mjs').then((m) => m.default || m)
+    component: () => import('./index-KJjIPQxv.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
@@ -899,7 +899,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-CN5UJ5AI.mjs').then((m) => m.default || m)
+    component: () => import('./index-KJjIPQxv.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___en",
@@ -907,7 +907,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-Wv1Afty-.mjs').then((m) => m.default || m)
+    component: () => import('./playground-D3M9uG9l.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___fr",
@@ -915,7 +915,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-Wv1Afty-.mjs').then((m) => m.default || m)
+    component: () => import('./playground-D3M9uG9l.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -5242,11 +5242,11 @@ const localeCodes = [
 ];
 const localeLoaders = {
   "en": [{ key: "../locales/en.json", load: () => import(
-    './en-pfAxyUd0.mjs'
+    './en-Bb9IjXWB.mjs'
     /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_en_json" */
   ), cache: true }],
   "fr": [{ key: "../locales/fr.json", load: () => import(
-    './fr-Dij8Zbio.mjs'
+    './fr-DixcttKm.mjs'
     /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_fr_json" */
   ), cache: true }]
 };

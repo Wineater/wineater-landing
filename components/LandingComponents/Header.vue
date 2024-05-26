@@ -4,9 +4,7 @@
          @click="openMainPage"
          :style="{'background-image': `url(${store && logos[store] ? logos[store] : logos.Wineater})`}"></div>
     <div class="header__links" v-if="showLinks">
-      <div class="header__link p1 color-text" @click="scrollToBlock('.algorithm-info')">{{ $t('Header.About') }}</div>
       <div class="header__link p1 color-text" @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
-      <div class="header__link p1 color-text" @click="scrollToBlock('.for-whom')">{{ $t('Header.ForWhom') }}</div>
       <div class="header__link p1 color-text" @click="scrollToBlock('.how-it-works')">{{
           $t('Header.HowItWorks')
         }}

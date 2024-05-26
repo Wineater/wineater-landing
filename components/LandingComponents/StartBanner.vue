@@ -4,7 +4,7 @@
       <h1 class="h1 main-banner__info-title color-text">{{ $t('startBanner.WineAndFoodPairing') }}</h1>
       <div class="main-banner__info-description">
         <p class="p1 color-text">{{ $t('startBanner.title1') }} <span class="color-brand-1">{{ $t('startBanner.title2') }}</span>
-          {{ $t('startBanner.title2') }}</p>
+          {{ $t('startBanner.title3') }}</p>
         <div class="main-banner__info-hint"></div>
       </div>
     </div>

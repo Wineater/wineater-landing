@@ -1,16 +1,16 @@
 {
 	"algorithm": {
-		"title1": "Nous avons créé un algorithme",
-		"title2": "avec aide pour accompagner le vin avec un repas",
-		"title3": "pour rehausser l'expérience culinaire"
+		"title1": "Découvrez notre technologie et trouvez l'accord mets et vins ",
+		"title2": "parfait",
+		"title3": ""
 	},
 	"BookDemo": {
-		"title1": "Développez votre activité d'épicerie ou d'horeca",
-		"title2": "avec Ai sommelier"
+		"title1": "Développez votre épicerie en ligne avec ",
+		"title2": "Ai sommelier"
 	},
 	"Footer": {
-		"text": "une démo & gagner de l'argent",
-		"title": "Aimez-vous?"
+		"text": "Planifiez une démo de 30 min",
+		"title": "Débutez maintenant!"
 	},
 	"forWhom": {
 		"cards": [
@@ -32,7 +32,7 @@
 		]
 	},
 	"ForWhom": {
-		"title": "Pour qui"
+		"title": "Avantages"
 	},
 	"Header": {
 		"About": "Sur",
@@ -55,7 +55,7 @@
 		"WineaterFind": " Wineater trouver"
 	},
 	"scienceBehind": {
-		"text": "L'algorithme sélectionne les combinaisons en fonction des caractéristiques gustatives du vin et des aliments, de leur compatibilité, analyser une énorme quantité d’informations.",
+		"text": "Les utilisateurs saisissent le plat qu'ils prévoient de déguster, et notre algorithme IA analysera leurs réponses pour suggérer une sélection de vins qui complètent le mets en se basant sur les principes scientifiques des accords mets et vins",
 		"title": "La science derrière"
 	},
 	"startBanner": {

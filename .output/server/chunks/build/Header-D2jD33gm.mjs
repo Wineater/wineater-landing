@@ -100,15 +100,15 @@ const _sfc_main = /* @__PURE__ */ Object.assign(__default__, {
     const route = useRoute();
     const store = ref(route.query.store ? route.query.store : "");
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "header" }, _attrs))} data-v-4cdad271><div class="header__logo" style="${ssrRenderStyle({ "background-image": `url(${unref(store) && _ctx.logos[unref(store)] ? _ctx.logos[unref(store)] : _ctx.logos.Wineater})` })}" data-v-4cdad271></div>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "header" }, _attrs))} data-v-43ac04ed><div class="header__logo" style="${ssrRenderStyle({ "background-image": `url(${unref(store) && _ctx.logos[unref(store)] ? _ctx.logos[unref(store)] : _ctx.logos.Wineater})` })}" data-v-43ac04ed></div>`);
       if (__props.showLinks) {
-        _push(`<div class="header__links" data-v-4cdad271><div class="header__link p1 color-text" data-v-4cdad271>${ssrInterpolate(_ctx.$t("Header.About"))}</div><div class="header__link p1 color-text" data-v-4cdad271>${ssrInterpolate(_ctx.$t("Header.TryMe"))}</div><div class="header__link p1 color-text" data-v-4cdad271>${ssrInterpolate(_ctx.$t("Header.ForWhom"))}</div><div class="header__link p1 color-text" data-v-4cdad271>${ssrInterpolate(_ctx.$t("Header.HowItWorks"))}</div></div>`);
+        _push(`<div class="header__links" data-v-43ac04ed><div class="header__link p1 color-text" data-v-43ac04ed>${ssrInterpolate(_ctx.$t("Header.TryMe"))}</div><div class="header__link p1 color-text" data-v-43ac04ed>${ssrInterpolate(_ctx.$t("Header.HowItWorks"))}</div></div>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`<div class="header__right-container" data-v-4cdad271><div class="header__btns" data-v-4cdad271>`);
+      _push(`<div class="header__right-container" data-v-43ac04ed><div class="header__btns" data-v-43ac04ed>`);
       _push(ssrRenderComponent(LangSwitcher, null, null, _parent));
-      _push(`<div class="header__btn" data-v-4cdad271>`);
+      _push(`<div class="header__btn" data-v-43ac04ed>`);
       _push(ssrRenderComponent(Button, { onBtnClick: _ctx.openDemoPage }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -131,7 +131,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/Header.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const Header = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-4cdad271"]]);
+const Header = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-43ac04ed"]]);
 
 export { Button as B, Header as H };
-//# sourceMappingURL=Header-C1OSw3fK.mjs.map
+//# sourceMappingURL=Header-D2jD33gm.mjs.map

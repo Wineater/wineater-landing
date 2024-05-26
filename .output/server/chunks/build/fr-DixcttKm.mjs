@@ -1,16 +1,16 @@
 const resource = {
   "algorithm": {
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Nous avons cr\xE9\xE9 un algorithme" } },
-    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "avec aide pour accompagner le vin avec un repas" } },
-    "title3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "pour rehausser l'exp\xE9rience culinaire" } }
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "D\xE9couvrez notre technologie et trouvez l'accord mets et vins " } },
+    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "parfait" } },
+    "title3": { "t": 0, "b": { "static": "", "t": 2, "i": [] } }
   },
   "BookDemo": {
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "D\xE9veloppez votre activit\xE9 d'\xE9picerie ou d'horeca" } },
-    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "avec Ai sommelier" } }
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "D\xE9veloppez votre \xE9picerie en ligne avec " } },
+    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Ai sommelier" } }
   },
   "Footer": {
-    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "une d\xE9mo & gagner de l'argent" } },
-    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Aimez-vous?" } }
+    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Planifiez une d\xE9mo de 30 min" } },
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "D\xE9butez maintenant!" } }
   },
   "forWhom": {
     "cards": [
@@ -32,7 +32,7 @@ const resource = {
     ]
   },
   "ForWhom": {
-    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Pour qui" } }
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Avantages" } }
   },
   "Header": {
     "About": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sur" } },
@@ -55,7 +55,7 @@ const resource = {
     "WineaterFind": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": " Wineater trouver" } }
   },
   "scienceBehind": {
-    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "L'algorithme s\xE9lectionne les combinaisons en fonction des caract\xE9ristiques gustatives du vin et des aliments, de leur compatibilit\xE9, analyser une \xE9norme quantit\xE9 d\u2019informations." } },
+    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Les utilisateurs saisissent le plat qu'ils pr\xE9voient de d\xE9guster, et notre algorithme IA analysera leurs r\xE9ponses pour sugg\xE9rer une s\xE9lection de vins qui compl\xE8tent le mets en se basant sur les principes scientifiques des accords mets et vins" } },
     "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "La science derri\xE8re" } }
   },
   "startBanner": {
@@ -73,4 +73,4 @@ const resource = {
 };
 
 export { resource as default };
-//# sourceMappingURL=fr-Dij8Zbio.mjs.map
+//# sourceMappingURL=fr-DixcttKm.mjs.map

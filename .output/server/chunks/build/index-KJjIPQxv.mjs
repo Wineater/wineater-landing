@@ -1,7 +1,7 @@
 import { ssrRenderComponent, ssrRenderAttrs, ssrInterpolate, ssrRenderList } from 'vue/server-renderer';
 import { ref, onUnmounted, useSSRContext, mergeProps, withCtx, createTextVNode, toDisplayString, createVNode, resolveComponent, defineComponent, computed, h } from 'vue';
 import { _ as _export_sfc, a as useRouter, h as hasProtocol, j as joinURL, p as parseURL, b as parseQuery, n as nuxtLinkDefaults, c as useRuntimeConfig, d as navigateTo, w as withTrailingSlash, e as withoutTrailingSlash } from './server.mjs';
-import { H as Header, B as Button } from './Header-C1OSw3fK.mjs';
+import { H as Header, B as Button } from './Header-D2jD33gm.mjs';
 import '../runtime.mjs';
 import 'node:http';
 import 'node:https';
@@ -230,7 +230,7 @@ function applyTrailingSlashBehavior(to, trailingSlash) {
 }
 const _sfc_main$8 = {};
 function _sfc_ssrRender$5(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "main-banner" }, _attrs))} data-v-fe1dda4f><div class="main-banner__info" data-v-fe1dda4f><h1 class="h1 main-banner__info-title color-text" data-v-fe1dda4f>${ssrInterpolate(_ctx.$t("startBanner.WineAndFoodPairing"))}</h1><div class="main-banner__info-description" data-v-fe1dda4f><p class="p1 color-text" data-v-fe1dda4f>${ssrInterpolate(_ctx.$t("startBanner.title1"))} <span class="color-brand-1" data-v-fe1dda4f>${ssrInterpolate(_ctx.$t("startBanner.title2"))}</span> ${ssrInterpolate(_ctx.$t("startBanner.title2"))}</p><div class="main-banner__info-hint" data-v-fe1dda4f></div></div></div><div class="main-banner__img" data-v-fe1dda4f></div></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "main-banner" }, _attrs))} data-v-7db7b990><div class="main-banner__info" data-v-7db7b990><h1 class="h1 main-banner__info-title color-text" data-v-7db7b990>${ssrInterpolate(_ctx.$t("startBanner.WineAndFoodPairing"))}</h1><div class="main-banner__info-description" data-v-7db7b990><p class="p1 color-text" data-v-7db7b990>${ssrInterpolate(_ctx.$t("startBanner.title1"))} <span class="color-brand-1" data-v-7db7b990>${ssrInterpolate(_ctx.$t("startBanner.title2"))}</span> ${ssrInterpolate(_ctx.$t("startBanner.title3"))}</p><div class="main-banner__info-hint" data-v-7db7b990></div></div></div><div class="main-banner__img" data-v-7db7b990></div></div>`);
 }
 const _sfc_setup$8 = _sfc_main$8.setup;
 _sfc_main$8.setup = (props, ctx) => {
@@ -238,7 +238,7 @@ _sfc_main$8.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/StartBanner.vue");
   return _sfc_setup$8 ? _sfc_setup$8(props, ctx) : void 0;
 };
-const StartBanner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-fe1dda4f"]]);
+const StartBanner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["ssrRender", _sfc_ssrRender$5], ["__scopeId", "data-v-7db7b990"]]);
 const _sfc_main$7 = {
   __name: "AlgorithmInfo",
   __ssrInlineRender: true,
@@ -393,13 +393,13 @@ const _sfc_main$3 = {
   },
   methods: {
     openDemoPage() {
-      (void 0).open("https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8", "_blank");
+      (void 0).open("https://wineater.simplybook.me/v2/", "_blank");
     }
   }
 };
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   const _component_Button = resolveComponent("Button");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "footer" }, _attrs))} data-v-fdbf181b><div class="footer__content" data-v-fdbf181b><div class="footer__texts" data-v-fdbf181b><div class="footer__title color-brand-4 decorative-1" data-v-fdbf181b>${ssrInterpolate(_ctx.$t("Footer.title"))}</div><div class="footer__text h2 color-brand-4" data-v-fdbf181b>${ssrInterpolate(_ctx.$t("Footer.text"))} <div class="footer__text-arrow" data-v-fdbf181b></div></div><div class="footer__btn" data-v-fdbf181b>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "footer" }, _attrs))} data-v-a0a40afb><div class="footer__content" data-v-a0a40afb><div class="footer__texts" data-v-a0a40afb><div class="footer__title color-brand-4 decorative-1" data-v-a0a40afb>${ssrInterpolate(_ctx.$t("Footer.title"))}</div><div class="footer__text h2 color-brand-4" data-v-a0a40afb>${ssrInterpolate(_ctx.$t("Footer.text"))} <div class="footer__text-arrow" data-v-a0a40afb></div></div><div class="footer__btn" data-v-a0a40afb>`);
   _push(ssrRenderComponent(_component_Button, { onBtnClick: $options.openDemoPage }, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
       if (_push2) {
@@ -412,7 +412,7 @@ function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs, $props, $setup, $data, $
     }),
     _: 1
   }, _parent));
-  _push(`</div></div><div class="footer__info" data-v-fdbf181b><div class="footer__logo" data-v-fdbf181b></div><div class="footer__links" data-v-fdbf181b><a class="p1 color-brand-4" href="vladimir@wineater.com" data-v-fdbf181b>vladimir@wineater.com</a><a class="p1 color-brand-4" href="https://instagram.com/ah_vladimir?igshid=MzRlODBiNWFlZA==" target="_blank" data-v-fdbf181b>Instagram</a></div></div></div></div>`);
+  _push(`</div></div><div class="footer__info" data-v-a0a40afb><div class="footer__logo" data-v-a0a40afb></div><div class="footer__links" data-v-a0a40afb><a class="p1 color-brand-4" href="hi@wineater.com" data-v-a0a40afb>hi@wineater.com</a><a class="p1 color-brand-4" href="https://instagram.com/ah_vladimir?igshid=MzRlODBiNWFlZA==" target="_blank" data-v-a0a40afb>Instagram</a></div></div></div></div>`);
 }
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
@@ -420,7 +420,7 @@ _sfc_main$3.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/Footer.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const Footer = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$2], ["__scopeId", "data-v-fdbf181b"]]);
+const Footer = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$2], ["__scopeId", "data-v-a0a40afb"]]);
 const _sfc_main$2 = {
   components: {
     Button
@@ -469,36 +469,30 @@ const _sfc_main$1 = {
       cards: {
         "en": [
           {
-            "description": "Upload all wine and food SKUs, the algorithm will analyze your catalog and select combinations and specific SKU.",
-            "infographic": "some infographics",
-            "title": "Retailers"
+            "description": "Consumers are more likely to purchase wine when they are confident that the recommended bottle complements their meal",
+            "title": "Increase in the Number of Orders"
           },
           {
-            "description": "Upload your menu, the algorithm will analyze the ingredients and help you make a suitable wine list.",
-            "infographic": "some infographics",
-            "title": "Horeca"
+            "description": "Our algorithm includes the most profitable products, naturally leading to a higher average spend per purchase and boosting overall sales",
+            "title": "Average Check Growth "
           },
           {
-            "description": "some text",
-            "infographic": "some infographics",
-            "title": "Manufacturers"
+            "description": "By offering a unique value proposition, we make it convenient for users to choose wines, encouraging repeat visits and purchases",
+            "title": "Higher User Return Rate"
           }
         ],
         "fr": [
           {
-            "description": "T\xE9l\xE9chargez tous les SKU de vins et de produits alimentaires, l'algorithme analysera votre catalogue et s\xE9lectionnera des combinaisons et des SKU sp\xE9cifiques.",
-            "infographic": "quelques infographies",
-            "title": "D\xE9taillants"
+            "description": "Les consommateurs sont plus susceptibles d'acheter du vin lorsqu'ils sont convaincus que la bouteille recommand\xE9e compl\xE8te leur repas",
+            "title": "Augmentation du nombre de commandes"
           },
           {
-            "description": "T\xE9l\xE9chargez votre menu, l'algorithme analysera les ingr\xE9dients et vous aidera \xE0 \xE9tablir une liste de vins appropri\xE9e.",
-            "infographic": "quelques infographies",
-            "title": "Horeca"
+            "description": "Notre algorithme inclut les produits les plus rentables, ce qui conduit naturellement \xE0 une d\xE9pense moyenne par achat plus \xE9lev\xE9e et \xE0 une augmentation globale des ventes",
+            "title": "Croissance du panier moyen"
           },
           {
-            "description": "quelque texte",
-            "infographic": "quelques infographies",
-            "title": "Fabricants"
+            "description": "En offrant une proposition de valeur unique, nous facilitons le choix des vins pour les utilisateurs, les incitant \xE0 revenir et \xE0 acheter \xE0 nouveau",
+            "title": "Taux de retour utilisateur plus \xE9lev\xE9"
           }
         ]
       }
@@ -512,9 +506,9 @@ const _sfc_main$1 = {
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
   _push(`<div${ssrRenderAttrs(mergeProps({
     class: ["for-whom", { "visible": $props.visible }]
-  }, _attrs))} data-v-5a50f5b7><h2 class="h2 color-brand-6" data-v-5a50f5b7>${ssrInterpolate(_ctx.$t("ForWhom.title"))}</h2><div class="for-whom__cards" data-v-5a50f5b7><!--[-->`);
+  }, _attrs))} data-v-f5a02d73><h2 class="h2 color-brand-6" data-v-f5a02d73>${ssrInterpolate(_ctx.$t("ForWhom.title"))}</h2><div class="for-whom__cards" data-v-f5a02d73><!--[-->`);
   ssrRenderList($data.cards[_ctx.$i18n.locale], (card) => {
-    _push(`<div class="for-whom__card" data-v-5a50f5b7><div class="for-whom__card-texts" data-v-5a50f5b7><div class="for-whom__card-title h3" data-v-5a50f5b7>${ssrInterpolate(card.title)}</div><div class="for-whom__card-description p1 color-dark-100" data-v-5a50f5b7>${ssrInterpolate(card.description)}</div></div><div class="for-whom__card-infographic decorative-2 color-brand-1" data-v-5a50f5b7>${ssrInterpolate(card.infographic)}</div></div>`);
+    _push(`<div class="for-whom__card" data-v-f5a02d73><div class="for-whom__card-texts" data-v-f5a02d73><div class="for-whom__card-title h3" data-v-f5a02d73>${ssrInterpolate(card.title)}</div><div class="for-whom__card-description p1 color-dark-100" data-v-f5a02d73>${ssrInterpolate(card.description)}</div></div></div>`);
   });
   _push(`<!--]--></div></div>`);
 }
@@ -524,7 +518,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/ForWhom.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const ForWhom = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-5a50f5b7"]]);
+const ForWhom = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-f5a02d73"]]);
 const _sfc_main = {
   __name: "index",
   __ssrInlineRender: true,
@@ -593,4 +587,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-CN5UJ5AI.mjs.map
+//# sourceMappingURL=index-KJjIPQxv.mjs.map

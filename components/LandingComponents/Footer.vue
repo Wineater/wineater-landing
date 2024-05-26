@@ -16,7 +16,7 @@
       <div class="footer__info">
         <div class="footer__logo"></div>
         <div class="footer__links">
-          <a class="p1 color-brand-4" href="vladimir@wineater.com">vladimir@wineater.com</a>
+          <a class="p1 color-brand-4" href="hi@wineater.com">hi@wineater.com</a>
 <!--          <a class="p1 color-brand-4" href="tel:334563278">+33 456-32-78</a>-->
           <a class="p1 color-brand-4" href="https://instagram.com/ah_vladimir?igshid=MzRlODBiNWFlZA==" target="_blank">Instagram</a>
         </div>
@@ -48,7 +48,7 @@
 .footer__texts {
   display: flex;
   flex-direction: column;
-  max-width: 820px;
+  max-width: 900px;
   text-align: left;
 }
 
@@ -188,7 +188,7 @@ export default {
   },
   methods: {
     openDemoPage() {
-      window.open('https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8', '_blank')
+      window.open('https://wineater.simplybook.me/v2/', '_blank')
     },
   },
 };

@@ -1,38 +1,38 @@
 const resource = {
   "algorithm": {
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "We\u2019ve created an algorithm " } },
-    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "with help to pair wine with a meal" } },
-    "title3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "to elevate  dining  experience" } }
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Preview our technology and find " } },
+    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "the perfect " } },
+    "title3": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "food and wine pairing" } }
   },
   "BookDemo": {
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Grow your grocery or horeca business" } },
-    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "with Ai sommelier" } }
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Grow your online grocery business with the " } },
+    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "digital AI sommelier" } }
   },
   "Footer": {
-    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "book a demo & make money" } },
-    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Do you like it?" } }
+    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Schedule a 30-minutes demo" } },
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Get Started!" } }
   },
   "forWhom": {
     "cards": [
       {
-        "description": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Consumers are more likely to purchase wine when they are confident that the recommended bottle complements their meal" } },
         "infographic": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
-        "title": { "t": 0, "b": { "static": "", "t": 2, "i": [] } }
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Increase in the Number of Orders" } }
       },
       {
-        "description": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Our algorithm includes the most profitable products, naturally leading to a higher average spend per purchase and boosting overall sales" } },
         "infographic": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
-        "title": { "t": 0, "b": { "static": "", "t": 2, "i": [] } }
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Average Check Growth " } }
       },
       {
-        "description": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
+        "description": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "By offering a unique value proposition, we make it convenient for users to choose wines, encouraging repeat visits and purchases" } },
         "infographic": { "t": 0, "b": { "static": "", "t": 2, "i": [] } },
-        "title": { "t": 0, "b": { "static": "", "t": 2, "i": [] } }
+        "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Higher User Return Rate" } }
       }
     ]
   },
   "ForWhom": {
-    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "For whom" } }
+    "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Advantages" } }
   },
   "Header": {
     "About": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "About" } },
@@ -55,7 +55,7 @@ const resource = {
     "WineaterFind": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wineater find" } }
   },
   "scienceBehind": {
-    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The algorithm selects combinations based on the taste characteristics of wine and food, their compatibility, analyzing a huge amount of information." } },
+    "text": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Users input the dish they plan to enjoy, and our AI algorithm will analyze their responses to suggest a selection of wines that complement the food based on science principles of food and wine pairing" } },
     "title": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "The science behind" } }
   },
   "startBanner": {
@@ -73,4 +73,4 @@ const resource = {
 };
 
 export { resource as default };
-//# sourceMappingURL=en-pfAxyUd0.mjs.map
+//# sourceMappingURL=en-Bb9IjXWB.mjs.map
