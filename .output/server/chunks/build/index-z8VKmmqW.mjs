@@ -300,7 +300,7 @@ const _sfc_main$6 = {
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<div${ssrRenderAttrs(mergeProps({
         class: ["science-behind", { "visible": __props.visible }]
-      }, _attrs))} data-v-a4069acb><div class="science-behind__bottles" data-v-a4069acb><div class="science-behind__bottles-text" data-v-a4069acb><h2 class="h2 color-brand-4" data-v-a4069acb>${ssrInterpolate(_ctx.$t("scienceBehind.title"))}</h2><p class="p1 color-brand-4" data-v-a4069acb>${ssrInterpolate(_ctx.$t("scienceBehind.text"))}</p></div></div><div class="science-behind__bottle" data-v-a4069acb></div></div>`);
+      }, _attrs))} data-v-6732c6a6><div class="science-behind__bottles" data-v-6732c6a6><div class="science-behind__bottles-text" data-v-6732c6a6><h2 class="h2 color-brand-4" data-v-6732c6a6>${ssrInterpolate(_ctx.$t("scienceBehind.title"))}</h2><p class="p1 color-brand-4" data-v-6732c6a6>${ssrInterpolate(_ctx.$t("scienceBehind.text"))}</p></div></div><div class="science-behind__bottle" data-v-6732c6a6></div></div>`);
     };
   }
 };
@@ -310,7 +310,7 @@ _sfc_main$6.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/LandingComponents/ScienceBehind.vue");
   return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const ScienceBehind = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-a4069acb"]]);
+const ScienceBehind = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-6732c6a6"]]);
 const _sfc_main$5 = {
   props: {
     visible: Boolean
@@ -587,4 +587,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=index-KJjIPQxv.mjs.map
+//# sourceMappingURL=index-z8VKmmqW.mjs.map

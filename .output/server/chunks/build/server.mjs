@@ -891,7 +891,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-KJjIPQxv.mjs').then((m) => m.default || m)
+    component: () => import('./index-z8VKmmqW.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
@@ -899,7 +899,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-KJjIPQxv.mjs').then((m) => m.default || m)
+    component: () => import('./index-z8VKmmqW.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___en",
@@ -5242,11 +5242,11 @@ const localeCodes = [
 ];
 const localeLoaders = {
   "en": [{ key: "../locales/en.json", load: () => import(
-    './en-Bb9IjXWB.mjs'
+    './en-_LpAvVHs.mjs'
     /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_en_json" */
   ), cache: true }],
   "fr": [{ key: "../locales/fr.json", load: () => import(
-    './fr-DixcttKm.mjs'
+    './fr-NuaqxW-6.mjs'
     /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_fr_json" */
   ), cache: true }]
 };

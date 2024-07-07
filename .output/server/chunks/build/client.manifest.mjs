@@ -6,12 +6,12 @@ const client_manifest = {
     "file": "Header.0hMhEoDt.css",
     "src": "_!~{007}~.js"
   },
-  "_BRlWlrLd.js": {
+  "_D5884cZE.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "BRlWlrLd.js",
+    "file": "D5884cZE.js",
     "name": "Header",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
@@ -31,7 +31,7 @@ const client_manifest = {
     "module": true,
     "prefetch": false,
     "preload": false,
-    "file": "CU61Z_zR.js",
+    "file": "CmPWoqto.js",
     "name": "en",
     "src": "locales/en.json",
     "isDynamicEntry": true
@@ -41,7 +41,7 @@ const client_manifest = {
     "module": true,
     "prefetch": false,
     "preload": false,
-    "file": "DAv5f4gE.js",
+    "file": "BJhR3nPE.js",
     "name": "fr",
     "src": "locales/fr.json",
     "isDynamicEntry": true
@@ -51,7 +51,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "vcGtea--.js",
+    "file": "DlMLegA4.js",
     "name": "entry",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -66,7 +66,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "BPqoKyyL.js",
+    "file": "CUb06dpJ.js",
     "name": "_id_",
     "src": "pages/demo/[id].vue",
     "isDynamicEntry": true,
@@ -86,18 +86,18 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DhoMRknl.js",
+    "file": "BSYLsQSt.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_BRlWlrLd.js"
+      "_D5884cZE.js"
     ],
     "css": []
   },
-  "index.DgjgZHXA.css": {
-    "file": "index.DgjgZHXA.css",
+  "index.eU7tmylJ.css": {
+    "file": "index.eU7tmylJ.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -107,12 +107,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "C7gn6FPl.js",
+    "file": "BGUoYQCY.js",
     "name": "playground",
     "src": "pages/playground.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_BRlWlrLd.js",
+      "_D5884cZE.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "css": []

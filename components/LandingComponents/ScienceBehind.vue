@@ -71,7 +71,7 @@ const props = defineProps({
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottle.webp);
+  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/chatbot_animation.gif);
 }
 
 @media only screen and (max-width: 1440px) {
@@ -86,8 +86,7 @@ const props = defineProps({
   .science-behind__bottle {
     height: 825px;
     margin-right: -100px;
-    background-position: right;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottle-2.webp);
+    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/chatbot_animation.gif);
   }
   .science-behind__bottles-text {
     gap: 20px;
@@ -194,6 +193,7 @@ const props = defineProps({
     min-height: auto;
     height: auto;
     transform: translateY(30px);
+    display: block;
   }
   .science-behind__bottles {
     width: 100%;
@@ -205,7 +205,8 @@ const props = defineProps({
     margin-right: 0px;
   }
   .science-behind__bottle {
-    display: none;
+    display: block;
+    width: 100%;
   }
   .science-behind__bottles-text {
     padding-left: 24px;

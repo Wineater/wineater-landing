@@ -65,12 +65,12 @@ const resource = {
     "WineAndFoodPairing": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Sommelier IA boostant les ventes de vin en ligne" } }
   },
   "StatisticBanner": {
-    "text1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "des consommateurs choisissent un vin pour le d\xEEner, et non l'inverse" } },
-    "text2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "\xE9prouver des difficult\xE9s \xE0 choisir un vin pour le d\xEEner en raison du manque de connaissances sur le vin" } },
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Les consommateurs d\xE9testent choisir" } },
+    "text1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "des consommateurs choisissent un vin pour accompagner leur d\xEEner, et non l'inverse" } },
+    "text2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "trouvent difficile de choisir un vin pour le d\xEEner en raison d'un manque de connaissances en vin" } },
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Les consommateurs ont du mal \xE0 choisir" } },
     "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "un vin pour le d\xEEner" } }
   }
 };
 
 export { resource as default };
-//# sourceMappingURL=fr-DixcttKm.mjs.map
+//# sourceMappingURL=fr-NuaqxW-6.mjs.map

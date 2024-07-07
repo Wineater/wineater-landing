@@ -66,11 +66,11 @@ const resource = {
   },
   "StatisticBanner": {
     "text1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "of consumers choose a wine for dinner, not vice versa" } },
-    "text2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "feel difficulties to choose a wine for dinner due to the lack of knowledge about wine" } },
-    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Consumers hate to choose" } },
-    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "a wine for dinner" } }
+    "text2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "find it difficult to choose a wine for dinner due to a lack of wine knowledge" } },
+    "title1": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Consumers Struggle with" } },
+    "title2": { "t": 0, "b": { "t": 2, "i": [{ "t": 3 }], "s": "Wine Selection for Dinner" } }
   }
 };
 
 export { resource as default };
-//# sourceMappingURL=en-Bb9IjXWB.mjs.map
+//# sourceMappingURL=en-_LpAvVHs.mjs.map

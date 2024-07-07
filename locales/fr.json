@@ -65,9 +65,9 @@
 		"WineAndFoodPairing": "Sommelier IA boostant les ventes de vin en ligne"
 	},
 	"StatisticBanner": {
-		"text1": "des consommateurs choisissent un vin pour le dîner, et non l'inverse",
-		"text2": "éprouver des difficultés à choisir un vin pour le dîner en raison du manque de connaissances sur le vin",
-		"title1": "Les consommateurs détestent choisir",
+		"text1": "des consommateurs choisissent un vin pour accompagner leur dîner, et non l'inverse",
+		"text2": "trouvent difficile de choisir un vin pour le dîner en raison d'un manque de connaissances en vin",
+		"title1": "Les consommateurs ont du mal à choisir",
 		"title2": "un vin pour le dîner"
 	}
 }
