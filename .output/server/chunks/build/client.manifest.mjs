@@ -3,25 +3,25 @@ const client_manifest = {
     "resourceType": "style",
     "prefetch": true,
     "preload": true,
-    "file": "Header.0hMhEoDt.css",
+    "file": "Header.BkEwRgO4.css",
     "src": "_!~{007}~.js"
   },
-  "_D5884cZE.js": {
+  "_DFMX60G7.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "D5884cZE.js",
+    "file": "DFMX60G7.js",
     "name": "Header",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "css": [
-      "Header.0hMhEoDt.css"
+      "Header.BkEwRgO4.css"
     ]
   },
-  "Header.0hMhEoDt.css": {
-    "file": "Header.0hMhEoDt.css",
+  "Header.BkEwRgO4.css": {
+    "file": "Header.BkEwRgO4.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -51,7 +51,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DlMLegA4.js",
+    "file": "sungIPlM.js",
     "name": "entry",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
@@ -66,7 +66,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "CUb06dpJ.js",
+    "file": "CPuyeRkV.js",
     "name": "_id_",
     "src": "pages/demo/[id].vue",
     "isDynamicEntry": true,
@@ -86,18 +86,18 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "BSYLsQSt.js",
+    "file": "CAgvTWrA.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_D5884cZE.js"
+      "_DFMX60G7.js"
     ],
     "css": []
   },
-  "index.eU7tmylJ.css": {
-    "file": "index.eU7tmylJ.css",
+  "index.CfKbW8s0.css": {
+    "file": "index.CfKbW8s0.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
@@ -107,12 +107,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "BGUoYQCY.js",
+    "file": "CdgfTD05.js",
     "name": "playground",
     "src": "pages/playground.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_D5884cZE.js",
+      "_DFMX60G7.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "css": []
