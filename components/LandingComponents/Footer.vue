@@ -188,7 +188,7 @@ export default {
   },
   methods: {
     openDemoPage() {
-      window.open('https://wineater.simplybook.me/v2/', '_blank')
+      window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank')
     },
   },
 };

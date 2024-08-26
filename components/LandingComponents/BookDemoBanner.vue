@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     openDemoPage() {
-      window.open('https://share-eu1.hsforms.com/1UgO6pMx2T76UXxvPdYCRpw2degs8', '_blank')
+      window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank')
     },
   },
 };
