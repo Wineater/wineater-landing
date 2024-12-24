@@ -152,7 +152,7 @@ export default {
     left: -25px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/text-circle.png);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/text-circle.png);
     width: 614px;
     height: 155px;
   }
@@ -169,7 +169,7 @@ export default {
     left: 1px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/text-underline.png);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/text-underline.png);
     width: 588px;
     height: 21px;
   }
@@ -215,7 +215,7 @@ export default {
   height: 40px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/search.svg);
+  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/search.svg);
   margin-right: 8px;
 }
 
@@ -482,7 +482,7 @@ export default {
   .playground__input-btn-icon {
     width: 32px;
     height: 32px;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/search--white.svg);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/search--white.svg);
   }
   .playground__title-circle {
     &:before {

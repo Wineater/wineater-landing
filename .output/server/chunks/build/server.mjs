@@ -875,7 +875,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_id_-ClS9pZKL.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-9X2Q-Q9b.mjs').then((m) => m.default || m)
   },
   {
     name: "demo-id___fr",
@@ -883,7 +883,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_id_-ClS9pZKL.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-9X2Q-Q9b.mjs').then((m) => m.default || m)
   },
   {
     name: "index___en",
@@ -891,7 +891,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-CZ3P_qCR.mjs').then((m) => m.default || m)
+    component: () => import('./index-BtRavbsS.mjs').then((m) => m.default || m)
   },
   {
     name: "index___fr",
@@ -899,7 +899,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./index-CZ3P_qCR.mjs').then((m) => m.default || m)
+    component: () => import('./index-BtRavbsS.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___en",
@@ -907,7 +907,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-Df5PzRey.mjs').then((m) => m.default || m)
+    component: () => import('./playground-CIbc0G03.mjs').then((m) => m.default || m)
   },
   {
     name: "playground___fr",
@@ -915,7 +915,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./playground-Df5PzRey.mjs').then((m) => m.default || m)
+    component: () => import('./playground-CIbc0G03.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {

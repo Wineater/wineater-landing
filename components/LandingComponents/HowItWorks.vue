@@ -26,12 +26,12 @@ export default {
   height: 1080px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/graph-desktop.svg);
+  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop.svg);
   opacity: 0;
   transition: 1s ease;
   transform: translateY(100px);
   &--fr{
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/graph-desktop--fr.svg);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop--fr.svg);
   }
 }
 
@@ -55,9 +55,9 @@ export default {
 @media only screen and (max-width: 1024px) {
   .how-it-works {
     height: 680px;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/graph-tablet.svg);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-tablet.svg);
     &--fr{
-      background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/graph-tablet--fr.svg);
+      background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-tablet--fr.svg);
     }
   }
 }
@@ -66,9 +66,9 @@ export default {
   .how-it-works {
     height: 475px;
     background-position: center;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/graph-mobile.svg);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-mobile.svg);
     &--fr{
-      background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/graph-mobile--fr.svg);
+      background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-mobile--fr.svg);
     }
   }
 }

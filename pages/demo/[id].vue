@@ -43,11 +43,11 @@ export default {
 
 <script setup>
 const logos = {
-  Wineater: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/logo.svg',
-  Telckel: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Telckel.png',
-  Climats: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Climats.png',
-  Biobio: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Biobio.png',
-  Weinpoint: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Weinpoint.png'
+  Wineater: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg',
+  Telckel: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Telckel.png',
+  Climats: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Climats.png',
+  Biobio: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Biobio.png',
+  Weinpoint: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Weinpoint.png'
 };
 
 const route = useRoute()

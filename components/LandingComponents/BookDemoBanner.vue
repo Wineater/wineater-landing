@@ -65,7 +65,7 @@ export default {
     top: -50px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/arrow.svg);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/arrow.svg);
   }
 }
 @media only screen and (max-width: 1440px) {

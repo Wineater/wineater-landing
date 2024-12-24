@@ -26,7 +26,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Wineater-social_preview.png', // Replace with the URL of your image
+          content: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png', // Replace with the URL of your image
         },
         {
           hid: 'twitter:card',
@@ -46,7 +46,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: 'https://landing-static.s3.eu-central-1.amazonaws.com/images/Wineater-social_preview.png', // Replace with the URL of your image
+          content: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png', // Replace with the URL of your image
         },
       ],
       title: 'Wineater | Wine and food pairing',

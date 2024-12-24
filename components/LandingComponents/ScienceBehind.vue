@@ -43,7 +43,7 @@ const props = defineProps({
   height: 950px;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottles.png);
+  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/bottles.png);
   align-items: center;
   margin-right: 5%;
 }
@@ -71,7 +71,7 @@ const props = defineProps({
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/chatbot_animation.gif);
+  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/chatbot_animation.gif);
 }
 
 @media only screen and (max-width: 1440px) {
@@ -86,7 +86,7 @@ const props = defineProps({
   .science-behind__bottle {
     height: 825px;
     margin-right: -100px;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/chatbot_animation.gif);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/chatbot_animation.gif);
   }
   .science-behind__bottles-text {
     gap: 20px;
@@ -165,7 +165,7 @@ const props = defineProps({
   .science-behind__bottles {
     width: 372px;
     height: 652px;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottles--small.png);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/bottles--small.png);
     margin-right: 24px;
     margin-left: -40px;
   }
@@ -199,7 +199,7 @@ const props = defineProps({
     width: 100%;
     height: 511px;
     background-position: center;
-    background-image: url(https://landing-static.s3.eu-central-1.amazonaws.com/images/bottles--mobile.png);
+    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/bottles--mobile.png);
     justify-content: center;
     margin-left: 0px;
     margin-right: 0px;
