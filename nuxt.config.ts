@@ -10,6 +10,17 @@ export default {
           src: 'https://unpkg.com/wineater-bot@latest/dist/wineater-chatbot.umd.js', // Replace this URL with the actual script URL
           type: 'module'
         },
+        {
+          hid: 'wineaterData',
+          innerHTML: `
+            window.wineaterData = {
+              CLIENT_TOKEN: 'HeUw6IXuhvz6tRuXdPEGEbj3SGQ3Q2YtEc1Z8jd41Kg9LtyPb4Epu0to31SYIadG',
+              position: 'right-center',
+              TYPE: 'widget'
+            };
+          `,
+          type: 'text/javascript'
+        }
       ],
       meta: [
         {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5'},

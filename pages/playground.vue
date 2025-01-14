@@ -1,70 +1,7 @@
 <template>
   <Header :show-links="false"/>
   <div class="playground">
-    <h2 class="h2 playground__title">
-      {{ $t('playground.WineaterFind') }} <span class="playground__title-circle"
-                                                v-html="$t('playground.perfectWine') + '<br/>'"></span>
-      {{ $t('playground.forYour') }} <span
-        class="playground__title-underline" v-html="$t('playground.perfectDinner')"></span>
-    </h2>
-    <p class="p1 playground__description">
-      {{ $t('playground.BeSureToProvideDetails') }}
-    </p>
-    <div class="playground__input">
-      <div class="playground__input-icon"></div>
-      <input
-          ref="searchInput"
-          type="text"
-          :placeholder="$t('playground.WhatDoYouWannaEat')"
-          @input="searchChange"
-          @keydown.enter.prevent="handleInput"
-      />
-      <Button
-          @click="handleInput"
-          :disabled="!searchQuery"
-          class="playground__input-btn">
-        {{ $t('playground.FindAMatch') }}
-      </Button>
-      <div
-          @click="handleInput"
-          class="playground__input-btn--mobile">
-        <div class="playground__input-btn-icon"></div>
-      </div>
-    </div>
-    <Preloader v-if="loading"></Preloader>
-    <div class="playground__cards" v-if="results.length && !loading">
-      <div v-for="(card, cardIndex) in results.slice(0, 3)" class="playground__card-wrapper">
-        <div class="playground__card">
-         <!--  <div class="playground__card-header">
-            <p class="p1">{{ $t('playground.Type') }}</p>
-            <p class="p1">{{ card.Type }}</p>
-          </div> -->
-          <div class="playground__card-title h3">
-            {{ card.Title }}
-          </div>
-          <div class="playground__card-info">
-            <div class="playground__card-info-header">
-              <p class="p1">{{ $t('playground.Region') }}</p>
-              <p class="p2">{{ card.Region }}</p>
-            </div>
-            <div class="playground__card-info-grape">
-              <p class="p1">{{ $t('playground.Grape') }}</p>
-              <p class="p2"><p v-for="(grape) in card.Grape.split(',')">{{ grape }}</p></p>
-            </div>
-            <div
-                class="playground__card-img"
-                :style="{'background-image': 'url(' + card.Image + ')'}"
-            ></div>
-            <Button
-                @click="openLink(card.Url)"
-                class="playground__card-btn">
-              {{ $t('playground.Buy') }}
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <div id="wineater-widget-conteiner"></div> <!-- Контейнер для виджета -->
   </div>
 </template>
 <script>
@@ -122,11 +59,15 @@ export default {
   min-height: 100vh;
   background: var(--brand-7);
   padding-top: 250px;
-  text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-bottom: 50px;
+}
+
+.wineater-widget-conteiner {
+  max-width: 1200px;
+  min-width: 1200px;
 }
 
 .playground__title {

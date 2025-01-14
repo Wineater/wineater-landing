@@ -6,6 +6,13 @@ import { renderSSRHead } from '@unhead/ssr';
 import { version, unref } from 'vue';
 import { createServerHead as createServerHead$1 } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
+import viteNode_mjs from 'file:///Users/alekseiolkhovoi/Desktop/dev/Wineater/wineater-landing/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs';
+import 'node:http';
+import 'node:https';
+import 'fs';
+import 'path';
+import 'node:fs';
+import 'node:url';
 
 function defineRenderHandler(handler) {
   return eventHandler(async (event) => {
@@ -93,7 +100,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"},{"hid":"description","name":"description","content":"Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings"},{"hid":"og:title","property":"og:title","content":"Wineater | Wine and food pairing"},{"hid":"og:image","property":"og:image","content":"https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png"},{"hid":"twitter:card","name":"twitter:card","content":"summary_large_image"},{"hid":"twitter:title","name":"twitter:title","content":"Wineater | Wine and food pairing"},{"hid":"twitter:description","name":"twitter:description","content":"Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings"},{"hid":"twitter:image","name":"twitter:image","content":"https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png"}],"link":[],"style":[],"script":[{"src":"https://unpkg.com/wineater-bot@latest/dist/wineater-chatbot.umd.js","type":"module"}],"noscript":[],"htmlAttrs":{"lang":"en"},"title":"Wineater | Wine and food pairing"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"},{"hid":"description","name":"description","content":"Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings"},{"hid":"og:title","property":"og:title","content":"Wineater | Wine and food pairing"},{"hid":"og:image","property":"og:image","content":"https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png"},{"hid":"twitter:card","name":"twitter:card","content":"summary_large_image"},{"hid":"twitter:title","name":"twitter:title","content":"Wineater | Wine and food pairing"},{"hid":"twitter:description","name":"twitter:description","content":"Enhance a dining experience with the AI sommelier, ensuring impeccable wine and food pairings impeccable wine and food pairings"},{"hid":"twitter:image","name":"twitter:image","content":"https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png"}],"link":[],"style":[],"script":[{"src":"https://unpkg.com/wineater-bot@latest/dist/wineater-chatbot.umd.js","type":"module"},{"hid":"wineaterData","innerHTML":"\n            window.wineaterData = {\n              CLIENT_TOKEN: 'HeUw6IXuhvz6tRuXdPEGEbj3SGQ3Q2YtEc1Z8jd41Kg9LtyPb4Epu0to31SYIadG',\n              position: 'right-center',\n              TYPE: 'widget'\n            };\n          ","type":"text/javascript"}],"noscript":[],"htmlAttrs":{"lang":"en"},"title":"Wineater | Wine and food pairing"};
 
 const appRootId = "__nuxt";
 
@@ -105,9 +112,6 @@ const appTeleportId = "teleports";
 
 const componentIslands = false;
 
-function baseURL() {
-  return useRuntimeConfig().app.baseURL;
-}
 function buildAssetsDir() {
   return useRuntimeConfig().app.buildAssetsDir;
 }
@@ -122,15 +126,15 @@ function publicAssetsURL(...path) {
 
 globalThis.__buildAssetsURL = buildAssetsURL;
 globalThis.__publicAssetsURL = publicAssetsURL;
-const getClientManifest = () => import('../build/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getClientManifest = () => Promise.resolve().then(function () { return client_manifest; }).then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getEntryIds = () => getClientManifest().then((r) => Object.values(r).filter(
   (r2) => (
     // @ts-expect-error internal key set by CSS inlining configuration
     r2._globalCSS
   )
 ).map((r2) => r2.src));
-const getServerEntry = () => import('../build/server.mjs').then((r) => r.default || r);
-const getSSRStyles = lazyCachedFunction(() => import('../build/styles.mjs').then((r) => r.default || r));
+const getServerEntry = () => Promise.resolve().then(function () { return server; }).then((r) => r.default || r);
+const getSSRStyles = lazyCachedFunction(() => import('./styles.mjs').then((r) => r.default || r));
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {
@@ -404,10 +408,14 @@ function splitPayload(ssrContext) {
   };
 }
 
-const renderer$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  default: renderer
+const client_manifest = /*#__PURE__*/Object.freeze({
+  __proto__: null
 });
 
-export { baseURL as b, renderer$1 as r };
+const server = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: viteNode_mjs
+});
+
+export { renderer as default };
 //# sourceMappingURL=renderer.mjs.map
