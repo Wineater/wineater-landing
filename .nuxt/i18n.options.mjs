@@ -8,8 +8,8 @@ export const localeCodes =  [
 ]
 
 export const localeLoaders = {
-  "en": [{ key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_en_json" */), cache: true }],
-  "fr": [{ key: "../locales/fr.json", load: () => import("../locales/fr.json" /* webpackChunkName: "locale__Users_alekseiolkhovoi_Desktop_dev_Wineater_wineater_landing_locales_fr_json" */), cache: true }]
+  "en": [{ key: "../locales/en.json", load: () => import("../locales/en.json" /* webpackChunkName: "locale__home_alex_Documents_wineater_landing_locales_en_json" */), cache: true }],
+  "fr": [{ key: "../locales/fr.json", load: () => import("../locales/fr.json" /* webpackChunkName: "locale__home_alex_Documents_wineater_landing_locales_fr_json" */), cache: true }]
 }
 
 export const vueI18nConfigs = [

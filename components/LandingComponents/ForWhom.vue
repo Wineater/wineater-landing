@@ -32,16 +32,16 @@ export default {
       cards: {
         'en': [
           {
-            "description": "Consumers are more likely to purchase wine when they are confident that the recommended bottle complements their meal",
-            "title": "Increase in the Number of Orders"
+            "description": "Consumers are more likely to\u00A0purchase wine when they are confident that the recommended wine complements their meal",
+            "title": "Increase Number of\u00A0Orders"
           },
           {
             "description": "Our algorithm includes the most profitable products, naturally leading to a higher average spend per purchase and boosting overall sales",
-            "title": "Average Check Growth "
+            "title": "Grow average check"
           },
           {
-            "description": "By offering a unique value proposition, we make it convenient for users to choose wines, encouraging repeat visits and purchases",
-            "title": "Higher User Return Rate"
+            "description": "By\u00A0offering a\u00A0unique value proposition, we\u00A0make it\u00A0convenient for users to\u00A0choose wines, encouraging repeat visits and purchases",
+            "title": "Customers come back!"
           }
         ],
         'fr': [
@@ -75,7 +75,7 @@ export default {
   min-height: 500px;
   gap: 64px;
   opacity: 0;
-  transition: 1s ease;
+  transition: 0.5s ease;
   transform: translateY(100px);
 }
 
@@ -104,8 +104,12 @@ export default {
   flex-direction: column;
   gap: 20px;
 }
-.for-whom__card-title{
+.for-whom__card-title {
+  height: 144px;
   word-break: break-word;
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
 }
 .for-whom__card-infographic{
   padding-right: 100px;

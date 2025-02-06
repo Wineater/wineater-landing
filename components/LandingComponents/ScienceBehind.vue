@@ -12,7 +12,7 @@
         </p>
       </div>
     </div>
-    <div class="science-behind__bottle"></div>
+<!--    <div style="display:none;" class="science-behind__bottle"></div>-->
   </div>
 </template>
 <script setup>
@@ -28,7 +28,7 @@ const props = defineProps({
   justify-content: space-between;
   min-height: 1080px;
   opacity: 0;
-  transition: 1s ease;
+  transition: 0.5s ease;
   transform: translateY(100px);
 }
 

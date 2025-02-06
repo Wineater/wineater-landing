@@ -73,7 +73,7 @@ export default {
   min-height: 800px;
   gap: 64px;
   opacity: 0;
-  transition: 1s ease;
+  transition: 0.5s ease;
   transform: translateY(100px);
 }
 

@@ -6,7 +6,7 @@
     <ScienceBehind :visible="scienceBehindVisible"/>
     <StatisticBanner :visible="statisticBannerVisible"/>
     <ForWhom :visible="forWhomVisible"/>
-    <BookDemoBanner :visible="bookDemoBannerVisible"/>
+<!--    <BookDemoBanner :visible="bookDemoBannerVisible"/>-->
     <HowItWorks :visible="howItWorksVisible"/>
   </div>
   <Footer/>
@@ -68,10 +68,14 @@ onUnmounted(() => {
 </script>
 <style lang="scss">
 .main-page {
-  max-width: 1920px;
-  padding: 0 80px;
+  //max-width: 1920px;
+  //padding: 0 80px;
+  //margin: 0 auto;
+  //overflow: hidden;
+
+  max-width: 1200px;
   margin: 0 auto;
-  overflow: hidden;
+  width: 100%;
 }
 
 @media only screen and (max-width: 1440px) {

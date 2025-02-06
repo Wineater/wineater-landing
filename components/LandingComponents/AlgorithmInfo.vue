@@ -26,7 +26,7 @@ const props = defineProps({
   justify-content: center;
   min-height: 800px;
   opacity: 0;
-  transition: 1s ease;
+  transition: 0.5s ease;
   transform: translateY(100px);
 }
 
