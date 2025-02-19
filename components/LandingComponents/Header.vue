@@ -4,7 +4,7 @@
          @click="openMainPage"
          :style="{'background-image': `url(${store && logos[store] ? logos[store] : logos.Wineater})`}"></div>
     <div class="header__links" v-if="showLinks">
-      <div class="header__link p1 color-text" @click="scrollToBlock('.science-behind')">{{ $t('Header.TryMe') }}</div>
+      <div class="header__link p1 color-text" @click="scrollToBlock('.algorithm-info')">{{ $t('Header.TryMe') }}</div>
       <div class="header__link p1 color-text" @click="scrollToBlock('.how-it-works')">{{
           $t('Header.HowItWorks')
         }}
@@ -21,52 +21,51 @@
   </div>
 </template>
 <script setup>
-const route = useRoute()
-const store = ref(route.query.store ? route.query.store : '')
-</script>
-<script>
 import Button from "~/components/Buttons/Button.vue";
 import LangSwitcher from "~/components/Buttons/LangSwitcher.vue";
 
+const route = useRoute();
+const router = useRouter();
+const store = ref(route.query.store ? route.query.store : '');
 
-export default {
-  components: {
-    Button,
-    LangSwitcher,
-  },
-  props: {
-    showLinks: {
-      type: Boolean
-    },
-    logo: {
-      type: String,
-      default: 'Wineater',
-    }
-  },
-  data: () => {
-    return {
-      logos: {
-        Wineater: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg',
-        Telckel: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Telckel.png',
-        Climats: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Climats.png'
-      }
-    }
-  },
-  methods: {
-    openDemoPage() {
-      window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank')
-    },
-    openMainPage() {
-      navigateTo('/');
-    },
-    scrollToBlock(block) {
-      const element = document.querySelector(block);
-      window.scrollTo({
-        top: element.offsetTop - 200,
-        behavior: 'smooth',
-      })
-    }
-  },
+// Props
+const props = defineProps({
+  showLinks: Boolean,
+  logo: {
+    type: String,
+    default: 'Wineater',
+  }
+});
+
+// Data
+const logos = {
+  Wineater: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg',
+  Telckel: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Telckel.png',
+  Climats: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Climats.png'
+};
+
+// Methods
+const openMainPage = () => {
+  if (route.path === '/') {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  } else {
+    router.push('/');
+  }
+};
+
+const openDemoPage = () => {
+  window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank');
+};
+
+const scrollToBlock = (block) => {
+  const element = document.querySelector(block);
+  window.scrollTo({
+    top: element.offsetTop - 150,  // as the contewnt wasnt loading becasue it ddint reach the viewport
+    behavior: 'smooth',
+  });
 };
 </script>
 <style scoped lang="scss">

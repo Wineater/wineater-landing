@@ -18,7 +18,7 @@
         <div class="footer__links">
           <a class="p1 color-brand-4" href="hi@wineater.com">hi@wineater.com</a>
 <!--          <a class="p1 color-brand-4" href="tel:334563278">+33 456-32-78</a>-->
-          <a class="p1 color-brand-4" href="https://instagram.com/ah_vladimir?igshid=MzRlODBiNWFlZA==" target="_blank">Instagram</a>
+          <a class="p1 color-brand-4" href="https://linkedin.com/company/wineater" target="_blank">Linkedin</a>
         </div>
       </div>
     </div>

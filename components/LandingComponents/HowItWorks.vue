@@ -5,7 +5,11 @@
         'visible': visible,
         'how-it-works--fr': $i18n.locale === 'fr'
       }"
-  ></div>
+  >
+    <h2 class="h2 color-brand-6">
+      {{ $t('HowItWorks.title') }}
+    </h2>
+  </div>
 </template>
 <script>
 import Button from "~/components/Buttons/Button.vue";
@@ -23,12 +27,13 @@ export default {
 <style scoped lang="scss">
 .how-it-works {
   width: 100%;
+  margin-top: 4rem; //on mobile it doesnt work anyway, ut ion desktop adds necessary spacing
   height: 1080px;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop.svg);
   opacity: 0;
-  transition: 1s ease;
+  transition: 0.5s ease;
   transform: translateY(100px);
   &--fr{
     background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop--fr.svg);
