@@ -4,6 +4,12 @@
 		"title2": "parfait",
 		"title3": ""
 	},
+	"Solutions": {
+		"title": "Solutions"
+	},
+	"WidgetHome": {
+		"title": "Algorithme en action"
+	},
 	"BookDemo": {
 		"title1": "Développez votre épicerie en ligne avec ",
 		"title2": "Ai sommelier"
@@ -68,9 +74,10 @@
 		"WineAndFoodPairing": "Sommelier IA boostant les ventes de vin en ligne"
 	},
 	"StatisticBanner": {
-		"text1": "des consommateurs choisissent un vin pour accompagner leur dîner, et non l'inverse",
-		"text2": "trouvent difficile de choisir un vin pour le dîner en raison d'un manque de connaissances en vin",
-		"title1": "Les consommateurs ont du mal à choisir",
-		"title2": "un vin pour le dîner"
+		"text1": "interagit avec le Sommelier IA de Wineater pour obtenir de l'aide dans le choix du vin",
+		"text2": "en intégrant Wineater dans une boutique de vin en ligne",
+		"text3": "est proposé parmi des stocks moins connus, réduisant la dépendance aux meilleures ventes",
+		"title1": "Les consommateurs ont du mal À sélectionner leur vin",
+		"title2": "Wineater aide à faire un bon choix !"
 	}
 }
