@@ -74,6 +74,7 @@ export default {
   opacity: 0;
   transition: 0.5s ease;
   transform: translateY(100px);
+  gap: 40px; /* Add default gap between title and cards */
 }
 
 .for-whom.visible {
@@ -111,7 +112,6 @@ export default {
 
 /* Added styling for the new image section */
 .for-whom__card-image {
-  height: 250px;
   margin: 15px 0;
   display: flex;
   justify-content: center;
@@ -124,7 +124,7 @@ export default {
   border-radius: 8px;
 }
 
-.for-whom__card-infographic{
+.for-whom__card-infographic {
   padding-right: 100px;
 }
 
