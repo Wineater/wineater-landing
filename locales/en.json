@@ -4,6 +4,12 @@
 		"title2": "the perfect ",
 		"title3": "food and wine pairing"
 	},
+	"Solutions": {
+		"title": "Solutions"
+	},
+	"WidgetHome": {
+		"title": "Try our pairing engine"
+	},
 	"BookDemo": {
 		"title1": "Grow your online grocery business with the ",
 		"title2": "digital AI sommelier"
@@ -35,13 +41,13 @@
 		]
 	},
 	"ForWhom": {
-		"title": "Advantages"
+		"title": "For wine retailers"
 	},
 	"Header": {
 		"About": "About",
 		"ForWhom": "For whom",
 		"HowItWorks": "How it works",
-		"TryMe": "Try me"
+		"TryMe": "Try it!"
 	},
 	"playground": {
 		"BeSureToProvideDetails": "Elevate your dining experience with Wineater, the expert in perfect wine pairings for your meal. Simply provide your dish details, and we'll recommend the ideal wine companion",
@@ -68,9 +74,11 @@
 		"WineAndFoodPairing": "Digital AI sommelier boosting online wine sales"
 	},
 	"StatisticBanner": {
-		"text1": "of consumers choose a wine for dinner, not vice versa",
-		"text2": "find it difficult to choose a wine for dinner due to a lack of wine knowledge",
-		"title1": "Consumers Struggle with",
-		"title2": "Wine Selection for Dinner"
+		"text1": "engages with Wineater's AI Sommelier for a help with choosing wine",
+		"text2": "by integrating Wineater into wine online store",
+		"text3": "is propoesd from lesser-known stock, reducing reliance on best-sellers",
+		"title1": "Consumers struggle when selecting wine",
+		"title2": "Wineater helps make a good choice!"
+
 	}
 }

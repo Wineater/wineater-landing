@@ -2,10 +2,12 @@
   <Header :show-links="true"/>
   <div class="main-page">
     <StartBanner/>
-    <AlgorithmInfo :visible="algorithmInfoVisible"/>
-    <ScienceBehind :visible="scienceBehindVisible"/>
-    <StatisticBanner :visible="statisticBannerVisible"/>
+<!--    <Solutions :visible="solutionsVisible"/>-->
+    <WidgetHome :visible="widgetHomeVisible"/>
+<!--    <AlgorithmInfo :visible="algorithmInfoVisible"/>-->
+<!--    <ScienceBehind :visible="scienceBehindVisible"/>-->
     <ForWhom :visible="forWhomVisible"/>
+    <StatisticBanner :visible="statisticBannerVisible"/>
 <!--    <BookDemoBanner :visible="bookDemoBannerVisible"/>-->
     <HowItWorks :visible="howItWorksVisible"/>
   </div>
@@ -14,6 +16,8 @@
 
 <script setup>
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
+import Solutions from "~/components/LandingComponents/Solutions.vue";
+import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
 import AlgorithmInfo from "~/components/LandingComponents/AlgorithmInfo.vue";
 import ScienceBehind from "~/components/LandingComponents/ScienceBehind.vue";
 import StatisticBanner from "~/components/LandingComponents/StatisticBanner.vue";
@@ -24,6 +28,8 @@ import {ref, onMounted, onUnmounted} from 'vue';
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
 import Header from "~/components/LandingComponents/Header.vue";
 
+const solutionsVisible = ref(false);
+const widgetHomeVisible = ref(false);
 const algorithmInfoVisible = ref(false);
 const scienceBehindVisible = ref(false);
 const statisticBannerVisible = ref(false);
@@ -40,6 +46,8 @@ const isElementInViewport = (element, isVisible) => {
 };
 
 const updateVisibility = () => {
+  const solutions = document.querySelector('.solutions');
+  const widgetHome = document.querySelector('.widget-home');
   const algorithmInfo = document.querySelector('.algorithm-info');
   const scienceBehind = document.querySelector('.science-behind');
   const statisticBanner = document.querySelector('.statistic-banner');
@@ -47,6 +55,8 @@ const updateVisibility = () => {
   const forWhom = document.querySelector('.for-whom');
   const bookDemoBanner = document.querySelector('.book-demo');
   const howItWorks = document.querySelector('.how-it-works');
+  if (solutions) solutionsVisible.value = solutionsVisible.value ? true : isElementInViewport(solutions);
+  if (widgetHome) widgetHomeVisible.value = widgetHomeVisible.value ? true : isElementInViewport(widgetHome);
   if (algorithmInfo) algorithmInfoVisible.value = algorithmInfoVisible.value ? true : isElementInViewport(algorithmInfo);
   if (scienceBehind) scienceBehindVisible.value = scienceBehindVisible.value ? true : isElementInViewport(scienceBehind);
   if (statisticBanner) statisticBannerVisible.value = statisticBannerVisible.value ? true : isElementInViewport(statisticBanner);

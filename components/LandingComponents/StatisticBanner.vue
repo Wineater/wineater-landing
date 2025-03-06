@@ -4,233 +4,213 @@
       {{$t('StatisticBanner.title1')}} <br>
       <span class="color-brand-6">{{ $t('StatisticBanner.title2') }}</span>
     </div>
-    <div class="statistic-banner__descriptions">
-      <div class="statistic-banner__description statistic-banner__description--left">
-        <span class="statistic-banner__description-percent h2 color-text">
-          <span>{{ animatedPercent1 }}</span>%</span>
-        <span class="statistic-banner__description-text p1 color-dark-100">{{ $t('StatisticBanner.text1') }}</span>
+
+    <div class="statistic-banner__grid">
+      <div class="statistic-banner__card">
+        <div class="statistic-banner__label">every</div>
+        <div class="statistic-banner__value">
+          <span class="value-number">{{ animatedPercent1 }}</span><span class="value-suffix">rd</span>
+        </div>
+        <div class="statistic-banner__subtitle">user</div>
+        <div class="statistic-banner__description p1">{{ $t('StatisticBanner.text1') }}</div>
       </div>
-      <div class="statistic-banner__description statistic-banner__description--right">
-        <span class="statistic-banner__description-percent h2 color-text"><span>{{ animatedPercent2 }}</span>%</span>
-        <span class="statistic-banner__description-text p1 color-dark-100">{{ $t('StatisticBanner.text2') }}</span>
+
+      <div class="statistic-banner__card">
+        <div class="statistic-banner__label">up to</div>
+        <div class="statistic-banner__value">
+          <span class="value-number">{{ animatedPercent2 }}</span><span class="value-suffix">%</span>
+        </div>
+        <div class="statistic-banner__subtitle">upsell increase</div>
+        <div class="statistic-banner__description p1">{{ $t('StatisticBanner.text2') }}</div>
+      </div>
+
+      <div class="statistic-banner__card">
+        <div class="statistic-banner__label">more than</div>
+        <div class="statistic-banner__value">
+          <span class="value-number">{{ animatedPercent3 }}</span><span class="value-suffix">%</span>
+        </div>
+        <div class="statistic-banner__subtitle">wines</div>
+        <div class="statistic-banner__description p1">{{ $t('StatisticBanner.text3') }}</div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    visible: Boolean,
-  },
-  data() {
-    return {
-      animatedPercent1: 0,
-      animatedPercent2: 0,
-    };
-  },
-  watch: {
-    visible(newVal) {
-      if (newVal) {
-        this.animatePercents();
-      } else {
-        this.animatedPercent1 = 0;
-        this.animatedPercent2 = 0;
-      }
-    },
-  },
-  methods: {
-    animatePercents() {
-      const targetPercent1 = 66;
-      const targetPercent2 = 72;
-      const duration = 700;
-      const interval = duration / (targetPercent1 - this.animatedPercent1);
+<script setup>
+import { ref, watch, onMounted } from 'vue';
 
-      const updatePercentages = () => {
-        if (this.animatedPercent1 < targetPercent1) {
-          this.animatedPercent1 += 1;
-        }
-        if (this.animatedPercent2 < targetPercent2) {
-          this.animatedPercent2 += 1;
-        }
-        if (this.animatedPercent1 < targetPercent1 || this.animatedPercent2 < targetPercent2) {
-          setTimeout(updatePercentages, interval);
-        }
-      };
+const props = defineProps({
+  visible: {
+    type: Boolean,
+    default: false
+  }
+});
 
-      updatePercentages();
-    },
-  },
+const animatedPercent1 = ref(0);
+const animatedPercent2 = ref(0);
+const animatedPercent3 = ref(0);
+
+watch(() => props.visible, (newVal) => {
+  if (newVal) {
+    animateNumbers();
+  } else {
+    resetNumbers();
+  }
+});
+
+const animateNumbers = () => {
+  // Target values
+  const target1 = 3; // "3rd user"
+  const target2 = 15; // "15% upsell increase"
+  const target3 = 90; // "90% wines"
+
+  // Animation duration in ms
+  const duration = 1500;
+  const steps = 60;
+  const interval = duration / steps;
+
+  let step = 0;
+
+  const timer = setInterval(() => {
+    step++;
+    const progress = step / steps;
+
+    animatedPercent1.value = Math.ceil(progress * target1);
+    animatedPercent2.value = Math.ceil(progress * target2);
+    animatedPercent3.value = Math.ceil(progress * target3);
+
+    if (step >= steps) {
+      clearInterval(timer);
+      animatedPercent1.value = target1;
+      animatedPercent2.value = target2;
+      animatedPercent3.value = target3;
+    }
+  }, interval);
 };
+
+const resetNumbers = () => {
+  animatedPercent1.value = 0;
+  animatedPercent2.value = 0;
+  animatedPercent3.value = 0;
+};
+
+onMounted(() => {
+  if (props.visible) {
+    animateNumbers();
+  }
+});
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .statistic-banner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 800px;
-  gap: 64px;
+  padding: 60px 0;
   opacity: 0;
-  transition: 0.5s ease;
-  transform: translateY(100px);
-}
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 
-.statistic-banner.visible {
-  opacity: 1;
-  transform: translateY(0px);
-}
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.statistic-banner__descriptions {
-  display: flex;
-  gap: 112px;
-}
+  &__title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
 
-.statistic-banner__title {
-  text-align: center;
-}
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 
-.statistic-banner__description {
-  display: flex;
-  gap: 20px;
-}
+    @media only screen and (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
-.statistic-banner__description-percent {
-  display: flex;
-}
-
-.statistic-banner__description-text {
-  max-width: 440px;
-}
-
-.statistic-banner__description--left {
-  .statistic-banner__description-percent {
-    span {
-      width: 108px;
-      display: inline-flex;
+    @media only screen and (max-width: 768px) {
+      grid-template-columns: 1fr;
     }
   }
-}
 
-.statistic-banner__description--right {
-  .statistic-banner__description-percent {
-    span {
-      width: 97px;
-      display: inline-flex;
-    }
-  }
-}
-
-@media only screen and (max-width: 1440px) {
-  .statistic-banner {
-    min-height: 700px;
-  }
-  .statistic-banner__description-text {
-    max-width: 270px;
-  }
-  .statistic-banner__description--left {
-    .statistic-banner__description-percent {
-      span {
-        width: 85px;
-      }
-    }
-  }
-  .statistic-banner__description--right {
-    .statistic-banner__description-percent {
-      span {
-        width: 75px;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .statistic-banner {
-    min-height: 620px;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .statistic-banner__descriptions {
-    gap: 64px;
-  }
-  .statistic-banner {
-    transform: translateY(50px);
-    gap: 40px;
-  }
-  .statistic-banner__description-text {
-    max-width: 240px;
-  }
-  .statistic-banner__description--left {
-    .statistic-banner__description-percent {
-      span {
-        width: 59px;
-      }
-    }
-  }
-  .statistic-banner__description--right {
-    .statistic-banner__description-percent {
-      span {
-        width: 52px;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .statistic-banner {
-    min-height: 500px;
-    transform: translateY(50px);
-  }
-  .statistic-banner__descriptions {
-    gap: 135px;
-  }
-  .statistic-banner__description {
+  &__card {
+    display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
-}
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
 
-@media only screen and (max-width: 600px) {
-  .statistic-banner {
-    padding: 60px 16px 40px 0px;
-    min-height: auto;
-    height: auto;
-    transform: translateY(30px);
-  }
-  .statistic-banner__title {
-    text-align: left;
-
-    br {
-      display: none;
+    &:hover {
+      transform: translateY(-5px);
     }
   }
-  .statistic-banner__descriptions{
-    flex-direction: column;
-    width: 100%;
-    gap: 40px;
-  }
-  .statistic-banner__description--left {
-    .statistic-banner__description-text{
-      max-width: 245px;
+
+  &__label {
+    font-family: 'PoppinsRegular';
+    font-size: 18px;
+    color: #9c87ff;
+    margin-bottom: 10px;
+
+    @media only screen and (max-width: 1024px) {
+      font-size: 16px;
     }
-    .statistic-banner__description-percent {
-      span {
-        width: 42px;
+  }
+
+  &__value {
+    display: flex;
+    align-items: flex-start;
+
+    .value-number {
+      font-family: 'PoppinsMedium';
+      font-size: 78px;
+      font-weight: 500;
+      line-height: 1;
+      background: linear-gradient(135deg, #9c87ff 0%, #55c8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media only screen and (max-width: 1440px) {
+        font-size: 65px;
+      }
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 50px;
+      }
+    }
+
+    .value-suffix {
+      font-family: 'PoppinsMedium';
+      font-size: 32px;
+      font-weight: 500;
+      padding-top: 8px;
+      background: linear-gradient(135deg, #9c87ff 0%, #55c8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 24px;
       }
     }
   }
-  .statistic-banner__description--right {
-    .statistic-banner__description-text{
-      max-width: 270px;
+
+  &__subtitle {
+    font-family: 'PoppinsRegular';
+    font-size: 22px;
+    color: #9c87ff;
+    margin-bottom: 16px;
+
+    @media only screen and (max-width: 1024px) {
+      font-size: 18px;
     }
-    .statistic-banner__description-percent {
-      span {
-        width: 37px;
-      }
-    }
+  }
+
+  &__description {
+    color: rgba(0, 0, 0, 0.7);
+    max-width: 280px;
+    margin: 0 auto;
   }
 }
 </style>
-

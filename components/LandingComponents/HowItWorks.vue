@@ -28,7 +28,7 @@ export default {
 .how-it-works {
   width: 100%;
   margin-top: 4rem; //on mobile it doesnt work anyway, ut ion desktop adds necessary spacing
-  height: 1080px;
+  min-height: 680px;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop.svg);
