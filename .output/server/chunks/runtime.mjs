@@ -1,7 +1,7 @@
 import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import http, { Server as Server$1 } from 'node:http';
 import https, { Server } from 'node:https';
 import { promises, existsSync } from 'fs';
-import { dirname as dirname$1, resolve as resolve$1, join } from 'path';
+import { resolve as resolve$1, dirname as dirname$1, join } from 'path';
 import { promises as promises$1 } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
@@ -38,7 +38,7 @@ function destr(value, options = {}) {
       return false;
     }
     if (_lval === "undefined") {
-      return void 0;
+      return undefined;
     }
     if (_lval === "null") {
       return null;
@@ -85,16 +85,16 @@ const ENC_BACKTICK_RE = /%60/gi;
 const ENC_PIPE_RE = /%7c/gi;
 const ENC_SPACE_RE = /%20/gi;
 const ENC_SLASH_RE = /%2f/gi;
-function encode(text) {
+function encode$1(text) {
   return encodeURI("" + text).replace(ENC_PIPE_RE, "|");
 }
 function encodeQueryValue(input) {
-  return encode(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CARET_RE, "^").replace(SLASH_RE, "%2F");
+  return encode$1(typeof input === "string" ? input : JSON.stringify(input)).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CARET_RE, "^").replace(SLASH_RE, "%2F");
 }
 function encodeQueryKey(text) {
   return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
 }
-function decode(text = "") {
+function decode$1(text = "") {
   try {
     return decodeURIComponent("" + text);
   } catch {
@@ -102,13 +102,13 @@ function decode(text = "") {
   }
 }
 function decodePath(text) {
-  return decode(text.replace(ENC_SLASH_RE, "%252F"));
+  return decode$1(text.replace(ENC_SLASH_RE, "%252F"));
 }
 function decodeQueryKey(text) {
-  return decode(text.replace(PLUS_RE, " "));
+  return decode$1(text.replace(PLUS_RE, " "));
 }
 function decodeQueryValue(text) {
-  return decode(text.replace(PLUS_RE, " "));
+  return decode$1(text.replace(PLUS_RE, " "));
 }
 
 function parseQuery(parametersString = "") {
@@ -126,7 +126,7 @@ function parseQuery(parametersString = "") {
       continue;
     }
     const value = decodeQueryValue(s[2] || "");
-    if (object[key] === void 0) {
+    if (object[key] === undefined) {
       object[key] = value;
     } else if (Array.isArray(object[key])) {
       object[key].push(value);
@@ -149,13 +149,12 @@ function encodeQueryItem(key, value) {
   return `${encodeQueryKey(key)}=${encodeQueryValue(value)}`;
 }
 function stringifyQuery(query) {
-  return Object.keys(query).filter((k) => query[k] !== void 0).map((k) => encodeQueryItem(k, query[k])).filter(Boolean).join("&");
+  return Object.keys(query).filter((k) => query[k] !== undefined).map((k) => encodeQueryItem(k, query[k])).filter(Boolean).join("&");
 }
 
 const PROTOCOL_STRICT_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
 const PROTOCOL_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{2})?/;
 const PROTOCOL_RELATIVE_REGEX = /^([/\\]\s*){2,}[^/\\]/;
-const TRAILING_SLASH_RE = /\/$|\/\?|\/#/;
 const JOIN_LEADING_SLASH_RE = /^\.?\//;
 function hasProtocol(inputString, opts = {}) {
   if (typeof opts === "boolean") {
@@ -167,48 +166,19 @@ function hasProtocol(inputString, opts = {}) {
   return PROTOCOL_REGEX.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false);
 }
 function hasTrailingSlash(input = "", respectQueryAndFragment) {
-  if (!respectQueryAndFragment) {
+  {
     return input.endsWith("/");
   }
-  return TRAILING_SLASH_RE.test(input);
 }
 function withoutTrailingSlash(input = "", respectQueryAndFragment) {
-  if (!respectQueryAndFragment) {
+  {
     return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
   }
-  if (!hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-  let path = input;
-  let fragment = "";
-  const fragmentIndex = input.indexOf("#");
-  if (fragmentIndex >= 0) {
-    path = input.slice(0, fragmentIndex);
-    fragment = input.slice(fragmentIndex);
-  }
-  const [s0, ...s] = path.split("?");
-  const cleanPath = s0.endsWith("/") ? s0.slice(0, -1) : s0;
-  return (cleanPath || "/") + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
 }
 function withTrailingSlash(input = "", respectQueryAndFragment) {
-  if (!respectQueryAndFragment) {
+  {
     return input.endsWith("/") ? input : input + "/";
   }
-  if (hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-  let path = input;
-  let fragment = "";
-  const fragmentIndex = input.indexOf("#");
-  if (fragmentIndex >= 0) {
-    path = input.slice(0, fragmentIndex);
-    fragment = input.slice(fragmentIndex);
-    if (!path) {
-      return fragment;
-    }
-  }
-  const [s0, ...s] = path.split("?");
-  return s0 + "/" + (s.length > 0 ? `?${s.join("?")}` : "") + fragment;
 }
 function hasLeadingSlash(input = "") {
   return input.startsWith("/");
@@ -330,10 +300,11 @@ function parseURL(input = "", defaultProto) {
     return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
   }
   const [, protocol = "", auth, hostAndPath = ""] = input.replace(/\\/g, "/").match(/^[\s\0]*([\w+.-]{2,}:)?\/\/([^/@]+@)?(.*)/) || [];
-  const [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
-  const { pathname, search, hash } = parsePath(
-    path.replace(/\/(?=[A-Za-z]:)/, "")
-  );
+  let [, host = "", path = ""] = hostAndPath.match(/([^#/?]*)(.*)?/) || [];
+  if (protocol === "file:") {
+    path = path.replace(/\/(?=[A-Za-z]:)/, "");
+  }
+  const { pathname, search, hash } = parsePath(path);
   return {
     protocol: protocol.toLowerCase(),
     auth: auth ? auth.slice(0, Math.max(0, auth.length - 1)) : "",
@@ -362,6 +333,150 @@ function stringifyParsedURL(parsed) {
   return proto + auth + host + pathname + search + hash;
 }
 
+const fieldContentRegExp = /^[\u0009\u0020-\u007E\u0080-\u00FF]+$/;
+function parse(str, options) {
+  if (typeof str !== "string") {
+    throw new TypeError("argument str must be a string");
+  }
+  const obj = {};
+  const opt = options || {};
+  const dec = opt.decode || decode;
+  let index = 0;
+  while (index < str.length) {
+    const eqIdx = str.indexOf("=", index);
+    if (eqIdx === -1) {
+      break;
+    }
+    let endIdx = str.indexOf(";", index);
+    if (endIdx === -1) {
+      endIdx = str.length;
+    } else if (endIdx < eqIdx) {
+      index = str.lastIndexOf(";", eqIdx - 1) + 1;
+      continue;
+    }
+    const key = str.slice(index, eqIdx).trim();
+    if (undefined === obj[key]) {
+      let val = str.slice(eqIdx + 1, endIdx).trim();
+      if (val.codePointAt(0) === 34) {
+        val = val.slice(1, -1);
+      }
+      obj[key] = tryDecode(val, dec);
+    }
+    index = endIdx + 1;
+  }
+  return obj;
+}
+function serialize(name, value, options) {
+  const opt = options || {};
+  const enc = opt.encode || encode;
+  if (typeof enc !== "function") {
+    throw new TypeError("option encode is invalid");
+  }
+  if (!fieldContentRegExp.test(name)) {
+    throw new TypeError("argument name is invalid");
+  }
+  const encodedValue = enc(value);
+  if (encodedValue && !fieldContentRegExp.test(encodedValue)) {
+    throw new TypeError("argument val is invalid");
+  }
+  let str = name + "=" + encodedValue;
+  if (undefined !== opt.maxAge && opt.maxAge !== null) {
+    const maxAge = opt.maxAge - 0;
+    if (Number.isNaN(maxAge) || !Number.isFinite(maxAge)) {
+      throw new TypeError("option maxAge is invalid");
+    }
+    str += "; Max-Age=" + Math.floor(maxAge);
+  }
+  if (opt.domain) {
+    if (!fieldContentRegExp.test(opt.domain)) {
+      throw new TypeError("option domain is invalid");
+    }
+    str += "; Domain=" + opt.domain;
+  }
+  if (opt.path) {
+    if (!fieldContentRegExp.test(opt.path)) {
+      throw new TypeError("option path is invalid");
+    }
+    str += "; Path=" + opt.path;
+  }
+  if (opt.expires) {
+    if (!isDate(opt.expires) || Number.isNaN(opt.expires.valueOf())) {
+      throw new TypeError("option expires is invalid");
+    }
+    str += "; Expires=" + opt.expires.toUTCString();
+  }
+  if (opt.httpOnly) {
+    str += "; HttpOnly";
+  }
+  if (opt.secure) {
+    str += "; Secure";
+  }
+  if (opt.priority) {
+    const priority = typeof opt.priority === "string" ? opt.priority.toLowerCase() : opt.priority;
+    switch (priority) {
+      case "low": {
+        str += "; Priority=Low";
+        break;
+      }
+      case "medium": {
+        str += "; Priority=Medium";
+        break;
+      }
+      case "high": {
+        str += "; Priority=High";
+        break;
+      }
+      default: {
+        throw new TypeError("option priority is invalid");
+      }
+    }
+  }
+  if (opt.sameSite) {
+    const sameSite = typeof opt.sameSite === "string" ? opt.sameSite.toLowerCase() : opt.sameSite;
+    switch (sameSite) {
+      case true: {
+        str += "; SameSite=Strict";
+        break;
+      }
+      case "lax": {
+        str += "; SameSite=Lax";
+        break;
+      }
+      case "strict": {
+        str += "; SameSite=Strict";
+        break;
+      }
+      case "none": {
+        str += "; SameSite=None";
+        break;
+      }
+      default: {
+        throw new TypeError("option sameSite is invalid");
+      }
+    }
+  }
+  if (opt.partitioned) {
+    str += "; Partitioned";
+  }
+  return str;
+}
+function isDate(val) {
+  return Object.prototype.toString.call(val) === "[object Date]" || val instanceof Date;
+}
+function tryDecode(str, decode2) {
+  try {
+    return decode2(str);
+  } catch {
+    return str;
+  }
+}
+function decode(str) {
+  return str.includes("%") ? decodeURIComponent(str) : str;
+}
+function encode(val) {
+  return encodeURIComponent(val);
+}
+
 const defaults = Object.freeze({
   ignoreUnknown: false,
   respectType: false,
@@ -370,9 +485,9 @@ const defaults = Object.freeze({
   unorderedObjects: true,
   unorderedArrays: false,
   unorderedSets: false,
-  excludeKeys: void 0,
-  excludeValues: void 0,
-  replacer: void 0
+  excludeKeys: undefined,
+  excludeValues: undefined,
+  replacer: undefined
 });
 function objectHash(object, options) {
   if (options) {
@@ -423,7 +538,7 @@ function createHasher(options) {
       }
       objType = objType.toLowerCase();
       let objectNumber = null;
-      if ((objectNumber = context.get(object)) === void 0) {
+      if ((objectNumber = context.get(object)) === undefined) {
         context.set(object, context.size);
       } else {
         return this.dispatch("[CIRCULAR:" + objectNumber + "]");
@@ -473,7 +588,7 @@ function createHasher(options) {
       }
     },
     array(arr, unordered) {
-      unordered = unordered === void 0 ? options.unorderedArrays !== false : unordered;
+      unordered = unordered === undefined ? options.unorderedArrays !== false : unordered;
       write("array:" + arr.length + ":");
       if (!unordered || arr.length <= 1) {
         for (const entry of arr) {
@@ -690,7 +805,7 @@ function isNativeFunction(f) {
 class WordArray {
   constructor(words, sigBytes) {
     words = this.words = words || [];
-    this.sigBytes = sigBytes === void 0 ? words.length * 4 : sigBytes;
+    this.sigBytes = sigBytes === undefined ? words.length * 4 : sigBytes;
   }
   toString(encoder) {
     return (encoder || Hex).stringify(this);
@@ -966,6 +1081,16 @@ function hash(object, options = {}) {
   return sha256base64(hashed).slice(0, 10);
 }
 
+function isEqual(object1, object2, hashOptions = {}) {
+  if (object1 === object2) {
+    return true;
+  }
+  if (objectHash(object1, hashOptions) === objectHash(object2, hashOptions)) {
+    return true;
+  }
+  return false;
+}
+
 const NODE_TYPES = {
   NORMAL: 0,
   WILDCARD: 1,
@@ -1009,7 +1134,7 @@ function lookup(ctx, path) {
       wildCardParam = sections.slice(i).join("/");
     }
     const nextNode = node.children.get(section);
-    if (nextNode === void 0) {
+    if (nextNode === undefined) {
       if (node && node.placeholderChildren.length > 1) {
         const remaining = sections.length - i;
         node = node.placeholderChildren.find((c) => c.maxDepth === remaining) || null;
@@ -1038,7 +1163,7 @@ function lookup(ctx, path) {
   if (paramsFound) {
     return {
       ...node.data,
-      params: paramsFound ? params : void 0
+      params: paramsFound ? params : undefined
     };
   }
   return node.data;
@@ -1222,7 +1347,7 @@ function _defu(baseObject, defaults, namespace = ".", merger) {
       continue;
     }
     const value = baseObject[key];
-    if (value === null || value === void 0) {
+    if (value === null || value === undefined) {
       continue;
     }
     if (merger && merger(object, key, value, namespace)) {
@@ -1251,7 +1376,7 @@ function createDefu(merger) {
 }
 const defu = createDefu();
 const defuFn = createDefu((object, key, currentValue) => {
-  if (object[key] !== void 0 && typeof currentValue === "function") {
+  if (object[key] !== undefined && typeof currentValue === "function") {
     object[key] = currentValue(object[key]);
     return true;
   }
@@ -1371,7 +1496,7 @@ let EventEmitter$1 = class EventEmitter {
 };
 function _addListener(target, type, listener, prepend) {
   _checkListener(listener);
-  if (target._events.newListener !== void 0) {
+  if (target._events.newListener !== undefined) {
     target.emit("newListener", type, listener.listener || listener);
   }
   if (!target._events[type]) {
@@ -1600,7 +1725,7 @@ class _Writable extends EventEmitter {
       }
       return;
     }
-    if (this._data === void 0) {
+    if (this._data === undefined) {
       this._data = chunk;
     } else {
       const a = typeof this._data === "string" ? Buffer.from(this._data, this._encoding || encoding || "utf8") : this._data;
@@ -1620,7 +1745,7 @@ class _Writable extends EventEmitter {
   }
   write(chunk, arg2, arg3) {
     const encoding = typeof arg2 === "string" ? this._encoding : "utf-8";
-    const cb = typeof arg2 === "function" ? arg2 : typeof arg3 === "function" ? arg3 : void 0;
+    const cb = typeof arg2 === "function" ? arg2 : typeof arg3 === "function" ? arg3 : undefined;
     this._write(chunk, encoding, cb);
     return true;
   }
@@ -1628,16 +1753,16 @@ class _Writable extends EventEmitter {
     return this;
   }
   end(arg1, arg2, arg3) {
-    const callback = typeof arg1 === "function" ? arg1 : typeof arg2 === "function" ? arg2 : typeof arg3 === "function" ? arg3 : void 0;
+    const callback = typeof arg1 === "function" ? arg1 : typeof arg2 === "function" ? arg2 : typeof arg3 === "function" ? arg3 : undefined;
     if (this.writableEnded) {
       if (callback) {
         callback();
       }
       return this;
     }
-    const data = arg1 === callback ? void 0 : arg1;
+    const data = arg1 === callback ? undefined : arg1;
     if (data) {
-      const encoding = arg2 === callback ? void 0 : arg2;
+      const encoding = arg2 === callback ? undefined : arg2;
       this.write(data, encoding, callback);
     }
     this.writableEnded = true;
@@ -1834,7 +1959,7 @@ class ServerResponse extends Writable {
     }
     if (typeof arg1 === "string") {
       this.statusMessage = arg1;
-      arg1 = void 0;
+      arg1 = undefined;
     }
     const headers = arg2 || arg1;
     if (headers) {
@@ -1927,7 +2052,7 @@ class H3Error extends Error {
     if (this.statusMessage) {
       obj.statusMessage = sanitizeStatusMessage(this.statusMessage);
     }
-    if (this.data !== void 0) {
+    if (this.data !== undefined) {
       obj.data = this.data;
     }
     return obj;
@@ -1980,10 +2105,10 @@ function createError$1(input) {
       );
     }
   }
-  if (input.fatal !== void 0) {
+  if (input.fatal !== undefined) {
     err.fatal = input.fatal;
   }
-  if (input.unhandled !== void 0) {
+  if (input.unhandled !== undefined) {
     err.unhandled = input.unhandled;
   }
   return err;
@@ -2008,7 +2133,7 @@ function sendError(event, error, debug) {
   const _code = Number.parseInt(h3Error.statusCode);
   setResponseStatus(event, _code, h3Error.statusMessage);
   event.node.res.setHeader("content-type", MIMES.json);
-  event.node.res.end(JSON.stringify(responseBody, void 0, 2));
+  event.node.res.end(JSON.stringify(responseBody, undefined, 2));
 }
 function isError(input) {
   return input?.constructor?.__h3_error__ === true;
@@ -2018,9 +2143,6 @@ function getQuery(event) {
   return getQuery$1(event.path || "");
 }
 function isMethod(event, expected, allowHead) {
-  if (allowHead && event.method === "HEAD") {
-    return true;
-  }
   if (typeof expected === "string") {
     if (event.method === expected) {
       return true;
@@ -2031,7 +2153,7 @@ function isMethod(event, expected, allowHead) {
   return false;
 }
 function assertMethod(event, expected, allowHead) {
-  if (!isMethod(event, expected, allowHead)) {
+  if (!isMethod(event, expected)) {
     throw createError$1({
       statusCode: 405,
       statusMessage: "HTTP method is not allowed."
@@ -2097,7 +2219,7 @@ function readRawBody(event, encoding = "utf8") {
     return encoding ? promise2.then((buff) => buff.toString(encoding)) : promise2;
   }
   if (!Number.parseInt(event.node.req.headers["content-length"] || "")) {
-    return Promise.resolve(void 0);
+    return Promise.resolve(undefined);
   }
   const promise = event.node.req[RawBodySymbol] = new Promise(
     (resolve, reject) => {
@@ -2152,7 +2274,7 @@ function getRequestWebStream(event) {
 function handleCacheHeaders(event, opts) {
   const cacheControls = ["public", ...opts.cacheControls || []];
   let cacheMatched = false;
-  if (opts.maxAge !== void 0) {
+  if (opts.maxAge !== undefined) {
     cacheControls.push(`max-age=${+opts.maxAge}`, `s-maxage=${+opts.maxAge}`);
   }
   if (opts.modifiedTime) {
@@ -2201,6 +2323,32 @@ function sanitizeStatusCode(statusCode, defaultStatusCode = 200) {
     return defaultStatusCode;
   }
   return statusCode;
+}
+
+function parseCookies(event) {
+  return parse(event.node.req.headers.cookie || "");
+}
+function getCookie(event, name) {
+  return parseCookies(event)[name];
+}
+function setCookie(event, name, value, serializeOptions) {
+  serializeOptions = { path: "/", ...serializeOptions };
+  const cookieStr = serialize(name, value, serializeOptions);
+  let setCookies = event.node.res.getHeader("set-cookie");
+  if (!Array.isArray(setCookies)) {
+    setCookies = [setCookies];
+  }
+  const _optionsHash = objectHash(serializeOptions);
+  setCookies = setCookies.filter((cookieValue) => {
+    return cookieValue && _optionsHash !== objectHash(parse(cookieValue));
+  });
+  event.node.res.setHeader("set-cookie", [...setCookies, cookieStr]);
+}
+function deleteCookie(event, name, serializeOptions) {
+  setCookie(event, name, "", {
+    ...serializeOptions,
+    maxAge: 0
+  });
 }
 function splitCookiesString(cookiesString) {
   if (Array.isArray(cookiesString)) {
@@ -2439,11 +2587,11 @@ async function proxyRequest(event, target, opts = {}) {
       body = getRequestWebStream(event);
       duplex = "half";
     } else {
-      body = await readRawBody(event, false).catch(() => void 0);
+      body = await readRawBody(event, false).catch(() => undefined);
     }
   }
   const method = opts.fetchOptions?.method || event.method;
-  const fetchHeaders = mergeHeaders(
+  const fetchHeaders = mergeHeaders$1(
     getProxyRequestHeaders(event),
     opts.fetchOptions?.headers,
     opts.headers
@@ -2510,7 +2658,7 @@ async function sendProxy(event, target, opts = {}) {
   if (opts.onResponse) {
     await opts.onResponse(event, response);
   }
-  if (response._data !== void 0) {
+  if (response._data !== undefined) {
     return response._data;
   }
   if (event.handled) {
@@ -2575,7 +2723,7 @@ function rewriteCookieProperty(header, map, property) {
     }
   );
 }
-function mergeHeaders(defaults, ...inputs) {
+function mergeHeaders$1(defaults, ...inputs) {
   const _inputs = inputs.filter(Boolean);
   if (_inputs.length === 0) {
     return defaults;
@@ -2583,7 +2731,7 @@ function mergeHeaders(defaults, ...inputs) {
   const merged = new Headers(defaults);
   for (const input of _inputs) {
     for (const [key, value] of Object.entries(input)) {
-      if (value !== void 0) {
+      if (value !== undefined) {
         merged.set(key, value);
       }
     }
@@ -2696,7 +2844,7 @@ function defineEventHandler(handler) {
   return _handler;
 }
 function _normalizeArray(input) {
-  return input ? Array.isArray(input) ? input : [input] : void 0;
+  return input ? Array.isArray(input) ? input : [input] : undefined;
 }
 async function _callHandler(event, handler, hooks) {
   if (hooks.onRequest) {
@@ -2805,7 +2953,7 @@ function use(app, arg1, arg2, arg3) {
   return app;
 }
 function createAppEventHandler(stack, options) {
-  const spacing = options.debug ? 2 : void 0;
+  const spacing = options.debug ? 2 : undefined;
   return eventHandler(async (event) => {
     event.node.req.originalUrl = event.node.req.originalUrl || event.node.req.url || "/";
     const _reqPath = event._path || event.node.req.url || "/";
@@ -2828,8 +2976,8 @@ function createAppEventHandler(stack, options) {
       event._path = _layerPath;
       event.node.req.url = _layerPath;
       const val = await layer.handler(event);
-      const _body = val === void 0 ? void 0 : await val;
-      if (_body !== void 0) {
+      const _body = val === undefined ? undefined : await val;
+      if (_body !== undefined) {
         const _response = { body: _body };
         if (options.onBeforeResponse) {
           await options.onBeforeResponse(event, _response);
@@ -2842,7 +2990,7 @@ function createAppEventHandler(stack, options) {
       }
       if (event.handled) {
         if (options.onAfterResponse) {
-          await options.onAfterResponse(event, void 0);
+          await options.onAfterResponse(event, undefined);
         }
         return;
       }
@@ -2854,7 +3002,7 @@ function createAppEventHandler(stack, options) {
       });
     }
     if (options.onAfterResponse) {
-      await options.onAfterResponse(event, void 0);
+      await options.onAfterResponse(event, undefined);
     }
   });
 }
@@ -2869,7 +3017,7 @@ function createResolver(stack) {
         continue;
       }
       _layerPath = path.slice(layer.route.length) || "/";
-      if (layer.match && !layer.match(_layerPath, void 0)) {
+      if (layer.match && !layer.match(_layerPath, undefined)) {
         continue;
       }
       let res = { route: layer.route, handler: layer.handler };
@@ -2896,7 +3044,7 @@ function normalizeLayer(input) {
   if (input.lazy) {
     handler = lazyEventHandler(handler);
   } else if (!isEventHandler(handler)) {
-    handler = toEventHandler(handler, void 0, input.route);
+    handler = toEventHandler(handler, undefined, input.route);
   }
   return {
     route: withoutTrailingSlash(input.route),
@@ -2935,7 +3083,7 @@ function handleHandlerResponse(event, val, jsonSpace) {
     return send(event, val, MIMES.html);
   }
   if (valType === "object" || valType === "boolean" || valType === "number") {
-    return send(event, JSON.stringify(val, void 0, jsonSpace), MIMES.json);
+    return send(event, JSON.stringify(val, undefined, jsonSpace), MIMES.json);
   }
   if (valType === "bigint") {
     return send(event, val.toString(), MIMES.json);
@@ -2992,7 +3140,7 @@ function createRouter(opts = {}) {
         addRoute(path, handler, m);
       }
     } else {
-      route.handlers[method] = toEventHandler(handler, void 0, path);
+      route.handlers[method] = toEventHandler(handler, undefined, path);
     }
     return router;
   };
@@ -3062,7 +3210,7 @@ function createRouter(opts = {}) {
     const params = match.matched.params || {};
     event.context.params = params;
     return Promise.resolve(match.handler(event)).then((res) => {
-      if (res === void 0 && isPreemptive) {
+      if (res === undefined && isPreemptive) {
         return null;
       }
       return res;
@@ -3134,7 +3282,7 @@ function createFetchError(ctx) {
   const message = `${requestStr}: ${statusStr}${errorMessage ? ` ${errorMessage}` : ""}`;
   const fetchError = new FetchError(
     message,
-    ctx.error ? { cause: ctx.error } : void 0
+    ctx.error ? { cause: ctx.error } : undefined
   );
   for (const key of ["request", "options", "response"]) {
     Object.defineProperty(fetchError, key, {
@@ -3166,7 +3314,7 @@ function isPayloadMethod(method = "GET") {
   return payloadMethods.has(method.toUpperCase());
 }
 function isJSONSerializable(value) {
-  if (value === void 0) {
+  if (value === undefined) {
     return false;
   }
   const t = typeof value;
@@ -3204,30 +3352,51 @@ function detectResponseType(_contentType = "") {
   }
   return "blob";
 }
-function mergeFetchOptions(input, defaults, Headers = globalThis.Headers) {
-  const merged = {
-    ...defaults,
-    ...input
-  };
-  if (defaults?.params && input?.params) {
-    merged.params = {
+function resolveFetchOptions(request, input, defaults, Headers) {
+  const headers = mergeHeaders(
+    input?.headers ?? request?.headers,
+    defaults?.headers,
+    Headers
+  );
+  let query;
+  if (defaults?.query || defaults?.params || input?.params || input?.query) {
+    query = {
       ...defaults?.params,
-      ...input?.params
-    };
-  }
-  if (defaults?.query && input?.query) {
-    merged.query = {
       ...defaults?.query,
+      ...input?.params,
       ...input?.query
     };
   }
-  if (defaults?.headers && input?.headers) {
-    merged.headers = new Headers(defaults?.headers || {});
-    for (const [key, value] of new Headers(input?.headers || {})) {
-      merged.headers.set(key, value);
+  return {
+    ...defaults,
+    ...input,
+    query,
+    params: query,
+    headers
+  };
+}
+function mergeHeaders(input, defaults, Headers) {
+  if (!defaults) {
+    return new Headers(input);
+  }
+  const headers = new Headers(defaults);
+  if (input) {
+    for (const [key, value] of Symbol.iterator in input || Array.isArray(input) ? input : new Headers(input)) {
+      headers.set(key, value);
     }
   }
-  return merged;
+  return headers;
+}
+async function callHooks(context, hooks) {
+  if (hooks) {
+    if (Array.isArray(hooks)) {
+      for (const hook of hooks) {
+        await hook(context);
+      }
+    } else {
+      await hooks(context);
+    }
+  }
 }
 
 const retryStatusCodes = /* @__PURE__ */ new Set([
@@ -3236,7 +3405,7 @@ const retryStatusCodes = /* @__PURE__ */ new Set([
   409,
   // Conflict
   425,
-  // Too Early
+  // Too Early (Experimental)
   429,
   // Too Many Requests
   500,
@@ -3246,7 +3415,7 @@ const retryStatusCodes = /* @__PURE__ */ new Set([
   503,
   // Service Unavailable
   504
-  //  Gateway Timeout
+  // Gateway Timeout
 ]);
 const nullBodyResponses$1 = /* @__PURE__ */ new Set([101, 204, 205, 304]);
 function createFetch$1(globalOptions = {}) {
@@ -3266,7 +3435,7 @@ function createFetch$1(globalOptions = {}) {
       }
       const responseCode = context.response && context.response.status || 500;
       if (retries > 0 && (Array.isArray(context.options.retryStatusCodes) ? context.options.retryStatusCodes.includes(responseCode) : retryStatusCodes.has(responseCode))) {
-        const retryDelay = context.options.retryDelay || 0;
+        const retryDelay = typeof context.options.retryDelay === "function" ? context.options.retryDelay(context) : context.options.retryDelay || 0;
         if (retryDelay > 0) {
           await new Promise((resolve) => setTimeout(resolve, retryDelay));
         }
@@ -3285,23 +3454,34 @@ function createFetch$1(globalOptions = {}) {
   const $fetchRaw = async function $fetchRaw2(_request, _options = {}) {
     const context = {
       request: _request,
-      options: mergeFetchOptions(_options, globalOptions.defaults, Headers),
-      response: void 0,
-      error: void 0
+      options: resolveFetchOptions(
+        _request,
+        _options,
+        globalOptions.defaults,
+        Headers
+      ),
+      response: undefined,
+      error: undefined
     };
-    context.options.method = context.options.method?.toUpperCase();
+    if (context.options.method) {
+      context.options.method = context.options.method.toUpperCase();
+    }
     if (context.options.onRequest) {
-      await context.options.onRequest(context);
+      await callHooks(context, context.options.onRequest);
     }
     if (typeof context.request === "string") {
       if (context.options.baseURL) {
         context.request = withBase(context.request, context.options.baseURL);
       }
-      if (context.options.query || context.options.params) {
-        context.request = withQuery(context.request, {
-          ...context.options.params,
-          ...context.options.query
-        });
+      if (context.options.query) {
+        context.request = withQuery(context.request, context.options.query);
+        delete context.options.query;
+      }
+      if ("query" in context.options) {
+        delete context.options.query;
+      }
+      if ("params" in context.options) {
+        delete context.options.params;
       }
     }
     if (context.options.body && isPayloadMethod(context.options.method)) {
@@ -3327,10 +3507,14 @@ function createFetch$1(globalOptions = {}) {
     let abortTimeout;
     if (!context.options.signal && context.options.timeout) {
       const controller = new AbortController();
-      abortTimeout = setTimeout(
-        () => controller.abort(),
-        context.options.timeout
-      );
+      abortTimeout = setTimeout(() => {
+        const error = new Error(
+          "[TimeoutError]: The operation was aborted due to timeout"
+        );
+        error.name = "TimeoutError";
+        error.code = 23;
+        controller.abort(error);
+      }, context.options.timeout);
       context.options.signal = controller.signal;
     }
     try {
@@ -3341,7 +3525,10 @@ function createFetch$1(globalOptions = {}) {
     } catch (error) {
       context.error = error;
       if (context.options.onRequestError) {
-        await context.options.onRequestError(context);
+        await callHooks(
+          context,
+          context.options.onRequestError
+        );
       }
       return await onError(context);
     } finally {
@@ -3349,7 +3536,10 @@ function createFetch$1(globalOptions = {}) {
         clearTimeout(abortTimeout);
       }
     }
-    const hasBody = context.response.body && !nullBodyResponses$1.has(context.response.status) && context.options.method !== "HEAD";
+    const hasBody = (context.response.body || // https://github.com/unjs/ofetch/issues/324
+    // https://github.com/unjs/ofetch/issues/294
+    // https://github.com/JakeChampion/fetch/issues/1454
+    context.response._bodyInit) && !nullBodyResponses$1.has(context.response.status) && context.options.method !== "HEAD";
     if (hasBody) {
       const responseType = (context.options.parseResponse ? "json" : context.options.responseType) || detectResponseType(context.response.headers.get("content-type") || "");
       switch (responseType) {
@@ -3360,7 +3550,7 @@ function createFetch$1(globalOptions = {}) {
           break;
         }
         case "stream": {
-          context.response._data = context.response.body;
+          context.response._data = context.response.body || context.response._bodyInit;
           break;
         }
         default: {
@@ -3369,11 +3559,17 @@ function createFetch$1(globalOptions = {}) {
       }
     }
     if (context.options.onResponse) {
-      await context.options.onResponse(context);
+      await callHooks(
+        context,
+        context.options.onResponse
+      );
     }
     if (!context.options.ignoreResponseError && context.response.status >= 400 && context.response.status < 600) {
       if (context.options.onResponseError) {
-        await context.options.onResponseError(context);
+        await callHooks(
+          context,
+          context.options.onResponseError
+        );
       }
       return await onError(context);
     }
@@ -3385,10 +3581,12 @@ function createFetch$1(globalOptions = {}) {
   };
   $fetch.raw = $fetchRaw;
   $fetch.native = (...args) => fetch(...args);
-  $fetch.create = (defaultOptions = {}) => createFetch$1({
+  $fetch.create = (defaultOptions = {}, customGlobalOptions = {}) => createFetch$1({
     ...globalOptions,
+    ...customGlobalOptions,
     defaults: {
       ...globalOptions.defaults,
+      ...customGlobalOptions.defaults,
       ...defaultOptions
     }
   });
@@ -3412,10 +3610,11 @@ function createNodeFetch() {
     return l(input, { ...nodeFetchOptions, ...init });
   };
 }
-const fetch = globalThis.fetch || createNodeFetch();
+const fetch = globalThis.fetch ? (...args) => globalThis.fetch(...args) : createNodeFetch();
 const Headers$1 = globalThis.Headers || s;
 const AbortController = globalThis.AbortController || i;
-createFetch$1({ fetch, Headers: Headers$1, AbortController });
+const ofetch = createFetch$1({ fetch, Headers: Headers$1, AbortController });
+const $fetch = ofetch;
 
 const nullBodyResponses = /* @__PURE__ */ new Set([101, 204, 205, 304]);
 function createCall(handle) {
@@ -3522,9 +3721,9 @@ function callEachWith(callbacks, arg0) {
 class Hookable {
   constructor() {
     this._hooks = {};
-    this._before = void 0;
-    this._after = void 0;
-    this._deprecatedMessages = void 0;
+    this._before = undefined;
+    this._after = undefined;
+    this._deprecatedMessages = undefined;
     this._deprecatedHooks = {};
     this.hook = this.hook.bind(this);
     this.callHook = this.callHook.bind(this);
@@ -3568,7 +3767,7 @@ class Hookable {
     return () => {
       if (function_) {
         this.removeHook(name, function_);
-        function_ = void 0;
+        function_ = undefined;
       }
     };
   }
@@ -3578,8 +3777,8 @@ class Hookable {
       if (typeof _unreg === "function") {
         _unreg();
       }
-      _unreg = void 0;
-      _function = void 0;
+      _unreg = undefined;
+      _function = undefined;
       return function_(...arguments_);
     };
     _unreg = this.hook(name, _function);
@@ -3641,7 +3840,7 @@ class Hookable {
     return this.callHookWith(parallelTaskCaller, name, ...arguments_);
   }
   callHookWith(caller, name, ...arguments_) {
-    const event = this._before || this._after ? { name, args: arguments_, context: {} } : void 0;
+    const event = this._before || this._after ? { name, args: arguments_, context: {} } : undefined;
     if (this._before) {
       callEachWith(this._before, event);
     }
@@ -3665,7 +3864,7 @@ class Hookable {
     this._before = this._before || [];
     this._before.push(function_);
     return () => {
-      if (this._before !== void 0) {
+      if (this._before !== undefined) {
         const index = this._before.indexOf(function_);
         if (index !== -1) {
           this._before.splice(index, 1);
@@ -3677,7 +3876,7 @@ class Hookable {
     this._after = this._after || [];
     this._after.push(function_);
     return () => {
-      if (this._after !== void 0) {
+      if (this._after !== undefined) {
         const index = this._after.indexOf(function_);
         if (index !== -1) {
           this._after.splice(index, 1);
@@ -3776,12 +3975,12 @@ const NUMBER_CHAR_RE = /\d/;
 const STR_SPLITTERS = ["-", "_", "/", "."];
 function isUppercase(char = "") {
   if (NUMBER_CHAR_RE.test(char)) {
-    return void 0;
+    return undefined;
   }
   return char !== char.toLowerCase();
 }
 function splitByCase(str, separators) {
-  const splitters = separators ?? STR_SPLITTERS;
+  const splitters = STR_SPLITTERS;
   const parts = [];
   if (!str || typeof str !== "string") {
     return parts;
@@ -3794,7 +3993,7 @@ function splitByCase(str, separators) {
     if (isSplitter === true) {
       parts.push(buff);
       buff = "";
-      previousUpper = void 0;
+      previousUpper = undefined;
       continue;
     }
     const isUpper = isUppercase(char);
@@ -3821,7 +4020,7 @@ function splitByCase(str, separators) {
   return parts;
 }
 function kebabCase(str, joiner) {
-  return str ? (Array.isArray(str) ? str : splitByCase(str)).map((p) => p.toLowerCase()).join(joiner ?? "-") : "";
+  return str ? (Array.isArray(str) ? str : splitByCase(str)).map((p) => p.toLowerCase()).join(joiner) : "";
 }
 function snakeCase(str) {
   return kebabCase(str || "", "_");
@@ -3844,7 +4043,7 @@ function applyEnv(obj, opts, parentKey = "") {
       if (_isObject(envValue)) {
         obj[key] = { ...obj[key], ...envValue };
         applyEnv(obj[key], opts, subKey);
-      } else if (envValue === void 0) {
+      } else if (envValue === undefined) {
         applyEnv(obj[key], opts, subKey);
       } else {
         obj[key] = envValue ?? obj[key];
@@ -3867,7 +4066,7 @@ function _expandFromEnv(value) {
 
 const inlineAppConfig = {
   "nuxt": {
-    "buildId": "3fc94458-af74-4c54-a459-772010e6cc50"
+    "buildId": "271e7093-fb77-4347-a13b-6bfe7ac32e9c"
   }
 };
 
@@ -3886,6 +4085,12 @@ const _inlineRuntimeConfig = {
     "routeRules": {
       "/__nuxt_error": {
         "cache": false
+      },
+      "/playground": {
+        "redirect": {
+          "to": "https://playground.wineater.com",
+          "statusCode": 301
+        }
       },
       "/_nuxt/builds/meta/**": {
         "headers": {
@@ -3997,7 +4202,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
     if (prop in runtimeConfig) {
       return runtimeConfig[prop];
     }
-    return void 0;
+    return undefined;
   }
 });
 
@@ -4035,7 +4240,7 @@ function stringify(value) {
   throw new Error("[unstorage] Cannot stringify value!");
 }
 function checkBufferSupport() {
-  if (typeof Buffer === void 0) {
+  if (typeof Buffer === undefined) {
     throw new TypeError("[unstorage] Buffer is not supported!");
   }
 }
@@ -4171,7 +4376,7 @@ function createStorage(options = {}) {
     return context.mountpoints.filter(
       (mountpoint) => mountpoint.startsWith(base) || includeParent && base.startsWith(mountpoint)
     ).map((mountpoint) => ({
-      relativeBase: base.length > mountpoint.length ? base.slice(mountpoint.length) : void 0,
+      relativeBase: base.length > mountpoint.length ? base.slice(mountpoint.length) : undefined,
       mountpoint,
       driver: context.mounts[mountpoint]
     }));
@@ -4225,7 +4430,7 @@ function createStorage(options = {}) {
     for (const item of items) {
       const isStringItem = typeof item === "string";
       const key = normalizeKey$1(isStringItem ? item : item.key);
-      const value = isStringItem ? void 0 : item.value;
+      const value = isStringItem ? undefined : item.value;
       const options2 = isStringItem || !item.options ? commonOptions : { ...commonOptions, ...item.options };
       const mount = getMount(key);
       getBatch(mount).items.push({
@@ -4295,7 +4500,7 @@ function createStorage(options = {}) {
       );
     },
     async setItem(key, value, opts = {}) {
-      if (value === void 0) {
+      if (value === undefined) {
         return storage.removeItem(key);
       }
       key = normalizeKey$1(key);
@@ -4337,7 +4542,7 @@ function createStorage(options = {}) {
       });
     },
     async setItemRaw(key, value, opts = {}) {
-      if (value === void 0) {
+      if (value === undefined) {
         return storage.removeItem(key, opts);
       }
       key = normalizeKey$1(key);
@@ -4718,7 +4923,7 @@ function defineCachedFunction(fn, opts = {}) {
   const group = opts.group || "nitro/functions";
   const name = opts.name || fn.name || "_";
   const integrity = opts.integrity || hash([fn, opts]);
-  const validate = opts.validate || ((entry) => entry.value !== void 0);
+  const validate = opts.validate || ((entry) => entry.value !== undefined);
   async function get(key, resolver, shouldInvalidateCache, event) {
     const cacheKey = [opts.base, group, name, key + ".json"].filter(Boolean).join(":").replace(/:\/$/, ":index");
     let entry = await useStorage().getItem(cacheKey) || {};
@@ -4736,11 +4941,11 @@ function defineCachedFunction(fn, opts = {}) {
     const _resolve = async () => {
       const isPending = pending[key];
       if (!isPending) {
-        if (entry.value !== void 0 && (opts.staleMaxAge || 0) >= 0 && opts.swr === false) {
-          entry.value = void 0;
-          entry.integrity = void 0;
-          entry.mtime = void 0;
-          entry.expires = void 0;
+        if (entry.value !== undefined && (opts.staleMaxAge || 0) >= 0 && opts.swr === false) {
+          entry.value = undefined;
+          entry.integrity = undefined;
+          entry.mtime = undefined;
+          entry.expires = undefined;
         }
         pending[key] = Promise.resolve(resolver());
       }
@@ -4768,7 +4973,7 @@ function defineCachedFunction(fn, opts = {}) {
       }
     };
     const _resolvePromise = expired ? _resolve() : Promise.resolve();
-    if (entry.value === void 0) {
+    if (entry.value === undefined) {
       await _resolvePromise;
     } else if (expired && event && event.waitUntil) {
       event.waitUntil(_resolvePromise);
@@ -4793,7 +4998,7 @@ function defineCachedFunction(fn, opts = {}) {
       key,
       () => fn(...args),
       shouldInvalidateCache,
-      args[0] && isEvent(args[0]) ? args[0] : void 0
+      args[0] && isEvent(args[0]) ? args[0] : undefined
     );
     let value = entry.value;
     if (opts.transform) {
@@ -4831,7 +5036,7 @@ function defineCachedEventHandler(handler, opts = defaultCacheOptions) {
       if (entry.value.code >= 400) {
         return false;
       }
-      if (entry.value.body === void 0) {
+      if (entry.value.body === undefined) {
         return false;
       }
       if (entry.value.headers.etag === "undefined" || entry.value.headers["last-modified"] === "undefined") {
@@ -5193,7 +5398,7 @@ const errorHandler = (async function errorhandler(error, event) {
   for (const [header, value] of res.headers.entries()) {
     setResponseHeader(event, header, value);
   }
-  setResponseStatus(event, res.status && res.status !== 200 ? res.status : void 0, res.statusText);
+  setResponseStatus(event, res.status && res.status !== 200 ? res.status : undefined, res.statusText);
   return send(event, html);
 });
 
@@ -5201,100 +5406,114 @@ const assets = {
   "/favicon.ico": {
     "type": "image/vnd.microsoft.icon",
     "etag": "\"10be-LkOxpjzpEdufS9Og3Rva4lX8w6I\"",
-    "mtime": "2025-01-14T17:05:45.266Z",
+    "mtime": "2025-03-09T16:21:38.089Z",
     "size": 4286,
     "path": "../public/favicon.ico"
   },
-  "/_nuxt/B4Rm6Aeu.js": {
+  "/_nuxt/B18UrNqK.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"71a-qaJl6CpRjlY2oZuYGkKHx3qP4n8\"",
-    "mtime": "2025-01-14T17:05:45.151Z",
-    "size": 1818,
-    "path": "../public/_nuxt/B4Rm6Aeu.js"
+    "etag": "\"253f-HBKleYfMA6d2NDbwcbcOj3B7bJQ\"",
+    "mtime": "2025-03-09T16:21:38.086Z",
+    "size": 9535,
+    "path": "../public/_nuxt/B18UrNqK.js"
   },
-  "/_nuxt/BJhR3nPE.js": {
+  "/_nuxt/CwQNf5LH.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"d98-/leOaB9JU2d/IbgZaOFcr+V9DCc\"",
-    "mtime": "2025-01-14T17:05:45.150Z",
-    "size": 3480,
-    "path": "../public/_nuxt/BJhR3nPE.js"
+    "etag": "\"957-yoWSHSf800id5cvOPiVXdbx7rR0\"",
+    "mtime": "2025-03-09T16:21:38.086Z",
+    "size": 2391,
+    "path": "../public/_nuxt/CwQNf5LH.js"
   },
-  "/_nuxt/Bm-DOa51.js": {
+  "/_nuxt/D9ERIQJ2.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"516ca-qD8llt5RARzISpiophxGwF4nZFI\"",
-    "mtime": "2025-01-14T17:05:45.233Z",
-    "size": 333514,
-    "path": "../public/_nuxt/Bm-DOa51.js"
+    "etag": "\"6c6-4wJObVAbZ6udQ082q541/1weiA8\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 1734,
+    "path": "../public/_nuxt/D9ERIQJ2.js"
   },
-  "/_nuxt/CJwmD_fj.js": {
+  "/_nuxt/DMCzQChx.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"16df-JMG5hovFXz6cBfNsLyNFGuklESg\"",
-    "mtime": "2025-01-14T17:05:45.180Z",
-    "size": 5855,
-    "path": "../public/_nuxt/CJwmD_fj.js"
+    "etag": "\"1697-nHJiH3foWcfKLaQ0zPpHUprZuC8\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 5783,
+    "path": "../public/_nuxt/DMCzQChx.js"
   },
-  "/_nuxt/CmPWoqto.js": {
+  "/_nuxt/DbHn2usm.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"d17-zP+nqSrzDKzD78k3SLxao8pO7Aw\"",
-    "mtime": "2025-01-14T17:05:45.232Z",
-    "size": 3351,
-    "path": "../public/_nuxt/CmPWoqto.js"
+    "etag": "\"ecd-ySiae3ZFqKOYCnt/PyKRp8hnbv0\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 3789,
+    "path": "../public/_nuxt/DbHn2usm.js"
   },
-  "/_nuxt/DuvFzeV8.js": {
+  "/_nuxt/Dd9m5JKa.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"9fe-VfhTKUG5mg1Suu+/z6U4IC42RTU\"",
-    "mtime": "2025-01-14T17:05:45.212Z",
-    "size": 2558,
-    "path": "../public/_nuxt/DuvFzeV8.js"
+    "etag": "\"5317c-yDDvMGirDYGnGTF25I643p3lcps\"",
+    "mtime": "2025-03-09T16:21:38.088Z",
+    "size": 340348,
+    "path": "../public/_nuxt/Dd9m5JKa.js"
   },
-  "/_nuxt/Header.soujHAq2.css": {
+  "/_nuxt/Dfa70qct.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"e49-1p4qgGbChWqasYgJ5HkpZWdmcNs\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 3657,
+    "path": "../public/_nuxt/Dfa70qct.js"
+  },
+  "/_nuxt/Header.Dmq5yTpQ.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"b0d-vlPhSQ5iY9bpOUO2LGOrYTVdo4E\"",
-    "mtime": "2025-01-14T17:05:45.212Z",
-    "size": 2829,
-    "path": "../public/_nuxt/Header.soujHAq2.css"
+    "etag": "\"c24-dGV2fx7aliOzsgM8yF5HivB/RYw\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 3108,
+    "path": "../public/_nuxt/Header.Dmq5yTpQ.css"
   },
-  "/_nuxt/_id_.D0zPo6kJ.css": {
+  "/_nuxt/QR_test.BQeJ754U.png": {
+    "type": "image/png",
+    "etag": "\"6356a-PHIWi3VoJk5ZmgPcNX71hIGJihk\"",
+    "mtime": "2025-03-09T16:21:38.088Z",
+    "size": 406890,
+    "path": "../public/_nuxt/QR_test.BQeJ754U.png"
+  },
+  "/_nuxt/_id_.BLX2M4eC.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"4df-BjFWru8SgbwRUqtull7RQFhYDtI\"",
-    "mtime": "2025-01-14T17:05:45.213Z",
-    "size": 1247,
-    "path": "../public/_nuxt/_id_.D0zPo6kJ.css"
+    "etag": "\"4bd-4K5cXg6gDpqX+6yD+lRZArvmxOg\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 1213,
+    "path": "../public/_nuxt/_id_.BLX2M4eC.css"
   },
-  "/_nuxt/index.Coizbh1i.css": {
+  "/_nuxt/index.Cnjxjkdl.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"4914-XnE7Ts9uLvzN2IpPqRIIcr8qVac\"",
-    "mtime": "2025-01-14T17:05:45.231Z",
-    "size": 18708,
-    "path": "../public/_nuxt/index.Coizbh1i.css"
+    "etag": "\"300f-xgA4NxJIvJJCojPwT7LVEeObSvs\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 12303,
+    "path": "../public/_nuxt/index.Cnjxjkdl.css"
   },
-  "/_nuxt/playground.Y0pnKbxJ.css": {
+  "/_nuxt/playground.D6TSm1yK.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"1a04-KwwC04IgdMA3cy0lkJHIBfrFvZU\"",
-    "mtime": "2025-01-14T17:05:45.230Z",
+    "mtime": "2025-03-09T16:21:38.087Z",
     "size": 6660,
-    "path": "../public/_nuxt/playground.Y0pnKbxJ.css"
+    "path": "../public/_nuxt/playground.D6TSm1yK.css"
   },
-  "/_nuxt/v1EChnvR.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"3317-oQfQBFKpm69KVNyHGoSRl/oq7hY\"",
-    "mtime": "2025-01-14T17:05:45.226Z",
-    "size": 13079,
-    "path": "../public/_nuxt/v1EChnvR.js"
+  "/_nuxt/widget_test.DQP5KCrp.png": {
+    "type": "image/png",
+    "etag": "\"2831d-TetaY0Zgcc7Zc9IFcOYZSNrwg04\"",
+    "mtime": "2025-03-09T16:21:38.087Z",
+    "size": 164637,
+    "path": "../public/_nuxt/widget_test.DQP5KCrp.png"
   },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-jg2rSz7U5KbLCRZ6VIkwv9gsG3Y\"",
-    "mtime": "2025-01-14T17:05:45.042Z",
+    "etag": "\"47-Gc3OtkClam87lq7Qxdw1C8fvoi8\"",
+    "mtime": "2025-03-09T16:21:38.083Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
-  "/_nuxt/builds/meta/3fc94458-af74-4c54-a459-772010e6cc50.json": {
+  "/_nuxt/builds/meta/271e7093-fb77-4347-a13b-6bfe7ac32e9c.json": {
     "type": "application/json",
-    "etag": "\"8b-x4H0RlixK9CTRvvgulxOGfyNLxs\"",
-    "mtime": "2025-01-14T17:05:45.009Z",
-    "size": 139,
-    "path": "../public/_nuxt/builds/meta/3fc94458-af74-4c54-a459-772010e6cc50.json"
+    "etag": "\"c7-iX6wXLv2HomvCUZ2Xh1477NVTiA\"",
+    "mtime": "2025-03-09T16:21:38.081Z",
+    "size": 199,
+    "path": "../public/_nuxt/builds/meta/271e7093-fb77-4347-a13b-6bfe7ac32e9c.json"
   }
 };
 
@@ -5491,7 +5710,7 @@ const _f4b49z = eventHandler((event) => {
   return readAsset(id);
 });
 
-const _lazy_9DEZNE = () => import('./build/renderer.mjs');
+const _lazy_9DEZNE = () => import('./routes/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
   { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
@@ -5660,11 +5879,13 @@ function GracefulShutdown(server, opts) {
   const signals = options.signals.split(" ").map((s) => s.trim()).filter((s) => s.length > 0);
   const once = onceFactory();
   once(process, signals, (signal) => {
+    debug("received shut down signal", signal);
     shutdown(signal).then(() => {
       if (options.forceExit) {
         process.exit(failed ? 1 : 0);
       }
     }).catch((err) => {
+      debug("server shut down error occurred", err);
       process.exit(1);
     });
   });
@@ -5683,6 +5904,9 @@ function GracefulShutdown(server, opts) {
     }
   }
   function destroyAllConnections(force = false) {
+    debug("Destroy Connections : " + (force ? "forced close" : "close"));
+    let counter = 0;
+    let secureCounter = 0;
     for (const key of Object.keys(connections)) {
       const socket = connections[key];
       const serverResponse = socket._httpMessage;
@@ -5691,9 +5915,12 @@ function GracefulShutdown(server, opts) {
           serverResponse.setHeader("connection", "close");
         }
       } else {
+        counter++;
         destroy(socket);
       }
     }
+    debug("Connections destroyed : " + counter);
+    debug("Connection Counter    : " + connectionCounter);
     for (const key of Object.keys(secureConnections)) {
       const socket = secureConnections[key];
       const serverResponse = socket._httpMessage;
@@ -5702,9 +5929,12 @@ function GracefulShutdown(server, opts) {
           serverResponse.setHeader("connection", "close");
         }
       } else {
+        secureCounter++;
         destroy(socket);
       }
     }
+    debug("Secure Connections destroyed : " + secureCounter);
+    debug("Secure Connection Counter    : " + secureConnectionCounter);
   }
   server.on("request", function(req, res) {
     req.socket._isIdle = false;
@@ -5743,10 +5973,12 @@ function GracefulShutdown(server, opts) {
     }
   });
   process.on("close", function() {
+    debug("closed");
   });
   function shutdown(sig) {
     function cleanupHttp() {
       destroyAllConnections();
+      debug("Close http server");
       return new Promise((resolve, reject) => {
         server.close((err) => {
           if (err) {
@@ -5756,19 +5988,23 @@ function GracefulShutdown(server, opts) {
         });
       });
     }
+    debug("shutdown signal - " + sig);
     if (options.development) {
+      debug("DEV-Mode - immediate forceful shutdown");
       return process.exit(0);
     }
     function finalHandler() {
       if (!finalRun) {
         finalRun = true;
         if (options.finally && isFunction(options.finally)) {
+          debug("executing finally()");
           options.finally();
         }
       }
       return Promise.resolve();
     }
     function waitForReadyToShutDown(totalNumInterval) {
+      debug(`waitForReadyToShutDown... ${totalNumInterval}`);
       if (totalNumInterval === 0) {
         debug(
           `Could not close connections in time (${options.timeout}ms), will forcefully shut down`
@@ -5777,8 +6013,10 @@ function GracefulShutdown(server, opts) {
       }
       const allConnectionsClosed = Object.keys(connections).length === 0 && Object.keys(secureConnections).length === 0;
       if (allConnectionsClosed) {
+        debug("All connections closed. Continue to shutting down");
         return Promise.resolve(false);
       }
+      debug("Schedule the next waitForReadyToShutdown");
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve(waitForReadyToShutDown(totalNumInterval - 1));
@@ -5788,6 +6026,7 @@ function GracefulShutdown(server, opts) {
     if (isShuttingDown) {
       return Promise.resolve();
     }
+    debug("shutting down");
     return options.preShutdown(sig).then(() => {
       isShuttingDown = true;
       cleanupHttp();
@@ -5795,12 +6034,14 @@ function GracefulShutdown(server, opts) {
       const pollIterations = options.timeout ? Math.round(options.timeout / 250) : 0;
       return waitForReadyToShutDown(pollIterations);
     }).then((force) => {
+      debug("Do onShutdown now");
       if (force) {
         destroyAllConnections(force);
       }
       return options.onShutdown(sig);
     }).then(finalHandler).catch((err) => {
       const errString = typeof err === "string" ? err : JSON.stringify(err);
+      debug(errString);
       failed = true;
       throw errString;
     });
@@ -5870,5 +6111,5 @@ trapUnhandledNodeErrors();
 setupGracefulShutdown(listener, nitroApp);
 const nodeServer = {};
 
-export { send as a, setResponseStatus as b, setResponseHeaders as c, useRuntimeConfig as d, eventHandler as e, getQuery as f, getResponseStatus as g, createError$1 as h, getRouteRules as i, joinRelativeURL as j, getResponseStatusText as k, nodeServer as n, setResponseHeader as s, useNitroApp as u };
+export { $fetch as $, getRequestHeaders as A, hash as B, nodeServer as C, send as a, setResponseStatus as b, setResponseHeaders as c, useRuntimeConfig as d, eventHandler as e, getQuery as f, getResponseStatus as g, createError$1 as h, getRouteRules as i, joinRelativeURL as j, getResponseStatusText as k, defu as l, createHooks as m, createRouter$1 as n, sanitizeStatusCode as o, destr as p, klona as q, parse as r, setResponseHeader as s, toRouteMatcher as t, useNitroApp as u, getRequestHeader as v, isEqual as w, setCookie as x, getCookie as y, deleteCookie as z };
 //# sourceMappingURL=runtime.mjs.map

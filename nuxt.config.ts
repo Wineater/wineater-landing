@@ -1,4 +1,14 @@
 export default {
+  nitro: {
+    routeRules: {
+      '/playground': {
+        redirect: {
+          to: 'https://playground.wineater.com',
+          statusCode: 301
+        }
+      }
+    }
+  },
   app: {
     head: {
       htmlAttrs: {
