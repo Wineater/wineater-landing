@@ -12,7 +12,7 @@
     </div>
     <div class="header__right-container">
       <div class="header__btns">
-        <LangSwitcher></LangSwitcher>
+<!--        <LangSwitcher></LangSwitcher>-->
         <div class="header__btn">
           <Button class="full-height-btn" @btnClick="openDemoPage">{{ $t('playground.BookDemo') }}</Button>
         </div>
@@ -22,7 +22,7 @@
 </template>
 <script setup>
 import Button from "~/components/Buttons/Button.vue";
-import LangSwitcher from "~/components/Buttons/LangSwitcher.vue";
+// import LangSwitcher from "~/components/Buttons/LangSwitcher.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -73,12 +73,12 @@ const scrollToBlock = (block) => {
   display: flex;
   position: fixed;
   z-index: 10000;
-  height: 91px;
+  height: 80px;
   top: 32px;
-  left: 80px;
-  border-radius: 59px;
+  left: 10%;
+  border-radius: 40px;
   padding: 0px 0px 0px 40px;
-  width: calc(100% - 160px);
+  width: calc(100% - 20%);
   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.08);
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(7.5px);

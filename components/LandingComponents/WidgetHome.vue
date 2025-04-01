@@ -3,9 +3,11 @@
     <h2 class="h2 color-brand-6">
       {{ $t('WidgetHome.title') }}
     </h2>
-    <div id="wineater-widget-conteiner"></div>
 
-    <button v-if="showReloadButton" @click="reinitializeWidget" class="reload-button">
+    <!-- Use a keyed container that recreates completely when language changes -->
+    <div v-if="mounted" :key="locale" id="wineater-widget-conteiner"></div>
+
+    <button v-if="showReloadButton" @click="reloadPage" class="reload-button">
       Reload AI Sommelier Widget
     </button>
   </div>
@@ -14,7 +16,7 @@
 <script setup>
 import { watch, ref, onMounted } from 'vue';
 import { useHead } from '#app';
-import { useI18n } from 'vue-i18n'; // Make sure this import matches your i18n setup
+import { useI18n } from 'vue-i18n';
 
 const props = defineProps({
   visible: {
@@ -24,40 +26,29 @@ const props = defineProps({
 });
 
 const showReloadButton = ref(false);
-const scriptsLoaded = ref(false);
-const headScripts = ref([]);
+const mounted = ref(false);
 const { locale } = useI18n();
 
-// Function to load widget scripts
+// Simply load the widget scripts once
 const loadWidgetScripts = () => {
-  // First remove any existing scripts to force reinitialization
-  scriptsLoaded.value = false;
-  headScripts.value = [];
-
   // Short timeout to ensure DOM updates
   setTimeout(() => {
-    headScripts.value = [
-      {
-        innerHTML: `window.wineaterData = {
-          CLIENT_TOKEN: 'TOKEN',
-          TYPE: 'widget',
-          WIDGET_TYPE: 'store',
-          WIDGET_WRAPPER: 'wineater-widget-conteiner'
-        };`,
-        id: 'wineater-config'
-      },
-      {
-        src: 'https://unpkg.com/wineater-bot@latest/dist/wineater-chatbot.umd.js',
-        type: 'module',
-        id: 'wineater-module'
-      }
-    ];
+    const configScript = document.createElement('script');
+    configScript.innerHTML = `window.wineaterData = {
+      CLIENT_TOKEN: 'TOKEN',
+      TYPE: 'widget',
+      WIDGET_TYPE: 'store',
+      WIDGET_WRAPPER: 'wineater-widget-conteiner'
+    };`;
+    document.head.appendChild(configScript);
 
-    scriptsLoaded.value = true;
+    const moduleScript = document.createElement('script');
+    moduleScript.type = 'module';
+    moduleScript.src = 'https://unpkg.com/wineater-bot@latest/dist/wineater-chatbot.umd.js';
+    document.head.appendChild(moduleScript);
 
     // Show reload button after 5 seconds if widget might not have loaded
     setTimeout(() => {
-      // Check if widget container is empty - this is a simple heuristic
       const container = document.getElementById('wineater-widget-conteiner');
       if (container && container.childElementCount === 0) {
         showReloadButton.value = true;
@@ -66,46 +57,29 @@ const loadWidgetScripts = () => {
   }, 100);
 };
 
+// Force a page reload if manual refresh is needed
+const reloadPage = () => {
+  window.location.reload();
+};
+
 // Watch for visibility changes
 watch(() => props.visible, (newValue) => {
-  if (newValue) {
+  if (newValue && mounted.value) {
     loadWidgetScripts();
   }
 }, { immediate: true });
 
-// Watch for locale changes and reinitialize the widget
+// When language changes, force a page reload
 watch(() => locale.value, () => {
   if (props.visible) {
-    // Clear widget container
-    const container = document.getElementById('wineater-widget-conteiner');
-    if (container) {
-      container.innerHTML = '';
-    }
-
-    // Reload scripts
-    loadWidgetScripts();
+    // Simple solution: reload the entire page on language change
+    // This ensures the widget loads fresh with the new language
+    window.location.reload();
   }
 });
-
-// Use Nuxt's useHead to manage scripts reactively
-useHead({
-  script: headScripts
-});
-
-// Function to manually reinitialize widget
-const reinitializeWidget = () => {
-  showReloadButton.value = false;
-
-  // Clear widget container
-  const container = document.getElementById('wineater-widget-conteiner');
-  if (container) {
-    container.innerHTML = '';
-  }
-
-  loadWidgetScripts();
-};
 
 onMounted(() => {
+  mounted.value = true;
   if (props.visible) {
     loadWidgetScripts();
   }
@@ -123,7 +97,6 @@ onMounted(() => {
     opacity: 1;
     transform: translateY(0);
   }
-
 
   #wineater-widget-conteiner {
     width: 100%;
