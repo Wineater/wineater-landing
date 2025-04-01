@@ -10,6 +10,7 @@
       }"
   >
   </div>
+<!--  <video class="hiw-animation" autoplay muted playsinline preload="auto" src="https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media//Wineater_how_it_works_optimized_1080.mp4"></video>-->
 </template>
 <script>
 import Button from "~/components/Buttons/Button.vue";
@@ -25,6 +26,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.hiw-animation{
+  width: 100%;
+  margin-bottom: 6rem;
+  min-height: 680px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .how-it-works {
   width: 100%;
   margin-bottom: 6rem;
