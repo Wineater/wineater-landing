@@ -42,7 +42,7 @@ export default {
   background-repeat: no-repeat;
   background-image: url(assets/imgs/hiw-large.svg);
   opacity: 0;
-  transition: 0.5s ease;
+  transition: 0.2s ease;
   transform: translateY(100px);
   &--fr{
     background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop--fr.svg);

@@ -37,7 +37,7 @@ defineProps({
   padding: 60px 0;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 
   &.visible {
     opacity: 1;
