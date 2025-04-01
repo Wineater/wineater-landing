@@ -9,10 +9,10 @@
           <div class="for-whom__card-title h3">
             {{ card.title }}
           </div>
-          <!-- Added image between title and description -->
+          <!-- Fixed-size image container -->
           <div class="for-whom__card-image">
             <img v-if="card.id === 'online'" src="~/assets/imgs/widget_test.png" alt="Widget screenshot">
-            <img v-else-if="card.id === 'offline'" src="~/assets/imgs/QR_test.png" alt="QR code screenshot">
+            <img v-else-if="card.id === 'offline'" src="~assets/imgs/offline_retailers.jpg" alt="QR code screenshot">
           </div>
           <div class="for-whom__card-description p1 color-dark-100">
             {{ card.description }}
@@ -74,7 +74,7 @@ export default {
   opacity: 0;
   transition: 0.5s ease;
   transform: translateY(100px);
-  gap: 40px; /* Add default gap between title and cards */
+  gap: 40px;
 }
 
 .for-whom.visible {
@@ -90,17 +90,18 @@ export default {
 .for-whom__card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 50px 50px 100px 50px;
   border-radius: 32px;
   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.08);
   width: calc(50% - 12px);
+  height: 100%; /* Ensure consistent height */
 }
 
 .for-whom__card-texts {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
 }
 
 .for-whom__card-title {
@@ -110,18 +111,26 @@ export default {
   margin: 0;
 }
 
-/* Added styling for the new image section */
+/* Fixed-size image container with consistent height */
 .for-whom__card-image {
-  margin: 15px 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 200px; /* Fixed height for all images */
+  margin: 15px 0;
 }
 
 .for-whom__card-image img {
   max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
+}
+
+.for-whom__card-description {
+  flex-grow: 1; /* Take remaining space */
 }
 
 .for-whom__card-infographic {
@@ -141,6 +150,10 @@ export default {
     padding: 50px 40px 80px 40px;
     width: calc(50% - 10px);
   }
+
+  .for-whom__card-image {
+    height: 180px;
+  }
 }
 
 @media only screen and (max-width: 1280px) {
@@ -149,6 +162,10 @@ export default {
   }
   .for-whom__card {
     padding: 30px 30px 80px 30px;
+  }
+
+  .for-whom__card-image {
+    height: 160px;
   }
 }
 
@@ -160,6 +177,10 @@ export default {
   .for-whom__card {
     padding: 30px 30px 40px 30px;
   }
+
+  .for-whom__card-image {
+    height: 140px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -170,12 +191,12 @@ export default {
     flex-direction: column;
   }
   .for-whom__card {
-    padding: 30px 200px 40px 30px;
+    padding: 30px 30px 40px 30px;
     width: 100%;
   }
 
-  .for-whom__card-image img {
-    max-width: 80%;
+  .for-whom__card-image {
+    height: 180px; /* Larger on mobile for better visibility */
   }
 }
 
@@ -191,8 +212,8 @@ export default {
     width: 100%;
   }
 
-  .for-whom__card-image img {
-    max-width: 90%;
+  .for-whom__card-image {
+    height: 160px;
   }
 }
 </style>

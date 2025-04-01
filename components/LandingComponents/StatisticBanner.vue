@@ -103,7 +103,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .statistic-banner {
-  padding: 60px 0;
+  padding: 5rem 0;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;

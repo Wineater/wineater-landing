@@ -1,4 +1,7 @@
 <template>
+  <h2 class="h2 color-brand-6">
+    {{ $t('HowItWorks.title') }}
+  </h2>
   <div
       class="how-it-works"
       :class="{
@@ -6,9 +9,6 @@
         'how-it-works--fr': $i18n.locale === 'fr'
       }"
   >
-    <h2 class="h2 color-brand-6">
-      {{ $t('HowItWorks.title') }}
-    </h2>
   </div>
 </template>
 <script>
@@ -27,11 +27,11 @@ export default {
 <style scoped lang="scss">
 .how-it-works {
   width: 100%;
-  margin-top: 4rem; //on mobile it doesnt work anyway, ut ion desktop adds necessary spacing
+  margin-bottom: 6rem;
   min-height: 680px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop.svg);
+  background-image: url(assets/imgs/hiw-large.svg);
   opacity: 0;
   transition: 0.5s ease;
   transform: translateY(100px);
@@ -60,7 +60,7 @@ export default {
 @media only screen and (max-width: 1024px) {
   .how-it-works {
     height: 680px;
-    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-tablet.svg);
+    background-image: url(assets/imgs/howitworks_larger_transparent.png);
     &--fr{
       background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-tablet--fr.svg);
     }
@@ -71,7 +71,7 @@ export default {
   .how-it-works {
     height: 475px;
     background-position: center;
-    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-mobile.svg);
+    background-image: url(assets/imgs/hiw-mobile.svg);
     &--fr{
       background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-mobile--fr.svg);
     }

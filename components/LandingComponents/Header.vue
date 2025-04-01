@@ -73,12 +73,12 @@ const scrollToBlock = (block) => {
   display: flex;
   position: fixed;
   z-index: 10000;
-  height: 91px;
+  height: 80px;
   top: 32px;
-  left: 80px;
-  border-radius: 59px;
+  left: 10%;
+  border-radius: 40px;
   padding: 0px 0px 0px 40px;
-  width: calc(100% - 160px);
+  width: calc(100% - 20%);
   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.08);
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(7.5px);
