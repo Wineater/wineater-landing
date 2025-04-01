@@ -35,6 +35,7 @@ export default {
 }
 .how-it-works {
   width: 100%;
+  margin-top: 1rem;
   margin-bottom: 6rem;
   min-height: 680px;
   background-size: contain;
