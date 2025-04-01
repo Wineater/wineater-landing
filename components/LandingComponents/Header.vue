@@ -9,6 +9,10 @@
           $t('Header.ForWhom')
         }}
       </div>
+      <div class="header__link p1 color-text" @click="scrollToBlock('.how-it-works')">{{
+          $t('Header.HowItWorks')
+        }}
+      </div>
     </div>
     <div class="header__right-container">
       <div class="header__btns">
