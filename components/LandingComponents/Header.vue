@@ -12,7 +12,7 @@
     </div>
     <div class="header__right-container">
       <div class="header__btns">
-        <LangSwitcher></LangSwitcher>
+<!--        <LangSwitcher></LangSwitcher>-->
         <div class="header__btn">
           <Button class="full-height-btn" @btnClick="openDemoPage">{{ $t('playground.BookDemo') }}</Button>
         </div>
@@ -22,7 +22,7 @@
 </template>
 <script setup>
 import Button from "~/components/Buttons/Button.vue";
-import LangSwitcher from "~/components/Buttons/LangSwitcher.vue";
+// import LangSwitcher from "~/components/Buttons/LangSwitcher.vue";
 
 const route = useRoute();
 const router = useRouter();
