@@ -10,11 +10,13 @@
     <StatisticBanner :visible="statisticBannerVisible"/>
 <!--    <BookDemoBanner :visible="bookDemoBannerVisible"/>-->
     <HowItWorks :visible="howItWorksVisible"/>
+    <Partners :visible="partnersVisible"/>
   </div>
   <Footer/>
 </template>
 
 <script setup>
+import Header from "~/components/LandingComponents/Header.vue";
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
 import Solutions from "~/components/LandingComponents/Solutions.vue";
 import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
@@ -26,7 +28,8 @@ import Footer from "~/components/LandingComponents/Footer.vue";
 import BookDemoBanner from "~/components/LandingComponents/BookDemoBanner.vue";
 import {ref, onMounted, onUnmounted} from 'vue';
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
-import Header from "~/components/LandingComponents/Header.vue";
+import Partners from "~/components/LandingComponents/Partners.vue";
+
 
 const solutionsVisible = ref(false);
 const widgetHomeVisible = ref(false);
@@ -37,6 +40,7 @@ const aboutBannerVisible = ref(false);
 const forWhomVisible = ref(false);
 const bookDemoBannerVisible = ref(false);
 const howItWorksVisible = ref(false);
+const partnersVisible = ref(false);
 
 const isElementInViewport = (element, isVisible) => {
   const rect = element.getBoundingClientRect();
@@ -55,6 +59,7 @@ const updateVisibility = () => {
   const forWhom = document.querySelector('.for-whom');
   const bookDemoBanner = document.querySelector('.book-demo');
   const howItWorks = document.querySelector('.how-it-works');
+  const partners = document.querySelector('.partners');
   if (solutions) solutionsVisible.value = solutionsVisible.value ? true : isElementInViewport(solutions);
   if (widgetHome) widgetHomeVisible.value = widgetHomeVisible.value ? true : isElementInViewport(widgetHome);
   if (algorithmInfo) algorithmInfoVisible.value = algorithmInfoVisible.value ? true : isElementInViewport(algorithmInfo);
@@ -62,9 +67,9 @@ const updateVisibility = () => {
   if (statisticBanner) statisticBannerVisible.value = statisticBannerVisible.value ? true : isElementInViewport(statisticBanner);
   if (aboutBanner) aboutBannerVisible.value = aboutBannerVisible.value ? true : isElementInViewport(aboutBanner);
   if (forWhom) forWhomVisible.value = forWhomVisible.value ? true : isElementInViewport(forWhom);
-
   if (bookDemoBanner) bookDemoBannerVisible.value = bookDemoBannerVisible.value ? true : isElementInViewport(bookDemoBanner);
   if (howItWorks) howItWorksVisible.value = howItWorksVisible.value ? true : isElementInViewport(howItWorks);
+  if (partners) partnersVisible.value = partnersVisible.value ? true : isElementInViewport(partners);
 };
 
 onMounted(() => {
