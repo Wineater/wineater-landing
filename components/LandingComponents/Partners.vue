@@ -166,7 +166,7 @@ const partners = [
     }
 
     &__logo {
-      max-height: 40px;
+      max-height: 60px;
     }
   }
 }
