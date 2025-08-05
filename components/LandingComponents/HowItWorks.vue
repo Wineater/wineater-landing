@@ -10,6 +10,7 @@
       }"
   >
   </div>
+<!--  <video class="hiw-animation" autoplay muted playsinline preload="auto" src="https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media//Wineater_how_it_works_optimized_1080.mp4"></video>-->
 </template>
 <script>
 import Button from "~/components/Buttons/Button.vue";
@@ -25,15 +26,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.hiw-animation{
+  width: 100%;
+  margin-bottom: 6rem;
+  min-height: 680px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .how-it-works {
   width: 100%;
+  margin-top: 1rem;
   margin-bottom: 6rem;
   min-height: 680px;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(assets/imgs/hiw-large.svg);
   opacity: 0;
-  transition: 0.5s ease;
+  transition: 0.2s ease;
   transform: translateY(100px);
   &--fr{
     background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop--fr.svg);
