@@ -80,7 +80,7 @@ const partners = [
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
     max-width: 250px;
-    height: 120px;
+    height: 130px;
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -93,12 +93,12 @@ const partners = [
   }
 
   &__logo {
-    max-width: 100%;
+    max-width: 170px;
     max-height: 80px;
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: grayscale(100%);
+    filter: grayscale(0%);
     opacity: 0.7;
     transition: filter 0.3s ease, opacity 0.3s ease;
 
