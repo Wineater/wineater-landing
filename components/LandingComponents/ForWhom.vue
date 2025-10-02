@@ -9,14 +9,15 @@
           <div class="for-whom__card-title h3">
             {{ card.title }}
           </div>
+          <!-- Fixed-size image container -->
+          <div class="for-whom__card-image">
+            <img v-if="card.id === 'online'" src="~/assets/imgs/widget_test.png" alt="Widget screenshot">
+            <img v-else-if="card.id === 'offline'" src="~assets/imgs/offline_retailers.jpg" alt="QR code screenshot">
+          </div>
           <div class="for-whom__card-description p1 color-dark-100">
             {{ card.description }}
           </div>
         </div>
-        <!-- <div class="for-whom__card-infographic decorative-2 color-brand-1">
-          {{ card.infographic }}
-        </div> -->
-
       </div>
     </div>
   </div>
@@ -32,30 +33,26 @@ export default {
       cards: {
         'en': [
           {
-            "description": "Consumers are more likely to\u00A0purchase wine when they are confident that the recommended wine complements their meal",
-            "title": "Increase Number of\u00A0Orders"
+            "id": "online",
+            "title": "Online Wine Retailers",
+            "description": "Increase conversion rates with an AI-powered wine pairing widget that seamlessly embeds into your website. Customers are more likely to purchase wine when they are confident that the recommended wine complements their meal."
           },
           {
-            "description": "Our algorithm includes the most profitable products, naturally leading to a higher average spend per purchase and boosting overall sales",
-            "title": "Grow average check"
-          },
-          {
-            "description": "By\u00A0offering a\u00A0unique value proposition, we\u00A0make it\u00A0convenient for users to\u00A0choose wines, encouraging repeat visits and purchases",
-            "title": "Customers come back!"
+            "id": "offline",
+            "title": "Offline Wine Stores",
+            "description": "Enhance in-store experience with QR code-based access to our wine pairing AI. Strategically placed near wine sections, it helps customers make informed choices without requiring dedicated sommelier staff."
           }
         ],
         'fr': [
           {
-            "description": "Les consommateurs sont plus susceptibles d'acheter du vin lorsqu'ils sont convaincus que la bouteille recommandée complète leur repas",
-            "title": "Augmentation du nombre de commandes"
+            "id": "online",
+            "title": "Détaillants de Vin en Ligne",
+            "description": "Augmentez les taux de conversion avec un widget d'accords mets-vins propulsé par IA qui s'intègre parfaitement à votre site web. Les clients sont plus susceptibles d'acheter du vin lorsqu'ils sont convaincus que le vin recommandé complète leur repas."
           },
           {
-            "description": "Notre algorithme inclut les produits les plus rentables, ce qui conduit naturellement à une dépense moyenne par achat plus élevée et à une augmentation globale des ventes",
-            "title": "Croissance du panier moyen"
-          },
-          {
-            "description": "En offrant une proposition de valeur unique, nous facilitons le choix des vins pour les utilisateurs, les incitant à revenir et à acheter à nouveau",
-            "title": "Taux de retour utilisateur plus élevé"
+            "id": "offline",
+            "title": "Magasins de Vin Physiques",
+            "description": "Améliorez l'expérience en magasin avec un accès à notre IA d'accords mets-vins via code QR. Placé stratégiquement près des sections de vin, il aide les clients à faire des choix éclairés sans nécessiter de personnel sommelier dédié."
           }
         ]
       }
@@ -73,10 +70,11 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 500px;
-  gap: 64px;
+  padding: 60px 0;
   opacity: 0;
-  transition: 0.5s ease;
+  transition: 0.2s ease;
   transform: translateY(100px);
+  gap: 40px;
 }
 
 .for-whom.visible {
@@ -92,26 +90,50 @@ export default {
 .for-whom__card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 50px 50px 100px 50px;
   border-radius: 32px;
   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.08);
-  width: calc(33% - 12px);
+  width: calc(50% - 12px);
+  height: 100%; /* Ensure consistent height */
 }
 
 .for-whom__card-texts {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 100%;
 }
+
 .for-whom__card-title {
-  height: 144px;
   word-break: break-word;
   display: flex;
   align-items: flex-start;
   margin: 0;
 }
-.for-whom__card-infographic{
+
+/* Fixed-size image container with consistent height */
+.for-whom__card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Fixed height for all images */
+  margin: 15px 0;
+}
+
+.for-whom__card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.for-whom__card-description {
+  flex-grow: 1; /* Take remaining space */
+}
+
+.for-whom__card-infographic {
   padding-right: 100px;
 }
 
@@ -126,7 +148,11 @@ export default {
 
   .for-whom__card {
     padding: 50px 40px 80px 40px;
-    width: calc(33% - 10px);
+    width: calc(50% - 10px);
+  }
+
+  .for-whom__card-image {
+    height: 180px;
   }
 }
 
@@ -136,6 +162,10 @@ export default {
   }
   .for-whom__card {
     padding: 30px 30px 80px 30px;
+  }
+
+  .for-whom__card-image {
+    height: 160px;
   }
 }
 
@@ -147,6 +177,10 @@ export default {
   .for-whom__card {
     padding: 30px 30px 40px 30px;
   }
+
+  .for-whom__card-image {
+    height: 140px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -157,8 +191,12 @@ export default {
     flex-direction: column;
   }
   .for-whom__card {
-    padding: 30px 200px 40px 30px;
+    padding: 30px 30px 40px 30px;
     width: 100%;
+  }
+
+  .for-whom__card-image {
+    height: 180px; /* Larger on mobile for better visibility */
   }
 }
 
@@ -173,6 +211,9 @@ export default {
     padding: 30px 30px 40px 30px;
     width: 100%;
   }
+
+  .for-whom__card-image {
+    height: 160px;
+  }
 }
 </style>
-

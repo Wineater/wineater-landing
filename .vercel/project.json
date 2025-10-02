@@ -1,0 +1,11 @@
+{
+    "projectId":"prj_85SjRPEMlgqWKLk2yevt0E0pfpd0",
+    "orgId":"team_nrG9DtMF8Z1gEaWHxHnTMzsY",
+    "redirects": [
+          {
+            "source": "/playground",
+            "destination": "https://playground.wineater.com",
+            "permanent": true
+          }
+        ]
+}

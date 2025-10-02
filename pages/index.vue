@@ -1,19 +1,44 @@
 <template>
   <Header :show-links="true"/>
-  <div class="main-page">
-    <StartBanner/>
-    <AlgorithmInfo :visible="algorithmInfoVisible"/>
-    <ScienceBehind :visible="scienceBehindVisible"/>
-    <StatisticBanner :visible="statisticBannerVisible"/>
-    <ForWhom :visible="forWhomVisible"/>
-<!--    <BookDemoBanner :visible="bookDemoBannerVisible"/>-->
-    <HowItWorks :visible="howItWorksVisible"/>
-  </div>
+  <main class="main-page" role="main">
+    <!-- Hero Section with H1 -->
+    <section aria-labelledby="hero-title">
+      <StartBanner/>
+    </section>
+    
+    <!-- AI Sommelier Demo Section -->
+    <section aria-labelledby="demo-title" id="ai-sommelier">
+      <WidgetHome :visible="widgetHomeVisible"/>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section aria-labelledby="benefits-title" id="for-whom">
+      <ForWhom :visible="forWhomVisible"/>
+    </section>
+    
+    <!-- Statistics Section -->
+    <section aria-labelledby="stats-title" id="statistics">
+      <StatisticBanner :visible="statisticBannerVisible"/>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section aria-labelledby="how-it-works-title" id="how-it-works">
+      <HowItWorks :visible="howItWorksVisible"/>
+    </section>
+    
+    <!-- Partners Section -->
+    <section aria-labelledby="partners-title" id="partners">
+      <Partners :visible="partnersVisible"/>
+    </section>
+  </main>
   <Footer/>
 </template>
 
 <script setup>
+import Header from "~/components/LandingComponents/Header.vue";
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
+import Solutions from "~/components/LandingComponents/Solutions.vue";
+import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
 import AlgorithmInfo from "~/components/LandingComponents/AlgorithmInfo.vue";
 import ScienceBehind from "~/components/LandingComponents/ScienceBehind.vue";
 import StatisticBanner from "~/components/LandingComponents/StatisticBanner.vue";
@@ -22,8 +47,11 @@ import Footer from "~/components/LandingComponents/Footer.vue";
 import BookDemoBanner from "~/components/LandingComponents/BookDemoBanner.vue";
 import {ref, onMounted, onUnmounted} from 'vue';
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
-import Header from "~/components/LandingComponents/Header.vue";
+import Partners from "~/components/LandingComponents/Partners.vue";
 
+
+const solutionsVisible = ref(false);
+const widgetHomeVisible = ref(false);
 const algorithmInfoVisible = ref(false);
 const scienceBehindVisible = ref(false);
 const statisticBannerVisible = ref(false);
@@ -31,6 +59,7 @@ const aboutBannerVisible = ref(false);
 const forWhomVisible = ref(false);
 const bookDemoBannerVisible = ref(false);
 const howItWorksVisible = ref(false);
+const partnersVisible = ref(false);
 
 const isElementInViewport = (element, isVisible) => {
   const rect = element.getBoundingClientRect();
@@ -40,6 +69,8 @@ const isElementInViewport = (element, isVisible) => {
 };
 
 const updateVisibility = () => {
+  const solutions = document.querySelector('.solutions');
+  const widgetHome = document.querySelector('.widget-home');
   const algorithmInfo = document.querySelector('.algorithm-info');
   const scienceBehind = document.querySelector('.science-behind');
   const statisticBanner = document.querySelector('.statistic-banner');
@@ -47,14 +78,17 @@ const updateVisibility = () => {
   const forWhom = document.querySelector('.for-whom');
   const bookDemoBanner = document.querySelector('.book-demo');
   const howItWorks = document.querySelector('.how-it-works');
+  const partners = document.querySelector('.partners');
+  if (solutions) solutionsVisible.value = solutionsVisible.value ? true : isElementInViewport(solutions);
+  if (widgetHome) widgetHomeVisible.value = widgetHomeVisible.value ? true : isElementInViewport(widgetHome);
   if (algorithmInfo) algorithmInfoVisible.value = algorithmInfoVisible.value ? true : isElementInViewport(algorithmInfo);
   if (scienceBehind) scienceBehindVisible.value = scienceBehindVisible.value ? true : isElementInViewport(scienceBehind);
   if (statisticBanner) statisticBannerVisible.value = statisticBannerVisible.value ? true : isElementInViewport(statisticBanner);
   if (aboutBanner) aboutBannerVisible.value = aboutBannerVisible.value ? true : isElementInViewport(aboutBanner);
   if (forWhom) forWhomVisible.value = forWhomVisible.value ? true : isElementInViewport(forWhom);
-
   if (bookDemoBanner) bookDemoBannerVisible.value = bookDemoBannerVisible.value ? true : isElementInViewport(bookDemoBanner);
   if (howItWorks) howItWorksVisible.value = howItWorksVisible.value ? true : isElementInViewport(howItWorks);
+  if (partners) partnersVisible.value = partnersVisible.value ? true : isElementInViewport(partners);
 };
 
 onMounted(() => {

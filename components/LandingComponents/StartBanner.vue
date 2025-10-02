@@ -1,14 +1,19 @@
 <template>
   <div class="main-banner">
     <div class="main-banner__info">
-      <h1 class="h1 main-banner__info-title color-text">{{ $t('startBanner.WineAndFoodPairing') }}</h1>
+      <h1 id="hero-title" class="h1 main-banner__info-title color-text">
+        {{ $t('startBanner.WineAndFoodPairing') }}
+      </h1>
       <div class="main-banner__info-description">
-        <p class="p1 color-text">{{ $t('startBanner.title1') }} <span class="color-brand-1">{{ $t('startBanner.title2') }}</span>
-          {{ $t('startBanner.title3') }}</p>
+        <p class="p1 color-text">
+          {{ $t('startBanner.title1') }} 
+          <span class="color-brand-1">{{ $t('startBanner.title2') }}</span>
+          {{ $t('startBanner.title3') }}
+        </p>
         <div class="main-banner__info-hint"></div>
       </div>
     </div>
-    <div class="main-banner__img"></div>
+    <div class="main-banner__img" role="img" aria-label="Wineater AI Sommelier interface showing wine recommendations and food pairing technology"></div>
   </div>
 </template>
 <script setup>
