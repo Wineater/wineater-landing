@@ -1,13 +1,17 @@
 <template>
   <div class="widget-home" :class="{ 'visible': visible }">
-    <h2 class="h2 color-brand-6">
+    <h2 id="demo-title" class="h2 color-brand-6">
       {{ $t('WidgetHome.title') }}
     </h2>
+    
+    <p class="widget-description">
+      Experience our AI-powered wine pairing technology. Simply describe your meal or occasion, and our digital sommelier will recommend the perfect wine from your inventory.
+    </p>
 
     <!-- Use a keyed container that recreates completely when language changes -->
-    <div v-if="mounted" :key="locale" id="wineater-widget-conteiner"></div>
+    <div v-if="mounted" :key="locale" id="wineater-widget-conteiner" role="application" aria-label="Wineater AI Sommelier Widget - Interactive wine recommendation tool"></div>
 
-    <button v-if="showReloadButton" @click="reloadPage" class="reload-button">
+    <button v-if="showReloadButton" @click="reloadPage" class="reload-button" aria-label="Reload AI Sommelier Widget">
       Reload AI Sommelier Widget
     </button>
   </div>
@@ -101,6 +105,14 @@ onMounted(() => {
   #wineater-widget-conteiner {
     width: 100%;
     min-height: 400px;
+  }
+
+  .widget-description {
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    max-width: 800px;
   }
 
   .reload-button {

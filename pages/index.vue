@@ -1,17 +1,36 @@
 <template>
   <Header :show-links="true"/>
-  <div class="main-page">
-    <StartBanner/>
-<!--    <Solutions :visible="solutionsVisible"/>-->
-    <WidgetHome :visible="widgetHomeVisible"/>
-<!--    <AlgorithmInfo :visible="algorithmInfoVisible"/>-->
-<!--    <ScienceBehind :visible="scienceBehindVisible"/>-->
-    <ForWhom :visible="forWhomVisible"/>
-    <StatisticBanner :visible="statisticBannerVisible"/>
-<!--    <BookDemoBanner :visible="bookDemoBannerVisible"/>-->
-    <HowItWorks :visible="howItWorksVisible"/>
-    <Partners :visible="partnersVisible"/>
-  </div>
+  <main class="main-page" role="main">
+    <!-- Hero Section with H1 -->
+    <section aria-labelledby="hero-title">
+      <StartBanner/>
+    </section>
+    
+    <!-- AI Sommelier Demo Section -->
+    <section aria-labelledby="demo-title" id="ai-sommelier">
+      <WidgetHome :visible="widgetHomeVisible"/>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section aria-labelledby="benefits-title" id="for-whom">
+      <ForWhom :visible="forWhomVisible"/>
+    </section>
+    
+    <!-- Statistics Section -->
+    <section aria-labelledby="stats-title" id="statistics">
+      <StatisticBanner :visible="statisticBannerVisible"/>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section aria-labelledby="how-it-works-title" id="how-it-works">
+      <HowItWorks :visible="howItWorksVisible"/>
+    </section>
+    
+    <!-- Partners Section -->
+    <section aria-labelledby="partners-title" id="partners">
+      <Partners :visible="partnersVisible"/>
+    </section>
+  </main>
   <Footer/>
 </template>
 
