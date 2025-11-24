@@ -4,7 +4,6 @@ Allow: /
 # Disallow admin and API routes
 Disallow: /admin/
 Disallow: /api/
-Disallow: /_nuxt/
 Disallow: /server/
 
 # Allow important pages
@@ -15,6 +14,3 @@ Allow: /playground
 
 # Sitemap location
 Sitemap: https://wineater.com/sitemap.xml
-
-# Crawl delay (optional)
-Crawl-delay: 1

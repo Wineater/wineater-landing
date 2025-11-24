@@ -1,0 +1,6 @@
+const faq_vue_vue_type_style_index_0_scoped_5c6f5d2a_lang = ".faq-page[data-v-5c6f5d2a]{background:#fff;min-height:100vh}.faq-main[data-v-5c6f5d2a]{margin:0 auto;max-width:1200px;padding:80px 20px}.faq-hero[data-v-5c6f5d2a]{margin-bottom:60px;text-align:center}.faq-hero h1[data-v-5c6f5d2a]{color:#333;font-size:2.5rem;font-weight:700;margin-bottom:20px}.faq-hero p[data-v-5c6f5d2a]{color:#666;font-size:1.2rem;margin:0 auto;max-width:600px}.faq-content .faq-item[data-v-5c6f5d2a]{background:#f9f9f9;border-left:4px solid #8b0000;border-radius:8px;margin-bottom:40px;padding:30px}.faq-content .faq-item h2[data-v-5c6f5d2a]{color:#333;font-size:1.5rem;font-weight:600;margin-bottom:20px}.faq-content .faq-item .faq-answer p[data-v-5c6f5d2a]{color:#555;font-size:1rem;line-height:1.6;margin-bottom:15px}.faq-content .faq-item .faq-answer p[data-v-5c6f5d2a]:last-child{margin-bottom:0}@media (max-width:768px){.faq-main[data-v-5c6f5d2a]{padding:40px 16px}.faq-hero h1[data-v-5c6f5d2a]{font-size:2rem}.faq-content .faq-item[data-v-5c6f5d2a]{padding:20px}.faq-content .faq-item h2[data-v-5c6f5d2a]{font-size:1.3rem}}";
+
+const faqStyles_D8CGvjnI = [faq_vue_vue_type_style_index_0_scoped_5c6f5d2a_lang];
+
+export { faqStyles_D8CGvjnI as default };
+//# sourceMappingURL=faq-styles.D8CGvjnI.mjs.map
