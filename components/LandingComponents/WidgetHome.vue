@@ -4,7 +4,7 @@
       {{ $t('WidgetHome.title') }}
     </h2>
     
-    <p class="widget-description">
+    <p class="widget-description p1">
       Experience our AI-powered wine pairing technology. Simply describe your meal or occasion, and our digital sommelier will recommend the perfect wine from your inventory.
     </p>
 
@@ -48,7 +48,7 @@ const loadWidgetScripts = () => {
 
     const moduleScript = document.createElement('script');
     moduleScript.type = 'module';
-    moduleScript.src = 'https://unpkg.com/wineater-bot@latest/dist/wineater-chatbot.umd.js';
+    moduleScript.src = 'https://unpkg.com/wineater-bot@3.4.4/dist/wineater-chatbot.mjs';
     document.head.appendChild(moduleScript);
 
     // Show reload button after 5 seconds if widget might not have loaded
