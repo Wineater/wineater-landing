@@ -8,11 +8,11 @@
 		"title": "Solutions"
 	},
 	"WidgetHome": {
-		"title": "Essayez notre moteur de recommandation"
+		"title": "Voyez-le en action — essayez-le vous-même"
 	},
 	"BookDemo": {
 		"title1": "Développez votre épicerie en ligne avec ",
-		"title2": "Ai sommelier"
+		"title2": "l'IA sommelier"
 	},
 	"HowItWorks": {
 		"title": "Comment ça marche"
@@ -24,23 +24,83 @@
 		"title": "Ils nous font confiance"
 	},
 	"Footer": {
-		"text": "Planifiez une démo de 30 min",
-		"title": "Débutez maintenant!",
+		"text": "Arrêtez de perdre des ventes de vin par indécision",
+		"title": "Prêt à grandir?",
+		"trial": "1 mois d'essai gratuit · Sans carte bancaire",
 		"ctaPrimary": "Commencer gratuitement",
 		"ctaSecondary": "Demander une démo"
 	},
 	"ForWhom": {
-		"title": "Conçu pour votre activité"
+		"title": "Une IA. Trois métiers. Tous gagnants.",
+		"subtitle": "Que vous gériez un restaurant, une cave ou une boutique en ligne — Wineater s'intègre à votre façon de travailler et aide vos clients à choisir avec confiance.",
+		"problemLabel": "Le problème",
+		"solutionLabel": "Comment Wineater le résout"
+	},
+	"ProblemBanner": {
+		"tag": "Le défi",
+		"title1": "Le vin est difficile à vendre.",
+		"title2": "Pas parce que les clients n'en veulent pas.",
+		"desc": "Ils en veulent — ils ne savent juste pas lequel choisir. Et quand personne ne les guide, ils n'achètent pas. C'est un problème pour chaque restaurant, cave et boutique en ligne.",
+		"cta": "Voir comment Wineater résout ça",
+		"stat1": "des acheteurs de vin se sentent peu confiants pour choisir une bouteille",
+		"stat2": "disent ne pas recevoir de conseils utiles dans les établissements",
+		"stat3": "plus susceptibles d'acheter avec une recommandation personnalisée",
+		"pain1Title": "Ventes perdues en rayon",
+		"pain1Text": "Les clients choisissent le vin le moins cher qu'ils connaissent — ou repartent sans acheter. Personne ne les guide parmi 200 options.",
+		"pain2Title": "Upsell manqué à table",
+		"pain2Text": "Les convives veulent une recommandation de vin avec leur repas mais le personnel est occupé. Le moment d'upsell passe. Le chiffre d'affaires reste sur la table.",
+		"pain3Title": "Abandons sur votre boutique en ligne",
+		"pain3Text": "Le vin a le taux de rebond le plus élevé du e-commerce alimentaire. La paralysie du choix fait fuir les visiteurs avant qu'ils finalisent leur achat."
+	},
+	"HowToStart": {
+		"tag": "Pour commencer",
+		"title": "Opérationnel",
+		"titleAccent": "en heures, pas en mois.",
+		"subtitle": "Pas de longues intégrations. Pas de configuration complexe. Partagez votre catalogue de vins, nous configurons Wineater pour votre activité, vous voyez les résultats.",
+		"step1Title": "Partagez votre catalogue de vins",
+		"step1Text": "Exportez votre liste de vins en CSV ou connectez via API. Moins d'une journée.",
+		"step2Title": "Nous configurons Wineater",
+		"step2Text": "Notre équipe paramètre l'IA avec votre inventaire en 24 heures.",
+		"step3Title": "Ajoutez à votre activité",
+		"step3Text": "QR code, widget intégré ou lien API — votre choix, prend 1 heure.",
+		"step4Title": "Observez les résultats",
+		"step4Text": "Les clients s'engagent, achètent avec confiance et reviennent.",
+		"qrLabel": "Pour restaurants & magasins",
+		"qrDuration": "En ligne en 1 heure",
+		"qrTitle": "QR Code",
+		"qrDesc": "Imprimez un QR code, placez-le aux tables ou près des rayons vins. C'est tout. Vos clients scannent et reçoivent des recommandations personnalisées instantanées.",
+		"qrF1": "Aucune application à télécharger",
+		"qrF2": "Fonctionne sur tout smartphone",
+		"qrF3": "Installation instantanée, sans technique",
+		"widgetLabel": "Pour les boutiques en ligne",
+		"widgetDuration": "En ligne en 1 jour",
+		"widgetTitle": "Widget intégrable",
+		"widgetDesc": "Ajoutez un seul extrait JavaScript à votre site. Le widget Wineater apparaît sur vos pages vin et commence à convertir les visiteurs immédiatement.",
+		"widgetF1": "Une seule balise script à installer",
+		"widgetF2": "S'adapte à l'identité de votre boutique",
+		"widgetF3": "Recommande uniquement depuis votre catalogue",
+		"apiLabel": "Pour les équipes avancées",
+		"apiDuration": "En ligne en 1 semaine",
+		"apiTitle": "Intégration API",
+		"apiDesc": "Connectez Wineater directement à votre moteur de recherche. Contrôle total, marque blanche complète, aucune empreinte Wineater en front-end.",
+		"apiF1": "API RESTful, facile à intégrer",
+		"apiF2": "Marque blanche complète",
+		"apiF3": "Synchronisation inventaire en temps réel",
+		"trialBadge": "Gratuit 1 mois",
+		"trialTitle": "Essayez avec votre vrai catalogue",
+		"trialDesc": "Sans engagement. Partagez votre liste de vins, nous configurons tout, vous l'utilisez un mois et voyez exactement ce que ça apporte à votre activité.",
+		"trialCta": "Commencer l'essai gratuit"
 	},
 	"Header": {
 		"About": "Sur",
-		"ForWhom": "Pour qui",
+		"ForRestaurants": "Restaurants & Bars",
+		"ForStores": "Cavistes",
 		"HowItWorks": "Comment ça marche",
-		"TryMe": "Essayez!",
+		"TryMe": "Essayez",
 		"GetStarted": "Commencer"
 	},
 	"playground": {
-		"BeSureToProvideDetails": "Sublimez votre expérience gastronomique avec Wineater, l'expert des accords mets et vins parfaits. Il vous suffit de nous donner les détails de votre plat, et nous vous recommanderons le compagnon vin idéal",
+		"BeSureToProvideDetails": "Sublimez votre expérience gastronomique avec Wineater, l'expert des accords mets et vins parfaits.",
 		"BookDemo": "Demander une démo",
 		"Buy": "Acheter",
 		"FindAMatch": "Accorder",
@@ -51,19 +111,22 @@
 		"Region": "Région",
 		"Type": "Couleur",
 		"WhatDoYouWannaEat": "Que voulez-vous manger? ex., Salade de thon",
-		"WineaterFind": " Wineater trouver"
+		"WineaterFind": "Wineater trouver"
 	},
 	"scienceBehind": {
-		"text": "Les utilisateurs saisissent le plat qu'ils prévoient de déguster, et notre algorithme IA analysera leurs réponses pour suggérer une sélection de vins qui complètent le mets en se basant sur les principes scientifiques des accords mets et vins",
+		"text": "Les utilisateurs saisissent le plat qu'ils prévoient de déguster, et notre algorithme IA analysera leurs réponses pour suggérer une sélection de vins.",
 		"title": "La science derrière"
 	},
 	"startBanner": {
-		"WineAndFoodPairing": "Chaque client mérite un sommelier",
-		"subtitle1": "Wineater offre des recommandations de vin personnalisées pour toute demande —",
-		"subtitle2": "repas, humeur ou occasion.",
-		"subtitle3": "Pour les restaurants, bars et cavistes.",
+		"eyebrow": "Sommelier IA pour restaurants, bars & cavistes",
+		"headline1": "Transformez l'indécision",
+		"headline2": "en ventes de vin.",
+		"subtitle": "Vos clients veulent le vin parfait. Ils ne savent juste pas lequel. L'IA de Wineater donne des recommandations personnalisées en secondes — depuis votre inventaire, pour toute demande.",
 		"ctaPrimary": "Commencer gratuitement",
-		"ctaSecondary": "Demander une démo"
+		"ctaSecondary": "Demander une démo",
+		"proof1": "d'upsell en plus",
+		"proof2": "acheteurs engagés",
+		"proof3": "vins méconnus vendus"
 	},
 	"StatisticBanner": {
 		"label1": "1 sur",
@@ -75,22 +138,22 @@
 		"label3": "plus de",
 		"sub3": "vins recommandés",
 		"text3": "proviennent de stocks moins connus, réduisant la dépendance aux meilleures ventes",
-		"title1": "Les consommateurs ont du mal à sélectionner leur vin",
-		"title2": "Wineater aide à faire un bon choix !"
+		"title1": "Les chiffres parlent d'eux-mêmes",
+		"title2": "De vrais résultats pour de vraies entreprises."
 	},
 	"SignupForm": {
 		"title": "Commencez votre essai gratuit",
 		"subtitle": "Partagez vos coordonnées et nous vous configurerons dans les 24 heures.",
 		"name": "Votre nom",
 		"namePlaceholder": "Jean Dupont",
-		"businessName": "Nom de l'établissement",
+		"businessName": "Nom du restaurant / bar / magasin",
 		"businessNamePlaceholder": "Le Petit Bistro",
 		"email": "Adresse e-mail",
-		"emailPlaceholder": "jean@exemple.com",
-		"submit": "Commencer",
+		"emailPlaceholder": "votre email professionnel",
+		"submit": "Commencer — c'est gratuit",
 		"submitting": "Envoi...",
-		"success": "Nous vous contacterons dans les 24 heures.",
-		"successTitle": "Vous êtes sur la liste !",
+		"success": "Nous vous contacterons dans les 24 heures pour tout configurer.",
+		"successTitle": "C'est parti !",
 		"close": "Fermer",
 		"error": "Une erreur s'est produite. Veuillez réessayer."
 	}

@@ -9,9 +9,13 @@
           {{ $t('Footer.text') }}
           <div class="footer__text-arrow"></div>
         </div>
+        <div class="footer__trial color-brand-4">{{ $t('Footer.trial') }}</div>
         <div class="footer__btns">
           <div class="footer__cta-primary" @click="$emit('getStarted')">
             <span class="p1">{{ $t('Footer.ctaPrimary') }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
           <Button @btnClick="openDemoPage">{{ $t('playground.BookDemo') }}</Button>
         </div>
@@ -82,6 +86,14 @@
   flex-wrap: wrap;
 }
 
+.footer__trial {
+  font-family: 'PoppinsRegular', sans-serif;
+  font-size: 14px;
+  opacity: 0.75;
+  margin-top: -16px;
+  text-align: center;
+}
+
 .footer__cta-primary {
   padding: 20px 40px;
   border-radius: 72px;
@@ -89,15 +101,21 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  transition: opacity 0.2s;
+  gap: 8px;
+  transition: opacity 0.2s, transform 0.2s;
 
   span {
     color: #7E27ED;
     font-family: 'PoppinsMedium', sans-serif;
   }
 
+  svg {
+    color: #7E27ED;
+  }
+
   &:hover {
     opacity: 0.9;
+    transform: translateY(-1px);
   }
 }
 .footer__links{

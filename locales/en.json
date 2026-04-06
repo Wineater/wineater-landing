@@ -8,7 +8,7 @@
 		"title": "Solutions"
 	},
 	"WidgetHome": {
-		"title": "Try our pairing engine"
+		"title": "See it in action — try it yourself"
 	},
 	"BookDemo": {
 		"title1": "Grow your online grocery business with the ",
@@ -18,13 +18,17 @@
 		"title": "How it works"
 	},
 	"Footer": {
-		"text": "Schedule a 30-minute demo",
-		"title": "Get Started!",
-		"ctaPrimary": "Get started free",
+		"text": "Stop losing wine sales to indecision",
+		"title": "Ready to grow?",
+		"trial": "1-month free trial · No credit card required",
+		"ctaPrimary": "Start for free",
 		"ctaSecondary": "Book a demo"
 	},
 	"ForWhom": {
-		"title": "Built for your business"
+		"title": "One AI. Three businesses. All winning.",
+		"subtitle": "Whether you run a restaurant, a wine store, or an online shop — Wineater fits in how you work and helps your customers choose with confidence.",
+		"problemLabel": "The problem",
+		"solutionLabel": "How Wineater solves it"
 	},
 	"Partners": {
 		"title": "Part of"
@@ -32,11 +36,67 @@
 	"Clients": {
 		"title": "Trusted by"
 	},
+	"ProblemBanner": {
+		"tag": "The challenge",
+		"title1": "Wine is hard to sell.",
+		"title2": "Not because customers don't want it.",
+		"desc": "They want it — they just don't know which one to pick. And when there's no one to guide them, they don't buy. That's a problem for every restaurant, store, and online shop selling wine.",
+		"cta": "See how Wineater fixes this",
+		"stat1": "of wine shoppers feel unconfident selecting a bottle",
+		"stat2": "say they don't get helpful guidance in venues",
+		"stat3": "more likely to buy when they get a personalized recommendation",
+		"pain1Title": "Lost sales at the shelf",
+		"pain1Text": "Customers pick the cheapest wine they recognize — or leave without buying. There's no one to guide them through 200 options.",
+		"pain2Title": "Missed upsell at the table",
+		"pain2Text": "Guests want a wine recommendation with their meal but staff are busy. The upsell moment passes. Revenue stays on the table.",
+		"pain3Title": "Drop-offs in your online store",
+		"pain3Text": "Wine has the highest bounce rate in F&B e-commerce. Choice paralysis drives visitors away before they complete the purchase."
+	},
+	"HowToStart": {
+		"tag": "Getting started",
+		"title": "Up and running",
+		"titleAccent": "in hours, not months.",
+		"subtitle": "No long integrations. No complex setup. Share your wine catalog, we configure Wineater for your business, you start seeing results.",
+		"step1Title": "Share your wine catalog",
+		"step1Text": "Export your wine list as CSV or connect via API. Takes less than a day.",
+		"step2Title": "We configure Wineater",
+		"step2Text": "Our team sets up the AI with your inventory within 24 hours.",
+		"step3Title": "Add to your business",
+		"step3Text": "QR code, widget embed, or API link — your choice, takes 1 hour.",
+		"step4Title": "Watch results grow",
+		"step4Text": "Customers engage, buy with confidence, and come back.",
+		"qrLabel": "For restaurants & offline stores",
+		"qrDuration": "Live in 1 hour",
+		"qrTitle": "QR Code",
+		"qrDesc": "Print a QR code, place it at tables or near wine shelves. That's it. Your customers scan and get instant personalized recommendations.",
+		"qrF1": "No app download needed",
+		"qrF2": "Works on any smartphone",
+		"qrF3": "Instant setup, zero tech required",
+		"widgetLabel": "For online retailers",
+		"widgetDuration": "Live in 1 day",
+		"widgetTitle": "Embeddable Widget",
+		"widgetDesc": "Add a single JavaScript snippet to your site. Wineater widget appears on your wine pages and starts converting visitors immediately.",
+		"widgetF1": "One script tag to install",
+		"widgetF2": "Matches your store's branding",
+		"widgetF3": "Recommends only from your catalog",
+		"apiLabel": "For advanced teams",
+		"apiDuration": "Live in 1 week",
+		"apiTitle": "API Integration",
+		"apiDesc": "Connect Wineater directly to your search or recommendation engine. Full control, fully branded, zero Wineater footprint on the front end.",
+		"apiF1": "RESTful API, easy to integrate",
+		"apiF2": "Full white-label capability",
+		"apiF3": "Real-time inventory sync",
+		"trialBadge": "Free for 1 month",
+		"trialTitle": "Try it with your real catalog",
+		"trialDesc": "No commitment. Share your wine list, we set everything up, you run it for a month and see exactly what it does for your business.",
+		"trialCta": "Start your free trial"
+	},
 	"Header": {
 		"About": "About",
-		"ForWhom": "For whom",
+		"ForRestaurants": "Restaurants & Bars",
+		"ForStores": "Wine Stores",
 		"HowItWorks": "How it works",
-		"TryMe": "Try it!",
+		"TryMe": "Try it",
 		"GetStarted": "Get started"
 	},
 	"playground": {
@@ -58,12 +118,15 @@
 		"title": "The science behind"
 	},
 	"startBanner": {
-		"WineAndFoodPairing": "Every customer deserves a sommelier",
-		"subtitle1": "Wineater gives personalized wine recommendations for any query —",
-		"subtitle2": "meal, mood, or occasion.",
-		"subtitle3": "For restaurants, bars, and wine retailers.",
-		"ctaPrimary": "Get started free",
-		"ctaSecondary": "Book a demo"
+		"eyebrow": "AI Sommelier for restaurants, bars & wine stores",
+		"headline1": "Turn wine indecision",
+		"headline2": "into wine sales.",
+		"subtitle": "Your customers want the perfect wine. They just don't know which one. Wineater's AI gives personalized recommendations in seconds — from your inventory, for any query.",
+		"ctaPrimary": "Start for free",
+		"ctaSecondary": "Book a demo",
+		"proof1": "upsell increase",
+		"proof2": "shoppers engage",
+		"proof3": "lesser-known wines sold"
 	},
 	"StatisticBanner": {
 		"label1": "every",
@@ -75,22 +138,22 @@
 		"label3": "more than",
 		"sub3": "of wines recommended",
 		"text3": "come from lesser-known stock, reducing reliance on best-sellers",
-		"title1": "Consumers struggle when selecting wine",
-		"title2": "Wineater helps make a good choice!"
+		"title1": "The numbers speak for themselves",
+		"title2": "Real results from real businesses."
 	},
 	"SignupForm": {
 		"title": "Start your free trial",
 		"subtitle": "Share your details and we'll set you up within 24 hours.",
 		"name": "Your name",
 		"namePlaceholder": "John Smith",
-		"businessName": "Business name",
+		"businessName": "Restaurant / bar / store name",
 		"businessNamePlaceholder": "Le Petit Bistro",
 		"email": "Email address",
-		"emailPlaceholder": "john@example.com",
-		"submit": "Get started",
+		"emailPlaceholder": "your business email",
+		"submit": "Get started — it's free",
 		"submitting": "Sending...",
-		"success": "We'll be in touch within 24 hours.",
-		"successTitle": "You're on the list!",
+		"success": "We'll contact you within 24 hours to set everything up.",
+		"successTitle": "You're in!",
 		"close": "Close",
 		"error": "Something went wrong. Please try again."
 	}

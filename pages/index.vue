@@ -6,40 +6,52 @@
   </Transition>
 
   <main class="main-page" role="main">
-    <!-- Hero Section -->
+
+    <!-- 1. Hero — "Turn wine indecision into wine sales" -->
     <section aria-labelledby="hero-title">
       <StartBanner @get-started="showSignup = true"/>
     </section>
 
-    <!-- Client Logos -->
+    <!-- 2. Client logos — social proof above the fold -->
     <section>
       <ClientLogos/>
     </section>
 
-    <!-- AI Sommelier Demo Section -->
+    <!-- 3. Problem — make them feel understood -->
+    <section id="problem">
+      <ProblemBanner @scroll-to-demo="scrollToDemo"/>
+    </section>
+
+    <!-- 4. Demo — "see it for yourself" -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
       <WidgetHome :visible="widgetHomeVisible"/>
     </section>
 
-    <!-- For Whom Section -->
+    <!-- 5. For whom — 3 segments with sales copy and ROI -->
     <section aria-labelledby="forwho-title" id="for-whom">
       <ForWhom :visible="forWhomVisible"/>
     </section>
 
-    <!-- Statistics Section -->
+    <!-- 6. Stats — proof it works -->
     <section aria-labelledby="stats-title" id="statistics">
       <StatisticBanner :visible="statisticBannerVisible"/>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- 7. How it works — the algorithm explained -->
     <section aria-labelledby="how-it-works-title" id="how-it-works">
       <HowItWorks :visible="howItWorksVisible"/>
     </section>
 
-    <!-- Partners Section -->
+    <!-- 8. How to start — remove the "sounds complicated" objection -->
+    <section id="get-started">
+      <HowToStart @get-started="showSignup = true"/>
+    </section>
+
+    <!-- 9. Partners -->
     <section aria-labelledby="partners-title" id="partners">
       <Partners :visible="partnersVisible"/>
     </section>
+
   </main>
 
   <Footer @get-started="showSignup = true"/>
@@ -50,9 +62,11 @@ import Header from "~/components/LandingComponents/Header.vue";
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
 import ClientLogos from "~/components/LandingComponents/ClientLogos.vue";
 import SignupForm from "~/components/LandingComponents/SignupForm.vue";
+import ProblemBanner from "~/components/LandingComponents/ProblemBanner.vue";
 import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
 import StatisticBanner from "~/components/LandingComponents/StatisticBanner.vue";
 import HowItWorks from "~/components/LandingComponents/HowItWorks.vue";
+import HowToStart from "~/components/LandingComponents/HowToStart.vue";
 import Footer from "~/components/LandingComponents/Footer.vue";
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
 import Partners from "~/components/LandingComponents/Partners.vue";
@@ -64,6 +78,11 @@ const statisticBannerVisible = ref(false);
 const forWhomVisible = ref(false);
 const howItWorksVisible = ref(false);
 const partnersVisible = ref(false);
+
+const scrollToDemo = () => {
+  const el = document.querySelector('#ai-sommelier');
+  if (el) window.scrollTo({ top: el.offsetTop - 120, behavior: 'smooth' });
+};
 
 const isElementInViewport = (element) => {
   const rect = element.getBoundingClientRect();
