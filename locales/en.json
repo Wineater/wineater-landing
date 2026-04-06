@@ -18,39 +18,26 @@
 		"title": "How it works"
 	},
 	"Footer": {
-		"text": "Schedule a 30-minutes demo",
-		"title": "Get Started!"
-	},
-	"forWhom": {
-		"cards": [
-			{
-				"description": "Consumers are more likely to purchase wine when they are confident that the recommended bottle complements their meal",
-				"infographic": "",
-				"title": "Increase in the Number of Orders"
-			},
-			{
-				"description": "Our algorithm includes the most profitable products, naturally leading to a higher average spend per purchase and boosting overall sales",
-				"infographic": "",
-				"title": "Average Check Growth "
-			},
-			{
-				"description": "By offering a unique value proposition, we make it convenient for users to choose wines, encouraging repeat visits and purchases",
-				"infographic": "",
-				"title": "Higher User Return Rate"
-			}
-		]
+		"text": "Schedule a 30-minute demo",
+		"title": "Get Started!",
+		"ctaPrimary": "Get started free",
+		"ctaSecondary": "Book a demo"
 	},
 	"ForWhom": {
-		"title": "For wine retailers"
+		"title": "Built for your business"
 	},
 	"Partners": {
 		"title": "Part of"
+	},
+	"Clients": {
+		"title": "Trusted by"
 	},
 	"Header": {
 		"About": "About",
 		"ForWhom": "For whom",
 		"HowItWorks": "How it works",
-		"TryMe": "Try it!"
+		"TryMe": "Try it!",
+		"GetStarted": "Get started"
 	},
 	"playground": {
 		"BeSureToProvideDetails": "Elevate your dining experience with Wineater, the expert in perfect wine pairings for your meal. Simply provide your dish details, and we'll recommend the ideal wine companion",
@@ -63,7 +50,7 @@
 		"perfectWine": "perfect&nbsp;wine",
 		"Region": "Region",
 		"Type": "Type",
-		"WhatDoYouWannaEat": "What’s on your plate? e.g., Tuna Salad",
+		"WhatDoYouWannaEat": "What's on your plate? e.g., Tuna Salad",
 		"WineaterFind": "Wineater find"
 	},
 	"scienceBehind": {
@@ -71,17 +58,40 @@
 		"title": "The science behind"
 	},
 	"startBanner": {
-		"title1": "Integrate our advanced food and wine pairing algorithm into your website to",
-		"title2": " help users effortlessly choose the perfect wine",
-		"title3": " from your assortment.",
-		"WineAndFoodPairing": "Digital AI sommelier boosting online wine sales"
+		"WineAndFoodPairing": "Every customer deserves a sommelier",
+		"subtitle1": "Wineater gives personalized wine recommendations for any query —",
+		"subtitle2": "meal, mood, or occasion.",
+		"subtitle3": "For restaurants, bars, and wine retailers.",
+		"ctaPrimary": "Get started free",
+		"ctaSecondary": "Book a demo"
 	},
 	"StatisticBanner": {
-		"text1": "engages with Wineater's AI Sommelier for a help with choosing wine",
-		"text2": "by integrating Wineater into wine online store",
-		"text3": "is propoesd from lesser-known stock, reducing reliance on best-sellers",
+		"label1": "every",
+		"sub1": "shopper",
+		"text1": "engages with Wineater's AI Sommelier for help choosing wine",
+		"label2": "up to",
+		"sub2": "upsell increase",
+		"text2": "by integrating Wineater into your store",
+		"label3": "more than",
+		"sub3": "of wines recommended",
+		"text3": "come from lesser-known stock, reducing reliance on best-sellers",
 		"title1": "Consumers struggle when selecting wine",
 		"title2": "Wineater helps make a good choice!"
-
+	},
+	"SignupForm": {
+		"title": "Start your free trial",
+		"subtitle": "Share your details and we'll set you up within 24 hours.",
+		"name": "Your name",
+		"namePlaceholder": "John Smith",
+		"businessName": "Business name",
+		"businessNamePlaceholder": "Le Petit Bistro",
+		"email": "Email address",
+		"emailPlaceholder": "john@example.com",
+		"submit": "Get started",
+		"submitting": "Sending...",
+		"success": "We'll be in touch within 24 hours.",
+		"successTitle": "You're on the list!",
+		"close": "Close",
+		"error": "Something went wrong. Please try again."
 	}
 }

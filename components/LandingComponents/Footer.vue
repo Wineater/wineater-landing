@@ -9,7 +9,10 @@
           {{ $t('Footer.text') }}
           <div class="footer__text-arrow"></div>
         </div>
-        <div class="footer__btn">
+        <div class="footer__btns">
+          <div class="footer__cta-primary" @click="$emit('getStarted')">
+            <span class="p1">{{ $t('Footer.ctaPrimary') }}</span>
+          </div>
           <Button @btnClick="openDemoPage">{{ $t('playground.BookDemo') }}</Button>
         </div>
       </div>
@@ -17,22 +20,23 @@
         <div class="footer__logo"></div>
         <div class="footer__links">
           <a class="p1 color-brand-4" href="mailto:hi@wineater.com">hi@wineater.com</a>
-          <a class="p1 color-brand-4" href="tel:334563278">+33 7 81 01 40 33</a>
+          <a class="p1 color-brand-4" href="tel:+33781014033">+33 7 81 01 40 33</a>
           <a class="p1 color-brand-4" href="https://linkedin.com/company/wineater" target="_blank">Linkedin</a>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped lang="scss">
 .footer {
   width: 100%;
   height: 890px;
-  background-size: cover;
+  background-color: #2FC0BF;
+  background-size: 100% 100%;
   background-position: top center;
   background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/footer.webp);
+  overflow: hidden;
 }
 
 .footer__content {
@@ -69,10 +73,32 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-.footer__btn{
+.footer__btns {
   display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 12px;
   margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.footer__cta-primary {
+  padding: 20px 40px;
+  border-radius: 72px;
+  background: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s;
+
+  span {
+    color: #7E27ED;
+    font-family: 'PoppinsMedium', sans-serif;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
 }
 .footer__links{
   display: flex;
@@ -183,12 +209,11 @@
 import Button from "~/components/Buttons/Button.vue";
 
 export default {
-  components: {
-    Button,
-  },
+  components: { Button },
+  emits: ['getStarted'],
   methods: {
     openDemoPage() {
-      window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank')
+      window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank');
     },
   },
 };

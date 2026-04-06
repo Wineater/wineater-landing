@@ -8,7 +8,7 @@
 		"title": "Solutions"
 	},
 	"WidgetHome": {
-		"title": "Algorithme en action"
+		"title": "Essayez notre moteur de recommandation"
 	},
 	"BookDemo": {
 		"title1": "Développez votre épicerie en ligne avec ",
@@ -20,37 +20,24 @@
 	"Partners": {
 		"title": "Membres de"
 	},
+	"Clients": {
+		"title": "Ils nous font confiance"
+	},
 	"Footer": {
 		"text": "Planifiez une démo de 30 min",
-		"title": "Débutez maintenant!"
-	},
-	"forWhom": {
-		"cards": [
-			{
-				"description": "Téléchargez tous les SKU de vins et de produits alimentaires, l'algorithme analysera votre catalogue et sélectionnera des combinaisons et des SKU spécifiques.",
-				"infographic": "some infographics",
-				"title": "Détaillants"
-			},
-			{
-				"description": "Téléchargez votre menu, l'algorithme analysera les ingrédients et vous aidera à établir une carte des vins adaptée.",
-				"infographic": "some infographics",
-				"title": "Horeca"
-			},
-			{
-				"description": "some text",
-				"infographic": "some infographics",
-				"title": "Les fabricants"
-			}
-		]
+		"title": "Débutez maintenant!",
+		"ctaPrimary": "Commencer gratuitement",
+		"ctaSecondary": "Demander une démo"
 	},
 	"ForWhom": {
-		"title": "Avantages"
+		"title": "Conçu pour votre activité"
 	},
 	"Header": {
 		"About": "Sur",
 		"ForWhom": "Pour qui",
 		"HowItWorks": "Comment ça marche",
-		"TryMe": "Essaie-moi"
+		"TryMe": "Essayez!",
+		"GetStarted": "Commencer"
 	},
 	"playground": {
 		"BeSureToProvideDetails": "Sublimez votre expérience gastronomique avec Wineater, l'expert des accords mets et vins parfaits. Il vous suffit de nous donner les détails de votre plat, et nous vous recommanderons le compagnon vin idéal",
@@ -71,16 +58,40 @@
 		"title": "La science derrière"
 	},
 	"startBanner": {
-		"title1": "Intégrez notre algorithme avancé d'accords mets et vins à votre site web pour aider vos utilisateurs à",
-		"title2": " choisir facilement le vin parfait parmi",
-		"title3": " votre assortiment.",
-		"WineAndFoodPairing": "Sommelier IA boostant les ventes de vin en ligne"
+		"WineAndFoodPairing": "Chaque client mérite un sommelier",
+		"subtitle1": "Wineater offre des recommandations de vin personnalisées pour toute demande —",
+		"subtitle2": "repas, humeur ou occasion.",
+		"subtitle3": "Pour les restaurants, bars et cavistes.",
+		"ctaPrimary": "Commencer gratuitement",
+		"ctaSecondary": "Demander une démo"
 	},
 	"StatisticBanner": {
-		"text1": "interagit avec le Sommelier IA de Wineater pour obtenir de l'aide dans le choix du vin",
-		"text2": "en intégrant Wineater dans une boutique de vin en ligne",
-		"text3": "est proposé parmi des stocks moins connus, réduisant la dépendance aux meilleures ventes",
-		"title1": "Les consommateurs ont du mal À sélectionner leur vin",
+		"label1": "1 sur",
+		"sub1": "acheteur",
+		"text1": "interagit avec le Sommelier IA de Wineater pour choisir son vin",
+		"label2": "jusqu'à",
+		"sub2": "d'upsell en plus",
+		"text2": "en intégrant Wineater dans votre boutique",
+		"label3": "plus de",
+		"sub3": "vins recommandés",
+		"text3": "proviennent de stocks moins connus, réduisant la dépendance aux meilleures ventes",
+		"title1": "Les consommateurs ont du mal à sélectionner leur vin",
 		"title2": "Wineater aide à faire un bon choix !"
+	},
+	"SignupForm": {
+		"title": "Commencez votre essai gratuit",
+		"subtitle": "Partagez vos coordonnées et nous vous configurerons dans les 24 heures.",
+		"name": "Votre nom",
+		"namePlaceholder": "Jean Dupont",
+		"businessName": "Nom de l'établissement",
+		"businessNamePlaceholder": "Le Petit Bistro",
+		"email": "Adresse e-mail",
+		"emailPlaceholder": "jean@exemple.com",
+		"submit": "Commencer",
+		"submitting": "Envoi...",
+		"success": "Nous vous contacterons dans les 24 heures.",
+		"successTitle": "Vous êtes sur la liste !",
+		"close": "Fermer",
+		"error": "Une erreur s'est produite. Veuillez réessayer."
 	}
 }

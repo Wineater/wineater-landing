@@ -7,29 +7,29 @@
 
     <div class="statistic-banner__grid">
       <div class="statistic-banner__card">
-        <div class="statistic-banner__label">every</div>
+        <div class="statistic-banner__label">{{ $t('StatisticBanner.label1') }}</div>
         <div class="statistic-banner__value">
           <span class="value-number">{{ animatedPercent1 }}</span><span class="value-suffix">rd</span>
         </div>
-        <div class="statistic-banner__subtitle">user</div>
+        <div class="statistic-banner__subtitle">{{ $t('StatisticBanner.sub1') }}</div>
         <div class="statistic-banner__description p1">{{ $t('StatisticBanner.text1') }}</div>
       </div>
 
       <div class="statistic-banner__card">
-        <div class="statistic-banner__label">up to</div>
+        <div class="statistic-banner__label">{{ $t('StatisticBanner.label2') }}</div>
         <div class="statistic-banner__value">
           <span class="value-number">{{ animatedPercent2 }}</span><span class="value-suffix">%</span>
         </div>
-        <div class="statistic-banner__subtitle">upsell increase</div>
+        <div class="statistic-banner__subtitle">{{ $t('StatisticBanner.sub2') }}</div>
         <div class="statistic-banner__description p1">{{ $t('StatisticBanner.text2') }}</div>
       </div>
 
       <div class="statistic-banner__card">
-        <div class="statistic-banner__label">more than</div>
+        <div class="statistic-banner__label">{{ $t('StatisticBanner.label3') }}</div>
         <div class="statistic-banner__value">
           <span class="value-number">{{ animatedPercent3 }}</span><span class="value-suffix">%</span>
         </div>
-        <div class="statistic-banner__subtitle">wines</div>
+        <div class="statistic-banner__subtitle">{{ $t('StatisticBanner.sub3') }}</div>
         <div class="statistic-banner__description p1">{{ $t('StatisticBanner.text3') }}</div>
       </div>
     </div>

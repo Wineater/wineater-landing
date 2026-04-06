@@ -1,50 +1,64 @@
 <template>
-  <Header :show-links="true"/>
+  <Header :show-links="true" @get-started="showSignup = true"/>
+
+  <Transition name="fade">
+    <SignupForm v-if="showSignup" @close="showSignup = false"/>
+  </Transition>
+
   <main class="main-page" role="main">
-    <!-- Hero Section with H1 -->
+    <!-- Hero Section -->
     <section aria-labelledby="hero-title">
-      <StartBanner/>
+      <StartBanner @get-started="showSignup = true"/>
     </section>
-    
+
+    <!-- Client Logos -->
+    <section>
+      <ClientLogos/>
+    </section>
+
     <!-- AI Sommelier Demo Section -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
       <WidgetHome :visible="widgetHomeVisible"/>
     </section>
-    
-    <!-- Benefits Section -->
-    <section aria-labelledby="benefits-title" id="for-whom">
+
+    <!-- For Whom Section -->
+    <section aria-labelledby="forwho-title" id="for-whom">
       <ForWhom :visible="forWhomVisible"/>
     </section>
-    
+
     <!-- Statistics Section -->
     <section aria-labelledby="stats-title" id="statistics">
       <StatisticBanner :visible="statisticBannerVisible"/>
     </section>
-    
+
     <!-- How It Works Section -->
     <section aria-labelledby="how-it-works-title" id="how-it-works">
       <HowItWorks :visible="howItWorksVisible"/>
     </section>
-    
+
     <!-- Partners Section -->
     <section aria-labelledby="partners-title" id="partners">
       <Partners :visible="partnersVisible"/>
     </section>
   </main>
-  <Footer/>
+
+  <Footer @get-started="showSignup = true"/>
 </template>
 
 <script setup>
 import Header from "~/components/LandingComponents/Header.vue";
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
+import ClientLogos from "~/components/LandingComponents/ClientLogos.vue";
+import SignupForm from "~/components/LandingComponents/SignupForm.vue";
 import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
 import StatisticBanner from "~/components/LandingComponents/StatisticBanner.vue";
 import HowItWorks from "~/components/LandingComponents/HowItWorks.vue";
 import Footer from "~/components/LandingComponents/Footer.vue";
-import {ref, onMounted, onUnmounted} from 'vue';
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
 import Partners from "~/components/LandingComponents/Partners.vue";
+import { ref, onMounted, onUnmounted } from 'vue';
 
+const showSignup = ref(false);
 const widgetHomeVisible = ref(false);
 const statisticBannerVisible = ref(false);
 const forWhomVisible = ref(false);
@@ -80,6 +94,7 @@ onUnmounted(() => {
   window.removeEventListener('scroll', updateVisibility);
 });
 </script>
+
 <style lang="scss">
 .main-page {
   max-width: 1200px;
@@ -97,5 +112,15 @@ onUnmounted(() => {
   .main-page {
     padding: 0 0 0 16px;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
