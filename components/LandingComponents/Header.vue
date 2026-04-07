@@ -90,10 +90,12 @@ const scrollToBlock = (block) => {
   z-index: 10000;
   height: 76px;
   top: 24px;
-  left: 10%;
   border-radius: 40px;
   padding: 0 8px 0 40px;
-  width: calc(100% - 20%);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  left: calc(50% - 600px);
   align-items: center;
   justify-content: space-between;
   transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;

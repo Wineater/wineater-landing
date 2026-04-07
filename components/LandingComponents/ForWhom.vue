@@ -150,15 +150,13 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 60px 0 80px;
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  transform: translateY(40px);
   gap: 48px;
+  animation: fadeUp 0.6s ease both;
 }
 
-.for-whom.visible {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .for-whom__header {

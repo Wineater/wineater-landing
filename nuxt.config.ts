@@ -5,22 +5,6 @@ export default {
         lang: 'en'
       },
       script: [
-        // Existing meta tags remain here
-        {
-          src: 'https://unpkg.com/wineater-bot@3.4.4/dist/wineater-chatbot.mjs', // Replace this URL with the actual script URL
-          type: 'module'
-        },
-        {
-          hid: 'wineaterData',
-          innerHTML: `
-            window.wineaterData = {
-              CLIENT_TOKEN: 'HeUw6IXuhvz6tRuXdPEGEbj3SGQ3Q2YtEc1Z8jd41Kg9LtyPb4Epu0to31SYIadG',
-              position: 'right-center',
-              TYPE: 'widget'
-            };
-          `,
-          type: 'text/javascript'
-        },
         {
           hid: 'structured-data',
           type: 'application/ld+json',
@@ -306,22 +290,13 @@ export default {
     '@nuxtjs/seo',
   ],
   i18n: {
-    /* module options */
-    lazy: true,
-    seo: true,
-    langDir: "locales",
     strategy: "prefix_except_default",
-    locales: [
-      {
-        code: "en",
-        file: "en.json",
-      },
-      {
-        code: "fr",
-        file: "fr.json",
-      },
-    ],
     defaultLocale: "en",
+    locales: [
+      { code: "en", language: "en-US", file: "en.json" },
+      { code: "fr", language: "fr-FR", file: "fr.json" },
+    ],
+    langDir: "./locales",
   },
   
   // SEO Configuration
@@ -380,6 +355,9 @@ export default {
   
   // Runtime config for performance
   runtimeConfig: {
+    // Private — only available server-side
+    supabaseUrl: '',
+    supabaseServiceKey: '',
     public: {
       gtm: {
         id: 'GTM-NLBPMC7X'

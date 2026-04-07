@@ -118,7 +118,6 @@ const plans = [
 
 .how-to-start__subtitle {
   line-height: 1.7;
-  max-width: 500px;
 }
 
 .how-to-start__steps {

@@ -8,99 +8,52 @@
       Experience our AI-powered wine pairing technology. Simply describe your meal or occasion, and our digital sommelier will recommend the perfect wine from your inventory.
     </p>
 
-    <!-- Use a keyed container that recreates completely when language changes -->
-    <div v-if="mounted" :key="locale" id="wineater-widget-conteiner" role="application" aria-label="Wineater AI Sommelier Widget - Interactive wine recommendation tool"></div>
-
-    <button v-if="showReloadButton" @click="reloadPage" class="reload-button" aria-label="Reload AI Sommelier Widget">
-      Reload AI Sommelier Widget
-    </button>
+    <div id="wineater-widget-conteiner"></div>
   </div>
 </template>
 
 <script setup>
-import { watch, ref, onMounted } from 'vue';
+import { watch } from 'vue';
 import { useHead } from '#app';
 import { useI18n } from 'vue-i18n';
 
-const props = defineProps({
-  visible: {
-    type: Boolean,
-    default: false
-  }
-});
+defineProps({ visible: { type: Boolean, default: false } });
 
-const showReloadButton = ref(false);
-const mounted = ref(false);
 const { locale } = useI18n();
 
-// Simply load the widget scripts once
-const loadWidgetScripts = () => {
-  // Short timeout to ensure DOM updates
-  setTimeout(() => {
-    const configScript = document.createElement('script');
-    configScript.innerHTML = `window.wineaterData = {
-      CLIENT_TOKEN: 'TOKEN',
-      TYPE: 'widget',
-      WIDGET_TYPE: 'store',
-      WIDGET_WRAPPER: 'wineater-widget-conteiner'
-    };`;
-    document.head.appendChild(configScript);
-
-    const moduleScript = document.createElement('script');
-    moduleScript.type = 'module';
-    moduleScript.src = 'https://unpkg.com/wineater-bot@3.4.4/dist/wineater-chatbot.mjs';
-    document.head.appendChild(moduleScript);
-
-    // Show reload button after 5 seconds if widget might not have loaded
-    setTimeout(() => {
-      const container = document.getElementById('wineater-widget-conteiner');
-      if (container && container.childElementCount === 0) {
-        showReloadButton.value = true;
-      }
-    }, 5000);
-  }, 100);
-};
-
-// Force a page reload if manual refresh is needed
-const reloadPage = () => {
-  window.location.reload();
-};
-
-// Watch for visibility changes
-watch(() => props.visible, (newValue) => {
-  if (newValue && mounted.value) {
-    loadWidgetScripts();
-  }
-}, { immediate: true });
-
-// When language changes, force a page reload
-watch(() => locale.value, () => {
-  if (props.visible) {
-    // Simple solution: reload the entire page on language change
-    // This ensures the widget loads fresh with the new language
-    window.location.reload();
-  }
+useHead({
+  script: [
+    {
+      innerHTML: `window.wineaterData = {
+        CLIENT_TOKEN: 'TOKEN',
+        TYPE: 'widget',
+        WIDGET_TYPE: 'store',
+        WIDGET_WRAPPER: 'wineater-widget-conteiner'
+      };`,
+      tagPosition: 'bodyClose',
+    },
+    {
+      src: 'https://unpkg.com/wineater-bot@3.4.4/dist/wineater-chatbot.mjs',
+      type: 'module',
+      tagPosition: 'bodyClose',
+    },
+  ],
 });
 
-onMounted(() => {
-  mounted.value = true;
-  if (props.visible) {
-    loadWidgetScripts();
-  }
+watch(() => locale.value, () => {
+  window.location.reload();
 });
 </script>
 
 <style lang="scss" scoped>
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .widget-home {
   padding: 60px 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  animation: fadeUp 0.6s ease both;
 
   #wineater-widget-conteiner {
     width: 100%;
@@ -126,7 +79,7 @@ onMounted(() => {
     font-family: 'PoppinsRegular', sans-serif;
 
     &:hover {
-      background-color: darken(#8004FF, 10%);
+      background-color: #6600cc;
     }
   }
 }

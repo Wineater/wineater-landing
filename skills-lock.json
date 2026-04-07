@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "health": {
+      "source": "tw93/Waza",
+      "sourceType": "github",
+      "computedHash": "7814b4fcc711984fa77ab6c4f7f3454b9840539a7947b120aef1e291e100a901"
+    }
+  }
+}

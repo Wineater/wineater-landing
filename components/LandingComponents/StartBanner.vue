@@ -64,8 +64,7 @@ const openDemoPage = () => {
 <style scoped lang="scss">
 .main-banner {
   display: flex;
-  min-height: 960px;
-  padding-top: 200px;
+  margin-top: 150px;
   position: relative;
 }
 
@@ -235,7 +234,7 @@ const openDemoPage = () => {
   background-position: right top;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/main-banner.webp);
+  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/main-banner.webp');
   position: absolute;
 }
 
@@ -309,7 +308,7 @@ const openDemoPage = () => {
     padding-top: 160px;
     min-height: auto;
     flex-direction: column;
-    padding-bottom: 400px;
+    padding-bottom: 0;
   }
 
   .main-banner__info {
@@ -321,13 +320,7 @@ const openDemoPage = () => {
   }
 
   .main-banner__img {
-    width: 100%;
-    max-width: 380px;
-    height: 400px;
-    top: auto;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    display: none;
   }
 
   .main-banner__proof {
@@ -339,7 +332,7 @@ const openDemoPage = () => {
 @media only screen and (max-width: 600px) {
   .main-banner {
     padding-top: 140px;
-    padding-bottom: 360px;
+    padding-bottom: 0;
   }
 
   .main-banner__ctas {
@@ -367,15 +360,6 @@ const openDemoPage = () => {
 
   .main-banner__proof-label {
     font-size: 10px;
-  }
-
-  .main-banner__img {
-    max-width: 100%;
-    height: 320px;
-    margin-right: -16px;
-    left: auto;
-    transform: none;
-    right: 0;
   }
 }
 </style>

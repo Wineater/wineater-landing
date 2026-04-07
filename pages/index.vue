@@ -84,33 +84,30 @@ const scrollToDemo = () => {
   if (el) window.scrollTo({ top: el.offsetTop - 120, behavior: 'smooth' });
 };
 
-const isElementInViewport = (element) => {
-  const rect = element.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-  const elementCenterY = ((rect.top - (windowHeight / 2)) + rect.bottom) / 2;
-  return elementCenterY >= windowHeight / 3 && elementCenterY <= (windowHeight * 2) / 3;
-};
-
-const updateVisibility = () => {
-  const widgetHome = document.querySelector('.widget-home');
-  const statisticBanner = document.querySelector('.statistic-banner');
-  const forWhom = document.querySelector('.for-whom');
-  const howItWorks = document.querySelector('.how-it-works');
-  const partners = document.querySelector('.partners');
-  if (widgetHome) widgetHomeVisible.value = widgetHomeVisible.value || isElementInViewport(widgetHome);
-  if (statisticBanner) statisticBannerVisible.value = statisticBannerVisible.value || isElementInViewport(statisticBanner);
-  if (forWhom) forWhomVisible.value = forWhomVisible.value || isElementInViewport(forWhom);
-  if (howItWorks) howItWorksVisible.value = howItWorksVisible.value || isElementInViewport(howItWorks);
-  if (partners) partnersVisible.value = partnersVisible.value || isElementInViewport(partners);
-};
+let observer = null;
 
 onMounted(() => {
-  window.addEventListener('scroll', updateVisibility);
-  updateVisibility();
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      if (el.classList.contains('widget-home')) widgetHomeVisible.value = true;
+      else if (el.classList.contains('statistic-banner')) statisticBannerVisible.value = true;
+      else if (el.classList.contains('for-whom')) forWhomVisible.value = true;
+      else if (el.classList.contains('how-it-works')) howItWorksVisible.value = true;
+      else if (el.classList.contains('partners')) partnersVisible.value = true;
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.05 });
+
+  ['.widget-home', '.statistic-banner', '.for-whom', '.how-it-works', '.partners'].forEach((sel) => {
+    const el = document.querySelector(sel);
+    if (el) observer.observe(el);
+  });
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateVisibility);
+  if (observer) observer.disconnect();
 });
 </script>
 

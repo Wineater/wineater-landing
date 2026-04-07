@@ -41,18 +41,17 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(assets/imgs/hiw-large.svg);
-  opacity: 0;
-  transition: 0.2s ease;
-  transform: translateY(100px);
+  animation: fadeUp 0.6s ease both;
   &--fr{
-    background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop--fr.svg);
+    background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop--fr.svg');
   }
 }
 
-.how-it-works.visible {
-  opacity: 1;
-  transform: translateY(0px);
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
 
 @media only screen and (max-width: 1440px) {
   .how-it-works {
@@ -71,7 +70,7 @@ export default {
     height: 680px;
     background-image: url(assets/imgs/howitworks_larger_transparent.png);
     &--fr{
-      background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-tablet--fr.svg);
+      background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-tablet--fr.svg');
     }
   }
 }
@@ -82,7 +81,7 @@ export default {
     background-position: center;
     background-image: url(assets/imgs/hiw-mobile.svg);
     &--fr{
-      background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-mobile--fr.svg);
+      background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-mobile--fr.svg');
     }
   }
 }

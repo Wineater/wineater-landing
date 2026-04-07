@@ -35,11 +35,10 @@
 <style scoped lang="scss">
 .footer {
   width: 100%;
-  height: 890px;
   background-color: #2FC0BF;
   background-size: 100% 100%;
   background-position: top center;
-  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/footer.webp);
+  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/footer.webp');
   overflow: hidden;
 }
 
@@ -73,7 +72,7 @@
   top: 0;
   height: 137px;
   width: 109px;
-  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/footer-arrow.svg);
+  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/footer-arrow.svg');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -90,7 +89,6 @@
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 14px;
   opacity: 0.75;
-  margin-top: -16px;
   text-align: center;
 }
 
@@ -128,7 +126,7 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 32px;
-  margin-top: auto;
+  margin-top: 150px;
 }
 .footer__logo{
   height: 44px;
@@ -136,7 +134,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
-  background-image: url(https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo--white.svg);
+  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo--white.svg');
 }
 @media only screen and (max-width: 1440px) {
   .footer{

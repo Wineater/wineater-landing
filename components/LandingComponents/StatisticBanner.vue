@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const props = defineProps({
   visible: {
@@ -49,14 +49,6 @@ const props = defineProps({
 const animatedPercent1 = ref(0);
 const animatedPercent2 = ref(0);
 const animatedPercent3 = ref(0);
-
-watch(() => props.visible, (newVal) => {
-  if (newVal) {
-    animateNumbers();
-  } else {
-    resetNumbers();
-  }
-});
 
 const animateNumbers = () => {
   // Target values
@@ -95,23 +87,19 @@ const resetNumbers = () => {
 };
 
 onMounted(() => {
-  if (props.visible) {
-    animateNumbers();
-  }
+  animateNumbers();
 });
 </script>
 
 <style lang="scss" scoped>
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .statistic-banner {
   padding: 5rem 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  animation: fadeUp 0.6s ease both;
 
   &__title {
     text-align: center;

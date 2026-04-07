@@ -93,7 +93,6 @@ const pains = [
 
 .problem-banner__desc {
   line-height: 1.7;
-  max-width: 420px;
 }
 
 .problem-banner__cta {
