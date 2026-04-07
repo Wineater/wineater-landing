@@ -25,7 +25,7 @@ useHead({
   script: [
     {
       innerHTML: `window.wineaterData = {
-        CLIENT_TOKEN: 'TOKEN',
+        CLIENT_TOKEN: 'emZGQHlITdVpwvK2hLXRopFS2emvorRsHadgaKbJThiVCPRWRzD0JyZrxrtgt10a',
         TYPE: 'widget',
         WIDGET_TYPE: 'store',
         WIDGET_WRAPPER: 'wineater-widget-conteiner'
