@@ -5,11 +5,17 @@
          :style="{'background-image': `url(${store && logos[store] ? logos[store] : logos.Wineater})`}"></div>
 
     <div class="header__links" v-if="showLinks">
-      <div class="header__link p1" @click="scrollToBlock('.how-it-works')">
-        {{ $t('Header.HowItWorks') }}
+      <div class="header__link p1" @click="scrollToBlock('.problem-banner')">
+        {{ $t('Header.Challenge') }}
+      </div>
+      <div class="header__link p1" @click="scrollToBlock('.for-whom')">
+        {{ $t('Header.Solution') }}
       </div>
       <div class="header__link p1" @click="scrollToBlock('.widget-home')">
         {{ $t('Header.TryMe') }}
+      </div>
+      <div class="header__link p1" @click="scrollToBlock('.how-it-works')">
+        {{ $t('Header.HowItWorks') }}
       </div>
     </div>
 
@@ -86,10 +92,10 @@ const scrollToBlock = (block) => {
   top: 24px;
   border-radius: 40px;
   padding: 0 8px 0 40px;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   width: 100%;
-  left: calc(50% - 600px);
+  left: calc(50% - 640px);
   align-items: center;
   justify-content: space-between;
   transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;

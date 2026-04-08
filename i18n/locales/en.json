@@ -93,8 +93,8 @@
 	},
 	"Header": {
 		"About": "About",
-		"ForRestaurants": "Restaurants & Bars",
-		"ForStores": "Wine Stores",
+		"Challenge": "Challenge",
+		"Solution": "Solution",
 		"HowItWorks": "How it works",
 		"TryMe": "Try it",
 		"GetStarted": "Get started"

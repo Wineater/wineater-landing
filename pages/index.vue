@@ -17,19 +17,19 @@
       <ProblemBanner @scroll-to-demo="scrollToDemo"/>
     </section>
 
-    <!-- 4. Demo — "see it for yourself" -->
-    <section aria-labelledby="demo-title" id="ai-sommelier">
-      <WidgetHome :visible="widgetHomeVisible"/>
-    </section>
-
-    <!-- 5. For whom — 3 segments with sales copy and ROI -->
+    <!-- 4. For whom — 3 segments with sales copy and ROI -->
     <section aria-labelledby="forwho-title" id="for-whom">
       <ForWhom :visible="forWhomVisible"/>
     </section>
 
-    <!-- 6. Stats — proof it works -->
+    <!-- 5. Stats — proof it works -->
     <section aria-labelledby="stats-title" id="statistics">
       <StatisticBanner :visible="statisticBannerVisible"/>
+    </section>
+
+    <!-- 6. Demo — "see it for yourself" -->
+    <section aria-labelledby="demo-title" id="ai-sommelier">
+      <WidgetHome :visible="widgetHomeVisible"/>
     </section>
 
     <!-- 7. How it works — the algorithm explained -->
@@ -107,7 +107,7 @@ onUnmounted(() => {
 
 <style lang="scss">
 .main-page {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   width: 100%;
 }

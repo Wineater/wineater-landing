@@ -93,8 +93,8 @@
 	},
 	"Header": {
 		"About": "Sur",
-		"ForRestaurants": "Restaurants & Bars",
-		"ForStores": "Cavistes",
+		"Challenge": "Le défi",
+		"Solution": "Solution",
 		"HowItWorks": "Comment ça marche",
 		"TryMe": "Essayez",
 		"GetStarted": "Commencer"
