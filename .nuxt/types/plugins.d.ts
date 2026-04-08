@@ -3,35 +3,53 @@ import type { Plugin } from '#app'
 
 type Decorate<T extends Record<string, any>> = { [K in keyof T as K extends string ? `$${K}` : never]: T[K] }
 
-type IsAny<T> = 0 extends 1 & T ? true : false
-type InjectionType<A extends Plugin> = IsAny<A> extends true ? unknown : A extends Plugin<infer T> ? Decorate<T> : unknown
+type InjectionType<A extends Plugin> = A extends {default: Plugin<infer T>} ? Decorate<T> : unknown
 
 type NuxtAppInjections = 
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-outdated-build.client").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.server").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.client").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/plugins/unhead").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/router").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/check-if-page-unused").default> &
-  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server").default> &
-  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client").default> &
-  InjectionType<typeof import("../../node_modules/@nuxtjs/robots/dist/runtime/app/plugins/robot-meta.server").default> &
-  InjectionType<typeof import("../../node_modules/nuxt-site-config/dist/runtime/app/plugins/i18n").default> &
-  InjectionType<typeof import("../../node_modules/nuxt-site-config/dist/runtime/app/plugins/0.siteConfig").default> &
-  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/i18n").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/chunk-reload.client").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/dev-server-logs").default> &
-  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used").default> &
-  InjectionType<typeof import("../../plugins/gtm.client").default> &
-  InjectionType<typeof import("../../plugins/seo.client").default> &
-  InjectionType<typeof import("../../plugins/startTracker.client").default>
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/plugins/unhead.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/router.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-site-config/dist/runtime/app/plugins/0.siteConfig.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/browser-devtools-timing.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/payload.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/dev-server-logs.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/navigation-repaint.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-outdated-build.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/revive-payload.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/chunk-reload.client.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/switch-locale-path-ssr.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/route-locale-detect.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/i18n.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/siteConfig.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/inferSeoMetaPlugin.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/titles.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/defaultsWaitI18n.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-schema-org/dist/runtime/app/plugins/i18n/defaults.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-og-image/dist/runtime/app/plugins/og-image-canonical-urls.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-og-image/dist/runtime/app/plugins/route-rule-og-image.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-link-checker/dist/runtime/app/plugins/ui.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/plugins/check-if-page-unused.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/vite-devtools.client.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.server.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxtjs/robots/dist/runtime/app/plugins/robot-meta.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-site-config/dist/runtime/app/plugins/i18n.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/warn.dev.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used.js")> &
+  InjectionType<typeof import("../../plugins/gtm.client.js")> &
+  InjectionType<typeof import("../../plugins/seo.client.js")> &
+  InjectionType<typeof import("../../plugins/startTracker.client.js")> &
+  InjectionType<typeof import("../../node_modules/@nuxtjs/i18n/dist/runtime/plugins/ssg-detect.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/1.absoluteImageUrls.server.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-seo-utils/dist/runtime/app/plugins/0.routeRules.js")> &
+  InjectionType<typeof import("../../node_modules/nuxt-schema-org/dist/runtime/app/plugins/i18n/init.js")>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }
 
   interface NuxtAppLiterals {
-    pluginName: 'nuxt:revive-payload:client' | 'nuxt:head' | 'nuxt:router' | 'nuxt-site-config:init' | 'nuxt:revive-payload:server' | 'nuxt:global-components' | 'nuxt:prefetch' | 'nuxt:checkIfPageUnused' | 'nuxt-site-config:i18n' | 'i18n:plugin' | 'nuxt:chunk-reload' | 'nuxt:checkIfLayoutUsed'
+    pluginName: 'vue-devtools-client' | 'nuxt:revive-payload:client' | 'nuxt:head' | 'nuxt:router' | 'nuxt-site-config:init' | 'nuxt:browser-devtools-timing' | 'nuxt:payload' | 'nuxt:revive-payload:server' | 'nuxt:chunk-reload' | 'i18n:plugin:switch-locale-path-ssr' | 'i18n:plugin:route-locale-detect' | 'i18n:plugin' | 'nuxt-seo:fallback-titles' | 'nuxt-seo:defaults' | 'nuxt-schema-org:defaults' | 'nuxt:global-components' | 'nuxt:prefetch' | 'nuxt:checkIfPageUnused' | 'nuxt-site-config:i18n' | 'nuxt:checkIfLayoutUsed' | 'i18n:plugin:ssg-detect' | 'nuxt-schema-org:init'
   }
 }
 
