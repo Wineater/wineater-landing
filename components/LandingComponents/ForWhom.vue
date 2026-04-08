@@ -24,7 +24,7 @@
         <div class="for-whom__card-image">
           <img v-if="card.id === 'online'" src="~/assets/imgs/widget_test.png" alt="Widget screenshot"/>
           <img v-else-if="card.id === 'offline'" src="~/assets/imgs/offline_retailers.jpg" alt="Offline store"/>
-          <img v-else-if="card.id === 'restaurant'" src="~/assets/imgs/QR_test.png" alt="Restaurant QR"/>
+          <img v-else-if="card.id === 'restaurant'" src="~/assets/imgs/bar_lenez.jpg" alt="Restaurant"/>
         </div>
 
         <div class="for-whom__card-bottom">

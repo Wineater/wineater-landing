@@ -5,12 +5,6 @@
          :style="{'background-image': `url(${store && logos[store] ? logos[store] : logos.Wineater})`}"></div>
 
     <div class="header__links" v-if="showLinks">
-      <div class="header__link p1" @click="scrollToBlock('.for-whom')">
-        {{ $t('Header.ForRestaurants') }}
-      </div>
-      <div class="header__link p1" @click="scrollToBlock('.for-whom')">
-        {{ $t('Header.ForStores') }}
-      </div>
       <div class="header__link p1" @click="scrollToBlock('.how-it-works')">
         {{ $t('Header.HowItWorks') }}
       </div>

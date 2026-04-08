@@ -12,11 +12,6 @@
       <StartBanner @get-started="showSignup = true"/>
     </section>
 
-    <!-- 2. Client logos — social proof above the fold -->
-    <section>
-      <ClientLogos/>
-    </section>
-
     <!-- 3. Problem — make them feel understood -->
     <section id="problem">
       <ProblemBanner @scroll-to-demo="scrollToDemo"/>
@@ -60,7 +55,6 @@
 <script setup>
 import Header from "~/components/LandingComponents/Header.vue";
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
-import ClientLogos from "~/components/LandingComponents/ClientLogos.vue";
 import SignupForm from "~/components/LandingComponents/SignupForm.vue";
 import ProblemBanner from "~/components/LandingComponents/ProblemBanner.vue";
 import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
