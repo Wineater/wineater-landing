@@ -58,8 +58,6 @@ export const Style: typeof import("../node_modules/nuxt/dist/head/runtime/compon
 export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
-export const OgImage: typeof import("../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImage")['default']
-export const OgImageScreenshot: typeof import("../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImageScreenshot")['default']
 export const SchemaOrgArticle: typeof import("@unhead/schema-org/vue")['SchemaOrgArticle']
 export const SchemaOrgBreadcrumb: typeof import("@unhead/schema-org/vue")['SchemaOrgBreadcrumb']
 export const SchemaOrgComment: typeof import("@unhead/schema-org/vue")['SchemaOrgComment']
@@ -128,8 +126,6 @@ export const LazyStyle: LazyComponent<typeof import("../node_modules/nuxt/dist/h
 export const LazyHead: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']>
 export const LazyHtml: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']>
 export const LazyBody: LazyComponent<typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']>
-export const LazyOgImage: LazyComponent<typeof import("../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImage")['default']>
-export const LazyOgImageScreenshot: LazyComponent<typeof import("../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImageScreenshot")['default']>
 export const LazySchemaOrgArticle: LazyComponent<typeof import("@unhead/schema-org/vue")['SchemaOrgArticle']>
 export const LazySchemaOrgBreadcrumb: LazyComponent<typeof import("@unhead/schema-org/vue")['SchemaOrgBreadcrumb']>
 export const LazySchemaOrgComment: LazyComponent<typeof import("@unhead/schema-org/vue")['SchemaOrgComment']>
