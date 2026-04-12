@@ -42,7 +42,12 @@
       <HowToStart @get-started="showSignup = true"/>
     </section>
 
-    <!-- 9. Partners -->
+    <!-- 9. Press — Featured in -->
+    <section aria-labelledby="press-title" id="press">
+      <Press :visible="pressVisible"/>
+    </section>
+
+    <!-- 10. Partners -->
     <section aria-labelledby="partners-title" id="partners">
       <Partners :visible="partnersVisible"/>
     </section>
@@ -64,6 +69,7 @@ import HowToStart from "~/components/LandingComponents/HowToStart.vue";
 import Footer from "~/components/LandingComponents/Footer.vue";
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
 import Partners from "~/components/LandingComponents/Partners.vue";
+import Press from "~/components/LandingComponents/Press.vue";
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const showSignup = ref(false);
@@ -71,6 +77,7 @@ const widgetHomeVisible = ref(false);
 const statisticBannerVisible = ref(false);
 const forWhomVisible = ref(false);
 const howItWorksVisible = ref(false);
+const pressVisible = ref(false);
 const partnersVisible = ref(false);
 
 const scrollToDemo = () => {
@@ -89,12 +96,13 @@ onMounted(() => {
       else if (el.classList.contains('statistic-banner')) statisticBannerVisible.value = true;
       else if (el.classList.contains('for-whom')) forWhomVisible.value = true;
       else if (el.classList.contains('how-it-works')) howItWorksVisible.value = true;
+      else if (el.classList.contains('press')) pressVisible.value = true;
       else if (el.classList.contains('partners')) partnersVisible.value = true;
       observer.unobserve(el);
     });
   }, { threshold: 0.05 });
 
-  ['.widget-home', '.statistic-banner', '.for-whom', '.how-it-works', '.partners'].forEach((sel) => {
+  ['.widget-home', '.statistic-banner', '.for-whom', '.how-it-works', '.press', '.partners'].forEach((sel) => {
     const el = document.querySelector(sel);
     if (el) observer.observe(el);
   });
