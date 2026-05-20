@@ -34,7 +34,7 @@ const articles = [
   {
     id: 1,
     name: 'La Revue du Vin de France',
-    logo: 'https://upload.wikimedia.org/wikipedia/fr/thumb/e/ee/La_Revue_du_vin_de_France_logo.png/200px-La_Revue_du_vin_de_France_logo.png',
+    logo: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/2026-05-20%2018.47.26.jpg',
     url: 'https://www.larvf.com/a-bordeaux-bernard-magrez-fait-naitre-un-sommelier-digital,4907283.asp'
   },
   {
