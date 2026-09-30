@@ -1,31 +1,41 @@
-import Tracker from '@openreplay/tracker';
-import {v4 as uuidV4} from 'uuid'
+import Tracker from '@openreplay/tracker'
 
-function defaultGetUserId() {
-  return uuidV4()
+const PROJECT_KEY = 'XkscRWp9UTyrXtkhPbQV'
+
+let tracker = null
+let starting = null
+
+export function startTracker() {
+  if (typeof window === 'undefined') return Promise.resolve(null)
+  if (starting) return starting
+
+  if (!tracker) {
+    tracker = new Tracker({
+      projectKey: PROJECT_KEY,
+      respectDoNotTrack: true,
+      defaultInputMode: 2,
+      obscureTextEmails: true,
+      obscureInputEmails: true
+    })
+  }
+
+  starting = Promise.resolve()
+    .then(() => tracker.start())
+    .then(() => tracker)
+    .catch(() => {
+      starting = null
+      return null
+    })
+
+  return starting
 }
 
-export function startTracker(config) {
-
-  console.log("Starting tracker...")
-
-  const getUserId = (config?.userIdEnabled && config?.getUserId) ? config.getUserId : defaultGetUserId
-  let userId = null;
-
-  const trackerConfig = {
-    projectKey: 'XkscRWp9UTyrXtkhPbQV'
+export function stopTracker() {
+  if (!tracker) return
+  try {
+    tracker.stop()
+  } catch {
+    // tracker was not running
   }
-
-  const tracker = new Tracker(trackerConfig);
-
-  if(config?.userIdEnabled) {
-    userId = getUserId()
-    tracker.setUserID(userId)
-  }
-
-  tracker.start();
-  return {
-    tracker,
-    userId
-  }
+  starting = null
 }

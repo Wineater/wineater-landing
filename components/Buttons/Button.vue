@@ -1,12 +1,19 @@
 <template>
-  <div
-      :class="`button button--${props.bgColor} ${props.disabled ? 'button--disabled' : '' }`"
-      @click="!props.disabled && $emit('btnClick')"
+  <component
+      :is="href && !disabled ? 'a' : 'button'"
+      :class="['button', `button--${bgColor}`, { 'button--disabled': disabled }]"
+      :type="href && !disabled ? undefined : 'button'"
+      :href="href && !disabled ? href : undefined"
+      :target="href && !disabled ? target : undefined"
+      :rel="href && !disabled && target === '_blank' ? 'noopener' : undefined"
+      :disabled="!href && disabled ? true : undefined"
+      :aria-disabled="disabled ? 'true' : undefined"
+      @click="onClick"
   >
   <span class="p1">
     <slot></slot>
   </span>
-  </div>
+  </component>
 </template>
 <script setup>
 const props = defineProps({
@@ -18,7 +25,21 @@ const props = defineProps({
   disabled: {
     type: Boolean,
   },
+  href: {
+    type: String,
+    default: '',
+  },
+  target: {
+    type: String,
+    default: '',
+  },
 });
+
+const emit = defineEmits(['btnClick']);
+
+const onClick = () => {
+  if (!props.disabled) emit('btnClick');
+};
 </script>
 
 <style scoped lang="scss">
@@ -31,6 +52,15 @@ const props = defineProps({
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 0;
+  min-height: 44px;
+  text-decoration: none;
+  font: inherit;
+
+  &:focus-visible {
+    outline: 3px solid #7E27ED;
+    outline-offset: 3px;
+  }
 
   .p1 {
     color: var(--brand-4);

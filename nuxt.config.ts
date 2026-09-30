@@ -1,279 +1,36 @@
-export default {
+import { contentConfig, blogSitemapExclude } from './scripts/content-pipeline/published.mjs'
+
+export default defineNuxtConfig({
   app: {
     head: {
-      htmlAttrs: {
-        lang: 'en'
-      },
-      script: [
-        {
-          hid: 'structured-data',
-          type: 'application/ld+json',
-          innerHTML: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Wineater",
-            "description": "AI-powered digital sommelier that helps restaurants and wine retailers boost sales by providing perfect wine and food pairings to customers. Advanced wine recommendation technology using machine learning and sommelier expertise.",
-            "url": "https://wineater.com",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "EUR",
-              "description": "Free trial available"
-            },
-            "creator": {
-              "@type": "Organization",
-              "name": "Wineater",
-              "url": "https://wineater.com",
-              "logo": "https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg",
-              "description": "AI-powered wine and food pairing technology company"
-            },
-            "featureList": [
-              "AI-powered wine recommendations",
-              "Food and wine pairing technology",
-              "E-commerce platform integration",
-              "Real-time inventory analysis",
-              "Personalized wine suggestions",
-              "Sommelier-level expertise",
-              "Machine learning personalization",
-              "Multi-language support"
-            ],
-            "screenshot": "https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "ratingCount": "150",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "keywords": "wine pairing, food pairing, AI sommelier, wine technology, restaurant technology, wine retail, digital sommelier, wine recommendations, food and wine matching, wine sales, restaurant solutions, Bernard Magrez, wine AI, sommelier AI"
-          })
-        },
-        {
-          hid: 'organization-schema',
-          type: 'application/ld+json',
-          innerHTML: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Wineater",
-            "url": "https://wineater.com",
-            "logo": "https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg",
-            "description": "AI-powered digital sommelier technology for restaurants and wine retailers. Boost sales with personalized wine recommendations using advanced machine learning and sommelier expertise.",
-            "foundingDate": "2023",
-            "founder": {
-              "@type": "Person",
-              "name": "Bernard Magrez"
-            },
-            "parentOrganization": {
-              "@type": "Organization",
-              "name": "Bernard Magrez Start-Up Win"
-            },
-            "sameAs": [
-              "https://wineater.com",
-              "https://www.linkedin.com/company/wineater",
-              "https://twitter.com/wineater"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer service",
-              "url": "https://wineater.com"
-            },
-            "areaServed": {
-              "@type": "Country",
-              "name": "Worldwide"
-            },
-            "knowsAbout": [
-              "Wine pairing",
-              "Food and wine matching",
-              "AI technology",
-              "Machine learning",
-              "Sommelier expertise",
-              "Restaurant technology",
-              "E-commerce solutions",
-              "Wine retail"
-            ]
-          })
-        },
-        {
-          hid: 'breadcrumb-schema',
-          type: 'application/ld+json',
-          innerHTML: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://wineater.com"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "AI Sommelier",
-                "item": "https://wineater.com#ai-sommelier"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Wine Pairing Technology",
-                "item": "https://wineater.com#wine-pairing"
-              }
-            ]
-          })
-        }
+      link: [
+        {rel: 'preconnect', href: 'https://czvgkhagwvmknscoerfy.supabase.co', crossorigin: 'anonymous'},
+        {rel: 'preload', as: 'font', type: 'font/woff2', crossorigin: 'anonymous', href: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Poppins-Medium.woff2'},
+        {rel: 'preload', as: 'font', type: 'font/woff2', crossorigin: 'anonymous', href: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Poppins-Regular.woff2'},
       ],
       meta: [
-        // Viewport and basic meta
         {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5'},
         {name: 'format-detection', content: 'telephone=no'},
-        {name: 'theme-color', content: '#8B0000'},
-        {name: 'msapplication-TileColor', content: '#8B0000'},
-        
-        // SEO Meta Tags
+        {name: 'theme-color', content: '#7E27ED'},
+        {name: 'msapplication-TileColor', content: '#7E27ED'},
+        {name: 'author', content: 'Wineater'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:site_name', content: 'Wineater'},
         {
-          hid: 'description',
-          name: 'description',
-          content: 'AI-powered wine and food pairing technology for restaurants and wine retailers. Boost sales with our digital sommelier that helps customers find perfect wine matches.',
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content: 'wine pairing, food pairing, AI sommelier, wine technology, restaurant technology, wine retail, digital sommelier, wine recommendations, food and wine matching, wine sales, restaurant solutions',
-        },
-        {
-          hid: 'author',
-          name: 'author',
-          content: 'Wineater',
-        },
-        {
-          hid: 'robots',
-          name: 'robots',
-          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-        },
-        {
-          hid: 'googlebot',
-          name: 'googlebot',
-          content: 'index, follow',
-        },
-        
-        // Open Graph Meta Tags
-        {
-          hid: 'og:type',
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Wineater - AI Sommelier for Perfect Wine & Food Pairings',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'Revolutionary AI technology that helps restaurants and wine retailers boost sales by providing perfect wine and food pairings to customers.',
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://wineater.com',
-        },
-        {
-          hid: 'og:site_name',
-          property: 'og:site_name',
-          content: 'Wineater',
-        },
-        {
-          hid: 'og:image',
           property: 'og:image',
           content: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png',
         },
+        {property: 'og:image:width', content: '1200'},
+        {property: 'og:image:height', content: '630'},
+        {property: 'og:image:alt', content: 'Wineater AI sommelier for wine shops and restaurants'},
+        {name: 'twitter:card', content: 'summary_large_image'},
         {
-          hid: 'og:image:width',
-          property: 'og:image:width',
-          content: '1200',
-        },
-        {
-          hid: 'og:image:height',
-          property: 'og:image:height',
-          content: '630',
-        },
-        {
-          hid: 'og:image:alt',
-          property: 'og:image:alt',
-          content: 'Wineater AI Sommelier - Perfect Wine and Food Pairings',
-        },
-        {
-          hid: 'og:locale',
-          property: 'og:locale',
-          content: 'en_US',
-        },
-        
-        // Twitter Card Meta Tags
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@wineater',
-        },
-        {
-          hid: 'twitter:creator',
-          name: 'twitter:creator',
-          content: '@wineater',
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: 'Wineater - AI Sommelier for Perfect Wine & Food Pairings',
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: 'Revolutionary AI technology that helps restaurants and wine retailers boost sales by providing perfect wine and food pairings to customers.',
-        },
-        {
-          hid: 'twitter:image',
           name: 'twitter:image',
           content: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Wineater-social_preview.png',
         },
-        {
-          hid: 'twitter:image:alt',
-          name: 'twitter:image:alt',
-          content: 'Wineater AI Sommelier - Perfect Wine and Food Pairings',
-        },
-        
-        // Additional SEO Meta Tags
-        {
-          hid: 'canonical',
-          rel: 'canonical',
-          href: 'https://wineater.com',
-        },
-        {
-          hid: 'alternate',
-          rel: 'alternate',
-          hreflang: 'en',
-          href: 'https://wineater.com',
-        },
-        {
-          hid: 'alternate-fr',
-          rel: 'alternate',
-          hreflang: 'fr',
-          href: 'https://wineater.com/fr',
-        },
-        {
-          hid: 'alternate-x-default',
-          rel: 'alternate',
-          hreflang: 'x-default',
-          href: 'https://wineater.com',
-        },
+        {name: 'twitter:image:alt', content: 'Wineater AI sommelier for wine shops and restaurants'},
       ],
-      title: 'Wineater - AI Sommelier for Perfect Wine & Food Pairings',
-      titleTemplate: '%s | Wineater',
+      titleTemplate: '%s',
     }
   },
   css: [
@@ -285,10 +42,10 @@ export default {
   ],
   modules: [
     '@nuxtjs/i18n',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
     '@nuxtjs/seo',
+    '@nuxt/content',
   ],
+  content: contentConfig(),
   i18n: {
     strategy: "prefix_except_default",
     defaultLocale: "en",
@@ -297,36 +54,28 @@ export default {
       { code: "fr", language: "fr-FR", file: "fr.json" },
     ],
     langDir: "./locales",
+    baseUrl: 'https://wineater.com',
+    detectBrowserLanguage: false,
   },
   
   // SEO Configuration
   site: {
     url: 'https://wineater.com',
-    name: 'Wineater - AI Sommelier for Perfect Wine & Food Pairings',
-    description: 'AI-powered wine and food pairing technology for restaurants and wine retailers. Boost sales with our digital sommelier that helps customers find perfect wine matches.',
+    name: 'Wineater',
     defaultLocale: 'en'
   },
-  
-  // Sitemap configuration
+
   sitemap: {
-    hostname: 'https://wineater.com',
-    gzip: true,
-    routes: [
-      '/',
-      '/fr',
-      '/demo',
-      '/playground'
-    ]
+    exclude: ['/demo/**', '/playground', '/api/**', ...blogSitemapExclude()],
   },
-  
-  // Robots configuration
+
   robots: {
-    UserAgent: '*',
-    Allow: '/',
-    Disallow: ['/admin', '/api'],
-    Sitemap: 'https://wineater.com/sitemap.xml'
+    disallow: ['/demo/', '/playground', '/api/', '/admin/'],
+    groups: [
+      { userAgent: ['GPTBot', 'ClaudeBot', 'PerplexityBot'], allow: ['/'], disallow: ['/demo/', '/playground', '/api/', '/admin/'] },
+    ],
   },
-  
+
   // Performance optimizations for Core Web Vitals
   nitro: {
     compressPublicAssets: true,
@@ -364,4 +113,4 @@ export default {
       }
     }
   },
-}
+})

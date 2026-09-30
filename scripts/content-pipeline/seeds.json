@@ -1,0 +1,187 @@
+{
+  "locales": {
+    "en": {
+      "hl": "en",
+      "questionPrefixes": [
+        "how to",
+        "what is",
+        "why",
+        "can",
+        "does"
+      ],
+      "seeds": [
+        {
+          "q": "ai sommelier",
+          "soup": true
+        },
+        {
+          "q": "ai sommelier for wine shops"
+        },
+        {
+          "q": "wine recommendation widget",
+          "soup": true
+        },
+        {
+          "q": "sell more wine online"
+        },
+        {
+          "q": "qr wine menu restaurant"
+        },
+        {
+          "q": "shopify wine recommendation app"
+        },
+        {
+          "q": "wine shop chatbot"
+        },
+        {
+          "q": "digital sommelier restaurant"
+        },
+        {
+          "q": "wine recommendation api"
+        }
+      ]
+    },
+    "fr": {
+      "hl": "fr",
+      "questionPrefixes": [
+        "comment",
+        "pourquoi",
+        "quel",
+        "peut-on",
+        "qu'est-ce que"
+      ],
+      "seeds": [
+        {
+          "q": "sommelier virtuel caviste",
+          "soup": true
+        },
+        {
+          "q": "sommelier ia",
+          "soup": true
+        },
+        {
+          "q": "carte des vins ia"
+        },
+        {
+          "q": "logiciel caviste"
+        },
+        {
+          "q": "vendre plus de vin en ligne"
+        },
+        {
+          "q": "qr code carte des vins restaurant"
+        },
+        {
+          "q": "recommandation de vin ia"
+        }
+      ]
+    },
+    "es": {
+      "hl": "es",
+      "questionPrefixes": [
+        "cómo",
+        "qué es",
+        "por qué",
+        "cuál",
+        "puede"
+      ],
+      "seeds": [
+        {
+          "q": "sommelier ia para tiendas de vinos",
+          "soup": true
+        },
+        {
+          "q": "sommelier virtual"
+        },
+        {
+          "q": "carta de vinos qr restaurante"
+        },
+        {
+          "q": "recomendador de vinos"
+        },
+        {
+          "q": "vender más vino online"
+        }
+      ]
+    }
+  },
+  "b2bTerms": [
+    "shop",
+    "shops",
+    "store",
+    "retailer",
+    "restaurant",
+    "caviste",
+    "cavistes",
+    "boutique",
+    "widget",
+    "api",
+    "shopify",
+    "woocommerce",
+    "prestashop",
+    "qr",
+    "software",
+    "logiciel",
+    "app",
+    "chatbot",
+    "menu",
+    "carte",
+    "tienda",
+    "tiendas",
+    "restaurante",
+    "sommelier",
+    "sell",
+    "vendre",
+    "vender",
+    "ecommerce",
+    "plugin",
+    "pos",
+    "cave"
+  ],
+  "consumerTerms": [
+    "best wine under",
+    "under 10",
+    "under $10",
+    "cheap wine",
+    "wine near me",
+    "meilleur vin à moins de",
+    "vin pas cher",
+    "vino barato",
+    "near me",
+    "review",
+    "reviews",
+    "amazon",
+    "walmart",
+    "costco",
+    "price list",
+    "recipe",
+    "calories",
+    "how many",
+    "glasses",
+    "sugar",
+    "gluten",
+    "wine glass",
+    "certified",
+    "certification",
+    "career",
+    "salary",
+    "become a sommelier",
+    "course",
+    "courses",
+    "school",
+    "jobs",
+    "job",
+    "exam",
+    "salaire",
+    "formation",
+    "devenir sommelier",
+    "métier",
+    "metier",
+    "curso",
+    "cursos",
+    "sueldo",
+    "a la carte",
+    "wine pairing for",
+    "what wine goes"
+  ]
+}

@@ -4,6 +4,9 @@
     <div id="wineater-widget-conteiner"></div> <!-- Контейнер для виджета -->
   </div>
 </template>
+<script setup>
+definePageMeta({ robots: false })
+</script>
 <script>
 import Button from '~/components/Buttons/Button.vue';
 import Preloader from "~/components/Buttons/Preloader.vue";

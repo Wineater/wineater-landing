@@ -6,3 +6,13 @@ node_modules
 package-lock.json
 .vercel
 .output
+
+# content pipeline
+scripts/content-pipeline/.env
+.env
+.env.*
+!.env.example
+data/content/.cache/
+content/_rejected/
+.data
+data/content/runs.jsonl

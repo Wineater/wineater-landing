@@ -1,2 +1,33 @@
 @import "./fonts.scss";
 @import "./normalize.scss";
+
+:focus-visible {
+  outline: 3px solid #7E27ED;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #7E27ED;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #7E27ED;
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

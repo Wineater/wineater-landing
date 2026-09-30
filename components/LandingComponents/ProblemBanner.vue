@@ -8,28 +8,33 @@
           <span class="color-brand-1">{{ $t('ProblemBanner.title2') }}</span>
         </h2>
         <p class="p1 color-dark-100 problem-banner__desc">{{ $t('ProblemBanner.desc') }}</p>
-        <div class="problem-banner__cta" @click="$emit('scrollToDemo')">
+        <button type="button" class="problem-banner__cta" @click="onCta">
           {{ $t('ProblemBanner.cta') }}
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M8 3V13M8 13L4 9M8 13L12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </div>
-      </div>
-
-      <div class="problem-banner__right">
-        <div class="problem-banner__stat" v-for="stat in stats" :key="stat.key">
-          <div class="problem-banner__stat-number">{{ stat.number }}</div>
-          <div class="problem-banner__stat-text">{{ $t(`ProblemBanner.${stat.key}`) }}</div>
-        </div>
+        </button>
       </div>
     </div>
 
     <div class="problem-banner__pains">
       <div class="problem-banner__pain" v-for="pain in pains" :key="pain.key">
-        <div class="problem-banner__pain-icon">{{ pain.icon }}</div>
+        <svg
+          class="problem-banner__pain-icon"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+          v-html="pain.icon"
+        ></svg>
         <div class="problem-banner__pain-content">
-          <div class="problem-banner__pain-title">{{ $t(`ProblemBanner.pain${pain.key}Title`) }}</div>
-          <div class="problem-banner__pain-text p1 color-dark-100">{{ $t(`ProblemBanner.pain${pain.key}Text`) }}</div>
+          <h3 class="problem-banner__pain-title">{{ $t(`ProblemBanner.pain${pain.key}Title`) }}</h3>
+          <p class="problem-banner__pain-text">{{ $t(`ProblemBanner.pain${pain.key}Text`) }}</p>
         </div>
       </div>
     </div>
@@ -37,19 +42,19 @@
 </template>
 
 <script setup>
-defineEmits(['scrollToDemo']);
-
-const stats = [
-  { key: 'stat1', number: '46%' },
-  { key: 'stat2', number: '70%' },
-  { key: 'stat3', number: '2×' },
-];
+const emit = defineEmits(['scrollToDemo']);
+const { t } = useI18n();
 
 const pains = [
-  { key: '1', icon: '😕' },
-  { key: '2', icon: '💸' },
-  { key: '3', icon: '🏃' },
+  { key: '1', icon: '<path d="M3 7h18l-1.5 11a2 2 0 0 1-2 1.7H6.5a2 2 0 0 1-2-1.7L3 7z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>' },
+  { key: '2', icon: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>' },
+  { key: '3', icon: '<path d="M15 4h5v5M20 4l-9 9"/><path d="M10 6H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/>' },
 ];
+
+const onCta = () => {
+  track('cta_click', { cta_label: t('ProblemBanner.cta'), location: 'problem' });
+  emit('scrollToDemo');
+};
 </script>
 
 <style scoped lang="scss">
@@ -71,6 +76,7 @@ const pains = [
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 760px;
 }
 
 .problem-banner__tag {
@@ -81,7 +87,7 @@ const pains = [
   background: #fff3f3;
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 12px;
-  color: #e53e3e;
+  color: #b42318;
   width: fit-content;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -103,47 +109,21 @@ const pains = [
   font-size: 15px;
   color: #7E27ED;
   cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 12px 0;
+  min-height: 44px;
+  width: fit-content;
   transition: gap 0.2s;
 
   &:hover {
     gap: 12px;
   }
-}
 
-.problem-banner__right {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  width: 320px;
-}
-
-.problem-banner__stat {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 24px;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  border: 1px solid #f5f2ff;
-}
-
-.problem-banner__stat-number {
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: 36px;
-  background: linear-gradient(135deg, #7E27ED, #2FC0BF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  flex-shrink: 0;
-  min-width: 72px;
-}
-
-.problem-banner__stat-text {
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 14px;
-  color: #696969;
-  line-height: 1.5;
+  &:focus-visible {
+    outline: 3px solid #333;
+    outline-offset: 3px;
+  }
 }
 
 .problem-banner__pains {
@@ -169,9 +149,8 @@ const pains = [
 }
 
 .problem-banner__pain-icon {
-  font-size: 28px;
   flex-shrink: 0;
-  line-height: 1;
+  color: #7E27ED;
 }
 
 .problem-banner__pain-content {
@@ -182,13 +161,18 @@ const pains = [
 
 .problem-banner__pain-title {
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: #333;
+  margin: 0;
+  font-weight: 500;
 }
 
 .problem-banner__pain-text {
+  margin: 0;
+  font-family: 'PoppinsRegular', sans-serif;
   line-height: 1.6;
-  font-size: 14px;
+  font-size: 15px;
+  color: #595959;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -197,16 +181,6 @@ const pains = [
     gap: 40px;
   }
 
-  .problem-banner__right {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .problem-banner__stat {
-    flex: 1;
-    min-width: 200px;
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -218,14 +192,6 @@ const pains = [
   .problem-banner__pains {
     grid-template-columns: 1fr;
     gap: 12px;
-  }
-
-  .problem-banner__right {
-    flex-direction: column;
-  }
-
-  .problem-banner__stat {
-    min-width: unset;
   }
 }
 

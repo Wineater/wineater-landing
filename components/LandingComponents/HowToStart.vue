@@ -1,7 +1,6 @@
 <template>
   <div class="how-to-start">
     <div class="how-to-start__header">
-      <div class="how-to-start__tag">{{ $t('HowToStart.tag') }}</div>
       <h2 class="h2 color-text how-to-start__title">
         {{ $t('HowToStart.title') }}<br>
         <span class="color-brand-1">{{ $t('HowToStart.titleAccent') }}</span>
@@ -13,8 +12,8 @@
       <div class="how-to-start__step" v-for="(step, i) in steps" :key="i">
         <div class="how-to-start__step-num">{{ String(i + 1).padStart(2, '0') }}</div>
         <div class="how-to-start__step-content">
-          <div class="how-to-start__step-title">{{ $t(`HowToStart.step${i + 1}Title`) }}</div>
-          <div class="how-to-start__step-text p1 color-dark-100">{{ $t(`HowToStart.step${i + 1}Text`) }}</div>
+          <h3 class="how-to-start__step-title">{{ $t(`HowToStart.step${i + 1}Title`) }}</h3>
+          <p class="how-to-start__step-text p1 color-dark-100">{{ $t(`HowToStart.step${i + 1}Text`) }}</p>
         </div>
         <div v-if="i < steps.length - 1" class="how-to-start__connector"></div>
       </div>
@@ -23,17 +22,18 @@
     <div class="how-to-start__integrations">
       <div class="how-to-start__integration" v-for="plan in plans" :key="plan.key">
         <div class="how-to-start__integration-header">
-          <div class="how-to-start__integration-icon">{{ plan.icon }}</div>
+          <div class="how-to-start__integration-icon" aria-hidden="true" v-html="icons[plan.icon]"></div>
           <div class="how-to-start__integration-time">
             <span class="how-to-start__integration-label">{{ $t(`HowToStart.${plan.key}Label`) }}</span>
             <span class="how-to-start__integration-duration">{{ $t(`HowToStart.${plan.key}Duration`) }}</span>
           </div>
         </div>
-        <div class="how-to-start__integration-title">{{ $t(`HowToStart.${plan.key}Title`) }}</div>
-        <div class="how-to-start__integration-desc p1 color-dark-100">{{ $t(`HowToStart.${plan.key}Desc`) }}</div>
+        <h3 class="how-to-start__integration-title">{{ $t(`HowToStart.${plan.key}Title`) }}</h3>
+        <p class="how-to-start__integration-desc p1 color-dark-100">{{ $t(`HowToStart.${plan.key}Desc`) }}</p>
         <ul class="how-to-start__integration-features">
           <li v-for="f in plan.features" :key="f">
-            <span class="how-to-start__check">✓</span>{{ $t(`HowToStart.${f}`) }}
+            <svg class="how-to-start__check" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
+            <span>{{ $t(`HowToStart.${f}`) }}</span>
           </li>
         </ul>
       </div>
@@ -42,40 +42,54 @@
     <div class="how-to-start__trial">
       <div class="how-to-start__trial-inner">
         <div class="how-to-start__trial-text">
-          <div class="how-to-start__trial-badge">🎁 {{ $t('HowToStart.trialBadge') }}</div>
-          <h3 class="h2 color-text">{{ $t('HowToStart.trialTitle') }}</h3>
+          <div class="how-to-start__trial-badge">{{ $t('HowToStart.trialBadge') }}</div>
+          <h3 class="h2 how-to-start__trial-title">{{ $t('HowToStart.trialTitle') }}</h3>
           <p class="p1 color-dark-100">{{ $t('HowToStart.trialDesc') }}</p>
         </div>
-        <div class="how-to-start__trial-cta" @click="$emit('getStarted')">
-          <span>{{ $t('HowToStart.trialCta') }}</span>
+        <button type="button" class="how-to-start__trial-cta" @click="onCta">
+          <span>{{ $t('cta.primary') }}</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </div>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-defineEmits(['getStarted']);
+const emit = defineEmits(['getStarted']);
+const { t } = useI18n();
+
+function onCta() {
+  track('cta_click', { cta_label: t('cta.primary'), location: 'how_to_start_trial' });
+  emit('getStarted');
+}
 
 const steps = [1, 2, 3, 4];
+
+const svg = (paths) => `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E27ED" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
+
+const icons = {
+  qr: svg('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M14 21h3M21 17v4"/>'),
+  widget: svg('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/>'),
+  api: svg('<path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/>'),
+};
 
 const plans = [
   {
     key: 'qr',
-    icon: '📲',
+    icon: 'qr',
     features: ['qrF1', 'qrF2', 'qrF3'],
   },
   {
     key: 'widget',
-    icon: '🧩',
+    icon: 'widget',
     features: ['widgetF1', 'widgetF2', 'widgetF3'],
   },
   {
     key: 'api',
-    icon: '⚡',
+    icon: 'api',
     features: ['apiF1', 'apiF2', 'apiF3'],
   },
 ];
@@ -99,19 +113,6 @@ const plans = [
   margin: 0 auto;
 }
 
-.how-to-start__tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 16px;
-  border-radius: 100px;
-  background: #F5F2FF;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: 12px;
-  color: #7E27ED;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
 .how-to-start__title {
   line-height: 1.2;
 }
@@ -123,11 +124,9 @@ const plans = [
 .how-to-start__steps {
   display: flex;
   align-items: flex-start;
-  gap: 0;
   position: relative;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0;
 }
 
 .how-to-start__step {
@@ -145,7 +144,7 @@ const plans = [
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7E27ED 0%, #2FC0BF 100%);
+  background: #7E27ED;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,12 +164,15 @@ const plans = [
 
 .how-to-start__step-title {
   font-family: 'PoppinsMedium', sans-serif;
+  font-weight: 400;
   font-size: 15px;
   color: #333;
+  margin: 0;
 }
 
 .how-to-start__step-text {
-  font-size: 13px;
+  margin: 0;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -227,7 +229,7 @@ const plans = [
 .how-to-start__integration-label {
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 11px;
-  color: #999;
+  color: #696969;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -235,18 +237,19 @@ const plans = [
 .how-to-start__integration-duration {
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 16px;
-  background: linear-gradient(135deg, #7E27ED, #2FC0BF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #7E27ED;
 }
 
 .how-to-start__integration-title {
   font-family: 'PoppinsMedium', sans-serif;
+  font-weight: 400;
   font-size: 17px;
   color: #333;
+  margin: 0;
 }
 
 .how-to-start__integration-desc {
+  margin: 0;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -255,27 +258,29 @@ const plans = [
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 4px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
 
   li {
     display: flex;
     align-items: flex-start;
     gap: 8px;
     font-family: 'PoppinsRegular', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     color: #696969;
     line-height: 1.5;
   }
 }
 
 .how-to-start__check {
-  color: #2FC0BF;
-  font-weight: 600;
+  color: #0B7978;
   flex-shrink: 0;
+  margin-top: 3px;
 }
 
 .how-to-start__trial {
-  background: linear-gradient(135deg, #7E27ED 0%, #2FC0BF 100%);
+  background: #7E27ED;
   border-radius: 24px;
   padding: 48px 56px;
 }
@@ -292,12 +297,14 @@ const plans = [
   flex-direction: column;
   gap: 12px;
 
-  .h2 {
-    color: #fff !important;
+  .how-to-start__trial-title {
+    color: #fff;
+    margin: 0;
   }
 
   .p1 {
-    color: rgba(255,255,255,0.8) !important;
+    color: #fff;
+    margin: 0;
     max-width: 500px;
   }
 }
@@ -306,10 +313,10 @@ const plans = [
   display: inline-flex;
   align-items: center;
   padding: 6px 14px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.16);
   border-radius: 100px;
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: #fff;
   width: fit-content;
 }
@@ -319,6 +326,7 @@ const plans = [
   padding: 20px 40px;
   border-radius: 72px;
   background: #fff;
+  border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;

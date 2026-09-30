@@ -1,25 +1,22 @@
 <template>
-  <div
-      @click="changeLanguage(currentLanguage === 'fr' ? 'en' : 'fr')"
+  <NuxtLink
+      :to="switchLocalePath(otherLocale)"
+      :hreflang="otherLocale"
+      :lang="otherLocale"
+      :aria-label="label"
       class="switcher"
-      :class="{'switcher--active': currentLanguage === 'en'}"
+      :class="{'switcher--active': locale === 'en'}"
+      @click="track('cta_click', { cta_label: 'lang_switch_' + otherLocale, location: 'lang_switcher' })"
   >
-    <span class="p1">FR</span>
-    <span class="p1">EN</span>
-  </div>
+    <span class="p1" :aria-current="locale === 'fr' ? 'true' : undefined">FR</span>
+    <span class="p1" :aria-current="locale === 'en' ? 'true' : undefined">EN</span>
+  </NuxtLink>
 </template>
 <script setup>
-import {ref} from 'vue';
-
-const {locales, locale, setLocale} = useI18n();
-let localeValue = locale.value;
-let currentLanguage = ref(localeValue);
-const changeLanguage = (value) => {
-  currentLanguage.value = value
-  setTimeout(() => {
-    setLocale(value)
-  }, 150)
-}
+const {locale} = useI18n();
+const switchLocalePath = useSwitchLocalePath();
+const otherLocale = computed(() => (locale.value === 'fr' ? 'en' : 'fr'));
+const label = computed(() => (otherLocale.value === 'en' ? 'Switch to English' : 'Passer en français'));
 </script>
 <style lang="scss">
 .switcher {
@@ -33,6 +30,12 @@ const changeLanguage = (value) => {
   position: relative;
   cursor: pointer;
   gap: 16px;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 3px solid #7E27ED;
+    outline-offset: 2px;
+  }
 
   span {
     color: var(--text);

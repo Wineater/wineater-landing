@@ -1,0 +1,3074 @@
+{
+  "generatedAt": "2026-09-30T20:50:32.266Z",
+  "requestsUsed": 0,
+  "keywords": [
+    {
+      "keyword": "logiciel caviste",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "logiciel caviste"
+      ],
+      "hits": 2,
+      "prelim": 7,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine sommelier app",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 3,
+      "prelim": 6.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai sommelier app",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 6,
+      "bestRank": 0
+    },
+    {
+      "keyword": "qr code carte des vins restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "qr code carte des vins restaurant"
+      ],
+      "hits": 1,
+      "prelim": 6
+    },
+    {
+      "keyword": "qr wine menu restaurant",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "qr wine menu restaurant"
+      ],
+      "hits": 1,
+      "prelim": 6
+    },
+    {
+      "keyword": "ai sommelier",
+      "locale": "en",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 5.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier cave a vin",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 5.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier ia",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 2,
+      "prelim": 5.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier in a restaurant",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 5.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier virtual",
+      "locale": "es",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier virtual"
+      ],
+      "hits": 2,
+      "prelim": 5.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "logiciel caviste professionnel",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "logiciel caviste"
+      ],
+      "hits": 1,
+      "prelim": 5.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "how to be sommelier certified",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 10,
+      "prelim": 5.3,
+      "bestRank": 2,
+      "question": true
+    },
+    {
+      "keyword": "logiciel caisse caviste",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "logiciel caviste"
+      ],
+      "hits": 1,
+      "prelim": 5.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "meilleur logiciel caviste",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "logiciel caviste"
+      ],
+      "hits": 1,
+      "prelim": 5.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine advice sommelier comparison",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 4,
+      "prelim": 5.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "logiciel gestion caviste",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "logiciel caviste"
+      ],
+      "hits": 1,
+      "prelim": 5.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "is sommelier a good career",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 9,
+      "prelim": 4.9,
+      "bestRank": 1,
+      "question": true
+    },
+    {
+      "keyword": "ai sommelier for wine shops",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "ai sommelier for wine shops"
+      ],
+      "hits": 1,
+      "prelim": 4.5
+    },
+    {
+      "keyword": "ai versus human sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 4.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "carta de vinos qr restaurante",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "carta de vinos qr restaurante"
+      ],
+      "hits": 1,
+      "prelim": 4.5
+    },
+    {
+      "keyword": "digital sommelier restaurant",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "digital sommelier restaurant"
+      ],
+      "hits": 1,
+      "prelim": 4.5
+    },
+    {
+      "keyword": "shopify wine recommendation app",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "shopify wine recommendation app"
+      ],
+      "hits": 1,
+      "prelim": 4.5
+    },
+    {
+      "keyword": "sommelier ia para tiendas de vinos",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "sommelier ia para tiendas de vinos"
+      ],
+      "hits": 1,
+      "prelim": 4.5
+    },
+    {
+      "keyword": "sommelier virtuel caviste",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "sommelier virtuel caviste"
+      ],
+      "hits": 1,
+      "prelim": 4.5
+    },
+    {
+      "keyword": "wine shop chatbot",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine shop chatbot"
+      ],
+      "hits": 1,
+      "prelim": 4.5
+    },
+    {
+      "keyword": "how to become a sommelier in india",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 8,
+      "prelim": 4.4,
+      "bestRank": 1,
+      "question": true
+    },
+    {
+      "keyword": "vivino ai sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 4.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 4.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "victor sommelier ia",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 2,
+      "prelim": 4.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "how to become a sommelier in australia",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 8,
+      "prelim": 4.2,
+      "bestRank": 3,
+      "question": true
+    },
+    {
+      "keyword": "pinpointed ai sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 4.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "a sommelier who's never tasted wine",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "carte des vins a gratter",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "como vender vino online",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vender más vino online"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0,
+      "question": true
+    },
+    {
+      "keyword": "recomendador de vinos",
+      "locale": "es",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "recomendador de vinos"
+      ],
+      "hits": 2,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier à domicile",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a graver",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a kiper",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a milano",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a proximite",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a que se dedica",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a roma",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a torino",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a vin",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier i norge",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier on a cruise ship",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "vender vino online",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vender más vino online"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "wine pairing api",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine recommendation api"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine app",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "carte des vins à télécharger",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "expert sommelier",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "i sommelier meaning",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier a casa",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier a domicile paris",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier a levier laguiole",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier a paris",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier for a day",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier i sverige",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier ian cauble",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier ner i flaska somm into the bottle 2015",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier on a budget",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "sommelier verre a vin",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "tv4 sommelier",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "a sommelier for beer",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine pairing app",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "carte des vins à imprimer",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "sommelier a dubai",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "sommelier a la maison",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "sommelier à personnaliser",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "sommelier ian",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "sommelier in a day",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "sommelier traduccion a espanol",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "virtual sommelier class",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier virtual"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2
+    },
+    {
+      "keyword": "a sommelier pronunciation",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "carte des vins à gratter cultura",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "i sommelier sono astemi",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "is ian cauble a master sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "sommelier a domicile montreal",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "sommelier a levier",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "sommelier i flertal",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "sommelier iag",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "sommelier in a sentence",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "sommelier torre a mare",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "virtual sommelier signorvino",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier virtual"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3
+    },
+    {
+      "keyword": "a sommelier is responsible for",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "ai wine shop",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "cigar sommelier iacs",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "i sommelier possono guidare",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "sommelier i danmark",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "sommelier tout a fait",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "sommelier virtuale",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier virtual"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "a sommelier definition",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai restaurant wine programs",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "bestRank": 5
+    },
+    {
+      "keyword": "carte des vins a gratter nature et decouverte",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "bestRank": 5
+    },
+    {
+      "keyword": "sommelier a la reunion",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "bestRank": 5
+    },
+    {
+      "keyword": "sommelier pret a porter",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "bestRank": 5
+    },
+    {
+      "keyword": "carte des vins à gratter fnac",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 3.4,
+      "bestRank": 6
+    },
+    {
+      "keyword": "iacs sommelier",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.4,
+      "bestRank": 6
+    },
+    {
+      "keyword": "sommelier de ia",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.4,
+      "bestRank": 6
+    },
+    {
+      "keyword": "sommelier i lufthavnen",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.4,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai wine shop sommia",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.3,
+      "bestRank": 7
+    },
+    {
+      "keyword": "carte des vins a remplir",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 3.3,
+      "bestRank": 7
+    },
+    {
+      "keyword": "i sommelier lo portano al collo",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.3,
+      "bestRank": 7
+    },
+    {
+      "keyword": "master sommelier ian cauble",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.3,
+      "bestRank": 7
+    },
+    {
+      "keyword": "sommelier a domicilio",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.3,
+      "bestRank": 7
+    },
+    {
+      "keyword": "i sommelier lo ha al collo",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.2,
+      "bestRank": 8
+    },
+    {
+      "keyword": "master sommelier ian",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.2,
+      "bestRank": 8
+    },
+    {
+      "keyword": "sommelier a domicilio roma",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.2,
+      "bestRank": 8
+    },
+    {
+      "keyword": "sommelier pro ai",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.2,
+      "bestRank": 8
+    },
+    {
+      "keyword": "carrefour taiwan's ai sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 3.1,
+      "bestRank": 9
+    },
+    {
+      "keyword": "corso sommelier i livello",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.1,
+      "bestRank": 9
+    },
+    {
+      "keyword": "iam sommelier",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.1,
+      "bestRank": 9
+    },
+    {
+      "keyword": "sommelier a domicilio milano",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 3.1,
+      "bestRank": 9
+    },
+    {
+      "keyword": "carte des vins ia",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 3
+    },
+    {
+      "keyword": "sell more wine online",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "sell more wine online"
+      ],
+      "hits": 1,
+      "prelim": 3
+    },
+    {
+      "keyword": "vender más vino online",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "vender más vino online"
+      ],
+      "hits": 1,
+      "prelim": 3
+    },
+    {
+      "keyword": "vendre plus de vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "vendre plus de vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 3
+    },
+    {
+      "keyword": "wine recommendation api",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine recommendation api"
+      ],
+      "hits": 1,
+      "prelim": 3
+    },
+    {
+      "keyword": "wine recommendation widget",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine recommendation widget"
+      ],
+      "hits": 1,
+      "prelim": 3
+    },
+    {
+      "keyword": "ai design wine label",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai kenzo wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai white wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine bottle label generator",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine cellar",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine fridge",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine industry",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine label design",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine making",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine name generator",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine pairing",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine recommendations",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine sainsbury's",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine tasting",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier a la carte",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "what is ai wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0,
+      "question": true
+    },
+    {
+      "keyword": "wine ai video",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "a sommelier's wine tasting tour de france",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai drinking wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai weiwei wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine bottle",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine ctzn",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine finder",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine inventory",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine label generator",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine manager",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine napa",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine price",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine selector",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine tool",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1
+    },
+    {
+      "keyword": "what is somm ai",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1,
+      "question": true
+    },
+    {
+      "keyword": "a sommelier's corkscrew",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "a sommelier's snob free guide to wine",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai danil wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai in wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai made wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai red wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai volti wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine and spirits",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine bar",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine cooler",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine filled to the brim",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine label",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine napa valley",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine startup",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai wine tesco",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2
+    },
+    {
+      "keyword": "ai blend wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai ia wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai voice wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine assistant",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine company",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine full glass",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine list",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine prompt",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine scanner",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai fiori wine list",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "ai rose wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "ai wine art",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "ai wine chiller",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "ai wine label maker",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "ai winter photo",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "sommelier a la carte theix",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "wine ai images",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4
+    },
+    {
+      "keyword": "ai for wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai in wine production",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai pioppi wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai sommdigi wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai wine advisor",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai wine chooser",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai wine list analysis",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai curated wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.9,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai in wine making",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.9,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai powered wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.9,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai suma wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.9,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai wine label design free",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.9,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai created wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.8,
+      "bestRank": 7
+    },
+    {
+      "keyword": "ai for wine industry",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.8,
+      "bestRank": 7
+    },
+    {
+      "keyword": "ai wine label reader",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.8,
+      "bestRank": 7
+    },
+    {
+      "keyword": "ai and wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.7,
+      "bestRank": 8
+    },
+    {
+      "keyword": "ai create wine label",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.7,
+      "bestRank": 8
+    },
+    {
+      "keyword": "ai fiori wine room",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.7,
+      "bestRank": 8
+    },
+    {
+      "keyword": "ai galli wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.7,
+      "bestRank": 8
+    },
+    {
+      "keyword": "ai in wine business",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.7,
+      "bestRank": 8
+    },
+    {
+      "keyword": "ai vs sommeliers wine pairing",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.7,
+      "bestRank": 8
+    },
+    {
+      "keyword": "somm ai logo",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.7,
+      "bestRank": 8
+    },
+    {
+      "keyword": "ai and wine industry",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.6,
+      "bestRank": 9
+    },
+    {
+      "keyword": "ai fiori wine director",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.6,
+      "bestRank": 9
+    },
+    {
+      "keyword": "ai galli wine price in kenya",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.6,
+      "bestRank": 9
+    },
+    {
+      "keyword": "ai in wine marketing",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.6,
+      "bestRank": 9
+    },
+    {
+      "keyword": "ai lumi wine bar trapani",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.6,
+      "bestRank": 9
+    },
+    {
+      "keyword": "ai portici wine cafè",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 1.6,
+      "bestRank": 9
+    },
+    {
+      "keyword": "recommandation de vin ia",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "recommandation de vin ia"
+      ],
+      "hits": 1,
+      "prelim": 1.5
+    },
+    {
+      "keyword": "salary of a sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 1.2,
+      "bestRank": 3
+    },
+    {
+      "keyword": "what is the sommelier exam",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 2,
+      "prelim": 1.1,
+      "bestRank": 4,
+      "question": true
+    },
+    {
+      "keyword": "a sommelier salary",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 1,
+      "bestRank": 0
+    },
+    {
+      "keyword": "sommelier formation a distance",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 1,
+      "prelim": 1,
+      "bestRank": 0
+    },
+    {
+      "keyword": "curso de sommelier virtual",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "sommelier virtual"
+      ],
+      "hits": 1,
+      "prelim": 0.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "head sommelier salary",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 0.9,
+      "bestRank": 1
+    },
+    {
+      "keyword": "carte des vins à gratter amazon",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 0.6,
+      "bestRank": 4
+    },
+    {
+      "keyword": "average salary of a master sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 0.5,
+      "bestRank": 5
+    },
+    {
+      "keyword": "how to become a sommelier reddit",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": 0.2,
+      "bestRank": 8,
+      "question": true
+    },
+    {
+      "keyword": "ai overflowing wine glass",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine glass full",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.5,
+      "bestRank": 0
+    },
+    {
+      "keyword": "ai wine glass",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.6,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine review",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.6,
+      "bestRank": 1
+    },
+    {
+      "keyword": "ai wine glass full to the brim",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.7,
+      "bestRank": 2
+    },
+    {
+      "keyword": "how many level 1 sommeliers are there",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.7,
+      "bestRank": 2,
+      "question": true
+    },
+    {
+      "keyword": "ai red wine glass",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.8,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine glass problem",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.8,
+      "bestRank": 3
+    },
+    {
+      "keyword": "ai wine glass overflowing",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.9,
+      "bestRank": 4
+    },
+    {
+      "keyword": "how many master sommeliers are there in australia",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -0.9,
+      "bestRank": 4,
+      "question": true
+    },
+    {
+      "keyword": "ai wine glass test",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -1,
+      "bestRank": 5
+    },
+    {
+      "keyword": "ai full wine glass problem",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -1.1,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai wine glass filled to the brim",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -1.1,
+      "bestRank": 6
+    },
+    {
+      "keyword": "ai image wine glass full",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -1.2,
+      "bestRank": 7
+    },
+    {
+      "keyword": "ai wine glass half full",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -1.2,
+      "bestRank": 7
+    },
+    {
+      "keyword": "ai wine jobs",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "ai sommelier"
+      ],
+      "hits": 1,
+      "prelim": -3.5,
+      "bestRank": 0
+    }
+  ]
+}

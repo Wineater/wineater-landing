@@ -1,89 +1,109 @@
 <template>
   <div class="signup-overlay" @click.self="$emit('close')">
-    <div class="signup-modal">
-      <button class="signup-modal__close" @click="$emit('close')" :aria-label="$t('SignupForm.close')">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+    <div
+      ref="modal"
+      class="signup-modal"
+      role="dialog"
+      aria-modal="true"
+      :aria-labelledby="submitted ? 'signup-success-title' : 'signup-title'"
+      tabindex="-1"
+      @keydown="onKeydown"
+    >
+      <button type="button" class="signup-modal__close" @click="$emit('close')" :aria-label="$t('SignupForm.close')">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
           <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
 
       <div v-if="!submitted" class="signup-modal__content">
-        <div class="signup-modal__logo"></div>
-        <h2 class="signup-modal__title h2 color-text">{{ $t('SignupForm.title') }}</h2>
-        <p class="signup-modal__subtitle p1 color-dark-100">{{ $t('SignupForm.subtitle') }}</p>
+        <div class="signup-modal__logo" role="img" aria-label="Wineater"></div>
+        <h2 id="signup-title" class="signup-modal__title h2 color-text">{{ $t('SignupForm.title') }}</h2>
+        <p id="signup-subtitle" class="signup-modal__subtitle p1 color-dark-100">{{ $t('SignupForm.subtitle') }}</p>
 
-        <form class="signup-modal__form" @submit.prevent="submit">
-          <!-- Name -->
+        <form class="signup-modal__form" aria-describedby="signup-subtitle" @submit.prevent="submit">
           <div class="signup-modal__field">
-            <label class="signup-modal__label">{{ $t('SignupForm.name') }}</label>
+            <label class="signup-modal__label" for="signup-name">{{ $t('SignupForm.name') }}</label>
             <input
+              id="signup-name"
+              ref="firstField"
               v-model="form.name"
               class="signup-modal__input"
               type="text"
+              name="name"
               required
+              maxlength="120"
               autocomplete="name"
               :placeholder="$t('SignupForm.namePlaceholder')"
               :disabled="submitting"
             />
           </div>
 
-          <!-- Business name -->
           <div class="signup-modal__field">
-            <label class="signup-modal__label">{{ $t('SignupForm.businessName') }}</label>
+            <label class="signup-modal__label" for="signup-business">{{ $t('SignupForm.businessName') }}</label>
             <input
+              id="signup-business"
               v-model="form.businessName"
               class="signup-modal__input"
               type="text"
+              name="businessName"
               required
+              maxlength="160"
               autocomplete="organization"
               :placeholder="$t('SignupForm.businessNamePlaceholder')"
               :disabled="submitting"
             />
           </div>
 
-          <!-- Email -->
           <div class="signup-modal__field">
-            <label class="signup-modal__label">{{ $t('SignupForm.email') }}</label>
+            <label class="signup-modal__label" for="signup-email">{{ $t('SignupForm.email') }}</label>
             <input
+              id="signup-email"
               v-model="form.email"
               class="signup-modal__input"
               type="email"
+              name="email"
               required
+              maxlength="254"
               autocomplete="email"
               :placeholder="$t('SignupForm.emailPlaceholder')"
               :disabled="submitting"
             />
           </div>
 
-          <!-- Menu file (optional) -->
           <div class="signup-modal__field">
-            <label class="signup-modal__label">
+            <label class="signup-modal__label" for="signup-menu">
               {{ $t('SignupForm.menuFile') }}
               <span class="signup-modal__label-optional">{{ $t('SignupForm.optional') }}</span>
             </label>
-            <label class="signup-modal__file-label" :class="{ 'has-file': !!menuFile, 'is-disabled': submitting }">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <div class="signup-modal__file-label" :class="{ 'has-file': !!menuFile, 'is-disabled': submitting }">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" focusable="false">
                 <path d="M3 13V15H15V13M9 3V11M9 3L6 6M9 3L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               <span>{{ menuFile ? menuFile.name : $t('SignupForm.menuFilePlaceholder') }}</span>
               <input
+                id="signup-menu"
                 ref="fileInput"
                 type="file"
+                name="menu"
                 accept=".pdf,.csv,.xlsx,.xls,.png,.jpg,.jpeg"
                 class="signup-modal__file-input"
+                aria-describedby="signup-menu-hint"
                 :disabled="submitting"
                 @change="onFileChange"
               />
-            </label>
-            <p class="signup-modal__field-hint">{{ $t('SignupForm.menuFileHint') }}</p>
+            </div>
+            <p id="signup-menu-hint" class="signup-modal__field-hint">{{ $t('SignupForm.menuFileHint') }}</p>
           </div>
 
-          <!-- GDPR consent (required) -->
-          <label class="signup-modal__gdpr" :class="{ 'signup-modal__gdpr--error': gdprError }">
+          <label class="signup-modal__gdpr" for="signup-gdpr" :class="{ 'signup-modal__gdpr--error': gdprError }">
             <input
+              id="signup-gdpr"
               v-model="form.gdprConsent"
               type="checkbox"
+              name="gdprConsent"
               class="signup-modal__gdpr-check"
+              :aria-invalid="gdprError ? 'true' : undefined"
+              :aria-describedby="gdprError ? 'signup-gdpr-error' : undefined"
               :disabled="submitting"
               @change="gdprError = false"
             />
@@ -92,9 +112,9 @@
               <a href="mailto:hi@wineater.com">hi@wineater.com</a>.
             </span>
           </label>
-          <p v-if="gdprError" class="signup-modal__error">{{ $t('SignupForm.gdprRequired') }}</p>
+          <p v-if="gdprError" id="signup-gdpr-error" class="signup-modal__error" role="alert">{{ $t('SignupForm.gdprRequired') }}</p>
 
-          <p v-if="error" class="signup-modal__error">{{ $t('SignupForm.error') }}</p>
+          <p v-if="error" class="signup-modal__error" role="alert">{{ $t('SignupForm.error') }}</p>
 
           <button class="signup-modal__submit" type="submit" :disabled="submitting">
             {{ submitting ? $t('SignupForm.submitting') : $t('SignupForm.submit') }}
@@ -104,20 +124,29 @@
 
       <div v-else class="signup-modal__success">
         <div class="signup-modal__success-icon">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <circle cx="24" cy="24" r="24" fill="url(#grad)"/>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="24" cy="24" r="24" fill="url(#signup-grad)"/>
             <path d="M14 24L21 31L34 17" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             <defs>
-              <linearGradient id="grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <linearGradient id="signup-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
                 <stop stop-color="#7E27ED"/>
                 <stop offset="1" stop-color="#2FC0BF"/>
               </linearGradient>
             </defs>
           </svg>
         </div>
-        <h2 class="h2 color-text">{{ $t('SignupForm.successTitle') }}</h2>
-        <p class="p1 color-dark-100">{{ $t('SignupForm.success') }}</p>
-        <button class="signup-modal__submit" @click="$emit('close')">
+        <h2 id="signup-success-title" ref="successTitle" class="h2 color-text" tabindex="-1">{{ $t('SignupForm.successTitle') }}</h2>
+        <div class="signup-modal__next" role="status">
+          <p class="signup-modal__next-title p1 color-text">{{ $t('SignupForm.nextTitle') }}</p>
+          <ol class="signup-modal__next-list p1 color-dark-100">
+            <li>{{ $t('SignupForm.next1') }}</li>
+            <li>{{ $t('SignupForm.next2', { email: submittedEmail }) }}</li>
+          </ol>
+        </div>
+        <button type="button" class="signup-modal__demo-link" @click="tryDemo">
+          {{ $t('SignupForm.successDemo') }}
+        </button>
+        <button type="button" class="signup-modal__submit" @click="$emit('close')">
           {{ $t('SignupForm.close') }}
         </button>
       </div>
@@ -126,23 +155,80 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, nextTick, onMounted, onBeforeUnmount } from 'vue';
 
-defineEmits(['close']);
+const emit = defineEmits(['close']);
 
 const form = reactive({ name: '', businessName: '', email: '', gdprConsent: false });
 const menuFile = ref(null);
 const fileInput = ref(null);
+const modal = ref(null);
+const firstField = ref(null);
+const successTitle = ref(null);
 const submitting = ref(false);
 const submitted = ref(false);
+const submittedEmail = ref('');
 const error = ref(false);
 const gdprError = ref(false);
+
+let previouslyFocused = null;
+let previousOverflow = '';
+
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+const onKeydown = (e) => {
+  if (e.key === 'Escape') {
+    e.stopPropagation();
+    emit('close');
+    return;
+  }
+  if (e.key !== 'Tab' || !modal.value) return;
+  const items = [...modal.value.querySelectorAll(FOCUSABLE)].filter((el) => el.offsetParent !== null);
+  if (!items.length) return;
+  const first = items[0];
+  const last = items[items.length - 1];
+  if (e.shiftKey && (document.activeElement === first || document.activeElement === modal.value)) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+};
+
+const onDocumentKeydown = (e) => {
+  if (e.key === 'Escape' && !modal.value?.contains(e.target)) emit('close');
+};
+
+onMounted(() => {
+  previouslyFocused = document.activeElement;
+  previousOverflow = document.body.style.overflow;
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('keydown', onDocumentKeydown);
+  track('signup_modal_open');
+  nextTick(() => (firstField.value || modal.value)?.focus());
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('keydown', onDocumentKeydown);
+  document.body.style.overflow = previousOverflow;
+  if (previouslyFocused && typeof previouslyFocused.focus === 'function') previouslyFocused.focus();
+});
 
 const onFileChange = (e) => {
   menuFile.value = e.target.files?.[0] ?? null;
 };
 
+const tryDemo = () => {
+  emit('close');
+  nextTick(() => {
+    document.getElementById('ai-sommelier')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+};
+
 const submit = async () => {
+  track('signup_submit_attempt');
+
   if (!form.gdprConsent) {
     gdprError.value = true;
     return;
@@ -160,9 +246,13 @@ const submit = async () => {
     if (menuFile.value) body.append('menu', menuFile.value);
 
     await $fetch('/api/register', { method: 'POST', body });
+    submittedEmail.value = form.email.trim();
     submitted.value = true;
+    track('signup_success');
+    nextTick(() => successTitle.value?.focus());
   } catch {
     error.value = true;
+    track('signup_error');
   } finally {
     submitting.value = false;
   }
@@ -201,10 +291,10 @@ const submit = async () => {
 
 .signup-modal__close {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 36px;
-  height: 36px;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #f5f2ff;
   display: flex;
@@ -213,8 +303,10 @@ const submit = async () => {
   cursor: pointer;
   color: #333;
   transition: background 0.2s;
+  border: 0;
 
   &:hover { background: #ede8ff; }
+  &:focus-visible { outline: 3px solid #7E27ED; outline-offset: 2px; }
 }
 
 .signup-modal__logo {
@@ -271,6 +363,9 @@ const submit = async () => {
     border-color: #7E27ED;
     outline: none;
   }
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(126, 39, 237, 0.3);
+  }
   &::placeholder { color: #bbb; }
   &:disabled { background: #f9f9f9; opacity: 0.6; }
 }
@@ -286,7 +381,7 @@ const submit = async () => {
   cursor: pointer;
   font-family: 'PoppinsRegular', sans-serif;
   font-size: 14px;
-  color: #999;
+  color: #767676;
   transition: border-color 0.2s, background 0.2s;
   position: relative;
   overflow: hidden;
@@ -308,6 +403,11 @@ const submit = async () => {
   }
 
   &.is-disabled { opacity: 0.6; cursor: not-allowed; }
+
+  &:focus-within {
+    border-color: #7E27ED;
+    box-shadow: 0 0 0 3px rgba(126, 39, 237, 0.3);
+  }
 }
 
 .signup-modal__file-input {
@@ -387,6 +487,7 @@ const submit = async () => {
   transition: opacity 0.2s, transform 0.2s;
   border: none;
 
+  &:focus-visible { outline: 3px solid #7E27ED; outline-offset: 3px; }
   &:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
   &:disabled { opacity: 0.6; cursor: not-allowed; }
 }
@@ -407,4 +508,41 @@ const submit = async () => {
 }
 
 .signup-modal__success-icon { margin-bottom: 8px; }
+
+.signup-modal__success h2:focus { outline: none; }
+
+.signup-modal__next {
+  text-align: left;
+  width: 100%;
+  background: #faf8ff;
+  border-radius: 16px;
+  padding: 16px 20px;
+}
+
+.signup-modal__next-title {
+  font-family: 'PoppinsMedium', sans-serif;
+  margin: 0 0 8px;
+}
+
+.signup-modal__next-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.signup-modal__demo-link {
+  min-height: 44px;
+  padding: 0 12px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 15px;
+  color: #7E27ED;
+  text-decoration: underline;
+
+  &:focus-visible { outline: 3px solid #7E27ED; outline-offset: 2px; border-radius: 8px; }
+}
 </style>

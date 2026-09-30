@@ -1,36 +1,87 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="footer__content">
       <div class="footer__texts">
         <div class="footer__title color-brand-4 decorative-1">
           {{ $t('Footer.title') }}
         </div>
-        <div class="footer__text h2 color-brand-4">
-          {{ $t('Footer.text') }}
-          <div class="footer__text-arrow"></div>
-        </div>
+        <p class="footer__text h2 color-brand-4">
+          {{ $t('Footer.closing') }}
+          <span class="footer__text-arrow" aria-hidden="true"></span>
+        </p>
         <div class="footer__trial color-brand-4">{{ $t('Footer.trial') }}</div>
         <div class="footer__btns">
-          <div class="footer__cta-primary" @click="$emit('getStarted')">
-            <span class="p1">{{ $t('Footer.ctaPrimary') }}</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <button v-if="isHome" type="button" class="footer__cta-primary" @click="onPrimaryClick">
+            <span class="p1">{{ $t('cta.primary') }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
               <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
-          <Button @btnClick="openDemoPage">{{ $t('playground.BookDemo') }}</Button>
+          </button>
+          <NuxtLink v-else :to="`${homePath}#get-started`" class="footer__cta-primary" @click="trackPrimary">
+            <span class="p1">{{ $t('cta.primary') }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </NuxtLink>
+          <Button :href="demoUrl" target="_blank" @btnClick="onDemoClick">{{ $t('cta.demo') }}</Button>
         </div>
       </div>
       <div class="footer__info">
-        <div class="footer__logo"></div>
-        <div class="footer__links">
-          <a class="p1 color-brand-4" href="mailto:hi@wineater.com">hi@wineater.com</a>
-          <a class="p1 color-brand-4" href="tel:+33781014033">+33 7 81 01 40 33</a>
-          <a class="p1 color-brand-4" href="https://linkedin.com/company/wineater" target="_blank">Linkedin</a>
+        <div class="footer__logo" role="img" aria-label="Wineater"></div>
+        <div class="footer__links" role="group" :aria-label="$t('Footer.contactLabel')">
+          <a class="footer__link p1 color-brand-4" href="mailto:hi@wineater.com">hi@wineater.com</a>
+          <a class="footer__link p1 color-brand-4" href="tel:+33781014033">+33 7 81 01 40 33</a>
+          <a class="footer__link p1 color-brand-4" href="https://linkedin.com/company/wineater" target="_blank" rel="noopener" @click="onLinkedinClick">Linkedin</a>
         </div>
       </div>
+      <nav class="footer__legal" :aria-label="$t('Footer.navLabel')">
+        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/blog')">{{ $t('Footer.blog') }}</NuxtLink>
+        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/faq')">{{ $t('Footer.faq') }}</NuxtLink>
+        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/privacy')">{{ $t('Footer.privacy') }}</NuxtLink>
+        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/terms')">{{ $t('Footer.terms') }}</NuxtLink>
+        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/legal')">{{ $t('Footer.legal') }}</NuxtLink>
+        <button type="button" class="footer__link footer__link-btn p1 color-brand-4" @click="openCookieSettings">{{ $t('Footer.cookies') }}</button>
+      </nav>
     </div>
-  </div>
+  </footer>
 </template>
+
+<script setup>
+import Button from "~/components/Buttons/Button.vue";
+
+const route = useRoute();
+const localePath = useLocalePath();
+const { t } = useI18n();
+
+const emit = defineEmits(['getStarted']);
+
+const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
+
+const homePath = computed(() => localePath('/'));
+const isHome = computed(() => route.path.replace(/\/$/, '') === homePath.value.replace(/\/$/, ''));
+
+const trackPrimary = () => {
+  track('cta_click', { cta_label: t('cta.primary'), location: 'footer' });
+};
+
+const onPrimaryClick = () => {
+  trackPrimary();
+  emit('getStarted');
+};
+
+const onDemoClick = () => {
+  track('demo_click', { location: 'footer' });
+  track('outbound_link_click', { url: demoUrl });
+};
+
+const onLinkedinClick = () => {
+  track('outbound_link_click', { url: 'https://linkedin.com/company/wineater' });
+};
+
+const openCookieSettings = () => {
+  if (typeof useConsent === 'function') useConsent().reopen();
+};
+</script>
 
 <style scoped lang="scss">
 .footer {
@@ -60,6 +111,7 @@
 }
 
 .footer__text {
+  margin-bottom: 0;
   padding-left: 161px;
   position: relative;
   margin-top: 22px;
@@ -96,6 +148,8 @@
   padding: 20px 40px;
   border-radius: 72px;
   background: #fff;
+  border: 0;
+  text-decoration: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -115,17 +169,49 @@
     opacity: 0.9;
     transform: translateY(-1px);
   }
+  &:focus-visible {
+    outline: 3px solid #7E27ED;
+    outline-offset: 3px;
+  }
 }
 .footer__links{
   display: flex;
-  gap: 24px;
+  gap: 8px;
+}
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 8px;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+.footer__link-btn {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  width: 100%;
+  padding-bottom: 32px;
 }
 .footer__info{
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 32px;
+  padding-bottom: 8px;
   margin-top: 150px;
 }
 .footer__logo{
@@ -138,7 +224,7 @@
 }
 @media only screen and (max-width: 1440px) {
   .footer{
-    height: 722px;
+    min-height: 722px;
   }
   .footer__content {
     padding-top: 220px;
@@ -149,7 +235,7 @@
 }
 @media only screen and (max-width: 1024px) {
   .footer{
-    height: 622px;
+    min-height: 622px;
   }
   .footer__content {
     padding: 220px 40px 0 40px;
@@ -168,7 +254,7 @@
 
 @media only screen and (max-width: 768px) {
   .footer{
-    height: 466px;
+    min-height: 466px;
   }
   .footer__content {
     padding: 150px 24px 0 24px;
@@ -186,12 +272,15 @@
     width: 59px;
   }
   .footer__info{
+    padding-bottom: 8px;
+  }
+  .footer__legal{
     padding-bottom: 24px;
   }
 }
 @media only screen and (max-width: 650px) {
   .footer{
-    height: auto;
+    min-height: auto;
     margin-top: 50px;
   }
   .footer__content {
@@ -216,21 +305,9 @@
   }
   .footer__links{
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 16px;
+    gap: 0;
   }
 }
 </style>
-<script>
-import Button from "~/components/Buttons/Button.vue";
-
-export default {
-  components: { Button },
-  emits: ['getStarted'],
-  methods: {
-    openDemoPage() {
-      window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank');
-    },
-  },
-};
-</script>

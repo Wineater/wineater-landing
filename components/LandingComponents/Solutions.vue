@@ -1,13 +1,13 @@
 <template>
   <div class="solutions" :class="{ 'visible': visible }">
-    <h2 class="h2 color-brand-6">
+    <h2 class="h2 color-text">
       {{ $t('Solutions.title') }}
     </h2>
 
     <div class="solutions-container">
       <div class="solution-card">
         <h3 class="h3">Online Widget</h3>
-        <p class="p1 color-text">Our embedded widget suggests perfect wine pairings for meals and occasions, giving customers confidence in their selections and increasing your average order value.</p>
+        <p class="p1 color-text">An embeddable widget that suggests wines from your catalog for a meal or an occasion, with a short reason for each.</p>
       </div>
 
 <!--            <div class="solution-card">
@@ -17,7 +17,7 @@
 
       <div class="solution-card">
         <h3 class="h3">Offline Stores</h3>
-        <p class="p1">By offering a unique value proposition, we make it convenient for users to choose wines, encouraging repeat visits and purchases.</p>
+        <p class="p1 color-text">A QR code in the shop or at the table lets customers ask in their own words and get suggestions from your range.</p>
       </div>
     </div>
   </div>

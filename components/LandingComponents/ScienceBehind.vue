@@ -1,5 +1,5 @@
 <template>
-  <div class="science-behind" :class="{ 'visible': visible }">
+  <section class="science-behind" :class="{ 'visible': visible }">
     <div class="science-behind__bottles">
       <div class="science-behind__bottles-text">
         <h2 class="h2 color-brand-4">
@@ -12,8 +12,7 @@
         </p>
       </div>
     </div>
-<!--    <div style="display:none;" class="science-behind__bottle"></div>-->
-  </div>
+  </section>
 </template>
 <script setup>
 const props = defineProps({

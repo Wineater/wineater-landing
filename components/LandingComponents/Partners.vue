@@ -1,6 +1,6 @@
 <template>
   <div class="partners" :class="{ 'visible': visible }">
-    <h2 class="h2 color-brand-6 partners__title">
+    <h2 id="partners-title" class="h2 color-text partners__title">
       {{ $t('Partners.title') }}
     </h2>
     <div class="partners__grid">
@@ -9,11 +9,15 @@
           :key="partner.id"
           :href="partner.url"
           target="_blank"
+          rel="noopener"
           class="partners__item"
       >
         <img
             :src="partner.logo"
             :alt="partner.name"
+            :width="partner.width"
+            :height="partner.height"
+            loading="lazy"
             class="partners__logo"
         />
       </a>
@@ -29,18 +33,21 @@ defineProps({
   }
 });
 
-// Placeholder partner data - you can replace these later
 const partners = [
   {
     id: 1,
     name: 'Bernard Magrez Start-Up Win',
-    logo: 'https://bmstartupwin.com/wp-content/uploads/2023/06/LOGO-NOIR-.png',
+    logo: '/press/bmstartupwin.png',
+    width: 400,
+    height: 75,
     url: 'https://bmstartupwin.com/en/startups/wineater/'
   },
   {
     id: 2,
     name: 'La French Tech Bordeaux',
-    logo: 'https://annuaire.frenchtechbordeaux.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6IjI2YzViNTRmLWE1NTctNGI3Yi04YTE4LTY0OWYxYTVlZjI0MyIsInB1ciI6ImJsb2JfaWQifX0=--3ec8d92adf4699ae40492eb006456907b6b83218/Logo_FT_Bordeaux_FondBlanc.png',
+    logo: '/press/frenchtech-bordeaux.png',
+    width: 242,
+    height: 300,
     url: 'https://annuaire.frenchtechbordeaux.com/organisations/wineater'
   },
 ];
@@ -79,14 +86,17 @@ const partners = [
     width: 100%;
     max-width: 250px;
     height: 130px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #fff;
+    border: 1px solid #ececec;
+
+    &:focus-visible {
+      outline: 3px solid #333;
+      outline-offset: 3px;
+    }
 
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      background: rgba(255, 255, 255, 0.8);
     }
   }
 
@@ -96,14 +106,6 @@ const partners = [
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: grayscale(0%);
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease;
-
-    .partners__item:hover & {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
   }
 }
 
@@ -152,7 +154,7 @@ const partners = [
 
 @media only screen and (max-width: 600px) {
   .partners {
-    padding: 60px 16px 80px 0px;
+    padding: 60px 0 80px;
 
     &__grid {
       grid-template-columns: 1fr;

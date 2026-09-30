@@ -1,0 +1,41 @@
+# Wineater
+
+> Wineater is a B2B AI sommelier for wine shops, online wine retailers, bars and restaurants. A customer describes what they need in free text (for example "something for a steak, under 30 euros") and gets four wines from that merchant's own catalog, each with a short explanation of why it fits.
+
+## Key facts
+
+- Recommendations come only from the catalog of the merchant that uses Wineater. Wines marked out of stock are hidden; with a connected XML product feed, availability is synced once a day.
+- A request is read for food pairing, taste and style, origin, occasion, production method and budget, and compared with the same aspects stored for every wine.
+- Each result shows up to four wines with a one- or two-sentence reason in the shop's language. Shoppers can ask for more wines or for similar wines.
+- Channels: website widget (script tag), QR code for tables, shelves and menus, API, and a tablet version for dining rooms (no cart, no payment).
+- Catalog input: CSV export, product feed (XML, Google Shopping style) or API. The Wineater team sets up the catalog and the channel.
+- Typical time to go live: about 1 hour for a QR code, about 1 day for the widget, about 1 week for an API integration.
+- Measured events: widget sessions, searches, recommendations shown, wine-card interactions, BUY clicks. A BUY click is a click to the product page, not a confirmed purchase. Wineater does not receive order data from the shop.
+- Trial: 1 month free, no credit card. Pricing depends on catalog size and channel; contact hi@wineater.com.
+- Live clients: Brice & Burnett, Intermarché.
+- One-month retail pilot (Wineater data, Aug-Sep 2026; small sample, one retailer): 22.2% of sessions that displayed recommendations ended in a BUY click (8 of 36); 2.4 requests per shopper; 96.6% of result displays showed a full set of four wines. A BUY click is a click to the product page, not a confirmed purchase.
+- Wineater is based in Bordeaux, France. The website is available in English and French.
+
+## Pages
+
+- [Home](https://wineater.com/): product overview, live demo and sign-up
+- [Accueil (French)](https://wineater.com/fr): the same site in French
+- [FAQ](https://wineater.com/faq): 41 answers on how Wineater works, setup, data, measurement and the trial
+- [FAQ (French)](https://wineater.com/fr/faq): the FAQ in French
+- [Blog](https://wineater.com/blog): articles about AI wine recommendations for merchants
+- [Privacy policy](https://wineater.com/privacy): what data is collected and how it is handled
+
+## FAQ categories
+
+- [Basics](https://wineater.com/faq#basics): what Wineater is, how it differs from a generic chatbot, filters, and Vivino
+- [How recommendations work](https://wineater.com/faq#how-recommendations-work): free-text requests, budget, reference wines, stock, languages, promoted wines
+- [Wine shops and online retailers](https://wineater.com/faq#wine-shops-and-online-retailers): widget install, catalog formats, speed, branding, SEO, mobile
+- [Restaurants and bars](https://wineater.com/faq#restaurants-and-bars): QR code on tables, tablet version, wine list, wines by the glass
+- [Integration and data](https://wineater.com/faq#integration-and-data): API, white label, shopper data, security and GDPR
+- [Results and measurement](https://wineater.com/faq#results-and-measurement): what is measured, BUY clicks, linking clicks to orders
+- [Pricing and free trial](https://wineater.com/faq#pricing-and-trial): trial, pricing model, who sets it up
+
+## Contact
+
+- Email: hi@wineater.com
+- Phone: +33 7 81 01 40 33

@@ -5,7 +5,7 @@
       <span class="decorative-1 color-brand-1">{{ $t('BookDemo.title2') }}</span>
     </div>
     <div class="book-demo__btn">
-      <Button @click="openDemoPage">{{ $t("playground.BookDemo") }}</Button>
+      <Button :href="demoUrl" target="_blank" @btnClick="trackDemo">{{ $t("cta.demo") }}</Button>
       <div class="book-demo__arrow"></div>
     </div>
   </div>
@@ -21,9 +21,13 @@ export default {
   props: {
     visible: Boolean,
   },
+  data() {
+    return { demoUrl: 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf' };
+  },
   methods: {
-    openDemoPage() {
-      window.open('https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf', '_blank')
+    trackDemo() {
+      track('demo_click', { location: 'book_demo_banner' });
+      track('outbound_link_click', { url: this.demoUrl });
     },
   },
 };

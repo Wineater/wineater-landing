@@ -1,50 +1,34 @@
 <template>
-  <h2 class="h2 color-brand-6">
-    {{ $t('HowItWorks.title') }}
-  </h2>
-  <div
-      class="how-it-works"
-      :class="{
-        'visible': visible,
-        'how-it-works--fr': $i18n.locale === 'fr'
-      }"
-  >
-  </div>
-<!--  <video class="hiw-animation" autoplay muted playsinline preload="auto" src="https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media//Wineater_how_it_works_optimized_1080.mp4"></video>-->
-</template>
-<script>
-import Button from "~/components/Buttons/Button.vue";
+  <div class="how-it-works" :class="{ 'visible': visible }">
+    <h2 id="how-it-works-title" class="h2 color-text">
+      {{ $t('HowItWorks.title') }}
+    </h2>
 
-export default {
-  components: {
-    Button,
-  },
-  props: {
-    visible: Boolean,
-  },
-};
+    <ol class="how-it-works__steps">
+      <li class="how-it-works__step" v-for="n in 3" :key="n">
+        <span class="how-it-works__num" aria-hidden="true">{{ n }}</span>
+        <h3 class="how-it-works__step-title">{{ $t(`HowItWorks.step${n}Title`) }}</h3>
+        <p class="p1 color-dark-100">{{ $t(`HowItWorks.step${n}Text`) }}</p>
+      </li>
+    </ol>
+
+    <p class="p1 color-dark-100 how-it-works__note">{{ $t('HowItWorks.catalogNote') }}</p>
+  </div>
+</template>
+
+<script setup>
+defineProps({
+  visible: Boolean,
+});
 </script>
 
 <style scoped lang="scss">
-.hiw-animation{
-  width: 100%;
-  margin-bottom: 6rem;
-  min-height: 680px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 .how-it-works {
-  width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 6rem;
-  min-height: 680px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(assets/imgs/hiw-large.svg);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 0 80px;
   animation: fadeUp 0.6s ease both;
-  &--fr{
-    background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-desktop--fr.svg');
-  }
 }
 
 @keyframes fadeUp {
@@ -52,38 +36,66 @@ export default {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.how-it-works__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-@media only screen and (max-width: 1440px) {
-  .how-it-works {
-    height: 770px;
+.how-it-works__step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #ededed;
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+    max-width: 38ch;
   }
 }
 
-@media only screen and (max-width: 1280px) {
-  .how-it-works {
-    height: 680px;
-  }
+.how-it-works__num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F5F2FF;
+  color: #7E27ED;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 16px;
 }
 
-@media only screen and (max-width: 1024px) {
-  .how-it-works {
-    height: 680px;
-    background-image: url(assets/imgs/howitworks_larger_transparent.png);
-    &--fr{
-      background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-tablet--fr.svg');
-    }
-  }
+.how-it-works__step-title {
+  margin: 0;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #333;
 }
 
-@media only screen and (max-width: 500px) {
+.how-it-works__note {
+  margin: 0;
+  max-width: 68ch;
+  line-height: 1.6;
+}
+
+@media only screen and (max-width: 768px) {
   .how-it-works {
-    height: 475px;
-    background-position: center;
-    background-image: url(assets/imgs/hiw-mobile.svg);
-    &--fr{
-      background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/graph-mobile--fr.svg');
-    }
+    padding: 24px 0 60px;
+    gap: 28px;
+  }
+
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 </style>
-

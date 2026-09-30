@@ -1,6 +1,6 @@
 <template>
   <div class="press" :class="{ 'visible': visible }" role="region" aria-label="Press coverage">
-    <h2 class="h2 color-brand-6 press__title">
+    <h2 id="press-title" class="h2 color-text press__title">
       {{ $t('Press.title') }}
     </h2>
     <div class="press__grid">
@@ -9,12 +9,15 @@
           :key="article.id"
           :href="article.url"
           target="_blank"
+          rel="noopener"
           class="press__item"
-          :title="article.name"
       >
         <img
             :src="article.logo"
             :alt="article.name"
+            :width="article.width"
+            :height="article.height"
+            loading="lazy"
             class="press__logo"
         />
       </a>
@@ -34,13 +37,17 @@ const articles = [
   {
     id: 1,
     name: 'La Revue du Vin de France',
-    logo: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/2026-05-20%2018.47.26.jpg',
+    logo: '/press/larvf.jpg',
+    width: 250,
+    height: 250,
     url: 'https://www.larvf.com/a-bordeaux-bernard-magrez-fait-naitre-un-sommelier-digital,4907283.asp'
   },
   {
     id: 2,
     name: 'Le Figaro',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Le_Figaro.svg',
+    logo: '/press/figaro.svg',
+    width: 310,
+    height: 42,
     url: 'https://avis-vin.lefigaro.fr/economie-du-vin/accords-mets-et-vins-grace-a-l-ia-durabilite-ces-startups-qui-tentent-de-revolutionner-le-monde-du-vin-20250723'
   },
 ];
@@ -79,14 +86,17 @@ const articles = [
     width: 100%;
     max-width: 250px;
     height: 130px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #fff;
+    border: 1px solid #ececec;
+
+    &:focus-visible {
+      outline: 3px solid #333;
+      outline-offset: 3px;
+    }
 
     &:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      background: rgba(255, 255, 255, 0.8);
     }
   }
 
@@ -96,14 +106,6 @@ const articles = [
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: grayscale(0%);
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease;
-
-    .press__item:hover & {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
   }
 }
 
@@ -152,7 +154,7 @@ const articles = [
 
 @media only screen and (max-width: 600px) {
   .press {
-    padding: 60px 16px 80px 0px;
+    padding: 60px 0 80px;
 
     &__grid {
       grid-template-columns: 1fr;

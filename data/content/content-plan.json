@@ -1,0 +1,190 @@
+{
+  "generatedAt": "2026-09-30T21:32:59.985Z",
+  "items": [
+    {
+      "target": "landing",
+      "title": "AI Sommelier for Wine Shops",
+      "slug": "ai-sommelier-for-wine-shops",
+      "locale": "en",
+      "primaryKeyword": "ai sommelier for wine shops",
+      "secondaryKeywords": [
+        "ai wine shop",
+        "ai wine sommelier"
+      ],
+      "intent": "commercial",
+      "cluster": "ai-sommelier-b2b",
+      "b2bScore": 10,
+      "rationale": "This is a core commercial intent for our target audience looking for AI solutions for their retail business.",
+      "outline": [
+        "How AI sommelier technology works for retail",
+        "Benefits of personalized wine recommendations",
+        "Integrating AI into your wine shop catalog",
+        "Case for increased conversion rates"
+      ],
+      "internalLinks": [
+        {
+          "path": "/",
+          "anchor": "AI sommelier for wine shops"
+        }
+      ],
+      "id": "en:ai-sommelier-for-wine-shops",
+      "status": "suggested",
+      "plannedAt": "2026-09-30T21:32:59.984Z"
+    },
+    {
+      "target": "landing",
+      "title": "AI Wine Recommendation API for Retailers",
+      "slug": "wine-recommendation-api",
+      "locale": "en",
+      "primaryKeyword": "wine recommendation api",
+      "secondaryKeywords": [
+        "wine recommendation widget",
+        "shopify wine recommendation app"
+      ],
+      "intent": "commercial",
+      "cluster": "api-integration",
+      "b2bScore": 9,
+      "rationale": "Retailers and developers are actively searching for technical solutions to integrate wine recommendations into their existing platforms.",
+      "outline": [
+        "Features of our wine recommendation API",
+        "How to integrate the widget into your website",
+        "Customizing the AI sommelier for your brand",
+        "Technical documentation and support"
+      ],
+      "internalLinks": [
+        {
+          "path": "/",
+          "anchor": "AI sommelier API"
+        }
+      ],
+      "id": "en:wine-recommendation-api",
+      "status": "suggested",
+      "plannedAt": "2026-09-30T21:32:59.984Z"
+    },
+    {
+      "target": "blog",
+      "title": "Comment booster vos ventes avec un logiciel pour caviste",
+      "slug": "logiciel-caviste-professionnel",
+      "locale": "fr",
+      "primaryKeyword": "logiciel caviste",
+      "secondaryKeywords": [
+        "logiciel caisse caviste",
+        "logiciel gestion caviste"
+      ],
+      "intent": "informational",
+      "cluster": "b2b-software-comparison",
+      "b2bScore": 8,
+      "rationale": "French wine shop owners are searching for professional management software; this provides an opportunity to position our AI sommelier as a value-add.",
+      "outline": [
+        "Les fonctionnalités indispensables d'un logiciel de gestion pour caviste",
+        "Comment l'IA transforme l'expérience client en boutique",
+        "Choisir le bon outil pour votre cave",
+        "Pourquoi coupler votre logiciel avec un sommelier virtuel"
+      ],
+      "internalLinks": [
+        {
+          "path": "/fr",
+          "anchor": "Sommelier virtuel pour caviste"
+        },
+        {
+          "path": "/fr/blog/sommelier-virtuel-caviste",
+          "anchor": "Sommelier virtuel caviste"
+        }
+      ],
+      "id": "fr:logiciel-caviste-professionnel",
+      "status": "drafted",
+      "plannedAt": "2026-09-30T21:32:59.985Z",
+      "draftedAt": "2026-09-30T21:36:36.756Z"
+    },
+    {
+      "target": "blog",
+      "title": "QR Codes sur les cartes des vins : l'avenir de la restauration",
+      "slug": "qr-code-carte-des-vins-restaurant",
+      "locale": "fr",
+      "primaryKeyword": "qr code carte des vins restaurant",
+      "secondaryKeywords": [
+        "carte des vins ia"
+      ],
+      "intent": "informational",
+      "cluster": "digital-menu-innovation",
+      "b2bScore": 8,
+      "rationale": "Restaurant owners are looking for ways to digitize their wine lists; this is a high-intent B2B topic.",
+      "outline": [
+        "Pourquoi passer à la carte des vins numérique",
+        "Avantages du QR code pour le service en salle",
+        "Comment intégrer un sommelier IA dans votre menu QR",
+        "Améliorer la vente incitative avec le digital"
+      ],
+      "internalLinks": [
+        {
+          "path": "/fr",
+          "anchor": "Sommelier virtuel pour restaurant"
+        }
+      ],
+      "id": "fr:qr-code-carte-des-vins-restaurant",
+      "status": "planned",
+      "plannedAt": "2026-09-30T21:32:59.985Z"
+    },
+    {
+      "target": "blog",
+      "title": "Cómo vender vino online con inteligencia artificial",
+      "slug": "vender-vino-online",
+      "locale": "es",
+      "primaryKeyword": "vender vino online",
+      "secondaryKeywords": [
+        "vender más vino online",
+        "recomendador de vinos"
+      ],
+      "intent": "informational",
+      "cluster": "b2b-ecommerce-strategy",
+      "b2bScore": 8,
+      "rationale": "Spanish-speaking wine retailers are looking for strategies to improve online sales, which aligns perfectly with our AI recommendation value proposition.",
+      "outline": [
+        "Estrategias para mejorar la conversión en tiendas de vino online",
+        "El papel de la IA en la recomendación personalizada",
+        "Cómo implementar un recomendador de vinos en tu web",
+        "Beneficios de la automatización para el minorista"
+      ],
+      "internalLinks": [
+        {
+          "path": "/",
+          "anchor": "AI sommelier for wine shops"
+        }
+      ],
+      "id": "es:vender-vino-online",
+      "status": "planned",
+      "plannedAt": "2026-09-30T21:32:59.985Z"
+    },
+    {
+      "target": "blog",
+      "title": "AI vs Human Sommelier: What's Best for Your Business?",
+      "slug": "ai-versus-human-sommelier",
+      "locale": "en",
+      "primaryKeyword": "ai versus human sommelier",
+      "secondaryKeywords": [
+        "ai wine advice sommelier comparison"
+      ],
+      "intent": "comparison",
+      "cluster": "ai-sommelier-b2b",
+      "b2bScore": 7,
+      "rationale": "Addresses the common hesitation of business owners regarding the replacement or augmentation of human staff with AI.",
+      "outline": [
+        "The role of the human sommelier in modern retail",
+        "How AI sommelier technology complements staff",
+        "Scalability of AI vs human expertise",
+        "Choosing the right balance for your wine shop"
+      ],
+      "internalLinks": [
+        {
+          "path": "/blog/wine-shop-chatbot-vs-ai-sommelier",
+          "anchor": "AI sommelier vs chatbot"
+        }
+      ],
+      "id": "en:ai-versus-human-sommelier",
+      "status": "drafted",
+      "plannedAt": "2026-09-30T21:32:59.985Z",
+      "draftedAt": "2026-09-30T21:35:20.147Z"
+    }
+  ],
+  "skipped": []
+}

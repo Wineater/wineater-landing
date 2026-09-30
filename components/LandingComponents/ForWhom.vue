@@ -1,146 +1,144 @@
 <template>
-  <div class="for-whom" :class="{ 'visible': visible }">
+  <section class="for-whom" :class="{ 'visible': visible }">
     <div class="for-whom__header">
       <h2 class="h2 color-text">{{ $t('ForWhom.title') }}</h2>
       <p class="p1 color-dark-100 for-whom__subtitle">{{ $t('ForWhom.subtitle') }}</p>
     </div>
 
     <div class="for-whom__cards">
-      <div
+      <article
         class="for-whom__card"
-        v-for="card in cards[$i18n.locale]"
+        v-for="card in cards[$i18n.locale] || cards.en"
         :key="card.id"
-        :class="`for-whom__card--${card.id}`"
       >
-        <div class="for-whom__card-top">
-          <div class="for-whom__card-tag">{{ card.tag }}</div>
-          <div class="for-whom__card-title h3">{{ card.title }}</div>
-          <div class="for-whom__card-pain p1 color-dark-100">
-            <span class="for-whom__pain-label">{{ $t('ForWhom.problemLabel') }}</span>
-            {{ card.pain }}
-          </div>
+        <div class="for-whom__segment">
+          <svg v-if="card.id === 'restaurant'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8l-.6 6.2a3.4 3.4 0 0 1-6.8 0L8 3Z"/><path d="M12 12.6V21"/><path d="M8.5 21h7"/></svg>
+          <svg v-else-if="card.id === 'offline'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v10h16V10"/><path d="M3 4h18l-1.2 5.2a2.6 2.6 0 0 1-5 0 2.6 2.6 0 0 1-5.6 0 2.6 2.6 0 0 1-5 0L3 4Z"/><path d="M10 20v-5h4v5"/></svg>
+          <svg v-else width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          <span>{{ card.segment }}</span>
         </div>
+
+        <h3 class="for-whom__card-title h3">{{ card.title }}</h3>
+        <p class="for-whom__card-pain p1 color-dark-100">{{ card.pain }}</p>
 
         <div class="for-whom__card-image">
-          <img v-if="card.id === 'online'" src="~/assets/imgs/widget_test.png" alt="Widget screenshot"/>
-          <img v-else-if="card.id === 'offline'" src="~/assets/imgs/offline_retailers.jpg" alt="Offline store"/>
-          <img v-else-if="card.id === 'restaurant'" src="~/assets/imgs/bar_lenez.jpg" alt="Restaurant"/>
+          <img v-if="card.id === 'online'" src="~/assets/imgs/widget_test.png" width="963" height="580" loading="lazy" :alt="card.imageAlt"/>
+          <img v-else-if="card.id === 'offline'" src="~/assets/imgs/offline_retailers.jpg" width="875" height="560" loading="lazy" :alt="card.imageAlt"/>
+          <img v-else src="~/assets/imgs/bar_lenez.jpg" width="1179" height="544" loading="lazy" :alt="card.imageAlt"/>
         </div>
 
-        <div class="for-whom__card-bottom">
-          <div class="for-whom__card-solution-label">{{ $t('ForWhom.solutionLabel') }}</div>
-          <ul class="for-whom__features">
-            <li v-for="f in card.features" :key="f">
-              <span class="for-whom__check">✓</span>
-              <span>{{ f }}</span>
-            </li>
-          </ul>
-          <div class="for-whom__card-result">
-            <span class="for-whom__result-number">{{ card.resultNumber }}</span>
-            <span class="for-whom__result-text">{{ card.resultText }}</span>
-          </div>
-        </div>
-      </div>
+        <ul class="for-whom__features">
+          <li v-for="f in card.features" :key="f">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
+            <span>{{ f }}</span>
+          </li>
+        </ul>
+
+        <button type="button" class="for-whom__cta" @click="onCta(card.id)">
+          {{ $t('cta.primary') }}
+        </button>
+      </article>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   props: { visible: Boolean },
+  emits: ['getStarted'],
   data() {
     return {
       cards: {
         'en': [
           {
             id: 'restaurant',
-            tag: '🍽️ Restaurants & Bars',
-            title: 'Your sommelier can\'t be at every table. Wineater can.',
-            pain: 'Staff can\'t be wine experts for 80 covers at once. Guests feel uncertain, order less, leave tips on the table.',
+            segment: 'Restaurants & Bars',
+            title: 'Your sommelier\'s voice at every table.',
+            pain: 'Staff are busy, and guests hesitate over the wine list.',
+            imageAlt: 'A guest typing a wine question on a phone next to a Wineater QR stand on a restaurant table',
             features: [
-              'QR at every table — no app download needed',
-              'Recommendations by dish, mood, or occasion in seconds',
-              'POS tool so your team guides with confidence',
-              'Works for wine bars, fine dining, casual bistros',
+              'A QR code at every table, no app download',
+              'Wine suggestions by dish, mood, or occasion',
+              'Your team can use it too, on a tablet in the room',
+              'Wine bars, fine dining, casual bistros',
             ],
-            resultNumber: '+15%',
-            resultText: 'average upsell on wine per table',
           },
           {
             id: 'offline',
-            tag: '🏪 Wine Stores',
-            title: 'Your shelves hold 500 wines. Your staff can\'t know all of them.',
-            pain: 'Customers feel overwhelmed in the wine aisle. They pick the cheapest bottle they recognize — or leave without buying.',
+            segment: 'Wine Stores',
+            title: 'Your whole shelf, explained to every customer.',
+            pain: 'Customers feel lost in the aisle and reach for the bottle they already know.',
+            imageAlt: 'A Wineater QR sticker on a wine shelf, with the recommendation screen it opens on a phone',
             features: [
-              'QR near wine shelves — instant AI guidance on any question',
-              'Recommends from YOUR catalog, not generic lists',
-              'Promotes lesser-known wines customers would never find alone',
-              'Works 24/7, even when staff are busy',
+              'A QR code by the shelves for instant answers',
+              'Recommends from your own catalog, not generic lists',
+              'Brings forward wines shoppers would not think to ask for',
+              'Answers while your staff are busy',
             ],
-            resultNumber: '90%',
-            resultText: 'of recommendations from lesser-known SKUs',
           },
           {
             id: 'online',
-            tag: '🛒 Online Retailers',
-            title: 'Visitors drop off when they can\'t choose. Wineater keeps them.',
-            pain: 'Wine category has the highest bounce rate in F&B e-commerce. Choice paralysis costs you conversions every day.',
+            segment: 'Online Retailers',
+            title: 'Help visitors choose before they leave.',
+            pain: 'When there are too many bottles, people give up without buying.',
+            imageAlt: 'Wineater widget recommending wines on a shop page',
             features: [
-              'Embeddable widget — live on your site in 1 day',
-              'API integration into your existing search',
-              'External link option — zero dev work required',
-              'Personalized recommendations from your inventory only',
+              'Embeddable widget, live on your site in about a day',
+              'API option to plug into your existing search',
+              'External link option, no development needed',
+              'Recommendations from your own stock only',
             ],
-            resultNumber: '1 in 3',
-            resultText: 'online shoppers engage with Wineater',
           },
         ],
         'fr': [
           {
             id: 'restaurant',
-            tag: '🍽️ Restaurants & Bars',
-            title: 'Votre sommelier ne peut pas être à chaque table. Wineater le peut.',
-            pain: 'Le personnel ne peut pas être expert en vin pour 80 couverts à la fois. Les clients hésitent, commandent moins.',
+            segment: 'Restaurants & Bars',
+            title: 'La voix de votre sommelier à chaque table.',
+            pain: 'Le personnel est occupé et les clients hésitent devant la carte des vins.',
+            imageAlt: 'Un client saisit une question sur son téléphone près d\'un support QR Wineater sur une table de restaurant',
             features: [
-              'QR à chaque table — sans téléchargement d\'application',
-              'Recommandations par plat, humeur ou occasion en secondes',
-              'Outil POS pour guider votre équipe avec confiance',
-              'Pour bars à vins, gastronomique, bistros décontractés',
+              'Un QR code à chaque table, sans application à télécharger',
+              'Des vins suggérés selon le plat, l\'envie ou l\'occasion',
+              'Votre équipe peut aussi l\'utiliser, sur une tablette en salle',
+              'Bars à vins, gastronomique, bistros décontractés',
             ],
-            resultNumber: '+15%',
-            resultText: 'de ventes additionnelles sur le vin par table',
           },
           {
             id: 'offline',
-            tag: '🏪 Cavistes',
-            title: 'Vos rayons ont 500 vins. Votre personnel ne peut pas tous les connaître.',
-            pain: 'Les clients se sentent dépassés dans le rayon vins. Ils choisissent la bouteille la moins chère ou repartent sans acheter.',
+            segment: 'Cavistes',
+            title: 'Tout votre rayon, expliqué à chaque client.',
+            pain: 'Les clients se sentent perdus devant les rayons et choisissent la bouteille qu\'ils connaissent déjà.',
+            imageAlt: 'Un autocollant QR Wineater sur un rayon de vin, avec l\'écran de recommandation qu\'il ouvre sur un téléphone',
             features: [
-              'QR près des rayons vins — conseils IA instantanés',
-              'Recommande depuis VOTRE catalogue uniquement',
-              'Met en avant les vins méconnus que les clients ne trouveraient jamais seuls',
-              'Fonctionne 24h/24, même quand le personnel est occupé',
+              'Un QR code près des rayons pour des réponses immédiates',
+              'Recommande depuis votre propre catalogue, pas des listes génériques',
+              'Met en avant des vins que les clients n\'auraient pas pensé à demander',
+              'Répond pendant que votre équipe est occupée',
             ],
-            resultNumber: '90%',
-            resultText: 'des recommandations proviennent de références méconnues',
           },
           {
             id: 'online',
-            tag: '🛒 Boutiques en ligne',
-            title: 'Les visiteurs partent quand ils ne savent pas choisir. Wineater les retient.',
-            pain: 'La catégorie vins a le taux de rebond le plus élevé du e-commerce alimentaire. La paralysie du choix coûte des conversions chaque jour.',
+            segment: 'Boutiques en ligne',
+            title: 'Aidez les visiteurs à choisir avant qu\'ils ne partent.',
+            pain: 'Devant trop de bouteilles, beaucoup abandonnent sans acheter.',
+            imageAlt: 'Widget Wineater recommandant des vins sur une page boutique',
             features: [
-              'Widget intégrable — en ligne en 1 jour',
-              'Intégration API dans votre moteur de recherche existant',
-              'Option lien externe — aucun travail de développement requis',
-              'Recommandations personnalisées depuis votre inventaire uniquement',
+              'Widget intégrable, en ligne en 1 jour environ',
+              'Option API pour se brancher sur votre moteur de recherche',
+              'Option lien externe, aucun développement nécessaire',
+              'Recommandations uniquement depuis votre stock',
             ],
-            resultNumber: '1 sur 3',
-            resultText: 'acheteurs en ligne interagissent avec Wineater',
           },
         ],
       },
     };
+  },
+  methods: {
+    onCta(id) {
+      track('cta_click', { cta_label: this.$t('cta.primary'), location: `for_whom_${id}` });
+      this.$emit('getStarted');
+    },
   },
 };
 </script>
@@ -173,148 +171,108 @@ export default {
 
 .for-whom__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .for-whom__card {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  padding: 28px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
   background: #fff;
   border: 1px solid #f0f0f0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+.for-whom__segment {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 14px;
+  color: #7E27ED;
+
+  svg {
+    flex-shrink: 0;
   }
 }
 
-.for-whom__card-top {
-  padding: 32px 28px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.for-whom__card-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 14px;
-  border-radius: 100px;
-  background: #F5F2FF;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: 12px;
-  color: #7E27ED;
-  width: fit-content;
-}
-
 .for-whom__card-title {
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 20px;
+  line-height: 1.35;
   color: #222;
+  margin: 0;
+  text-wrap: balance;
 }
 
 .for-whom__card-pain {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
-  padding: 12px 14px;
-  background: #fafafa;
-  border-radius: 12px;
-  border-left: 3px solid #ffb3b3;
-}
-
-.for-whom__pain-label {
-  display: block;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: 11px;
-  color: #e53e3e;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
+  margin: 0;
 }
 
 .for-whom__card-image {
-  margin: 20px 0;
   height: 160px;
+  border-radius: 14px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 }
 
-.for-whom__card-bottom {
-  padding: 0 28px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.for-whom__card-solution-label {
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: 11px;
-  color: #2FC0BF;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
 .for-whom__features {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-grow: 1;
 
   li {
     display: flex;
     align-items: flex-start;
-    gap: 8px;
+    gap: 10px;
     font-family: 'PoppinsRegular', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     color: #555;
     line-height: 1.5;
   }
+
+  svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: #0B7978;
+  }
 }
 
-.for-whom__check {
-  color: #2FC0BF;
-  font-weight: 700;
-  flex-shrink: 0;
-  font-size: 14px;
-}
-
-.for-whom__card-result {
-  display: flex;
+.for-whom__cta {
+  align-self: flex-start;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  background: #F5F2FF;
-  border-radius: 12px;
-  margin-top: 4px;
-}
-
-.for-whom__result-number {
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1.5px solid #7E27ED;
+  border-radius: 72px;
+  background: transparent;
+  color: #7E27ED;
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 22px;
-  background: linear-gradient(135deg, #7E27ED, #2FC0BF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  flex-shrink: 0;
-}
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
 
-.for-whom__result-text {
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 12px;
-  color: #555;
-  line-height: 1.4;
+  &:hover {
+    background: #7E27ED;
+    color: #fff;
+  }
 }
 
 @media only screen and (max-width: 1280px) {
@@ -322,12 +280,8 @@ export default {
     gap: 16px;
   }
 
-  .for-whom__card-top {
-    padding: 24px 22px 0;
-  }
-
-  .for-whom__card-bottom {
-    padding: 0 22px 28px;
+  .for-whom__card {
+    padding: 22px;
   }
 }
 

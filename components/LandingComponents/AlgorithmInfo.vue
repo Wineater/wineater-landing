@@ -1,9 +1,9 @@
 <template>
   <div class="algorithm-info" :class="{ 'visible': visible }">
     <h2 class="h2 color-text algorithm-info__text">
-      {{ $t('algorithm.title1') }} <span class="color-brand-6">{{ $t('algorithm.title2') }}</span> {{$t('algorithm.title3') }}
+      {{ $t('algorithm.title1') }} <span class="color-brand-1">{{ $t('algorithm.title2') }}</span> {{$t('algorithm.title3') }}
     </h2>
-    <NuxtLink to="/playground">
+    <NuxtLink to="/playground" class="algorithm-info__link">
       <Button class="algorithm-info__btn">
         {{ $t('playground.FindAMatch') }}
       </Button>

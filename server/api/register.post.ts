@@ -1,6 +1,19 @@
 import { createClient } from '@supabase/supabase-js'
 
 const BUCKET = 'menus_raw'
+const MAX_FILE_BYTES = 10 * 1024 * 1024
+const MAX_NAME = 120
+const MAX_BUSINESS = 160
+const MAX_EMAIL = 254
+const ALLOWED_TYPES: Record<string, string[]> = {
+  pdf: ['application/pdf'],
+  csv: ['text/csv', 'application/csv', 'application/vnd.ms-excel', 'text/plain'],
+  xlsx: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+  xls: ['application/vnd.ms-excel'],
+  png: ['image/png'],
+  jpg: ['image/jpeg'],
+  jpeg: ['image/jpeg'],
+}
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
@@ -29,9 +42,16 @@ export default defineEventHandler(async (event) => {
       else if (key === 'email') email = field.data.toString()
       else if (key === 'gdprConsent') gdprConsent = field.data.toString() === 'true'
       else if (key === 'menu' && field.filename && field.data.length > 0) {
-        // Upload the menu file to the menus_raw bucket
-        const ext = field.filename.split('.').pop()
-        const safeName = `${Date.now()}_${email.replace(/[^a-z0-9]/gi, '_')}.${ext}`
+        if (field.data.length > MAX_FILE_BYTES) {
+          throw createError({ statusCode: 413, message: 'File too large (max 10 MB)' })
+        }
+        const ext = (field.filename.split('.').pop() ?? '').toLowerCase()
+        const allowedMimes = ALLOWED_TYPES[ext]
+        const mime = (field.type ?? '').toLowerCase()
+        if (!allowedMimes || (mime && mime !== 'application/octet-stream' && !allowedMimes.includes(mime))) {
+          throw createError({ statusCode: 415, message: 'Unsupported file type' })
+        }
+        const safeName = `${Date.now()}_${email.replace(/[^a-z0-9]/gi, '_').slice(0, 80)}.${ext}`
         const filePath = `uploads/${safeName}`
 
         const { error: uploadError } = await supabase.storage
@@ -60,6 +80,9 @@ export default defineEventHandler(async (event) => {
   // ── Validate ─────────────────────────────────────────────────────────────
   if (!name.trim() || !businessName.trim() || !email.trim()) {
     throw createError({ statusCode: 400, message: 'Missing required fields' })
+  }
+  if (name.length > MAX_NAME || businessName.length > MAX_BUSINESS || email.length > MAX_EMAIL) {
+    throw createError({ statusCode: 400, message: 'Field too long' })
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw createError({ statusCode: 400, message: 'Invalid email address' })

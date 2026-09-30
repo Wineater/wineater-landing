@@ -1,19 +1,14 @@
-import {startTracker} from '../utils/tracker'
+import { stopTracker } from '../utils/tracker'
 
-export default defineNuxtPlugin( (nuxtApp) => {
+export default defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.hook('app:mounted', () => {
+    useConsent().init()
+  })
 
   return {
     provide: {
-      startTracking: () => {
-        let config = useRuntimeConfig().public
-
-        let {userId} = startTracker({
-          projectKey: 'XkscRWp9UTyrXtkhPbQV'
-        })
-        //Optional if you need it
-        // let uid = useUserId()
-        // uid.value = userId
-      }
+      startTracking: () => useConsent().init(),
+      stopTracking: stopTracker
     }
   }
 })
