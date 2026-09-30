@@ -25,15 +25,16 @@ useHead({
   script: [
     {
       innerHTML: `window.wineaterData = {
-        CLIENT_TOKEN: 'emZGQHlITdVpwvK2hLXRopFS2emvorRsHadgaKbJThiVCPRWRzD0JyZrxrtgt10a',
+        CLIENT_TOKEN: 'dRBwg6wB6LeEKFUiLHdlXa84TgSVDuR8HhE0hhq1l4vVeq3cE12DJkPDwXvuhT01',
         TYPE: 'widget',
         WIDGET_TYPE: 'store',
-        WIDGET_WRAPPER: 'wineater-widget-conteiner'
+        WIDGET_WRAPPER: 'wineater-widget-conteiner',
+        apiVersion: 2
       };`,
       tagPosition: 'bodyClose',
     },
     {
-      src: 'https://unpkg.com/wineater-bot@3.4.4/dist/wineater-chatbot.mjs',
+      src: 'https://unpkg.com/wineater-bot@4.16.1/dist/wineater-chatbot.mjs',
       type: 'module',
       tagPosition: 'bodyClose',
     },
