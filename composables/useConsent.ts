@@ -1,5 +1,3 @@
-import { startTracker, stopTracker } from '~/utils/tracker'
-
 export type ConsentStatus = 'unknown' | 'accepted' | 'rejected'
 
 const STORAGE_KEY = 'wineater_consent'
@@ -53,10 +51,8 @@ export function useConsent() {
     if (next === 'accepted') {
       nuxtApp.$setConsentMode?.(true)
       nuxtApp.$loadGtm?.()
-      startTracker()
     } else {
       nuxtApp.$setConsentMode?.(false)
-      stopTracker()
     }
   }
 

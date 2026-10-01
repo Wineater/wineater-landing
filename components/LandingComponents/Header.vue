@@ -119,7 +119,7 @@ const onPrimaryClick = () => {
 
 const onDemoClick = () => {
   track('demo_click', { location: 'header' });
-  track('outbound_link_click', { url: demoUrl });
+  track('outbound_link_click', { link_url: demoUrl });
 };
 </script>
 

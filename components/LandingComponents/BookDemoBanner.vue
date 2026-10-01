@@ -27,7 +27,7 @@ export default {
   methods: {
     trackDemo() {
       track('demo_click', { location: 'book_demo_banner' });
-      track('outbound_link_click', { url: this.demoUrl });
+      track('outbound_link_click', { link_url: this.demoUrl });
     },
   },
 };

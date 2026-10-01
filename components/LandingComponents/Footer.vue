@@ -71,11 +71,11 @@ const onPrimaryClick = () => {
 
 const onDemoClick = () => {
   track('demo_click', { location: 'footer' });
-  track('outbound_link_click', { url: demoUrl });
+  track('outbound_link_click', { link_url: demoUrl });
 };
 
 const onLinkedinClick = () => {
-  track('outbound_link_click', { url: 'https://linkedin.com/company/wineater' });
+  track('outbound_link_click', { link_url: 'https://linkedin.com/company/wineater' });
 };
 
 const openCookieSettings = () => {

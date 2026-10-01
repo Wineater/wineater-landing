@@ -256,7 +256,7 @@
 	},
 	"cookie": {
 		"title": "Vos choix de confidentialité",
-		"text": "Avec votre accord, nous utilisons Google Tag Manager (statistiques d'audience) et OpenReplay (enregistrement de sessions) pour améliorer ce site. Rien n'est chargé avant votre choix. Vous pouvez changer d'avis à tout moment.",
+		"text": "Avec votre accord, nous utilisons Google Tag Manager (statistiques d'audience) pour améliorer ce site. Rien n'est chargé avant votre choix. Vous pouvez changer d'avis à tout moment.",
 		"accept": "Accepter",
 		"reject": "Refuser",
 		"learnMore": "Personnaliser / En savoir plus",

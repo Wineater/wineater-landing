@@ -32,7 +32,6 @@
     "@nuxtjs/robots": "^5.5.5",
     "@nuxtjs/seo": "^3.2.2",
     "@nuxtjs/sitemap": "^7.4.7",
-    "@openreplay/tracker": "^9.0.9",
     "@supabase/supabase-js": "^2.102.1",
     "dotenv": "^18.0.5",
     "gray-matter": "^4.0.3",

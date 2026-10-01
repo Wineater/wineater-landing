@@ -25,9 +25,4 @@ useSeoMeta({
   twitterTitle: () => t('seo.title'),
   twitterDescription: () => t('seo.description'),
 })
-
-onMounted( () => {
-  const {$startTracking} = useNuxtApp()
-  $startTracking()
-})
 </script>

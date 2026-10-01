@@ -256,7 +256,7 @@
 	},
 	"cookie": {
 		"title": "Your privacy choices",
-		"text": "With your consent, we use Google Tag Manager (audience statistics) and OpenReplay (session recording) to improve this site. Nothing is loaded before you choose. You can change your mind at any time.",
+		"text": "With your consent, we use Google Tag Manager (audience statistics) to improve this site. Nothing is loaded before you choose. You can change your mind at any time.",
 		"accept": "Accept",
 		"reject": "Reject",
 		"learnMore": "Customize / Learn more",

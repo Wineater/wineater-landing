@@ -1,0 +1,1446 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-10-01 00:00:00",
+  "containerVersion": {
+    "path": "accounts/0000000000/containers/0000000000/versions/0",
+    "accountId": "0000000000",
+    "containerId": "0000000000",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/0000000000/containers/0000000000",
+      "accountId": "0000000000",
+      "containerId": "0000000000",
+      "name": "wineater.com",
+      "publicId": "GTM-NLBPMC7X",
+      "usageContext": [
+        "WEB"
+      ],
+      "fingerprint": "0",
+      "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/0000000000/containers/0000000000/workspaces?apiLink=container",
+      "features": {}
+    },
+    "folder": [
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "folderId": "1",
+        "name": "Wineater GA4",
+        "fingerprint": "0",
+        "notes": "Everything for Google Analytics 4. Set the constant 'GA4 Measurement ID' first."
+      }
+    ],
+    "tag": [
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "100",
+        "name": "Google tag - GA4",
+        "type": "googtag",
+        "notes": "Google tag / GA4 configuration. Fires on Initialization, requires analytics_storage consent. Cookies _ga and _ga_<container> last 13 months (34128000 s). Google signals and ad personalization off.",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "tagId",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "configSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "send_page_view"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "true"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "cookie_expires"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "34128000"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "allow_google_signals"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "false"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "allow_ad_personalization_signals"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "false"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "2147479573"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "111",
+        "name": "GA4 Event - cta_click",
+        "type": "gaawe",
+        "notes": "Click on a sign-up / trial call to action (also the language switcher). cta_label is the button text, location is where on the page.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "cta_click"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "cta_label"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - cta_label}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "location"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - location}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "audience"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - audience}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "slug"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - slug}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "11"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "112",
+        "name": "GA4 Event - signup_modal_open",
+        "type": "gaawe",
+        "notes": "The sign-up form was opened.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "signup_modal_open"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "12"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "113",
+        "name": "GA4 Event - signup_submit_attempt",
+        "type": "gaawe",
+        "notes": "The visitor pressed submit on the sign-up form (before validation result).",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "signup_submit_attempt"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "13"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "114",
+        "name": "GA4 Event - signup_success",
+        "type": "gaawe",
+        "notes": "Sign-up saved. Mark as KEY EVENT in GA4 (Admin > Events). No personal data is sent.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "signup_success"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "14"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "115",
+        "name": "GA4 Event - signup_error",
+        "type": "gaawe",
+        "notes": "Sign-up request failed on the server side.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "signup_error"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "15"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "116",
+        "name": "GA4 Event - demo_click",
+        "type": "gaawe",
+        "notes": "Click on 'book a demo' (opens HubSpot form in a new tab).",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "demo_click"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "location"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - location}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "16"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "117",
+        "name": "GA4 Event - audience_switch",
+        "type": "gaawe",
+        "notes": "The visitor switched the hero audience tab.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "audience_switch"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "audience"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - audience}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "17"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "118",
+        "name": "GA4 Event - widget_search_submit",
+        "type": "gaawe",
+        "notes": "A search was submitted in the demo widget. Only the length of the query is sent, never the text.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "widget_search_submit"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "query_length"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - query_length}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "language"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - language}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "18"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "119",
+        "name": "GA4 Event - widget_results_shown",
+        "type": "gaawe",
+        "notes": "The demo widget showed results after a search.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "widget_results_shown"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "results_count"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - results_count}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "language"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - language}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "19"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "120",
+        "name": "GA4 Event - widget_wine_click",
+        "type": "gaawe",
+        "notes": "Click on a wine tile link in the demo widget. This is a product-page click, NOT a purchase.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "widget_wine_click"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "wine_title"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - wine_title}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "20"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "121",
+        "name": "GA4 Event - outbound_link_click",
+        "type": "gaawe",
+        "notes": "Click on a link that leaves the site (demo form, LinkedIn). link_url is the destination.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "outbound_link_click"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "link_url"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - link_url}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "21"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "11",
+        "name": "CE - cta_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "cta_click"
+              }
+            ]
+          }
+        ],
+        "notes": "Click on a sign-up / trial call to action (also the language switcher). cta_label is the button text, location is where on the page.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "12",
+        "name": "CE - signup_modal_open",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "signup_modal_open"
+              }
+            ]
+          }
+        ],
+        "notes": "The sign-up form was opened.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "13",
+        "name": "CE - signup_submit_attempt",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "signup_submit_attempt"
+              }
+            ]
+          }
+        ],
+        "notes": "The visitor pressed submit on the sign-up form (before validation result).",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "14",
+        "name": "CE - signup_success",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "signup_success"
+              }
+            ]
+          }
+        ],
+        "notes": "Sign-up saved. Mark as KEY EVENT in GA4 (Admin > Events). No personal data is sent.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "15",
+        "name": "CE - signup_error",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "signup_error"
+              }
+            ]
+          }
+        ],
+        "notes": "Sign-up request failed on the server side.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "16",
+        "name": "CE - demo_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "demo_click"
+              }
+            ]
+          }
+        ],
+        "notes": "Click on 'book a demo' (opens HubSpot form in a new tab).",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "17",
+        "name": "CE - audience_switch",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "audience_switch"
+              }
+            ]
+          }
+        ],
+        "notes": "The visitor switched the hero audience tab.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "18",
+        "name": "CE - widget_search_submit",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "widget_search_submit"
+              }
+            ]
+          }
+        ],
+        "notes": "A search was submitted in the demo widget. Only the length of the query is sent, never the text.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "19",
+        "name": "CE - widget_results_shown",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "widget_results_shown"
+              }
+            ]
+          }
+        ],
+        "notes": "The demo widget showed results after a search.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "20",
+        "name": "CE - widget_wine_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "widget_wine_click"
+              }
+            ]
+          }
+        ],
+        "notes": "Click on a wine tile link in the demo widget. This is a product-page click, NOT a purchase.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "21",
+        "name": "CE - outbound_link_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "outbound_link_click"
+              }
+            ]
+          }
+        ],
+        "notes": "Click on a link that leaves the site (demo form, LinkedIn). link_url is the destination.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "1",
+        "name": "GA4 Measurement ID",
+        "type": "c",
+        "notes": "PLACEHOLDER. Replace G-XXXXXXXXXX with the real GA4 Measurement ID (GA4 Admin > Data streams > your web stream).",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "value",
+            "value": "G-XXXXXXXXXX"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "2",
+        "name": "DLV - cta_label",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'cta_label'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "cta_label"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "3",
+        "name": "DLV - location",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'location'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "location"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "4",
+        "name": "DLV - audience",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'audience'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "audience"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "5",
+        "name": "DLV - slug",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'slug'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "slug"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "6",
+        "name": "DLV - query_length",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'query_length'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "query_length"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "7",
+        "name": "DLV - language",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'language'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "language"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "8",
+        "name": "DLV - results_count",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'results_count'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "results_count"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "9",
+        "name": "DLV - wine_title",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'wine_title'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "wine_title"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "10",
+        "name": "DLV - link_url",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'link_url'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "link_url"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      }
+    ],
+    "builtInVariable": [
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "type": "EVENT",
+        "name": "Event"
+      }
+    ],
+    "fingerprint": "0",
+    "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/0000000000/containers/0000000000/versions/0?apiLink=version"
+  }
+}

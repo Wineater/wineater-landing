@@ -91,7 +91,7 @@ function onClick(event) {
   if (!link) return;
   const tile = link.closest('.wr-WineTile');
   track('widget_wine_click', {
-    wine_title: tile?.querySelector('.wr-WineTile-title')?.textContent?.trim() || ''
+    wine_title: (tile?.querySelector('.wr-WineTile-title')?.textContent?.trim() || '').slice(0, 100)
   });
 }
 

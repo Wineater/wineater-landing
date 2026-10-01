@@ -50,7 +50,6 @@ const legalFr: LegalDoc = {
         'Raison sociale : BACCHUSTECH OÜ (marque : Wineater)',
         'Forme juridique : société à responsabilité limitée de droit estonien (osaühing, OÜ)',
         'Numéro d\'immatriculation au registre du commerce estonien : 17217985',
-        'Numéro de TVA : [À COMPLÉTER: numéro de TVA (KMKR), le cas échéant]',
         'Adresse du siège social : Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonie',
         `E-mail : ${CONTACT}`,
         'E-mail de la société : bacchustech@wineater.com',
@@ -64,8 +63,8 @@ const legalFr: LegalDoc = {
     {
       title: 'Hébergement',
       paragraphs: [
-        "Le site est déployé sur la plateforme Vercel (projet Vercel rattaché au site dans le dépôt du code) : Vercel Inc., [À COMPLÉTER: vérifier la raison sociale et l'adresse postale de l'hébergeur].",
-        "Les données du formulaire d'inscription sont stockées chez Supabase : [À COMPLÉTER: raison sociale, adresse et région d'hébergement de la base Supabase]."
+        "Le site est déployé sur la plateforme Vercel (projet Vercel rattaché au site dans le dépôt du code) : Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.",
+        "Les données du formulaire d'inscription sont stockées chez Supabase : Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapour 049513. Région d'hébergement du projet : [À COMPLÉTER: région Supabase du projet]."
       ]
     },
     {
@@ -107,7 +106,6 @@ const legalEn: LegalDoc = {
         'Company name: BACCHUSTECH OÜ (brand: Wineater)',
         'Legal form: private limited company under Estonian law (osaühing, OÜ)',
         'Registration code (Estonian Business Registry): 17217985',
-        'VAT number: [À COMPLÉTER: VAT number (KMKR), if any]',
         'Registered office: Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonia',
         `Email: ${CONTACT}`,
         'Company email: bacchustech@wineater.com',
@@ -121,8 +119,8 @@ const legalEn: LegalDoc = {
     {
       title: 'Hosting',
       paragraphs: [
-        'The site is deployed on the Vercel platform (a Vercel project is linked to the site in the code repository): Vercel Inc., [À COMPLÉTER: verify the hosting provider legal name and postal address].',
-        'Sign-up form data is stored with Supabase: [À COMPLÉTER: legal name, address and hosting region of the Supabase database].'
+        'The site is deployed on the Vercel platform (a Vercel project is linked to the site in the code repository): Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States.',
+        'Sign-up form data is stored with Supabase: Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapore 049513. Project hosting region: [À COMPLÉTER: Supabase project region].'
       ]
     },
     {
@@ -162,7 +160,7 @@ const privacyFr: LegalDoc = {
       title: '1. Responsable du traitement',
       paragraphs: [
         "Le responsable du traitement est BACCHUSTECH OÜ (société de droit estonien, code d'immatriculation 17217985, marque Wineater), dont le siège est situé Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonie (voir les mentions légales).",
-        `Contact pour toute question relative aux données personnelles : ${CONTACT}. [À COMPLÉTER: délégué à la protection des données, s'il a été désigné]`
+        `Contact pour toute question relative aux données personnelles : ${CONTACT}.`
       ]
     },
     {
@@ -170,9 +168,8 @@ const privacyFr: LegalDoc = {
       list: [
         "Formulaire d'inscription à l'essai (nom, nom de l'établissement, adresse e-mail, fichier de carte ou de catalogue facultatif, case de consentement RGPD). Finalité : créer et configurer votre compte d'essai, vous contacter à ce sujet. Base légale : votre consentement (case à cocher) et, pour la suite de la relation, les mesures précontractuelles prises à votre demande. Vous pouvez retirer votre consentement à tout moment.",
         "Démonstration du sommelier IA sur le site (texte que vous saisissez pour décrire un repas ou une envie). Finalité : vous fournir des recommandations de vins. Base légale : exécution de la fonction que vous demandez (intérêt légitime de fournir le service demandé). Ne saisissez pas de données personnelles dans ce champ.",
-        "Prise de rendez-vous de démonstration via un formulaire HubSpot (les champs sont définis dans ce formulaire : [À COMPLÉTER: liste des champs du formulaire HubSpot]). Finalité : organiser la démonstration et le suivi commercial. Base légale : mesures précontractuelles à votre demande / intérêt légitime de prospection B2B.",
-        "Statistiques d'audience via Google Tag Manager et les balises qu'il déclenche ([À COMPLÉTER: lister les balises actives dans le conteneur GTM-NLBPMC7X, par exemple Google Analytics 4]). Finalité : mesurer la fréquentation et l'efficacité du site. Base légale : votre consentement, donné via le bandeau cookies.",
-        "Enregistrement de sessions via OpenReplay (pages visitées, mouvements de souris, clics, défilement, informations techniques du navigateur ; le contenu saisi dans les champs de formulaire est masqué). Finalité : comprendre les difficultés d'usage et améliorer le site. Base légale : votre consentement, donné via le bandeau cookies.",
+        "Prise de rendez-vous de démonstration via un formulaire HubSpot (les informations que vous saisissez dans le formulaire, par exemple vos coordonnées professionnelles). Finalité : organiser la démonstration et le suivi commercial. Base légale : mesures précontractuelles à votre demande / intérêt légitime de prospection B2B.",
+        "Statistiques d'audience via Google Tag Manager et Google Analytics 4 (pages vues et actions sur le site, sans publicité ciblée). Finalité : mesurer la fréquentation et l'efficacité du site. Base légale : votre consentement, donné via le bandeau cookies.",
         "Journaux techniques des serveurs et de l'hébergeur (adresse IP, date, pages demandées). Finalité : sécurité et bon fonctionnement du site. Base légale : intérêt légitime.",
         `Courriers électroniques envoyés à ${CONTACT}. Finalité : répondre à votre demande. Base légale : intérêt légitime ou mesures précontractuelles.`
       ]
@@ -180,12 +177,11 @@ const privacyFr: LegalDoc = {
     {
       title: '3. Cookies et traceurs',
       paragraphs: [
-        "Aucun traceur d'audience ni d'enregistrement de session n'est chargé avant votre choix. Si vous cliquez sur « Refuser » ou ne répondez pas, Google Tag Manager et OpenReplay ne sont pas chargés. Les signaux de consentement Google (Consent Mode) sont positionnés sur « refusé » par défaut."
+        "Aucun traceur d'audience n'est chargé avant votre choix. Si vous cliquez sur « Refuser » ou ne répondez pas, Google Tag Manager n'est pas chargé. Les signaux de consentement Google (Consent Mode) sont positionnés sur « refusé » par défaut."
       ],
       list: [
         "Mémorisation de votre choix (stockage local du navigateur et cookie « wineater_consent ») : strictement nécessaire, exempté de consentement. Durée : 6 mois, après quoi le bandeau vous est proposé à nouveau.",
-        "Google Tag Manager / Google Analytics (déposés uniquement après acceptation) : mesure d'audience. Durée de vie des cookies : [À COMPLÉTER: durée configurée, 13 mois maximum recommandés par la CNIL].",
-        "OpenReplay (uniquement après acceptation) : enregistrement de sessions. Identifiants de session stockés dans le navigateur : [À COMPLÉTER: durée].",
+        "Google Tag Manager / Google Analytics (déposés uniquement après acceptation) : mesure d'audience. Cookies « _ga » et « _ga_* » (propres au site) ; durée de vie : 13 mois.",
         "Vous pouvez modifier votre choix à tout moment avec le lien « Paramètres des cookies » en pied de page. Refuser est aussi simple qu'accepter."
       ]
     },
@@ -193,30 +189,27 @@ const privacyFr: LegalDoc = {
       title: '4. Destinataires et sous-traitants',
       paragraphs: ["Vos données sont accessibles aux personnes habilitées de Wineater et aux prestataires suivants, agissant en qualité de sous-traitants ou de tiers selon le cas :"],
       list: [
-        "Vercel (hébergement du site et de l'API) ;",
-        "Supabase (base de données et stockage des fichiers transmis via le formulaire d'inscription) ;",
+        "Vercel Inc. (hébergement du site et de l'API) ;",
+        "Supabase Pte. Ltd. (base de données et stockage des fichiers transmis via le formulaire d'inscription) ;",
         "Google (Tag Manager, et Analytics le cas échéant ; modèles d'IA Gemini utilisés par l'API du sommelier pour analyser le texte saisi dans la démonstration) ;",
         "OpenAI (calcul d'empreintes vectorielles du texte saisi dans la démonstration) ;",
-        "OpenReplay (enregistrement de sessions) : [À COMPLÉTER: version cloud ou hébergement propre, pays d'hébergement] ;",
-        "HubSpot (formulaire de prise de rendez-vous de démonstration, serveur « eu1 ») ;",
+        "HubSpot (HubSpot Ireland Limited pour l'Espace économique européen ; formulaire de prise de rendez-vous de démonstration, serveur « eu1 ») ;",
         "Hébergeurs de ressources externes chargées par votre navigateur : Supabase Storage (images, polices), unpkg (script du widget), et des sites tiers pour certains logos partenaires et presse. Votre navigateur leur transmet votre adresse IP lors du chargement ;",
-        "[À COMPLÉTER: autres prestataires (messagerie, CRM, outils d'envoi d'e-mails)]."
       ]
     },
     {
       title: '5. Transferts hors de l’Union européenne',
       paragraphs: [
-        "Certains prestataires cités ci-dessus (notamment Google, OpenAI, Vercel, Supabase, HubSpot, OpenReplay) peuvent traiter des données hors de l'Union européenne, en particulier aux États-Unis. Ces transferts sont encadrés par [À COMPLÉTER: mécanisme pour chaque prestataire : décision d'adéquation / cadre Data Privacy Framework, clauses contractuelles types]."
+        "Certains prestataires cités ci-dessus (notamment Google, OpenAI, Vercel, Supabase, HubSpot) peuvent traiter des données hors de l'Union européenne, en particulier aux États-Unis. Ces transferts sont encadrés par les mécanismes prévus par le RGPD : décision d'adéquation (notamment le cadre Data Privacy Framework pour les prestataires américains certifiés) ou clauses contractuelles types."
       ]
     },
     {
       title: '6. Durées de conservation',
       list: [
-        "Données du formulaire d'inscription et fichier transmis : [À COMPLÉTER: durée de conservation, par exemple à compter du dernier contact].",
-        "Échanges par e-mail : [À COMPLÉTER: durée].",
-        "Texte saisi dans la démonstration : [À COMPLÉTER: durée de conservation des requêtes côté API].",
-        "Données de mesure d'audience : [À COMPLÉTER: durée de conservation dans l'outil d'analyse].",
-        "Enregistrements de sessions : [À COMPLÉTER: durée de conservation dans OpenReplay].",
+        "Données du formulaire d'inscription et fichier transmis : 12 mois à compter du dernier contact.",
+        "Échanges par e-mail : 12 mois.",
+        "Texte saisi dans la démonstration : 12 mois.",
+        "Données de mesure d'audience : 14 mois au maximum (durée maximale proposée par Google Analytics 4).",
         "Preuve de votre choix de cookies : 6 mois."
       ]
     },
@@ -236,7 +229,7 @@ const privacyFr: LegalDoc = {
     {
       title: '9. Sécurité',
       paragraphs: [
-        "Nous mettons en œuvre des mesures techniques et organisationnelles adaptées (connexions chiffrées HTTPS, accès restreints aux données). [À COMPLÉTER: compléter avec les mesures réellement en place]"
+        "Nous mettons en œuvre des mesures techniques et organisationnelles adaptées (connexions chiffrées HTTPS, accès restreints aux données)."
       ]
     },
     {
@@ -259,7 +252,7 @@ const privacyEn: LegalDoc = {
       title: '1. Data controller',
       paragraphs: [
         'The data controller is BACCHUSTECH OÜ (a company incorporated in Estonia, registration code 17217985, brand Wineater), with registered office at Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonia (see the legal notice).',
-        `Contact for any personal data question: ${CONTACT}. [À COMPLÉTER: data protection officer, if one has been appointed]`
+        `Contact for any personal data question: ${CONTACT}.`
       ]
     },
     {
@@ -267,9 +260,8 @@ const privacyEn: LegalDoc = {
       list: [
         'Trial sign-up form (name, business name, email address, optional menu or catalogue file, GDPR consent checkbox). Purpose: create and configure your trial account and contact you about it. Legal basis: your consent (checkbox) and, for the ensuing relationship, pre-contractual steps taken at your request. You can withdraw consent at any time.',
         'AI sommelier demo on the site (the text you type to describe a meal or a wish). Purpose: give you wine recommendations. Legal basis: providing the feature you request (legitimate interest). Do not enter personal data in this field.',
-        'Demo booking through a HubSpot form (the fields are set in that form: [À COMPLÉTER: list of HubSpot form fields]). Purpose: organise the demo and sales follow-up. Legal basis: pre-contractual steps at your request / legitimate interest in B2B prospecting.',
-        'Audience statistics through Google Tag Manager and the tags it triggers ([À COMPLÉTER: list of tags active in container GTM-NLBPMC7X, for example Google Analytics 4]). Purpose: measure traffic and site effectiveness. Legal basis: your consent, given through the cookie banner.',
-        'Session recording through OpenReplay (pages visited, mouse movements, clicks, scrolling, technical browser information; text typed into form fields is masked). Purpose: understand usability problems and improve the site. Legal basis: your consent, given through the cookie banner.',
+        'Demo booking through a HubSpot form (the information you enter in the form, for example your business contact details). Purpose: organise the demo and sales follow-up. Legal basis: pre-contractual steps at your request / legitimate interest in B2B prospecting.',
+        'Audience statistics through Google Tag Manager and Google Analytics 4 (page views and actions on the site, no targeted advertising). Purpose: measure traffic and site effectiveness. Legal basis: your consent, given through the cookie banner.',
         'Technical server and hosting logs (IP address, date, pages requested). Purpose: security and proper operation of the site. Legal basis: legitimate interest.',
         `Emails sent to ${CONTACT}. Purpose: answer your request. Legal basis: legitimate interest or pre-contractual steps.`
       ]
@@ -277,12 +269,11 @@ const privacyEn: LegalDoc = {
     {
       title: '3. Cookies and trackers',
       paragraphs: [
-        'No audience or session-recording tracker is loaded before you make a choice. If you click "Reject" or do not answer, Google Tag Manager and OpenReplay are not loaded. Google consent signals (Consent Mode) are set to "denied" by default.'
+        'No audience tracker is loaded before you make a choice. If you click "Reject" or do not answer, Google Tag Manager is not loaded. Google consent signals (Consent Mode) are set to "denied" by default.'
       ],
       list: [
         'Remembering your choice (browser local storage and the "wineater_consent" cookie): strictly necessary, exempt from consent. Duration: 6 months, after which the banner is shown again.',
-        'Google Tag Manager / Google Analytics (set only after you accept): audience measurement. Cookie lifetime: [À COMPLÉTER: configured duration, 13 months maximum recommended by the CNIL].',
-        'OpenReplay (only after you accept): session recording. Session identifiers stored in the browser: [À COMPLÉTER: duration].',
+        'Google Tag Manager / Google Analytics (set only after you accept): audience measurement. First-party cookies "_ga" and "_ga_*"; lifetime: 13 months.',
         'You can change your choice at any time with the "Cookie settings" link in the footer. Rejecting is as easy as accepting.'
       ]
     },
@@ -290,30 +281,27 @@ const privacyEn: LegalDoc = {
       title: '4. Recipients and processors',
       paragraphs: ['Your data can be accessed by authorised Wineater staff and by the following providers, acting as processors or third parties as the case may be:'],
       list: [
-        'Vercel (hosting of the site and API);',
-        'Supabase (database and storage of files sent through the sign-up form);',
+        'Vercel Inc. (hosting of the site and API);',
+        'Supabase Pte. Ltd. (database and storage of files sent through the sign-up form);',
         'Google (Tag Manager, and Analytics where applicable; Gemini AI models used by the sommelier API to analyse the text typed in the demo);',
         'OpenAI (computing vector embeddings of the text typed in the demo);',
-        'OpenReplay (session recording): [À COMPLÉTER: cloud or self-hosted, hosting country];',
-        'HubSpot (demo booking form, "eu1" server);',
+        'HubSpot (HubSpot Ireland Limited for the European Economic Area; demo booking form, "eu1" server);',
         'Hosts of external resources loaded by your browser: Supabase Storage (images, fonts), unpkg (widget script), and third-party sites for some partner and press logos. Your browser sends them your IP address when loading these resources;',
-        '[À COMPLÉTER: other providers (email, CRM, emailing tools)].'
       ]
     },
     {
       title: '5. Transfers outside the European Union',
       paragraphs: [
-        'Some of the providers listed above (notably Google, OpenAI, Vercel, Supabase, HubSpot, OpenReplay) may process data outside the European Union, in particular in the United States. These transfers are covered by [À COMPLÉTER: mechanism for each provider: adequacy decision / Data Privacy Framework, standard contractual clauses].'
+        'Some of the providers listed above (notably Google, OpenAI, Vercel, Supabase, HubSpot) may process data outside the European Union, in particular in the United States. These transfers rely on the mechanisms provided by the GDPR: an adequacy decision (notably the Data Privacy Framework for certified US providers) or standard contractual clauses.'
       ]
     },
     {
       title: '6. Retention periods',
       list: [
-        'Sign-up form data and uploaded file: [À COMPLÉTER: retention period, for example from last contact].',
-        'Email exchanges: [À COMPLÉTER: period].',
-        'Text typed in the demo: [À COMPLÉTER: retention period for queries on the API side].',
-        'Audience measurement data: [À COMPLÉTER: retention period in the analytics tool].',
-        'Session recordings: [À COMPLÉTER: retention period in OpenReplay].',
+        'Sign-up form data and uploaded file: 12 months from the last contact.',
+        'Email exchanges: 12 months.',
+        'Text typed in the demo: 12 months.',
+        'Audience measurement data: up to 14 months (the longest period offered by Google Analytics 4).',
         'Proof of your cookie choice: 6 months.'
       ]
     },
@@ -333,7 +321,7 @@ const privacyEn: LegalDoc = {
     {
       title: '9. Security',
       paragraphs: [
-        'We apply appropriate technical and organisational measures (encrypted HTTPS connections, restricted access to data). [À COMPLÉTER: complete with the measures actually in place]'
+        'We apply appropriate technical and organisational measures (encrypted HTTPS connections, restricted access to data).'
       ]
     },
     {
