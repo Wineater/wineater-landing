@@ -14,7 +14,7 @@
 - Trial: 1 month free, no credit card. Pricing depends on catalog size and channel; contact hi@wineater.com.
 - Live clients: Brice & Burnett, Intermarché.
 - One-month retail pilot (Wineater data, Aug-Sep 2026; small sample, one retailer): 22.2% of sessions that displayed recommendations ended in a BUY click (8 of 36); 2.4 requests per shopper; 96.6% of result displays showed a full set of four wines. A BUY click is a click to the product page, not a confirmed purchase.
-- Wineater is based in Bordeaux, France. The website is available in English and French.
+- Wineater is operated by BACCHUSTECH OÜ, a company incorporated in Estonia (registered office in Tallinn). The website is available in English and French.
 
 ## Pages
 

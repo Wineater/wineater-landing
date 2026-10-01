@@ -93,7 +93,8 @@ useSchemaOrg([
     logo: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg',
     email: 'hi@wineater.com',
     telephone: '+33781014033',
-    address: { '@type': 'PostalAddress', addressLocality: 'Bordeaux', addressCountry: 'FR' },
+    legalName: 'BACCHUSTECH OÜ',
+    address: { '@type': 'PostalAddress', streetAddress: 'Tornimäe tn 5', addressLocality: 'Tallinn', addressCountry: 'EE' },
     sameAs: ['https://www.linkedin.com/company/wineater'],
   },
   {

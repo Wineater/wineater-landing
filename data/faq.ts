@@ -250,7 +250,7 @@ export const faqEn: FaqContent = {
         {
           id: 'security-and-gdpr',
           q: 'How does Wineater handle security and GDPR?',
-          a: `Wineater is based in Bordeaux, France. Search requests require an authentication token, and each store's token limits the service to that store's catalog. The widget asks shoppers for no account details. Our privacy policy explains what we collect, why, and which providers process it. For a data processing agreement or specific hosting questions, write to hi@wineater.com.`,
+          a: `Wineater is operated by BACCHUSTECH OÜ, a company incorporated in Estonia. Search requests require an authentication token, and each store's token limits the service to that store's catalog. The widget asks shoppers for no account details. Our privacy policy explains what we collect, why, and which providers process it. For a data processing agreement or specific hosting questions, write to hi@wineater.com.`,
           links: [{ to: '/privacy', label: 'Privacy policy' }]
         }
       ]
@@ -515,7 +515,7 @@ export const faqFr: FaqContent = {
         {
           id: 'security-and-gdpr',
           q: 'Comment Wineater gère-t-il la sécurité et le RGPD ?',
-          a: `Wineater est basé à Bordeaux, en France. Les requêtes de recherche exigent un jeton d’authentification, et le jeton de chaque boutique limite le service au catalogue de cette boutique. Le widget ne demande aucune donnée de compte aux clients. Notre politique de confidentialité explique ce que nous collectons, pourquoi, et quels prestataires traitent les données. Pour un accord de traitement des données ou une question d’hébergement précise, écrivez à hi@wineater.com.`,
+          a: `Wineater est exploité par BACCHUSTECH OÜ, une société de droit estonien. Les requêtes de recherche exigent un jeton d’authentification, et le jeton de chaque boutique limite le service au catalogue de cette boutique. Le widget ne demande aucune donnée de compte aux clients. Notre politique de confidentialité explique ce que nous collectons, pourquoi, et quels prestataires traitent les données. Pour un accord de traitement des données ou une question d’hébergement précise, écrivez à hi@wineater.com.`,
           links: [{ to: '/privacy', label: 'Politique de confidentialité' }]
         }
       ]

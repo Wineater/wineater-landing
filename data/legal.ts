@@ -39,27 +39,27 @@ const legalFr: LegalDoc = {
   title: 'Mentions légales - Wineater',
   description: "Mentions légales du site wineater.com : éditeur, directeur de la publication, hébergeur et contact.",
   h1: 'Mentions légales',
-  updated: '[À COMPLÉTER: date de dernière mise à jour]',
+  updated: '1 octobre 2026',
   intro: [
-    "Conformément à l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), voici les informations légales relatives au site wineater.com."
+    "Conformément à l'article 5 de la directive 2000/31/CE sur le commerce électronique, voici les informations légales relatives au site wineater.com, édité par une société de droit estonien."
   ],
   sections: [
     {
       title: 'Éditeur du site',
       list: [
-        'Raison sociale : [À COMPLÉTER: raison sociale]',
-        'Forme juridique : [À COMPLÉTER: forme juridique]',
-        'Capital social : [À COMPLÉTER: montant du capital]',
-        'SIREN / RCS : [À COMPLÉTER: numéro SIREN et ville du RCS]',
-        'Numéro de TVA intracommunautaire : [À COMPLÉTER: numéro de TVA]',
-        'Adresse du siège social : [À COMPLÉTER: adresse du siège, Bordeaux]',
+        'Raison sociale : BACCHUSTECH OÜ (marque : Wineater)',
+        'Forme juridique : société à responsabilité limitée de droit estonien (osaühing, OÜ)',
+        'Numéro d\'immatriculation au registre du commerce estonien : 17217985',
+        'Numéro de TVA : [À COMPLÉTER: numéro de TVA (KMKR), le cas échéant]',
+        'Adresse du siège social : Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonie',
         `E-mail : ${CONTACT}`,
-        'Téléphone : [À COMPLÉTER: numéro de téléphone à publier]'
+        'E-mail de la société : bacchustech@wineater.com',
+        'Téléphone : +33 7 81 01 40 33'
       ]
     },
     {
       title: 'Directeur de la publication',
-      paragraphs: ['[À COMPLÉTER: nom et qualité du directeur de la publication]']
+      paragraphs: ['Aleksei Olkhovoi, membre du directoire (Management Board Member).']
     },
     {
       title: 'Hébergement',
@@ -96,27 +96,27 @@ const legalEn: LegalDoc = {
   title: 'Legal notice - Wineater',
   description: 'Legal notice for wineater.com: publisher, publication director, hosting provider and contact.',
   h1: 'Legal notice',
-  updated: '[À COMPLÉTER: date of last update]',
+  updated: '1 October 2026',
   intro: [
-    'In accordance with Article 6 of French Law No. 2004-575 of 21 June 2004 on confidence in the digital economy (LCEN), this page sets out the legal information for wineater.com. The French version is authoritative.'
+    'In accordance with Article 5 of Directive 2000/31/EC on electronic commerce, this page sets out the legal information for wineater.com, published by a company incorporated in Estonia. The French version is authoritative.'
   ],
   sections: [
     {
       title: 'Publisher',
       list: [
-        'Company name: [À COMPLÉTER: company name]',
-        'Legal form: [À COMPLÉTER: legal form]',
-        'Share capital: [À COMPLÉTER: share capital amount]',
-        'SIREN / RCS: [À COMPLÉTER: SIREN number and RCS city]',
-        'VAT number: [À COMPLÉTER: VAT number]',
-        'Registered office: [À COMPLÉTER: registered office address, Bordeaux]',
+        'Company name: BACCHUSTECH OÜ (brand: Wineater)',
+        'Legal form: private limited company under Estonian law (osaühing, OÜ)',
+        'Registration code (Estonian Business Registry): 17217985',
+        'VAT number: [À COMPLÉTER: VAT number (KMKR), if any]',
+        'Registered office: Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonia',
         `Email: ${CONTACT}`,
-        'Phone: [À COMPLÉTER: phone number to publish]'
+        'Company email: bacchustech@wineater.com',
+        'Phone: +33 7 81 01 40 33'
       ]
     },
     {
       title: 'Publication director',
-      paragraphs: ['[À COMPLÉTER: name and capacity of the publication director]']
+      paragraphs: ['Aleksei Olkhovoi, Management Board Member.']
     },
     {
       title: 'Hosting',
@@ -153,7 +153,7 @@ const privacyFr: LegalDoc = {
   title: 'Politique de confidentialité - Wineater',
   description: "Politique de confidentialité de wineater.com : données collectées, finalités, bases légales, durées de conservation, destinataires, transferts et droits RGPD.",
   h1: 'Politique de confidentialité',
-  updated: '[À COMPLÉTER: date de dernière mise à jour]',
+  updated: '1 octobre 2026',
   intro: [
     "Cette politique explique comment Wineater traite vos données personnelles lorsque vous utilisez le site wineater.com, conformément au Règlement (UE) 2016/679 (RGPD) et à la loi Informatique et Libertés."
   ],
@@ -161,7 +161,7 @@ const privacyFr: LegalDoc = {
     {
       title: '1. Responsable du traitement',
       paragraphs: [
-        "Le responsable du traitement est [À COMPLÉTER: raison sociale et forme juridique], dont le siège est situé [À COMPLÉTER: adresse du siège, Bordeaux] (voir les mentions légales).",
+        "Le responsable du traitement est BACCHUSTECH OÜ (société de droit estonien, code d'immatriculation 17217985, marque Wineater), dont le siège est situé Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonie (voir les mentions légales).",
         `Contact pour toute question relative aux données personnelles : ${CONTACT}. [À COMPLÉTER: délégué à la protection des données, s'il a été désigné]`
       ]
     },
@@ -228,9 +228,9 @@ const privacyFr: LegalDoc = {
       ]
     },
     {
-      title: '8. Réclamation auprès de la CNIL',
+      title: '8. Réclamation auprès d\'une autorité de contrôle',
       paragraphs: [
-        "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la Commission nationale de l'informatique et des libertés (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, www.cnil.fr."
+        "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de l'autorité de contrôle de votre pays de résidence ou de travail, ou auprès de l'autorité estonienne compétente pour notre établissement, l'Inspection estonienne de la protection des données (Andmekaitse Inspektsioon, www.aki.ee). En France, il s'agit de la CNIL (www.cnil.fr)."
       ]
     },
     {
@@ -250,7 +250,7 @@ const privacyEn: LegalDoc = {
   title: 'Privacy policy - Wineater',
   description: 'Privacy policy for wineater.com: data collected, purposes, legal bases, retention, recipients, transfers and GDPR rights.',
   h1: 'Privacy policy',
-  updated: '[À COMPLÉTER: date of last update]',
+  updated: '1 October 2026',
   intro: [
     'This policy explains how Wineater processes your personal data when you use wineater.com, in accordance with Regulation (EU) 2016/679 (GDPR) and the French Data Protection Act. The French version is authoritative.'
   ],
@@ -258,7 +258,7 @@ const privacyEn: LegalDoc = {
     {
       title: '1. Data controller',
       paragraphs: [
-        'The data controller is [À COMPLÉTER: company name and legal form], with registered office at [À COMPLÉTER: registered office address, Bordeaux] (see the legal notice).',
+        'The data controller is BACCHUSTECH OÜ (a company incorporated in Estonia, registration code 17217985, brand Wineater), with registered office at Tornimäe tn 5, Kesklinna linnaosa, Tallinn, Harju maakond, Estonia (see the legal notice).',
         `Contact for any personal data question: ${CONTACT}. [À COMPLÉTER: data protection officer, if one has been appointed]`
       ]
     },
@@ -325,9 +325,9 @@ const privacyEn: LegalDoc = {
       ]
     },
     {
-      title: '8. Complaint to the CNIL',
+      title: '8. Complaint to a supervisory authority',
       paragraphs: [
-        'If you believe your rights are not respected, you can lodge a complaint with the French data protection authority, the Commission nationale de l\'informatique et des libertés (CNIL), 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, France, www.cnil.fr.'
+        'If you believe your rights are not respected, you can lodge a complaint with the supervisory authority of your country of residence or work, or with the Estonian authority competent for our establishment, the Estonian Data Protection Inspectorate (Andmekaitse Inspektsioon, www.aki.ee). In France this is the CNIL (www.cnil.fr).'
       ]
     },
     {
@@ -347,9 +347,9 @@ const termsFr: LegalDoc = {
   title: "Conditions d'utilisation - Wineater",
   description: "Conditions d'utilisation du site wineater.com et de la démonstration du sommelier IA.",
   h1: "Conditions d'utilisation du site",
-  updated: '[À COMPLÉTER: date de dernière mise à jour]',
+  updated: '1 octobre 2026',
   intro: [
-    "Ces conditions régissent l'accès et l'utilisation du site wineater.com (le « Site »), édité par Wineater (voir les mentions légales). En utilisant le Site, vous les acceptez. Elles ne remplacent pas le contrat applicable à l'offre commerciale Wineater, qui fait l'objet de documents distincts."
+    "Ces conditions régissent l'accès et l'utilisation du site wineater.com (le « Site »), édité par BACCHUSTECH OÜ sous la marque Wineater (voir les mentions légales). En utilisant le Site, vous les acceptez. Elles ne remplacent pas le contrat applicable à l'offre commerciale Wineater, qui fait l'objet de documents distincts."
   ],
   sections: [
     {
@@ -406,7 +406,7 @@ const termsFr: LegalDoc = {
     {
       title: '9. Droit applicable et litiges',
       paragraphs: [
-        "Ces conditions sont soumises au droit français. [À COMPLÉTER: juridiction compétente, par exemple tribunaux du ressort du siège, à valider par le conseil juridique]",
+        "[À COMPLÉTER: droit applicable et juridiction compétente, à valider par le conseil juridique]",
         `Pour toute question : ${CONTACT}.`
       ]
     }
@@ -417,9 +417,9 @@ const termsEn: LegalDoc = {
   title: 'Terms of use - Wineater',
   description: 'Terms of use for wineater.com and the AI sommelier demo.',
   h1: 'Website terms of use',
-  updated: '[À COMPLÉTER: date of last update]',
+  updated: '1 October 2026',
   intro: [
-    'These terms govern access to and use of wineater.com (the "Site"), published by Wineater (see the legal notice). By using the Site you accept them. They do not replace the contract that applies to the Wineater commercial offer, which is covered by separate documents. The French version is authoritative.'
+    'These terms govern access to and use of wineater.com (the "Site"), published by BACCHUSTECH OÜ under the Wineater brand (see the legal notice). By using the Site you accept them. They do not replace the contract that applies to the Wineater commercial offer, which is covered by separate documents. The French version is authoritative.'
   ],
   sections: [
     {
@@ -476,7 +476,7 @@ const termsEn: LegalDoc = {
     {
       title: '9. Governing law and disputes',
       paragraphs: [
-        'These terms are governed by French law. [À COMPLÉTER: competent jurisdiction, for example courts of the registered office, to be confirmed by legal counsel]',
+        '[À COMPLÉTER: governing law and competent jurisdiction, to be confirmed by legal counsel]',
         `For any question: ${CONTACT}.`
       ]
     }
