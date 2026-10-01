@@ -10,6 +10,10 @@
         <span class="how-it-works__num" aria-hidden="true">{{ n }}</span>
         <h3 class="how-it-works__step-title">{{ $t(`HowItWorks.step${n}Title`) }}</h3>
         <p class="how-it-works__step-text">{{ $t(`HowItWorks.step${n}Text`) }}</p>
+        <div v-if="n === 3" id="get-started" class="how-it-works__start">
+          <Button @btnClick="onCta">{{ $t('cta.primary') }}</Button>
+          <p class="how-it-works__start-note">{{ $t('HowItWorks.startNote') }}</p>
+        </div>
       </li>
     </ol>
 
@@ -26,20 +30,6 @@
         </li>
       </ul>
     </div>
-
-    <div id="get-started" class="how-it-works__trial" v-reveal>
-      <div class="how-it-works__trial-text">
-        <h3 class="how-it-works__trial-title">{{ $t('HowItWorks.trialTitle') }}</h3>
-        <p class="how-it-works__trial-desc">{{ $t('HowItWorks.trialDesc') }}</p>
-      </div>
-      <div class="how-it-works__trial-btns">
-        <Button @btnClick="onCta">{{ $t('cta.primary') }}</Button>
-        <Button bg-color="outline" :href="demoUrl" target="_blank" @btnClick="onDemo">
-          {{ $t('cta.demo') }}
-          <span class="how-it-works__sr">({{ $t('Header.opensNewTab') }})</span>
-        </Button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -54,15 +44,8 @@ const emit = defineEmits(['getStarted']);
 const { t } = useI18n();
 
 const options = ['qr', 'widget', 'api'];
-const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
-
-function onDemo() {
-  track('cta_click', { cta_label: t('cta.demo'), location: 'how_it_works_trial' });
-  track('outbound_link_click', { link_url: demoUrl });
-}
-
 function onCta() {
-  track('cta_click', { cta_label: t('cta.primary'), location: 'how_it_works_trial' });
+  track('cta_click', { cta_label: t('cta.primary'), location: 'how_it_works' });
   emit('getStarted');
 }
 </script>
@@ -200,65 +183,33 @@ function onCta() {
   color: var(--ink-2);
 }
 
-.how-it-works__trial {
+.how-it-works__start {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  padding: 32px 40px;
-  border-radius: 16px;
-  background: var(--brand-7);
-  scroll-margin-top: 120px;
-  margin-top: 8px;
-}
-
-.how-it-works__trial-btns {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   flex-wrap: wrap;
-  flex-shrink: 0;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 12px;
+  scroll-margin-top: 120px;
 }
 
-.how-it-works__sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-.how-it-works__trial-text {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-width: 60ch;
-}
-
-.how-it-works__trial-title {
+.how-it-works__start-note {
   margin: 0;
-  font-size: 2.2rem;
-  line-height: 1.25;
-  color: var(--ink);
-}
-
-.how-it-works__trial-desc {
-  margin: 0;
-  font-size: 1.7rem;
-  line-height: 1.55;
+  font-size: 1.5rem;
+  line-height: 1.4;
   color: var(--ink-2);
 }
 
 @media only screen and (max-width: 900px) {
-  .how-it-works__steps { grid-template-columns: 1fr; gap: 24px; }
+  .how-it-works__steps { grid-template-columns: 1fr; gap: 16px; }
+  .how-it-works__step { padding-top: 16px; }
+  .how-it-works__num { margin-bottom: 0; }
   .how-it-works__row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
-  .how-it-works__trial { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
 }
 
 @media only screen and (max-width: 767px) {
   .how-it-works { gap: 24px; }
   .how-it-works__title { font-size: 3.2rem; }
-  .how-it-works__lead, .how-it-works__step-text, .how-it-works__desc, .how-it-works__trial-desc { font-size: 1.6rem; }
+  .how-it-works__start :deep(.button) { width: 100%; }
+  .how-it-works__lead, .how-it-works__step-text, .how-it-works__desc { font-size: 1.6rem; }
 }
 </style>

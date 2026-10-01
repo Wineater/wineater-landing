@@ -12,18 +12,19 @@
       <StartBanner @get-started="showSignup = true"/>
     </section>
 
-    <!-- 1b. Trust marquee: clients, press, supporters -->
-    <ClientLogos />
-
-    <!-- 2. Demo — the product on the second screen -->
+    <!-- 2. Demo — the product right after the hero -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
       <WidgetHome :visible="widgetHomeVisible" @get-started="showSignup = true"/>
     </section>
 
-    <FeatureShowcase @get-started="showSignup = true"/>
-    <PilotResults @get-started="showSignup = true"/>
+    <!-- 3. Trust ribbon: clients, press, supporters -->
+    <ClientLogos />
 
-    <!-- 3. Problem + for whom (merged; #problem anchor lives inside ForWhom) -->
+    <!-- 4-5. What shoppers asked for, how the recommendation works (no CTAs) -->
+    <PilotResults />
+    <FeatureShowcase />
+
+    <!-- 6. Problem + for whom (merged; #problem anchor lives inside ForWhom) -->
     <div id="for-whom">
       <ForWhom :visible="forWhomVisible" @get-started="showSignup = true"/>
     </div>

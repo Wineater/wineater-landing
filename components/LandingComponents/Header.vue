@@ -103,10 +103,10 @@ const props = defineProps({
 const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
 
 const navItems = [
-  { id: 'problem', label: 'Header.Challenge' },
-  { id: 'for-whom', label: 'Header.Solution' },
   { id: 'ai-sommelier', label: 'Header.TryMe' },
-  { id: 'how-it-works', label: 'Header.HowItWorks' }
+  { id: 'how-recommendations-work', label: 'Header.Why' },
+  { id: 'for-whom', label: 'Header.Who' },
+  { id: 'how-it-works', label: 'Header.GetStarted' }
 ];
 
 const logos = {
@@ -200,6 +200,8 @@ const onLogoClick = (e) => {
 };
 
 const onMenuNav = (e, id) => {
+  // Cancel the native jump now: the scroll below runs after the next tick, too late to do it.
+  if (!isModifiedClick(e) && isHome.value) e.preventDefault();
   closeMenu();
   // The page scroll lock is released after the next tick; scroll once it is.
   nextTick(() => onNavClick(e, id));
@@ -215,7 +217,9 @@ const onNavClick = (e, id) => {
   const element = document.getElementById(id);
   if (!element) return;
   e.preventDefault();
-  const top = element.getBoundingClientRect().top + window.scrollY - 120;
+  // Land the section heading ~100px below the viewport top, under the fixed header.
+  const anchor = element.querySelector('h2') || element;
+  const top = anchor.getBoundingClientRect().top + window.scrollY - 100;
   window.scrollTo({ top, behavior: 'smooth' });
   history.replaceState(history.state, '', `#${id}`);
 };

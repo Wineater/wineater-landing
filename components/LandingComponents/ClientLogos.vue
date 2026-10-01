@@ -84,7 +84,7 @@ const paused = ref(false);
   --trust-gap: 72px;
   max-width: var(--container);
   margin: 48px auto 0; // demo -> ribbon: tighter than a full section gap, by intent
-  padding: 20px 0 16px;
+  padding: 8px 0;
   border-top: 1px solid var(--brand-5);
   border-bottom: 1px solid var(--brand-5);
 }
@@ -94,14 +94,14 @@ const paused = ref(false);
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 44px;
+  min-height: 32px;
   padding: 0 52px;
 }
 
 .trust__label {
   margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.4;
+  font-size: 1.4rem;
+  line-height: 1.3;
   text-align: center;
   text-wrap: balance;
   color: var(--ink-2);
@@ -129,8 +129,8 @@ const paused = ref(false);
 }
 
 .trust__ribbon {
-  height: 64px;
-  margin-top: 4px;
+  height: 56px;
+  margin-top: 0;
   overflow: clip;
   display: flex;
   align-items: center;
@@ -159,7 +159,7 @@ const paused = ref(false);
 .trust__link {
   display: flex;
   align-items: center;
-  min-height: 56px;
+  min-height: 52px;
   border-radius: 8px;
 
   &:focus-visible {

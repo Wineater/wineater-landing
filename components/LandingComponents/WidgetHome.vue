@@ -25,7 +25,7 @@
 
     <p class="widget-cta">
       <span class="widget-cta__text">{{ $t('WidgetHome.ctaText') }}</span>
-      <button type="button" class="widget-cta__link" @click="onSignup">{{ $t('cta.primary') }}</button>
+      <button type="button" class="widget-cta__link" @click="onSignup">{{ $t('WidgetHome.ctaLink') }}</button>
     </p>
   </div>
 </template>
@@ -124,7 +124,7 @@ function runExample(text, attempt = 0) {
 }
 
 function onSignup() {
-  track('cta_click', { cta_label: t('cta.primary'), location: 'demo' });
+  track('cta_click', { cta_label: t('WidgetHome.ctaLink'), location: 'demo' });
   emit('getStarted');
 }
 

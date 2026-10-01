@@ -25,33 +25,21 @@
             aria-roledescription="slide"
             :aria-label="$t('features.slideN', { n: i + 1, total: slides.length })"
           >
-            <template v-if="item.src">
-              <div class="slide__bar" aria-hidden="true">
-                <span class="slide__url">{{ item.url }}</span>
-              </div>
-              <div class="slide__media">
-                <img
-                  class="slide__img"
-                  :src="item.src"
-                  :alt="$t(`features.${item.key}Alt`)"
-                  width="1000"
-                  :height="item.height"
-                  :loading="i === 0 ? 'eager' : 'lazy'"
-                  decoding="async"
-                />
-              </div>
-            </template>
-            <div v-else class="slide__media slide__media--figures">
-              <div class="figures">
-                <p class="figures__label">{{ $t('features.figuresLabel') }}</p>
-                <dl class="figures__list">
-                  <div v-for="row in measured" :key="row.wines" class="figures__row">
-                    <dt>{{ $t('features.wines', { n: row.wines }) }}</dt>
-                    <dd>{{ $t('features.seconds', { n: row.sec }) }}</dd>
-                  </div>
-                </dl>
-                <p class="figures__note">{{ $t('features.figuresNote') }}</p>
-              </div>
+            <div class="slide__bar" aria-hidden="true">
+              <span class="slide__url">{{ item.url }}</span>
+            </div>
+            <div class="slide__media">
+              <img
+                class="slide__img"
+                :src="item.src"
+                :alt="$t(`features.${item.key}Alt`)"
+                width="1000"
+                :height="item.height"
+                loading="eager"
+                decoding="async"
+                :fetchpriority="i === 0 ? 'auto' : 'low'"
+                @error="retryImg"
+              />
             </div>
             <div class="slide__panel">
               <h3 class="slide__title">{{ $t(`features.${item.key}Title`) }}</h3>
@@ -91,34 +79,16 @@
       </div>
     </div>
 
-    <div class="features__cta" v-reveal>
-      <Button bgColor="black" @btnClick="onPrimary">{{ $t('cta.primary') }}</Button>
-    </div>
+    <p class="features__caption" v-reveal>{{ $t('features.caption') }}</p>
   </section>
 </template>
 
 <script setup>
-import Button from '~/components/Buttons/Button.vue';
-
-const emit = defineEmits(['getStarted']);
-const { t } = useI18n();
-
 // Screenshots are real captures of live client widgets (client names approved by the owner).
-// The last slide has no screenshot: it carries the measured figures.
 const slides = [
   { key: 'language', src: '/features/feature-language.webp', height: 743, url: 'intermarche.wineater.com', client: 'Intermarché' },
   { key: 'reason', src: '/features/feature-reason.webp', height: 577, url: 'briceandburnett.co.za/ai-wine-geek', client: 'Brice & Burnett' },
   { key: 'similar', src: '/features/feature-similar.webp', height: 577, url: 'briceandburnett.co.za/ai-wine-geek', client: 'Brice & Burnett' },
-  { key: 'catalog' },
-];
-
-// Median time to an answer, measured on live stores in October 2026 (in-stock wines).
-const measured = [
-  { wines: '29', sec: '4.8' },
-  { wines: '68', sec: '4.8' },
-  { wines: '393', sec: '5.1' },
-  { wines: '762', sec: '6.7' },
-  { wines: '3,344', sec: '5.3' },
 ];
 
 const root = ref(null);
@@ -152,7 +122,22 @@ const onProgressEnd = (e) => {
   if (e.target.classList.contains('dot__fill')) go(active.value + 1);
 };
 
+// A slide image that failed once (transient request, or an eager fetch lost inside the
+// scroll-snap track) gets one retry with a cache-busting query string.
+const retryImg = (e) => {
+  const img = e.target;
+  if (!img || img.dataset.retried) return;
+  img.dataset.retried = '1';
+  const src = img.getAttribute('src');
+  img.src = `${src}${src.includes('?') ? '&' : '?'}r=${Date.now()}`;
+};
+
 onMounted(() => {
+  // Errors that fired before hydration attached the handler.
+  track.value.querySelectorAll('img').forEach((img) => {
+    if (img.complete && img.naturalWidth === 0) retryImg({ target: img });
+  });
+
   reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) paused.value = true;
   ready.value = true;
@@ -194,11 +179,6 @@ onMounted(() => {
     clearTimeout(lockTimer);
   });
 });
-
-const onPrimary = () => {
-  track('cta_click', { cta_label: t('cta.primary'), location: 'feature_showcase' });
-  emit('getStarted');
-};
 </script>
 
 <style scoped lang="scss">
@@ -343,49 +323,6 @@ const onPrimary = () => {
   color: rgba(255, 255, 255, 0.76);
 }
 
-// Speed/catalog slide: brand-violet panel instead of a screenshot.
-.slide__media--figures {
-  display: flex;
-  align-items: flex-start;
-  padding: 40px 40px 0;
-  background: color-mix(in srgb, var(--brand-1) 72%, var(--ink));
-  color: #fff;
-}
-
-.figures { width: 100%; max-width: 720px; }
-
-.figures__label {
-  margin: 0 0 8px;
-  font-size: 1.4rem;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.figures__list { display: grid; gap: 6px; margin: 0; }
-
-.figures__row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 44px;
-  padding: 0 20px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.12);
-  font-size: 1.8rem;
-  color: #fff;
-
-  dt { margin: 0; }
-  dd { margin: 0; font-family: 'PoppinsMedium', sans-serif; font-variant-numeric: tabular-nums; }
-}
-
-.figures__note {
-  margin: 14px 0 0;
-  font-size: 1.4rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.86);
-}
-
 // Controls exist only once JS runs (visibility keeps the layout identical).
 .carousel__controls {
   display: flex;
@@ -498,7 +435,13 @@ const onPrimary = () => {
   .ctl--toggle { display: none; } // nothing autoplays, so nothing to pause
 }
 
-.features__cta { margin-top: 24px; }
+.features__caption {
+  margin: 16px 0 0;
+  max-width: 80ch;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
 
 @media only screen and (max-width: 767px) {
   .features__lead { margin-top: 12px; }
@@ -509,13 +452,7 @@ const onPrimary = () => {
   .slide__title { font-size: 2.1rem; }
   .slide__desc { font-size: 1.6rem; }
   .slide__live { margin-top: 8px; }
-  .slide__media--figures { padding: 16px 16px 0; }
-  .figures__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .figures__list { gap: 4px; }
-  .figures__row { min-height: 36px; padding: 0 12px; font-size: 1.4rem; }
-  .figures__note { font-size: 1.2rem; }
   .ctl--prev, .ctl--next { display: none; }
-  .features__cta { margin-top: 16px; }
-  .features__cta :deep(.button) { width: 100%; }
+  .features__caption { font-size: 1.4rem; }
 }
 </style>

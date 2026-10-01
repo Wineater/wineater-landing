@@ -6,9 +6,6 @@
       <div class="pilot__lead">
         <p class="pilot__lead-label">{{ $t('proof.leadLabel') }}</p>
         <p class="pilot__lead-meaning">{{ $t('proof.leadMeaning') }}</p>
-        <div class="pilot__cta">
-          <Button bgColor="black" @btnClick="onPrimary">{{ $t('cta.primary') }}</Button>
-        </div>
       </div>
 
       <div class="pilot__side">
@@ -33,19 +30,10 @@
 </template>
 
 <script setup>
-import Button from '~/components/Buttons/Button.vue';
 import { pilotProof as p } from '~/data/proof';
-
-const emit = defineEmits(['getStarted']);
-const { t } = useI18n();
 
 // Bars show rank only (most common first), not measured shares.
 const barWidth = (i) => 100 - i * (80 / Math.max(p.themeOrder.length - 1, 1));
-
-const onPrimary = () => {
-  track('cta_click', { cta_label: t('cta.primary'), location: 'pilot_results' });
-  emit('getStarted');
-};
 </script>
 
 <style scoped lang="scss">
@@ -152,8 +140,6 @@ const onPrimary = () => {
 }
 
 
-.pilot__cta { margin-top: 28px; }
-
 @media only screen and (max-width: 1023px) {
   .pilot__top { grid-template-columns: 1fr; }
 }
@@ -163,6 +149,5 @@ const onPrimary = () => {
   .pilot__top { gap: 16px; }
   .pilot__lead, .pilot__side { padding: 24px 20px; }
   .pilot__theme { grid-template-columns: 1fr; gap: 2px; padding: 4px 0; }
-  .pilot__cta :deep(.button) { width: 100%; }
 }
 </style>

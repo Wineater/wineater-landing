@@ -3,7 +3,8 @@
 		"title": "See it in action: try it yourself",
 		"description": "This demo runs on a sample wine shop, not on your catalog, so the wines, prices and interface language are not yours. Describe a meal or an occasion and see how the sommelier answers.",
 		"examplesLabel": "Try an example",
-		"ctaText": "Want this on your own wines?"
+		"ctaText": "Want this on your own wines?",
+		"ctaLink": "See it on my catalog"
 	},
 	"cta": {
 		"primary": "Try it free for 1 month",
@@ -11,7 +12,7 @@
 	},
 	"features": {
 		"title": "How the recommendation works",
-		"lead": "Four things every shopper gets, whether your shop lists thirty wines or thousands.",
+		"lead": "Three things every shopper gets, whether your shop lists thirty wines or thousands.",
 		"liveOn": "Live on {client}",
 		"languageTitle": "Shoppers type in any language",
 		"languageText": "This shopper wrote in Spanish on a French shop. Wineater understood the request and answered with the shop's own wines, described in the shop's language.",
@@ -22,12 +23,7 @@
 		"similarTitle": "Similar wines in one click",
 		"similarText": "Every wine card has a Similar wines button. It returns four more wines close in taste and food pairing, taken from the same catalog.",
 		"similarAlt": "Brice & Burnett wine widget after clicking Similar wines on a Bordeaux red. The search box shows the reference wine and four similar red wines are listed with prices.",
-		"catalogTitle": "A short list or thousands of wines",
-		"catalogText": "From a 29-wine list to a 3,344-wine catalog, a typical answer took 4 to 7 seconds. In our own reading, the picks were relevant at both ends.",
-		"figuresLabel": "Median time to an answer, by catalog size",
-		"wines": "{n} wines",
-		"seconds": "{n} s",
-		"figuresNote": "Measured in October 2026 on live stores, 3 to 4 searches each, wines in stock. The time includes writing the explanations. We have not tested catalogs above 3,344 wines.",
+		"caption": "From a 29-wine list to a 3,344-wine catalog, a typical answer took 4 to 7 seconds. In our own reading, the picks were relevant at both ends. We have not tested catalogs above 3,344 wines.",
 		"slideN": "{n} of {total}",
 		"slideOf": "Slide {n} of {total}: {title}",
 		"prev": "Previous slide",
@@ -56,8 +52,7 @@
 		"apiName": "API integration",
 		"apiFor": "Advanced teams",
 		"apiDesc": "Connect Wineater to your own search or recommendation engine. Full white-label, with inventory kept in sync.",
-		"trialTitle": "Try it with your real catalog",
-		"trialDesc": "1-month free trial, no credit card and no commitment. Share your wine list, we set everything up, and you see what it does for your business."
+		"startNote": "Start with a free month. No credit card."
 	},
 	"Footer": {
 		"text": "Stop losing shoppers to indecision",
@@ -98,10 +93,10 @@
 		"theme_food": "Food or occasion"
 	},
 	"Header": {
-		"Challenge": "Challenge",
-		"Solution": "Solution",
 		"HowItWorks": "How it works",
 		"TryMe": "Try it",
+		"Why": "Why Wineater",
+		"Who": "Who it's for",
 		"GetStarted": "Get started",
 		"mainNav": "Main navigation",
 		"home": "Wineater home",
@@ -155,7 +150,7 @@
 	},
 	"SignupForm": {
 		"title": "Start your free trial",
-		"subtitle": "Share your details and we'll set you up within 24 hours.",
+		"subtitle": "Share your wine list and see the four picks on your own catalog",
 		"name": "Your name",
 		"namePlaceholder": "John Smith",
 		"businessName": "Restaurant / bar / store name",

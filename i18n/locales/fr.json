@@ -3,7 +3,8 @@
 		"title": "Voyez-le en action : essayez-le vous-même",
 		"description": "Cette démo utilise une cave d'exemple, pas votre catalogue : les vins, les prix et la langue de l'interface ne sont donc pas les vôtres. Décrivez un repas ou une occasion et voyez comment répond le sommelier.",
 		"examplesLabel": "Essayez un exemple",
-		"ctaText": "Envie de ça sur vos propres vins ?"
+		"ctaText": "Envie de ça sur vos propres vins ?",
+		"ctaLink": "Voir sur mon catalogue"
 	},
 	"cta": {
 		"primary": "Essayer gratuitement 1 mois",
@@ -11,7 +12,7 @@
 	},
 	"features": {
 		"title": "Comment fonctionne la recommandation",
-		"lead": "Quatre choses que chaque client obtient, que votre boutique propose trente vins ou des milliers.",
+		"lead": "Trois choses que chaque client obtient, que votre boutique propose trente vins ou des milliers.",
 		"liveOn": "En direct chez {client}",
 		"languageTitle": "Vos clients écrivent dans n'importe quelle langue",
 		"languageText": "Ce client a écrit en espagnol sur une boutique française. Wineater a compris la demande et répondu avec les vins de la boutique, décrits dans la langue de la boutique.",
@@ -22,12 +23,7 @@
 		"similarTitle": "Des vins similaires en un clic",
 		"similarText": "Chaque carte propose un bouton Vins similaires. Il renvoie quatre autres vins proches par le goût et les accords mets-vins, issus du même catalogue.",
 		"similarAlt": "Widget vin de Brice & Burnett après un clic sur Vins similaires pour un rouge de Bordeaux. Le champ de recherche affiche le vin de référence et quatre vins rouges similaires sont listés avec leurs prix.",
-		"catalogTitle": "Une courte carte ou des milliers de vins",
-		"catalogText": "D'une carte de 29 vins à un catalogue de 3 344 vins, une réponse typique a pris 4 à 7 secondes. Selon notre propre lecture, les propositions étaient pertinentes aux deux extrémités.",
-		"figuresLabel": "Délai médian d'une réponse, selon la taille du catalogue",
-		"wines": "{n} vins",
-		"seconds": "{n} s",
-		"figuresNote": "Mesuré en octobre 2026 sur des boutiques en ligne, 3 à 4 recherches chacune, vins en stock. Le délai inclut la rédaction des explications. Nous n'avons pas testé de catalogue de plus de 3 344 vins.",
+		"caption": "D'une carte de 29 vins à un catalogue de 3 344 vins, une réponse typique a pris 4 à 7 secondes. Selon notre propre lecture, les propositions étaient pertinentes aux deux extrémités. Nous n'avons pas testé de catalogue de plus de 3 344 vins.",
 		"slideN": "{n} sur {total}",
 		"slideOf": "Diapositive {n} sur {total} : {title}",
 		"prev": "Diapositive précédente",
@@ -56,8 +52,7 @@
 		"apiName": "Intégration API",
 		"apiFor": "Équipes avancées",
 		"apiDesc": "Connectez Wineater à votre propre moteur de recherche ou de recommandation. Marque blanche complète, inventaire synchronisé.",
-		"trialTitle": "Essayez avec votre vrai catalogue",
-		"trialDesc": "1 mois d'essai gratuit, sans carte bancaire et sans engagement. Partagez votre liste de vins, nous configurons tout, vous voyez ce que ça apporte à votre activité."
+		"startNote": "Commencez par un mois gratuit. Sans carte bancaire."
 	},
 	"Clients": {
 		"title": "Ils l'utilisent, en parlent et nous soutiennent",
@@ -98,11 +93,11 @@
 		"subtitle": "Sans conseil, ils prennent l'étiquette qu'ils connaissent, ou repartent. Wineater répond à votre place, depuis votre catalogue."
 	},
 	"Header": {
-		"Challenge": "Le défi",
-		"Solution": "Solution",
 		"HowItWorks": "Comment ça marche",
-		"TryMe": "Essayez",
-		"GetStarted": "Commencer",
+		"TryMe": "Essayer",
+		"Why": "Pourquoi Wineater",
+		"Who": "Pour qui",
+		"GetStarted": "Démarrer",
 		"mainNav": "Navigation principale",
 		"home": "Accueil Wineater",
 		"opensNewTab": "s'ouvre dans un nouvel onglet",
@@ -155,7 +150,7 @@
 	},
 	"SignupForm": {
 		"title": "Commencez votre essai gratuit",
-		"subtitle": "Partagez vos coordonnées et nous vous configurerons dans les 24 heures.",
+		"subtitle": "Partagez votre liste de vins et voyez les quatre propositions sur votre propre catalogue",
 		"name": "Votre nom",
 		"namePlaceholder": "Jean Dupont",
 		"businessName": "Nom du restaurant / bar / magasin",

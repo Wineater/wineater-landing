@@ -7,156 +7,155 @@
         <p class="for-whom__subtitle">{{ $t('ForWhom.subtitle') }}</p>
       </div>
 
-      <div class="for-whom__cards" v-reveal:stagger>
+      <div class="for-whom__panel" v-reveal>
         <article
-          class="for-whom__card"
-          v-for="card in cards[$i18n.locale] || cards.en"
-          :key="card.id"
+          v-for="col in columns"
+          :key="col.id"
+          class="for-whom__col"
+          :class="{ 'is-active': audience === col.id }"
         >
-          <div class="for-whom__card-image">
-            <img v-if="card.id === 'online'" src="~/assets/imgs/widget_test.png" width="963" height="580" loading="lazy" :alt="card.imageAlt"/>
-            <img v-else-if="card.id === 'offline'" src="~/assets/imgs/offline_retailers.jpg" width="875" height="560" loading="lazy" :alt="card.imageAlt"/>
-            <img v-else src="~/assets/imgs/bar_lenez.jpg" width="1179" height="544" loading="lazy" :alt="card.imageAlt"/>
+          <h3 class="for-whom__col-head">
+            <button
+              type="button"
+              class="for-whom__switch"
+              :aria-pressed="audience === col.id"
+              @click="select(col.id)"
+              @focus="select(col.id)"
+            >{{ col.segment }}</button>
+          </h3>
+
+          <div class="for-whom__images" :class="{ 'for-whom__images--pair': col.images.length > 1 }">
+            <img
+              v-for="img in col.images"
+              :key="img.src"
+              :src="img.src"
+              :width="img.width"
+              :height="img.height"
+              loading="lazy"
+              :alt="img.alt"
+            />
           </div>
 
-          <div class="for-whom__card-body">
-            <h3 class="for-whom__card-title">{{ card.segment }}</h3>
-            <p class="for-whom__card-pain">{{ card.pain }}</p>
+          <p class="for-whom__pain">{{ col.pain }}</p>
 
-            <ul class="for-whom__features">
-              <li v-for="f in card.features" :key="f">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
-                <span>{{ f }}</span>
-              </li>
-            </ul>
-
-            <Button
-              v-if="card.id === 'online'"
-              bgColor="outline"
-              class="for-whom__cta"
-              :href="demoUrl"
-              target="_blank"
-              @btnClick="onDemo(card.id)"
-            >
-              {{ $t('cta.demo') }}
-              <span class="for-whom__sr">({{ $t('Header.opensNewTab') }})</span>
-            </Button>
-            <Button v-else bgColor="black" class="for-whom__cta" @btnClick="onCta(card.id)">{{ $t('cta.primary') }}</Button>
-          </div>
+          <ul class="for-whom__features">
+            <li v-for="f in col.features" :key="f">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>
+              <span>{{ f }}</span>
+            </li>
+          </ul>
         </article>
+      </div>
+
+      <div class="for-whom__action" v-reveal>
+        <Button bgColor="black" class="for-whom__cta" @btnClick="onCta">{{ $t('cta.primary') }}</Button>
       </div>
     </section>
   </div>
 </template>
 
-<script>
+<script setup>
 import Button from '~/components/Buttons/Button.vue';
+import widgetImg from '~/assets/imgs/widget_test.png';
+import shelfImg from '~/assets/imgs/offline_retailers.jpg';
+import barImg from '~/assets/imgs/bar_lenez.jpg';
+import { DEFAULT_AUDIENCE } from '~/data/demo';
 
-export default {
-  components: { Button },
-  props: { visible: Boolean },
-  emits: ['getStarted'],
-  data() {
-    return {
-      demoUrl: 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf',
-      cards: {
-        'en': [
-          {
-            id: 'restaurant',
-            segment: 'Restaurants & Bars',
-            pain: 'Staff are busy, and guests hesitate over the wine list.',
-            imageAlt: 'A guest typing a wine question on a phone next to a Wineater QR stand on a restaurant table',
-            features: [
-              'A QR code at every table, no app download',
-              'Wine suggestions by dish, mood, or occasion',
-              'Your team can use it too, on a tablet in the room',
-            ],
-          },
-          {
-            id: 'offline',
-            segment: 'Wine Stores',
-            pain: 'Customers feel lost in the aisle and reach for the bottle they already know.',
-            imageAlt: 'A Wineater QR sticker on a wine shelf, with the recommendation screen it opens on a phone',
-            features: [
-              'A QR code by the shelves for instant answers',
-              'Shoppers ask in their own words, right at the shelf',
-              'Brings forward wines shoppers would not think to ask for',
-            ],
-          },
-          {
-            id: 'online',
-            segment: 'Online Retailers',
-            pain: 'When there are too many bottles, people give up without buying.',
-            imageAlt: 'Wineater widget recommending wines on a shop page',
-            features: [
-              'Embeddable widget that matches your store\'s look',
-              'API option to plug into your existing search',
-              'External link option, no development needed',
-            ],
-          },
-        ],
-        'fr': [
-          {
-            id: 'restaurant',
-            segment: 'Restaurants & Bars',
-            pain: 'Le personnel est occupé et les clients hésitent devant la carte des vins.',
-            imageAlt: 'Un client saisit une question sur son téléphone près d\'un support QR Wineater sur une table de restaurant',
-            features: [
-              'Un QR code à chaque table, sans application à télécharger',
-              'Des vins suggérés selon le plat, l\'envie ou l\'occasion',
-              'Votre équipe peut aussi l\'utiliser, sur une tablette en salle',
-            ],
-          },
-          {
-            id: 'offline',
-            segment: 'Cavistes',
-            pain: 'Les clients se sentent perdus devant les rayons et choisissent la bouteille qu\'ils connaissent déjà.',
-            imageAlt: 'Un autocollant QR Wineater sur un rayon de vin, avec l\'écran de recommandation qu\'il ouvre sur un téléphone',
-            features: [
-              'Un QR code près des rayons pour des réponses immédiates',
-              'Les clients demandent avec leurs mots, devant le rayon',
-              'Met en avant des vins que les clients n\'auraient pas pensé à demander',
-            ],
-          },
-          {
-            id: 'online',
-            segment: 'Boutiques en ligne',
-            pain: 'Devant trop de bouteilles, beaucoup abandonnent sans acheter.',
-            imageAlt: 'Widget Wineater recommandant des vins sur une page boutique',
-            features: [
-              'Widget intégrable aux couleurs de votre boutique',
-              'Option API pour se brancher sur votre moteur de recherche',
-              'Option lien externe, aucun développement nécessaire',
-            ],
-          },
-        ],
-      },
-    };
-  },
-  methods: {
-    onDemo(id) {
-      track('cta_click', { cta_label: this.$t('cta.demo'), location: `for_whom_${id}` });
-      track('outbound_link_click', { link_url: this.demoUrl });
+defineProps({ visible: Boolean });
+const emit = defineEmits(['getStarted']);
+const { t, locale } = useI18n();
+
+// Same state as the hero tabs and the demo chips.
+const audience = useState('audience', () => DEFAULT_AUDIENCE);
+
+const select = (id) => {
+  if (audience.value !== id) audience.value = id;
+};
+
+const copy = {
+  en: {
+    retail: {
+      segment: 'Wine shops and online retailers',
+      pain: 'Shoppers feel lost in the aisle or among too many bottles. They reach for the label they know, or give up without buying.',
+      features: [
+        'Embeddable widget that matches your store\'s look',
+        'API option to plug into your existing search',
+        'A QR code by the shelves for instant answers',
+        'Shoppers ask in their own words and see wines they would not think to ask for',
+      ],
+      alts: [
+        'Wineater widget recommending wines on a shop page',
+        'A Wineater QR sticker on a wine shelf, with the recommendation screen it opens on a phone',
+      ],
     },
-    onCta(id) {
-      track('cta_click', { cta_label: this.$t('cta.primary'), location: `for_whom_${id}` });
-      this.$emit('getStarted');
+    restaurants: {
+      segment: 'Restaurants and bars',
+      pain: 'Staff are busy, and guests hesitate over the wine list. Your sommelier\'s voice at every table.',
+      features: [
+        'A QR code at every table, no app download',
+        'Wine suggestions by dish, mood, or occasion',
+        'Your team can use it too, on a tablet in the room',
+        'Backs up your team when the room is full, never replaces it',
+      ],
+      alts: ['A guest typing a wine question on a phone next to a Wineater QR stand on a restaurant table'],
+    },
+  },
+  fr: {
+    retail: {
+      segment: 'Cavistes et boutiques en ligne',
+      pain: 'Les clients se sentent perdus devant les rayons ou face à trop de bouteilles. Ils choisissent l\'étiquette qu\'ils connaissent, ou repartent sans acheter.',
+      features: [
+        'Widget intégrable aux couleurs de votre boutique',
+        'Option API pour se brancher sur votre moteur de recherche',
+        'Un QR code près des rayons pour des réponses immédiates',
+        'Les clients demandent avec leurs mots et découvrent des vins auxquels ils n\'auraient pas pensé',
+      ],
+      alts: [
+        'Widget Wineater recommandant des vins sur une page boutique',
+        'Un autocollant QR Wineater sur un rayon de vin, avec l\'écran de recommandation qu\'il ouvre sur un téléphone',
+      ],
+    },
+    restaurants: {
+      segment: 'Restaurants et bars',
+      pain: 'Le personnel est occupé et les clients hésitent devant la carte des vins. La voix de votre sommelier à chaque table.',
+      features: [
+        'Un QR code à chaque table, sans application à télécharger',
+        'Des vins suggérés selon le plat, l\'envie ou l\'occasion',
+        'Votre équipe peut aussi l\'utiliser, sur une tablette en salle',
+        'Épaule votre équipe quand la salle est pleine, sans la remplacer',
+      ],
+      alts: ['Un client saisit une question sur son téléphone près d\'un support QR Wineater sur une table de restaurant'],
     },
   },
 };
+
+const columns = computed(() => {
+  const c = copy[locale.value === 'fr' ? 'fr' : 'en'];
+  return [
+    {
+      id: 'retail',
+      ...c.retail,
+      images: [
+        { src: widgetImg, width: 963, height: 580, alt: c.retail.alts[0] },
+        { src: shelfImg, width: 875, height: 560, alt: c.retail.alts[1] },
+      ],
+    },
+    {
+      id: 'restaurants',
+      ...c.restaurants,
+      images: [{ src: barImg, width: 1179, height: 544, alt: c.restaurants.alts[0] }],
+    },
+  ];
+});
+
+function onCta() {
+  track('cta_click', { cta_label: t('cta.primary'), location: 'for_whom' });
+  emit('getStarted');
+}
 </script>
 
 <style scoped lang="scss">
 .for-whom__anchor { display: block; height: 0; }
-
-.for-whom__sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
 
 .for-whom {
   max-width: var(--container);
@@ -189,53 +188,73 @@ export default {
   max-width: 62ch;
 }
 
-.for-whom__cards {
+.for-whom__panel {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
 }
 
-.for-whom__card {
+// Both columns always carry a 2px border, so emphasis changes colour and tint only: no layout shift.
+.for-whom__col {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  padding: 24px;
   border-radius: 16px;
-  overflow: hidden;
+  border: 2px solid var(--brand-5);
   background: #fff;
-  border: 1px solid var(--brand-5);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 
-  &:hover { border-color: color-mix(in srgb, var(--brand-1) 45%, #fff); box-shadow: 0 8px 24px rgba(26, 20, 38, 0.08); }
+  &.is-active {
+    border-color: var(--brand-1);
+    background: var(--brand-7);
+  }
 }
 
-.for-whom__card-image {
+.for-whom__col-head { margin: 0; }
+
+.for-whom__switch {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 2.2rem;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+
+  &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 4px; }
+}
+
+.for-whom__images {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 12px;
   height: 180px;
-  background: var(--brand-7);
+  overflow: hidden;
+
+  &--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   img {
     display: block;
     width: 100%;
     height: 100%;
+    min-width: 0;
     object-fit: cover;
+    border-radius: 12px;
+    background: var(--brand-7);
   }
 }
 
-.for-whom__card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex-grow: 1;
-  padding: 24px;
-}
-
-.for-whom__card-title {
-  margin: 0;
-  font-size: 2.2rem;
-  line-height: 1.25;
-  color: var(--ink);
-}
-
-.for-whom__card-pain {
+.for-whom__pain {
   margin: 0;
   font-size: 1.6rem;
   line-height: 1.5;
@@ -246,10 +265,9 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 4px 0 12px;
+  margin: 0;
   padding: 0;
   list-style: none;
-  flex-grow: 1;
 
   li {
     display: flex;
@@ -267,22 +285,19 @@ export default {
   }
 }
 
-.for-whom__cta {
-  align-self: flex-start;
-}
-
-@media only screen and (max-width: 1023px) {
-  .for-whom__cards {
-    grid-template-columns: 1fr;
-    max-width: 640px;
-  }
-}
+.for-whom__action { display: flex; }
 
 @media only screen and (max-width: 767px) {
   .for-whom { gap: 24px; }
-  .for-whom__cards { gap: 16px; }
-  .for-whom__card-image { height: 170px; }
-  .for-whom__card-body { padding: 20px; }
-  .for-whom__cta { align-self: stretch; }
+  .for-whom__panel { grid-template-columns: 1fr; gap: 16px; }
+  .for-whom__col { padding: 20px 16px; gap: 12px; }
+  .for-whom__images { height: 110px; }
+  .for-whom__images--pair { grid-template-columns: minmax(0, 1fr); }
+  .for-whom__images--pair img:nth-child(2) { display: none; }
+  .for-whom__action :deep(.button) { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .for-whom__col { transition: none; }
 }
 </style>

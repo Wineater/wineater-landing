@@ -114,15 +114,16 @@ const openCookieSettings = () => {
 
 .footer__cta-title {
   margin: 0;
-  max-width: 22ch;
-  font-size: 4rem;
-  line-height: 1.12;
+  max-width: 20ch;
+  font-size: clamp(3.2rem, 4.4vw, 5.2rem);
+  line-height: 1.1;
   color: #fff;
 }
 
 .footer__cta-trial {
   margin: 0;
-  font-size: 1.7rem;
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-family: 'PoppinsMedium', sans-serif;
   line-height: 1.5;
   color: #fff;
 }
