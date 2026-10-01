@@ -1167,12 +1167,12 @@
         "variableId": "1",
         "name": "GA4 Measurement ID",
         "type": "c",
-        "notes": "PLACEHOLDER. Replace G-XXXXXXXXXX with the real GA4 Measurement ID (GA4 Admin > Data streams > your web stream).",
+        "notes": "Measurement ID of the Wineater GA4 web data stream (GA4 Admin > Data streams). Change it here if the stream changes.",
         "parameter": [
           {
             "type": "TEMPLATE",
             "key": "value",
-            "value": "G-XXXXXXXXXX"
+            "value": "G-S8NR6D6FDP"
           }
         ],
         "parentFolderId": "1",

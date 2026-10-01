@@ -6,6 +6,9 @@
       <div class="pilot__lead">
         <p class="pilot__lead-label">{{ $t('proof.leadLabel') }}</p>
         <p class="pilot__lead-meaning">{{ $t('proof.leadMeaning') }}</p>
+        <div class="pilot__cta">
+          <Button bgColor="black" @btnClick="onPrimary">{{ $t('cta.primary') }}</Button>
+        </div>
       </div>
 
       <div class="pilot__side">
@@ -26,9 +29,6 @@
       </div>
     </div>
 
-    <div class="pilot__bottom">
-      <Button bgColor="black" @btnClick="onPrimary">{{ $t('cta.primary') }}</Button>
-    </div>
   </section>
 </template>
 
@@ -148,13 +148,8 @@ const onPrimary = () => {
   background: var(--brand-1);
 }
 
-.pilot__bottom {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-}
+
+.pilot__cta { margin-top: 28px; }
 
 @media only screen and (max-width: 1023px) {
   .pilot__top { grid-template-columns: 1fr; }
@@ -164,7 +159,6 @@ const onPrimary = () => {
   .pilot__title { margin-bottom: 24px; }
   .pilot__lead, .pilot__side { padding: 24px 20px; }
   .pilot__theme { grid-template-columns: 1fr; gap: 2px; padding: 4px 0; }
-  .pilot__bottom { flex-direction: column; }
-  .pilot__bottom :deep(.button) { width: 100%; }
+  .pilot__cta :deep(.button) { width: 100%; }
 }
 </style>

@@ -12,7 +12,7 @@ Container: `GTM-NLBPMC7X`. The site loads GTM only after the visitor accepts ana
 ## 2. Import the container
 1. tagmanager.google.com > open `GTM-NLBPMC7X` > Admin > Import Container.
 2. Choose `gtm/wineater-gtm-container.json`, workspace "New" (or an existing one), option **Merge** > **Rename conflicting tags, triggers, and variables**.
-3. Open Variables > `GA4 Measurement ID` and replace `G-XXXXXXXXXX` with your real ID. Save.
+3. The import already contains the Measurement ID `G-S8NR6D6FDP` in the variable `GA4 Measurement ID` (Variables). Check that it matches your GA4 data stream, then save.
 4. Check there are no old Google Analytics tags in the container that would send the same data twice. Pause or delete them.
 
 ## 3. What the container contains

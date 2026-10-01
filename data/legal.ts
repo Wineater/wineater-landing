@@ -64,7 +64,7 @@ const legalFr: LegalDoc = {
       title: 'Hébergement',
       paragraphs: [
         "Le site est déployé sur la plateforme Vercel (projet Vercel rattaché au site dans le dépôt du code) : Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.",
-        "Les données du formulaire d'inscription sont stockées chez Supabase : Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapour 049513. Région d'hébergement du projet : [À COMPLÉTER: région Supabase du projet]."
+        "Les données du formulaire d'inscription sont stockées chez Supabase : Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapour 049513. Région d'hébergement du projet : Francfort (Allemagne, Union européenne)."
       ]
     },
     {
@@ -120,7 +120,7 @@ const legalEn: LegalDoc = {
       title: 'Hosting',
       paragraphs: [
         'The site is deployed on the Vercel platform (a Vercel project is linked to the site in the code repository): Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States.',
-        'Sign-up form data is stored with Supabase: Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapore 049513. Project hosting region: [À COMPLÉTER: Supabase project region].'
+        'Sign-up form data is stored with Supabase: Supabase Pte. Ltd., 65 Chulia Street #38-02/03, OCBC Centre, Singapore 049513. Project hosting region: Frankfurt (Germany, European Union).'
       ]
     },
     {
@@ -394,7 +394,7 @@ const termsFr: LegalDoc = {
     {
       title: '9. Droit applicable et litiges',
       paragraphs: [
-        "[À COMPLÉTER: droit applicable et juridiction compétente, à valider par le conseil juridique]",
+        "Ces conditions sont régies par le droit estonien. Tout litige relève des juridictions compétentes d'Estonie, sous réserve des règles impératives applicables.",
         `Pour toute question : ${CONTACT}.`
       ]
     }
@@ -464,7 +464,7 @@ const termsEn: LegalDoc = {
     {
       title: '9. Governing law and disputes',
       paragraphs: [
-        '[À COMPLÉTER: governing law and competent jurisdiction, to be confirmed by legal counsel]',
+        'These terms are governed by Estonian law. Any dispute falls under the competent courts of Estonia, subject to mandatory rules that apply.',
         `For any question: ${CONTACT}.`
       ]
     }
