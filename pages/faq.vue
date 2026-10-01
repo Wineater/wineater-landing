@@ -1,26 +1,10 @@
 <template>
-  <div class="faq-page">
-    <Header :show-links="true"/>
+  <PageShell>
+    <header class="faq-head pg-head">
+      <h1>{{ content.h1 }}</h1>
+      <p class="prose-lead">{{ content.intro }}</p>
 
-    <main class="faq-main">
-      <section class="faq-hero">
-        <h1>{{ content.h1 }}</h1>
-        <p class="faq-hero__intro">{{ content.intro }}</p>
-        <p class="faq-hero__updated">
-          {{ $t('faq.lastUpdated') }}:
-          <time :datetime="faqLastUpdated">{{ updatedLabel }}</time>
-        </p>
-      </section>
-
-      <nav class="faq-toc" :aria-label="$t('faq.tocLabel')">
-        <ul class="faq-toc__list">
-          <li v-for="category in content.categories" :key="category.id">
-            <a class="faq-toc__chip" :href="`#${category.id}`">{{ category.title }}</a>
-          </li>
-        </ul>
-      </nav>
-
-      <form v-if="mounted" class="faq-search" role="search" @submit.prevent>
+      <form class="faq-search" :class="{ 'faq-search--pending': !mounted }" role="search" @submit.prevent>
         <label class="faq-search__label" for="faq-search-input">{{ $t('faq.searchLabel') }}</label>
         <input id="faq-search-input"
                v-model="query"
@@ -34,61 +18,81 @@
           </template>
         </p>
       </form>
+    </header>
 
-      <section v-for="category in content.categories"
-               v-show="categoryCount(category) > 0"
-               :key="category.id"
-               :id="category.id"
-               class="faq-category"
-               :aria-labelledby="`${category.id}-title`">
-        <h2 :id="`${category.id}-title`" class="faq-category__title">{{ category.title }}</h2>
-
-        <article v-for="item in category.items"
-                 v-show="isShown(item)"
-                 :key="item.id"
-                 :id="item.id"
-                 class="faq-q">
-          <div class="faq-q__head">
-            <h3 class="faq-q__title">{{ item.q }}</h3>
-            <a class="faq-q__permalink"
-               :href="`#${item.id}`"
-               :aria-label="`${$t('faq.permalink')}: ${item.q}`"
-               :title="$t('faq.permalink')">#</a>
-          </div>
-          <p class="faq-q__answer">{{ item.a }}</p>
-          <p v-if="item.links && item.links.length" class="faq-q__links">
-            <NuxtLink v-for="link in item.links"
-                      :key="link.label"
-                      :to="linkTo(link)">{{ link.label }}</NuxtLink>
-          </p>
-        </article>
-      </section>
-
-      <section class="faq-cta" aria-labelledby="faq-cta-title">
-        <h2 id="faq-cta-title">{{ $t('faq.ctaTitle') }}</h2>
-        <p>{{ $t('faq.ctaText') }}</p>
-        <NuxtLink class="faq-cta__btn" :to="localePath({ path: '/', hash: '#get-started' })" @click="trackCta">
-          {{ $t('cta.primary') }}
-        </NuxtLink>
-      </section>
-
-      <nav class="faq-related" :aria-label="$t('faq.relatedTitle')">
-        <h2 class="faq-related__title">{{ $t('faq.relatedTitle') }}</h2>
-        <ul>
-          <li><NuxtLink :to="localePath({ path: '/', hash: '#ai-sommelier' })">{{ $t('faq.relatedDemo') }}</NuxtLink></li>
-          <li><NuxtLink :to="localePath('/privacy')">{{ $t('faq.relatedPrivacy') }}</NuxtLink></li>
-          <li><NuxtLink :to="localePath('/blog')">{{ $t('faq.relatedBlog') }}</NuxtLink></li>
+    <div class="faq-layout">
+      <nav class="faq-toc" :aria-label="$t('faq.tocLabel')">
+        <ul class="faq-toc__list">
+          <li v-for="category in content.categories" :key="category.id">
+            <a class="faq-toc__link"
+               :class="{ 'is-active': activeId === category.id }"
+               :aria-current="activeId === category.id ? 'location' : undefined"
+               :href="`#${category.id}`">{{ category.title }}</a>
+          </li>
         </ul>
       </nav>
-    </main>
 
-    <Footer/>
-  </div>
+      <div class="faq-body">
+        <section v-for="category in content.categories"
+                 v-show="categoryCount(category) > 0"
+                 :key="category.id"
+                 :id="category.id"
+                 class="faq-category"
+                 :aria-labelledby="`${category.id}-title`">
+          <h2 :id="`${category.id}-title`" class="faq-category__title">{{ category.title }}</h2>
+
+          <article v-for="item in category.items"
+                   v-show="isShown(item)"
+                   :key="item.id"
+                   :id="item.id"
+                   class="faq-q">
+            <div class="faq-q__head">
+              <h3 class="faq-q__title">{{ item.q }}</h3>
+              <a class="faq-q__permalink"
+                 :href="`#${item.id}`"
+                 :aria-label="`${$t('faq.permalink')}: ${item.q}`"
+                 :title="$t('faq.permalink')">#</a>
+            </div>
+            <div class="faq-q__answer prose">
+              <p>{{ item.a }}</p>
+              <p v-if="item.links && item.links.length" class="faq-q__links">
+                <NuxtLink v-for="link in item.links"
+                          :key="link.label"
+                          :to="linkTo(link)">{{ link.label }}</NuxtLink>
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <p class="faq-updated pg-meta">
+          {{ $t('faq.lastUpdated') }}:
+          <time :datetime="faqLastUpdated">{{ updatedLabel }}</time>
+        </p>
+
+        <section class="faq-cta" aria-labelledby="faq-cta-title">
+          <h2 id="faq-cta-title">{{ $t('faq.ctaTitle') }}</h2>
+          <p class="prose">{{ $t('faq.ctaText') }}</p>
+          <div class="pg-actions">
+            <Button :href="localePath({ path: '/', hash: '#get-started' })" @btnClick="trackCta">{{ $t('cta.primary') }}</Button>
+            <NuxtLink class="pg-btn-secondary" :to="localePath({ path: '/', hash: '#ai-sommelier' })">{{ $t('faq.relatedDemo') }}</NuxtLink>
+          </div>
+        </section>
+
+        <nav class="faq-related" :aria-label="$t('faq.relatedTitle')">
+          <h2 class="faq-related__title">{{ $t('faq.relatedTitle') }}</h2>
+          <ul>
+            <li><NuxtLink class="pg-link" :to="localePath('/privacy')">{{ $t('faq.relatedPrivacy') }}</NuxtLink></li>
+            <li><NuxtLink class="pg-link" :to="localePath('/blog')">{{ $t('faq.relatedBlog') }}</NuxtLink></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </PageShell>
 </template>
 
 <script setup>
-import Header from "~/components/LandingComponents/Header.vue"
-import Footer from "~/components/LandingComponents/Footer.vue"
+import PageShell from "~/components/PageShell.vue"
+import Button from "~/components/Buttons/Button.vue"
 import { faqByLocale, faqLastUpdated, flattenFaq } from "~/data/faq"
 
 const ORIGIN = 'https://wineater.com'
@@ -108,7 +112,18 @@ const updatedLabel = computed(() =>
 // Progressive search: rendered only after hydration; without JS every answer stays visible.
 const mounted = ref(false)
 const query = ref('')
-onMounted(() => { mounted.value = true })
+const activeId = ref('')
+let observer = null
+onMounted(() => {
+  mounted.value = true
+  if (!('IntersectionObserver' in window)) return
+  observer = new IntersectionObserver((entries) => {
+    const hit = entries.find(e => e.isIntersecting)
+    if (hit) activeId.value = hit.target.id
+  }, { rootMargin: '-20% 0px -70% 0px' })
+  document.querySelectorAll('.faq-category').forEach(el => observer.observe(el))
+})
+onBeforeUnmount(() => observer && observer.disconnect())
 
 const needle = computed(() => query.value.trim().toLowerCase())
 const isShown = (item) => !needle.value || `${item.q} ${item.a}`.toLowerCase().includes(needle.value)
@@ -158,97 +173,21 @@ useSchemaOrg(computed(() => {
 </script>
 
 <style scoped lang="scss">
-$brand: #7E27ED;
-$brand-dark: #6a1fd0;
-$text: #2b2b2b;
-$text-body: #444;
-$text-muted: #595959;
-
-.faq-page {
-  min-height: 100vh;
-  background: #fff;
-}
-
-.faq-main {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 150px 16px 72px;
-}
-
-.faq-hero {
-  text-align: center;
-  margin-bottom: 32px;
-
-  h1 {
-    font-size: 2.5rem;
-    line-height: 1.15;
-    color: $text;
-    margin: 0 0 16px;
-    font-weight: 700;
-  }
-
-  &__intro {
-    font-size: 1.15rem;
-    line-height: 1.55;
-    color: $text-muted;
-    max-width: 640px;
-    margin: 0 auto 12px;
-  }
-
-  &__updated {
-    font-size: 0.9rem;
-    color: $text-muted;
-    margin: 0;
-  }
-}
-
-.faq-toc {
-  margin-bottom: 28px;
-
-  &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  &__chip {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 0 18px;
-    border: 1px solid $brand-dark;
-    border-radius: 999px;
-    color: $brand-dark;
-    background: #fff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      background: #f3ebfd;
-    }
-
-    &:focus-visible {
-      outline: 3px solid $brand-dark;
-      outline-offset: 2px;
-    }
-  }
+.faq-head {
+  margin-bottom: 48px;
 }
 
 .faq-search {
-  margin: 0 auto 36px;
+  margin-top: 32px;
   max-width: 560px;
+
+  &--pending { visibility: hidden; }
 
   &__label {
     display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: $text;
-    margin-bottom: 6px;
+    font-size: 1.4rem;
+    color: var(--ink-2);
+    margin-bottom: 8px;
   }
 
   &__input {
@@ -256,48 +195,90 @@ $text-muted: #595959;
     min-height: 48px;
     padding: 0 16px;
     font-size: 16px;
-    color: $text;
+    color: var(--ink);
     background: #fff;
-    border: 1px solid #767676;
-    border-radius: 12px;
+    border: 1px solid var(--ink-3);
+    border-radius: 16px;
+    appearance: none;
 
     &:focus-visible {
-      outline: 3px solid $brand-dark;
-      outline-offset: 1px;
-      border-color: $brand-dark;
+      outline: 3px solid var(--brand-1);
+      outline-offset: 2px;
+      border-color: var(--brand-1);
     }
   }
 
   &__status {
-    min-height: 1.4em;
+    min-height: 1.5em;
     margin: 8px 0 0;
-    font-size: 0.9rem;
-    color: $text-muted;
+    font-size: 1.4rem;
+    color: var(--ink-3);
+  }
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 760px);
+  column-gap: 80px;
+  align-items: start;
+}
+
+.faq-toc {
+  position: sticky;
+  top: 124px;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-left: 1px solid var(--brand-5);
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 6px 0 6px 16px;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    font-size: 1.5rem;
+    line-height: 1.35;
+    color: var(--ink-2);
+    text-decoration: none;
+
+    &:hover { color: var(--link); }
+
+    &.is-active {
+      color: var(--link);
+      border-left-color: var(--link);
+      font-family: 'PoppinsMedium', 'Poppins Fallback', system-ui, sans-serif;
+    }
   }
 }
 
 .faq-category {
-  margin-bottom: 44px;
   scroll-margin-top: 120px;
 
+  & + & { margin-top: 64px; }
+
   &__title {
-    font-size: 1.6rem;
-    line-height: 1.25;
-    color: $text;
-    margin: 0 0 16px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #ece3fb;
+    font-size: 4rem;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 8px;
   }
 }
 
 .faq-q {
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  padding: 28px 0;
+  border-top: 1px solid var(--brand-5);
   scroll-margin-top: 120px;
 
-  &:last-child {
-    border-bottom: 0;
-  }
+  &:first-of-type { border-top: 0; }
 
   &__head {
     display: flex;
@@ -307,10 +288,10 @@ $text-muted: #595959;
   }
 
   &__title {
-    font-size: 1.2rem;
-    line-height: 1.35;
-    color: $text;
-    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
     margin: 0;
   }
 
@@ -321,106 +302,68 @@ $text-muted: #595959;
     justify-content: center;
     min-width: 44px;
     min-height: 44px;
-    margin: -10px -8px 0 0;
-    border-radius: 8px;
-    color: $brand-dark;
-    font-size: 1.2rem;
-    font-weight: 600;
+    margin: -9px -10px 0 0;
+    border-radius: 12px;
+    color: var(--ink-3);
+    font-size: 1.8rem;
     text-decoration: none;
+    opacity: 0.55;
+    transition: opacity 0.2s, color 0.2s;
 
-    &:hover {
-      background: #f3ebfd;
-    }
-
-    &:focus-visible {
-      outline: 3px solid $brand-dark;
-      outline-offset: 1px;
-    }
+    &:hover,
+    &:focus-visible { opacity: 1; color: var(--link); }
   }
 
+  &:hover &__permalink,
+  &:focus-within &__permalink { opacity: 1; }
+
   &__answer {
-    margin: 10px 0 0;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: $text-body;
+    margin-top: 12px;
   }
 
   &__links {
-    margin: 10px 0 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 20px;
+    gap: 4px 24px;
 
     a {
       display: inline-flex;
       align-items: center;
       min-height: 44px;
-      color: $brand-dark;
-      font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-
-      &:focus-visible {
-        outline: 3px solid $brand-dark;
-        outline-offset: 2px;
-        border-radius: 4px;
-      }
     }
   }
 }
 
+.faq-updated {
+  margin: 48px 0 0;
+}
+
 .faq-cta {
-  margin-top: 56px;
-  padding: 36px 20px;
-  text-align: center;
-  background: #f7f4fd;
-  border-radius: 20px;
+  margin-top: 32px;
+  padding: 40px;
+  background: var(--brand-7);
+  border-radius: 16px;
 
   h2 {
-    font-size: 1.6rem;
-    line-height: 1.25;
-    color: $text;
-    margin: 0 0 10px;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
   }
 
-  p {
-    color: $text-body;
-    line-height: 1.55;
-    max-width: 520px;
-    margin: 0 auto 22px;
-  }
-
-  &__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 52px;
-    padding: 0 28px;
-    border-radius: 999px;
-    background: $brand-dark;
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      background: #5a17b8;
-    }
-
-    &:focus-visible {
-      outline: 3px solid $brand-dark;
-      outline-offset: 3px;
-    }
+  .prose {
+    margin: 12px 0 24px;
   }
 }
 
 .faq-related {
   margin-top: 40px;
-  text-align: center;
 
   &__title {
-    font-size: 1.1rem;
-    color: $text;
-    margin: 0 0 8px;
+    font-size: 1.7rem;
+    color: var(--ink);
+    margin: 0 0 4px;
   }
 
   ul {
@@ -429,42 +372,64 @@ $text-muted: #595959;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px 24px;
+    gap: 0 24px;
   }
 
   a {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    color: $brand-dark;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    font-size: 1.7rem;
+  }
+}
 
-    &:focus-visible {
-      outline: 3px solid $brand-dark;
-      outline-offset: 2px;
-      border-radius: 4px;
+@media (max-width: 1023px) {
+  .faq-layout {
+    display: block;
+  }
+
+  .faq-toc {
+    position: static;
+    margin: 0 calc(var(--gutter) * -1) 32px;
+
+    &__list {
+      flex-direction: row;
+      gap: 8px;
+      border-left: 0;
+      overflow-x: auto;
+      padding: 0 var(--gutter) 4px;
+      scroll-snap-type: x proximity;
+      scroll-padding-inline: var(--gutter);
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar { display: none; }
+      li { flex: 0 0 auto; scroll-snap-align: start; }
+    }
+
+    &__link {
+      padding: 0 16px;
+      margin: 0;
+      border: 1px solid var(--brand-5);
+      border-radius: 16px;
+      white-space: nowrap;
+      background: #fff;
+
+      &.is-active {
+        border: 1px solid var(--link);
+        background: var(--brand-7);
+      }
     }
   }
 }
 
 @media (max-width: 767px) {
-  .faq-main {
-    padding: 112px 16px 48px;
-  }
+  .faq-head { margin-bottom: 32px; }
 
-  .faq-hero h1 {
-    font-size: 2rem;
-  }
-
-  .faq-category__title {
-    font-size: 1.4rem;
-  }
-
-  .faq-q__title {
-    font-size: 1.1rem;
-  }
+  .faq-category__title { font-size: 2.8rem; }
+  .faq-q { padding: 24px 0; }
+  .faq-q__title { font-size: 2rem; }
+  .faq-q__permalink { margin-right: -12px; }
+  .faq-cta { padding: 28px 20px; }
+  .faq-cta h2 { font-size: 2.4rem; }
 }
 </style>

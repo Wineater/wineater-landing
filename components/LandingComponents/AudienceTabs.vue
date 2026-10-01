@@ -23,7 +23,7 @@
       :tabindex="modelValue === item ? 0 : -1"
       @click="select(item)"
     >
-      <svg class="aud-tabs__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg class="aud-tabs__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <template v-if="item === 'retail'">
           <path d="M10 3h4M10.5 3v4.2c0 .7-.3 1.300-.9 1.800C8.600 10 8 11 8 12.300V20a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7.700c0-1.300-.6-2.300-1.600-3.300-.6-.5-.9-1.100-.9-1.800V3"/>
           <path d="M8 14.500h8"/>
@@ -68,48 +68,36 @@ const onKeydown = (event) => {
 <style scoped lang="scss">
 $ease: cubic-bezier(0.16, 1, 0.3, 1);
 
+// Compact segmented control, left-aligned with the hero text column.
 .aud-tabs {
-  --pad: 5px;
+  --pad: 4px;
   position: relative;
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 1fr 1fr;
-  width: 100%;
-  max-width: 560px;
+  width: fit-content;
+  max-width: 100%;
   padding: var(--pad);
-  border-radius: 16px;
+  border-radius: 999px;
   background: var(--label-track, #efe9fb);
-  box-shadow: inset 0 1px 2px rgba(58, 20, 110, 0.12);
   isolation: isolate;
 }
 
-// Paper label: white stock, hairline edge and an inner rule like a printed wine label.
 .aud-tabs__label {
   position: absolute;
   top: var(--pad);
   bottom: var(--pad);
   left: var(--pad);
   width: calc((100% - var(--pad) * 2) / 2);
-  border-radius: 12px;
-  background: var(--label-paper, #fdfcff);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 0 0 1px rgba(126, 39, 237, 0.22),
-    0 6px 14px -6px rgba(58, 20, 110, 0.35);
-  transition: transform 0.55s $ease;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 0 1.5px var(--brand-1), 0 4px 10px -4px rgba(58, 20, 110, 0.3);
+  transition: transform 0.45s $ease;
   z-index: 0;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 4px;
-    border-radius: 8px;
-    border: 1px solid rgba(126, 39, 237, 0.18);
-    pointer-events: none;
-  }
 }
 
 .aud-tabs--restaurants .aud-tabs__label {
   transform: translateX(100%);
+  box-shadow: 0 0 0 1.5px var(--brand-2), 0 4px 10px -4px rgba(58, 20, 110, 0.3);
 }
 
 .aud-tabs__tab {
@@ -118,67 +106,46 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 60px;
-  padding: 8px 12px;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 18px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 999px;
   background: transparent;
-  color: #5b4a78;
+  color: var(--ink-2);
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 14px;
-  line-height: 1.25;
-  text-align: left;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
   cursor: pointer;
-  transition: color 0.3s $ease;
+  transition: color 0.2s;
 
-  &:hover {
-    color: #7E27ED;
-  }
-
-  &.is-active {
-    color: #4a1394;
-  }
+  &:hover,
+  &.is-active { color: var(--ink); }
 
   &:focus-visible {
-    outline: 3px solid #7E27ED;
+    outline: 3px solid var(--ink);
     outline-offset: 2px;
   }
-
-  &:active .aud-tabs__icon {
-    transform: scale(0.92);
-  }
 }
 
-.aud-tabs__icon {
-  flex-shrink: 0;
-  transition: transform 0.4s $ease;
-}
+.aud-tabs__icon { flex-shrink: 0; }
 
-.aud-tabs__tab.is-active .aud-tabs__icon {
-  transform: translateY(-1px);
-}
-
-.aud-tabs__text {
-  text-wrap: balance;
-}
-
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 560px) {
+  .aud-tabs { display: grid; width: 100%; }
   .aud-tabs__tab {
-    flex-direction: column;
-    gap: 4px;
-    text-align: center;
-    font-size: 13px;
-    padding: 8px 6px;
-    min-height: 68px;
+    padding: 0 8px;
+    gap: 6px;
+    font-size: 14px;
+    white-space: normal;
+    text-wrap: balance;
+    min-height: 44px;
   }
+  .aud-tabs__icon { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .aud-tabs__label,
-  .aud-tabs__tab,
-  .aud-tabs__icon {
-    transition: none;
-  }
+  .aud-tabs__tab { transition: none; }
 }
 </style>

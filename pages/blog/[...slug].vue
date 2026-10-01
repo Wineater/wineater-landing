@@ -1,65 +1,57 @@
 <template>
-  <div class="article-page">
-    <Header :show-links="true"/>
+  <PageShell>
+    <article v-if="doc" class="article" itemscope itemtype="https://schema.org/Article">
+      <nav class="article-back" :aria-label="t('blog.back')">
+        <NuxtLink class="pg-link" :to="localePath('/blog')">{{ t('blog.back') }}</NuxtLink>
+      </nav>
 
-    <main class="article-main">
-      <article v-if="doc" class="article" itemscope itemtype="https://schema.org/Article">
-        <nav class="article-back">
-          <NuxtLink :to="localePath('/blog')">{{ t('blog.back') }}</NuxtLink>
-        </nav>
+      <header class="article-header pg-head">
+        <p v-if="isDraft" class="article-draft" role="status">{{ t('blog.draft') }}</p>
+        <h1 itemprop="headline">{{ doc.title }}</h1>
+        <p class="prose-lead">{{ doc.description }}</p>
+        <p class="article-meta pg-meta">
+          <span>{{ t('blog.published') }} <time :datetime="doc.date" itemprop="datePublished">{{ formatDate(doc.date) }}</time></span>
+          <span v-if="doc.updated && doc.updated !== doc.date">
+            {{ t('blog.updated') }} <time :datetime="doc.updated" itemprop="dateModified">{{ formatDate(doc.updated) }}</time>
+          </span>
+          <span>{{ t('blog.minRead', { n: readingTime }) }}</span>
+        </p>
+      </header>
 
-        <header class="article-header">
-          <p v-if="isDraft" class="article-draft" role="status">{{ t('blog.draft') }}</p>
-          <h1 itemprop="headline">{{ doc.title }}</h1>
-          <p class="article-lead">{{ doc.description }}</p>
-          <p class="article-meta">
-            <span>{{ t('blog.published') }} <time :datetime="doc.date" itemprop="datePublished">{{ formatDate(doc.date) }}</time></span>
-            <span v-if="doc.updated && doc.updated !== doc.date">
-              {{ t('blog.updated') }} <time :datetime="doc.updated" itemprop="dateModified">{{ formatDate(doc.updated) }}</time>
-            </span>
-            <span>{{ t('blog.minRead', { n: readingTime }) }}</span>
-          </p>
-        </header>
+      <div class="prose article-body" itemprop="articleBody">
+        <ContentRenderer :value="doc"/>
+      </div>
 
-        <div class="prose" itemprop="articleBody">
-          <ContentRenderer :value="doc"/>
-        </div>
+      <section v-if="doc.sources?.length" class="article-sources prose" aria-labelledby="sources-title">
+        <h2 id="sources-title">{{ t('blog.sources') }}</h2>
+        <ul>
+          <li v-for="source in doc.sources" :key="source.url">
+            <a :href="source.url" target="_blank" rel="noopener noreferrer">{{ source.title }}</a>
+          </li>
+        </ul>
+      </section>
 
-        <section v-if="doc.sources?.length" class="article-sources" aria-labelledby="sources-title">
-          <h2 id="sources-title">{{ t('blog.sources') }}</h2>
-          <ul>
-            <li v-for="source in doc.sources" :key="source.url">
-              <a :href="source.url" target="_blank" rel="noopener noreferrer">{{ source.title }}</a>
-            </li>
-          </ul>
-        </section>
+      <aside class="article-cta" aria-labelledby="cta-title">
+        <h2 id="cta-title">{{ t('blog.ctaTitle') }}</h2>
+        <p class="prose">{{ t('blog.ctaText') }}</p>
+        <Button :href="ctaPath" @btnClick="onCta">{{ t('cta.primary') }}</Button>
+      </aside>
 
-        <aside class="article-cta" aria-labelledby="cta-title">
-          <h2 id="cta-title">{{ t('blog.ctaTitle') }}</h2>
-          <p>{{ t('blog.ctaText') }}</p>
-          <NuxtLink class="cta-button" :to="localePath({ path: '/', hash: '#get-started' })" @click="onCta">
-            {{ t('cta.primary') }}
-          </NuxtLink>
-        </aside>
-
-        <nav v-if="related.length" class="article-related" aria-labelledby="related-title">
-          <h2 id="related-title">{{ t('blog.related') }}</h2>
-          <ul>
-            <li v-for="item in related" :key="item._path">
-              <NuxtLink :to="localePath(`/blog/${item.slug}`)">{{ item.title }}</NuxtLink>
-            </li>
-          </ul>
-        </nav>
-      </article>
-    </main>
-
-    <Footer/>
-  </div>
+      <nav v-if="related.length" class="article-related prose" aria-labelledby="related-title">
+        <h2 id="related-title">{{ t('blog.related') }}</h2>
+        <ul>
+          <li v-for="item in related" :key="item._path">
+            <NuxtLink :to="localePath(`/blog/${item.slug}`)">{{ item.title }}</NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </article>
+  </PageShell>
 </template>
 
 <script setup>
-import Header from "~/components/LandingComponents/Header.vue"
-import Footer from "~/components/LandingComponents/Footer.vue"
+import PageShell from "~/components/PageShell.vue"
+import Button from "~/components/Buttons/Button.vue"
 import { track } from "~/utils/track"
 
 const { t, locale } = useI18n()
@@ -88,7 +80,7 @@ if (!doc.value) {
 
 const { data: allDocs } = await useAsyncData(
   () => `blog-all-${slug.value}`,
-  () => queryContent('blog').only(['slug', 'locale', 'translationOf', 'title', 'keywords', 'date', 'draft', 'reviewed', '_path']).find()
+  async () => (await queryContent('blog').only(['slug', 'locale', 'translationOf', 'title', 'keywords', 'date', 'draft', 'reviewed', '_path']).find()).filter(isVisible)
 )
 
 const isDraft = computed(() => !isPublished(doc.value))
@@ -168,182 +160,79 @@ useSchemaOrg([
   },
 ])
 
+const ctaPath = computed(() => localePath({ path: '/', hash: '#get-started' }))
 const onCta = () => track('cta_click', { location: 'blog_article', slug: doc.value.slug })
 </script>
 
 <style scoped lang="scss">
-.article-page {
-  min-height: 100vh;
-  background: #fff;
+.article { max-width: 760px; }
+
+.article-back {
+  margin-bottom: 24px;
+
+  a { display: inline-flex; align-items: center; min-height: 44px; }
 }
 
-.article-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 64px 20px 80px;
-}
-
-.article-back a {
-  color: #6a1fcb;
-  font-size: 0.95rem;
-}
-
-.article-header {
-  margin: 24px 0 32px;
-
-  h1 {
-    font-size: 2.3rem;
-    line-height: 1.2;
-    color: #1f1f24;
-    margin-bottom: 14px;
-  }
-}
+.article-header { margin-bottom: 40px; }
 
 .article-draft {
   display: inline-block;
-  background: #b42318;
-  color: #fff;
+  margin: 0 0 12px;
   padding: 2px 10px;
-  border-radius: 10px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  margin-bottom: 12px;
-}
-
-.article-lead {
-  font-size: 1.15rem;
-  color: #3d3d46;
-  line-height: 1.6;
+  border-radius: 8px;
+  background: var(--brand-7);
+  color: var(--ink-2);
+  font-size: 1.4rem;
 }
 
 .article-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 18px;
-  margin-top: 14px;
-  font-size: 0.9rem;
-  color: #55555f;
+  gap: 4px 20px;
+  margin-top: 16px;
 }
 
-.prose {
-  color: #25252b;
-  font-size: 1.05rem;
-  line-height: 1.75;
+.article-body {
+  max-width: none;
 
-  :deep(h2) {
-    font-size: 1.6rem;
-    margin: 2.2rem 0 0.8rem;
-    color: #1f1f24;
-  }
-
-  :deep(h3) {
-    font-size: 1.25rem;
-    margin: 1.6rem 0 0.6rem;
-    color: #1f1f24;
-  }
-
-  :deep(p),
-  :deep(ul),
-  :deep(ol) {
-    margin: 0 0 1.1rem;
-  }
-
-  :deep(ul),
-  :deep(ol) {
-    padding-left: 1.4rem;
-  }
-
-  :deep(li) {
-    margin-bottom: 0.4rem;
-  }
-
-  :deep(a) {
-    color: #6a1fcb;
-    text-decoration: underline;
-  }
-
-  :deep(table) {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0 0 1.4rem;
-    font-size: 0.95rem;
-  }
-
-  :deep(th),
-  :deep(td) {
-    border: 1px solid #e0e0e8;
-    padding: 8px 10px;
-    text-align: left;
-    vertical-align: top;
-  }
-
-  :deep(th) {
-    background: #f5f5f8;
-  }
+  :deep(li) { list-style: inherit; }
+  :deep(img) { max-width: 100%; height: auto; border-radius: 16px; }
 }
 
 .article-sources,
 .article-related {
-  margin-top: 40px;
+  max-width: none;
+  margin-top: 48px;
+  padding-top: 8px;
+  border-top: 1px solid var(--brand-5);
 
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #1f1f24;
-  }
-
-  ul {
-    padding-left: 1.2rem;
-    line-height: 1.7;
-  }
-
-  a {
-    color: #6a1fcb;
-  }
+  h2 { font-size: 2rem; margin-top: 1em; }
+  li { list-style: disc; }
 }
+
+.article-sources a,
+.article-related a { overflow-wrap: anywhere; }
 
 .article-cta {
-  margin-top: 48px;
-  padding: 28px 24px;
-  background: #f5f5f8;
-  border-radius: 8px;
+  margin-top: 56px;
+  padding: 40px;
+  background: var(--brand-7);
+  border-radius: 16px;
 
   h2 {
-    font-size: 1.35rem;
-    margin-bottom: 8px;
-    color: #1f1f24;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
   }
 
-  p {
-    color: #3d3d46;
-    margin-bottom: 18px;
-  }
+  .prose { margin: 12px 0 24px; }
 }
 
-.cta-button {
-  display: inline-block;
-  background: #6a1fcb;
-  color: #fff;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  min-height: 44px;
-
-  &:hover,
-  &:focus-visible {
-    background: #571ba6;
-  }
-}
-
-@media (max-width: 768px) {
-  .article-main {
-    padding: 32px 16px 56px;
-  }
-
-  .article-header h1 {
-    font-size: 1.75rem;
-  }
+@media (max-width: 767px) {
+  .article-header { margin-bottom: 32px; }
+  .article-cta { padding: 28px 20px; }
+  .article-cta h2 { font-size: 2.4rem; }
 }
 </style>

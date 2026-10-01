@@ -1,17 +1,30 @@
 <template>
   <section class="faq-teaser" id="faq-teaser" aria-labelledby="faq-teaser-title">
-    <h2 id="faq-teaser-title" class="faq-teaser__title">{{ $t('faq.teaserTitle') }}</h2>
-    <ul class="faq-teaser__list">
-      <li v-for="item in items" :key="item.id">
-        <NuxtLink class="faq-teaser__link" :to="localePath({ path: '/faq', hash: `#${item.id}` })">
-          <span>{{ item.q }}</span>
+    <div class="faq-teaser__inner">
+      <div class="faq-teaser__head">
+        <h2 id="faq-teaser-title" class="faq-teaser__title">{{ $t('faq.teaserTitle') }}</h2>
+        <NuxtLink class="faq-teaser__all" :to="localePath('/faq')">
+          <span>{{ $t('faq.teaserAll') }}</span>
           <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
             <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </NuxtLink>
-      </li>
-    </ul>
-    <NuxtLink class="faq-teaser__all" :to="localePath('/faq')">{{ $t('faq.teaserAll') }}</NuxtLink>
+      </div>
+      <div class="faq-teaser__list">
+        <details v-for="item in items" :key="item.id" class="faq-teaser__item">
+          <summary class="faq-teaser__q">
+            <span>{{ item.q }}</span>
+            <svg class="faq-teaser__chev" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
+              <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="faq-teaser__a">
+            <p>{{ item.a }}</p>
+            <NuxtLink class="faq-teaser__more" :to="localePath({ path: '/faq', hash: `#${item.id}` })">{{ $t('faq.permalink') }}</NuxtLink>
+          </div>
+        </details>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -29,84 +42,114 @@ const items = computed(() => {
 
 <style scoped lang="scss">
 .faq-teaser {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 64px 16px;
+  &__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: var(--section-y) 0;
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 32px 64px;
+    align-items: start;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 
   &__title {
-    font-size: 2rem;
-    line-height: 1.2;
-    color: #222;
-    text-align: center;
-    margin: 0 0 28px;
+    margin: 0;
+    font-size: 4rem;
+    line-height: 1.12;
+    color: var(--ink);
+  }
+
+  &__all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 1.6rem;
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    border-radius: 8px;
+
+    &:hover { color: var(--brand-1); }
+    &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
   }
 
   &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 10px;
+    border-top: 1px solid var(--brand-5);
   }
 
-  &__link {
+  &__item {
+    border-bottom: 1px solid var(--brand-5);
+  }
+
+  &__q {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    min-height: 56px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    background: #f7f4fd;
-    color: #2b2b2b;
-    text-decoration: none;
-    font-size: 1.05rem;
+    min-height: 64px;
+    padding: 16px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 1.8rem;
     line-height: 1.4;
-    font-weight: 600;
+    color: var(--ink);
 
-    svg {
-      flex-shrink: 0;
-      color: #6a1fd0;
-    }
+    &::-webkit-details-marker { display: none; }
+    &:hover { color: var(--link); }
+    &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; border-radius: 8px; }
+  }
 
-    &:hover {
-      background: #efe7fb;
-    }
+  &__chev {
+    flex-shrink: 0;
+    color: var(--link);
+    transition: transform 0.2s ease;
+  }
 
-    &:focus-visible {
-      outline: 3px solid #6a1fd0;
-      outline-offset: 2px;
+  &__item[open] &__chev { transform: rotate(180deg); }
+
+  &__a {
+    padding: 0 40px 24px 0;
+    max-width: 68ch;
+
+    p {
+      margin: 0 0 12px;
+      font-size: 1.7rem;
+      line-height: 1.6;
+      color: var(--ink-2);
     }
   }
 
-  &__all {
-    display: flex;
+  &__more {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    margin: 20px auto 0;
-    width: fit-content;
-    padding: 0 24px;
-    color: #6a1fd0;
-    font-weight: 600;
+    min-height: 44px;
+    font-size: 1.5rem;
+    color: var(--link);
     text-decoration: underline;
     text-underline-offset: 3px;
-    border-radius: 999px;
 
-    &:focus-visible {
-      outline: 3px solid #6a1fd0;
-      outline-offset: 2px;
-    }
+    &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; border-radius: 8px; }
   }
 }
 
-@media (max-width: 767px) {
-  .faq-teaser {
-    padding: 40px 16px;
+@media (max-width: 900px) {
+  .faq-teaser__inner { grid-template-columns: 1fr; gap: 24px; }
+  .faq-teaser__title { font-size: 3.2rem; }
+  .faq-teaser__q { font-size: 1.7rem; }
+  .faq-teaser__a { padding-right: 0; }
+}
 
-    &__title {
-      font-size: 1.6rem;
-    }
-  }
+@media (prefers-reduced-motion: reduce) {
+  .faq-teaser__chev { transition: none; }
 }
 </style>

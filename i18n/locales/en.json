@@ -16,23 +16,33 @@
 		"primary": "Try it free for 1 month",
 		"demo": "Book a 20-min demo"
 	},
-	"BookDemo": {
-		"title1": "Grow your online grocery business with the ",
-		"title2": "digital AI sommelier"
-	},
 	"HowItWorks": {
 		"title": "How it works",
-		"step1Title": "Shoppers say what they want",
-		"step1Text": "In their own words: a steak dinner, a gift, something bold and fruity. No wine vocabulary needed.",
-		"step2Title": "Wineater searches your catalog",
-		"step2Text": "It only looks at the wines you sell, so every suggestion is something you can put in a bag.",
-		"step3Title": "They get four wines, with a reason for each",
-		"step3Text": "A short explanation next to each bottle helps them pick with confidence.",
-		"catalogNote": "Your catalog comes in from a CSV file, a product feed or the API, and availability is kept in sync with your stock where a feed is connected."
+		"lead": "Shoppers describe what they want in their own words and get four wines from your catalog, each with a short reason.",
+		"step1Title": "Share your catalog",
+		"step1Text": "Send your wine list as a CSV or product feed, or connect the API. It takes less than a day.",
+		"step2Title": "We set it up",
+		"step2Text": "Our team configures Wineater on your inventory within 24 hours.",
+		"step3Title": "Add it to your business",
+		"step3Text": "A QR code, a widget or an API link. You choose how shoppers reach it.",
+		"optionsTitle": "Pick how shoppers reach it",
+		"qrTime": "1 hour",
+		"qrName": "QR code",
+		"qrFor": "Restaurants and offline stores",
+		"qrDesc": "Print it and place it at tables or near the wine shelves. Customers scan it, with no app to download.",
+		"widgetTime": "1 day",
+		"widgetName": "Embeddable widget",
+		"widgetFor": "Online retailers",
+		"widgetDesc": "One script tag on your wine pages. It matches your store's branding and recommends only from your catalog.",
+		"apiTime": "1 week",
+		"apiName": "API integration",
+		"apiFor": "Advanced teams",
+		"apiDesc": "Connect Wineater to your own search or recommendation engine. Full white-label, with inventory kept in sync.",
+		"trialTitle": "Try it with your real catalog",
+		"trialDesc": "30-day pilot, no credit card and no commitment. Share your wine list, we set everything up, and you see what it does for your business."
 	},
 	"Footer": {
 		"text": "Stop losing wine sales to indecision",
-		"title": "Ready to grow?",
 		"trial": "1-month free trial · No credit card required",
 		"ctaPrimary": "Start for free",
 		"ctaSecondary": "Book a demo",
@@ -44,13 +54,14 @@
 		"terms": "Terms of use",
 		"legal": "Legal notice",
 		"cookies": "Cookie settings",
-		"contactLabel": "Contact"
+		"contactLabel": "Contact",
+		"colProduct": "Product",
+		"colResources": "Resources",
+		"colLegal": "Legal"
 	},
 	"ForWhom": {
-		"title": "One AI. Three businesses. All winning.",
-		"subtitle": "Whether you run a restaurant, a wine store, or an online shop — Wineater fits in how you work and helps your customers choose with confidence.",
-		"problemLabel": "The problem",
-		"solutionLabel": "How Wineater solves it"
+		"title": "Shoppers want wine. They don't know which bottle.",
+		"subtitle": "With no one to guide them, they grab the label they know, or leave. Wineater answers for you, from your own catalog."
 	},
 	"Partners": {
 		"title": "Part of"
@@ -62,83 +73,24 @@
 		"title": "Live with"
 	},
 	"proof": {
-		"title": "What shoppers did with Wineater in a one-month retail pilot",
-		"context": "Wineater ran on a wine retailer's online store for a month. Here is what shoppers did.",
-		"leadOf": "sessions out of {total} that displayed recommendations ended in a BUY click",
-		"leadTitle": "{pct} of sessions with recommendations ended in a BUY click",
-		"leadMeaning": "In plain words: when a shopper was shown recommendations, about one in five went on to the product page. That click shows intent to buy, not a confirmed purchase.",
-		"moreTitle": "How shoppers used it",
-		"f1Label": "Shoppers who start a search",
+		"title": "What shoppers did in a one-month retail pilot",
+		"leadLabel": "of sessions with recommendations ended in a BUY click ({n} of {of})",
+		"leadMeaning": "About one shopper in five went on to the product page. That click shows intent to buy, not a confirmed purchase.",
+		"f1Label": "Start a search",
 		"f1Detail": "of widget sessions ({n} of {of})",
-		"f2Label": "Searches that return results",
+		"f2Label": "Get results",
 		"f2Detail": "of searches ({n} of {of})",
 		"f3Label": "Requests per shopper",
-		"f3Detail": "({requests} requests from {users} users)",
-		"f4Label": "Full set of four wines",
-		"f4Detail": "of result displays ({of} displays)",
-		"f5Label": "Different wines shown",
-		"f5Detail": "wines from the catalog",
-		"typedTitle": "What shoppers actually typed",
-		"typedNote": "A real request from the pilot, in the shopper's own words.",
+		"f3Detail": "({requests} requests, {users} users)",
+		"typedTitle": "A real request",
+		"typedNote": "Typed by a shopper during the pilot.",
 		"themesTitle": "What the {total} free-text requests were about",
 		"theme_grape": "Grape or style",
 		"theme_origin": "Origin, age or alcohol",
 		"theme_budget": "Budget or value",
 		"theme_producer": "Producer",
 		"theme_food": "Food or occasion",
-		"method": "Figures are session-based. BUY tracking was measured over the last three weeks; the other figures cover the full pilot."
-	},
-	"ProblemBanner": {
-		"tag": "The challenge",
-		"title1": "Wine is hard to sell.",
-		"title2": "Not because customers don't want it.",
-		"desc": "They want it — they just don't know which one to pick. And when there's no one to guide them, they don't buy. That's a problem for every restaurant, store, and online shop selling wine.",
-		"cta": "See how Wineater fixes this",
-		"pain1Title": "Lost sales at the shelf",
-		"pain1Text": "Customers pick the cheapest wine they recognize — or leave without buying. There's no one to guide them through the shelf.",
-		"pain2Title": "Missed upsell at the table",
-		"pain2Text": "Guests want a wine recommendation with their meal but staff are busy. The upsell moment passes. Revenue stays on the table.",
-		"pain3Title": "Drop-offs in your online store",
-		"pain3Text": "Too many bottles and no guidance. Choice paralysis drives visitors away before they complete the purchase."
-	},
-	"HowToStart": {
-		"tag": "Getting started",
-		"title": "Up and running",
-		"titleAccent": "in hours, not months.",
-		"subtitle": "No long integrations. No complex setup. Share your wine catalog, we configure Wineater for your business, you start seeing results.",
-		"step1Title": "Share your wine catalog",
-		"step1Text": "Export your wine list as CSV or connect via API. Takes less than a day.",
-		"step2Title": "We configure Wineater",
-		"step2Text": "Our team sets up the AI with your inventory within 24 hours.",
-		"step3Title": "Add to your business",
-		"step3Text": "QR code, widget embed, or API link — your choice, takes 1 hour.",
-		"step4Title": "Customers find wines they would never have searched for",
-		"step4Text": "Shoppers ask in their own words and get suggestions from your own catalog, each with a short reason.",
-		"qrLabel": "For restaurants & offline stores",
-		"qrDuration": "Live in 1 hour",
-		"qrTitle": "QR Code",
-		"qrDesc": "Print a QR code, place it at tables or near wine shelves. That's it. Your customers scan and get instant personalized recommendations.",
-		"qrF1": "No app download needed",
-		"qrF2": "Works on any smartphone",
-		"qrF3": "Instant setup, zero tech required",
-		"widgetLabel": "For online retailers",
-		"widgetDuration": "Live in 1 day",
-		"widgetTitle": "Embeddable Widget",
-		"widgetDesc": "Add a single JavaScript snippet to your site. Wineater widget appears on your wine pages and starts converting visitors immediately.",
-		"widgetF1": "One script tag to install",
-		"widgetF2": "Matches your store's branding",
-		"widgetF3": "Recommends only from your catalog",
-		"apiLabel": "For advanced teams",
-		"apiDuration": "Live in 1 week",
-		"apiTitle": "API Integration",
-		"apiDesc": "Connect Wineater directly to your search or recommendation engine. Full control, fully branded, zero Wineater footprint on the front end.",
-		"apiF1": "RESTful API, easy to integrate",
-		"apiF2": "Full white-label capability",
-		"apiF3": "Real-time inventory sync",
-		"trialBadge": "30-day pilot, no credit card",
-		"trialTitle": "Try it with your real catalog",
-		"trialDesc": "No commitment. Share your wine list, we set everything up, you run it for a month and see exactly what it does for your business.",
-		"trialCta": "Start your free trial"
+		"method": "Figures are session-based. BUY tracking covers the last three weeks; the other figures cover the full pilot."
 	},
 	"Header": {
 		"About": "About",
@@ -150,7 +102,10 @@
 		"mainNav": "Main navigation",
 		"home": "Wineater home",
 		"opensNewTab": "opens in a new tab",
-		"Faq": "FAQ"
+		"Faq": "FAQ",
+		"menu": "Menu",
+		"closeMenu": "Close menu",
+		"menuTitle": "Site menu"
 	},
 	"faq": {
 		"tocLabel": "Jump to a topic",
@@ -205,10 +160,11 @@
 			"point3": "Live in 1 hour, plus a tablet tool for your staff"
 		},
 		"proof": {
-			"buy": "of sessions that displayed recommendations ended in a BUY click ({n} of {of})",
-			"requests": "requests per shopper on average",
-			"search": "of widget sessions start a search ({n} of {of})"
-		}
+			"buy": "of sessions end in a BUY click ({n} of {of})",
+			"requests": "requests per shopper",
+			"search": "of sessions start a search ({n} of {of})"
+		},
+		"imageAlt": "A bottle of red wine and a plate of pasta on the Wineater purple pattern"
 	},
 	"StatisticBanner": {
 		"label1": "every",

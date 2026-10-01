@@ -1,6 +1,6 @@
 <template>
   <section class="client-logos" aria-labelledby="client-logos-title">
-    <h2 id="client-logos-title" class="client-logos__label">{{ $t('Clients.title') }}</h2>
+    <p id="client-logos-title" class="client-logos__label">{{ $t('Clients.title') }}</p>
     <ul class="client-logos__list">
       <li v-for="client in clients" :key="client.id" class="client-logos__item">
         <a :href="client.href" class="client-logos__link" target="_blank" rel="noopener">
@@ -36,20 +36,23 @@ const clients = liveClients.map((c) => ({ id: c.id, name: c.name, ...assets[c.id
 
 <style scoped lang="scss">
 .client-logos {
-  padding: 40px 0 48px;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 24px 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px 40px;
+  gap: 8px 40px;
+  border-top: 1px solid var(--brand-5);
+  border-bottom: 1px solid var(--brand-5);
 }
 
 .client-logos__label {
   margin: 0;
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: #696969;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--ink-3);
 }
 
 .client-logos__list {
@@ -71,7 +74,7 @@ const clients = liveClients.map((c) => ({ id: c.id, name: c.name, ...assets[c.id
   border-radius: 8px;
 
   &:focus-visible {
-    outline: 3px solid #7E27ED;
+    outline: 3px solid var(--brand-1);
     outline-offset: 3px;
   }
 }
@@ -81,7 +84,7 @@ const clients = liveClients.map((c) => ({ id: c.id, name: c.name, ...assets[c.id
   max-width: 100%;
   display: block;
   filter: grayscale(1);
-  opacity: 0.8;
+  opacity: 0.75;
   transition: filter 0.2s, opacity 0.2s;
 }
 
@@ -95,15 +98,11 @@ const clients = liveClients.map((c) => ({ id: c.id, name: c.name, ...assets[c.id
   .client-logos__img { transition: none; }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 767px) {
   .client-logos {
-    padding: 28px 0 32px;
     flex-direction: column;
-    gap: 4px;
-  }
-
-  .client-logos__list {
-    gap: 4px 32px;
+    gap: 0;
+    padding: 16px 0;
   }
 }
 </style>

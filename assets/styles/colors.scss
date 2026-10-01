@@ -4,11 +4,15 @@
   --brand-3: #BA27ED;
   --brand-4: #FFFFFF;
   --brand-5: #EDEDED;
-  --brand-6: #767676;
+  --brand-6: #5A5069;
   --brand-7: #F5F2FF;
-  --text: #333333;
-  --dark-100: #696969;
-  --dark-90: #767676;
+  --ink: #1A1426;
+  --ink-2: #3A3149;
+  --ink-3: #5A5069;
+  --link: #5B3BD0;
+  --text: #1A1426;
+  --dark-100: #3A3149;
+  --dark-90: #5A5069;
   --brand-2-text: #0B7978;
   --brand-violet-text: #6F56E0;
   --gradient: #7E27ED #2FC0BF #BA27ED (linear);
@@ -39,7 +43,7 @@
 }
 
 .color-brand-6 {
-  color: #767676;
+  color: var(--ink-3);
 }
 
 .color-brand-7 {
@@ -47,15 +51,27 @@
 }
 
 .color-text {
-  color: #333333;
+  color: var(--ink);
 }
 
 .color-dark-100 {
-  color: #696969;
+  color: var(--ink-2);
 }
 
 .color-dark-90 {
-  color: #767676;
+  color: var(--ink-3);
+}
+
+.color-ink {
+  color: var(--ink);
+}
+
+.color-ink-2 {
+  color: var(--ink-2);
+}
+
+.color-ink-3 {
+  color: var(--ink-3);
 }
 
 /* Wine-world tokens for the audience switcher and hero scene (additive). */

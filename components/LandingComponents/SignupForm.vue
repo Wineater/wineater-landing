@@ -17,8 +17,8 @@
 
       <div v-if="!submitted" class="signup-modal__content">
         <div class="signup-modal__logo" role="img" aria-label="Wineater"></div>
-        <h2 id="signup-title" class="signup-modal__title h2 color-text">{{ $t('SignupForm.title') }}</h2>
-        <p id="signup-subtitle" class="signup-modal__subtitle p1 color-dark-100">{{ $t('SignupForm.subtitle') }}</p>
+        <h2 id="signup-title" class="signup-modal__title">{{ $t('SignupForm.title') }}</h2>
+        <p id="signup-subtitle" class="signup-modal__subtitle">{{ $t('SignupForm.subtitle') }}</p>
 
         <form class="signup-modal__form" aria-describedby="signup-subtitle" @submit.prevent="submit">
           <div class="signup-modal__field">
@@ -125,20 +125,14 @@
       <div v-else class="signup-modal__success">
         <div class="signup-modal__success-icon">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
-            <circle cx="24" cy="24" r="24" fill="url(#signup-grad)"/>
+            <circle cx="24" cy="24" r="24" fill="#7E27ED"/>
             <path d="M14 24L21 31L34 17" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs>
-              <linearGradient id="signup-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#7E27ED"/>
-                <stop offset="1" stop-color="#2FC0BF"/>
-              </linearGradient>
-            </defs>
           </svg>
         </div>
-        <h2 id="signup-success-title" ref="successTitle" class="h2 color-text" tabindex="-1">{{ $t('SignupForm.successTitle') }}</h2>
+        <h2 id="signup-success-title" ref="successTitle" class="signup-modal__title" tabindex="-1">{{ $t('SignupForm.successTitle') }}</h2>
         <div class="signup-modal__next" role="status">
-          <p class="signup-modal__next-title p1 color-text">{{ $t('SignupForm.nextTitle') }}</p>
-          <ol class="signup-modal__next-list p1 color-dark-100">
+          <p class="signup-modal__next-title">{{ $t('SignupForm.nextTitle') }}</p>
+          <ol class="signup-modal__next-list">
             <li>{{ $t('SignupForm.next1') }}</li>
             <li>{{ $t('SignupForm.next2', { email: submittedEmail }) }}</li>
           </ol>
@@ -264,8 +258,7 @@ const submit = async () => {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  background: rgba(26, 20, 38, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,38 +268,40 @@ const submit = async () => {
 
 .signup-modal {
   background: #fff;
-  border-radius: 32px;
-  padding: 56px 48px;
+  border-radius: 16px;
+  padding: 48px 40px;
   width: 100%;
   max-width: 520px;
   position: relative;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 24px 64px rgba(26, 20, 38, 0.24);
   margin: auto;
+  color: var(--ink);
+
+  &:focus { outline: none; }
 
   @media (max-width: 600px) {
-    padding: 40px 24px;
-    border-radius: 24px;
+    padding: 56px 20px 28px;
   }
 }
 
 .signup-modal__close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 12px;
+  right: 12px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #f5f2ff;
+  background: var(--brand-7);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #333;
+  color: var(--ink);
   transition: background 0.2s;
   border: 0;
 
-  &:hover { background: #ede8ff; }
-  &:focus-visible { outline: 3px solid #7E27ED; outline-offset: 2px; }
+  &:hover { background: var(--brand-5); }
+  &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
 }
 
 .signup-modal__logo {
@@ -318,8 +313,19 @@ const submit = async () => {
   margin-bottom: 24px;
 }
 
-.signup-modal__title { margin-bottom: 8px; }
-.signup-modal__subtitle { margin-bottom: 32px; }
+.signup-modal__title {
+  margin: 0 0 8px;
+  font-size: 2.8rem;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.signup-modal__subtitle {
+  margin: 0 0 28px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
 
 .signup-modal__form {
   display: flex;
@@ -335,8 +341,9 @@ const submit = async () => {
 
 .signup-modal__label {
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 14px;
-  color: #333;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--ink);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -344,68 +351,68 @@ const submit = async () => {
 
 .signup-modal__label-optional {
   font-family: 'PoppinsRegular', sans-serif;
-  font-size: 12px;
-  color: #aaa;
+  font-size: 1.4rem;
+  color: var(--ink-3);
 }
 
 .signup-modal__input {
-  height: 52px;
-  border: 1.5px solid #e0e0e0;
+  height: 48px;
+  border: 1.5px solid var(--ink-3);
   border-radius: 12px;
   padding: 0 16px;
   font-family: 'PoppinsRegular', sans-serif;
-  font-size: 15px;
-  color: #333;
-  transition: border-color 0.2s;
+  font-size: 1.6rem;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
   background: #fff;
 
+  &:hover:not(:disabled) { border-color: var(--ink); }
   &:focus {
-    border-color: #7E27ED;
+    border-color: var(--brand-1);
     outline: none;
-  }
-  &:focus-visible {
     box-shadow: 0 0 0 3px rgba(126, 39, 237, 0.3);
   }
-  &::placeholder { color: #bbb; }
-  &:disabled { background: #f9f9f9; opacity: 0.6; }
+  &::placeholder { color: var(--ink-3); opacity: 1; }
+  &:disabled { background: var(--brand-7); opacity: 0.7; }
 }
 
 .signup-modal__file-label {
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 52px;
-  border: 1.5px dashed #d0d0d0;
+  min-height: 48px;
+  border: 1.5px dashed var(--ink-3);
   border-radius: 12px;
   padding: 0 16px;
   cursor: pointer;
   font-family: 'PoppinsRegular', sans-serif;
-  font-size: 14px;
-  color: #767676;
+  font-size: 1.5rem;
+  color: var(--ink-2);
   transition: border-color 0.2s, background 0.2s;
   position: relative;
   overflow: hidden;
 
-  svg { flex-shrink: 0; color: #bbb; transition: color 0.2s; }
+  svg { flex-shrink: 0; color: var(--ink-3); transition: color 0.2s; }
 
   span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   &:hover:not(.is-disabled) {
-    border-color: #7E27ED;
-    background: #faf8ff;
-    svg { color: #7E27ED; }
+    border-color: var(--brand-1);
+    background: var(--brand-7);
+    svg { color: var(--brand-1); }
   }
 
   &.has-file {
-    border-color: #2FC0BF;
-    color: #333;
-    svg { color: #2FC0BF; }
+    border-style: solid;
+    border-color: var(--brand-2-text);
+    color: var(--ink);
+    svg { color: var(--brand-2-text); }
   }
 
   &.is-disabled { opacity: 0.6; cursor: not-allowed; }
 
   &:focus-within {
-    border-color: #7E27ED;
+    border-color: var(--brand-1);
     box-shadow: 0 0 0 3px rgba(126, 39, 237, 0.3);
   }
 }
@@ -420,9 +427,9 @@ const submit = async () => {
 }
 
 .signup-modal__field-hint {
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 12px;
-  color: #aaa;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--ink-3);
   margin: 0;
 }
 
@@ -432,21 +439,23 @@ const submit = async () => {
   gap: 12px;
   padding: 16px;
   border-radius: 12px;
-  border: 1.5px solid #e8e8e8;
+  border: 1.5px solid var(--brand-5);
+  background: var(--brand-7);
   cursor: pointer;
   transition: border-color 0.2s;
 
-  &:hover { border-color: #7E27ED; }
-  &--error { border-color: #e53e3e; background: #fff5f5; }
+  &:hover { border-color: var(--brand-1); }
+  &:focus-within { border-color: var(--brand-1); box-shadow: 0 0 0 3px rgba(126, 39, 237, 0.3); }
+  &--error { border-color: #B42318; background: #FEF3F2; }
 }
 
 .signup-modal__gdpr-check {
   flex-shrink: 0;
   margin-top: 2px;
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
-  accent-color: #7E27ED;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  accent-color: var(--brand-1);
   cursor: pointer;
   opacity: 1 !important;
   position: relative;
@@ -456,39 +465,40 @@ const submit = async () => {
 }
 
 .signup-modal__gdpr-text {
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 13px;
-  color: #555;
+  font-size: 1.4rem;
+  color: var(--ink-2);
   line-height: 1.5;
 
   :deep(a) {
-    color: #7E27ED;
+    color: var(--link);
     text-decoration: underline;
-    &:hover { opacity: 0.8; }
+    text-underline-offset: 2px;
+    &:hover { color: var(--brand-1); }
   }
 }
 
 .signup-modal__error {
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 13px;
-  color: #e53e3e;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-family: 'PoppinsMedium', sans-serif;
+  color: #B42318;
   margin: 0;
 }
 
 .signup-modal__submit {
   margin-top: 8px;
-  height: 56px;
-  border-radius: 72px;
-  background: linear-gradient(135deg, #7E27ED 0%, #2FC0BF 100%);
+  min-height: 56px;
+  border-radius: 999px;
+  background: var(--brand-1);
   color: #fff;
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: background-color 0.2s;
   border: none;
 
-  &:focus-visible { outline: 3px solid #7E27ED; outline-offset: 3px; }
-  &:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
+  &:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  &:hover:not(:disabled) { background: var(--link); }
   &:disabled { opacity: 0.6; cursor: not-allowed; }
 }
 
@@ -498,35 +508,42 @@ const submit = async () => {
   align-items: center;
   text-align: center;
   gap: 16px;
-  padding: 16px 0;
+  padding: 16px 0 0;
+
+  .signup-modal__title { margin: 0; }
 
   .signup-modal__submit {
-    margin-top: 8px;
+    margin-top: 0;
     padding: 0 40px;
     width: auto;
   }
 }
 
-.signup-modal__success-icon { margin-bottom: 8px; }
+.signup-modal__success-icon { margin-bottom: 4px; display: flex; }
 
 .signup-modal__success h2:focus { outline: none; }
 
 .signup-modal__next {
   text-align: left;
   width: 100%;
-  background: #faf8ff;
-  border-radius: 16px;
+  background: var(--brand-7);
+  border-radius: 12px;
   padding: 16px 20px;
 }
 
 .signup-modal__next-title {
   font-family: 'PoppinsMedium', sans-serif;
+  font-size: 1.6rem;
+  color: var(--ink);
   margin: 0 0 8px;
 }
 
 .signup-modal__next-list {
   margin: 0;
   padding-left: 20px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--ink-2);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -539,10 +556,11 @@ const submit = async () => {
   border: 0;
   cursor: pointer;
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: 15px;
-  color: #7E27ED;
+  font-size: 1.6rem;
+  color: var(--link);
   text-decoration: underline;
+  text-underline-offset: 3px;
 
-  &:focus-visible { outline: 3px solid #7E27ED; outline-offset: 2px; border-radius: 8px; }
+  &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; border-radius: 8px; }
 }
 </style>

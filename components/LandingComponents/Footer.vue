@@ -1,60 +1,69 @@
 <template>
   <footer class="footer">
-    <div class="footer__content">
-      <div class="footer__texts">
-        <div class="footer__title color-brand-4 decorative-1">
-          {{ $t('Footer.title') }}
-        </div>
-        <p class="footer__text h2 color-brand-4">
-          {{ $t('Footer.closing') }}
-          <span class="footer__text-arrow" aria-hidden="true"></span>
-        </p>
-        <div class="footer__trial color-brand-4">{{ $t('Footer.trial') }}</div>
+    <div class="footer__cta">
+      <div class="footer__cta-inner">
+        <h2 class="footer__cta-title">{{ $t('Footer.closing') }}</h2>
+        <p class="footer__cta-trial">{{ $t('Footer.trial') }}</p>
         <div class="footer__btns">
-          <button v-if="isHome" type="button" class="footer__cta-primary" @click="onPrimaryClick">
-            <span class="p1">{{ $t('cta.primary') }}</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <button v-if="isHome" type="button" class="footer__btn footer__btn--primary" @click="onPrimaryClick">
+            {{ $t('cta.primary') }}
           </button>
-          <NuxtLink v-else :to="`${homePath}#get-started`" class="footer__cta-primary" @click="trackPrimary">
-            <span class="p1">{{ $t('cta.primary') }}</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <NuxtLink v-else :to="`${homePath}#get-started`" class="footer__btn footer__btn--primary" @click="trackPrimary">
+            {{ $t('cta.primary') }}
           </NuxtLink>
-          <Button :href="demoUrl" target="_blank" @btnClick="onDemoClick">{{ $t('cta.demo') }}</Button>
+          <a class="footer__btn footer__btn--secondary" :href="demoUrl" target="_blank" rel="noopener" @click="onDemoClick">{{ $t('cta.demo') }}</a>
         </div>
       </div>
-      <div class="footer__info">
-        <div class="footer__logo" role="img" aria-label="Wineater"></div>
-        <div class="footer__links" role="group" :aria-label="$t('Footer.contactLabel')">
-          <a class="footer__link p1 color-brand-4" href="mailto:hi@wineater.com">hi@wineater.com</a>
-          <a class="footer__link p1 color-brand-4" href="tel:+33781014033">+33 7 81 01 40 33</a>
-          <a class="footer__link p1 color-brand-4" href="https://linkedin.com/company/wineater" target="_blank" rel="noopener" @click="onLinkedinClick">Linkedin</a>
+    </div>
+
+    <div class="footer__main">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo" role="img" aria-label="Wineater"></div>
+          <p class="footer__tagline">{{ $t('Footer.text') }}</p>
+        </div>
+
+        <nav class="footer__col" :aria-label="$t('Footer.navLabel')">
+          <h3 class="footer__col-title">{{ $t('Footer.colProduct') }}</h3>
+          <NuxtLink class="footer__link" :to="`${homePath}#ai-sommelier`">{{ $t('Header.TryMe') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="`${homePath}#how-it-works`">{{ $t('Header.HowItWorks') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="`${homePath}#get-started`">{{ $t('Header.GetStarted') }}</NuxtLink>
+        </nav>
+
+        <div class="footer__col">
+          <h3 class="footer__col-title">{{ $t('Footer.colResources') }}</h3>
+          <NuxtLink class="footer__link" :to="localePath('/blog')">{{ $t('Footer.blog') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/faq')">{{ $t('Footer.faq') }}</NuxtLink>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__col-title">{{ $t('Footer.colLegal') }}</h3>
+          <NuxtLink class="footer__link" :to="localePath('/privacy')">{{ $t('Footer.privacy') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/terms')">{{ $t('Footer.terms') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/legal')">{{ $t('Footer.legal') }}</NuxtLink>
+          <button type="button" class="footer__link footer__link-btn" @click="openCookieSettings">{{ $t('Footer.cookies') }}</button>
+        </div>
+
+        <div class="footer__col" role="group" :aria-label="$t('Footer.contactLabel')">
+          <h3 class="footer__col-title">{{ $t('Footer.contactLabel') }}</h3>
+          <a class="footer__link" href="mailto:hi@wineater.com">hi@wineater.com</a>
+          <a class="footer__link" href="tel:+33781014033">+33 7 81 01 40 33</a>
+          <a class="footer__link" href="https://linkedin.com/company/wineater" target="_blank" rel="noopener" @click="onLinkedinClick">LinkedIn</a>
         </div>
       </div>
-      <nav class="footer__legal" :aria-label="$t('Footer.navLabel')">
-        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/blog')">{{ $t('Footer.blog') }}</NuxtLink>
-        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/faq')">{{ $t('Footer.faq') }}</NuxtLink>
-        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/privacy')">{{ $t('Footer.privacy') }}</NuxtLink>
-        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/terms')">{{ $t('Footer.terms') }}</NuxtLink>
-        <NuxtLink class="footer__link p1 color-brand-4" :to="localePath('/legal')">{{ $t('Footer.legal') }}</NuxtLink>
-        <button type="button" class="footer__link footer__link-btn p1 color-brand-4" @click="openCookieSettings">{{ $t('Footer.cookies') }}</button>
-      </nav>
+      <p class="footer__copy">&copy; {{ year }} Wineater</p>
     </div>
   </footer>
 </template>
 
 <script setup>
-import Button from "~/components/Buttons/Button.vue";
-
 const route = useRoute();
 const localePath = useLocalePath();
 const { t } = useI18n();
 
 const emit = defineEmits(['getStarted']);
 
+const year = new Date().getFullYear();
 const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
 
 const homePath = computed(() => localePath('/'));
@@ -86,228 +95,167 @@ const openCookieSettings = () => {
 <style scoped lang="scss">
 .footer {
   width: 100%;
-  background-color: #2FC0BF;
-  background-size: 100% 100%;
-  background-position: top center;
-  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/footer.webp');
-  overflow: hidden;
 }
 
-.footer__content {
-  max-width: 1920px;
-  padding: 300px 80px 0 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
+.footer__cta {
+  background: var(--brand-1);
+  color: #fff;
+}
+
+.footer__cta-inner {
+  max-width: calc(var(--container) + 2 * var(--gutter));
   margin: 0 auto;
-}
-
-.footer__texts {
+  padding: var(--section-y) var(--gutter);
   display: flex;
   flex-direction: column;
-  max-width: 900px;
-  text-align: left;
+  align-items: flex-start;
+  gap: 16px;
 }
 
-.footer__text {
-  margin-bottom: 0;
-  padding-left: 161px;
-  position: relative;
-  margin-top: 22px;
-  text-align: center;
+.footer__cta-title {
+  margin: 0;
+  max-width: 22ch;
+  font-size: 4rem;
+  line-height: 1.12;
+  color: #fff;
 }
 
-.footer__text-arrow {
-  position: absolute;
-  left: 39px;
-  top: 0;
-  height: 137px;
-  width: 109px;
-  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/footer-arrow.svg');
+.footer__cta-trial {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.footer__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.footer__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 32px;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+  &--primary {
+    background: #fff;
+    color: var(--brand-1);
+    &:hover { background: var(--brand-7); }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: #fff;
+    &:hover { background: rgba(255, 255, 255, 0.14); }
+  }
+}
+
+.footer__main {
+  background: var(--brand-7);
+  color: var(--ink);
+}
+
+.footer__grid {
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 56px var(--gutter) 32px;
+  display: grid;
+  grid-template-columns: 1.6fr repeat(4, 1fr);
+  gap: 32px;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer__logo {
+  width: 160px;
+  height: 32px;
+  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg');
   background-size: contain;
   background-repeat: no-repeat;
 }
-.footer__btns {
+
+.footer__tagline {
+  margin: 0;
+  max-width: 28ch;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.footer__col {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 40px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.footer__trial {
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 14px;
-  opacity: 0.75;
-  text-align: center;
+.footer__col-title {
+  margin: 0 0 4px;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: var(--ink);
 }
 
-.footer__cta-primary {
-  padding: 20px 40px;
-  border-radius: 72px;
-  background: #fff;
-  border: 0;
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: opacity 0.2s, transform 0.2s;
-
-  span {
-    color: #7E27ED;
-    font-family: 'PoppinsMedium', sans-serif;
-  }
-
-  svg {
-    color: #7E27ED;
-  }
-
-  &:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-  }
-  &:focus-visible {
-    outline: 3px solid #7E27ED;
-    outline-offset: 3px;
-  }
-}
-.footer__links{
-  display: flex;
-  gap: 8px;
-}
 .footer__link {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0 8px;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: var(--ink-2);
   text-decoration: none;
+  border-radius: 8px;
 
-  &:hover { text-decoration: underline; }
-  &:focus-visible {
-    outline: 3px solid #fff;
-    outline-offset: 2px;
-    border-radius: 6px;
-  }
+  &:hover { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+  &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
 }
+
 .footer__link-btn {
+  padding: 0;
   background: none;
   border: 0;
   cursor: pointer;
-  font: inherit;
-}
-.footer__legal {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px 16px;
-  width: 100%;
-  padding-bottom: 32px;
-}
-.footer__info{
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  margin-top: 150px;
-}
-.footer__logo{
-  height: 44px;
-  width: 220px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left;
-  background-image: url('https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo--white.svg');
-}
-@media only screen and (max-width: 1440px) {
-  .footer{
-    min-height: 722px;
-  }
-  .footer__content {
-    padding-top: 220px;
-  }
-  .footer__texts {
-    max-width: 668px;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .footer{
-    min-height: 622px;
-  }
-  .footer__content {
-    padding: 220px 40px 0 40px;
-  }
-  .footer__texts{
-    max-width: 566px;
-  }
-  .footer__text-arrow {
-    position: absolute;
-    left: 96px;
-    top: 0;
-    height: 102px;
-    width: 92px;
-  }
+  font-family: 'PoppinsRegular', sans-serif;
+  text-align: left;
 }
 
-@media only screen and (max-width: 768px) {
-  .footer{
-    min-height: 466px;
-  }
-  .footer__content {
-    padding: 150px 24px 0 24px;
-  }
-  .footer__texts{
-    max-width: 360px;
-  }
-  .footer__text{
-    padding-left: 96px;
-  }
-  .footer__text-arrow {
-    left: 35px;
-    top: 0;
-    height: 63px;
-    width: 59px;
-  }
-  .footer__info{
-    padding-bottom: 8px;
-  }
-  .footer__legal{
-    padding-bottom: 24px;
-  }
+.footer__copy {
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 16px var(--gutter) 24px;
+  font-size: 1.4rem;
+  color: var(--ink-3);
+  border-top: 1px solid var(--brand-5);
 }
-@media only screen and (max-width: 650px) {
-  .footer{
-    min-height: auto;
-    margin-top: 50px;
-  }
-  .footer__content {
-    padding: 100px 16px 0 16px;
-  }
-  .footer__texts{
-    max-width: 300px;
-  }
-  .footer__text {
-    padding-left: 50px;
-  }
-  .footer__text-arrow {
-    left: 6px;
-    top: 0;
-    height: 49px;
-    width: 50px;
-  }
-  .footer__info{
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 64px;
-  }
-  .footer__links{
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0;
-  }
+
+@media only screen and (max-width: 1023px) {
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__brand { grid-column: 1 / -1; }
+}
+
+@media only screen and (max-width: 767px) {
+  .footer__cta-title { font-size: 3.2rem; }
+  .footer__cta-trial { font-size: 1.6rem; }
+  .footer__btns { width: 100%; flex-direction: column; }
+  .footer__btn { width: 100%; }
+  .footer__grid { padding-top: 40px; }
 }
 </style>

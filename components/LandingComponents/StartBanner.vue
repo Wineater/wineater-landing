@@ -1,7 +1,7 @@
 <template>
   <div class="hero" :class="`hero--${audience}`">
     <div class="hero__main">
-      <AudienceTabs :model-value="audience" @update:model-value="setAudience" />
+      <AudienceTabs class="hero__tabs" :model-value="audience" @update:model-value="setAudience" />
 
       <div
         v-for="item in AUDIENCES"
@@ -16,25 +16,25 @@
         <component
           :is="audience === item ? 'h1' : 'h2'"
           :id="audience === item ? 'hero-title' : undefined"
-          class="hero__title color-text"
+          class="hero__title"
         >
           {{ $t(`startBanner.${item}.headline1`) }}
           <span class="hero__title-highlight">{{ $t(`startBanner.${item}.headline2`) }}</span>
         </component>
 
-        <p class="hero__subtitle color-dark-100">{{ $t(`startBanner.${item}.subtitle`) }}</p>
+        <p class="hero__subtitle">{{ $t(`startBanner.${item}.subtitle`) }}</p>
 
         <div class="hero__ctas">
-          <button type="button" class="hero__cta-primary" @click="onPrimary(item)">
-            <span>{{ $t('cta.primary') }}</span>
+          <Button @btnClick="onPrimary(item)">
+            {{ $t('cta.primary') }}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </button>
-          <a class="hero__cta-secondary" :href="demoUrl" target="_blank" rel="noopener" @click="onDemo(item)">
-            <span>{{ $t('cta.demo') }}</span>
-            <span class="hero__sr">{{ $t('Header.opensNewTab') }}</span>
-          </a>
+          </Button>
+          <Button bg-color="outline" :href="demoUrl" target="_blank" @btnClick="onDemo(item)">
+            {{ $t('cta.demo') }}
+            <span class="hero__sr">({{ $t('Header.opensNewTab') }})</span>
+          </Button>
         </div>
 
         <ul class="hero__points">
@@ -59,8 +59,20 @@
       </div>
     </div>
 
-    <div class="hero__scene">
-      <AudienceScene :audience="audience" />
+    <!-- The owner's pattern: constant for both audiences. Only the accent card on top changes. -->
+    <div class="hero__banner">
+      <img
+        class="hero__banner-img"
+        :src="BANNER_SRC"
+        width="948"
+        height="992"
+        fetchpriority="high"
+        decoding="async"
+        :alt="$t('startBanner.imageAlt')"
+      >
+      <div class="hero__accent">
+        <AudienceScene :audience="audience" />
+      </div>
     </div>
   </div>
 </template>
@@ -70,6 +82,13 @@ import { AUDIENCES, DEFAULT_AUDIENCE, AUDIENCE_STORAGE_KEY, isAudience } from '~
 import { pilotProof } from '~/data/proof';
 import AudienceTabs from '~/components/LandingComponents/AudienceTabs.vue';
 import AudienceScene from '~/components/LandingComponents/AudienceScene.vue';
+import Button from '~/components/Buttons/Button.vue';
+
+const BANNER_SRC = 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/main-banner.webp';
+
+useHead({
+  link: [{ rel: 'preload', as: 'image', href: BANNER_SRC, type: 'image/webp', fetchpriority: 'high' }],
+});
 
 const emit = defineEmits(['getStarted']);
 const { t, locale } = useI18n();
@@ -163,61 +182,79 @@ const onDemo = (item) => {
 <style scoped lang="scss">
 $ease: cubic-bezier(0.16, 1, 0.3, 1);
 
+// Original geometry: image on the right at ~45% width, anchored top-right, uncropped.
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 48px;
-  align-items: stretch;
-  margin-top: 150px;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  column-gap: 0;
+  align-items: start;
+  padding-top: 120px;
   position: relative;
 }
 
 .hero__main {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 32px;
   min-width: 0;
+  padding-right: 32px;
+  position: relative;
+  z-index: 2;
 }
 
-.hero__scene {
+.hero__banner {
+  position: relative;
   min-width: 0;
+  align-self: start;
+}
+
+.hero__banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 948 / 992;
+  object-fit: contain;
+  object-position: right top;
+}
+
+.hero__accent {
+  position: absolute;
+  left: -4%;
+  top: 6%;
+  width: 48%;
+  max-width: 280px;
 }
 
 .hero__panel {
-  min-height: 420px;
-
-  &[hidden] {
-    display: none;
-  }
-
-  &.is-entering {
-    animation: panel-in 0.6s $ease both;
-  }
+  &[hidden] { display: none; }
+  &.is-entering { animation: panel-in 0.5s $ease both; }
 }
 
 @keyframes panel-in {
-  from { opacity: 0; transform: translateY(10px); filter: blur(4px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero__title {
   margin: 0 0 20px;
+  color: var(--ink);
   font-family: 'PoppinsMedium', sans-serif;
   font-weight: 500;
-  font-size: clamp(2rem, 3.6vw, 3.25rem);
-  line-height: 1.12;
+  font-size: clamp(3.2rem, 3.4vw, 4.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
-.hero__title-highlight {
-  color: #7E27ED;
-}
+.hero__title-highlight { color: var(--brand-1); }
 
 .hero__subtitle {
-  max-width: 540px;
-  margin: 0 0 28px;
-  font-size: 18px;
-  line-height: 1.65;
+  max-width: 54ch;
+  margin: 0 0 32px;
+  color: var(--ink-2);
+  font-size: 1.8rem;
+  line-height: 1.6;
 }
 
 .hero__ctas {
@@ -226,75 +263,6 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
   gap: 16px;
   flex-wrap: wrap;
   margin-bottom: 28px;
-}
-
-.hero__cta-primary {
-  padding: 16px 32px;
-  min-height: 52px;
-  border: 0;
-  border-radius: 72px;
-  background: #7E27ED;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: background 0.2s, transform 0.3s $ease, box-shadow 0.3s $ease;
-  box-shadow: 0 8px 24px rgba(126, 39, 237, 0.28);
-
-  span {
-    color: #fff;
-    font-family: 'PoppinsMedium', sans-serif;
-    font-size: 16px;
-  }
-
-  svg {
-    color: #fff;
-    transition: transform 0.3s $ease;
-  }
-
-  &:hover {
-    background: #6A1FD0;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(126, 39, 237, 0.36);
-
-    svg { transform: translateX(3px); }
-  }
-
-  &:active { transform: scale(0.98); }
-
-  &:focus-visible {
-    outline: 3px solid #333;
-    outline-offset: 3px;
-  }
-}
-
-.hero__cta-secondary {
-  padding: 16px 32px;
-  min-height: 52px;
-  border-radius: 72px;
-  border: 1.5px solid #8a8a8a;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  transition: border-color 0.2s;
-
-  span {
-    color: #333;
-    font-family: 'PoppinsMedium', sans-serif;
-    font-size: 16px;
-  }
-
-  &:hover {
-    border-color: #7E27ED;
-
-    span { color: #7E27ED; }
-  }
-
-  &:focus-visible {
-    outline: 3px solid #333;
-    outline-offset: 3px;
-  }
 }
 
 .hero__sr {
@@ -318,119 +286,123 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 15px;
+  color: var(--ink-2);
+  font-size: 1.6rem;
   line-height: 1.5;
-  color: #333;
 
   svg {
     flex-shrink: 0;
-    margin-top: 2px;
-    color: #7E27ED;
+    margin-top: 3px;
+    color: var(--brand-1);
   }
 }
+
+.hero__proof { width: 100%; }
 
 .hero__chips {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
   margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--brand-5);
 }
 
 .hero__chip {
   padding: 0 16px;
-  border-left: 1px solid #e2e2e2;
+  border-left: 1px solid var(--brand-5);
 
   &:first-child { padding-left: 0; border-left: 0; }
 
   dt {
+    color: var(--ink);
     font-family: 'PoppinsMedium', sans-serif;
-    font-size: 26px;
-    line-height: 1.2;
-    color: #7E27ED;
+    font-size: 2.8rem;
+    line-height: 1.15;
     font-variant-numeric: tabular-nums;
   }
 
   dd {
     margin: 4px 0 0;
-    font-family: 'PoppinsRegular', sans-serif;
-    font-size: 13px;
+    color: var(--ink-2);
+    font-size: 1.4rem;
     line-height: 1.4;
-    color: #595959;
   }
 }
 
 .hero__footnote {
-  margin: 14px 0 0;
-  font-family: 'PoppinsRegular', sans-serif;
-  font-size: 12px;
+  margin: 16px 0 0;
+  color: var(--ink-3);
+  font-size: 1.4rem;
   line-height: 1.5;
-  color: #595959;
 }
 
 @media only screen and (max-width: 1100px) {
-  .hero {
-    margin-top: 130px;
-    gap: 32px;
-  }
-
-  .hero__panel { min-height: 460px; }
+  .hero { padding-top: 110px; }
+  .hero__main { padding-right: 24px; }
+  .hero__chip { padding: 0 12px; }
+  .hero__chip dt { font-size: 2.4rem; }
 }
 
+// Single column: the banner sits in-flow between the headline and the CTAs.
 @media only screen and (max-width: 899px) {
   .hero {
     display: flex;
     flex-direction: column;
-    margin-top: 0;
-    padding-top: 96px;
+    align-items: stretch;
+    padding-top: 92px;
     gap: 24px;
   }
 
-  .hero__panel { min-height: 0; }
+  .hero__main,
+  .hero__panel { display: contents; }
+  .hero__panel[hidden] { display: none; }
 
-  .hero__subtitle {
+  .hero__tabs { order: 0; }
+  .hero__title { order: 1; margin: 0; font-size: clamp(3rem, 7vw, 4.4rem); }
+  .hero__subtitle { order: 2; max-width: 100%; margin: 0; }
+  .hero__banner { order: 3; }
+  .hero__ctas { order: 4; margin: 0; }
+  .hero__points { order: 5; }
+  .hero__proof { order: 6; }
+
+  .hero__panel.is-entering { animation: none; }
+  .hero__panel.is-entering > * { animation: panel-in 0.5s $ease both; }
+
+  .hero__banner {
+    align-self: center;
+    width: fit-content;
     max-width: 100%;
-    font-size: 16px;
+  }
+
+  .hero__banner-img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 320px;
+    object-position: center;
+  }
+
+  .hero__accent {
+    left: 0;
+    top: 4%;
+    width: 46%;
+    max-width: 170px;
   }
 }
 
 @media only screen and (max-width: 600px) {
+  .hero { padding-top: 84px; }
+  .hero__title { font-size: 3rem; }
+  .hero__subtitle { font-size: 1.6rem; }
+  .hero__ctas { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero__ctas :deep(.button) { width: 100%; }
   .hero__chip { padding: 0 8px; }
-  .hero__chip dt { font-size: 20px; }
-  .hero__chip dd { font-size: 12px; }
-
-  .hero {
-    padding-top: 84px;
-  }
-
-  .hero__main { gap: 24px; }
-
-  .hero__title {
-    font-size: 1.875rem;
-    margin-bottom: 16px;
-  }
-
-  .hero__subtitle { margin-bottom: 24px; }
-
-  .hero__ctas {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-
-  .hero__cta-primary,
-  .hero__cta-secondary {
-    justify-content: center;
-    width: 100%;
-  }
+  .hero__chip dt { font-size: 2.2rem; }
+  .hero__chip dd { font-size: 1.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__panel.is-entering { animation: none; }
-
-  .hero__cta-primary,
-  .hero__cta-primary svg {
-    transition: none;
-  }
+  .hero__panel.is-entering,
+  .hero__panel.is-entering > * { animation: none; }
 }
 </style>

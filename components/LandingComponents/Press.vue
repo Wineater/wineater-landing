@@ -1,173 +1,133 @@
 <template>
-  <div class="press" :class="{ 'visible': visible }" role="region" aria-label="Press coverage">
-    <h2 id="press-title" class="h2 color-text press__title">
-      {{ $t('Press.title') }}
-    </h2>
-    <div class="press__grid">
-      <a
-          v-for="article in articles"
-          :key="article.id"
-          :href="article.url"
-          target="_blank"
-          rel="noopener"
-          class="press__item"
-      >
-        <img
-            :src="article.logo"
-            :alt="article.name"
-            :width="article.width"
-            :height="article.height"
-            loading="lazy"
-            class="press__logo"
-        />
-      </a>
+  <div class="logo-strip" role="region" :aria-label="$t('Press.title')">
+    <div class="logo-strip__row" v-for="group in groups" :key="group.key">
+      <p class="logo-strip__label">{{ $t(`${group.key}.title`) }}</p>
+      <ul class="logo-strip__list">
+        <li v-for="item in group.items" :key="item.id">
+          <a :href="item.url" target="_blank" rel="noopener" class="logo-strip__item">
+            <img
+                :src="item.logo"
+                :alt="item.name"
+                :width="item.width"
+                :height="item.height"
+                loading="lazy"
+                class="logo-strip__logo"
+            />
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  visible: {
-    type: Boolean,
-    default: false
-  }
-});
-
-const articles = [
+const groups = [
   {
-    id: 1,
-    name: 'La Revue du Vin de France',
-    logo: '/press/larvf.jpg',
-    width: 250,
-    height: 250,
-    url: 'https://www.larvf.com/a-bordeaux-bernard-magrez-fait-naitre-un-sommelier-digital,4907283.asp'
+    key: 'Press',
+    items: [
+      {
+        id: 1,
+        name: 'La Revue du Vin de France',
+        logo: '/press/larvf.jpg',
+        width: 250,
+        height: 250,
+        url: 'https://www.larvf.com/a-bordeaux-bernard-magrez-fait-naitre-un-sommelier-digital,4907283.asp'
+      },
+      {
+        id: 2,
+        name: 'Le Figaro',
+        logo: '/press/figaro.svg',
+        width: 310,
+        height: 42,
+        url: 'https://avis-vin.lefigaro.fr/economie-du-vin/accords-mets-et-vins-grace-a-l-ia-durabilite-ces-startups-qui-tentent-de-revolutionner-le-monde-du-vin-20250723'
+      },
+    ],
   },
   {
-    id: 2,
-    name: 'Le Figaro',
-    logo: '/press/figaro.svg',
-    width: 310,
-    height: 42,
-    url: 'https://avis-vin.lefigaro.fr/economie-du-vin/accords-mets-et-vins-grace-a-l-ia-durabilite-ces-startups-qui-tentent-de-revolutionner-le-monde-du-vin-20250723'
+    key: 'Partners',
+    items: [
+      {
+        id: 3,
+        name: 'Bernard Magrez Start-Up Win',
+        logo: '/press/bmstartupwin.png',
+        width: 400,
+        height: 75,
+        url: 'https://bmstartupwin.com/en/startups/wineater/'
+      },
+      {
+        id: 4,
+        name: 'La French Tech Bordeaux',
+        logo: '/press/frenchtech-bordeaux.png',
+        width: 242,
+        height: 300,
+        url: 'https://annuaire.frenchtechbordeaux.com/organisations/wineater'
+      },
+    ],
   },
 ];
 </script>
 
 <style scoped lang="scss">
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+.logo-strip {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: calc(var(--section-y) / 2) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  border-top: 1px solid var(--brand-5);
 }
 
-.press {
-  padding: 60px 0;
-  animation: fadeUp 0.6s ease both;
+.logo-strip__row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px 32px;
+}
 
-  &__title {
-    text-align: center;
-    margin-bottom: 48px;
-  }
+.logo-strip__label {
+  margin: 0;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: var(--ink-2);
+}
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    align-items: center;
-    justify-items: center;
-  }
+.logo-strip__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 40px;
+}
 
-  &__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 250px;
-    height: 130px;
-    background: #fff;
-    border: 1px solid #ececec;
+.logo-strip__item {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 4px 0;
+  border-radius: 8px;
 
-    &:focus-visible {
-      outline: 3px solid #333;
-      outline-offset: 3px;
-    }
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  &__logo {
-    max-width: 170px;
-    max-height: 80px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+  &:focus-visible {
+    outline: 3px solid var(--brand-1);
+    outline-offset: 4px;
   }
 }
 
-@media only screen and (max-width: 1440px) {
-  .press {
-    &__grid {
-      gap: 32px;
-    }
-  }
+.logo-strip__logo {
+  height: 48px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
 }
 
-@media only screen and (max-width: 1024px) {
-  .press {
-    &__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
+.logo-strip__item:hover .logo-strip__logo { opacity: 0.75; }
 
-    &__item {
-      max-width: none;
-      height: 100px;
-    }
-
-    &__logo {
-      max-height: 60px;
-    }
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .press {
-    &__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    &__item {
-      height: 90px;
-    }
-
-    &__logo {
-      max-height: 50px;
-    }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .press {
-    padding: 60px 0 80px;
-
-    &__grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    &__item {
-      height: 80px;
-    }
-
-    &__logo {
-      max-height: 60px;
-    }
-  }
+@media only screen and (max-width: 767px) {
+  .logo-strip__row { grid-template-columns: 1fr; gap: 8px; }
+  .logo-strip__logo { height: 40px; }
 }
 </style>

@@ -16,19 +16,30 @@
 		"primary": "Essayer gratuitement 1 mois",
 		"demo": "Réserver une démo de 20 min"
 	},
-	"BookDemo": {
-		"title1": "Développez votre épicerie en ligne avec ",
-		"title2": "l'IA sommelier"
-	},
 	"HowItWorks": {
 		"title": "Comment ça marche",
-		"step1Title": "Le client dit ce qu'il veut",
-		"step1Text": "Avec ses propres mots : un dîner de steak, un cadeau, quelque chose de puissant et de fruité. Pas besoin de vocabulaire du vin.",
-		"step2Title": "Wineater cherche dans votre catalogue",
-		"step2Text": "Il ne regarde que les vins que vous vendez : chaque suggestion est une bouteille que vous pouvez mettre dans un sac.",
-		"step3Title": "Quatre vins, chacun avec sa raison",
-		"step3Text": "Une courte explication à côté de chaque bouteille aide à choisir en confiance.",
-		"catalogNote": "Votre catalogue arrive par fichier CSV, flux produits ou API, et la disponibilité suit votre stock lorsqu'un flux est connecté."
+		"lead": "Vos clients décrivent ce qu'ils veulent avec leurs propres mots et reçoivent quatre vins de votre catalogue, chacun avec une courte raison.",
+		"step1Title": "Partagez votre catalogue",
+		"step1Text": "Envoyez votre liste de vins en CSV ou flux produits, ou connectez l'API. Moins d'une journée.",
+		"step2Title": "Nous configurons tout",
+		"step2Text": "Notre équipe paramètre Wineater avec votre inventaire en 24 heures.",
+		"step3Title": "Ajoutez-le à votre activité",
+		"step3Text": "Un QR code, un widget ou un lien API. Vous choisissez comment vos clients y accèdent.",
+		"optionsTitle": "Choisissez comment vos clients y accèdent",
+		"qrTime": "1 heure",
+		"qrName": "QR code",
+		"qrFor": "Restaurants et magasins physiques",
+		"qrDesc": "Imprimez-le et placez-le aux tables ou près des rayons vins. Vos clients scannent, sans application à télécharger.",
+		"widgetTime": "1 jour",
+		"widgetName": "Widget intégrable",
+		"widgetFor": "Boutiques en ligne",
+		"widgetDesc": "Une seule balise script sur vos pages vin. Il s'adapte à l'identité de votre boutique et recommande uniquement depuis votre catalogue.",
+		"apiTime": "1 semaine",
+		"apiName": "Intégration API",
+		"apiFor": "Équipes avancées",
+		"apiDesc": "Connectez Wineater à votre propre moteur de recherche ou de recommandation. Marque blanche complète, inventaire synchronisé.",
+		"trialTitle": "Essayez avec votre vrai catalogue",
+		"trialDesc": "Pilote de 30 jours, sans carte bancaire et sans engagement. Partagez votre liste de vins, nous configurons tout, vous voyez ce que ça apporte à votre activité."
 	},
 	"Partners": {
 		"title": "Membres de"
@@ -40,24 +51,17 @@
 		"title": "Déjà en ligne chez"
 	},
 	"proof": {
-		"title": "Ce que les clients ont fait avec Wineater pendant un mois de pilote",
-		"context": "Wineater a tourné un mois sur la boutique en ligne d'un caviste. Voici ce que les clients ont fait.",
-		"leadOf": "sessions sur {total} avec recommandations affichées ont fini par un clic BUY",
-		"leadTitle": "{pct} des sessions avec recommandations ont fini par un clic BUY",
-		"leadMeaning": "En clair : quand un client voyait des recommandations, environ un sur cinq passait à la fiche produit. Ce clic exprime une intention d'achat, pas un achat confirmé.",
-		"moreTitle": "Comment les clients l'ont utilisé",
-		"f1Label": "Clients qui lancent une recherche",
+		"title": "Ce que les clients ont fait pendant un mois de pilote",
+		"leadLabel": "des sessions avec recommandations ont fini par un clic BUY ({n} sur {of})",
+		"leadMeaning": "Environ un client sur cinq est passé à la fiche produit. Ce clic exprime une intention d'achat, pas un achat confirmé.",
+		"f1Label": "Lancent une recherche",
 		"f1Detail": "des sessions du widget ({n} sur {of})",
-		"f2Label": "Recherches qui donnent des résultats",
+		"f2Label": "Obtiennent des résultats",
 		"f2Detail": "des recherches ({n} sur {of})",
 		"f3Label": "Demandes par client",
-		"f3Detail": "({requests} demandes de {users} utilisateurs)",
-		"f4Label": "Série complète de quatre vins",
-		"f4Detail": "des affichages de résultats ({of} affichages)",
-		"f5Label": "Vins différents montrés",
-		"f5Detail": "vins du catalogue",
-		"typedTitle": "Ce que les clients ont vraiment écrit",
-		"typedNote": "Une vraie demande du pilote, dans les mots du client (en anglais).",
+		"f3Detail": "({requests} demandes, {users} utilisateurs)",
+		"typedTitle": "Une vraie demande",
+		"typedNote": "Écrite par un client pendant le pilote (en anglais).",
 		"themesTitle": "De quoi parlaient les {total} demandes en texte libre",
 		"theme_grape": "Cépage ou style",
 		"theme_origin": "Origine, âge ou alcool",
@@ -68,7 +72,6 @@
 	},
 	"Footer": {
 		"text": "Arrêtez de perdre des ventes de vin par indécision",
-		"title": "Prêt à grandir?",
 		"trial": "1 mois d'essai gratuit · Sans carte bancaire",
 		"ctaPrimary": "Commencer gratuitement",
 		"ctaSecondary": "Demander une démo",
@@ -80,65 +83,14 @@
 		"terms": "Conditions d'utilisation",
 		"legal": "Mentions légales",
 		"cookies": "Paramètres des cookies",
-		"contactLabel": "Contact"
+		"contactLabel": "Contact",
+		"colProduct": "Produit",
+		"colResources": "Ressources",
+		"colLegal": "Mentions"
 	},
 	"ForWhom": {
-		"title": "Une IA. Trois métiers. Tous gagnants.",
-		"subtitle": "Que vous gériez un restaurant, une cave ou une boutique en ligne — Wineater s'intègre à votre façon de travailler et aide vos clients à choisir avec confiance.",
-		"problemLabel": "Le problème",
-		"solutionLabel": "Comment Wineater le résout"
-	},
-	"ProblemBanner": {
-		"tag": "Le défi",
-		"title1": "Le vin est difficile à vendre.",
-		"title2": "Pas parce que les clients n'en veulent pas.",
-		"desc": "Ils en veulent — ils ne savent juste pas lequel choisir. Et quand personne ne les guide, ils n'achètent pas. C'est un problème pour chaque restaurant, cave et boutique en ligne.",
-		"cta": "Voir comment Wineater résout ça",
-		"pain1Title": "Ventes perdues en rayon",
-		"pain1Text": "Les clients choisissent le vin le moins cher qu'ils connaissent — ou repartent sans acheter. Personne ne les guide dans les rayons.",
-		"pain2Title": "Upsell manqué à table",
-		"pain2Text": "Les convives veulent une recommandation de vin avec leur repas mais le personnel est occupé. Le moment d'upsell passe. Le chiffre d'affaires reste sur la table.",
-		"pain3Title": "Abandons sur votre boutique en ligne",
-		"pain3Text": "Trop de bouteilles, aucun conseil. La paralysie du choix fait fuir les visiteurs avant qu'ils finalisent leur achat."
-	},
-	"HowToStart": {
-		"tag": "Pour commencer",
-		"title": "Opérationnel",
-		"titleAccent": "en heures, pas en mois.",
-		"subtitle": "Pas de longues intégrations. Pas de configuration complexe. Partagez votre catalogue de vins, nous configurons Wineater pour votre activité, vous voyez les résultats.",
-		"step1Title": "Partagez votre catalogue de vins",
-		"step1Text": "Exportez votre liste de vins en CSV ou connectez via API. Moins d'une journée.",
-		"step2Title": "Nous configurons Wineater",
-		"step2Text": "Notre équipe paramètre l'IA avec votre inventaire en 24 heures.",
-		"step3Title": "Ajoutez à votre activité",
-		"step3Text": "QR code, widget intégré ou lien API — votre choix, prend 1 heure.",
-		"step4Title": "Vos clients découvrent des vins qu'ils n'auraient jamais cherchés",
-		"step4Text": "Ils posent leur question avec leurs propres mots et reçoivent des suggestions de votre catalogue, chacune avec une courte explication.",
-		"qrLabel": "Pour restaurants & magasins",
-		"qrDuration": "En ligne en 1 heure",
-		"qrTitle": "QR Code",
-		"qrDesc": "Imprimez un QR code, placez-le aux tables ou près des rayons vins. C'est tout. Vos clients scannent et reçoivent des recommandations personnalisées instantanées.",
-		"qrF1": "Aucune application à télécharger",
-		"qrF2": "Fonctionne sur tout smartphone",
-		"qrF3": "Installation instantanée, sans technique",
-		"widgetLabel": "Pour les boutiques en ligne",
-		"widgetDuration": "En ligne en 1 jour",
-		"widgetTitle": "Widget intégrable",
-		"widgetDesc": "Ajoutez un seul extrait JavaScript à votre site. Le widget Wineater apparaît sur vos pages vin et commence à convertir les visiteurs immédiatement.",
-		"widgetF1": "Une seule balise script à installer",
-		"widgetF2": "S'adapte à l'identité de votre boutique",
-		"widgetF3": "Recommande uniquement depuis votre catalogue",
-		"apiLabel": "Pour les équipes avancées",
-		"apiDuration": "En ligne en 1 semaine",
-		"apiTitle": "Intégration API",
-		"apiDesc": "Connectez Wineater directement à votre moteur de recherche. Contrôle total, marque blanche complète, aucune empreinte Wineater en front-end.",
-		"apiF1": "API RESTful, facile à intégrer",
-		"apiF2": "Marque blanche complète",
-		"apiF3": "Synchronisation inventaire en temps réel",
-		"trialBadge": "Pilote de 30 jours, sans carte bancaire",
-		"trialTitle": "Essayez avec votre vrai catalogue",
-		"trialDesc": "Sans engagement. Partagez votre liste de vins, nous configurons tout, vous l'utilisez un mois et voyez exactement ce que ça apporte à votre activité.",
-		"trialCta": "Commencer l'essai gratuit"
+		"title": "Les clients veulent du vin. Ils ne savent pas lequel choisir.",
+		"subtitle": "Sans conseil, ils prennent l'étiquette qu'ils connaissent, ou repartent. Wineater répond à votre place, depuis votre catalogue."
 	},
 	"Header": {
 		"About": "Sur",
@@ -150,7 +102,10 @@
 		"mainNav": "Navigation principale",
 		"home": "Accueil Wineater",
 		"opensNewTab": "s'ouvre dans un nouvel onglet",
-		"Faq": "FAQ"
+		"Faq": "FAQ",
+		"menu": "Menu",
+		"closeMenu": "Fermer le menu",
+		"menuTitle": "Menu du site"
 	},
 	"faq": {
 		"tocLabel": "Accès rapide aux thèmes",
@@ -205,10 +160,11 @@
 			"point3": "En ligne en 1 heure, avec un outil sur tablette pour votre personnel"
 		},
 		"proof": {
-			"buy": "des sessions ayant affiché des recommandations ont fini par un clic BUY ({n} sur {of})",
-			"requests": "requêtes par visiteur en moyenne",
-			"search": "des sessions du widget lancent une recherche ({n} sur {of})"
-		}
+			"buy": "des sessions finissent par un clic BUY ({n} sur {of})",
+			"requests": "requêtes par visiteur",
+			"search": "des sessions lancent une recherche ({n} sur {of})"
+		},
+		"imageAlt": "Une bouteille de vin rouge et une assiette de pâtes sur un motif violet Wineater"
 	},
 	"StatisticBanner": {
 		"label1": "1 sur",

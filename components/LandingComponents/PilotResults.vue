@@ -1,68 +1,50 @@
 <template>
   <section id="pilot-results" class="pilot" aria-labelledby="pilot-title">
-    <div class="pilot__intro">
-      <h2 id="pilot-title" class="pilot__title">{{ $t('proof.title') }}</h2>
-      <p class="pilot__context">{{ $t('proof.context') }}</p>
-    </div>
+    <h2 id="pilot-title" class="pilot__title">{{ $t('proof.title') }}</h2>
 
-    <div class="pilot__lead">
-      <p class="pilot__lead-figure">
-        <span class="pilot__lead-num">{{ p.resultsToBuy.n }}</span>
-        <span class="pilot__lead-of">{{ $t('proof.leadOf', { total: p.resultsToBuy.of }) }}</span>
-      </p>
-      <div class="pilot__lead-copy">
-        <h3 class="pilot__h3">{{ $t('proof.leadTitle', { pct: pct(p.resultsToBuy.value) }) }}</h3>
-        <p class="pilot__p pilot__p--muted">{{ $t('proof.leadMeaning') }}</p>
+    <div class="pilot__top">
+      <div class="pilot__lead">
+        <p class="pilot__lead-num">{{ pct(p.resultsToBuy.value) }}</p>
+        <p class="pilot__lead-label">{{ $t('proof.leadLabel', { n: p.resultsToBuy.n, of: p.resultsToBuy.of }) }}</p>
+        <p class="pilot__lead-meaning">{{ $t('proof.leadMeaning') }}</p>
+      </div>
+
+      <div class="pilot__side">
+        <figure class="pilot__quote">
+          <blockquote lang="en"><q>{{ p.examplePrompts[0] }}</q></blockquote>
+          <figcaption>{{ $t('proof.typedTitle') }}. {{ $t('proof.typedNote') }}</figcaption>
+        </figure>
+
+        <h3 class="pilot__h3">{{ $t('proof.themesTitle', { total: p.freeTextRequests.total }) }}</h3>
+        <ul class="pilot__themes">
+          <li v-for="theme in p.freeTextRequests.themes" :key="theme.key" class="pilot__theme">
+            <span class="pilot__theme-label">{{ $t(`proof.theme_${theme.key}`) }}</span>
+            <span class="pilot__theme-bar" aria-hidden="true">
+              <span class="pilot__theme-fill" :style="{ width: (theme.value / maxTheme * 100) + '%' }"></span>
+            </span>
+            <span class="pilot__theme-value">{{ theme.value }}</span>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <h3 class="pilot__h3 pilot__h3--section">{{ $t('proof.moreTitle') }}</h3>
     <dl class="pilot__facts">
       <div class="pilot__fact">
         <dt>{{ $t('proof.f1Label') }}</dt>
-        <dd><strong>{{ pct(p.activation.value) }}</strong> {{ $t('proof.f1Detail', { n: p.activation.n, of: p.activation.of }) }}</dd>
+        <dd><strong>{{ pct(p.activation.value) }}</strong> <span>{{ $t('proof.f1Detail', { n: p.activation.n, of: p.activation.of }) }}</span></dd>
       </div>
       <div class="pilot__fact">
         <dt>{{ $t('proof.f2Label') }}</dt>
-        <dd><strong>{{ pct(p.searchToResults.value) }}</strong> {{ $t('proof.f2Detail', { n: p.searchToResults.n, of: p.searchToResults.of }) }}</dd>
+        <dd><strong>{{ pct(p.searchToResults.value) }}</strong> <span>{{ $t('proof.f2Detail', { n: p.searchToResults.n, of: p.searchToResults.of }) }}</span></dd>
       </div>
       <div class="pilot__fact">
         <dt>{{ $t('proof.f3Label') }}</dt>
-        <dd><strong>{{ fmt(p.requestsPerUser.value) }}</strong> {{ $t('proof.f3Detail', { requests: p.requestsPerUser.requests, users: p.requestsPerUser.users }) }}</dd>
-      </div>
-      <div class="pilot__fact">
-        <dt>{{ $t('proof.f4Label') }}</dt>
-        <dd><strong>{{ pct(p.fullSetOfFour.value) }}</strong> {{ $t('proof.f4Detail', { of: p.fullSetOfFour.of }) }}</dd>
-      </div>
-      <div class="pilot__fact">
-        <dt>{{ $t('proof.f5Label') }}</dt>
-        <dd><strong>{{ p.uniqueWinesShown }}</strong> {{ $t('proof.f5Detail') }}</dd>
+        <dd><strong>{{ fmt(p.requestsPerUser.value) }}</strong> <span>{{ $t('proof.f3Detail', { requests: p.requestsPerUser.requests, users: p.requestsPerUser.users }) }}</span></dd>
       </div>
     </dl>
 
-    <h3 class="pilot__h3 pilot__h3--section">{{ $t('proof.typedTitle') }}</h3>
-    <figure class="pilot__quote">
-      <blockquote lang="en"><q>{{ p.examplePrompts[0] }}</q></blockquote>
-      <figcaption>{{ $t('proof.typedNote') }}</figcaption>
-    </figure>
-
-    <h4 class="pilot__h4">{{ $t('proof.themesTitle', { total: p.freeTextRequests.total }) }}</h4>
-    <ul class="pilot__themes">
-      <li v-for="theme in p.freeTextRequests.themes" :key="theme.key" class="pilot__theme">
-        <span class="pilot__theme-label">{{ $t(`proof.theme_${theme.key}`) }}</span>
-        <span class="pilot__theme-bar" aria-hidden="true">
-          <span class="pilot__theme-fill" :style="{ width: (theme.value / maxTheme * 100) + '%' }"></span>
-        </span>
-        <span class="pilot__theme-value">{{ theme.value }}</span>
-      </li>
-    </ul>
-
-    <p class="pilot__foot">
-      {{ caveat }} {{ $t('proof.method') }}<br />
-      {{ source }}
-    </p>
-
-    <div class="pilot__cta">
+    <div class="pilot__bottom">
+      <p class="pilot__foot">{{ caveat }} {{ $t('proof.method') }} {{ source }}.</p>
       <Button bgColor="black" @btnClick="onPrimary">{{ $t('cta.primary') }}</Button>
     </div>
   </section>
@@ -90,186 +72,182 @@ const onPrimary = () => {
 
 <style scoped lang="scss">
 .pilot {
-  padding: 96px 0;
-  max-width: 1040px;
+  max-width: var(--container);
   margin: 0 auto;
-  color: #333333;
-  font-family: 'PoppinsRegular', sans-serif;
+  padding: var(--section-y) 0;
+  color: var(--ink-2);
 }
-
-.pilot__intro { max-width: 720px; }
 
 .pilot__title {
-  margin: 0 0 16px;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-weight: 500;
-  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  margin: 0 0 32px;
+  font-size: clamp(2.8rem, 3.6vw, 4rem);
   line-height: 1.15;
-  text-wrap: balance;
+  color: var(--ink);
+  max-width: 22ch;
 }
 
-.pilot__context {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #696969;
-  max-width: 65ch;
+.pilot__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
 }
 
 .pilot__lead {
-  display: grid;
-  grid-template-columns: minmax(200px, 0.8fr) 1.4fr;
-  gap: 40px 64px;
-  align-items: start;
-  margin: 64px 0 72px;
-  padding: 40px 0;
-  border-top: 1px solid #EDEDED;
-  border-bottom: 1px solid #EDEDED;
-}
-
-.pilot__lead-figure {
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--brand-7);
 }
 
 .pilot__lead-num {
+  margin: 0;
   font-family: 'PoppinsMedium', sans-serif;
-  font-size: clamp(4.5rem, 10vw, 6rem);
+  font-size: clamp(4.8rem, 6vw, 5.6rem);
   line-height: 1;
-  color: #7E27ED;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  color: var(--brand-1);
   font-variant-numeric: tabular-nums;
 }
 
-.pilot__lead-of {
-  font-size: 20px;
+.pilot__lead-label {
+  margin: 12px 0 0;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 2.2rem;
   line-height: 1.3;
-}
-
-.pilot__h3 {
-  margin: 0 0 12px;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.25;
+  color: var(--ink);
   text-wrap: balance;
-
-  &--section { margin: 0 0 24px; }
 }
 
-.pilot__h4 {
-  margin: 48px 0 16px;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
+.pilot__lead-meaning {
+  margin: 16px 0 0;
+  font-size: 1.7rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 52ch;
 }
 
-.pilot__p {
-  margin: 0 0 12px;
-  font-size: 17px;
-  line-height: 1.65;
-  max-width: 65ch;
-
-  &--muted { color: #696969; }
-}
-
-.pilot__facts {
-  margin: 0 0 72px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px 64px;
-}
-
-.pilot__fact {
-  padding-top: 16px;
-  border-top: 1px solid #EDEDED;
-
-  dt { font-size: 15px; color: #696969; margin: 0 0 6px; }
-
-  dd {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.5;
-
-    strong {
-      display: block;
-      font-family: 'PoppinsMedium', sans-serif;
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 1.2;
-      color: #333333;
-      font-variant-numeric: tabular-nums;
-    }
-  }
+.pilot__side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--brand-5);
 }
 
 .pilot__quote {
-  margin: 0;
-  padding: 28px;
-  max-width: 640px;
-  background: #F5F2FF;
-  border-radius: 16px;
+  margin: 0 0 8px;
 
-  blockquote { margin: 0; font-size: 20px; line-height: 1.5; }
+  blockquote { margin: 0; font-size: 1.9rem; line-height: 1.45; color: var(--ink); }
   q { quotes: "\201C" "\201D"; }
-  figcaption { margin-top: 12px; font-size: 14px; color: #696969; }
+  figcaption { margin-top: 8px; font-size: 1.4rem; color: var(--ink-3); }
+}
+
+.pilot__h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--ink-3);
+  font-family: 'PoppinsRegular', sans-serif;
+  font-weight: 400;
 }
 
 .pilot__themes {
   list-style: none;
   margin: 0;
   padding: 0;
-  max-width: 640px;
   display: grid;
-  gap: 4px;
+  gap: 2px;
 }
 
 .pilot__theme {
   display: grid;
-  grid-template-columns: 210px 1fr 40px;
+  grid-template-columns: 190px 1fr 32px;
   align-items: center;
-  gap: 16px;
-  min-height: 44px;
-  font-size: 16px;
+  gap: 12px;
+  min-height: 28px;
+  font-size: 1.4rem;
+  color: var(--ink-2);
 }
 
-.pilot__theme-bar { display: block; height: 10px; }
+.pilot__theme-bar { display: block; height: 8px; border-radius: 4px; background: var(--brand-7); }
 
 .pilot__theme-fill {
   display: block;
   height: 100%;
   min-width: 4px;
-  border-radius: 5px;
-  background: #7E27ED;
+  border-radius: 4px;
+  background: var(--brand-1);
 }
 
 .pilot__theme-value {
   text-align: right;
   font-family: 'PoppinsMedium', sans-serif;
   font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+.pilot__facts {
+  margin: 24px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pilot__fact {
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--brand-5);
+
+  dt { font-size: 1.4rem; color: var(--ink-3); margin: 0 0 4px; }
+
+  dd {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--ink-2);
+
+    strong {
+      display: block;
+      font-family: 'PoppinsMedium', sans-serif;
+      font-weight: 500;
+      font-size: 3.2rem;
+      line-height: 1.2;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+  }
+}
+
+.pilot__bottom {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .pilot__foot {
-  margin: 48px 0 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #696969;
-  max-width: 70ch;
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--ink-3);
+  max-width: 72ch;
 }
 
-.pilot__cta { margin-top: 40px; }
+@media only screen and (max-width: 1023px) {
+  .pilot__top { grid-template-columns: 1fr; }
+}
 
 @media only screen and (max-width: 767px) {
-  .pilot { padding: 56px 0; }
-  .pilot__lead { grid-template-columns: 1fr; gap: 20px; margin: 40px 0 48px; padding: 28px 0; }
-  .pilot__facts { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
-  .pilot__theme { grid-template-columns: 1fr 40px; gap: 0 12px; row-gap: 2px; padding: 6px 0; }
-  .pilot__theme-label { grid-column: 1 / 2; }
+  .pilot__title { margin-bottom: 24px; }
+  .pilot__lead, .pilot__side { padding: 24px 20px; }
+  .pilot__facts { grid-template-columns: 1fr; gap: 12px; }
+  .pilot__theme { grid-template-columns: 1fr 32px; gap: 0 12px; row-gap: 2px; padding: 4px 0; }
+  .pilot__theme-label { grid-column: 1; }
   .pilot__theme-value { grid-column: 2; grid-row: 1; }
   .pilot__theme-bar { grid-column: 1 / -1; }
-  .pilot__cta :deep(.button) { width: 100%; padding: 18px 24px; }
+  .pilot__bottom { flex-direction: column; align-items: stretch; }
+  .pilot__bottom :deep(.button) { width: 100%; }
 }
 </style>

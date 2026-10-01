@@ -21,36 +21,21 @@
     <ClientLogos />
     <PilotResults @get-started="showSignup = true"/>
 
-    <!-- 3. Problem — make them feel understood -->
-    <section id="problem">
-      <ProblemBanner @scroll-to-demo="scrollToDemo"/>
-    </section>
-
-    <!-- 4. For whom — 3 segments with sales copy and ROI -->
-    <section aria-labelledby="forwho-title" id="for-whom">
+    <!-- 3. Problem + for whom (merged; #problem anchor lives inside ForWhom) -->
+    <div id="for-whom">
       <ForWhom :visible="forWhomVisible" @get-started="showSignup = true"/>
-    </section>
+    </div>
 
-    <!-- 7. How it works — the algorithm explained -->
+    <!-- 7. How it works + how to start (id get-started lives inside) -->
     <section aria-labelledby="how-it-works-title" id="how-it-works">
-      <HowItWorks :visible="howItWorksVisible"/>
-    </section>
-
-    <!-- 8. How to start — remove the "sounds complicated" objection -->
-    <section id="get-started">
-      <HowToStart @get-started="showSignup = true"/>
+      <HowItWorks :visible="howItWorksVisible" @get-started="showSignup = true"/>
     </section>
 
     <FaqTeaser />
 
-    <!-- 9. Press — Featured in -->
-    <section aria-labelledby="press-title" id="press">
-      <Press :visible="pressVisible"/>
-    </section>
-
-    <!-- 10. Partners -->
-    <section aria-labelledby="partners-title" id="partners">
-      <Partners :visible="partnersVisible"/>
+    <!-- 9. Press and partners: one logo strip -->
+    <section id="press" aria-label="Press and partners">
+      <Press />
     </section>
 
   </main>
@@ -62,13 +47,10 @@
 import Header from "~/components/LandingComponents/Header.vue";
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
 import SignupForm from "~/components/LandingComponents/SignupForm.vue";
-import ProblemBanner from "~/components/LandingComponents/ProblemBanner.vue";
 import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
 import HowItWorks from "~/components/LandingComponents/HowItWorks.vue";
-import HowToStart from "~/components/LandingComponents/HowToStart.vue";
 import Footer from "~/components/LandingComponents/Footer.vue";
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
-import Partners from "~/components/LandingComponents/Partners.vue";
 import Press from "~/components/LandingComponents/Press.vue";
 import ClientLogos from "~/components/LandingComponents/ClientLogos.vue";
 import PilotResults from "~/components/LandingComponents/PilotResults.vue";
@@ -121,8 +103,6 @@ const showSignup = ref(false);
 const widgetHomeVisible = ref(false);
 const forWhomVisible = ref(false);
 const howItWorksVisible = ref(false);
-const pressVisible = ref(false);
-const partnersVisible = ref(false);
 
 const scrollToDemo = () => {
   const el = document.querySelector('#ai-sommelier');
@@ -139,13 +119,11 @@ onMounted(() => {
       if (el.classList.contains('widget-home')) widgetHomeVisible.value = true;
       else if (el.classList.contains('for-whom')) forWhomVisible.value = true;
       else if (el.classList.contains('how-it-works')) howItWorksVisible.value = true;
-      else if (el.classList.contains('press')) pressVisible.value = true;
-      else if (el.classList.contains('partners')) partnersVisible.value = true;
       observer.unobserve(el);
     });
   }, { threshold: 0.05 });
 
-  ['.widget-home', '.for-whom', '.how-it-works', '.press', '.partners'].forEach((sel) => {
+  ['.widget-home', '.for-whom', '.how-it-works'].forEach((sel) => {
     const el = document.querySelector(sel);
     if (el) observer.observe(el);
   });
@@ -157,22 +135,15 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss">
+// ONE container for every section: --container wide, --gutter at the sides.
+// Section components pad themselves with var(--section-y) so the rhythm is uniform.
 .main-page {
-  max-width: 1280px;
-  margin: 0 auto;
   width: 100%;
-}
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 
-@media only screen and (max-width: 1440px) {
-  .main-page {
-    padding: 0 40px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .main-page {
-    padding: 0 16px;
-  }
+  [id] { scroll-margin-top: 100px; }
 }
 
 .fade-enter-active,

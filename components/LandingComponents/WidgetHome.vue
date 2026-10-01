@@ -1,10 +1,10 @@
 <template>
   <div class="widget-home" :class="{ 'visible': visible }">
-    <h2 id="demo-title" class="h2 color-brand-6">
+    <h2 id="demo-title" class="widget-title">
       {{ $t('WidgetHome.title') }}
     </h2>
 
-    <p class="widget-description p1">
+    <p class="widget-description">
       {{ $t('WidgetHome.description') }}
     </p>
 
@@ -151,7 +151,7 @@ onBeforeUnmount(() => {
 }
 
 .widget-home {
-  padding: 60px 0;
+  padding: var(--section-y) 0;
   animation: fadeUp 0.6s ease both;
 
   #wineater-widget-conteiner {
@@ -159,14 +159,24 @@ onBeforeUnmount(() => {
     min-height: 400px;
   }
 
-  .widget-description {
-    margin: 20px 0;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #666;
-    max-width: 800px;
+  .widget-title {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(2.8rem, 3.2vw, 4rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
+  .widget-description {
+    max-width: 68ch;
+    margin: 16px 0 var(--section-gap);
+    color: var(--ink-2);
+    font-size: 1.7rem;
+    line-height: 1.6;
+  }
+
+  // Example chips: wrap on desktop, one horizontal scroller on mobile.
   .widget-examples {
     display: flex;
     flex-wrap: wrap;
@@ -178,24 +188,49 @@ onBeforeUnmount(() => {
   }
 
   .widget-examples-label {
-    font-size: 14px;
-    color: #666;
+    color: var(--ink-2);
+    font-size: 1.4rem;
   }
 
   .widget-example {
-    padding: 10px 14px;
+    padding: 10px 16px;
     min-height: 44px;
-    border: 1px solid #d5d9ee;
+    border: 1px solid var(--ink-3);
     border-radius: 999px;
     background: #fff;
-    color: inherit;
+    color: var(--ink);
     font: inherit;
-    font-size: 14px;
+    font-size: 1.5rem;
     cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
 
     &:hover,
     &:focus-visible {
-      border-color: var(--wineater-corp-color, #8004FF);
+      border-color: var(--brand-1);
+      color: var(--brand-1);
+    }
+
+    &:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  }
+
+  @media screen and (max-width: 767px) {
+    .widget-examples {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      min-height: 0;
+      margin: 0 calc(var(--gutter) * -1) 8px;
+      padding: 4px var(--gutter);
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar { display: none; }
+    }
+
+    .widget-examples-label,
+    .widget-example {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      scroll-snap-align: start;
     }
   }
 
