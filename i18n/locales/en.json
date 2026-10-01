@@ -54,14 +54,10 @@
 		"title": "Shoppers want wine. They don't know which bottle.",
 		"subtitle": "With no one to guide them, they grab the label they know, or leave. Wineater answers for you, from your own catalog."
 	},
-	"Partners": {
-		"title": "Part of"
-	},
-	"Press": {
-		"title": "Featured in"
-	},
 	"Clients": {
-		"title": "Live with"
+		"title": "Used by, written about and backed by",
+		"pause": "Pause logo animation",
+		"play": "Play logo animation"
 	},
 	"proof": {
 		"title": "What shoppers asked for",

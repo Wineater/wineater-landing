@@ -34,14 +34,10 @@
 		"trialTitle": "Essayez avec votre vrai catalogue",
 		"trialDesc": "1 mois d'essai gratuit, sans carte bancaire et sans engagement. Partagez votre liste de vins, nous configurons tout, vous voyez ce que ça apporte à votre activité."
 	},
-	"Partners": {
-		"title": "Membres de"
-	},
-	"Press": {
-		"title": "À la une"
-	},
 	"Clients": {
-		"title": "Déjà en ligne chez"
+		"title": "Ils l'utilisent, en parlent et nous soutiennent",
+		"pause": "Mettre en pause l'animation des logos",
+		"play": "Relancer l'animation des logos"
 	},
 	"proof": {
 		"title": "Ce que les clients ont demandé",

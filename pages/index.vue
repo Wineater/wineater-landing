@@ -17,7 +17,7 @@
       <WidgetHome :visible="widgetHomeVisible" @get-started="showSignup = true"/>
     </section>
 
-    <!-- 2b. Live clients -->
+    <!-- 2b. Trust marquee: clients, press, supporters -->
     <ClientLogos />
     <PilotResults @get-started="showSignup = true"/>
 
@@ -33,11 +33,6 @@
 
     <FaqTeaser />
 
-    <!-- 9. Press and partners: one logo strip -->
-    <section id="press" aria-label="Press and partners">
-      <Press />
-    </section>
-
   </main>
 
   <Footer @get-started="showSignup = true"/>
@@ -51,7 +46,6 @@ import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
 import HowItWorks from "~/components/LandingComponents/HowItWorks.vue";
 import Footer from "~/components/LandingComponents/Footer.vue";
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
-import Press from "~/components/LandingComponents/Press.vue";
 import ClientLogos from "~/components/LandingComponents/ClientLogos.vue";
 import PilotResults from "~/components/LandingComponents/PilotResults.vue";
 import FaqTeaser from "~/components/FaqTeaser.vue";
