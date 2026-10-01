@@ -130,7 +130,7 @@ export const faqEn: FaqContent = {
         {
           id: 'show-more-and-similar-wines',
           q: 'Can shoppers see more wines or similar wines?',
-          a: `Yes. After the first four, a "show more" action brings the next four best matches for the same request, leaving out wines already shown. On a wine card, shoppers can also ask for similar wines, based on that wine's taste and food-pairing profile and a comparable price range. These extra results use a standard short note rather than an individually written reason.`
+          a: `Yes. After the first four, a "show more" action brings the next four best matches for the same request, leaving out wines already shown. On a wine card, shoppers can also ask for similar wines, based on that wine's taste and food-pairing profile. Prices are not matched exactly. These extra results use a standard short note rather than an individually written reason.`
         },
         {
           id: 'vague-or-unusual-requests',
@@ -141,6 +141,21 @@ export const faqEn: FaqContent = {
           id: 'which-languages-are-supported',
           q: 'Which languages does Wineater support?',
           a: `Recommendations and their explanations are written in the language set for each store, and the widget interface has translations in several languages, including English, French, Spanish, German and Portuguese. The language comes from the store's configuration, not from the shopper's request. Wine names stay as they appear in your catalog. Tell us which language you need when you contact us.`
+        },
+        {
+          id: 'can-shoppers-type-in-their-own-language',
+          q: 'Can shoppers type in their own language?',
+          a: `Yes. Shoppers can write their request in any language, and Wineater reads it the same way. We have tried Spanish and German requests on a French-language and an English-language shop, and the wines returned fitted the request. The wines and their explanations come back in the language set for the shop, not in the language the shopper typed. Results in a given language can vary, so ask us to test the languages your shoppers use.`
+        },
+        {
+          id: 'does-wineater-explain-why-it-recommends-a-wine',
+          q: 'Does Wineater explain why it recommends a wine?',
+          a: `Yes. Each of the four wines has a one- or two-sentence explanation written for that specific request, in the shop's language, such as why it suits a dish or a budget. On desktop the explanation appears when the shopper hovers over the card. Wines shown through the similar-wines action carry a standard short note instead of an individual reason.`
+        },
+        {
+          id: 'can-shoppers-ask-for-similar-wines',
+          q: 'Can shoppers ask for similar wines?',
+          a: `Yes. Every wine card has a similar-wines button. One click returns four more wines from the same catalog that are close to that wine in taste and food pairing, and the search box shows which wine they are similar to. The shopper does not need to type anything. Similar wines are not guaranteed to be in the same price range, and they use a standard note rather than an individual explanation.`
         },
         {
           id: 'can-i-promote-specific-wines',
@@ -172,6 +187,11 @@ export const faqEn: FaqContent = {
           id: 'catalog-formats',
           q: 'Which catalog formats does Wineater accept?',
           a: `You can share your catalog as a CSV export, as a product feed (Wineater reads XML feeds in the Google Shopping style) or through an API connection. A basic feed with title, brand, price and link is enough to identify wines: Wineater fills in details such as region, grape and type, and your own data always takes priority over what it adds. Your prices, stock and images remain yours.`
+        },
+        {
+          id: 'small-and-very-large-catalogs',
+          q: 'Does Wineater work with small and very large catalogs?',
+          a: `Yes. It works with a wine list of a few dozen wines and with a catalog of thousands. In our October 2026 tests on live stores, the median answer took 4.8 seconds with 29 wines, 5.1 with 393, 6.7 with 762 and 5.3 with 3,344 wines in stock. Below 50 wines the whole list is considered; above that, a search first narrows the choice. We have not tested catalogs above 3,344 wines, and we judge relevance by reading results, not with an accuracy score.`
         },
         {
           id: 'how-fast-go-live',
@@ -395,7 +415,7 @@ export const faqFr: FaqContent = {
         {
           id: 'show-more-and-similar-wines',
           q: 'Peut-on voir d’autres vins ou des vins similaires ?',
-          a: `Oui. Après les quatre premiers, l’action « voir plus » propose les quatre meilleures correspondances suivantes pour la même demande, sans répéter les vins déjà montrés. Sur une fiche, le client peut aussi demander des vins similaires, selon le profil de goût et d’accords du vin et une gamme de prix comparable. Ces résultats supplémentaires s’accompagnent d’une courte mention standard plutôt que d’une raison rédigée pour chaque vin.`
+          a: `Oui. Après les quatre premiers, l’action « voir plus » propose les quatre meilleures correspondances suivantes pour la même demande, sans répéter les vins déjà montrés. Sur une fiche, le client peut aussi demander des vins similaires, selon le profil de goût et d’accords du vin. Les prix ne sont pas strictement appariés. Ces résultats supplémentaires s’accompagnent d’une courte mention standard plutôt que d’une raison rédigée pour chaque vin.`
         },
         {
           id: 'vague-or-unusual-requests',
@@ -406,6 +426,21 @@ export const faqFr: FaqContent = {
           id: 'which-languages-are-supported',
           q: 'Quelles langues Wineater prend-il en charge ?',
           a: `Les recommandations et leurs explications sont rédigées dans la langue définie pour chaque boutique, et l’interface du widget est traduite en plusieurs langues, dont l’anglais, le français, l’espagnol, l’allemand et le portugais. La langue vient de la configuration de la boutique, pas de la demande du client. Les noms des vins restent ceux de votre catalogue. Indiquez-nous la langue souhaitée en nous contactant.`
+        },
+        {
+          id: 'can-shoppers-type-in-their-own-language',
+          q: 'Les clients peuvent-ils écrire dans leur propre langue ?',
+          a: `Oui. Les clients peuvent écrire leur demande dans n’importe quelle langue, et Wineater la lit de la même façon. Nous avons essayé des demandes en espagnol et en allemand sur une boutique francophone et sur une boutique anglophone, et les vins proposés correspondaient à la demande. Les vins et leurs explications reviennent dans la langue définie pour la boutique, pas dans celle saisie par le client. Les résultats peuvent varier selon la langue : demandez-nous de tester celles de vos clients.`
+        },
+        {
+          id: 'does-wineater-explain-why-it-recommends-a-wine',
+          q: 'Wineater explique-t-il pourquoi il recommande un vin ?',
+          a: `Oui. Chacun des quatre vins est accompagné d’une explication d’une ou deux phrases, écrite pour cette demande précise et dans la langue de la boutique, par exemple pourquoi il convient à un plat ou à un budget. Sur ordinateur, l’explication s’affiche au survol de la carte. Les vins proposés via l’action « vins similaires » portent une courte note standard plutôt qu’une raison individuelle.`
+        },
+        {
+          id: 'can-shoppers-ask-for-similar-wines',
+          q: 'Les clients peuvent-ils demander des vins similaires ?',
+          a: `Oui. Chaque carte de vin comporte un bouton de vins similaires. Un clic renvoie quatre autres vins du même catalogue, proches de ce vin par le goût et les accords mets-vins, et le champ de recherche indique de quel vin ils sont proches. Le client n’a rien à saisir. Les vins similaires ne sont pas garantis dans la même gamme de prix, et ils utilisent une note standard plutôt qu’une explication individuelle.`
         },
         {
           id: 'can-i-promote-specific-wines',
@@ -437,6 +472,11 @@ export const faqFr: FaqContent = {
           id: 'catalog-formats',
           q: 'Quels formats de catalogue Wineater accepte-t-il ?',
           a: `Vous pouvez fournir votre catalogue sous forme d’export CSV, de flux produits (Wineater lit les flux XML de type Google Shopping) ou via une connexion API. Un flux simple avec titre, marque, prix et lien suffit pour identifier les vins : Wineater complète les informations comme la région, le cépage et le type, et vos propres données priment toujours sur ce qu’il ajoute. Vos prix, votre stock et vos images restent les vôtres.`
+        },
+        {
+          id: 'small-and-very-large-catalogs',
+          q: 'Wineater fonctionne-t-il avec de petits et de très grands catalogues ?',
+          a: `Oui. Il fonctionne avec une carte de quelques dizaines de vins comme avec un catalogue de milliers de références. Dans nos tests d’octobre 2026, la réponse médiane a pris 4,8 secondes avec 29 vins, 5,1 avec 393, 6,7 avec 762 et 5,3 avec 3 344 vins en stock. Sous 50 vins, toute la liste est examinée ; au-delà, une recherche réduit d’abord le choix. Nous n’avons pas testé au-delà de 3 344 vins, et la pertinence est jugée en lisant les résultats, sans score de précision.`
         },
         {
           id: 'how-fast-go-live',

@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer__cta">
-      <div class="footer__cta-inner">
+      <div class="footer__cta-inner" v-reveal:stagger>
         <h2 class="footer__cta-title">{{ $t('Footer.closing') }}</h2>
         <p class="footer__cta-trial">{{ $t('Footer.trial') }}</p>
         <div class="footer__btns">
@@ -17,7 +17,7 @@
     </div>
 
     <div class="footer__main">
-      <div class="footer__grid">
+      <div class="footer__grid" v-reveal:stagger>
         <div class="footer__brand">
           <div class="footer__logo" role="img" aria-label="Wineater"></div>
           <p class="footer__tagline">{{ $t('Footer.text') }}</p>
@@ -105,7 +105,7 @@ const openCookieSettings = () => {
 .footer__cta-inner {
   max-width: calc(var(--container) + 2 * var(--gutter));
   margin: 0 auto;
-  padding: var(--section-y) var(--gutter);
+  padding: 72px var(--gutter);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -221,10 +221,13 @@ const openCookieSettings = () => {
   font-size: 1.6rem;
   line-height: 1.3;
   color: var(--ink-2);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease, text-underline-offset 0.15s ease;
   border-radius: 8px;
 
-  &:hover { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+  &:hover { color: var(--link); text-decoration-color: currentColor; text-underline-offset: 4px; }
   &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
 }
 
@@ -252,6 +255,7 @@ const openCookieSettings = () => {
 }
 
 @media only screen and (max-width: 767px) {
+  .footer__cta-inner { padding-top: 48px; padding-bottom: 48px; }
   .footer__cta-title { font-size: 3.2rem; }
   .footer__cta-trial { font-size: 1.6rem; }
   .footer__btns { width: 100%; flex-direction: column; }

@@ -79,7 +79,7 @@ const onClick = () => {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.15s, box-shadow 0.15s;
 
   &__label { display: inline-flex; align-items: center; gap: 8px; color: inherit; font: inherit; }
 
@@ -88,14 +88,14 @@ const onClick = () => {
   &--primary {
     background: var(--brand-1);
     color: var(--brand-4);
-    &:hover { background: #6A1FD0; }
+    &:hover { background: #6A1FD0; transform: translateY(-1px); box-shadow: 0 6px 14px rgba(126, 39, 237, 0.28); }
   }
 
   &--secondary {
     background: transparent;
     color: var(--ink);
     border-color: var(--ink-3);
-    &:hover { border-color: var(--brand-1); color: var(--brand-1); }
+    &:hover { border-color: var(--brand-1); color: var(--brand-1); transform: translateY(-1px); box-shadow: 0 6px 14px rgba(26, 20, 38, 0.1); }
   }
 
   &--inverse {

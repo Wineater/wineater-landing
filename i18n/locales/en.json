@@ -9,6 +9,26 @@
 		"primary": "Try it free for 1 month",
 		"demo": "Book a 20-min demo"
 	},
+	"features": {
+		"title": "How the recommendation works",
+		"lead": "Four things every shopper gets, whether your shop lists thirty wines or thousands.",
+		"liveOn": "Live on {client}",
+		"languageTitle": "Shoppers type in any language",
+		"languageText": "This shopper wrote in Spanish on a French shop. Wineater understood the request and answered with the shop's own wines, described in the shop's language.",
+		"languageAlt": "Intermarché wine widget. A shopper typed a Spanish request for a red wine to go with roast lamb. Four red wines from the shop are shown with prices and French labels.",
+		"reasonTitle": "Every wine comes with its reason",
+		"reasonText": "Each of the four picks has a one- or two-sentence explanation written for that request. On desktop it appears when the shopper hovers over the card.",
+		"reasonAlt": "Brice & Burnett wine widget. After a German request for a strong red wine for a braai, hovering over a wine card shows why it was picked: exceptional value, dark berry fruit and spice that suit grilled food.",
+		"similarTitle": "Similar wines in one click",
+		"similarText": "Every wine card has a Similar wines button. It returns four more wines close in taste and food pairing, taken from the same catalog.",
+		"similarAlt": "Brice & Burnett wine widget after clicking Similar wines on a Bordeaux red. The search box shows the reference wine and four similar red wines are listed with prices.",
+		"catalogTitle": "A short list or thousands of wines",
+		"catalogText": "From a 29-wine list to a 3,344-wine catalog, a typical answer took 4 to 7 seconds. In our own reading, the picks were relevant at both ends.",
+		"figuresLabel": "Median time to an answer, by catalog size",
+		"wines": "{n} wines",
+		"seconds": "{n} s",
+		"figuresNote": "Measured in October 2026 on live stores, 3 to 4 searches each, wines in stock. The time includes writing the explanations. We have not tested catalogs above 3,344 wines."
+	},
 	"HowItWorks": {
 		"title": "Send your wine list. We do the rest.",
 		"lead": "Shoppers describe what they want in their own words and get four wines from your catalog, each with a short reason.",

@@ -19,6 +19,7 @@
 
     <!-- 2b. Trust marquee: clients, press, supporters -->
     <ClientLogos />
+    <FeatureShowcase @get-started="showSignup = true"/>
     <PilotResults @get-started="showSignup = true"/>
 
     <!-- 3. Problem + for whom (merged; #problem anchor lives inside ForWhom) -->
@@ -48,6 +49,7 @@ import Footer from "~/components/LandingComponents/Footer.vue";
 import ForWhom from "~/components/LandingComponents/ForWhom.vue";
 import ClientLogos from "~/components/LandingComponents/ClientLogos.vue";
 import PilotResults from "~/components/LandingComponents/PilotResults.vue";
+import FeatureShowcase from "~/components/LandingComponents/FeatureShowcase.vue";
 import FaqTeaser from "~/components/FaqTeaser.vue";
 import { ref, onMounted, onUnmounted } from 'vue';
 
@@ -135,9 +137,13 @@ onUnmounted(() => {
   width: 100%;
   max-width: calc(var(--container) + var(--gutter) * 2);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  // Spacing owner: each block pads its own top with --section-y; the last block
+  // hands the gap to the closing band (Footer) via this bottom padding.
+  padding: 0 var(--gutter) calc(var(--section-y) - 12px); // minus the FAQ link's 44px touch box
 
-  [id] { scroll-margin-top: 100px; }
+  // Anchors land with the heading ~100px below the viewport top (fixed header),
+  // net of the padding-top the target already carries.
+  :where([id]) { scroll-margin-top: calc(100px - var(--section-y)); }
 }
 
 .fade-enter-active,

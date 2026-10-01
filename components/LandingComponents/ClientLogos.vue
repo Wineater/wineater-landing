@@ -83,7 +83,7 @@ const paused = ref(false);
 .trust {
   --trust-gap: 72px;
   max-width: var(--container);
-  margin: 0 auto;
+  margin: 48px auto 0; // demo -> ribbon: tighter than a full section gap, by intent
   padding: 20px 0 16px;
   border-top: 1px solid var(--brand-5);
   border-bottom: 1px solid var(--brand-5);
@@ -223,7 +223,7 @@ const paused = ref(false);
 }
 
 @media only screen and (max-width: 767px) {
-  .trust { --trust-gap: 48px; }
+  .trust { --trust-gap: 48px; margin-top: 32px; }
   .trust__head { padding: 0 48px; }
 }
 </style>

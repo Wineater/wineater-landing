@@ -162,7 +162,7 @@ onBeforeUnmount(() => {
 }
 
 .widget-home {
-  padding: var(--section-y) 0;
+  padding: var(--section-y) 0 0;
   animation: fadeUp 0.6s ease both;
 
   #wineater-widget-conteiner {

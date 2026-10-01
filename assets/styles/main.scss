@@ -4,14 +4,17 @@
 :root {
   --container: 1200px;
   --gutter: 24px;
-  --section-y: 96px;
+  // Vertical rhythm: --section-y is the ONE gap between consecutive blocks.
+  // Each block owns it as padding-top (or margin-top); never bottom. See pages/index.vue.
+  --section-y: 88px;
   --section-gap: 24px;
+  --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media only screen and (max-width: 767px) {
   :root {
     --gutter: 16px;
-    --section-y: 64px;
+    --section-y: 56px;
     --section-gap: 16px;
   }
 }
@@ -170,4 +173,35 @@ summary:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+// ---- Scroll reveal (see plugins/reveal.ts) --------------------------------
+// Only transform + opacity. .rv is added by JS, so no-JS/SSR stays visible.
+.rv {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s var(--reveal-ease), transform 0.45s var(--reveal-ease);
+}
+.rv.rv-in { opacity: 1; transform: none; }
+
+.rv[data-reveal="stagger"] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+
+  > * {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.45s var(--reveal-ease), transform 0.45s var(--reveal-ease);
+    transition-delay: 240ms;
+  }
+  > :nth-child(1) { transition-delay: 0ms; }
+  > :nth-child(2) { transition-delay: 60ms; }
+  > :nth-child(3) { transition-delay: 120ms; }
+  > :nth-child(4) { transition-delay: 180ms; }
+  &.rv-in > * { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv, .rv > * { opacity: 1 !important; transform: none !important; transition: none !important; }
 }

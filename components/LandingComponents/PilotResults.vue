@@ -1,8 +1,8 @@
 <template>
   <section id="pilot-results" class="pilot" aria-labelledby="pilot-title">
-    <h2 id="pilot-title" class="pilot__title">{{ $t('proof.title') }}</h2>
+    <h2 id="pilot-title" class="pilot__title" v-reveal>{{ $t('proof.title') }}</h2>
 
-    <div class="pilot__top">
+    <div class="pilot__top" v-reveal:stagger>
       <div class="pilot__lead">
         <p class="pilot__lead-label">{{ $t('proof.leadLabel') }}</p>
         <p class="pilot__lead-meaning">{{ $t('proof.leadMeaning') }}</p>
@@ -52,7 +52,7 @@ const onPrimary = () => {
 .pilot {
   max-width: var(--container);
   margin: 0 auto;
-  padding: var(--section-y) 0;
+  padding: var(--section-y) 0 0;
   color: var(--ink-2);
 }
 
@@ -101,6 +101,9 @@ const onPrimary = () => {
   padding: 32px;
   border-radius: 16px;
   border: 1px solid var(--brand-5);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover { border-color: color-mix(in srgb, var(--brand-1) 45%, #fff); box-shadow: 0 8px 24px rgba(26, 20, 38, 0.06); }
 }
 
 .pilot__quote {
@@ -157,6 +160,7 @@ const onPrimary = () => {
 
 @media only screen and (max-width: 767px) {
   .pilot__title { margin-bottom: 24px; }
+  .pilot__top { gap: 16px; }
   .pilot__lead, .pilot__side { padding: 24px 20px; }
   .pilot__theme { grid-template-columns: 1fr; gap: 2px; padding: 4px 0; }
   .pilot__cta :deep(.button) { width: 100%; }

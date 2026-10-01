@@ -2,12 +2,12 @@
   <div class="for-whom-wrap">
     <span id="problem" class="for-whom__anchor" aria-hidden="true"></span>
     <section class="for-whom" :class="{ 'visible': visible }" aria-labelledby="forwho-title">
-      <div class="for-whom__header">
+      <div class="for-whom__header" v-reveal>
         <h2 id="forwho-title" class="for-whom__title">{{ $t('ForWhom.title') }}</h2>
         <p class="for-whom__subtitle">{{ $t('ForWhom.subtitle') }}</p>
       </div>
 
-      <div class="for-whom__cards">
+      <div class="for-whom__cards" v-reveal:stagger>
         <article
           class="for-whom__card"
           v-for="card in cards[$i18n.locale] || cards.en"
@@ -161,10 +161,10 @@ export default {
 .for-whom {
   max-width: var(--container);
   margin: 0 auto;
-  padding: var(--section-y) 0;
+  padding: var(--section-y) 0 0;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 .for-whom__header {
@@ -203,6 +203,9 @@ export default {
   overflow: hidden;
   background: #fff;
   border: 1px solid var(--brand-5);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover { border-color: color-mix(in srgb, var(--brand-1) 45%, #fff); box-shadow: 0 8px 24px rgba(26, 20, 38, 0.08); }
 }
 
 .for-whom__card-image {
@@ -276,7 +279,8 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
-  .for-whom { gap: 28px; }
+  .for-whom { gap: 24px; }
+  .for-whom__cards { gap: 16px; }
   .for-whom__card-image { height: 170px; }
   .for-whom__card-body { padding: 20px; }
   .for-whom__cta { align-self: stretch; }

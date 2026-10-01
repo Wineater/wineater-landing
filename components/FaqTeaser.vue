@@ -1,7 +1,7 @@
 <template>
   <section class="faq-teaser" id="faq-teaser" aria-labelledby="faq-teaser-title">
     <div class="faq-teaser__inner">
-      <div class="faq-teaser__head">
+      <div class="faq-teaser__head" v-reveal>
         <h2 id="faq-teaser-title" class="faq-teaser__title">{{ $t('faq.teaserTitle') }}</h2>
         <NuxtLink class="faq-teaser__all" :to="localePath('/faq')">
           <span>{{ $t('faq.teaserAll') }}</span>
@@ -10,7 +10,7 @@
           </svg>
         </NuxtLink>
       </div>
-      <div class="faq-teaser__list">
+      <div class="faq-teaser__list" v-reveal:stagger>
         <details v-for="item in items" :key="item.id" class="faq-teaser__item">
           <summary class="faq-teaser__q">
             <span>{{ item.q }}</span>
@@ -24,7 +24,7 @@
           </div>
         </details>
       </div>
-      <p class="faq-teaser__demo">
+      <p class="faq-teaser__demo" v-reveal>
         <a class="faq-teaser__demo-link" :href="demoUrl" target="_blank" rel="noopener" @click="onDemo">
           {{ $t('faq.teaserDemo') }}
           <span class="faq-teaser__sr">({{ $t('Header.opensNewTab') }})</span>
@@ -57,7 +57,7 @@ const items = computed(() => {
   &__inner {
     max-width: var(--container);
     margin: 0 auto;
-    padding: var(--section-y) 0;
+    padding: var(--section-y) 0 0;
     display: grid;
     grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
     gap: 32px 64px;
@@ -88,9 +88,10 @@ const items = computed(() => {
     color: var(--link);
     text-decoration: underline;
     text-underline-offset: 4px;
+    transition: color 0.15s ease, text-underline-offset 0.15s ease;
     border-radius: 8px;
 
-    &:hover { color: var(--brand-1); }
+    &:hover { color: var(--brand-1); text-underline-offset: 6px; }
     &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
   }
 
@@ -100,6 +101,18 @@ const items = computed(() => {
 
   &__item {
     border-bottom: 1px solid var(--brand-5);
+    interpolate-size: allow-keywords;
+  }
+
+  // Smooth open/close where ::details-content is supported; instant elsewhere.
+  @supports selector(::details-content) {
+    &__item::details-content {
+      block-size: 0;
+      opacity: 0;
+      overflow: clip;
+      transition: block-size 0.3s var(--reveal-ease), opacity 0.25s ease, content-visibility 0.3s allow-discrete;
+    }
+    &__item[open]::details-content { block-size: auto; opacity: 1; }
   }
 
   &__q {
@@ -155,9 +168,10 @@ const items = computed(() => {
     color: var(--link);
     text-decoration: underline;
     text-underline-offset: 4px;
+    transition: color 0.15s ease, text-underline-offset 0.15s ease;
     border-radius: 8px;
 
-    &:hover { color: var(--brand-1); }
+    &:hover { color: var(--brand-1); text-underline-offset: 6px; }
     &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
   }
 

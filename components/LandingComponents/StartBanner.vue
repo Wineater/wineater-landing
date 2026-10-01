@@ -202,7 +202,14 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
 }
 
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 .hero__banner {
+  // Slow float starts after load (3s) so it never touches the LCP paint.
+  animation: hero-float 9s ease-in-out 3s infinite;
   position: relative;
   min-width: 0;
   align-self: start;
@@ -411,5 +418,6 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
 @media (prefers-reduced-motion: reduce) {
   .hero__panel.is-entering,
   .hero__panel.is-entering > * { animation: none; }
+  .hero__banner { animation: none; }
 }
 </style>

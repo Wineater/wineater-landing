@@ -1,11 +1,11 @@
 <template>
   <div class="how-it-works" :class="{ 'visible': visible }">
-    <header class="how-it-works__head">
+    <header class="how-it-works__head" v-reveal>
       <h2 id="how-it-works-title" class="how-it-works__title">{{ $t('HowItWorks.title') }}</h2>
       <p class="how-it-works__lead">{{ $t('HowItWorks.lead') }}</p>
     </header>
 
-    <ol class="how-it-works__steps">
+    <ol class="how-it-works__steps" v-reveal:stagger>
       <li class="how-it-works__step" v-for="n in 3" :key="n">
         <span class="how-it-works__num" aria-hidden="true">{{ n }}</span>
         <h3 class="how-it-works__step-title">{{ $t(`HowItWorks.step${n}Title`) }}</h3>
@@ -14,8 +14,8 @@
     </ol>
 
     <div class="how-it-works__options">
-      <h3 class="how-it-works__options-title">{{ $t('HowItWorks.optionsTitle') }}</h3>
-      <ul class="how-it-works__rows">
+      <h3 class="how-it-works__options-title" v-reveal>{{ $t('HowItWorks.optionsTitle') }}</h3>
+      <ul class="how-it-works__rows" v-reveal:stagger>
         <li class="how-it-works__row" v-for="o in options" :key="o">
           <span class="how-it-works__time">{{ $t(`HowItWorks.${o}Time`) }}</span>
           <span class="how-it-works__what">
@@ -27,7 +27,7 @@
       </ul>
     </div>
 
-    <div id="get-started" class="how-it-works__trial">
+    <div id="get-started" class="how-it-works__trial" v-reveal>
       <div class="how-it-works__trial-text">
         <h3 class="how-it-works__trial-title">{{ $t('HowItWorks.trialTitle') }}</h3>
         <p class="how-it-works__trial-desc">{{ $t('HowItWorks.trialDesc') }}</p>
@@ -71,10 +71,10 @@ function onCta() {
 .how-it-works {
   max-width: var(--container);
   margin: 0 auto;
-  padding: var(--section-y) 0;
+  padding: var(--section-y) 0 0;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 32px;
 }
 
 .how-it-works__head {
@@ -209,6 +209,7 @@ function onCta() {
   border-radius: 16px;
   background: var(--brand-7);
   scroll-margin-top: 120px;
+  margin-top: 8px;
 }
 
 .how-it-works__trial-btns {
@@ -256,7 +257,7 @@ function onCta() {
 }
 
 @media only screen and (max-width: 767px) {
-  .how-it-works { gap: 36px; }
+  .how-it-works { gap: 24px; }
   .how-it-works__title { font-size: 3.2rem; }
   .how-it-works__lead, .how-it-works__step-text, .how-it-works__desc, .how-it-works__trial-desc { font-size: 1.6rem; }
 }
