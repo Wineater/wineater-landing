@@ -12,13 +12,14 @@
       <StartBanner @get-started="showSignup = true"/>
     </section>
 
+    <!-- 1b. Trust marquee: clients, press, supporters -->
+    <ClientLogos />
+
     <!-- 2. Demo — the product on the second screen -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
       <WidgetHome :visible="widgetHomeVisible" @get-started="showSignup = true"/>
     </section>
 
-    <!-- 2b. Trust marquee: clients, press, supporters -->
-    <ClientLogos />
     <FeatureShowcase @get-started="showSignup = true"/>
     <PilotResults @get-started="showSignup = true"/>
 

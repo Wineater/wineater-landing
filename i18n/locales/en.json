@@ -27,7 +27,12 @@
 		"figuresLabel": "Median time to an answer, by catalog size",
 		"wines": "{n} wines",
 		"seconds": "{n} s",
-		"figuresNote": "Measured in October 2026 on live stores, 3 to 4 searches each, wines in stock. The time includes writing the explanations. We have not tested catalogs above 3,344 wines."
+		"figuresNote": "Measured in October 2026 on live stores, 3 to 4 searches each, wines in stock. The time includes writing the explanations. We have not tested catalogs above 3,344 wines.",
+		"slideN": "{n} of {total}",
+		"slideOf": "Slide {n} of {total}: {title}",
+		"prev": "Previous slide",
+		"next": "Next slide",
+		"pause": "Pause slides"
 	},
 	"HowItWorks": {
 		"title": "Send your wine list. We do the rest.",

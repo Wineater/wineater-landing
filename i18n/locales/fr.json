@@ -27,7 +27,12 @@
 		"figuresLabel": "Délai médian d'une réponse, selon la taille du catalogue",
 		"wines": "{n} vins",
 		"seconds": "{n} s",
-		"figuresNote": "Mesuré en octobre 2026 sur des boutiques en ligne, 3 à 4 recherches chacune, vins en stock. Le délai inclut la rédaction des explications. Nous n'avons pas testé de catalogue de plus de 3 344 vins."
+		"figuresNote": "Mesuré en octobre 2026 sur des boutiques en ligne, 3 à 4 recherches chacune, vins en stock. Le délai inclut la rédaction des explications. Nous n'avons pas testé de catalogue de plus de 3 344 vins.",
+		"slideN": "{n} sur {total}",
+		"slideOf": "Diapositive {n} sur {total} : {title}",
+		"prev": "Diapositive précédente",
+		"next": "Diapositive suivante",
+		"pause": "Mettre les diapositives en pause"
 	},
 	"HowItWorks": {
 		"title": "Envoyez votre liste de vins. Nous faisons le reste.",
