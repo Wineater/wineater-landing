@@ -4,8 +4,7 @@
 
     <div class="pilot__top">
       <div class="pilot__lead">
-        <p class="pilot__lead-num">{{ pct(p.resultsToBuy.value) }}</p>
-        <p class="pilot__lead-label">{{ $t('proof.leadLabel', { n: p.resultsToBuy.n, of: p.resultsToBuy.of }) }}</p>
+        <p class="pilot__lead-label">{{ $t('proof.leadLabel') }}</p>
         <p class="pilot__lead-meaning">{{ $t('proof.leadMeaning') }}</p>
       </div>
 
@@ -15,36 +14,19 @@
           <figcaption>{{ $t('proof.typedTitle') }}. {{ $t('proof.typedNote') }}</figcaption>
         </figure>
 
-        <h3 class="pilot__h3">{{ $t('proof.themesTitle', { total: p.freeTextRequests.total }) }}</h3>
-        <ul class="pilot__themes">
-          <li v-for="theme in p.freeTextRequests.themes" :key="theme.key" class="pilot__theme">
-            <span class="pilot__theme-label">{{ $t(`proof.theme_${theme.key}`) }}</span>
+        <h3 class="pilot__h3">{{ $t('proof.themesTitle') }}</h3>
+        <ol class="pilot__themes">
+          <li v-for="(key, i) in p.themeOrder" :key="key" class="pilot__theme">
+            <span class="pilot__theme-label">{{ $t(`proof.theme_${key}`) }}</span>
             <span class="pilot__theme-bar" aria-hidden="true">
-              <span class="pilot__theme-fill" :style="{ width: (theme.value / maxTheme * 100) + '%' }"></span>
+              <span class="pilot__theme-fill" :style="{ width: barWidth(i) + '%' }"></span>
             </span>
-            <span class="pilot__theme-value">{{ theme.value }}</span>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
 
-    <dl class="pilot__facts">
-      <div class="pilot__fact">
-        <dt>{{ $t('proof.f1Label') }}</dt>
-        <dd><strong>{{ pct(p.activation.value) }}</strong> <span>{{ $t('proof.f1Detail', { n: p.activation.n, of: p.activation.of }) }}</span></dd>
-      </div>
-      <div class="pilot__fact">
-        <dt>{{ $t('proof.f2Label') }}</dt>
-        <dd><strong>{{ pct(p.searchToResults.value) }}</strong> <span>{{ $t('proof.f2Detail', { n: p.searchToResults.n, of: p.searchToResults.of }) }}</span></dd>
-      </div>
-      <div class="pilot__fact">
-        <dt>{{ $t('proof.f3Label') }}</dt>
-        <dd><strong>{{ fmt(p.requestsPerUser.value) }}</strong> <span>{{ $t('proof.f3Detail', { requests: p.requestsPerUser.requests, users: p.requestsPerUser.users }) }}</span></dd>
-      </div>
-    </dl>
-
     <div class="pilot__bottom">
-      <p class="pilot__foot">{{ caveat }} {{ $t('proof.method') }} {{ source }}.</p>
       <Button bgColor="black" @btnClick="onPrimary">{{ $t('cta.primary') }}</Button>
     </div>
   </section>
@@ -55,14 +37,10 @@ import Button from '~/components/Buttons/Button.vue';
 import { pilotProof as p } from '~/data/proof';
 
 const emit = defineEmits(['getStarted']);
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
-const fmt = (v) => new Intl.NumberFormat(locale.value === 'fr' ? 'fr-FR' : 'en-GB', { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(v);
-const pct = (v) => `${fmt(v)}%`;
-
-const caveat = computed(() => (locale.value === 'fr' ? p.caveat.fr : p.caveat.en));
-const source = computed(() => (locale.value === 'fr' ? p.source.fr : p.source.en));
-const maxTheme = Math.max(...p.freeTextRequests.themes.map((x) => x.value));
+// Bars show rank only (most common first), not measured shares.
+const barWidth = (i) => 100 - i * (80 / Math.max(p.themeOrder.length - 1, 1));
 
 const onPrimary = () => {
   track('cta_click', { cta_label: t('cta.primary'), location: 'pilot_results' });
@@ -90,7 +68,7 @@ const onPrimary = () => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .pilot__lead {
@@ -99,18 +77,8 @@ const onPrimary = () => {
   background: var(--brand-7);
 }
 
-.pilot__lead-num {
-  margin: 0;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: clamp(4.8rem, 6vw, 5.6rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--brand-1);
-  font-variant-numeric: tabular-nums;
-}
-
 .pilot__lead-label {
-  margin: 12px 0 0;
+  margin: 0;
   font-family: 'PoppinsMedium', sans-serif;
   font-size: 2.2rem;
   line-height: 1.3;
@@ -162,7 +130,7 @@ const onPrimary = () => {
 
 .pilot__theme {
   display: grid;
-  grid-template-columns: 190px 1fr 32px;
+  grid-template-columns: 190px 1fr;
   align-items: center;
   gap: 12px;
   min-height: 28px;
@@ -180,59 +148,12 @@ const onPrimary = () => {
   background: var(--brand-1);
 }
 
-.pilot__theme-value {
-  text-align: right;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-variant-numeric: tabular-nums;
-  color: var(--ink);
-}
-
-.pilot__facts {
-  margin: 24px 0 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.pilot__fact {
-  padding: 20px 24px;
-  border-radius: 16px;
-  border: 1px solid var(--brand-5);
-
-  dt { font-size: 1.4rem; color: var(--ink-3); margin: 0 0 4px; }
-
-  dd {
-    margin: 0;
-    font-size: 1.4rem;
-    line-height: 1.4;
-    color: var(--ink-2);
-
-    strong {
-      display: block;
-      font-family: 'PoppinsMedium', sans-serif;
-      font-weight: 500;
-      font-size: 3.2rem;
-      line-height: 1.2;
-      color: var(--ink);
-      font-variant-numeric: tabular-nums;
-    }
-  }
-}
-
 .pilot__bottom {
   margin-top: 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 24px;
-}
-
-.pilot__foot {
-  margin: 0;
-  font-size: 1.4rem;
-  line-height: 1.5;
-  color: var(--ink-3);
-  max-width: 72ch;
 }
 
 @media only screen and (max-width: 1023px) {
@@ -242,12 +163,8 @@ const onPrimary = () => {
 @media only screen and (max-width: 767px) {
   .pilot__title { margin-bottom: 24px; }
   .pilot__lead, .pilot__side { padding: 24px 20px; }
-  .pilot__facts { grid-template-columns: 1fr; gap: 12px; }
-  .pilot__theme { grid-template-columns: 1fr 32px; gap: 0 12px; row-gap: 2px; padding: 4px 0; }
-  .pilot__theme-label { grid-column: 1; }
-  .pilot__theme-value { grid-column: 2; grid-row: 1; }
-  .pilot__theme-bar { grid-column: 1 / -1; }
-  .pilot__bottom { flex-direction: column; align-items: stretch; }
+  .pilot__theme { grid-template-columns: 1fr; gap: 2px; padding: 4px 0; }
+  .pilot__bottom { flex-direction: column; }
   .pilot__bottom :deep(.button) { width: 100%; }
 }
 </style>

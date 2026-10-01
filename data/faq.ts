@@ -272,7 +272,7 @@ export const faqEn: FaqContent = {
         {
           id: 'what-did-the-pilot-show',
           q: 'What did the Wineater pilot show?',
-          a: `In a one-month retail pilot, ${p.resultsToBuy.value}% of sessions that displayed recommendations (${p.resultsToBuy.n} of ${p.resultsToBuy.of}) ended in a BUY click. ${p.caveat.en} Shoppers sent ${p.requestsPerUser.value} requests each on average, and ${p.fullSetOfFour.value}% of result displays showed a full set of four wines. This is a small sample from a single retailer, so read it as an indication, not a forecast. Source: ${p.source.en}.`
+          a: `In a one-month pilot, ${p.buyClick.en} of sessions with recommendations ended in a BUY click. ${p.caveat.en} Shoppers sent ${p.requestsPerShopper.en} requests each on average. This is a small sample, so read it as an indication, not a forecast.`
         },
         {
           id: 'connect-buy-clicks-to-orders',
@@ -537,7 +537,7 @@ export const faqFr: FaqContent = {
         {
           id: 'what-did-the-pilot-show',
           q: 'Qu’a montré le pilote Wineater ?',
-          a: `Lors d’un pilote d’un mois chez un caviste, ${String(p.resultsToBuy.value).replace('.', ',')} % des sessions ayant affiché des recommandations (${p.resultsToBuy.n} sur ${p.resultsToBuy.of}) se sont terminées par un clic BUY. ${p.caveat.fr} Les clients ont envoyé en moyenne ${String(p.requestsPerUser.value).replace('.', ',')} demandes chacun, et ${String(p.fullSetOfFour.value).replace('.', ',')} % des affichages de résultats montraient un jeu complet de quatre vins. L’échantillon est petit et provient d’un seul commerçant : à lire comme une indication, pas comme une prévision. Source : ${p.source.fr}.`
+          a: `Lors d’un pilote d’un mois, ${p.buyClick.fr} des sessions avec recommandations se sont terminées par un clic BUY. ${p.caveat.fr} Les clients ont envoyé en moyenne ${p.requestsPerShopper.fr} demandes chacun. L’échantillon est petit : à lire comme une indication, pas comme une prévision.`
         },
         {
           id: 'connect-buy-clicks-to-orders',

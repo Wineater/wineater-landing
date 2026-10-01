@@ -30,7 +30,18 @@
               </li>
             </ul>
 
-            <Button bgColor="black" class="for-whom__cta" @btnClick="onCta(card.id)">{{ $t('cta.primary') }}</Button>
+            <Button
+              v-if="card.id === 'online'"
+              bgColor="outline"
+              class="for-whom__cta"
+              :href="demoUrl"
+              target="_blank"
+              @btnClick="onDemo(card.id)"
+            >
+              {{ $t('cta.demo') }}
+              <span class="for-whom__sr">({{ $t('Header.opensNewTab') }})</span>
+            </Button>
+            <Button v-else bgColor="black" class="for-whom__cta" @btnClick="onCta(card.id)">{{ $t('cta.primary') }}</Button>
           </div>
         </article>
       </div>
@@ -47,6 +58,7 @@ export default {
   emits: ['getStarted'],
   data() {
     return {
+      demoUrl: 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf',
       cards: {
         'en': [
           {
@@ -67,7 +79,7 @@ export default {
             imageAlt: 'A Wineater QR sticker on a wine shelf, with the recommendation screen it opens on a phone',
             features: [
               'A QR code by the shelves for instant answers',
-              'Recommends from your own catalog, not generic lists',
+              'Shoppers ask in their own words, right at the shelf',
               'Brings forward wines shoppers would not think to ask for',
             ],
           },
@@ -77,7 +89,7 @@ export default {
             pain: 'When there are too many bottles, people give up without buying.',
             imageAlt: 'Wineater widget recommending wines on a shop page',
             features: [
-              'Embeddable widget, live on your site in about a day',
+              'Embeddable widget that matches your store\'s look',
               'API option to plug into your existing search',
               'External link option, no development needed',
             ],
@@ -102,7 +114,7 @@ export default {
             imageAlt: 'Un autocollant QR Wineater sur un rayon de vin, avec l\'écran de recommandation qu\'il ouvre sur un téléphone',
             features: [
               'Un QR code près des rayons pour des réponses immédiates',
-              'Recommande depuis votre propre catalogue, pas des listes génériques',
+              'Les clients demandent avec leurs mots, devant le rayon',
               'Met en avant des vins que les clients n\'auraient pas pensé à demander',
             ],
           },
@@ -112,7 +124,7 @@ export default {
             pain: 'Devant trop de bouteilles, beaucoup abandonnent sans acheter.',
             imageAlt: 'Widget Wineater recommandant des vins sur une page boutique',
             features: [
-              'Widget intégrable, en ligne en 1 jour environ',
+              'Widget intégrable aux couleurs de votre boutique',
               'Option API pour se brancher sur votre moteur de recherche',
               'Option lien externe, aucun développement nécessaire',
             ],
@@ -122,6 +134,10 @@ export default {
     };
   },
   methods: {
+    onDemo(id) {
+      track('cta_click', { cta_label: this.$t('cta.demo'), location: `for_whom_${id}` });
+      track('outbound_link_click', { link_url: this.demoUrl });
+    },
     onCta(id) {
       track('cta_click', { cta_label: this.$t('cta.primary'), location: `for_whom_${id}` });
       this.$emit('getStarted');
@@ -132,6 +148,15 @@ export default {
 
 <style scoped lang="scss">
 .for-whom__anchor { display: block; height: 0; }
+
+.for-whom__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 .for-whom {
   max-width: var(--container);

@@ -14,7 +14,7 @@
 
     <!-- 2. Demo — the product on the second screen -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
-      <WidgetHome :visible="widgetHomeVisible"/>
+      <WidgetHome :visible="widgetHomeVisible" @get-started="showSignup = true"/>
     </section>
 
     <!-- 2b. Live clients -->

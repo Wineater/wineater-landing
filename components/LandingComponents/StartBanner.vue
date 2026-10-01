@@ -36,6 +36,7 @@
             <span class="hero__sr">({{ $t('Header.opensNewTab') }})</span>
           </Button>
         </div>
+        <p class="hero__trial">{{ $t('Footer.trial') }}</p>
 
         <ul class="hero__points">
           <li v-for="n in 3" :key="n" class="hero__point">
@@ -52,10 +53,10 @@
         <dl class="hero__chips">
           <div v-for="chip in chips" :key="chip.key" class="hero__chip">
             <dt>{{ chip.value }}</dt>
-            <dd>{{ $t(`startBanner.proof.${chip.key}`, chip.params) }}</dd>
+            <dd>{{ $t(`startBanner.proof.${chip.key}`) }}</dd>
           </div>
         </dl>
-        <p class="hero__footnote">{{ proofSource }}. {{ proofCaveat }}</p>
+        <p class="hero__footnote">{{ proofCaveat }}</p>
       </div>
     </div>
 
@@ -94,13 +95,11 @@ const emit = defineEmits(['getStarted']);
 const { t, locale } = useI18n();
 
 const lang = computed(() => (locale.value === 'fr' ? 'fr' : 'en'));
-const fmt = (n) => new Intl.NumberFormat(lang.value, { maximumFractionDigits: 1 }).format(n);
 const chips = computed(() => [
-  { key: 'buy', value: `${fmt(pilotProof.resultsToBuy.value)}%`, params: { n: pilotProof.resultsToBuy.n, of: pilotProof.resultsToBuy.of } },
-  { key: 'requests', value: fmt(pilotProof.requestsPerUser.value), params: {} },
-  { key: 'search', value: `${fmt(pilotProof.activation.value)}%`, params: { n: pilotProof.activation.n, of: pilotProof.activation.of } },
+  { key: 'buy', value: pilotProof.buyClick[lang.value] },
+  { key: 'requests', value: pilotProof.requestsPerShopper[lang.value] },
+  { key: 'search', value: pilotProof.search[lang.value] },
 ]);
-const proofSource = computed(() => pilotProof.source[lang.value]);
 const proofCaveat = computed(() => pilotProof.caveat[lang.value]);
 
 const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
@@ -262,7 +261,14 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
+}
+
+.hero__trial {
+  margin: 0 0 28px;
+  color: var(--ink-3);
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 .hero__sr {
@@ -362,6 +368,7 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
   .hero__subtitle { order: 2; max-width: 100%; margin: 0; }
   .hero__banner { order: 3; }
   .hero__ctas { order: 4; margin: 0; }
+  .hero__trial { order: 4; margin: -12px 0 0; }
   .hero__points { order: 5; }
   .hero__proof { order: 6; }
 

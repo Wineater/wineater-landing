@@ -1,23 +1,16 @@
 {
-	"algorithm": {
-		"title1": "Essayez vous-même et trouvez ",
-		"title2": "le vin qu'il vous faut",
-		"title3": ""
-	},
-	"Solutions": {
-		"title": "Solutions"
-	},
 	"WidgetHome": {
 		"title": "Voyez-le en action : essayez-le vous-même",
 		"description": "Cette démo utilise une cave d'exemple, pas votre catalogue : les vins, les prix et la langue de l'interface ne sont donc pas les vôtres. Décrivez un repas ou une occasion et voyez comment répond le sommelier.",
-		"examplesLabel": "Essayez un exemple"
+		"examplesLabel": "Essayez un exemple",
+		"ctaText": "Envie de ça sur vos propres vins ?"
 	},
 	"cta": {
 		"primary": "Essayer gratuitement 1 mois",
 		"demo": "Réserver une démo de 20 min"
 	},
 	"HowItWorks": {
-		"title": "Comment ça marche",
+		"title": "Envoyez votre liste de vins. Nous faisons le reste.",
 		"lead": "Vos clients décrivent ce qu'ils veulent avec leurs propres mots et reçoivent quatre vins de votre catalogue, chacun avec une courte raison.",
 		"step1Title": "Partagez votre catalogue",
 		"step1Text": "Envoyez votre liste de vins en CSV ou flux produits, ou connectez l'API. Moins d'une journée.",
@@ -39,7 +32,7 @@
 		"apiFor": "Équipes avancées",
 		"apiDesc": "Connectez Wineater à votre propre moteur de recherche ou de recommandation. Marque blanche complète, inventaire synchronisé.",
 		"trialTitle": "Essayez avec votre vrai catalogue",
-		"trialDesc": "Pilote de 30 jours, sans carte bancaire et sans engagement. Partagez votre liste de vins, nous configurons tout, vous voyez ce que ça apporte à votre activité."
+		"trialDesc": "1 mois d'essai gratuit, sans carte bancaire et sans engagement. Partagez votre liste de vins, nous configurons tout, vous voyez ce que ça apporte à votre activité."
 	},
 	"Partners": {
 		"title": "Membres de"
@@ -51,30 +44,21 @@
 		"title": "Déjà en ligne chez"
 	},
 	"proof": {
-		"title": "Ce que les clients ont fait pendant un mois de pilote",
-		"leadLabel": "des sessions avec recommandations ont fini par un clic BUY ({n} sur {of})",
-		"leadMeaning": "Environ un client sur cinq est passé à la fiche produit. Ce clic exprime une intention d'achat, pas un achat confirmé.",
-		"f1Label": "Lancent une recherche",
-		"f1Detail": "des sessions du widget ({n} sur {of})",
-		"f2Label": "Obtiennent des résultats",
-		"f2Detail": "des recherches ({n} sur {of})",
-		"f3Label": "Demandes par client",
-		"f3Detail": "({requests} demandes, {users} utilisateurs)",
+		"title": "Ce que les clients ont demandé",
+		"leadLabel": "La plupart des demandes citaient un cépage ou un style, une origine ou un budget.",
+		"leadMeaning": "Les clients écrivaient comme ils parleraient à un sommelier.",
 		"typedTitle": "Une vraie demande",
-		"typedNote": "Écrite par un client pendant le pilote (en anglais).",
-		"themesTitle": "De quoi parlaient les {total} demandes en texte libre",
+		"typedNote": "Écrite par un client (en anglais).",
+		"themesTitle": "Ce que les clients ont écrit, du plus fréquent au moins fréquent",
 		"theme_grape": "Cépage ou style",
 		"theme_origin": "Origine, âge ou alcool",
 		"theme_budget": "Budget ou rapport qualité-prix",
 		"theme_producer": "Producteur",
-		"theme_food": "Plat ou occasion",
-		"method": "Chiffres par session. Le suivi BUY porte sur les trois dernières semaines ; les autres chiffres couvrent tout le pilote."
+		"theme_food": "Plat ou occasion"
 	},
 	"Footer": {
-		"text": "Arrêtez de perdre des ventes de vin par indécision",
+		"text": "Arrêtez de perdre des clients par indécision",
 		"trial": "1 mois d'essai gratuit · Sans carte bancaire",
-		"ctaPrimary": "Commencer gratuitement",
-		"ctaSecondary": "Demander une démo",
 		"closing": "Prêt à voir votre catalogue dans Wineater ?",
 		"navLabel": "Pied de page",
 		"blog": "Blog",
@@ -93,7 +77,6 @@
 		"subtitle": "Sans conseil, ils prennent l'étiquette qu'ils connaissent, ou repartent. Wineater répond à votre place, depuis votre catalogue."
 	},
 	"Header": {
-		"About": "Sur",
 		"Challenge": "Le défi",
 		"Solution": "Solution",
 		"HowItWorks": "Comment ça marche",
@@ -122,31 +105,14 @@
 		"relatedPrivacy": "Politique de confidentialité",
 		"relatedBlog": "Blog",
 		"teaserTitle": "Questions fréquentes",
-		"teaserAll": "Voir toutes les questions"
-	},
-	"playground": {
-		"BeSureToProvideDetails": "Sublimez votre expérience gastronomique avec Wineater, l'expert des accords mets et vins parfaits.",
-		"BookDemo": "Demander une démo",
-		"Buy": "Acheter",
-		"FindAMatch": "Accorder",
-		"forYour": "pour votre",
-		"Grape": "Cépages",
-		"perfectDinner": "parfait&nbsp;dîner",
-		"perfectWine": "vin&nbsp;parfait",
-		"Region": "Région",
-		"Type": "Couleur",
-		"WhatDoYouWannaEat": "Que voulez-vous manger? ex., Salade de thon",
-		"WineaterFind": "Wineater trouver"
-	},
-	"scienceBehind": {
-		"text": "Les clients saisissent le plat qu'ils prévoient de déguster ou le type de vin dont ils ont envie. Wineater propose quatre vins de votre catalogue et explique chaque choix en une phrase.",
-		"title": "Des conseils tirés de votre propre rayon"
+		"teaserAll": "Voir toutes les questions",
+		"teaserDemo": "Encore un doute ? Réservez une démo de 20 min"
 	},
 	"startBanner": {
 		"retail": {
 			"headline1": "Vos clients écrivent ce qu'ils cherchent.",
 			"headline2": "Wineater choisit quatre bouteilles parmi vos références.",
-			"subtitle": "Un sommelier IA pour votre boutique ou votre site. Chaque sélection est accompagnée d'une courte explication : vos clients achètent au lieu de repartir. En ligne en une journée.",
+			"subtitle": "Un sommelier IA pour votre boutique ou votre site : un client qui hésite obtient une réponse au lieu de repartir.",
 			"point1": "Ne recommande que les vins que vous avez en stock",
 			"point2": "Un seul script, en ligne en 1 jour",
 			"point3": "Chaque sélection vient avec une courte explication"
@@ -160,24 +126,11 @@
 			"point3": "En ligne en 1 heure, avec un outil sur tablette pour votre personnel"
 		},
 		"proof": {
-			"buy": "des sessions finissent par un clic BUY ({n} sur {of})",
-			"requests": "requêtes par visiteur",
-			"search": "des sessions lancent une recherche ({n} sur {of})"
+			"buy": "des sessions avec recommandations finissent par un clic BUY",
+			"requests": "demandes par client",
+			"search": "des sessions du widget lancent une recherche"
 		},
 		"imageAlt": "Une bouteille de vin rouge et une assiette de pâtes sur un motif violet Wineater"
-	},
-	"StatisticBanner": {
-		"label1": "1 sur",
-		"sub1": "acheteur",
-		"text1": "interagit avec le Sommelier IA de Wineater pour choisir son vin",
-		"label2": "jusqu'à",
-		"sub2": "d'upsell en plus",
-		"text2": "en intégrant Wineater dans votre boutique",
-		"label3": "plus de",
-		"sub3": "vins recommandés",
-		"text3": "proviennent de stocks moins connus, réduisant la dépendance aux meilleures ventes",
-		"title1": "Les chiffres parlent d'eux-mêmes",
-		"title2": "De vrais résultats pour de vraies entreprises."
 	},
 	"SignupForm": {
 		"title": "Commencez votre essai gratuit",
@@ -194,21 +147,19 @@
 		"optional": "(facultatif)",
 		"gdprText": "J'accepte que Wineater stocke et traite mes données pour configurer mon compte d'essai. Je peux retirer mon consentement à tout moment en écrivant à",
 		"gdprRequired": "Veuillez accepter le traitement des données pour continuer.",
-		"submit": "Commencer — c'est gratuit",
+		"submit": "Démarrer mon mois gratuit",
 		"submitting": "Envoi...",
-		"success": "Nous vous contacterons dans les 24 heures pour tout configurer.",
 		"nextTitle": "Et ensuite",
 		"next1": "Nous configurons votre catalogue dans les 24 heures.",
 		"next2": "Nous vous contactons par e-mail à {email} pour tout confirmer.",
 		"successDemo": "Essayez la démo en direct en attendant",
-		"dialogLabel": "Inscription à l'essai gratuit",
 		"successTitle": "C'est parti !",
 		"close": "Fermer",
 		"error": "Une erreur s'est produite. Veuillez réessayer."
 	},
 	"seo": {
 		"title": "Sommelier IA pour cavistes et restaurants - Wineater",
-		"description": "Wineater est un sommelier virtuel IA qui recommande les vins de votre propre stock. Widget, QR code ou API, en ligne en 1 heure. 1 mois d'essai gratuit."
+		"description": "Wineater est un sommelier IA qui recommande les vins de votre propre catalogue. QR code en 1 heure, widget en 1 jour. 1 mois d'essai gratuit."
 	},
 	"cookie": {
 		"title": "Vos choix de confidentialité",

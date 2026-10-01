@@ -24,6 +24,12 @@
           </div>
         </details>
       </div>
+      <p class="faq-teaser__demo">
+        <a class="faq-teaser__demo-link" :href="demoUrl" target="_blank" rel="noopener" @click="onDemo">
+          {{ $t('faq.teaserDemo') }}
+          <span class="faq-teaser__sr">({{ $t('Header.opensNewTab') }})</span>
+        </a>
+      </p>
     </div>
   </section>
 </template>
@@ -31,8 +37,14 @@
 <script setup>
 import { faqByLocale, faqTeaserIds, flattenFaq } from '~/data/faq'
 
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
+const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf'
+
+const onDemo = () => {
+  track('cta_click', { cta_label: t('faq.teaserDemo'), location: 'faq_teaser' })
+  track('outbound_link_click', { link_url: demoUrl })
+}
 
 const items = computed(() => {
   const all = flattenFaq(faqByLocale[locale.value] || faqByLocale.en)
@@ -129,6 +141,35 @@ const items = computed(() => {
     }
   }
 
+  &__demo {
+    grid-column: 2;
+    margin: 0;
+  }
+
+  &__demo-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 1.6rem;
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    border-radius: 8px;
+
+    &:hover { color: var(--brand-1); }
+    &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
+  }
+
+  &__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   &__more {
     display: inline-flex;
     align-items: center;
@@ -147,6 +188,7 @@ const items = computed(() => {
   .faq-teaser__title { font-size: 3.2rem; }
   .faq-teaser__q { font-size: 1.7rem; }
   .faq-teaser__a { padding-right: 0; }
+  .faq-teaser__demo { grid-column: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

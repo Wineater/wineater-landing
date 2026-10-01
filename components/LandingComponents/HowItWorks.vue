@@ -32,7 +32,13 @@
         <h3 class="how-it-works__trial-title">{{ $t('HowItWorks.trialTitle') }}</h3>
         <p class="how-it-works__trial-desc">{{ $t('HowItWorks.trialDesc') }}</p>
       </div>
-      <Button @btnClick="onCta">{{ $t('cta.primary') }}</Button>
+      <div class="how-it-works__trial-btns">
+        <Button @btnClick="onCta">{{ $t('cta.primary') }}</Button>
+        <Button bg-color="outline" :href="demoUrl" target="_blank" @btnClick="onDemo">
+          {{ $t('cta.demo') }}
+          <span class="how-it-works__sr">({{ $t('Header.opensNewTab') }})</span>
+        </Button>
+      </div>
     </div>
   </div>
 </template>
@@ -48,6 +54,12 @@ const emit = defineEmits(['getStarted']);
 const { t } = useI18n();
 
 const options = ['qr', 'widget', 'api'];
+const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
+
+function onDemo() {
+  track('cta_click', { cta_label: t('cta.demo'), location: 'how_it_works_trial' });
+  track('outbound_link_click', { link_url: demoUrl });
+}
 
 function onCta() {
   track('cta_click', { cta_label: t('cta.primary'), location: 'how_it_works_trial' });
@@ -197,6 +209,23 @@ function onCta() {
   border-radius: 16px;
   background: var(--brand-7);
   scroll-margin-top: 120px;
+}
+
+.how-it-works__trial-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.how-it-works__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .how-it-works__trial-text {

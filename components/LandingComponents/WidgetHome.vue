@@ -22,6 +22,11 @@
     </div>
 
     <div id="wineater-widget-conteiner" ref="container"></div>
+
+    <p class="widget-cta">
+      <span class="widget-cta__text">{{ $t('WidgetHome.ctaText') }}</span>
+      <button type="button" class="widget-cta__link" @click="onSignup">{{ $t('cta.primary') }}</button>
+    </p>
   </div>
 </template>
 
@@ -31,10 +36,11 @@ import { useI18n } from 'vue-i18n';
 import { DEMO_CLIENT_TOKEN, DEMO_STORE_LANGUAGES, DEFAULT_AUDIENCE, demoPrompts } from '~/data/demo';
 
 defineProps({ visible: { type: Boolean, default: false } });
+const emit = defineEmits(['getStarted']);
 
 const WIDGET_SRC = 'https://unpkg.com/wineater-bot@4.16.1/dist/wineater-chatbot.mjs';
 
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 // Same state as the hero tabs: example prompts follow the active audience.
 const audience = useState('audience', () => DEFAULT_AUDIENCE);
 const prompts = computed(() => (demoPrompts[audience.value] || demoPrompts[DEFAULT_AUDIENCE])[locale.value === 'fr' ? 'fr' : 'en']);
@@ -117,6 +123,11 @@ function runExample(text, attempt = 0) {
   setTimeout(() => form.requestSubmit(), 0);
 }
 
+function onSignup() {
+  track('cta_click', { cta_label: t('cta.primary'), location: 'demo' });
+  emit('getStarted');
+}
+
 onMounted(() => {
   const el = container.value;
   el.addEventListener('submit', onSubmit, true);
@@ -174,6 +185,34 @@ onBeforeUnmount(() => {
     color: var(--ink-2);
     font-size: 1.7rem;
     line-height: 1.6;
+  }
+
+  .widget-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 12px;
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .widget-cta__link {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font: inherit;
+    font-family: 'PoppinsMedium', sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+    border-radius: 8px;
+
+    &:hover { color: var(--brand-1); }
+    &:focus-visible { outline: 3px solid var(--brand-1); outline-offset: 2px; }
   }
 
   // Example chips: wrap on desktop, one horizontal scroller on mobile.

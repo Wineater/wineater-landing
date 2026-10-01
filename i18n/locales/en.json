@@ -1,23 +1,16 @@
 {
-	"algorithm": {
-		"title1": "Try it yourself and find ",
-		"title2": "the right wine ",
-		"title3": "for your dish"
-	},
-	"Solutions": {
-		"title": "Solutions"
-	},
 	"WidgetHome": {
 		"title": "See it in action: try it yourself",
 		"description": "This demo runs on a sample wine shop, not on your catalog, so the wines, prices and interface language are not yours. Describe a meal or an occasion and see how the sommelier answers.",
-		"examplesLabel": "Try an example"
+		"examplesLabel": "Try an example",
+		"ctaText": "Want this on your own wines?"
 	},
 	"cta": {
 		"primary": "Try it free for 1 month",
 		"demo": "Book a 20-min demo"
 	},
 	"HowItWorks": {
-		"title": "How it works",
+		"title": "Send your wine list. We do the rest.",
 		"lead": "Shoppers describe what they want in their own words and get four wines from your catalog, each with a short reason.",
 		"step1Title": "Share your catalog",
 		"step1Text": "Send your wine list as a CSV or product feed, or connect the API. It takes less than a day.",
@@ -39,13 +32,11 @@
 		"apiFor": "Advanced teams",
 		"apiDesc": "Connect Wineater to your own search or recommendation engine. Full white-label, with inventory kept in sync.",
 		"trialTitle": "Try it with your real catalog",
-		"trialDesc": "30-day pilot, no credit card and no commitment. Share your wine list, we set everything up, and you see what it does for your business."
+		"trialDesc": "1-month free trial, no credit card and no commitment. Share your wine list, we set everything up, and you see what it does for your business."
 	},
 	"Footer": {
-		"text": "Stop losing wine sales to indecision",
+		"text": "Stop losing shoppers to indecision",
 		"trial": "1-month free trial · No credit card required",
-		"ctaPrimary": "Start for free",
-		"ctaSecondary": "Book a demo",
 		"closing": "Ready to see your catalog in Wineater?",
 		"navLabel": "Footer",
 		"blog": "Blog",
@@ -73,27 +64,19 @@
 		"title": "Live with"
 	},
 	"proof": {
-		"title": "What shoppers did in a one-month retail pilot",
-		"leadLabel": "of sessions with recommendations ended in a BUY click ({n} of {of})",
-		"leadMeaning": "About one shopper in five went on to the product page. That click shows intent to buy, not a confirmed purchase.",
-		"f1Label": "Start a search",
-		"f1Detail": "of widget sessions ({n} of {of})",
-		"f2Label": "Get results",
-		"f2Detail": "of searches ({n} of {of})",
-		"f3Label": "Requests per shopper",
-		"f3Detail": "({requests} requests, {users} users)",
+		"title": "What shoppers asked for",
+		"leadLabel": "Most requests named a grape or style, an origin, or a budget.",
+		"leadMeaning": "Shoppers wrote the way they would ask a sommelier.",
 		"typedTitle": "A real request",
-		"typedNote": "Typed by a shopper during the pilot.",
-		"themesTitle": "What the {total} free-text requests were about",
+		"typedNote": "Typed by a shopper.",
+		"themesTitle": "What shoppers typed, most common first",
 		"theme_grape": "Grape or style",
 		"theme_origin": "Origin, age or alcohol",
 		"theme_budget": "Budget or value",
 		"theme_producer": "Producer",
-		"theme_food": "Food or occasion",
-		"method": "Figures are session-based. BUY tracking covers the last three weeks; the other figures cover the full pilot."
+		"theme_food": "Food or occasion"
 	},
 	"Header": {
-		"About": "About",
 		"Challenge": "Challenge",
 		"Solution": "Solution",
 		"HowItWorks": "How it works",
@@ -122,31 +105,14 @@
 		"relatedPrivacy": "Privacy policy",
 		"relatedBlog": "Blog",
 		"teaserTitle": "Common questions",
-		"teaserAll": "See all questions"
-	},
-	"playground": {
-		"BeSureToProvideDetails": "Elevate your dining experience with Wineater, the expert in perfect wine pairings for your meal. Simply provide your dish details, and we'll recommend the ideal wine companion",
-		"BookDemo": "Book demo",
-		"Buy": "Buy",
-		"FindAMatch": "Match",
-		"forYour": "for your",
-		"Grape": "Grape",
-		"perfectDinner": "perfect&nbsp;dinner",
-		"perfectWine": "perfect&nbsp;wine",
-		"Region": "Region",
-		"Type": "Type",
-		"WhatDoYouWannaEat": "What's on your plate? e.g., Tuna Salad",
-		"WineaterFind": "Wineater find"
-	},
-	"scienceBehind": {
-		"text": "Shoppers type the dish they plan to enjoy or the kind of wine they feel like. Wineater suggests four wines from your catalog and explains each choice in a sentence.",
-		"title": "Advice drawn from your own shelf"
+		"teaserAll": "See all questions",
+		"teaserDemo": "Still unsure? Book a 20-min demo"
 	},
 	"startBanner": {
 		"retail": {
 			"headline1": "Your shoppers type what they want.",
 			"headline2": "Wineater picks four bottles from your shelves.",
-			"subtitle": "An AI sommelier for your store or site. Each pick comes with a short reason, so shoppers buy instead of leaving. Live in a day.",
+			"subtitle": "An AI sommelier for your store or site, so a hesitating shopper gets an answer instead of leaving.",
 			"point1": "Recommends only wines you stock",
 			"point2": "One script tag, live in 1 day",
 			"point3": "Every pick comes with a short reason"
@@ -160,24 +126,11 @@
 			"point3": "Live in 1 hour, plus a tablet tool for your staff"
 		},
 		"proof": {
-			"buy": "of sessions end in a BUY click ({n} of {of})",
+			"buy": "of sessions with recommendations end in a BUY click",
 			"requests": "requests per shopper",
-			"search": "of sessions start a search ({n} of {of})"
+			"search": "of widget sessions start a search"
 		},
 		"imageAlt": "A bottle of red wine and a plate of pasta on the Wineater purple pattern"
-	},
-	"StatisticBanner": {
-		"label1": "every",
-		"sub1": "shopper",
-		"text1": "engages with Wineater's AI Sommelier for help choosing wine",
-		"label2": "up to",
-		"sub2": "upsell increase",
-		"text2": "by integrating Wineater into your store",
-		"label3": "more than",
-		"sub3": "of wines recommended",
-		"text3": "come from lesser-known stock, reducing reliance on best-sellers",
-		"title1": "The numbers speak for themselves",
-		"title2": "Real results from real businesses."
 	},
 	"SignupForm": {
 		"title": "Start your free trial",
@@ -194,21 +147,19 @@
 		"optional": "(optional)",
 		"gdprText": "I agree that Wineater may store and process my data to set up my trial account. I can withdraw consent at any time by writing to",
 		"gdprRequired": "Please accept the data processing agreement to continue.",
-		"submit": "Get started — it's free",
+		"submit": "Start my free month",
 		"submitting": "Sending...",
-		"success": "We'll contact you within 24 hours to set everything up.",
 		"nextTitle": "What happens next",
 		"next1": "We set up your catalog within 24 hours.",
 		"next2": "We contact you by email at {email} to confirm everything.",
 		"successDemo": "Try the live demo while you wait",
-		"dialogLabel": "Free trial sign-up",
 		"successTitle": "You're in!",
 		"close": "Close",
 		"error": "Something went wrong. Please try again."
 	},
 	"seo": {
 		"title": "AI Sommelier for Wine Shops & Restaurants - Wineater",
-		"description": "Wineater is an AI sommelier that recommends wines from your own catalog. Add it to your shop, menu or QR code in 1 hour. Free 1-month trial."
+		"description": "Wineater is an AI sommelier that recommends wines from your own catalog. QR code live in 1 hour, widget in 1 day. Free 1-month trial."
 	},
 	"cookie": {
 		"title": "Your privacy choices",
