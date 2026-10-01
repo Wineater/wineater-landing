@@ -1,5 +1,5 @@
 <template>
-  <section class="trust" aria-labelledby="trust-title" :class="{ 'is-paused': paused }">
+  <section ref="root" class="trust" aria-labelledby="trust-title" :class="{ 'is-paused': paused }">
     <div class="trust__head">
       <p id="trust-title" class="trust__label">{{ $t('Clients.title') }}</p>
       <button
@@ -31,8 +31,9 @@
                 :height="logo.height"
                 class="trust__img"
                 :style="{ height: logo.displayHeight + 'px' }"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                @error="retryImg"
               />
             </a>
           </li>
@@ -48,8 +49,9 @@
                 :height="logo.height"
                 class="trust__img"
                 :style="{ height: logo.displayHeight + 'px' }"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                @error="retryImg"
               />
             </a>
           </li>
@@ -60,7 +62,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 // One honest group: clients, press and supporters, no per-logo category labels.
 // Logo files: public/clients/ and public/press/. Sources:
@@ -77,6 +79,24 @@ const logos = [
 ];
 
 const paused = ref(false);
+const root = ref(null);
+
+// No loading="lazy" here: lazy images inside a transformed, moving track can fail to load in Safari.
+// A logo that fails once gets one retry with a cache-busting query string.
+const retryImg = (e) => {
+  const img = e.target;
+  if (!img || img.dataset.retried) return;
+  img.dataset.retried = '1';
+  const src = img.getAttribute('src');
+  img.src = `${src}${src.includes('?') ? '&' : '?'}r=${Date.now()}`;
+};
+
+onMounted(() => {
+  // Errors that fired before hydration attached the handler.
+  root.value?.querySelectorAll('img').forEach((img) => {
+    if (img.complete && img.naturalWidth === 0) retryImg({ target: img });
+  });
+});
 </script>
 
 <style scoped lang="scss">
