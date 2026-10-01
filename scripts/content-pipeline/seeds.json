@@ -12,32 +12,125 @@
       "seeds": [
         {
           "q": "ai sommelier",
-          "soup": true
+          "soup": true,
+          "audience": "restaurant"
         },
         {
-          "q": "ai sommelier for wine shops"
+          "q": "ai sommelier for wine shops",
+          "audience": "retail"
         },
         {
           "q": "wine recommendation widget",
-          "soup": true
+          "soup": true,
+          "audience": "online"
         },
         {
-          "q": "sell more wine online"
+          "q": "sell more wine online",
+          "audience": "online"
         },
         {
-          "q": "qr wine menu restaurant"
+          "q": "qr wine menu restaurant",
+          "audience": "restaurant"
         },
         {
-          "q": "shopify wine recommendation app"
+          "q": "shopify wine recommendation app",
+          "audience": "online"
         },
         {
-          "q": "wine shop chatbot"
+          "q": "wine shop chatbot",
+          "audience": "retail"
         },
         {
-          "q": "digital sommelier restaurant"
+          "q": "digital sommelier restaurant",
+          "audience": "restaurant"
         },
         {
-          "q": "wine recommendation api"
+          "q": "wine recommendation api",
+          "audience": "online"
+        },
+        {
+          "q": "wine list software for restaurants",
+          "audience": "restaurant"
+        },
+        {
+          "q": "digital wine menu qr code",
+          "audience": "restaurant"
+        },
+        {
+          "q": "how to sell more wine in a restaurant",
+          "audience": "restaurant"
+        },
+        {
+          "q": "restaurant wine pairing app",
+          "audience": "restaurant"
+        },
+        {
+          "q": "digital sommelier for restaurants",
+          "audience": "restaurant"
+        },
+        {
+          "q": "wine by the glass program for bars",
+          "audience": "restaurant"
+        },
+        {
+          "q": "wine shop software",
+          "audience": "retail"
+        },
+        {
+          "q": "wine shop pos system",
+          "audience": "retail"
+        },
+        {
+          "q": "how to increase wine shop sales",
+          "audience": "retail"
+        },
+        {
+          "q": "independent wine shop marketing ideas",
+          "audience": "retail"
+        },
+        {
+          "q": "increase wine sales online",
+          "audience": "online"
+        },
+        {
+          "q": "wine ecommerce conversion rate",
+          "audience": "online"
+        },
+        {
+          "q": "shopify wine store apps",
+          "audience": "online"
+        },
+        {
+          "q": "how to sell wine online",
+          "audience": "online"
+        },
+        {
+          "q": "wine ecommerce personalization",
+          "audience": "online"
+        },
+        {
+          "q": "upsell and cross sell for wine ecommerce",
+          "audience": "online"
+        },
+        {
+          "q": "how to build a restaurant wine list",
+          "audience": "restaurant"
+        },
+        {
+          "q": "wine list pricing strategy",
+          "audience": "restaurant"
+        },
+        {
+          "q": "wine list management software",
+          "audience": "restaurant"
+        },
+        {
+          "q": "ai wine chatbot for ecommerce",
+          "audience": "online"
+        },
+        {
+          "q": "ai wine pairing tool",
+          "audience": "online"
         }
       ]
     },
@@ -53,26 +146,101 @@
       "seeds": [
         {
           "q": "sommelier virtuel caviste",
-          "soup": true
+          "soup": true,
+          "audience": "retail"
         },
         {
           "q": "sommelier ia",
-          "soup": true
+          "soup": true,
+          "audience": "restaurant"
         },
         {
-          "q": "carte des vins ia"
+          "q": "carte des vins ia",
+          "audience": "restaurant"
         },
         {
-          "q": "logiciel caviste"
+          "q": "logiciel caviste",
+          "audience": "retail"
         },
         {
-          "q": "vendre plus de vin en ligne"
+          "q": "vendre plus de vin en ligne",
+          "audience": "online"
         },
         {
-          "q": "qr code carte des vins restaurant"
+          "q": "qr code carte des vins restaurant",
+          "audience": "restaurant"
         },
         {
-          "q": "recommandation de vin ia"
+          "q": "recommandation de vin ia",
+          "audience": "online"
+        },
+        {
+          "q": "carte des vins digitale",
+          "audience": "restaurant"
+        },
+        {
+          "q": "carte des vins qr code restaurant",
+          "audience": "restaurant"
+        },
+        {
+          "q": "logiciel carte des vins restaurant",
+          "audience": "restaurant"
+        },
+        {
+          "q": "comment vendre plus de vin au restaurant",
+          "audience": "restaurant"
+        },
+        {
+          "q": "sommelier virtuel restaurant",
+          "audience": "restaurant"
+        },
+        {
+          "q": "logiciel de caisse caviste",
+          "audience": "retail"
+        },
+        {
+          "q": "comment augmenter les ventes d'une cave à vin",
+          "audience": "retail"
+        },
+        {
+          "q": "idées marketing pour caviste indépendant",
+          "audience": "retail"
+        },
+        {
+          "q": "conseil vin en boutique caviste",
+          "audience": "retail"
+        },
+        {
+          "q": "augmenter les ventes de vin en ligne",
+          "audience": "online"
+        },
+        {
+          "q": "vendre du vin en ligne",
+          "audience": "online"
+        },
+        {
+          "q": "module recommandation vin shopify",
+          "audience": "online"
+        },
+        {
+          "q": "comment composer une carte des vins",
+          "audience": "restaurant"
+        },
+        {
+          "q": "coefficient prix de vente vin restaurant",
+          "audience": "restaurant"
+        },
+        {
+          "q": "gestion de la carte des vins",
+          "audience": "restaurant"
+        },
+        {
+          "q": "sommelier ia pour caviste",
+          "audience": "online"
+        },
+        {
+          "q": "chatbot conseil vin",
+          "audience": "online"
         }
       ]
     },
@@ -88,19 +256,88 @@
       "seeds": [
         {
           "q": "sommelier ia para tiendas de vinos",
-          "soup": true
+          "soup": true,
+          "audience": "retail"
         },
         {
-          "q": "sommelier virtual"
+          "q": "sommelier virtual",
+          "audience": "restaurant"
         },
         {
-          "q": "carta de vinos qr restaurante"
+          "q": "carta de vinos qr restaurante",
+          "audience": "restaurant"
         },
         {
-          "q": "recomendador de vinos"
+          "q": "recomendador de vinos",
+          "audience": "online"
         },
         {
-          "q": "vender más vino online"
+          "q": "vender más vino online",
+          "audience": "online"
+        },
+        {
+          "q": "carta de vinos digital qr",
+          "audience": "restaurant"
+        },
+        {
+          "q": "software carta de vinos restaurante",
+          "audience": "restaurant"
+        },
+        {
+          "q": "cómo vender más vino en un restaurante",
+          "audience": "restaurant"
+        },
+        {
+          "q": "app de maridaje para restaurantes",
+          "audience": "restaurant"
+        },
+        {
+          "q": "software para tiendas de vino",
+          "audience": "retail"
+        },
+        {
+          "q": "programa de gestión para vinoteca",
+          "audience": "retail"
+        },
+        {
+          "q": "cómo aumentar las ventas de una vinoteca",
+          "audience": "retail"
+        },
+        {
+          "q": "recomendador de vinos para tienda",
+          "audience": "retail"
+        },
+        {
+          "q": "aumentar las ventas de vino online",
+          "audience": "online"
+        },
+        {
+          "q": "cómo vender vino online",
+          "audience": "online"
+        },
+        {
+          "q": "tienda online de vino shopify",
+          "audience": "online"
+        },
+        {
+          "q": "cómo hacer una carta de vinos",
+          "audience": "restaurant"
+        },
+        {
+          "q": "precio de venta del vino en restaurante",
+          "audience": "restaurant"
+        },
+        {
+          "q": "sommelier con inteligencia artificial",
+          "audience": "online"
+        },
+        {
+          "q": "chatbot recomendador de vinos",
+          "audience": "online"
+        },
+        {
+          "q": "api de recomendación de vinos",
+          "audience": "online"
         }
       ]
     }

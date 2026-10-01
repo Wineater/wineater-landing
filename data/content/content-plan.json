@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T21:32:59.985Z",
+  "generatedAt": "2026-10-01T06:09:43.348Z",
   "items": [
     {
       "target": "landing",
@@ -184,6 +184,313 @@
       "status": "drafted",
       "plannedAt": "2026-09-30T21:32:59.985Z",
       "draftedAt": "2026-09-30T21:35:20.147Z"
+    },
+    {
+      "target": "blog",
+      "title": "How to Sell More Wine in a Restaurant: 7 Proven Strategies",
+      "slug": "how-to-sell-more-wine-in-a-restaurant",
+      "locale": "en",
+      "primaryKeyword": "how to sell more wine in a restaurant",
+      "secondaryKeywords": [
+        "wine list pricing strategy",
+        "how to build a restaurant wine list",
+        "what is the restaurant markup on wine"
+      ],
+      "audience": "restaurant",
+      "intent": "informational",
+      "cluster": "restaurant-wine-sales",
+      "b2bScore": 8,
+      "rationale": "High-intent operational query for restaurant owners and F&B managers seeking to increase bottle revenue and table spend.",
+      "outline": [
+        "Why Wine Sales Drive Restaurant Profit Margins",
+        "Optimizing Wine List Pricing and Markup Strategy",
+        "Staff Training vs Instant Digital Table Guidance",
+        "Structuring Your Menu for Quicker Decision-Making",
+        "Using QR-Based Digital Sommeliers to Drive Wine Pairing Upsells"
+      ],
+      "internalLinks": [
+        {
+          "path": "/blog/ai-versus-human-sommelier",
+          "anchor": "human sommelier guidance"
+        },
+        {
+          "path": "/faq",
+          "anchor": "AI sommelier FAQ"
+        }
+      ],
+      "priority": 8,
+      "id": "en:how-to-sell-more-wine-in-a-restaurant",
+      "status": "planned",
+      "plannedAt": "2026-10-01T06:09:43.345Z"
+    },
+    {
+      "target": "blog",
+      "title": "Shopify Wine Recommendation App: Upsell and Cross-Sell Strategies",
+      "slug": "shopify-wine-recommendation-app",
+      "locale": "en",
+      "primaryKeyword": "shopify wine recommendation app",
+      "secondaryKeywords": [
+        "upsell and cross sell for wine ecommerce",
+        "ai wine chatbot for ecommerce",
+        "shopify wine store apps"
+      ],
+      "audience": "online",
+      "intent": "commercial",
+      "cluster": "wine-ecommerce-tech",
+      "b2bScore": 9,
+      "rationale": "Directly targets online wine merchants looking for automated, catalog-aware recommendation tools to lift average order value.",
+      "outline": [
+        "The Conversion Challenge for Online Wine Retailers",
+        "Why Rule-Based Cross-Sells Fail in Wine E-Commerce",
+        "Implementing Real-Time AI Recommendations by Food Pairing and Taste",
+        "Reducing Cart Abandonment with Clear Four-Wine Suggestions",
+        "How Wine E-Commerce Stores Can Integrate API and Widget Recommendations"
+      ],
+      "internalLinks": [
+        {
+          "path": "/blog/wine-shop-chatbot-vs-ai-sommelier",
+          "anchor": "wine shop chatbot comparison"
+        },
+        {
+          "path": "/faq",
+          "anchor": "integration questions"
+        }
+      ],
+      "priority": 9,
+      "id": "en:shopify-wine-recommendation-app",
+      "status": "drafted",
+      "plannedAt": "2026-10-01T06:09:43.345Z",
+      "draftedAt": "2026-10-01T06:11:00.481Z"
+    },
+    {
+      "target": "blog",
+      "title": "Wine Shop Software: How to Modernize Your Retail Tech Stack",
+      "slug": "wine-shop-software-guide",
+      "locale": "en",
+      "primaryKeyword": "wine shop software",
+      "secondaryKeywords": [
+        "wine shop pos system",
+        "wine store software",
+        "wine shop management software"
+      ],
+      "audience": "retail",
+      "intent": "commercial",
+      "cluster": "wine-retail-technology",
+      "b2bScore": 8,
+      "rationale": "High-volume commercial query from independent wine shop owners auditing their POS, inventory, and customer advisory systems.",
+      "outline": [
+        "Core Capabilities Modern Wine Shop Software Must Have",
+        "POS and Inventory Management for Specialty Wine Merchants",
+        "Bridging Physical Retail and Digital Shelf Advice",
+        "Empowering Floor Staff with In-Store Digital Tasting Notes and AI Advice",
+        "Choosing Tech That Connects to Your Inventory Catalog"
+      ],
+      "internalLinks": [
+        {
+          "path": "/blog/wine-shop-chatbot-vs-ai-sommelier",
+          "anchor": "digital wine advisors"
+        },
+        {
+          "path": "/blog/ai-versus-human-sommelier",
+          "anchor": "AI vs human sommelier"
+        }
+      ],
+      "priority": 8,
+      "id": "en:wine-shop-software-guide",
+      "status": "planned",
+      "plannedAt": "2026-10-01T06:09:43.345Z"
+    },
+    {
+      "target": "blog",
+      "title": "Carte des vins digitale : Guide pour restaurants et bars à vin",
+      "slug": "carte-des-vins-digitale",
+      "locale": "fr",
+      "primaryKeyword": "carte des vins digitale",
+      "secondaryKeywords": [
+        "logiciel carte des vins restaurant",
+        "comment vendre plus de vin au restaurant",
+        "sommelier virtuel restaurant"
+      ],
+      "audience": "restaurant",
+      "intent": "commercial",
+      "cluster": "restaurant-digital-menu",
+      "b2bScore": 8,
+      "rationale": "Addresses restaurant managers looking to replace rigid paper wine lists with interactive, dynamic wine cards that boost bottle sales.",
+      "outline": [
+        "Pourquoi digitaliser la carte des vins de son établissement",
+        "Les limites du simple PDF face à une expérience interactive",
+        "Accompagner le client au bon accord mets-vins sans mobiliser la salle",
+        "Mettre à jour les millésimes et ruptures en temps réel",
+        "Déployer un sommelier digital par QR code à table"
+      ],
+      "internalLinks": [
+        {
+          "path": "/fr",
+          "anchor": "sommelier IA pour restaurants"
+        },
+        {
+          "path": "/fr/faq",
+          "anchor": "foire aux questions"
+        }
+      ],
+      "priority": 8,
+      "id": "fr:carte-des-vins-digitale",
+      "status": "planned",
+      "plannedAt": "2026-10-01T06:09:43.347Z"
+    },
+    {
+      "target": "blog",
+      "title": "Comment vendre du vin en ligne : Guide complet pour cavistes et producteurs",
+      "slug": "comment-vendre-du-vin-en-ligne",
+      "locale": "fr",
+      "primaryKeyword": "comment vendre du vin en ligne",
+      "secondaryKeywords": [
+        "vendre du vin en ligne",
+        "vendre du vin en ligne réglementation",
+        "sommelier ia pour caviste"
+      ],
+      "audience": "online",
+      "intent": "informational",
+      "cluster": "wine-ecommerce-guide",
+      "b2bScore": 7,
+      "rationale": "High-volume search query from French wine merchants and retailers seeking to launch or optimize direct-to-consumer e-commerce.",
+      "outline": [
+        "Le cadre réglementaire de la vente de vin en ligne en France",
+        "Choisir la bonne plateforme e-commerce pour le vin",
+        "Recréer le conseil du caviste sur un site internet",
+        "Optimiser le panier moyen grâce aux recommandations automatisées",
+        "Gérer la logistique, la casse et la livraison sécurisée"
+      ],
+      "internalLinks": [
+        {
+          "path": "/fr/blog/logiciel-caviste-professionnel",
+          "anchor": "logiciel pour caviste"
+        },
+        {
+          "path": "/fr/blog/sommelier-virtuel-caviste",
+          "anchor": "sommelier virtuel caviste"
+        }
+      ],
+      "priority": 7,
+      "id": "fr:comment-vendre-du-vin-en-ligne",
+      "status": "planned",
+      "plannedAt": "2026-10-01T06:09:43.348Z"
+    },
+    {
+      "target": "blog",
+      "title": "Cómo vender más vino en un restaurante: Claves de rentabilidad",
+      "slug": "como-vender-mas-vino-en-un-restaurante",
+      "locale": "es",
+      "primaryKeyword": "cómo vender más vino en un restaurante",
+      "secondaryKeywords": [
+        "como vender vino en un restaurante",
+        "como hacer una carta de vinos para un restaurante",
+        "carta de vinos qr restaurante"
+      ],
+      "audience": "restaurant",
+      "intent": "informational",
+      "cluster": "restaurant-wine-sales-es",
+      "b2bScore": 8,
+      "rationale": "High-demand B2B topic across Hispanic hospitality businesses looking to optimize wine margins and improve diner pairings.",
+      "outline": [
+        "Por qué el vino es el producto con mayor margen en restauración",
+        "Estructura y diseño de una carta de vinos rentable",
+        "Estrategias de maridaje para aumentar el ticket medio",
+        "Superar la falta de personal formado con cartas interactivas",
+        "Implementar un sommelier virtual con código QR en mesa"
+      ],
+      "internalLinks": [
+        {
+          "path": "/faq",
+          "anchor": "preguntas frecuentes sobre sommelier virtual"
+        },
+        {
+          "path": "/blog",
+          "anchor": "recursos y artículos B2B"
+        }
+      ],
+      "translationOf": "how-to-sell-more-wine-in-a-restaurant",
+      "priority": 8,
+      "id": "es:como-vender-mas-vino-en-un-restaurante",
+      "status": "planned",
+      "plannedAt": "2026-10-01T06:09:43.348Z"
+    },
+    {
+      "target": "blog",
+      "title": "Software para tiendas de vino: Automatiza ventas y recomendaciones",
+      "slug": "software-para-tiendas-de-vino",
+      "locale": "es",
+      "primaryKeyword": "software para tiendas de vino",
+      "secondaryKeywords": [
+        "sommelier ia para tiendas de vinos",
+        "sommelier virtual",
+        "recomendador de vinos"
+      ],
+      "audience": "retail",
+      "intent": "commercial",
+      "cluster": "wine-retail-tech-es",
+      "b2bScore": 8,
+      "rationale": "Targeted at Spanish and Latin American wine shop owners looking to upgrade shop management and advise customers dynamically.",
+      "outline": [
+        "Desafíos tecnológicos de las vinotecas independientes",
+        "Funciones indispensables en un software de gestión para vinotecas",
+        "Cómo ofrecer asesoramiento personalizado sin ampliar la plantilla",
+        "Integración de sommelier con inteligencia artificial en el punto de venta",
+        "Mejorar la rotación del inventario mediante sugerencias precisas"
+      ],
+      "internalLinks": [
+        {
+          "path": "/faq",
+          "anchor": "preguntas frecuentes"
+        },
+        {
+          "path": "/blog/wine-shop-chatbot-vs-ai-sommelier",
+          "anchor": "chatbots y asistentes de vino"
+        }
+      ],
+      "priority": 8,
+      "id": "es:software-para-tiendas-de-vino",
+      "status": "planned",
+      "plannedAt": "2026-10-01T06:09:43.348Z"
+    },
+    {
+      "target": "landing",
+      "title": "Digital Wine Menu with QR Code for Restaurants",
+      "slug": "digital-wine-menu-qr-code",
+      "locale": "en",
+      "primaryKeyword": "digital wine menu qr code",
+      "secondaryKeywords": [
+        "qr wine menu restaurant",
+        "wine list app for restaurants",
+        "digital sommelier restaurant",
+        "restaurant wine pairing app"
+      ],
+      "audience": "restaurant",
+      "intent": "commercial",
+      "cluster": "restaurant-qr-wine-list",
+      "b2bScore": 9,
+      "rationale": "Commercial landing page targeting hospitality operators searching for a QR-driven wine list and table sommelier solution.",
+      "outline": [
+        "Turn Table Menus into Interactive AI Sommeliers",
+        "Instant Food and Wine Pairings from Your Actual Stock",
+        "No App Downloads: Instant QR Scan for Diners",
+        "Seamless Sync with Your Current Cellar Inventory",
+        "Book a Demo for Your Restaurant"
+      ],
+      "internalLinks": [
+        {
+          "path": "/faq",
+          "anchor": "frequently asked questions"
+        },
+        {
+          "path": "/blog/ai-versus-human-sommelier",
+          "anchor": "AI vs human sommeliers in service"
+        }
+      ],
+      "priority": 9,
+      "id": "en:digital-wine-menu-qr-code",
+      "status": "suggested",
+      "plannedAt": "2026-10-01T06:09:43.348Z"
     }
   ],
   "skipped": []

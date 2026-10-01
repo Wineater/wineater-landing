@@ -12,11 +12,12 @@ seeds.json (EN/FR/ES)
      |                + Search Console queries   (if GSC_* set)
      |                + DataForSEO volume / KD   (if DATAFORSEO_* set)
      |                + SerpAPI PAA / related    (if SERPAPI_KEY set)
+     |                + Google Ads Keyword Planner exports (--import, see docs/KEYWORD_PLANNER.md)
      v
  data/content/keywords.json
      |
      v
- content:plan ------- Gemini (flash-lite, structured JSON): cluster, dedupe, B2B score, drop consumer intent,
+ content:plan ------- Gemini (3.8 Flash, structured JSON): cluster, dedupe, B2B score, drop consumer intent,
      |                target blog / landing / skip, avoid cannibalization
      v
  data/content/content-plan.json
@@ -50,14 +51,16 @@ Everything is resumable and idempotent. Keyword responses are cached for 30 days
 | Command | What it does |
 |---|---|
 | `npm run content:keywords` | Expands seeds through Autocomplete (cap 300 requests) and merges the optional providers. Writes `data/content/keywords.json`. |
+| `npm run content:keywords -- --import <file>` | Merges a Google Ads Keyword Planner export (UTF-16 or UTF-8, EN/FR/ES headers, exact or range volumes). See `docs/KEYWORD_PLANNER.md`. |
 | `npm run content:plan -- --limit 6` | Asks Gemini for up to 6 new plan items. Appends to `content-plan.json`. |
 | `npm run content:draft -- --limit 1` | Drafts the highest B2B-score planned items. `--slug <slug>` forces one. |
 | `npm run content:check [-- <slug>]` | QA gate on all articles in `content/blog` or one slug. Exit code 1 on failure. |
 | `npm run content:approve -- <slug> --by "Name"` | Human gate. Refuses when the gate fails. |
+| `npm run content:daily -- --limit 2` | Daily run, see below. |
 | `npm run content:weekly -- --limit 2` | keywords, plan, draft, check in order. Default 2 articles. |
 | `npm run content:test` | Unit tests for parsers, plan validation and QA checks. No network. |
 
-`--dry-run` works on `keywords`, `plan`, `draft` and `weekly`. It uses the disk cache only, prints the prompts and estimated tokens, calls no API and writes no data files.
+`--dry-run` works on `keywords`, `plan`, `draft`, `daily` and `weekly`. It uses the disk cache only, prints the prompts and estimated tokens, calls no API and writes no data files.
 
 ## Environment
 
@@ -66,10 +69,10 @@ Copy `scripts/content-pipeline/.env.example` to `scripts/content-pipeline/.env` 
 | Variable | Needed for |
 |---|---|
 | `GEMINI_API_KEY` | plan, draft (same key type the backend uses; copy it into the git-ignored `.env`) |
-| `CONTENT_MODEL_PLAN` (default `gemini-3.1-flash-lite`) | plan, research with grounding, claim extraction |
-| `CONTENT_MODEL_DRAFT` (default `gemini-3.1-pro-preview`) | article writing and the QA fix pass |
-| `CONTENT_MAX_USD_PER_RUN` (default 3), `CONTENT_MAX_TOKENS_PER_RUN` (default 600000) | hard stops inside one run; the token cap works even when no prices are set |
-| `CONTENT_PRICE_PLAN_IN/OUT_PER_MTOK`, `CONTENT_PRICE_DRAFT_IN/OUT_PER_MTOK`, `CONTENT_PRICE_PER_SEARCH` | cost estimate only; empty by default (cost shows 0, tokens are still logged). Fill from the current Gemini price list |
+| `CONTENT_MODEL_PLAN`, `CONTENT_MODEL_RESEARCH` (default `gemini-3.8-flash`) | plan, grounded research and claim extraction |
+| `CONTENT_MODEL_DRAFT` (default `gemini-3.1-pro-preview`), `CONTENT_MODEL_DRAFT_FALLBACK` (default `gemini-3.8-flash`) | article writing and the QA fix pass; the fallback is used automatically when the draft model errors |
+| `CONTENT_MAX_USD_PER_RUN` (default 3), `CONTENT_MAX_TOKENS_PER_RUN` (default 600000) | hard stops inside one run |
+| `CONTENT_PRICES_JSON` | optional price overrides (USD per million tokens); defaults are built in |
 | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` | search volume, keyword difficulty |
 | `SERPAPI_KEY` | People Also Ask, related searches, research fallback |
 | `GSC_CREDENTIALS_PATH`, `GSC_SITE_URL` | queries the site already gets (service account with read access to the property) |
@@ -97,32 +100,48 @@ French and Spanish spelling is not checked.
 
 External claims come only from the research step. Gemini searches with Google Search grounding; the source URLs are read from the grounding metadata (not written by the model), redirect links are resolved to the real page, and a structured call picks claims from the grounded segments. A claim survives when its source is a grounding source and the page answers with HTTP 200. Grounding shows that a page supports a sentence, not that the sentence is exact: check figures at the source. The claims table is saved to `data/content/claims/<slug>.json` for audit.
 
-## Models
+## Models and prices
 
-Models available to the key were listed with `models.list` (Sep 2026): the 2.5, 3.x flash, flash-lite and pro families, among them `gemini-3.1-flash-lite`, `gemini-3.5-flash`, `gemini-3.8-flash` and `gemini-3.1-pro-preview`. Defaults:
+Prices are built in (`lib/runs.ts`, USD per million tokens, checked on ai.google.dev on 2026-09-30) so `runs.jsonl` shows real USD cost per call.
 
-- Plan, research, claim extraction: `gemini-3.1-flash-lite` (the model the backend uses; grounded search works on it).
-- Drafting: `gemini-3.1-pro-preview`, the strongest text model listed. It is a preview model and may change or be retired; set `CONTENT_MODEL_DRAFT` to a flash model if it disappears or is rate limited.
-
-Plan and claims use structured output (`responseJsonSchema`), so the JSON is valid by construction. Pro and flash models spend "thinking" tokens that count as output; `runs.jsonl` logs them as `thoughtsTokens`.
-
-## Cost per article
-
-Prices are not hard-coded. Put the current per-million-token prices in `.env` and read real numbers from `data/content/runs.jsonl` (model, input/output/thinking tokens, grounded searches, cost per call). Observed in the first real run:
-
-| Step | Model | Tokens (in / out) |
+| Role | Model | Input / output |
 |---|---|---|
-| Plan, 6 items from 236 keywords | flash-lite | 1.6k / 1.0k |
-| Research, 4 to 5 grounded searches | flash-lite | about 0.2k / 0.4k |
-| Claim extraction | flash-lite | 0.9k to 1.0k / 0.4k |
-| Writing (800 to 950 words) | pro preview | 1.9k to 2.1k / 8k to 11k (6.6k to 9.4k of it thinking) |
-| Fix pass (only when the gate fails, happened once) | pro preview | 3.2k / 5.0k |
+| Plan, research (grounding), claim extraction | `gemini-3.8-flash` (stable) | 0.75 / 3.75 incl. thinking until 2026-12-31, then 1.50 / 7.50 (the switch is automatic from 2027-01-01) |
+| Drafting and QA fix pass | `gemini-3.1-pro-preview` (preview, most capable) | 2.00 / 12.00 for prompts up to 200k tokens, 4 / 18 above |
+| Fallback for drafting | `gemini-3.8-flash` | as above |
+| Google Search grounding | | 5,000 free requests a month shared across Gemini 3.x, then 14 USD per 1,000. The month count is read from `runs.jsonl` |
 
-One article is about 3.4k to 6.1k input and 9k to 16.5k output tokens, almost all of it on the pro model. Multiply by your prices: output tokens of the draft model dominate the cost. The real cost that matters is editor time.
+If the Pro model errors (not found, quota, server error after retries), the same call runs on the fallback model. The console prints `[llm] FALLBACK: ...` and the run-log row gets `fallbackUsed: true` and `fallbackFrom`. Tested with a bogus model name (404 gives an immediate fallback). Plan and claims use structured output. Thinking tokens count as output; the log has them as `thoughtsTokens`.
 
-## Weekly cadence
+## Cost per article (observed 2026-10-01)
 
-Two drafts a week at most. The default limit is 2 and `CONTENT_MAX_USD_PER_RUN` stops a run early. A sensible rhythm: run on Monday, edit Tuesday and Wednesday, approve and deploy Thursday. Approve at most as many articles as the editor can improve with real material.
+One real article on the Pro model (`shopify-wine-recommendation-app`, first draft passed QA, no fix pass):
+
+| Step | Model | Tokens in / out (thinking) | USD |
+|---|---|---|---|
+| Research, 5 grounded searches | 3.8 Flash | 1.0k / 2.0k (1.6k) | 0.008 |
+| Claim extraction | 3.8 Flash | 0.9k / 0.4k | 0.002 |
+| Writing | 3.1 Pro | 2.0k / 6.9k (5.4k) | 0.087 |
+| Total | | | about 0.10 |
+
+The same writing step on the fallback (3.8 Flash) would cost about 0.03 USD for similar tokens. A fix pass on Pro adds about 0.05 to 0.06 USD. The plan top-up (8 items) cost 0.015 USD. Search grounding stays free under 5,000 searches a month, which is roughly 1,000 articles. Plan on about 0.10 to 0.20 USD per article on Pro, so a month of daily articles costs a few dollars. The real cost is editor time.
+
+## Daily cadence
+
+`npm run content:daily` (add `--limit N`, default 2; `--dry-run`; `--offline` to use only cached Autocomplete answers; `--force` to ignore the per-day limit):
+
+1. Imports any new or changed Keyword Planner file in `data/content/imports/`, then refreshes keywords from the Autocomplete cache.
+2. Tops up the plan only when fewer than 5 unwritten blog items remain.
+3. Drafts up to `--limit` new articles into `content/blog` with `draft: true`, `reviewed: false`. Articles that fail QA go to `content/_rejected`.
+4. Runs the QA check over all articles and writes the run log (`data/content/runs.jsonl`).
+
+It is safe to run twice: `data/content/daily-state.json` remembers how many drafts today's run already made, and existing slugs are never redrafted. No scheduler is set up.
+
+Guidance: generating daily is cheap, publishing is the bottleneck. Publish about 2 to 3 reviewed articles a week. Drafts pile up in `content/blog` as `draft: true`; production lists only `draft: false` and `reviewed: true`, so a backlog of drafts never reaches the public site. Review the best ones (highest volume, closest to a buyer) and delete or leave the rest.
+
+## Weekly cadence (alternative)
+
+`content:weekly` is the older, once-a-week flow and is still available. The default limit is 2 and `CONTENT_MAX_USD_PER_RUN` stops a run early. A sensible rhythm: run on Monday, edit Tuesday and Wednesday, approve and deploy Thursday. Approve at most as many articles as the editor can improve with real material.
 
 ## How to add a provider
 
@@ -184,7 +203,7 @@ jobs:
 What this pipeline does about it:
 
 - It produces reviewed drafts, not posts. There is no auto-publish. `approve` is a separate human command.
-- Cadence is capped at 2 a week, and the plan drops topics that overlap existing pages.
+- Generation is capped at 2 a day and publishing at about 2 to 3 reviewed articles a week, and the plan drops topics that overlap existing pages.
 - Drafts carry real sources and only approved product facts. The gate blocks invented numbers, customer claims and unlisted links, and sends failures to `content/_rejected`.
 - Every draft is written natively in its language from a plan built on real search demand, not translated from English.
 

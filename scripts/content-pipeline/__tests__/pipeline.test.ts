@@ -142,3 +142,83 @@ test('frontmatter round trip and keyword scoring', () => {
   assert.ok(b2b > consumer)
   assert.match(isoWeek(new Date('2026-09-30T12:00:00Z')), /^2026-W40$/)
 })
+
+// ---- Keyword Planner import ----
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { parsePlannerText, parseVolume, readPlannerFile, decodeBuffer } from '../lib/planner'
+import { guessAudience, mergePlannerRows, type KeywordsFile } from '../keywords'
+import { budgetExhausted } from '../lib/llm'
+import { priceFor, priceUsd } from '../lib/runs'
+
+const fx = (n: string) => path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', n)
+
+test('parseVolume handles exact numbers and ranges', () => {
+  assert.deepEqual(parseVolume('100 – 1K'), { volumeLow: 100, volumeHigh: 1000, volumeMid: 550 })
+  assert.deepEqual(parseVolume('1K – 10K'), { volumeLow: 1000, volumeHigh: 10000, volumeMid: 5500 })
+  assert.deepEqual(parseVolume('10 – 100'), { volumeLow: 10, volumeHigh: 100, volumeMid: 55 })
+  assert.deepEqual(parseVolume('1 300'), { volumeLow: 1300, volumeHigh: 1300, volumeMid: 1300 })
+  assert.deepEqual(parseVolume('1,300'), { volumeLow: 1300, volumeHigh: 1300, volumeMid: 1300 })
+  assert.deepEqual(parseVolume('1.5K'), { volumeLow: 1500, volumeHigh: 1500, volumeMid: 1500 })
+  assert.deepEqual(parseVolume(''), {})
+  assert.deepEqual(parseVolume('-'), {})
+})
+
+test('UTF-16LE tab-separated export with title lines and BOM', () => {
+  const rows = readPlannerFile(fx('planner-en-utf16.csv'))
+  assert.equal(rows.length, 4)
+  assert.equal(rows[0].keyword, 'wine list software for restaurants')
+  assert.equal(rows[0].volumeRaw, '100 – 1K')
+  assert.equal(rows[0].volumeMid, 550)
+  assert.equal(rows[0].competition, 'Low')
+  assert.equal(rows[1].volumeHigh, 10000)
+  assert.equal(rows[3].volumeMid, undefined)
+})
+
+test('UTF-8 CSV with French headers, BOM and quoted values', () => {
+  const rows = readPlannerFile(fx('planner-fr-utf8.csv'))
+  assert.equal(rows.length, 3)
+  assert.equal(rows[0].keyword, 'carte des vins digitale')
+  assert.equal(rows[0].volumeMid, 1300)
+  assert.equal(rows[1].volumeLow, 100)
+  assert.equal(rows[0].competition, 'Faible')
+})
+
+test('Spanish headers and semicolon delimiter are accepted, accents ignored', () => {
+  const rows = parsePlannerText('Palabra clave;Promedio de búsquedas mensuales;Competencia\ncarta de vinos digital qr;10 – 100;Baja\n')
+  assert.equal(rows[0].keyword, 'carta de vinos digital qr')
+  assert.equal(rows[0].volumeMid, 55)
+  assert.throws(() => parsePlannerText('foo,bar\n1,2'))
+  assert.equal(decodeBuffer(Buffer.from('﻿abc', 'utf8')), 'abc')
+})
+
+test('merge keeps existing rows, dedupes case/accent-insensitively and keeps the best volume', () => {
+  const file: KeywordsFile = {
+    generatedAt: '', requestsUsed: 0,
+    keywords: [
+      { keyword: 'logiciel caviste', locale: 'fr', sources: ['autocomplete'], seeds: ['x'], hits: 2, prelim: 1 },
+      { keyword: 'cómo vender vino', locale: 'es', sources: ['autocomplete'], seeds: ['x'], hits: 1, prelim: 1, volumeMid: 1000 },
+    ],
+  }
+  const rows = parsePlannerText('Keyword\tAvg. monthly searches\nLogiciel Caviste\t100 – 1K\nComo vender vino\t10 – 100\nwine shop software\t10 – 100\n')
+  const m = mergePlannerRows(file, rows.map((r) => ({ ...r })), {})
+  assert.equal(m.added, 1)
+  assert.equal(m.updated, 2)
+  assert.equal(m.file.keywords.length, 3)
+  const lc = m.file.keywords.find((k) => k.keyword === 'logiciel caviste')!
+  assert.deepEqual(lc.sources, ['autocomplete', 'keyword-planner'])
+  assert.equal(lc.volumeMid, 550)
+  assert.equal(m.file.keywords.find((k) => k.keyword === 'cómo vender vino')!.volumeMid, 1000)
+})
+
+test('audience guess and Gemini prices', () => {
+  assert.equal(guessAudience('carte des vins digitale'), 'restaurant')
+  assert.equal(guessAudience('logiciel caviste'), 'retail')
+  assert.equal(guessAudience('shopify wine recommendation app'), 'online')
+  assert.equal(priceFor('gemini-3.8-flash', new Date('2026-10-01'))?.out, 3.75)
+  assert.equal(priceFor('gemini-3.8-flash', new Date('2027-01-02'))?.out, 7.5)
+  assert.equal(Number(priceUsd('gemini-3.1-pro-preview', 100_000, 100_000).toFixed(2)), 1.4)
+  assert.equal(Number(priceUsd('gemini-3.1-pro-preview', 1_000_000, 1_000_000).toFixed(2)), 22)
+  assert.equal(priceUsd('unknown-model', 1000, 1000), 0)
+  assert.equal(typeof budgetExhausted(), 'boolean')
+})

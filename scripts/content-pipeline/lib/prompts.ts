@@ -79,6 +79,7 @@ export const PLAN_SCHEMA = {
           locale: { type: 'string', enum: ['en', 'fr', 'es'] },
           primaryKeyword: { type: 'string' },
           secondaryKeywords: { type: 'array', items: { type: 'string' } },
+          audience: { type: 'string', enum: ['restaurant', 'retail', 'online'] },
           intent: { type: 'string', enum: ['informational', 'commercial', 'comparison', 'transactional'] },
           cluster: { type: 'string' },
           b2bScore: { type: 'number' },
@@ -99,6 +100,7 @@ export const PLAN_SYSTEM = `You are the content strategist for Wineater, a B2B A
 Your job: from a list of search keywords, decide what to publish.
 - Cluster keywords by search intent and dedupe near-synonyms; one article or page per intent.
 - Score B2B relevance 0-10 for Wineater's buyers (wine shop owners, online wine retailers, restaurant owners). 0-4 is skip.
+- Rank by who the article serves and by demand. Each keyword has an audience tag (restaurant = restaurants and bars, retail = independent wine shops, online = online wine retailers and e-commerce). Set audience on every item. Spread items across the three audiences instead of picking only one. Within an audience, prefer higher monthly search volume (a range like 100 - 1K means roughly that many searches a month; when a keyword has no volume, a lower autocomplete rank number means more suggested). Volume never overrides B2B relevance.
 - Drop consumer-intent queries (best wine under 10, wine near me, what wine goes with pizza, recipes).
 - Set target: "blog" for informational or comparison intent a buyer researches; "landing" for commercial queries that belong on a product page; "skip" otherwise.
 - Do not propose topics that overlap with EXISTING CONTENT (cannibalization).
@@ -108,4 +110,4 @@ Your job: from a list of search keywords, decide what to publish.
 - internalLinks: only paths from ALLOWED INTERNAL LINKS.
 
 Return JSON only:
-{"items":[{"target":"blog|landing|skip","title":"","slug":"","locale":"en|fr|es","primaryKeyword":"","secondaryKeywords":[""],"intent":"informational|commercial|comparison|transactional","cluster":"","b2bScore":0,"rationale":"one sentence","outline":["H2 heading", "..."],"internalLinks":[{"path":"/","anchor":""}],"translationOf":null}]}`
+{"items":[{"target":"blog|landing|skip","title":"","slug":"","locale":"en|fr|es","primaryKeyword":"","secondaryKeywords":[""],"intent":"informational|commercial|comparison|transactional","audience":"restaurant|retail|online","cluster":"","b2bScore":0,"rationale":"one sentence","outline":["H2 heading", "..."],"internalLinks":[{"path":"/","anchor":""}],"translationOf":null}]}`

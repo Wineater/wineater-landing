@@ -5,7 +5,7 @@ import { estimateTokens } from './text'
 
 export interface LlmCall {
   stage: string
-  /** plan = clustering, research and claim extraction; draft = article writing */
+  /** plan = clustering and claim extraction; research = grounded search; draft = article writing (falls back to CONTENT_MODEL_DRAFT_FALLBACK) */
   role: LlmRole
   system: string
   user: string
@@ -34,6 +34,8 @@ export interface LlmResult {
   outputTokens: number
   searches: number
   costUsd: number
+  model: string
+  fallbackUsed: boolean
 }
 
 let spent = 0
@@ -67,13 +69,25 @@ export async function resolveRedirect(uri: string): Promise<string> {
 }
 
 export async function callLlm(call: LlmCall): Promise<LlmResult> {
-  const model = models[call.role]()
+  const primary = models[call.role]()
+  if (call.dryRun) return callModel(call, primary, false)
+  const fallback = call.role === 'draft' ? models.draftFallback() : ''
+  try {
+    return await callModel(call, primary, false)
+  } catch (e) {
+    if (!fallback || fallback === primary) throw e
+    console.warn(`[llm] FALLBACK: ${primary} failed for ${call.stage}${call.label ? ` ${call.label}` : ''} (${String((e as Error).message).slice(0, 160)}); using ${fallback}`)
+    return callModel(call, fallback, true, primary)
+  }
+}
+
+async function callModel(call: LlmCall, model: string, fallbackUsed: boolean, fallbackFrom?: string): Promise<LlmResult> {
   if (call.dryRun) {
     const inTok = estimateTokens(call.system + call.user)
     console.log(`\n----- DRY RUN [${call.stage}${call.label ? ` ${call.label}` : ''}] model=${model} ~${inTok} input tokens, max output ${call.maxTokens}${call.grounding ? ', google search grounding' : ''}${call.schema ? ', structured output' : ''}`)
     console.log('--- system ---\n' + call.system.slice(0, 1800) + (call.system.length > 1800 ? '\n[...truncated]' : ''))
     console.log('--- user ---\n' + call.user.slice(0, 2500) + (call.user.length > 2500 ? '\n[...truncated]' : ''))
-    return { text: '', sources: [], supports: [], searchQueries: [], inputTokens: inTok, outputTokens: 0, searches: 0, costUsd: priceUsd(call.role, inTok, call.maxTokens / 2) }
+    return { text: '', sources: [], supports: [], searchQueries: [], inputTokens: inTok, outputTokens: 0, searches: 0, costUsd: priceUsd(model, inTok, call.maxTokens / 2), model, fallbackUsed: false }
   }
 
   const ai = getClient()
@@ -118,9 +132,9 @@ export async function callLlm(call: LlmCall): Promise<LlmResult> {
   const u = res.usageMetadata
   const inputTokens = (u?.promptTokenCount || 0) + (u?.toolUsePromptTokenCount || 0)
   const outputTokens = (u?.candidatesTokenCount || 0) + (u?.thoughtsTokenCount || 0)
-  const costUsd = priceUsd(call.role, inputTokens, outputTokens, searches)
+  const costUsd = priceUsd(model, inputTokens, outputTokens, searches)
   spent += costUsd
   spentTokens += inputTokens + outputTokens
-  logRun({ stage: call.stage, label: call.label, model, inputTokens, outputTokens, thoughtsTokens: u?.thoughtsTokenCount || 0, searches, costUsd: Number(costUsd.toFixed(4)), finishReason: cand?.finishReason })
-  return { text, sources, supports, searchQueries, inputTokens, outputTokens, searches, costUsd }
+  logRun({ stage: call.stage, label: call.label, model, inputTokens, outputTokens, thoughtsTokens: u?.thoughtsTokenCount || 0, searches, costUsd: Number(costUsd.toFixed(4)), finishReason: cand?.finishReason, ...(fallbackUsed ? { fallbackUsed: true, fallbackFrom } : {}) })
+  return { text, sources, supports, searchQueries, inputTokens, outputTokens, searches, costUsd, model, fallbackUsed }
 }

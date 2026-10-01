@@ -1,0 +1,36 @@
+{
+  "slug": "shopify-wine-recommendation-app",
+  "at": "2026-10-01T06:10:09.206Z",
+  "claims": [
+    {
+      "claim": "Benchmark tracking by Dynamic Yield indicates that the shopping cart abandonment rate for the Food & Beverage ecommerce category reached 82.76%.",
+      "sourceUrl": "https://marketing.dynamicyield.com/benchmarks/cart-abandonment-rate/",
+      "sourceTitle": "dynamicyield.com"
+    },
+    {
+      "claim": "The Sovos ShipCompliant Direct-to-Consumer Wine Shipping Report recorded a drop exceeding $230 million in shipped value in 2025, alongside an 11% increase in the average price per bottle shipped.",
+      "sourceUrl": "https://script.google.com/macros/s/AKfycby71e4ZxKZwKN5990WbATeoNAbx29vr_bX2z0sKjWpl5Ybv6GXSR5we7zm1tkBkpE4/exec",
+      "sourceTitle": "google.com"
+    },
+    {
+      "claim": "Research on choice overload shows that presenting excessive product choices leads to increased cognitive load, decision fatigue, and higher cart abandonment.",
+      "sourceUrl": "https://eyecaptain.io/blog/paradox-of-choice-ecommerce-conversions",
+      "sourceTitle": "eyecaptain.io"
+    },
+    {
+      "claim": "A study by Sheena Iyengar and Mark Lepper found that displaying 6 choices yielded a 30% purchase rate, whereas displaying 24 choices resulted in only a 3% purchase rate.",
+      "sourceUrl": "https://yukaichou.com/behavioral-analysis/paradox-of-choice-schwartz-choice-overload/",
+      "sourceTitle": "yukaichou.com"
+    },
+    {
+      "claim": "Shopify's Product Recommendations API categorizes recommendations using the parameters 'related' for similar items and 'complementary' for paired cross-sell goods.",
+      "sourceUrl": "https://shopify.dev/docs/api/ajax/reference/product-recommendations",
+      "sourceTitle": "shopify.dev"
+    },
+    {
+      "claim": "Shopify's Product Recommendations API supports a returned item limit of 1 to 10 products and advises displaying 2 to 3 complementary products by default.",
+      "sourceUrl": "https://shopify.dev/docs/storefronts/themes/product-merchandising/recommendations/complementary-products",
+      "sourceTitle": "shopify.dev"
+    }
+  ]
+}

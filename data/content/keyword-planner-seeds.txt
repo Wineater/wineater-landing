@@ -1,0 +1,92 @@
+# Seeds for Google Ads Keyword Planner ("Discover new keywords").
+# Paste at most 10 phrases at a time, with the country and language shown in each header.
+# Lines starting with # are comments. The same phrases live in scripts/content-pipeline/seeds.json (audience tag).
+
+# === audience: restaurant | lang: EN (run with United Kingdom or United States + English) ===
+wine list software for restaurants
+digital wine menu qr code
+how to sell more wine in a restaurant
+restaurant wine pairing app
+digital sommelier for restaurants
+wine by the glass program for bars
+
+# === audience: restaurant | lang: FR (France + French) ===
+carte des vins digitale
+carte des vins qr code restaurant
+logiciel carte des vins restaurant
+comment vendre plus de vin au restaurant
+sommelier virtuel restaurant
+
+# === audience: restaurant | lang: ES (Spain + Spanish) ===
+carta de vinos digital qr
+software carta de vinos restaurante
+cómo vender más vino en un restaurante
+app de maridaje para restaurantes
+
+# === audience: retail | lang: EN ===
+wine shop software
+wine shop pos system
+how to increase wine shop sales
+independent wine shop marketing ideas
+
+# === audience: retail | lang: FR ===
+logiciel caviste
+logiciel de caisse caviste
+comment augmenter les ventes d'une cave à vin
+idées marketing pour caviste indépendant
+conseil vin en boutique caviste
+
+# === audience: retail | lang: ES ===
+software para tiendas de vino
+programa de gestión para vinoteca
+cómo aumentar las ventas de una vinoteca
+recomendador de vinos para tienda
+
+# === audience: online | lang: EN ===
+increase wine sales online
+wine ecommerce conversion rate
+shopify wine store apps
+how to sell wine online
+wine ecommerce personalization
+upsell and cross sell for wine ecommerce
+
+# === audience: online | lang: FR ===
+augmenter les ventes de vin en ligne
+vendre du vin en ligne
+module recommandation vin shopify
+
+# === audience: online | lang: ES ===
+aumentar las ventas de vino online
+cómo vender vino online
+tienda online de vino shopify
+
+# === topic: wine lists and menus (audience: restaurant) | lang: EN ===
+how to build a restaurant wine list
+wine list pricing strategy
+wine list management software
+
+# === topic: wine lists and menus (audience: restaurant) | lang: FR ===
+comment composer une carte des vins
+coefficient prix de vente vin restaurant
+gestion de la carte des vins
+
+# === topic: wine lists and menus (audience: restaurant) | lang: ES ===
+cómo hacer una carta de vinos
+precio de venta del vino en restaurante
+
+# === topic: AI and recommendation tooling (audience: online) | lang: EN ===
+wine recommendation widget
+ai sommelier for wine shops
+wine recommendation api
+ai wine chatbot for ecommerce
+ai wine pairing tool
+
+# === topic: AI and recommendation tooling (audience: online) | lang: FR ===
+sommelier ia pour caviste
+chatbot conseil vin
+recommandation de vin ia
+
+# === topic: AI and recommendation tooling (audience: online) | lang: ES ===
+sommelier con inteligencia artificial
+chatbot recomendador de vinos
+api de recomendación de vinos

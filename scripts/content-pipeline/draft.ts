@@ -81,11 +81,11 @@ async function extractClaims(item: PlanItem, res: Awaited<ReturnType<typeof call
 
 export async function research(item: PlanItem, dryRun: boolean): Promise<Claim[]> {
   if (dryRun) {
-    await callLlm({ stage: 'research', role: 'plan', label: item.slug, system: RESEARCH_SYSTEM, user: researchUser(item), maxTokens: 8000, grounding: true, dryRun })
+    await callLlm({ stage: 'research', role: 'research', label: item.slug, system: RESEARCH_SYSTEM, user: researchUser(item), maxTokens: 8000, grounding: true, dryRun })
     return []
   }
   try {
-    const res = await callLlm({ stage: 'research', role: 'plan', label: item.slug, system: RESEARCH_SYSTEM, user: researchUser(item), maxTokens: 8000, grounding: true })
+    const res = await callLlm({ stage: 'research', role: 'research', label: item.slug, system: RESEARCH_SYSTEM, user: researchUser(item), maxTokens: 8000, grounding: true })
     // resolve any redirect that failed during the call once more before giving up on it
     for (const s of res.sources) if (isRedirect(s.url)) s.url = await resolveRedirect(s.url)
     return await verifyReachable(await extractClaims(item, res))
@@ -100,7 +100,7 @@ export async function research(item: PlanItem, dryRun: boolean): Promise<Claim[]
     if (html) pages.push({ url: r.url, title: r.title, text: htmlToText(html, 4000) })
   }
   if (!pages.length) return []
-  const res = await callLlm({ stage: 'research', role: 'plan', label: `${item.slug} serp-fallback`, system: RESEARCH_SYSTEM, user: researchUser(item, pages), maxTokens: 8000 })
+  const res = await callLlm({ stage: 'research', role: 'research', label: `${item.slug} serp-fallback`, system: RESEARCH_SYSTEM, user: researchUser(item, pages), maxTokens: 8000 })
   const ex = await callLlm({
     stage: 'research', role: 'plan', label: `${item.slug} serp-extract`, system: EXTRACT_SYSTEM, maxTokens: 8000, schema: CLAIMS_SCHEMA as any,
     user: ['SOURCES:', ...pages.map((p, i) => `${i}: ${p.title} | ${p.url}`), '', 'SEGMENTS (text | supporting source numbers):', ...res.text.split('\n').filter((l) => l.trim().length > 10).map((l) => `- ${l.trim()} | ${pages.map((_, i) => i).join(',')}`)].join('\n'),
@@ -205,7 +205,7 @@ export async function runDraft(opts: { limit: number; dryRun: boolean; slug?: st
   const plan = readJson<PlanFile>(paths.plan, { generatedAt: '', items: [], skipped: [] })
   let queue = plan.items.filter((i) => i.target === 'blog' && i.status === 'planned')
   if (opts.slug) queue = plan.items.filter((i) => i.slug === opts.slug)
-  queue = queue.sort((a, b) => b.b2bScore - a.b2bScore).slice(0, opts.limit)
+  queue = queue.sort((a, b) => (b.priority ?? b.b2bScore) - (a.priority ?? a.b2bScore)).slice(0, opts.limit)
   if (!queue.length) console.log('[draft] nothing to draft (no planned blog items)')
 
   const results: { slug: string; status: string }[] = []

@@ -13,6 +13,7 @@
     "content:draft": "tsx scripts/content-pipeline/draft.ts",
     "content:check": "tsx scripts/content-pipeline/check.ts",
     "content:approve": "tsx scripts/content-pipeline/approve.ts",
+    "content:daily": "tsx scripts/content-pipeline/daily.ts",
     "content:weekly": "tsx scripts/content-pipeline/weekly.ts",
     "content:test": "tsx --test scripts/content-pipeline/__tests__/*.test.ts"
   },

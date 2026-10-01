@@ -1,14 +1,18 @@
 import fs from 'node:fs'
+import path from 'node:path'
+import { createHash } from 'node:crypto'
 import { paths, has, limits } from './lib/config'
 import { readJson, writeJson, parseArgs } from './lib/io'
 import { normalizeKeyword, guessLocale } from './lib/text'
 import { logRun } from './lib/runs'
+import { fold, localeFor, localeFromFilename, readPlannerFile, type PlannerRow } from './lib/planner'
 import { suggest } from './providers/autocomplete'
 import * as dfs from './providers/dataforseo'
 import * as serpapi from './providers/serpapi'
 import * as gsc from './providers/gsc'
 
-export type KeywordSource = 'seed' | 'autocomplete' | 'gsc' | 'dataforseo' | 'serpapi-paa' | 'serpapi-related'
+export type KeywordSource = 'seed' | 'autocomplete' | 'gsc' | 'dataforseo' | 'serpapi-paa' | 'serpapi-related' | 'keyword-planner'
+export type Audience = 'restaurant' | 'retail' | 'online'
 
 export interface KeywordRow {
   keyword: string
@@ -18,7 +22,13 @@ export interface KeywordRow {
   hits: number
   bestRank?: number
   question?: boolean
+  audience?: Audience
   volume?: number
+  volumeLow?: number
+  volumeHigh?: number
+  volumeMid?: number
+  volumeRaw?: string
+  competition?: string
   difficulty?: number
   cpc?: number
   clicks?: number
@@ -34,19 +44,30 @@ export interface KeywordsFile {
 }
 
 interface Seeds {
-  locales: Record<string, { hl: string; questionPrefixes: string[]; seeds: { q: string; soup?: boolean }[] }>
+  locales: Record<string, { hl: string; questionPrefixes: string[]; seeds: { q: string; soup?: boolean; audience?: Audience }[] }>
   b2bTerms: string[]
   consumerTerms: string[]
 }
 
+const AUDIENCE_HINTS: [Audience, RegExp][] = [
+  ['restaurant', /restaurant|\bbar\b|\bbars\b|carte des vins|carta de vinos|wine list|wine menu|hostel|restauration|brasserie/],
+  ['retail', /caviste|wine shop|wine store|vinoteca|tiendas? de vinos?|\bcave\b|boutique caviste|pos\b/],
+  ['online', /online|e-?commerce|shopify|en ligne|widget|\bapi\b|woocommerce|tienda online|webshop/],
+]
+export function guessAudience(keyword: string): Audience | undefined {
+  const k = fold(keyword)
+  return AUDIENCE_HINTS.find(([, re]) => re.test(k))?.[0]
+}
+
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
-export function prelimScore(row: Pick<KeywordRow, 'keyword' | 'hits' | 'bestRank' | 'sources' | 'volume'>, seeds: Pick<Seeds, 'b2bTerms' | 'consumerTerms'>): number {
+export function prelimScore(row: Pick<KeywordRow, 'keyword' | 'hits' | 'bestRank' | 'sources' | 'volume'> & { volumeMid?: number }, seeds: Pick<Seeds, 'b2bTerms' | 'consumerTerms'>): number {
   const words = new Set(normalizeKeyword(row.keyword).split(' '))
   const b2b = seeds.b2bTerms.filter((t) => words.has(t)).length
   const consumer = seeds.consumerTerms.filter((t) => normalizeKeyword(row.keyword).includes(normalizeKeyword(t))).length
   const rankBonus = row.bestRank === undefined ? 0 : Math.max(0, 1 - row.bestRank / 10)
-  const volume = row.volume ? Math.min(3, Math.log10(row.volume + 1)) : 0
+  const vol = row.volume ?? row.volumeMid
+  const volume = vol ? Math.min(3, Math.log10(vol + 1)) : 0
   return Number((row.hits * 0.5 + row.sources.length + b2b * 1.5 - consumer * 3 + rankBonus + volume).toFixed(2))
 }
 
@@ -58,6 +79,7 @@ export async function buildKeywords(opts: { offline: boolean; maxRequests: numbe
   const key = (locale: string, kw: string) => `${locale}|${normalizeKeyword(kw)}`
   for (const row of existing.keywords) map.set(key(row.locale, row.keyword), { ...row, hits: 0, bestRank: undefined, seeds: [] })
 
+  const seedAudience = new Map<string, Audience>()
   const add = (kw: string, locale: KeywordRow['locale'], source: KeywordSource, seed: string, rank?: number, question = false) => {
     const normalized = normalizeKeyword(kw)
     if (normalized.length < 4 || normalized.split(' ').length > 9) return
@@ -65,12 +87,16 @@ export async function buildKeywords(opts: { offline: boolean; maxRequests: numbe
     const row = map.get(k) || { keyword: normalized, locale, sources: [], seeds: [], hits: 0, prelim: 0 }
     if (!row.sources.includes(source)) row.sources.push(source)
     if (!row.seeds.includes(seed)) row.seeds.push(seed)
+    const sa = seedAud.get(`${locale}|${seed}`)
+    if (sa && !seedAudience.has(k)) seedAudience.set(k, sa)
     row.hits += 1
     if (rank !== undefined) row.bestRank = Math.min(row.bestRank ?? 99, rank)
     if (question) row.question = true
     map.set(k, row)
   }
 
+  const seedAud = new Map<string, Audience>()
+  for (const [loc, cfg] of Object.entries(seeds.locales)) for (const sd of cfg.seeds) if (sd.audience) seedAud.set(`${loc}|${sd.q}`, sd.audience)
   const budget = { remaining: opts.maxRequests }
   const jobs: { q: string; hl: string; locale: KeywordRow['locale']; seed: string; question: boolean }[] = []
   const sections: ('base' | 'question' | 'soup')[] = ['base', 'question', 'soup']
@@ -148,9 +174,83 @@ export async function buildKeywords(opts: { offline: boolean; maxRequests: numbe
   }
 
   const keywords = [...map.values()]
-  for (const row of keywords) row.prelim = prelimScore(row, seeds)
+  for (const row of keywords) {
+    row.audience = row.audience || seedAudience.get(key(row.locale, row.keyword)) || guessAudience(row.keyword)
+    row.prelim = prelimScore(row, seeds)
+  }
   keywords.sort((a, b) => b.prelim - a.prelim || a.keyword.localeCompare(b.keyword))
   return { generatedAt: new Date().toISOString(), requestsUsed: used, keywords }
+}
+
+/** Merge Keyword Planner rows into the keyword list: case/accent-insensitive dedupe, best volume wins, nothing is removed. */
+export function mergePlannerRows(file: KeywordsFile, rows: PlannerRow[], opts: { locale?: KeywordRow['locale'] } = {}): { added: number; updated: number; file: KeywordsFile } {
+  const keywords = file.keywords.map((k) => ({ ...k }))
+  const index = new Map<string, KeywordRow>()
+  for (const k of keywords) index.set(`${k.locale}|${fold(k.keyword)}`, k)
+  let added = 0
+  let updated = 0
+  for (const r of rows) {
+    const normalized = normalizeKeyword(r.keyword)
+    if (normalized.length < 4) continue
+    const locale = localeFor(normalized, opts.locale)
+    const k = `${locale}|${fold(normalized)}`
+    let row = index.get(k)
+    if (!row) {
+      row = { keyword: normalized, locale, sources: [], seeds: [], hits: 1, prelim: 0 }
+      keywords.push(row)
+      index.set(k, row)
+      added++
+    } else updated++
+    if (!row.sources.includes('keyword-planner')) row.sources.push('keyword-planner')
+    if (r.volumeMid !== undefined && (row.volumeMid === undefined || r.volumeMid > row.volumeMid)) {
+      Object.assign(row, { volumeLow: r.volumeLow, volumeHigh: r.volumeHigh, volumeMid: r.volumeMid, volumeRaw: r.volumeRaw })
+    }
+    if (r.competition && !row.competition) row.competition = r.competition
+  }
+  return { added, updated, file: { ...file, keywords } }
+}
+
+export function rescore(file: KeywordsFile): KeywordsFile {
+  const seeds = readJson<Seeds>(paths.seeds, { locales: {}, b2bTerms: [], consumerTerms: [] })
+  for (const row of file.keywords) {
+    row.audience = row.audience || guessAudience(row.keyword)
+    row.prelim = prelimScore(row, seeds)
+  }
+  file.keywords.sort((a, b) => b.prelim - a.prelim || a.keyword.localeCompare(b.keyword))
+  return file
+}
+
+const importedLog = () => path.join(paths.imports, '.imported.json')
+
+/** Import the given files (or every not-yet-imported file of data/content/imports/). Returns what was merged. */
+export function runImport(opts: { files?: string[]; locale?: KeywordRow['locale']; write: boolean; log?: (s: string) => void }): { files: number; added: number; updated: number } {
+  const log = opts.log || (() => {})
+  const done = readJson<Record<string, string>>(importedLog(), {})
+  const hash = (f: string) => createHash('sha256').update(fs.readFileSync(f)).digest('hex')
+  let files = opts.files
+  if (!files) {
+    fs.mkdirSync(paths.imports, { recursive: true })
+    files = fs.readdirSync(paths.imports).filter((f) => /\.(csv|tsv|txt)$/i.test(f)).map((f) => path.join(paths.imports, f)).filter((f) => done[path.basename(f)] !== hash(f))
+  }
+  let data = readJson<KeywordsFile>(paths.keywords, { generatedAt: '', requestsUsed: 0, keywords: [] })
+  let added = 0
+  let updated = 0
+  for (const f of files) {
+    const rows = readPlannerFile(f)
+    const m = mergePlannerRows(data, rows, { locale: opts.locale || localeFromFilename(f) })
+    data = m.file
+    added += m.added
+    updated += m.updated
+    done[path.basename(f)] = hash(f)
+    log(`${path.basename(f)}: ${rows.length} rows, ${m.added} new, ${m.updated} merged`)
+  }
+  if (files.length && opts.write) {
+    data.generatedAt = new Date().toISOString()
+    writeJson(paths.keywords, rescore(data))
+    writeJson(importedLog(), done)
+    logRun({ stage: 'keywords', note: `planner import: ${files.length} files, ${added} new, ${updated} merged` })
+  }
+  return { files: files.length, added, updated }
 }
 
 export function topCandidates(file: KeywordsFile, n = 15) {
@@ -162,6 +262,14 @@ async function main() {
   const offline = Boolean(flags['dry-run'] || flags.offline)
   const maxRequests = Number(flags['max-requests'] || limits.maxRequestsKeywords)
   fs.mkdirSync(paths.data, { recursive: true })
+  if (typeof flags.import === 'string') {
+    const file = path.resolve(flags.import)
+    if (!fs.existsSync(file)) throw new Error(`file not found: ${file}`)
+    const loc = flags.locale as KeywordRow['locale'] | undefined
+    const r = runImport({ files: [file], locale: loc, write: !flags['dry-run'], log: (x) => console.log(`[keywords] ${x}`) })
+    console.log(`[keywords] import: ${r.added} new keywords, ${r.updated} existing keywords got volumes${flags['dry-run'] ? ' (dry-run: nothing written)' : `; saved to ${paths.keywords}`}`)
+    return
+  }
   const result = await buildKeywords({ offline, maxRequests, log: (s) => console.log(`[keywords] ${s}`) })
   if (!offline) writeJson(paths.keywords, result)
   logRun({ stage: 'keywords', note: `${result.keywords.length} keywords, ${result.requestsUsed} requests${offline ? ' (dry-run, not written)' : ''}`, providers: { gsc: has('GSC_CREDENTIALS_PATH'), dataforseo: has('DATAFORSEO_LOGIN'), serpapi: has('SERPAPI_KEY') } })

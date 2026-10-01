@@ -1,7 +1,135 @@
 {
-  "generatedAt": "2026-09-30T20:50:32.266Z",
-  "requestsUsed": 0,
+  "generatedAt": "2026-10-01T06:09:30.177Z",
+  "requestsUsed": 174,
   "keywords": [
+    {
+      "keyword": "how to sell more wine in a restaurant",
+      "locale": "en",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell more wine in a restaurant"
+      ],
+      "hits": 7,
+      "prelim": 9.5,
+      "bestRank": 0,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine shop pos system",
+      "locale": "en",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 7,
+      "prelim": 9.5,
+      "bestRank": 0,
+      "question": true,
+      "audience": "retail"
+    },
+    {
+      "keyword": "how to list wine on a menu",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list software for restaurants",
+        "how to build a restaurant wine list"
+      ],
+      "hits": 10,
+      "prelim": 8.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to build a restaurant wine list",
+      "locale": "en",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to build a restaurant wine list"
+      ],
+      "hits": 7,
+      "prelim": 8,
+      "bestRank": 0,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "logiciel de caisse caviste",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "logiciel de caisse caviste"
+      ],
+      "hits": 4,
+      "prelim": 8,
+      "bestRank": 0,
+      "audience": "retail",
+      "question": true
+    },
+    {
+      "keyword": "vendre du vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 6,
+      "prelim": 7.5,
+      "bestRank": 0,
+      "audience": "online",
+      "question": true
+    },
+    {
+      "keyword": "carte des vins digitale",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "carte des vins digitale"
+      ],
+      "hits": 5,
+      "prelim": 7,
+      "bestRank": 0,
+      "audience": "restaurant",
+      "question": true
+    },
+    {
+      "keyword": "how to sell wine online",
+      "locale": "en",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 5,
+      "prelim": 7,
+      "bestRank": 0,
+      "question": true,
+      "audience": "online"
+    },
     {
       "keyword": "logiciel caviste",
       "locale": "fr",
@@ -14,7 +142,114 @@
       ],
       "hits": 2,
       "prelim": 7,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "retail"
+    },
+    {
+      "keyword": "wine shop software",
+      "locale": "en",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 2,
+      "prelim": 7,
+      "bestRank": 0,
+      "audience": "retail"
+    },
+    {
+      "keyword": "como vender vino en un restaurante",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "cómo vender más vino en un restaurante"
+      ],
+      "hits": 3,
+      "prelim": 6.5,
+      "bestRank": 0,
+      "audience": "restaurant",
+      "question": true
+    },
+    {
+      "keyword": "wine list pricing strategy",
+      "locale": "en",
+      "sources": [
+        "seed",
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list pricing strategy"
+      ],
+      "hits": 7,
+      "prelim": 6.5,
+      "bestRank": 0,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to sell wine online legally",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 6,
+      "prelim": 6.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "online"
+    },
+    {
+      "keyword": "is a wine shop profitable",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 6,
+      "prelim": 6.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "retail"
+    },
+    {
+      "keyword": "is wine shop a profitable business",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 6,
+      "prelim": 6.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "retail"
+    },
+    {
+      "keyword": "how to sell wine online in australia",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 6,
+      "prelim": 6.3,
+      "bestRank": 2,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "ai wine sommelier app",
@@ -27,7 +262,38 @@
       ],
       "hits": 3,
       "prelim": 6.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to sell wine online for cash",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 6,
+      "prelim": 6.2,
+      "bestRank": 3,
+      "question": true,
+      "audience": "online"
+    },
+    {
+      "keyword": "how to sell wine online in california",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 6,
+      "prelim": 6.1,
+      "bestRank": 4,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "ai sommelier app",
@@ -40,7 +306,65 @@
       ],
       "hits": 2,
       "prelim": 6,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "carte des vins qr code restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "carte des vins qr code restaurant"
+      ],
+      "hits": 1,
+      "prelim": 6,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "como vender vino online",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "cómo vender vino online",
+        "vender más vino online"
+      ],
+      "hits": 5,
+      "prelim": 6,
+      "bestRank": 0,
+      "question": true,
+      "audience": "online"
+    },
+    {
+      "keyword": "how to sell wine online in india",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 6,
+      "prelim": 6,
+      "bestRank": 5,
+      "question": true,
+      "audience": "online"
+    },
+    {
+      "keyword": "logiciel carte des vins restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "logiciel carte des vins restaurant"
+      ],
+      "hits": 1,
+      "prelim": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "qr code carte des vins restaurant",
@@ -52,7 +376,8 @@
         "qr code carte des vins restaurant"
       ],
       "hits": 1,
-      "prelim": 6
+      "prelim": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "qr wine menu restaurant",
@@ -64,7 +389,23 @@
         "qr wine menu restaurant"
       ],
       "hits": 1,
-      "prelim": 6
+      "prelim": 6,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "vendre du vin en ligne réglementation",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 5,
+      "prelim": 5.9,
+      "bestRank": 1,
+      "audience": "online",
+      "question": true
     },
     {
       "keyword": "ai sommelier",
@@ -78,7 +419,23 @@
       ],
       "hits": 2,
       "prelim": 5.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "comment créer une carte des vins",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "comment composer une carte des vins"
+      ],
+      "hits": 4,
+      "prelim": 5.5,
+      "bestRank": 0,
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier cave a vin",
@@ -91,6 +448,7 @@
       ],
       "hits": 1,
       "prelim": 5.5,
+      "audience": "retail",
       "bestRank": 0
     },
     {
@@ -105,7 +463,8 @@
       ],
       "hits": 2,
       "prelim": 5.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier in a restaurant",
@@ -118,6 +477,7 @@
       ],
       "hits": 1,
       "prelim": 5.5,
+      "audience": "restaurant",
       "bestRank": 0
     },
     {
@@ -132,7 +492,38 @@
       ],
       "hits": 2,
       "prelim": 5.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine list app for restaurants",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list software for restaurants"
+      ],
+      "hits": 4,
+      "prelim": 5.5,
+      "bestRank": 0,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "como hacer una carta de vinos para un restaurante",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "cómo hacer una carta de vinos"
+      ],
+      "hits": 4,
+      "prelim": 5.4,
+      "bestRank": 1,
+      "audience": "restaurant",
+      "question": true
     },
     {
       "keyword": "logiciel caviste professionnel",
@@ -145,7 +536,52 @@
       ],
       "hits": 1,
       "prelim": 5.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "retail"
+    },
+    {
+      "keyword": "what is a sommelier in a restaurant",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "digital sommelier for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 5.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine shop software free download",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 5.4,
+      "bestRank": 1,
+      "audience": "retail"
+    },
+    {
+      "keyword": "how much profit does a wine shop make",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 4,
+      "prelim": 5.3,
+      "bestRank": 2,
+      "question": true,
+      "audience": "retail"
     },
     {
       "keyword": "how to be sommelier certified",
@@ -159,7 +595,8 @@
       "hits": 10,
       "prelim": 5.3,
       "bestRank": 2,
-      "question": true
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "logiciel caisse caviste",
@@ -172,7 +609,38 @@
       ],
       "hits": 1,
       "prelim": 5.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "retail"
+    },
+    {
+      "keyword": "rules wine menu",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to build a restaurant wine list"
+      ],
+      "hits": 4,
+      "prelim": 5.3,
+      "bestRank": 2,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "what does a sommelier do in a restaurant",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "digital sommelier for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 5.3,
+      "bestRank": 2,
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "meilleur logiciel caviste",
@@ -185,7 +653,8 @@
       ],
       "hits": 1,
       "prelim": 5.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "retail"
     },
     {
       "keyword": "ai wine advice sommelier comparison",
@@ -198,7 +667,8 @@
       ],
       "hits": 4,
       "prelim": 5.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "logiciel gestion caviste",
@@ -211,7 +681,37 @@
       ],
       "hits": 1,
       "prelim": 5.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "retail"
+    },
+    {
+      "keyword": "wine store software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 5.1,
+      "bestRank": 4,
+      "audience": "retail"
+    },
+    {
+      "keyword": "comment vendre du vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 3,
+      "prelim": 5,
+      "bestRank": 0,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "is sommelier a good career",
@@ -225,7 +725,110 @@
       "hits": 9,
       "prelim": 4.9,
       "bestRank": 1,
-      "question": true
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "selling wine to restaurants",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell more wine in a restaurant"
+      ],
+      "hits": 6,
+      "prelim": 4.9,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to write wine on a menu",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to build a restaurant wine list"
+      ],
+      "hits": 3,
+      "prelim": 4.8,
+      "bestRank": 2,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "what is the restaurant markup on wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell more wine in a restaurant"
+      ],
+      "hits": 3,
+      "prelim": 4.8,
+      "bestRank": 2,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine shop billing software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 4.8,
+      "bestRank": 7,
+      "audience": "retail"
+    },
+    {
+      "keyword": "is wine shop a good business",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 3,
+      "prelim": 4.7,
+      "bestRank": 3,
+      "question": true,
+      "audience": "retail"
+    },
+    {
+      "keyword": "wine shop management software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 4.7,
+      "bestRank": 8,
+      "audience": "retail"
+    },
+    {
+      "keyword": "wine shop accounting software free download",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 4.6,
+      "bestRank": 9,
+      "audience": "retail"
     },
     {
       "keyword": "ai sommelier for wine shops",
@@ -237,7 +840,8 @@
         "ai sommelier for wine shops"
       ],
       "hits": 1,
-      "prelim": 4.5
+      "prelim": 4.5,
+      "audience": "retail"
     },
     {
       "keyword": "ai versus human sommelier",
@@ -250,7 +854,21 @@
       ],
       "hits": 2,
       "prelim": 4.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "ai wine chatbot for ecommerce",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "ai wine chatbot for ecommerce"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "online"
     },
     {
       "keyword": "carta de vinos qr restaurante",
@@ -262,7 +880,47 @@
         "carta de vinos qr restaurante"
       ],
       "hits": 1,
-      "prelim": 4.5
+      "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "comment vendre plus de vin au restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "comment vendre plus de vin au restaurant"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "cómo vender más vino en un restaurante",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "cómo vender más vino en un restaurante"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "conseil vin en boutique caviste",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "conseil vin en boutique caviste"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "retail"
     },
     {
       "keyword": "digital sommelier restaurant",
@@ -274,7 +932,34 @@
         "digital sommelier restaurant"
       ],
       "hits": 1,
-      "prelim": 4.5
+      "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "digital wine menu qr code",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "digital wine menu qr code"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "restaurant wine pairing app",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "restaurant wine pairing app"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "restaurant"
     },
     {
       "keyword": "shopify wine recommendation app",
@@ -286,7 +971,47 @@
         "shopify wine recommendation app"
       ],
       "hits": 1,
-      "prelim": 4.5
+      "prelim": 4.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "shopify wine store apps",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "shopify wine store apps"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "software carta de vinos restaurante",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "software carta de vinos restaurante"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "software para tiendas de vino",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "software para tiendas de vino"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "retail"
     },
     {
       "keyword": "sommelier ia para tiendas de vinos",
@@ -298,7 +1023,21 @@
         "sommelier ia para tiendas de vinos"
       ],
       "hits": 1,
-      "prelim": 4.5
+      "prelim": 4.5,
+      "audience": "retail"
+    },
+    {
+      "keyword": "sommelier ia pour caviste",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "sommelier ia pour caviste"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "online"
     },
     {
       "keyword": "sommelier virtuel caviste",
@@ -310,7 +1049,47 @@
         "sommelier virtuel caviste"
       ],
       "hits": 1,
-      "prelim": 4.5
+      "prelim": 4.5,
+      "audience": "retail"
+    },
+    {
+      "keyword": "sommelier virtuel restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "sommelier virtuel restaurant"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "tienda online de vino shopify",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "tienda online de vino shopify"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "upsell and cross sell for wine ecommerce",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "upsell and cross sell for wine ecommerce"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "audience": "online"
     },
     {
       "keyword": "wine shop chatbot",
@@ -322,7 +1101,23 @@
         "wine shop chatbot"
       ],
       "hits": 1,
-      "prelim": 4.5
+      "prelim": 4.5,
+      "audience": "retail"
+    },
+    {
+      "keyword": "can i sell wine online in india",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 2,
+      "prelim": 4.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "how to become a sommelier in india",
@@ -335,8 +1130,9 @@
       ],
       "hits": 8,
       "prelim": 4.4,
+      "question": true,
       "bestRank": 1,
-      "question": true
+      "audience": "restaurant"
     },
     {
       "keyword": "vivino ai sommelier",
@@ -349,7 +1145,8 @@
       ],
       "hits": 2,
       "prelim": 4.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine sommelier",
@@ -362,7 +1159,8 @@
       ],
       "hits": 2,
       "prelim": 4.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "victor sommelier ia",
@@ -375,7 +1173,8 @@
       ],
       "hits": 2,
       "prelim": 4.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "how to become a sommelier in australia",
@@ -388,8 +1187,25 @@
       ],
       "hits": 8,
       "prelim": 4.2,
+      "question": true,
       "bestRank": 3,
-      "question": true
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to sample wine at a restaurant",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list software for restaurants",
+        "how to build a restaurant wine list"
+      ],
+      "hits": 2,
+      "prelim": 4.2,
+      "bestRank": 3,
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "pinpointed ai sommelier",
@@ -402,7 +1218,8 @@
       ],
       "hits": 2,
       "prelim": 4.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "a sommelier who's never tasted wine",
@@ -415,7 +1232,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "carte des vins a gratter",
@@ -428,21 +1246,38 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
-      "keyword": "como vender vino online",
+      "keyword": "como hacer una carta de vinos",
       "locale": "es",
       "sources": [
         "autocomplete"
       ],
       "seeds": [
-        "vender más vino online"
+        "cómo hacer una carta de vinos"
+      ],
+      "hits": 4,
+      "prelim": 4,
+      "bestRank": 0,
+      "audience": "restaurant",
+      "question": true
+    },
+    {
+      "keyword": "how can i sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
       ],
       "hits": 1,
       "prelim": 4,
       "bestRank": 0,
-      "question": true
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "recomendador de vinos",
@@ -456,7 +1291,8 @@
       ],
       "hits": 2,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "online"
     },
     {
       "keyword": "sommelier à domicile",
@@ -469,7 +1305,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a graver",
@@ -482,7 +1319,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a kiper",
@@ -495,7 +1333,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a milano",
@@ -508,7 +1347,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a proximite",
@@ -521,7 +1361,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a que se dedica",
@@ -534,7 +1375,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a roma",
@@ -547,7 +1389,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a torino",
@@ -560,7 +1403,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a vin",
@@ -573,7 +1417,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier i norge",
@@ -586,7 +1431,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier on a cruise ship",
@@ -599,7 +1445,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "vender vino online",
@@ -612,7 +1459,22 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "online"
+    },
+    {
+      "keyword": "wine cellar management software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list management software"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "wine pairing api",
@@ -625,7 +1487,8 @@
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "online"
     },
     {
       "keyword": "ai wine app",
@@ -638,7 +1501,23 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "can i sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 2,
+      "prelim": 3.9,
+      "bestRank": 6,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "carte des vins à télécharger",
@@ -651,7 +1530,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "expert sommelier",
@@ -664,7 +1544,23 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to sell vintage wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 2,
+      "prelim": 3.9,
+      "bestRank": 6,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "i sommelier meaning",
@@ -677,7 +1573,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a casa",
@@ -690,7 +1587,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a domicile paris",
@@ -703,7 +1601,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a levier laguiole",
@@ -716,7 +1615,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a paris",
@@ -729,7 +1629,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier for a day",
@@ -742,7 +1643,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier i sverige",
@@ -755,7 +1657,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier ian cauble",
@@ -768,7 +1671,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier ner i flaska somm into the bottle 2015",
@@ -781,7 +1685,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier on a budget",
@@ -794,7 +1699,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier verre a vin",
@@ -807,7 +1713,8 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "tv4 sommelier",
@@ -820,7 +1727,37 @@
       ],
       "hits": 1,
       "prelim": 3.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "where does wine store program files",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list software for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine cellar management software free",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list management software"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "a sommelier for beer",
@@ -833,7 +1770,8 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine pairing app",
@@ -846,7 +1784,23 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "can you sell wine online without a license",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "carte des vins à imprimer",
@@ -859,7 +1813,68 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "como hacer una carta de vinos en word",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "cómo hacer una carta de vinos"
+      ],
+      "hits": 4,
+      "prelim": 3.8,
+      "bestRank": 2,
+      "audience": "restaurant",
+      "question": true
+    },
+    {
+      "keyword": "how do i sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2,
+      "question": true,
+      "audience": "online"
+    },
+    {
+      "keyword": "how to sell expensive wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 2,
+      "prelim": 3.8,
+      "bestRank": 7,
+      "question": true,
+      "audience": "online"
+    },
+    {
+      "keyword": "see restaurant wine list",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list software for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2,
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a dubai",
@@ -872,7 +1887,8 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a la maison",
@@ -885,7 +1901,8 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier à personnaliser",
@@ -898,7 +1915,8 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier ian",
@@ -911,7 +1929,8 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier in a day",
@@ -924,7 +1943,8 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier traduccion a espanol",
@@ -937,7 +1957,8 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "virtual sommelier class",
@@ -950,7 +1971,22 @@
       ],
       "hits": 1,
       "prelim": 3.8,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine cellar software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 3.8,
+      "bestRank": 2,
+      "audience": "retail"
     },
     {
       "keyword": "a sommelier pronunciation",
@@ -963,7 +1999,37 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "best wine cellar management software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list management software"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "can we sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "carte des vins à gratter cultura",
@@ -976,7 +2042,23 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to sell wine privately online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 2,
+      "prelim": 3.7,
+      "bestRank": 8,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "i sommelier sono astemi",
@@ -989,7 +2071,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "is ian cauble a master sommelier",
@@ -1002,7 +2085,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a domicile montreal",
@@ -1015,7 +2099,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a levier",
@@ -1028,7 +2113,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier i flertal",
@@ -1041,7 +2127,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier iag",
@@ -1054,7 +2141,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier in a sentence",
@@ -1067,7 +2155,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier torre a mare",
@@ -1080,7 +2169,8 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "virtual sommelier signorvino",
@@ -1093,7 +2183,52 @@
       ],
       "hits": 1,
       "prelim": 3.7,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "what is a coffee sommelier",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "digital sommelier for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "what is pos point of sale",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3,
+      "question": true,
+      "audience": "retail"
+    },
+    {
+      "keyword": "wine cellar software free",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 3.7,
+      "bestRank": 3,
+      "audience": "retail"
     },
     {
       "keyword": "a sommelier is responsible for",
@@ -1106,7 +2241,8 @@
       ],
       "hits": 1,
       "prelim": 3.6,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine shop",
@@ -1119,6 +2255,7 @@
       ],
       "hits": 1,
       "prelim": 3.6,
+      "audience": "retail",
       "bestRank": 4
     },
     {
@@ -1132,7 +2269,52 @@
       ],
       "hits": 1,
       "prelim": 3.6,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "does aldi sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4,
+      "question": true,
+      "audience": "online"
+    },
+    {
+      "keyword": "home wine cellar management software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list management software"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to set up a pos system",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 1,
+      "prelim": 3.6,
+      "bestRank": 4,
+      "question": true,
+      "audience": "retail"
     },
     {
       "keyword": "i sommelier possono guidare",
@@ -1145,7 +2327,8 @@
       ],
       "hits": 1,
       "prelim": 3.6,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier i danmark",
@@ -1158,7 +2341,8 @@
       ],
       "hits": 1,
       "prelim": 3.6,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier tout a fait",
@@ -1171,7 +2355,8 @@
       ],
       "hits": 1,
       "prelim": 3.6,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier virtuale",
@@ -1184,7 +2369,8 @@
       ],
       "hits": 1,
       "prelim": 3.6,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "a sommelier definition",
@@ -1197,7 +2383,8 @@
       ],
       "hits": 1,
       "prelim": 3.5,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai restaurant wine programs",
@@ -1210,6 +2397,7 @@
       ],
       "hits": 1,
       "prelim": 3.5,
+      "audience": "restaurant",
       "bestRank": 5
     },
     {
@@ -1223,7 +2411,8 @@
       ],
       "hits": 1,
       "prelim": 3.5,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a la reunion",
@@ -1236,7 +2425,8 @@
       ],
       "hits": 1,
       "prelim": 3.5,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier pret a porter",
@@ -1249,7 +2439,22 @@
       ],
       "hits": 1,
       "prelim": 3.5,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine bar software",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "bestRank": 5,
+      "audience": "retail"
     },
     {
       "keyword": "carte des vins à gratter fnac",
@@ -1262,7 +2467,8 @@
       ],
       "hits": 1,
       "prelim": 3.4,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "iacs sommelier",
@@ -1275,7 +2481,8 @@
       ],
       "hits": 1,
       "prelim": 3.4,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier de ia",
@@ -1288,7 +2495,8 @@
       ],
       "hits": 1,
       "prelim": 3.4,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier i lufthavnen",
@@ -1301,7 +2509,23 @@
       ],
       "hits": 1,
       "prelim": 3.4,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "what do i need to sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 3.4,
+      "bestRank": 6,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "ai wine shop sommia",
@@ -1314,6 +2538,7 @@
       ],
       "hits": 1,
       "prelim": 3.3,
+      "audience": "retail",
       "bestRank": 7
     },
     {
@@ -1327,7 +2552,8 @@
       ],
       "hits": 1,
       "prelim": 3.3,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
     },
     {
       "keyword": "i sommelier lo portano al collo",
@@ -1340,7 +2566,8 @@
       ],
       "hits": 1,
       "prelim": 3.3,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
     },
     {
       "keyword": "master sommelier ian cauble",
@@ -1353,7 +2580,8 @@
       ],
       "hits": 1,
       "prelim": 3.3,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a domicilio",
@@ -1366,7 +2594,23 @@
       ],
       "hits": 1,
       "prelim": 3.3,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "como hacer una buena carta de vinos",
+      "locale": "es",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "cómo hacer una carta de vinos"
+      ],
+      "hits": 3,
+      "prelim": 3.2,
+      "bestRank": 3,
+      "audience": "restaurant",
+      "question": true
     },
     {
       "keyword": "i sommelier lo ha al collo",
@@ -1379,7 +2623,8 @@
       ],
       "hits": 1,
       "prelim": 3.2,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "master sommelier ian",
@@ -1392,7 +2637,8 @@
       ],
       "hits": 1,
       "prelim": 3.2,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a domicilio roma",
@@ -1405,7 +2651,8 @@
       ],
       "hits": 1,
       "prelim": 3.2,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier pro ai",
@@ -1418,7 +2665,22 @@
       ],
       "hits": 1,
       "prelim": 3.2,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "vendre son vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 3.2,
+      "bestRank": 8,
+      "audience": "online"
     },
     {
       "keyword": "carrefour taiwan's ai sommelier",
@@ -1431,7 +2693,8 @@
       ],
       "hits": 1,
       "prelim": 3.1,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
     },
     {
       "keyword": "corso sommelier i livello",
@@ -1444,7 +2707,8 @@
       ],
       "hits": 1,
       "prelim": 3.1,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
     },
     {
       "keyword": "iam sommelier",
@@ -1457,7 +2721,8 @@
       ],
       "hits": 1,
       "prelim": 3.1,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a domicilio milano",
@@ -1470,7 +2735,47 @@
       ],
       "hits": 1,
       "prelim": 3.1,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "api de recomendación de vinos",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "api de recomendación de vinos"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "app de maridaje para restaurantes",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "app de maridaje para restaurantes"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "carta de vinos digital qr",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "carta de vinos digital qr"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "carte des vins ia",
@@ -1482,7 +2787,190 @@
         "carte des vins ia"
       ],
       "hits": 1,
-      "prelim": 3
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "chatbot conseil vin",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "chatbot conseil vin"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "chatbot recomendador de vinos",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "chatbot recomendador de vinos"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "coefficient prix de vente vin restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "coefficient prix de vente vin restaurant"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "comment augmenter les ventes d'une cave à vin",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "comment augmenter les ventes d'une cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "retail"
+    },
+    {
+      "keyword": "comment composer une carte des vins",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "comment composer une carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "cómo vender vino online",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "cómo vender vino online"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "digital sommelier for restaurants",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "digital sommelier for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "gestion de la carte des vins",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "gestion de la carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to increase wine shop sales",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "how to increase wine shop sales"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "retail"
+    },
+    {
+      "keyword": "idées marketing pour caviste indépendant",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "idées marketing pour caviste indépendant"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "retail"
+    },
+    {
+      "keyword": "independent wine shop marketing ideas",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "independent wine shop marketing ideas"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "retail"
+    },
+    {
+      "keyword": "module recommandation vin shopify",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "module recommandation vin shopify"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "precio de venta del vino en restaurante",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "precio de venta del vino en restaurante"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "recomendador de vinos para tienda",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "recomendador de vinos para tienda"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "retail"
     },
     {
       "keyword": "sell more wine online",
@@ -1494,7 +2982,21 @@
         "sell more wine online"
       ],
       "hits": 1,
-      "prelim": 3
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "sommelier con inteligencia artificial",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "sommelier con inteligencia artificial"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
     },
     {
       "keyword": "vender más vino online",
@@ -1506,7 +3008,8 @@
         "vender más vino online"
       ],
       "hits": 1,
-      "prelim": 3
+      "prelim": 3,
+      "audience": "online"
     },
     {
       "keyword": "vendre plus de vin en ligne",
@@ -1518,7 +3021,60 @@
         "vendre plus de vin en ligne"
       ],
       "hits": 1,
-      "prelim": 3
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "wine ecommerce conversion rate",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine ecommerce conversion rate"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "wine ecommerce personalization",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine ecommerce personalization"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "wine list management software",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine list management software"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine list software for restaurants",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine list software for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "wine recommendation api",
@@ -1530,7 +3086,8 @@
         "wine recommendation api"
       ],
       "hits": 1,
-      "prelim": 3
+      "prelim": 3,
+      "audience": "online"
     },
     {
       "keyword": "wine recommendation widget",
@@ -1542,7 +3099,38 @@
         "wine recommendation widget"
       ],
       "hits": 1,
-      "prelim": 3
+      "prelim": 3,
+      "audience": "online"
+    },
+    {
+      "keyword": "7 types of pricing strategies",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list pricing strategy"
+      ],
+      "hits": 2,
+      "prelim": 2.9,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "point of sale systems for restaurants",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop pos system"
+      ],
+      "hits": 2,
+      "prelim": 2.8,
+      "bestRank": 2,
+      "question": true,
+      "audience": "retail"
     },
     {
       "keyword": "ai design wine label",
@@ -1555,7 +3143,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai kenzo wine",
@@ -1568,7 +3157,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai white wine",
@@ -1581,7 +3171,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine bottle label generator",
@@ -1594,7 +3185,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine cellar",
@@ -1607,7 +3199,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine fridge",
@@ -1620,7 +3213,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine industry",
@@ -1633,7 +3227,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine label design",
@@ -1646,7 +3241,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine making",
@@ -1659,7 +3255,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine name generator",
@@ -1672,7 +3269,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine pairing",
@@ -1685,7 +3283,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine recommendations",
@@ -1698,7 +3297,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine sainsbury's",
@@ -1711,7 +3311,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine tasting",
@@ -1724,7 +3325,22 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "digital wine list for restaurants",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "digital sommelier for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a la carte",
@@ -1737,7 +3353,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "what is ai wine",
@@ -1751,7 +3368,8 @@
       "hits": 1,
       "prelim": 2.5,
       "bestRank": 0,
-      "question": true
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "wine ai video",
@@ -1764,7 +3382,8 @@
       ],
       "hits": 1,
       "prelim": 2.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "a sommelier's wine tasting tour de france",
@@ -1777,7 +3396,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai drinking wine",
@@ -1790,7 +3410,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai weiwei wine",
@@ -1803,7 +3424,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine bottle",
@@ -1816,7 +3438,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine ctzn",
@@ -1829,7 +3452,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine finder",
@@ -1842,7 +3466,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine inventory",
@@ -1855,7 +3480,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine label generator",
@@ -1868,7 +3494,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine manager",
@@ -1881,7 +3508,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine napa",
@@ -1894,7 +3522,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine price",
@@ -1907,7 +3536,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine selector",
@@ -1920,7 +3550,8 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine tool",
@@ -1933,7 +3564,67 @@
       ],
       "hits": 1,
       "prelim": 2.4,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "four special wine price",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list pricing strategy"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how is wine priced",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list pricing strategy"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to make wine professionally",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to build a restaurant wine list"
+      ],
+      "hits": 1,
+      "prelim": 2.4,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to start selling wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 2,
+      "prelim": 2.4,
+      "bestRank": 6,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "what is somm ai",
@@ -1947,7 +3638,8 @@
       "hits": 1,
       "prelim": 2.4,
       "bestRank": 1,
-      "question": true
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "a sommelier's corkscrew",
@@ -1960,7 +3652,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "a sommelier's snob free guide to wine",
@@ -1973,7 +3666,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai danil wine",
@@ -1986,7 +3680,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai in wine",
@@ -1999,7 +3694,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai made wine",
@@ -2012,7 +3708,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai red wine",
@@ -2025,7 +3722,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai volti wine",
@@ -2038,7 +3736,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine and spirits",
@@ -2051,7 +3750,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine bar",
@@ -2064,6 +3764,7 @@
       ],
       "hits": 1,
       "prelim": 2.3,
+      "audience": "restaurant",
       "bestRank": 2
     },
     {
@@ -2077,7 +3778,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine filled to the brim",
@@ -2090,7 +3792,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine label",
@@ -2103,7 +3806,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine napa valley",
@@ -2116,7 +3820,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine startup",
@@ -2129,7 +3834,8 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine tesco",
@@ -2142,7 +3848,52 @@
       ],
       "hits": 1,
       "prelim": 2.3,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "how to make local wine at home",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to build a restaurant wine list"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "what is wine production",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to build a restaurant wine list"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine cellar management system",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list management software"
+      ],
+      "hits": 1,
+      "prelim": 2.3,
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai blend wine",
@@ -2155,7 +3906,8 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai ia wine",
@@ -2168,7 +3920,8 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai voice wine",
@@ -2181,7 +3934,8 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine assistant",
@@ -2194,7 +3948,8 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine company",
@@ -2207,7 +3962,8 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine full glass",
@@ -2220,7 +3976,8 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine list",
@@ -2233,6 +3990,7 @@
       ],
       "hits": 1,
       "prelim": 2.2,
+      "audience": "restaurant",
       "bestRank": 3
     },
     {
@@ -2246,7 +4004,8 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine scanner",
@@ -2259,7 +4018,52 @@
       ],
       "hits": 1,
       "prelim": 2.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "is selling wine profitable",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell more wine in a restaurant"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "steps to make wine",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to build a restaurant wine list"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3,
+      "question": true,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "vente vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 2.2,
+      "bestRank": 3,
+      "audience": "online"
     },
     {
       "keyword": "ai fiori wine list",
@@ -2272,6 +4076,7 @@
       ],
       "hits": 1,
       "prelim": 2.1,
+      "audience": "restaurant",
       "bestRank": 4
     },
     {
@@ -2285,7 +4090,8 @@
       ],
       "hits": 1,
       "prelim": 2.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine art",
@@ -2298,7 +4104,8 @@
       ],
       "hits": 1,
       "prelim": 2.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine chiller",
@@ -2311,7 +4118,8 @@
       ],
       "hits": 1,
       "prelim": 2.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine label maker",
@@ -2324,7 +4132,8 @@
       ],
       "hits": 1,
       "prelim": 2.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai winter photo",
@@ -2337,7 +4146,8 @@
       ],
       "hits": 1,
       "prelim": 2.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "sommelier a la carte theix",
@@ -2350,7 +4160,22 @@
       ],
       "hits": 1,
       "prelim": 2.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "vente vin en ligne belgique",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 2.1,
+      "bestRank": 4,
+      "audience": "online"
     },
     {
       "keyword": "wine ai images",
@@ -2363,7 +4188,8 @@
       ],
       "hits": 1,
       "prelim": 2.1,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai for wine",
@@ -2376,7 +4202,8 @@
       ],
       "hits": 1,
       "prelim": 2,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai in wine production",
@@ -2389,7 +4216,8 @@
       ],
       "hits": 1,
       "prelim": 2,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai pioppi wine",
@@ -2402,7 +4230,8 @@
       ],
       "hits": 1,
       "prelim": 2,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai sommdigi wine",
@@ -2415,7 +4244,8 @@
       ],
       "hits": 1,
       "prelim": 2,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine advisor",
@@ -2428,7 +4258,8 @@
       ],
       "hits": 1,
       "prelim": 2,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine chooser",
@@ -2441,7 +4272,8 @@
       ],
       "hits": 1,
       "prelim": 2,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine list analysis",
@@ -2454,7 +4286,36 @@
       ],
       "hits": 1,
       "prelim": 2,
+      "audience": "restaurant",
       "bestRank": 5
+    },
+    {
+      "keyword": "vente vin en ligne tunisie",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5,
+      "audience": "online"
+    },
+    {
+      "keyword": "wine service equipment list",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list management software"
+      ],
+      "hits": 1,
+      "prelim": 2,
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai curated wine",
@@ -2467,7 +4328,8 @@
       ],
       "hits": 1,
       "prelim": 1.9,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai in wine making",
@@ -2480,7 +4342,8 @@
       ],
       "hits": 1,
       "prelim": 1.9,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai powered wine",
@@ -2493,7 +4356,8 @@
       ],
       "hits": 1,
       "prelim": 1.9,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai suma wine",
@@ -2506,7 +4370,8 @@
       ],
       "hits": 1,
       "prelim": 1.9,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine label design free",
@@ -2519,7 +4384,22 @@
       ],
       "hits": 1,
       "prelim": 1.9,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "vente vin en ligne france",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 1.9,
+      "bestRank": 6,
+      "audience": "online"
     },
     {
       "keyword": "ai created wine",
@@ -2532,7 +4412,8 @@
       ],
       "hits": 1,
       "prelim": 1.8,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai for wine industry",
@@ -2545,7 +4426,8 @@
       ],
       "hits": 1,
       "prelim": 1.8,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine label reader",
@@ -2558,7 +4440,22 @@
       ],
       "hits": 1,
       "prelim": 1.8,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "vente vin en ligne maroc",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 1.8,
+      "bestRank": 7,
+      "audience": "online"
     },
     {
       "keyword": "ai and wine",
@@ -2571,7 +4468,8 @@
       ],
       "hits": 1,
       "prelim": 1.7,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai create wine label",
@@ -2584,7 +4482,8 @@
       ],
       "hits": 1,
       "prelim": 1.7,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai fiori wine room",
@@ -2597,7 +4496,8 @@
       ],
       "hits": 1,
       "prelim": 1.7,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai galli wine",
@@ -2610,7 +4510,8 @@
       ],
       "hits": 1,
       "prelim": 1.7,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai in wine business",
@@ -2623,7 +4524,8 @@
       ],
       "hits": 1,
       "prelim": 1.7,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai vs sommeliers wine pairing",
@@ -2636,7 +4538,8 @@
       ],
       "hits": 1,
       "prelim": 1.7,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "somm ai logo",
@@ -2649,7 +4552,8 @@
       ],
       "hits": 1,
       "prelim": 1.7,
-      "bestRank": 8
+      "bestRank": 8,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai and wine industry",
@@ -2662,7 +4566,8 @@
       ],
       "hits": 1,
       "prelim": 1.6,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai fiori wine director",
@@ -2675,7 +4580,8 @@
       ],
       "hits": 1,
       "prelim": 1.6,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai galli wine price in kenya",
@@ -2688,7 +4594,8 @@
       ],
       "hits": 1,
       "prelim": 1.6,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai in wine marketing",
@@ -2701,7 +4608,8 @@
       ],
       "hits": 1,
       "prelim": 1.6,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai lumi wine bar trapani",
@@ -2714,6 +4622,7 @@
       ],
       "hits": 1,
       "prelim": 1.6,
+      "audience": "restaurant",
       "bestRank": 9
     },
     {
@@ -2727,7 +4636,113 @@
       ],
       "hits": 1,
       "prelim": 1.6,
-      "bestRank": 9
+      "bestRank": 9,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "vente de vin en ligne particulier",
+      "locale": "fr",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 1.6,
+      "bestRank": 9,
+      "audience": "online"
+    },
+    {
+      "keyword": "ai wine pairing tool",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "ai wine pairing tool"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "augmenter les ventes de vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "augmenter les ventes de vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "aumentar las ventas de vino online",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "aumentar las ventas de vino online"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "cómo aumentar las ventas de una vinoteca",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "cómo aumentar las ventas de una vinoteca"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "retail"
+    },
+    {
+      "keyword": "cómo hacer una carta de vinos",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "cómo hacer una carta de vinos"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "increase wine sales online",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "increase wine sales online"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "programa de gestión para vinoteca",
+      "locale": "es",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "programa de gestión para vinoteca"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "retail"
     },
     {
       "keyword": "recommandation de vin ia",
@@ -2739,7 +4754,21 @@
         "recommandation de vin ia"
       ],
       "hits": 1,
-      "prelim": 1.5
+      "prelim": 1.5,
+      "audience": "online"
+    },
+    {
+      "keyword": "wine by the glass program for bars",
+      "locale": "en",
+      "sources": [
+        "seed"
+      ],
+      "seeds": [
+        "wine by the glass program for bars"
+      ],
+      "hits": 1,
+      "prelim": 1.5,
+      "audience": "restaurant"
     },
     {
       "keyword": "salary of a sommelier",
@@ -2752,7 +4781,8 @@
       ],
       "hits": 2,
       "prelim": 1.2,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "what is the sommelier exam",
@@ -2766,7 +4796,8 @@
       "hits": 2,
       "prelim": 1.1,
       "bestRank": 4,
-      "question": true
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "a sommelier salary",
@@ -2779,7 +4810,23 @@
       ],
       "hits": 1,
       "prelim": 1,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "does costco sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 1,
+      "bestRank": 0,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "sommelier formation a distance",
@@ -2792,7 +4839,8 @@
       ],
       "hits": 1,
       "prelim": 1,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "curso de sommelier virtual",
@@ -2805,7 +4853,23 @@
       ],
       "hits": 1,
       "prelim": 0.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "does amazon sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 0.9,
+      "bestRank": 1,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "head sommelier salary",
@@ -2818,7 +4882,37 @@
       ],
       "hits": 1,
       "prelim": 0.9,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine list menu examples",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list software for restaurants"
+      ],
+      "hits": 1,
+      "prelim": 0.8,
+      "bestRank": 2,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "does walmart sell wine online",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "how to sell wine online"
+      ],
+      "hits": 1,
+      "prelim": 0.7,
+      "bestRank": 3,
+      "question": true,
+      "audience": "online"
     },
     {
       "keyword": "carte des vins à gratter amazon",
@@ -2831,7 +4925,8 @@
       ],
       "hits": 1,
       "prelim": 0.6,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "average salary of a master sommelier",
@@ -2844,7 +4939,8 @@
       ],
       "hits": 1,
       "prelim": 0.5,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "how to become a sommelier reddit",
@@ -2857,8 +4953,9 @@
       ],
       "hits": 1,
       "prelim": 0.2,
+      "question": true,
       "bestRank": 8,
-      "question": true
+      "audience": "restaurant"
     },
     {
       "keyword": "ai overflowing wine glass",
@@ -2871,7 +4968,8 @@
       ],
       "hits": 1,
       "prelim": -0.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass full",
@@ -2884,7 +4982,8 @@
       ],
       "hits": 1,
       "prelim": -0.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass",
@@ -2897,7 +4996,8 @@
       ],
       "hits": 1,
       "prelim": -0.6,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine review",
@@ -2910,7 +5010,23 @@
       ],
       "hits": 1,
       "prelim": -0.6,
-      "bestRank": 1
+      "bestRank": 1,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "all type wine price list",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine list pricing strategy"
+      ],
+      "hits": 1,
+      "prelim": -0.6,
+      "bestRank": 1,
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass full to the brim",
@@ -2923,7 +5039,8 @@
       ],
       "hits": 1,
       "prelim": -0.7,
-      "bestRank": 2
+      "bestRank": 2,
+      "audience": "restaurant"
     },
     {
       "keyword": "how many level 1 sommeliers are there",
@@ -2937,7 +5054,8 @@
       "hits": 1,
       "prelim": -0.7,
       "bestRank": 2,
-      "question": true
+      "question": true,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai red wine glass",
@@ -2950,7 +5068,8 @@
       ],
       "hits": 1,
       "prelim": -0.8,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass problem",
@@ -2963,7 +5082,8 @@
       ],
       "hits": 1,
       "prelim": -0.8,
-      "bestRank": 3
+      "bestRank": 3,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass overflowing",
@@ -2976,7 +5096,8 @@
       ],
       "hits": 1,
       "prelim": -0.9,
-      "bestRank": 4
+      "bestRank": 4,
+      "audience": "restaurant"
     },
     {
       "keyword": "how many master sommeliers are there in australia",
@@ -2989,8 +5110,9 @@
       ],
       "hits": 1,
       "prelim": -0.9,
+      "question": true,
       "bestRank": 4,
-      "question": true
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass test",
@@ -3003,7 +5125,8 @@
       ],
       "hits": 1,
       "prelim": -1,
-      "bestRank": 5
+      "bestRank": 5,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai full wine glass problem",
@@ -3016,7 +5139,8 @@
       ],
       "hits": 1,
       "prelim": -1.1,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass filled to the brim",
@@ -3029,7 +5153,8 @@
       ],
       "hits": 1,
       "prelim": -1.1,
-      "bestRank": 6
+      "bestRank": 6,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai image wine glass full",
@@ -3042,7 +5167,8 @@
       ],
       "hits": 1,
       "prelim": -1.2,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine glass half full",
@@ -3055,7 +5181,22 @@
       ],
       "hits": 1,
       "prelim": -1.2,
-      "bestRank": 7
+      "bestRank": 7,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "wine cellar software reviews",
+      "locale": "en",
+      "sources": [
+        "autocomplete"
+      ],
+      "seeds": [
+        "wine shop software"
+      ],
+      "hits": 1,
+      "prelim": -2.6,
+      "bestRank": 6,
+      "audience": "retail"
     },
     {
       "keyword": "ai wine jobs",
@@ -3068,7 +5209,8 @@
       ],
       "hits": 1,
       "prelim": -3.5,
-      "bestRank": 0
+      "bestRank": 0,
+      "audience": "restaurant"
     }
   ]
 }
