@@ -46,6 +46,19 @@ seeds.json (EN/FR/ES)
 
 Everything is resumable and idempotent. Keyword responses are cached for 30 days on disk (`data/content/.cache`, git-ignored). `plan` never re-plans a slug or keyword that exists. `draft` skips slugs that already have a file.
 
+## Keyword providers
+
+| Provider | Key | What it adds | How to run |
+|---|---|---|---|
+| Google Autocomplete | none | suggestions, rank, question flag | `content:keywords` (cached 30 days, 300 requests a run) |
+| Google Trends | none | `interest` 0-100, related and rising queries (`rising`: true or `breakout`), `relatedTo`, audience from the seed. Unofficial public endpoints, serial, 1.5-3 s apart, cached 7 days, default cap 40 requests, pauses 6 h after a 429 | `content:keywords -- --trends [--trends-locale fr] [--trends-max 40]`; on by default in `content:daily` unless paused (`--no-trends`, `TRENDS_DISABLED=1`) |
+| Keyword Planner CSV | none | `volumeLow/High/Mid`, `volumeRaw` (ranges without ad spend) | `content:keywords -- --import <file>`; `docs/KEYWORD_PLANNER.md` |
+| DataForSEO | `DATAFORSEO_LOGIN/PASSWORD` | exact Google Ads volume, CPC, difficulty, keyword ideas; cost per call logged | `content:keywords -- --dataforseo [--dry-run]`; used by `content:daily` when the keys are set (`--no-dataforseo`) |
+| SerpAPI | `SERPAPI_KEY` | People Also Ask, related searches | `content:keywords` when the key is set |
+| Search Console | `GSC_*` | clicks, impressions, position of queries the site already gets | `content:keywords` when configured |
+
+Ranking when the plan picks and orders topics: B2B relevance first, then demand. Demand is `log10(volume)` (max 3) when a real volume exists. Without volume it falls back to Trends: 0.04 per interest point (max 2) plus 0.5 for rising or 1 for breakout; with neither, Autocomplete rank. The weights are the `TREND_WEIGHT` constants in `plan.ts`. Interest is relative inside a comparison of 5 seeds, so treat it as a tie-breaker, not a measurement.
+
 ## Commands
 
 | Command | What it does |
@@ -77,7 +90,7 @@ Copy `scripts/content-pipeline/.env.example` to `scripts/content-pipeline/.env` 
 | `SERPAPI_KEY` | People Also Ask, related searches, research fallback |
 | `GSC_CREDENTIALS_PATH`, `GSC_SITE_URL` | queries the site already gets (service account with read access to the property) |
 
-The DataForSEO, SerpAPI and Search Console providers follow the vendors' documented endpoints but have not been run against live accounts. Test them with one small run before relying on them.
+The DataForSEO request shapes are covered by a unit test with a fake transport and `--dataforseo --dry-run`; SerpAPI and Search Console follow the vendors' documented endpoints but have not been run against live accounts. Test them with one small run before relying on them.
 
 ## The QA gate (`content:check`)
 

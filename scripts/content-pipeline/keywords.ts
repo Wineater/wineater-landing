@@ -10,8 +10,10 @@ import { suggest } from './providers/autocomplete'
 import * as dfs from './providers/dataforseo'
 import * as serpapi from './providers/serpapi'
 import * as gsc from './providers/gsc'
+import * as trends from './providers/trends'
+import type { TrendsRow, TrendsSeed } from './providers/trends'
 
-export type KeywordSource = 'seed' | 'autocomplete' | 'gsc' | 'dataforseo' | 'serpapi-paa' | 'serpapi-related' | 'keyword-planner'
+export type KeywordSource = 'seed' | 'autocomplete' | 'gsc' | 'dataforseo' | 'serpapi-paa' | 'serpapi-related' | 'keyword-planner' | 'trends'
 export type Audience = 'restaurant' | 'retail' | 'online'
 
 export interface KeywordRow {
@@ -28,6 +30,9 @@ export interface KeywordRow {
   volumeHigh?: number
   volumeMid?: number
   volumeRaw?: string
+  interest?: number
+  rising?: boolean | 'breakout'
+  relatedTo?: string
   competition?: string
   difficulty?: number
   cpc?: number
@@ -44,7 +49,7 @@ export interface KeywordsFile {
 }
 
 interface Seeds {
-  locales: Record<string, { hl: string; questionPrefixes: string[]; seeds: { q: string; soup?: boolean; audience?: Audience }[] }>
+  locales: Record<string, { hl: string; questionPrefixes: string[]; seeds: { q: string; soup?: boolean; audience?: Audience }[]; trendHeads?: { q: string; audience?: Audience }[] }>
   b2bTerms: string[]
   consumerTerms: string[]
 }
@@ -61,13 +66,13 @@ export function guessAudience(keyword: string): Audience | undefined {
 
 const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
-export function prelimScore(row: Pick<KeywordRow, 'keyword' | 'hits' | 'bestRank' | 'sources' | 'volume'> & { volumeMid?: number }, seeds: Pick<Seeds, 'b2bTerms' | 'consumerTerms'>): number {
+export function prelimScore(row: Pick<KeywordRow, 'keyword' | 'hits' | 'bestRank' | 'sources' | 'volume'> & { volumeMid?: number; interest?: number; rising?: boolean | 'breakout' }, seeds: Pick<Seeds, 'b2bTerms' | 'consumerTerms'>): number {
   const words = new Set(normalizeKeyword(row.keyword).split(' '))
   const b2b = seeds.b2bTerms.filter((t) => words.has(t)).length
   const consumer = seeds.consumerTerms.filter((t) => normalizeKeyword(row.keyword).includes(normalizeKeyword(t))).length
   const rankBonus = row.bestRank === undefined ? 0 : Math.max(0, 1 - row.bestRank / 10)
   const vol = row.volume ?? row.volumeMid
-  const volume = vol ? Math.min(3, Math.log10(vol + 1)) : 0
+  const volume = vol ? Math.min(3, Math.log10(vol + 1)) : Math.min(1.5, (row.interest ?? 0) / 40) + (row.rising === 'breakout' ? 1 : row.rising ? 0.5 : 0)
   return Number((row.hits * 0.5 + row.sources.length + b2b * 1.5 - consumer * 3 + rankBonus + volume).toFixed(2))
 }
 
@@ -153,26 +158,6 @@ export async function buildKeywords(opts: { offline: boolean; maxRequests: numbe
     }
   }
 
-  if (!opts.offline && dfs.enabled()) {
-    for (const locale of Object.keys(seeds.locales)) {
-      const rows = [...map.values()].filter((r) => r.locale === locale)
-      try {
-        const vols = await dfs.searchVolume(rows.map((r) => r.keyword), locale)
-        const kd = await dfs.keywordDifficulty(rows.map((r) => r.keyword), locale)
-        for (const v of vols) {
-          const row = map.get(key(locale, v.keyword))
-          if (!row) continue
-          if (!row.sources.includes('dataforseo')) row.sources.push('dataforseo')
-          Object.assign(row, { volume: v.volume, cpc: v.cpc })
-          if (kd[v.keyword] !== undefined) row.difficulty = kd[v.keyword]
-        }
-        log(`dataforseo ${locale}: ${vols.length} volumes`)
-      } catch (e) {
-        log(`dataforseo skipped: ${(e as Error).message}`)
-      }
-    }
-  }
-
   const keywords = [...map.values()]
   for (const row of keywords) {
     row.audience = row.audience || seedAudience.get(key(row.locale, row.keyword)) || guessAudience(row.keyword)
@@ -218,6 +203,101 @@ export function rescore(file: KeywordsFile): KeywordsFile {
   }
   file.keywords.sort((a, b) => b.prelim - a.prelim || a.keyword.localeCompare(b.keyword))
   return file
+}
+
+export function mergeTrendsRows(file: KeywordsFile, rows: TrendsRow[]): { added: number; updated: number; file: KeywordsFile } {
+  const keywords = file.keywords.map((k) => ({ ...k }))
+  const index = new Map<string, KeywordRow>()
+  for (const k of keywords) index.set(`${k.locale}|${fold(k.keyword)}`, k)
+  let added = 0
+  let updated = 0
+  for (const r of rows) {
+    const normalized = normalizeKeyword(r.keyword)
+    if (normalized.length < 4 || normalized.split(' ').length > 9) continue
+    const k = `${r.locale}|${fold(normalized)}`
+    let row = index.get(k)
+    if (!row) {
+      row = { keyword: normalized, locale: r.locale, sources: [], seeds: [r.seed], hits: 1, prelim: 0 }
+      keywords.push(row)
+      index.set(k, row)
+      added++
+    } else updated++
+    if (!row.sources.includes('trends')) row.sources.push('trends')
+    if (r.interest !== undefined) row.interest = Math.max(row.interest ?? 0, r.interest)
+    if (r.rising) row.rising = r.rising === 'breakout' || row.rising === 'breakout' ? 'breakout' : true
+    if (r.relatedTo && !row.relatedTo) row.relatedTo = r.relatedTo
+    if (r.audience && !row.audience) row.audience = r.audience
+  }
+  return { added, updated, file: { ...file, keywords } }
+}
+
+export async function runTrends(opts: { maxRequests: number; locale?: string; log?: (s: string) => void; write: boolean }): Promise<{ rows: number; requests: number; blocked: boolean; added: number }> {
+  const log = opts.log || (() => {})
+  const seeds = readJson<Seeds>(paths.seeds, { locales: {}, b2bTerms: [], consumerTerms: [] })
+  const list: TrendsSeed[] = []
+  const seen = new Set<string>()
+  for (const [locale, cfg] of Object.entries(seeds.locales)) {
+    if (opts.locale && opts.locale !== locale) continue
+    for (const h of cfg.trendHeads || []) if (!seen.has(`${locale}|${h.q}`)) { seen.add(`${locale}|${h.q}`); list.push({ q: h.q, locale: locale as KeywordRow['locale'], audience: h.audience, head: true }) }
+    for (const sd of cfg.seeds) if (!seen.has(`${locale}|${sd.q}`)) { seen.add(`${locale}|${sd.q}`); list.push({ q: sd.q, locale: locale as KeywordRow['locale'], audience: sd.audience }) }
+  }
+  const res = await trends.collect(list, { maxRequests: opts.maxRequests, log })
+  let added = 0
+  if (res.rows.length && opts.write) {
+    const data = readJson<KeywordsFile>(paths.keywords, { generatedAt: '', requestsUsed: 0, keywords: [] })
+    const m = mergeTrendsRows(data, res.rows)
+    added = m.added
+    writeJson(paths.keywords, rescore({ ...m.file, generatedAt: new Date().toISOString() }))
+    logRun({ stage: 'keywords', note: `trends: ${res.rows.length} rows (${m.added} new), ${res.requests} requests${res.blocked ? ', BLOCKED' : ''}` })
+  }
+  return { rows: res.rows.length, requests: res.requests, blocked: res.blocked, added }
+}
+
+/** Real Google Ads volumes from DataForSEO for the best keywords that have none, plus seed suggestions. Costs money: capped. */
+export async function runDataforseo(opts: { maxKeywords: number; maxSuggestSeeds: number; dryRun: boolean; log?: (s: string) => void }): Promise<{ updated: number; added: number; costUsd: number }> {
+  const log = opts.log || (() => {})
+  dfs.configure({ dryRun: opts.dryRun })
+  const data = readJson<KeywordsFile>(paths.keywords, { generatedAt: '', requestsUsed: 0, keywords: [] })
+  const seeds = readJson<Seeds>(paths.seeds, { locales: {}, b2bTerms: [], consumerTerms: [] })
+  const index = new Map(data.keywords.map((k) => [`${k.locale}|${fold(k.keyword)}`, k]))
+  let updated = 0
+  let added = 0
+  for (const locale of Object.keys(seeds.locales)) {
+    const need = data.keywords.filter((k) => k.locale === locale && k.volume === undefined && k.prelim > 0).slice(0, opts.maxKeywords)
+    if (need.length) {
+      const vols = await dfs.searchVolume(need.map((k) => k.keyword), locale)
+      for (const v of vols) {
+        const row = index.get(`${locale}|${fold(v.keyword)}`)
+        if (!row || v.volume === undefined) continue
+        Object.assign(row, { volume: v.volume, volumeMid: v.volume, volumeLow: v.volume, volumeHigh: v.volume, volumeRaw: String(v.volume), cpc: v.cpc })
+        if (!row.sources.includes('dataforseo')) row.sources.push('dataforseo')
+        updated++
+      }
+      log(`dataforseo ${locale}: ${need.length} keywords sent, ${vols.length} returned`)
+    }
+    for (const sd of seeds.locales[locale].seeds.slice(0, opts.maxSuggestSeeds)) {
+      for (const s of await dfs.keywordSuggestions(sd.q, locale, 30)) {
+        const nk = normalizeKeyword(s.keyword)
+        if (nk.length < 4) continue
+        let row = index.get(`${locale}|${fold(nk)}`)
+        if (!row) {
+          row = { keyword: nk, locale: locale as KeywordRow['locale'], sources: [], seeds: [sd.q], hits: 1, prelim: 0, audience: sd.audience }
+          data.keywords.push(row)
+          index.set(`${locale}|${fold(nk)}`, row)
+          added++
+        }
+        if (!row.sources.includes('dataforseo')) row.sources.push('dataforseo')
+        if (s.volume !== undefined) Object.assign(row, { volume: s.volume, volumeMid: s.volume, volumeLow: s.volume, volumeHigh: s.volume, volumeRaw: String(s.volume), cpc: s.cpc, difficulty: s.difficulty ?? row.difficulty })
+      }
+    }
+  }
+  const costUsd = dfs.totalCostUsd()
+  if (!opts.dryRun) {
+    writeJson(paths.keywords, rescore({ ...data, generatedAt: new Date().toISOString() }))
+    logRun({ stage: 'dataforseo', note: `${updated} volumes, ${added} new keywords`, costUsd: Number(costUsd.toFixed(4)), calls: dfs.calls.length })
+  }
+  log(`dataforseo: ${updated} volumes, ${added} new keywords, cost ${costUsd.toFixed(4)} USD in ${dfs.calls.length} calls${opts.dryRun ? ' (dry-run: nothing sent or written)' : ''}`)
+  return { updated, added, costUsd }
 }
 
 const importedLog = () => path.join(paths.imports, '.imported.json')
@@ -268,6 +348,21 @@ async function main() {
     const loc = flags.locale as KeywordRow['locale'] | undefined
     const r = runImport({ files: [file], locale: loc, write: !flags['dry-run'], log: (x) => console.log(`[keywords] ${x}`) })
     console.log(`[keywords] import: ${r.added} new keywords, ${r.updated} existing keywords got volumes${flags['dry-run'] ? ' (dry-run: nothing written)' : `; saved to ${paths.keywords}`}`)
+    return
+  }
+  const wantTrends = Boolean(flags.trends)
+  const wantDfs = Boolean(flags.dataforseo)
+  if (wantDfs && !dfs.enabled() && !flags['dry-run']) throw new Error('DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD are not set (see scripts/content-pipeline/.env.example)')
+  if ((wantTrends || wantDfs) && !flags.offline) {
+    if (wantTrends) {
+      if (flags['dry-run']) console.log(`[keywords] trends dry-run: would request Google Trends for the seeds and trend heads (cap ${Number(flags['trends-max'] || 40)} requests, 1.5-3 s apart, cached 7 days); nothing sent`)
+      else if (!trends.enabled()) console.log('[keywords] trends paused after a recent block; delete data/content/.cache/trends/blocked.json to retry')
+      else {
+        const t = await runTrends({ maxRequests: Number(flags['trends-max'] || 40), locale: typeof flags['trends-locale'] === 'string' ? flags['trends-locale'] : undefined, write: !flags['dry-run'], log: (x) => console.log(`[keywords] ${x}`) })
+        console.log(`[keywords] trends: ${t.rows} rows (${t.added} new), ${t.requests} requests${t.blocked ? ', BLOCKED by Google' : ''}`)
+      }
+    }
+    if (wantDfs) await runDataforseo({ maxKeywords: Number(flags['dataforseo-max'] || 300), maxSuggestSeeds: Number(flags['dataforseo-seeds'] || 5), dryRun: Boolean(flags['dry-run']), log: (x) => console.log(`[keywords] ${x}`) })
     return
   }
   const result = await buildKeywords({ offline, maxRequests, log: (s) => console.log(`[keywords] ${s}`) })

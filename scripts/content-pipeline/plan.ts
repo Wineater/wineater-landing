@@ -33,6 +33,8 @@ export interface PlanItem extends Omit<ModelPlanItem, 'translationOf' | 'target'
   /** monthly search volume range of the primary keyword (Keyword Planner), copied from keywords.json */
   volumeRaw?: string
   volumeMid?: number
+  interest?: number
+  rising?: boolean | 'breakout'
   /** priority used by content:draft: b2bScore plus a volume bonus */
   priority?: number
   id: string
@@ -50,13 +52,22 @@ export interface PlanFile {
 }
 
 const MIN_B2B = 5
+const TREND_WEIGHT = { interestPerPoint: 0.04, interestMax: 2, rising: 0.5, breakout: 1 }
+const VOLUME_BONUS_MAX = 3
+
+function demandBonus(k?: { volumeMid?: number; volume?: number; interest?: number; rising?: boolean | 'breakout' }): number {
+  const vol = k?.volumeMid ?? k?.volume
+  if (vol) return Math.min(VOLUME_BONUS_MAX, Math.log10(vol + 1))
+  if (!k) return 0
+  return Math.min(TREND_WEIGHT.interestMax, (k.interest ?? 0) * TREND_WEIGHT.interestPerPoint) + (k.rising === 'breakout' ? TREND_WEIGHT.breakout : k.rising ? TREND_WEIGHT.rising : 0)
+}
 const CANNIBALIZATION = 0.6
 
 export function buildPlanPrompt(opts: { keywords: KeywordsFile; existingContent: { slug: string; locale: string; title: string; primaryKeyword: string }[]; planned: PlanItem[]; routes: Set<string>; maxItems: number; topKeywords: number }): string {
   const kws = opts.keywords.keywords
     .filter((k) => k.prelim > -1)
     .slice(0, opts.topKeywords)
-    .map((k) => `${k.locale} | ${k.keyword}${k.audience ? ` | audience ${k.audience}` : ''}${k.volumeRaw ? ` | monthly searches ${k.volumeRaw}` : k.volume ? ` | vol ${k.volume}` : ` | autocomplete rank ${k.bestRank === undefined ? 'n/a' : k.bestRank + 1}`}${k.impressions ? ` | gsc impressions ${k.impressions}` : ''}${k.question ? ' | question' : ''}`)
+    .map((k) => `${k.locale} | ${k.keyword}${k.audience ? ` | audience ${k.audience}` : ''}${k.volumeRaw ? ` | monthly searches ${k.volumeRaw}` : k.volume ? ` | vol ${k.volume}` : k.interest !== undefined || k.rising ? ` | trends interest ${k.interest ?? 0}/100${k.rising ? (k.rising === 'breakout' ? ' breakout' : ' rising') : ''}` : ` | autocomplete rank ${k.bestRank === undefined ? 'n/a' : k.bestRank + 1}`}${k.impressions ? ` | gsc impressions ${k.impressions}` : ''}${k.question ? ' | question' : ''}`)
   return [
     `Plan at most ${opts.maxItems} new items. Prefer fewer, stronger items over many weak ones.`,
     '',
@@ -69,7 +80,7 @@ export function buildPlanPrompt(opts: { keywords: KeywordsFile; existingContent:
     'ALLOWED INTERNAL LINKS:',
     ...[...opts.routes].map((r) => `- ${r}`),
     '',
-    'KEYWORDS (locale | keyword | audience | monthly searches from Google Keyword Planner, or autocomplete rank 1 = most suggested):',
+    'KEYWORDS (locale | keyword | audience | monthly searches from Google Keyword Planner, trends interest 0-100 with rising/breakout flags when there is no volume, or autocomplete rank 1 = most suggested):',
     ...kws,
   ].join('\n')
 }
@@ -108,7 +119,9 @@ export function validatePlan(raw: unknown, ctx: { keywords?: KeywordsFile; exist
       ...(audience ? { audience } : {}),
       ...(kwRow?.volumeRaw ? { volumeRaw: kwRow.volumeRaw } : {}),
       ...(volumeMid !== undefined ? { volumeMid } : {}),
-      priority: Number((it.b2bScore + (volumeMid ? Math.min(3, Math.log10(volumeMid + 1)) : 0)).toFixed(2)),
+      ...(kwRow?.interest !== undefined ? { interest: kwRow.interest } : {}),
+      ...(kwRow?.rising ? { rising: kwRow.rising } : {}),
+      priority: Number((it.b2bScore + demandBonus(kwRow)).toFixed(2)),
       slug,
       target: it.target,
       translationOf: it.translationOf || undefined,
@@ -159,7 +172,7 @@ async function main() {
   const plan = await runPlan({ maxItems, dryRun: Boolean(flags['dry-run']) })
   if (flags['dry-run']) return console.log('\n[plan] dry-run: no API call made, nothing written')
   console.log(`[plan] ${plan.items.length} items in ${paths.plan}`)
-  for (const i of plan.items.filter((x) => x.status === 'planned')) console.log(`  [${i.locale}] ${i.audience || '?'} | ${i.primaryKeyword} | vol ${i.volumeRaw || (i.volumeMid ? `~${i.volumeMid}` : 'n/a')} | b2b ${i.b2bScore} | ${i.title}`)
+  for (const i of plan.items.filter((x) => x.status === 'planned')) console.log(`  [${i.locale}] ${i.audience || '?'} | ${i.primaryKeyword} | vol ${i.volumeRaw || (i.volumeMid ? `~${i.volumeMid}` : i.interest !== undefined ? `trends ${i.interest}${i.rising ? '+' : ''}` : 'n/a')} | b2b ${i.b2bScore} | ${i.title}`)
 }
 
 if (process.argv[1] && import.meta.url.endsWith(path.basename(process.argv[1]))) main().catch((e) => { console.error(e.message); process.exit(1) })

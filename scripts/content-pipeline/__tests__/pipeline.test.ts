@@ -222,3 +222,76 @@ test('audience guess and Gemini prices', () => {
   assert.equal(priceUsd('unknown-model', 1000, 1000), 0)
   assert.equal(typeof budgetExhausted(), 'boolean')
 })
+
+// ---- Google Trends parser, merge and DataForSEO request shape ----
+import fs from 'node:fs'
+import { parseExplore, parseMultiline, parseRelated } from '../providers/trends'
+import { mergeTrendsRows } from '../keywords'
+import * as dfsApi from '../providers/dataforseo'
+
+const fxText = (n: string) => fs.readFileSync(fx(n), 'utf8')
+
+test('trends: explore response gives widgets with tokens, XSSI prefix stripped', () => {
+  const widgets = parseExplore(fxText('trends-explore.txt'))
+  assert.ok(widgets.find((w) => w.id === 'TIMESERIES' && w.token))
+  assert.ok(widgets.every((w) => w.request))
+})
+
+test('trends: multiline gives one mean per compared term', () => {
+  const means = parseMultiline(fxText('trends-multiline.txt'))
+  assert.equal(means.length, 2)
+  assert.ok(means[0] > 0 && means[0] <= 100)
+})
+
+test('trends: related queries are split into top and rising, breakout detected', () => {
+  const rel = parseRelated(fxText('trends-related.txt'))
+  assert.equal(rel[0].query, 'la carte des vins')
+  assert.equal(rel[0].kind, 'top')
+  const synthetic = ")]}'\n" + JSON.stringify({ default: { rankedList: [{ rankedKeyword: [{ query: 'a b c d', value: 100, formattedValue: '100' }] }, { rankedKeyword: [{ query: 'new thing', value: 250, formattedValue: '+250%' }, { query: 'big thing', value: 5000, formattedValue: 'Breakout' }] }] } })
+  const r2 = parseRelated(synthetic)
+  assert.deepEqual(r2.map((x) => x.kind), ['top', 'rising', 'breakout'])
+  assert.deepEqual(parseRelated(")]}'\n{\"default\":{\"rankedList\":[{},{}]}}"), [])
+})
+
+test('trends merge dedupes ignoring accents, never overwrites a real volume', () => {
+  const file: KeywordsFile = {
+    generatedAt: '', requestsUsed: 0,
+    keywords: [{ keyword: 'carte des vins', locale: 'fr', sources: ['keyword-planner'], seeds: [], hits: 1, prelim: 0, volumeMid: 5500, volumeRaw: '1K – 10K' }],
+  }
+  const m = mergeTrendsRows(file, [
+    { keyword: 'Carte des vins', locale: 'fr', seed: 'carte des vins', interest: 80, audience: 'restaurant' },
+    { keyword: 'cave à vin connectée', locale: 'fr', seed: 'cave à vin', rising: 'breakout', relatedTo: 'cave à vin', audience: 'retail' },
+    { keyword: 'cave a vin connectee', locale: 'fr', seed: 'cave à vin', rising: true },
+  ])
+  assert.equal(m.added, 1)
+  assert.equal(m.file.keywords.length, 2)
+  const cv = m.file.keywords.find((k) => k.keyword === 'carte des vins')!
+  assert.equal(cv.volumeMid, 5500)
+  assert.equal(cv.interest, 80)
+  assert.deepEqual(cv.sources, ['keyword-planner', 'trends'])
+  assert.equal(m.file.keywords.find((k) => k.relatedTo === 'cave à vin')!.rising, 'breakout')
+})
+
+test('dataforseo: request shape and cost logging with a fake transport', async () => {
+  const sent: { url: string; body: any; auth: string }[] = []
+  process.env.DATAFORSEO_LOGIN = 'fake'
+  process.env.DATAFORSEO_PASSWORD = 'fake'
+  dfsApi.configure({
+    dryRun: false,
+    transport: async (url, init) => {
+      sent.push({ url, body: JSON.parse(String(init.body)), auth: String((init.headers as any).Authorization) })
+      const volume = url.includes('search_volume')
+      return { ok: true, status: 200, json: async () => ({ status_code: 20000, cost: volume ? 0.075 : 0.01, tasks: [{ result: volume ? [{ keyword: 'carte des vins', search_volume: 2400, cpc: 0.4, competition_index: 20 }] : [{ items: [{ keyword: 'carte des vins qr', keyword_info: { search_volume: 90, cpc: 0.2 }, keyword_properties: { keyword_difficulty: 12 } }] }] }] }) }
+    },
+  })
+  const vols = await dfsApi.searchVolume(['carte des vins'], 'fr')
+  const ideas = await dfsApi.keywordSuggestions('carte des vins', 'fr', 20)
+  assert.equal(sent[0].url, 'https://api.dataforseo.com/v3/keywords_data/google_ads/search_volume/live')
+  assert.deepEqual(sent[0].body, [{ keywords: ['carte des vins'], location_code: 2250, language_code: 'fr' }])
+  assert.equal(sent[1].url, 'https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_suggestions/live')
+  assert.equal(sent[1].body[0].limit, 20)
+  assert.ok(sent[0].auth.startsWith('Basic '))
+  assert.equal(vols[0].volume, 2400)
+  assert.equal(ideas[0].difficulty, 12)
+  assert.equal(Number(dfsApi.totalCostUsd().toFixed(3)), 0.085)
+})

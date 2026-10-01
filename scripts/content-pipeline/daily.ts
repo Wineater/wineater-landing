@@ -4,7 +4,9 @@ import { has, limits, paths } from './lib/config'
 import { parseArgs, readJson, writeJson } from './lib/io'
 import { spentUsd } from './lib/llm'
 import { logRun } from './lib/runs'
-import { buildKeywords, runImport } from './keywords'
+import { buildKeywords, runDataforseo, runImport, runTrends } from './keywords'
+import * as trends from './providers/trends'
+import * as dfs from './providers/dataforseo'
 import { runPlan, type PlanFile } from './plan'
 import { runDraft } from './draft'
 import { checkAll } from './check'
@@ -39,6 +41,21 @@ async function main() {
       logRun({ stage: 'keywords', note: `daily: ${result.keywords.length} keywords, ${result.requestsUsed} requests` })
     }
     console.log(`[daily] keywords: ${result.keywords.length}${dryRun ? ' (dry-run, not written)' : ''}`)
+    if (!dryRun && !offline && !flags['no-trends'] && trends.enabled()) {
+      try {
+        const t = await runTrends({ maxRequests: Number(flags['trends-max'] || 40), write: true, log: (x) => console.log(`[daily] ${x}`) })
+        console.log(`[daily] trends: ${t.rows} rows (${t.added} new), ${t.requests} requests${t.blocked ? ', blocked by Google, paused 6 h' : ''}`)
+      } catch (e) {
+        console.log(`[daily] trends skipped: ${(e as Error).message}`)
+      }
+    } else if (!dryRun && !trends.enabled()) console.log('[daily] trends: paused after a recent block or TRENDS_DISABLED=1')
+    if (!dryRun && !offline && !flags['no-dataforseo'] && dfs.enabled()) {
+      try {
+        await runDataforseo({ maxKeywords: Number(flags['dataforseo-max'] || 300), maxSuggestSeeds: 3, dryRun: false, log: (x) => console.log(`[daily] ${x}`) })
+      } catch (e) {
+        console.log(`[daily] dataforseo skipped: ${(e as Error).message}`)
+      }
+    }
   }
 
   // 2. plan: top up only when fewer than N unwritten items remain

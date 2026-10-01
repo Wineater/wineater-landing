@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T06:09:30.177Z",
+  "generatedAt": "2026-10-01T18:45:55.091Z",
   "requestsUsed": 174,
   "keywords": [
     {
@@ -35,6 +35,42 @@
       "audience": "retail"
     },
     {
+      "keyword": "logiciel de caisse caviste",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete",
+        "trends"
+      ],
+      "seeds": [
+        "logiciel de caisse caviste"
+      ],
+      "hits": 4,
+      "prelim": 9,
+      "bestRank": 0,
+      "audience": "retail",
+      "question": true,
+      "interest": 0
+    },
+    {
+      "keyword": "vendre du vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete",
+        "trends"
+      ],
+      "seeds": [
+        "vendre du vin en ligne"
+      ],
+      "hits": 6,
+      "prelim": 8.59,
+      "bestRank": 0,
+      "audience": "online",
+      "question": true,
+      "interest": 3.6
+    },
+    {
       "keyword": "how to list wine on a menu",
       "locale": "en",
       "sources": [
@@ -49,6 +85,24 @@
       "bestRank": 1,
       "question": true,
       "audience": "restaurant"
+    },
+    {
+      "keyword": "carte des vins digitale",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete",
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins digitale"
+      ],
+      "hits": 5,
+      "prelim": 8.05,
+      "bestRank": 0,
+      "audience": "restaurant",
+      "question": true,
+      "interest": 1.9
     },
     {
       "keyword": "how to build a restaurant wine list",
@@ -67,52 +121,51 @@
       "audience": "restaurant"
     },
     {
-      "keyword": "logiciel de caisse caviste",
+      "keyword": "logiciel caviste",
       "locale": "fr",
       "sources": [
         "seed",
-        "autocomplete"
+        "autocomplete",
+        "trends"
       ],
       "seeds": [
-        "logiciel de caisse caviste"
+        "logiciel caviste"
       ],
-      "hits": 4,
+      "hits": 2,
       "prelim": 8,
       "bestRank": 0,
       "audience": "retail",
-      "question": true
+      "interest": 0
     },
     {
-      "keyword": "vendre du vin en ligne",
+      "keyword": "logiciel carte des vins restaurant",
       "locale": "fr",
       "sources": [
         "seed",
-        "autocomplete"
+        "trends"
       ],
       "seeds": [
-        "vendre du vin en ligne"
+        "logiciel carte des vins restaurant"
       ],
-      "hits": 6,
-      "prelim": 7.5,
-      "bestRank": 0,
-      "audience": "online",
-      "question": true
-    },
-    {
-      "keyword": "carte des vins digitale",
-      "locale": "fr",
-      "sources": [
-        "seed",
-        "autocomplete"
-      ],
-      "seeds": [
-        "carte des vins digitale"
-      ],
-      "hits": 5,
-      "prelim": 7,
-      "bestRank": 0,
+      "hits": 1,
+      "prelim": 7.05,
       "audience": "restaurant",
-      "question": true
+      "interest": 1.9
+    },
+    {
+      "keyword": "carte des vins qr code restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins qr code restaurant"
+      ],
+      "hits": 1,
+      "prelim": 7,
+      "audience": "restaurant",
+      "interest": 0
     },
     {
       "keyword": "how to sell wine online",
@@ -131,19 +184,19 @@
       "audience": "online"
     },
     {
-      "keyword": "logiciel caviste",
+      "keyword": "qr code carte des vins restaurant",
       "locale": "fr",
       "sources": [
         "seed",
-        "autocomplete"
+        "trends"
       ],
       "seeds": [
-        "logiciel caviste"
+        "qr code carte des vins restaurant"
       ],
-      "hits": 2,
+      "hits": 1,
       "prelim": 7,
-      "bestRank": 0,
-      "audience": "retail"
+      "audience": "restaurant",
+      "interest": 0
     },
     {
       "keyword": "wine shop software",
@@ -174,6 +227,23 @@
       "bestRank": 0,
       "audience": "restaurant",
       "question": true
+    },
+    {
+      "keyword": "sommelier ia",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "autocomplete",
+        "trends"
+      ],
+      "seeds": [
+        "sommelier ia"
+      ],
+      "hits": 2,
+      "prelim": 6.5,
+      "bestRank": 0,
+      "audience": "restaurant",
+      "interest": 0.2
     },
     {
       "keyword": "wine list pricing strategy",
@@ -310,16 +380,18 @@
       "audience": "restaurant"
     },
     {
-      "keyword": "carte des vins qr code restaurant",
+      "keyword": "carte des vins restaurant",
       "locale": "fr",
       "sources": [
-        "seed"
+        "trends"
       ],
       "seeds": [
-        "carte des vins qr code restaurant"
+        "carte des vins"
       ],
       "hits": 1,
       "prelim": 6,
+      "interest": 63.8,
+      "relatedTo": "carte des vins",
       "audience": "restaurant"
     },
     {
@@ -354,32 +426,6 @@
       "audience": "online"
     },
     {
-      "keyword": "logiciel carte des vins restaurant",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "logiciel carte des vins restaurant"
-      ],
-      "hits": 1,
-      "prelim": 6,
-      "audience": "restaurant"
-    },
-    {
-      "keyword": "qr code carte des vins restaurant",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "qr code carte des vins restaurant"
-      ],
-      "hits": 1,
-      "prelim": 6,
-      "audience": "restaurant"
-    },
-    {
       "keyword": "qr wine menu restaurant",
       "locale": "en",
       "sources": [
@@ -406,6 +452,21 @@
       "bestRank": 1,
       "audience": "online",
       "question": true
+    },
+    {
+      "keyword": "sommelier virtuel restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "sommelier virtuel restaurant"
+      ],
+      "hits": 1,
+      "prelim": 5.55,
+      "audience": "restaurant",
+      "interest": 1.9
     },
     {
       "keyword": "ai sommelier",
@@ -438,6 +499,36 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "comment vendre plus de vin au restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "comment vendre plus de vin au restaurant"
+      ],
+      "hits": 1,
+      "prelim": 5.5,
+      "audience": "restaurant",
+      "interest": 0
+    },
+    {
+      "keyword": "conseil vin en boutique caviste",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "conseil vin en boutique caviste"
+      ],
+      "hits": 1,
+      "prelim": 5.5,
+      "audience": "retail",
+      "interest": 0
+    },
+    {
       "keyword": "sommelier cave a vin",
       "locale": "fr",
       "sources": [
@@ -452,19 +543,19 @@
       "bestRank": 0
     },
     {
-      "keyword": "sommelier ia",
+      "keyword": "sommelier ia pour caviste",
       "locale": "fr",
       "sources": [
         "seed",
-        "autocomplete"
+        "trends"
       ],
       "seeds": [
-        "sommelier ia"
+        "sommelier ia pour caviste"
       ],
-      "hits": 2,
+      "hits": 1,
       "prelim": 5.5,
-      "bestRank": 0,
-      "audience": "restaurant"
+      "audience": "online",
+      "interest": 0
     },
     {
       "keyword": "sommelier in a restaurant",
@@ -494,6 +585,21 @@
       "prelim": 5.5,
       "bestRank": 0,
       "audience": "restaurant"
+    },
+    {
+      "keyword": "sommelier virtuel caviste",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "sommelier virtuel caviste"
+      ],
+      "hits": 1,
+      "prelim": 5.5,
+      "audience": "retail",
+      "interest": 0
     },
     {
       "keyword": "wine list app for restaurants",
@@ -699,6 +805,23 @@
       "audience": "retail"
     },
     {
+      "keyword": "carte des vins a gratter",
+      "locale": "fr",
+      "sources": [
+        "autocomplete",
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins ia"
+      ],
+      "hits": 1,
+      "prelim": 5.05,
+      "bestRank": 0,
+      "audience": "restaurant",
+      "interest": 2.2,
+      "relatedTo": "carte des vins"
+    },
+    {
       "keyword": "comment vendre du vin en ligne",
       "locale": "fr",
       "sources": [
@@ -884,16 +1007,17 @@
       "audience": "restaurant"
     },
     {
-      "keyword": "comment vendre plus de vin au restaurant",
+      "keyword": "carte des vins",
       "locale": "fr",
       "sources": [
-        "seed"
+        "trends"
       ],
       "seeds": [
-        "comment vendre plus de vin au restaurant"
+        "carte des vins"
       ],
       "hits": 1,
       "prelim": 4.5,
+      "interest": 71.7,
       "audience": "restaurant"
     },
     {
@@ -908,19 +1032,6 @@
       "hits": 1,
       "prelim": 4.5,
       "audience": "restaurant"
-    },
-    {
-      "keyword": "conseil vin en boutique caviste",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "conseil vin en boutique caviste"
-      ],
-      "hits": 1,
-      "prelim": 4.5,
-      "audience": "retail"
     },
     {
       "keyword": "digital sommelier restaurant",
@@ -946,6 +1057,21 @@
       ],
       "hits": 1,
       "prelim": 4.5,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "la carte des vins",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 4.5,
+      "interest": 71.7,
+      "relatedTo": "carte des vins",
       "audience": "restaurant"
     },
     {
@@ -1025,45 +1151,6 @@
       "hits": 1,
       "prelim": 4.5,
       "audience": "retail"
-    },
-    {
-      "keyword": "sommelier ia pour caviste",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "sommelier ia pour caviste"
-      ],
-      "hits": 1,
-      "prelim": 4.5,
-      "audience": "online"
-    },
-    {
-      "keyword": "sommelier virtuel caviste",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "sommelier virtuel caviste"
-      ],
-      "hits": 1,
-      "prelim": 4.5,
-      "audience": "retail"
-    },
-    {
-      "keyword": "sommelier virtuel restaurant",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "sommelier virtuel restaurant"
-      ],
-      "hits": 1,
-      "prelim": 4.5,
-      "audience": "restaurant"
     },
     {
       "keyword": "tienda online de vino shopify",
@@ -1177,6 +1264,35 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "caviste",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 4.21,
+      "interest": 48.2,
+      "audience": "retail"
+    },
+    {
+      "keyword": "le caviste",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 4.21,
+      "interest": 48.2,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
       "keyword": "how to become a sommelier in australia",
       "locale": "en",
       "sources": [
@@ -1222,6 +1338,21 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "comment composer une carte des vins",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "comment composer une carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 4.09,
+      "audience": "restaurant",
+      "interest": 3.5
+    },
+    {
       "keyword": "a sommelier who's never tasted wine",
       "locale": "fr",
       "sources": [
@@ -1236,18 +1367,64 @@
       "audience": "restaurant"
     },
     {
-      "keyword": "carte des vins a gratter",
+      "keyword": "carte des vins ia",
       "locale": "fr",
       "sources": [
-        "autocomplete"
+        "seed",
+        "trends"
       ],
       "seeds": [
         "carte des vins ia"
       ],
       "hits": 1,
       "prelim": 4,
-      "bestRank": 0,
-      "audience": "restaurant"
+      "audience": "restaurant",
+      "interest": 0
+    },
+    {
+      "keyword": "chatbot conseil vin",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "chatbot conseil vin"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "audience": "online",
+      "interest": 0
+    },
+    {
+      "keyword": "coefficient prix de vente vin restaurant",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "coefficient prix de vente vin restaurant"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "audience": "restaurant",
+      "interest": 0
+    },
+    {
+      "keyword": "comment augmenter les ventes d'une cave à vin",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "comment augmenter les ventes d'une cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "audience": "retail",
+      "interest": 0
     },
     {
       "keyword": "como hacer una carta de vinos",
@@ -1265,6 +1442,21 @@
       "question": true
     },
     {
+      "keyword": "gestion de la carte des vins",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "gestion de la carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "audience": "restaurant",
+      "interest": 0
+    },
+    {
       "keyword": "how can i sell wine online",
       "locale": "en",
       "sources": [
@@ -1278,6 +1470,36 @@
       "bestRank": 0,
       "question": true,
       "audience": "online"
+    },
+    {
+      "keyword": "idées marketing pour caviste indépendant",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "idées marketing pour caviste indépendant"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "audience": "retail",
+      "interest": 0
+    },
+    {
+      "keyword": "module recommandation vin shopify",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "module recommandation vin shopify"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "audience": "online",
+      "interest": 0
     },
     {
       "keyword": "recomendador de vinos",
@@ -1463,6 +1685,21 @@
       "audience": "online"
     },
     {
+      "keyword": "vendre plus de vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "vendre plus de vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 4,
+      "audience": "online",
+      "interest": 0
+    },
+    {
       "keyword": "wine cellar management software",
       "locale": "en",
       "sources": [
@@ -1489,6 +1726,21 @@
       "prelim": 4,
       "bestRank": 0,
       "audience": "online"
+    },
+    {
+      "keyword": "carte des vins france",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.97,
+      "interest": 38.7,
+      "relatedTo": "carte des vins",
+      "audience": "restaurant"
     },
     {
       "keyword": "ai wine app",
@@ -1532,6 +1784,21 @@
       "prelim": 3.9,
       "bestRank": 1,
       "audience": "restaurant"
+    },
+    {
+      "keyword": "caviste nicolas",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.9,
+      "interest": 36.1,
+      "relatedTo": "caviste",
+      "audience": "retail"
     },
     {
       "keyword": "expert sommelier",
@@ -1760,6 +2027,50 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "carte des vins de france",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.83,
+      "interest": 33,
+      "relatedTo": "carte des vins",
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.82,
+      "interest": 32.9,
+      "audience": "retail"
+    },
+    {
+      "keyword": "la cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.82,
+      "interest": 32.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
       "keyword": "a sommelier for beer",
       "locale": "fr",
       "sources": [
@@ -1986,6 +2297,21 @@
       "hits": 1,
       "prelim": 3.8,
       "bestRank": 2,
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste paris",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.75,
+      "interest": 29.9,
+      "relatedTo": "caviste",
       "audience": "retail"
     },
     {
@@ -2415,6 +2741,156 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "cave à vin 30 bouteilles",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin auchan",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin double zone",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin polyvalente",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin samsung",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste agen",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste avelin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste cannes",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste carvin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste valence",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.5,
+      "rising": true,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
       "keyword": "sommelier a la reunion",
       "locale": "fr",
       "sources": [
@@ -2528,6 +3004,36 @@
       "audience": "online"
     },
     {
+      "keyword": "caviste autour de moi",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.38,
+      "interest": 15.4,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "une cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.35,
+      "interest": 13.8,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
       "keyword": "ai wine shop sommia",
       "locale": "en",
       "sources": [
@@ -2595,6 +3101,111 @@
       "hits": 1,
       "prelim": 3.3,
       "bestRank": 7,
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "carte des vins bourgogne",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.29,
+      "interest": 11.5,
+      "relatedTo": "carte des vins",
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "caviste lyon",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.27,
+      "interest": 10.6,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin encastrable",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.24,
+      "interest": 9.5,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "carte des vins bordeaux",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.23,
+      "interest": 9.3,
+      "relatedTo": "carte des vins",
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "cave à vin vieillissement",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.21,
+      "interest": 8.6,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste bordeaux",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.21,
+      "interest": 8.2,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "carte des vins de bourgogne",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.2,
+      "interest": 7.9,
+      "relatedTo": "carte des vins",
       "audience": "restaurant"
     },
     {
@@ -2683,6 +3294,336 @@
       "audience": "online"
     },
     {
+      "keyword": "caviste ouvert",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.19,
+      "interest": 7.7,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "carte des vins de bordeaux",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.16,
+      "interest": 6.5,
+      "relatedTo": "carte des vins",
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "cave à vin la sommeliere",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.16,
+      "interest": 6.3,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "prix cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.16,
+      "interest": 6.3,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin de service",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.15,
+      "interest": 5.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin haier",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.15,
+      "interest": 5.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste lille",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.15,
+      "interest": 5.8,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste marseille",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.15,
+      "interest": 5.8,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste toulouse",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.15,
+      "interest": 5.8,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "emploi caviste",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.15,
+      "interest": 5.8,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "la sommelière cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.15,
+      "interest": 5.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin climadiff",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.14,
+      "interest": 5.6,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "darty cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.14,
+      "interest": 5.6,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin de vieillissement",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.13,
+      "interest": 5.3,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin boulanger",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.12,
+      "interest": 4.6,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin liebherr",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.12,
+      "interest": 4.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave à vin paris",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.12,
+      "interest": 4.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "cave de vieillissement",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.12,
+      "interest": 4.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste rennes",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.12,
+      "interest": 4.8,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "petite cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.12,
+      "interest": 4.6,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste nantes",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.11,
+      "interest": 4.3,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "frigo cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.11,
+      "interest": 4.3,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
       "keyword": "carrefour taiwan's ai sommelier",
       "locale": "en",
       "sources": [
@@ -2695,6 +3636,36 @@
       "prelim": 3.1,
       "bestRank": 9,
       "audience": "restaurant"
+    },
+    {
+      "keyword": "caviste sans alcool",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.1,
+      "interest": 3.9,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste strasbourg",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.1,
+      "interest": 3.9,
+      "relatedTo": "caviste",
+      "audience": "retail"
     },
     {
       "keyword": "corso sommelier i livello",
@@ -2739,6 +3710,215 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "affiche carte des vins",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.09,
+      "interest": 3.6,
+      "relatedTo": "carte des vins",
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "meuble cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.09,
+      "interest": 3.6,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste angers",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.08,
+      "interest": 3.4,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste montpellier",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.08,
+      "interest": 3.4,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste tours",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.08,
+      "interest": 3.4,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "mini cave à vin",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 3.08,
+      "interest": 3.3,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "mon copain caviste",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.08,
+      "interest": 3.4,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste en ligne",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.07,
+      "interest": 2.9,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste reims",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.07,
+      "interest": 2.9,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "caviste rouen",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.07,
+      "interest": 2.9,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "la carte des vins svp",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "carte des vins"
+      ],
+      "hits": 1,
+      "prelim": 3.07,
+      "interest": 2.9,
+      "relatedTo": "carte des vins",
+      "audience": "restaurant"
+    },
+    {
+      "keyword": "caviste nice",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.06,
+      "interest": 2.4,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "nysa caviste",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 3.06,
+      "interest": 2.4,
+      "relatedTo": "caviste",
+      "audience": "retail"
+    },
+    {
+      "keyword": "sommelier virtuel",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "sommelier virtuel"
+      ],
+      "hits": 1,
+      "prelim": 3.05,
+      "interest": 1.9,
+      "audience": "online"
+    },
+    {
       "keyword": "api de recomendación de vinos",
       "locale": "es",
       "sources": [
@@ -2778,32 +3958,6 @@
       "audience": "restaurant"
     },
     {
-      "keyword": "carte des vins ia",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "carte des vins ia"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "restaurant"
-    },
-    {
-      "keyword": "chatbot conseil vin",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "chatbot conseil vin"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "online"
-    },
-    {
       "keyword": "chatbot recomendador de vinos",
       "locale": "es",
       "sources": [
@@ -2815,45 +3969,6 @@
       "hits": 1,
       "prelim": 3,
       "audience": "online"
-    },
-    {
-      "keyword": "coefficient prix de vente vin restaurant",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "coefficient prix de vente vin restaurant"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "restaurant"
-    },
-    {
-      "keyword": "comment augmenter les ventes d'une cave à vin",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "comment augmenter les ventes d'une cave à vin"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "retail"
-    },
-    {
-      "keyword": "comment composer une carte des vins",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "comment composer une carte des vins"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "restaurant"
     },
     {
       "keyword": "cómo vender vino online",
@@ -2882,19 +3997,6 @@
       "audience": "restaurant"
     },
     {
-      "keyword": "gestion de la carte des vins",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "gestion de la carte des vins"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "restaurant"
-    },
-    {
       "keyword": "how to increase wine shop sales",
       "locale": "en",
       "sources": [
@@ -2902,19 +4004,6 @@
       ],
       "seeds": [
         "how to increase wine shop sales"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "retail"
-    },
-    {
-      "keyword": "idées marketing pour caviste indépendant",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "idées marketing pour caviste indépendant"
       ],
       "hits": 1,
       "prelim": 3,
@@ -2932,19 +4021,6 @@
       "hits": 1,
       "prelim": 3,
       "audience": "retail"
-    },
-    {
-      "keyword": "module recommandation vin shopify",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "module recommandation vin shopify"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "online"
     },
     {
       "keyword": "precio de venta del vino en restaurante",
@@ -3006,19 +4082,6 @@
       ],
       "seeds": [
         "vender más vino online"
-      ],
-      "hits": 1,
-      "prelim": 3,
-      "audience": "online"
-    },
-    {
-      "keyword": "vendre plus de vin en ligne",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "vendre plus de vin en ligne"
       ],
       "hits": 1,
       "prelim": 3,
@@ -3329,6 +4392,21 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "augmenter les ventes de vin en ligne",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "augmenter les ventes de vin en ligne"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "audience": "online",
+      "interest": 0
+    },
+    {
       "keyword": "digital wine list for restaurants",
       "locale": "en",
       "sources": [
@@ -3341,6 +4419,21 @@
       "prelim": 2.5,
       "bestRank": 0,
       "audience": "restaurant"
+    },
+    {
+      "keyword": "recommandation de vin ia",
+      "locale": "fr",
+      "sources": [
+        "seed",
+        "trends"
+      ],
+      "seeds": [
+        "recommandation de vin ia"
+      ],
+      "hits": 1,
+      "prelim": 2.5,
+      "audience": "online",
+      "interest": 0
     },
     {
       "keyword": "sommelier a la carte",
@@ -4556,6 +5649,51 @@
       "audience": "restaurant"
     },
     {
+      "keyword": "la sommeliere",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 1.66,
+      "interest": 6.3,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "climadiff",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 1.64,
+      "interest": 5.6,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
+      "keyword": "liebherr",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "cave à vin"
+      ],
+      "hits": 1,
+      "prelim": 1.62,
+      "interest": 4.9,
+      "relatedTo": "cave à vin",
+      "audience": "retail"
+    },
+    {
       "keyword": "ai and wine industry",
       "locale": "en",
       "sources": [
@@ -4667,19 +5805,6 @@
       "audience": "online"
     },
     {
-      "keyword": "augmenter les ventes de vin en ligne",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "augmenter les ventes de vin en ligne"
-      ],
-      "hits": 1,
-      "prelim": 1.5,
-      "audience": "online"
-    },
-    {
       "keyword": "aumentar las ventas de vino online",
       "locale": "es",
       "sources": [
@@ -4743,19 +5868,6 @@
       "hits": 1,
       "prelim": 1.5,
       "audience": "retail"
-    },
-    {
-      "keyword": "recommandation de vin ia",
-      "locale": "fr",
-      "sources": [
-        "seed"
-      ],
-      "seeds": [
-        "recommandation de vin ia"
-      ],
-      "hits": 1,
-      "prelim": 1.5,
-      "audience": "online"
     },
     {
       "keyword": "wine by the glass program for bars",
@@ -4956,6 +6068,21 @@
       "question": true,
       "bestRank": 8,
       "audience": "restaurant"
+    },
+    {
+      "keyword": "formation caviste",
+      "locale": "fr",
+      "sources": [
+        "trends"
+      ],
+      "seeds": [
+        "caviste"
+      ],
+      "hits": 1,
+      "prelim": 0.07,
+      "interest": 2.9,
+      "relatedTo": "caviste",
+      "audience": "retail"
     },
     {
       "keyword": "ai overflowing wine glass",

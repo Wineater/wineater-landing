@@ -132,6 +132,32 @@
           "q": "ai wine pairing tool",
           "audience": "online"
         }
+      ],
+      "trendHeads": [
+        {
+          "q": "wine list",
+          "audience": "restaurant"
+        },
+        {
+          "q": "wine menu",
+          "audience": "restaurant"
+        },
+        {
+          "q": "wine shop",
+          "audience": "retail"
+        },
+        {
+          "q": "sell wine online",
+          "audience": "online"
+        },
+        {
+          "q": "wine recommendation",
+          "audience": "online"
+        },
+        {
+          "q": "ai sommelier",
+          "audience": "online"
+        }
       ]
     },
     "fr": {
@@ -242,6 +268,32 @@
           "q": "chatbot conseil vin",
           "audience": "online"
         }
+      ],
+      "trendHeads": [
+        {
+          "q": "carte des vins",
+          "audience": "restaurant"
+        },
+        {
+          "q": "logiciel caviste",
+          "audience": "retail"
+        },
+        {
+          "q": "caviste",
+          "audience": "retail"
+        },
+        {
+          "q": "vendre du vin en ligne",
+          "audience": "online"
+        },
+        {
+          "q": "sommelier virtuel",
+          "audience": "online"
+        },
+        {
+          "q": "cave à vin",
+          "audience": "retail"
+        }
       ]
     },
     "es": {
@@ -337,6 +389,28 @@
         },
         {
           "q": "api de recomendación de vinos",
+          "audience": "online"
+        }
+      ],
+      "trendHeads": [
+        {
+          "q": "carta de vinos",
+          "audience": "restaurant"
+        },
+        {
+          "q": "vinoteca",
+          "audience": "retail"
+        },
+        {
+          "q": "tienda de vinos",
+          "audience": "retail"
+        },
+        {
+          "q": "vender vino online",
+          "audience": "online"
+        },
+        {
+          "q": "sommelier virtual",
           "audience": "online"
         }
       ]

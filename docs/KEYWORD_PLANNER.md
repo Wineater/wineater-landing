@@ -58,3 +58,26 @@ npm run content:plan -- --limit 8
 ```
 
 Each planned item prints its audience, primary keyword and volume range. Items are ranked by B2B relevance first, volume second.
+
+## Fastest route to real volumes (DataForSEO)
+
+Keyword Planner itself has no free API: the Google Ads API needs developer-token approval, so there is nothing to plug in without a manual export. DataForSEO sells the same Google Ads volumes through a simple pay-as-you-go API, with exact numbers instead of ranges.
+
+1. Sign up at dataforseo.com. New accounts get a small free credit, enough to test.
+2. Put the login and password in `scripts/content-pipeline/.env` (local, git-ignored):
+   ```
+   DATAFORSEO_LOGIN=your-login
+   DATAFORSEO_PASSWORD=your-api-password
+   ```
+   For the daily GitHub workflow add the same two names as repository secrets (Settings -> Secrets and variables -> Actions) and pass them to the job as `DATAFORSEO_LOGIN` and `DATAFORSEO_PASSWORD`. The pipeline uses them only when they are set.
+3. Run:
+   ```
+   npm run content:keywords -- --dataforseo
+   ```
+   It sends the best 300 keywords per language that still have no volume (`--dataforseo-max N`) and asks for keyword ideas for 5 seeds per language (`--dataforseo-seeds N`). Exact volumes are stored as `volume` and `volumeMid`. The cost of every call, as reported by DataForSEO, is printed and written to `data/content/runs.jsonl` (stage `dataforseo`). Check the cost per call on your DataForSEO dashboard before raising the limits.
+
+Try it without sending anything: `npm run content:keywords -- --dataforseo --dry-run` prints the exact requests (works even with fake credentials).
+
+## Free signal without any account: Google Trends
+
+`npm run content:keywords -- --trends` asks Google Trends (public endpoints, no key) for relative interest over the last 12 months and the top and rising related searches of every seed and of a few short "head" terms (`trendHeads` in `scripts/content-pipeline/seeds.json`). It is not a search volume: interest is 0 to 100 compared with the top seed of the same small comparison, and long, specific phrases often show 0. The useful part is the related queries and the `rising` / `breakout` flags, which point at what people are starting to search. `--trends-locale fr` runs one language, `--trends-max 40` caps requests per run (about 1.5 to 3 seconds apart, cached 7 days, rerun to continue). If Google answers 429, the run keeps what it has and pauses Trends for 6 hours (delete `data/content/.cache/trends/blocked.json` to retry; set `TRENDS_DISABLED=1` to switch it off). Real volumes from Keyword Planner or DataForSEO are never overwritten.
