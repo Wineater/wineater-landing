@@ -262,7 +262,7 @@ onMounted(() => {
 .carousel {
   margin-top: 28px;
   border-radius: 16px;
-  --panel: #1a1426; // solid --ink panel: nothing from the screenshot shows through the text
+  --panel: rgba(255, 255, 255, 0.8); // frosted light glass: the screenshot shows through, blur keeps the text readable
   --dur: 6s;
 
   &:focus-visible { outline: 2px solid var(--brand-1); outline-offset: 4px; }
@@ -342,14 +342,23 @@ onMounted(() => {
   object-position: top center;
 }
 
-// Text over the image: opaque-enough ink sheet, so contrast holds over any part of the screenshot.
+// Text over the image: light frosted glass (80% white + blur) so the screenshot stays visible
+// while ink text keeps >= 4.5:1 even over the darkest bottle (checked against the worst case).
 .slide__panel {
   position: absolute;
   inset: auto 0 0;
   padding: 24px 32px 26px;
   border-radius: 20px 20px 0 0;
   background: var(--panel);
-  color: #fff;
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 -10px 30px rgba(26, 20, 38, 0.08);
+  color: var(--ink);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .slide__panel { background: rgba(255, 255, 255, 0.95); }
 }
 
 .slide__title {
@@ -359,7 +368,7 @@ onMounted(() => {
   font-weight: 500;
   font-size: 2.2rem;
   line-height: 1.3;
-  color: #fff;
+  color: var(--ink);
   text-wrap: balance;
 }
 
@@ -368,14 +377,14 @@ onMounted(() => {
   max-width: 72ch;
   font-size: 1.6rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--ink-2);
 }
 
 .slide__live {
   margin: 8px 0 0;
   font-size: 1.4rem;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--ink-2);
 }
 
 // Speed slide: violet field with a plain HTML/CSS bar chart (0-8 s scale).
@@ -651,7 +660,7 @@ onMounted(() => {
   .slide__bar { height: 30px; }
   .slide__media { flex: none; }
   .slide__img { position: static; height: auto; aspect-ratio: 16 / 9; }
-  .slide__panel { position: static; flex: 1; padding: 16px 16px 18px; border-radius: 0; }
+  .slide__panel { position: static; flex: 1; padding: 16px 16px 18px; border-radius: 0; background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; border-top: 1px solid var(--brand-5); box-shadow: none; }
   .slide__title { font-size: 1.9rem; }
   .slide__desc { font-size: 1.5rem; }
   .slide__live { margin-top: 6px; }

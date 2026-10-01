@@ -70,7 +70,7 @@ import { ref, onMounted } from 'vue';
 // intermarche.png    https://www.mousquetaires.com/wp-content/uploads/2025/07/enseigne-intermarche_petit.png (official group site)
 // Order is interleaved on purpose. Every entry is a real client, article or backer: do not add placeholders.
 const logos = [
-  { id: 'brice-burnett', name: 'Brice & Burnett', src: '/clients/brice-burnett.png', width: 1298, height: 107, displayHeight: 22, href: 'https://www.briceandburnett.co.za/' },
+  { id: 'brice-burnett', name: 'Brice & Burnett', src: '/clients/brice-burnett.png', width: 1298, height: 107, displayHeight: 22, href: 'https://www.briceandburnett.co.za/ai-wine-geek' },
   { id: 'figaro', name: 'Le Figaro', src: '/press/figaro.svg', width: 310, height: 42, displayHeight: 28, href: 'https://avis-vin.lefigaro.fr/economie-du-vin/accords-mets-et-vins-grace-a-l-ia-durabilite-ces-startups-qui-tentent-de-revolutionner-le-monde-du-vin-20250723' },
   { id: 'bm-startupwin', name: 'Bernard Magrez Start-Up Win', src: '/press/bmstartupwin.png', width: 400, height: 75, displayHeight: 40, href: 'https://bmstartupwin.com/en/startups/wineater/' },
   { id: 'intermarche', name: 'Intermarché', src: '/clients/intermarche.png', width: 349, height: 66, displayHeight: 40, href: 'https://www.intermarche.com/' },
