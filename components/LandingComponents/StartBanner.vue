@@ -48,7 +48,9 @@
     <div class="hero__banner">
       <img
         class="hero__banner-img"
-        :src="BANNER_SRC"
+        :src="BANNER.src"
+        :srcset="BANNER.srcset"
+        :sizes="BANNER.sizes"
         width="948"
         height="992"
         fetchpriority="high"
@@ -68,10 +70,15 @@ import { DEMO_URL } from '~/data/links';
 import AudienceScene from '~/components/LandingComponents/AudienceScene.vue';
 import Button from '~/components/Buttons/Button.vue';
 
-const BANNER_SRC = 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/main-banner.webp';
+// The owner's hero artwork, re-encoded at three widths (public/brand) so phones do not download the 948px file.
+const BANNER = {
+  src: '/brand/main-banner-720.webp',
+  srcset: '/brand/main-banner-480.webp 480w, /brand/main-banner-720.webp 720w, /brand/main-banner-948.webp 948w',
+  sizes: '(max-width: 899px) 320px, 540px',
+};
 
 useHead({
-  link: [{ rel: 'preload', as: 'image', href: BANNER_SRC, type: 'image/webp', fetchpriority: 'high' }],
+  link: [{ rel: 'preload', as: 'image', href: BANNER.src, imagesrcset: BANNER.srcset, imagesizes: BANNER.sizes, type: 'image/webp', fetchpriority: 'high' }],
 });
 
 const emit = defineEmits(['getStarted']);
@@ -310,7 +317,8 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   .hero__banner-img {
     width: auto;
-    height: auto;
+    // Fixed height reserves the space before the image arrives (no layout shift for the CTAs below).
+    height: 320px;
     max-width: 100%;
     max-height: 320px;
     object-position: center;

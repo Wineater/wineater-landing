@@ -1,8 +1,5 @@
-import en from './locales/en.json'
-import fr from './locales/fr.json'
-
+// Messages are loaded per locale from i18n/locales (see nuxt.config i18n.locales[].files).
 export default defineI18nConfig(() => ({
   legacy: false,
-  fallbackLocale: 'en',
-  messages: { en, fr }
+  fallbackLocale: 'en'
 }))

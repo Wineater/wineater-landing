@@ -5,8 +5,8 @@ export default defineNuxtConfig({
     head: {
       link: [
         {rel: 'preconnect', href: 'https://czvgkhagwvmknscoerfy.supabase.co', crossorigin: 'anonymous'},
-        {rel: 'preload', as: 'font', type: 'font/woff2', crossorigin: 'anonymous', href: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Poppins-Medium.woff2'},
-        {rel: 'preload', as: 'font', type: 'font/woff2', crossorigin: 'anonymous', href: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Poppins-Regular.woff2'},
+        // No font preload: measured on mobile Lighthouse it made the hero image and the first paint wait for
+        // 100 KB of fonts (pricing 86 -> 92). font-display: swap and the size-adjusted fallback keep CLS near 0.
       ],
       meta: [
         {name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=5'},
