@@ -38,9 +38,37 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - Free trial: one month, no credit card required.
 - Demo booking: 20-minute call.
 
+## Pricing (approved 2026-10-02; single source in data/pricing.ts)
+- All prices are USD per month. Free trial: 1 month, no credit card, for every plan. Pay by card or, in the EU, by invoice.
+- Online stores: Starter $49 (up to 500 wines); Growth $99 + $0.10 per BUY click (up to 3,000 wines); Enterprise (more than 3,000 wines) on request.
+- Restaurants and bars: Restaurant $99 per venue (up to 500 wines); Restaurant Plus $149 per venue (more than 500 wines); chains of 3+ venues on request.
+- Offline retail (supermarkets, wine boutiques) and distributors: no public price, "Talk to sales".
+- A BUY click is a click to the product page, never a purchase. Example Growth invoice: 500 BUY clicks in a month = $99 + $50.
+
+## External statistic (approved with its source, always shown next to it)
+- Wine Market Council's national survey of "wine-hesitant" consumers (presented 2026-05-27, Quini blind-tasting data): only 11% say they can predict how a wine will taste, against almost half for beer, spirits and cocktails. Source: The Press Democrat, 2026-05-29. Say "wine-hesitant consumers", not "all shoppers".
+
+## Pilot figures
+- Published as rounded figures from data/proof.ts only. The pilot client is never named next to them, no country, no currency. Offline retail page shows the "what shoppers asked for" themes only.
+
+## Restaurants (approved)
+- The tablet tool for staff ("sommelier assistant") runs in a browser on any tablet or phone. It needs no POS or till integration. It is not a point-of-sale system: no tables, orders, cart or payment.
+- Already used in restaurants in France and Russia (no names, no counts).
+
+## Early access (NOT available yet: always label "Early access" or "Coming soon", never say it works)
+- "AI-ready catalog": a store MCP server plus an enriched product feed so AI assistants (ChatGPT, Perplexity, Google AI) can read a shop's catalog.
+- "Shopify app": one-click install.
+- Both have a waitlist form only. No release date, no pricing.
+
+## Distributors (module in development; label "Early access", design-partner stage)
+- Wineater for distributors turns a restaurant's food menu (photo or PDF) into a wine proposal made from the distributor's own portfolio; a QR menu for client restaurants where the distributor's wines are marked as priority; a widget for the distributor's site; portfolio gap analysis and menu heatmap (insights, later phase).
+- Do not state delivery times, "1 minute" as a promise, or conversion figures for the distributor module. The "20%+" conversion line in the distributor PDF is NOT approved (a BUY click is not a conversion).
+- Onboarding: price list or catalog (Excel, PDF or API), no complex IT integration.
+
 ## Not approved (never state)
-- Any statistic, conversion uplift, revenue figure or customer count.
-- Customer names, logos, quotes or case-study results.
-- Pricing amounts.
-- Claims about Shopify/WooCommerce/PrestaShop plugins or app-store listings.
-- Founder or investor biographies.
+- Any statistic, conversion uplift, revenue figure or customer count beyond the approved ones above.
+- Customer names, logos, quotes or case-study results (exception: two logos in the trust ribbon, see data/proof.ts liveClients).
+- Revenue projections or extrapolations.
+- Claims that Shopify/WooCommerce/PrestaShop plugins or app-store listings exist (only the early-access waitlist wording above).
+- Claims that the AI-ready catalog works today.
+- Founder or investor biographies (FounderNote shows a placeholder until the owner supplies the text).

@@ -7,6 +7,16 @@
 
 const NBSP = ' '
 
+// Where each figure may be shown. The pilot ran on an online shop, so the figures belong to
+// the shop/retail pages and the home page, never to the restaurants page.
+export type ProofSegment = 'home' | 'online' | 'retail'
+export const proofSegments: Record<'buyClick' | 'requestsPerShopper' | 'search' | 'themes', readonly ProofSegment[]> = {
+  buyClick: ['home', 'online'],
+  requestsPerShopper: ['home', 'online'],
+  search: ['home', 'online'],
+  themes: ['retail'],
+}
+
 export const pilotProof = {
   // order shown in the hero: BUY click, requests, search
   buyClick: { en: '20%+', fr: `20${NBSP}%+` },
@@ -28,3 +38,15 @@ export const liveClients = [
   { id: 'brice-burnett', name: 'Brice & Burnett', permission: 'logo allowed by owner 2026-09-30' },
   { id: 'intermarche', name: 'Intermarché', permission: 'logo allowed by owner 2026-09-30' },
 ] as const
+
+// External statistic (not Wineater data). Shown with its source next to it, always.
+// The survey base is "wine-hesitant" consumers, not all shoppers: keep that wording.
+export const whyNowStat = {
+  value: { en: '11%', fr: `11${NBSP}%` },
+  comparison: { en: 'almost half', fr: 'près de la moitié' },
+  source: {
+    name: 'Wine Market Council / Quini, via The Press Democrat',
+    date: '2026-05-29',
+    url: 'https://www.pressdemocrat.com/2026/05/29/wines-real-problem-many-consumers-cant-predict-what-it-will-taste-like-researchers-say/',
+  },
+} as const
