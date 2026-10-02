@@ -50,3 +50,21 @@ export const whyNowStat = {
     url: 'https://www.pressdemocrat.com/2026/05/29/wines-real-problem-many-consumers-cant-predict-what-it-will-taste-like-researchers-say/',
   },
 } as const
+
+// Rounded pilot rates behind the published chips (20%+ is a floor, ~40% is rounded). Used only by the
+// BUY-click estimator on Pricing and Online stores, as an illustration and never as a forecast.
+export const pilotRates = { searchShare: 0.4, buyClickRate: 0.2 } as const
+
+// Median answer time (seconds) by catalog size, from our own timing runs on live stores (October 2026).
+// Bars use a 0-8 s scale. Not tested above `testedUpTo` wines. No client is named next to these figures.
+export const answerTime = {
+  runs: [
+    { n: 29, s: 4.8 },
+    { n: 68, s: 4.8 },
+    { n: 393, s: 5.1 },
+    { n: 762, s: 6.7 },
+    { n: 3344, s: 5.3 },
+  ],
+  scaleMax: 8,
+  testedUpTo: 3344,
+} as const

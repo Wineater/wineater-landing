@@ -30,7 +30,8 @@
       </dl>
     </div>
     <p class="sol-note roi__fine">{{ $t('roi.fine', { search: pct(roiRates.searchShare), click: pct(roiRates.buyClickRate), base: usd(plan('growth').price), perClick: usd(plan('growth').perBuyClick) }) }}</p>
-    <p class="sol-note">{{ caveat }}</p>
+    <p class="sol-note">{{ caveat }} {{ $t('roi.after') }}</p>
+    <p class="sol-note">{{ $t('roi.starterNote', { max: formatInt(plan('starter').maxWines, locale), price: usd(plan('starter').price) }) }}</p>
   </section>
 </template>
 

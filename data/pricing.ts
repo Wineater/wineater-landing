@@ -3,6 +3,8 @@
 // Approved by the owner (landing brief 2026-10-02). All prices are USD per month.
 // Never write a price in a template or in an i18n string: pass these values as {params}.
 // Volume metered pricing: a BUY click is a click to the product page, never a purchase.
+// public/llms.txt repeats these prices as plain text (a static file cannot import): update it together.
+import { pilotRates } from './proof'
 
 export const CURRENCY = 'USD'
 export const TRIAL_MONTHS = 1
@@ -66,10 +68,10 @@ export const exampleInvoice = (() => {
 })()
 
 /**
- * Pilot rates used by the ROI calculator (see data/proof.ts for the published, rounded figures).
+ * Pilot rates used by the BUY-click estimator (published, rounded figures live in data/proof.ts).
  * Only clicks and the plan cost are computed. No purchases, no revenue, no forecast.
  */
-export const roiRates = { searchShare: 0.4, buyClickRate: 0.2 } as const
+export const roiRates = pilotRates
 
 export function estimateBuyClicks(monthlyVisits: number): number {
   const visits = Number.isFinite(monthlyVisits) && monthlyVisits > 0 ? monthlyVisits : 0
@@ -93,12 +95,19 @@ export function formatInt(value: number, locale: string = 'en'): string {
 }
 
 /** schema.org Offer list for /pricing (priced plans only). */
+const offerNames: Record<string, string> = {
+  starter: 'Starter',
+  growth: 'Growth',
+  restaurant: 'Restaurant',
+  restaurantPlus: 'Restaurant Plus',
+}
+
 export function pricingOffers(url: string) {
   return [...shopPlans, ...restaurantPlans]
     .filter(p => p.price !== null)
     .map(p => ({
       '@type': 'Offer',
-      name: p.id,
+      name: offerNames[p.id] || p.id,
       url,
       priceCurrency: CURRENCY,
       price: String(p.price),

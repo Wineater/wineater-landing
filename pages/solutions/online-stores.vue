@@ -8,7 +8,7 @@
     <ProofChips />
     <RoiCalculator />
     <StepsBlock base="solutions.onlineStores.how" :count="3" />
-    <FeatureShowcase />
+    <SpeedBlock />
     <HowItThinks />
     <FeatureCards id="promote" base="solutions.onlineStores.promote" :count="3" />
     <EarlyAccess />
@@ -26,7 +26,7 @@ import WidgetHome from '~/components/LandingComponents/WidgetHome.vue'
 import ProofChips from '~/components/Solutions/ProofChips.vue'
 import RoiCalculator from '~/components/Solutions/RoiCalculator.vue'
 import StepsBlock from '~/components/Solutions/StepsBlock.vue'
-import FeatureShowcase from '~/components/LandingComponents/FeatureShowcase.vue'
+import SpeedBlock from '~/components/Solutions/SpeedBlock.vue'
 import HowItThinks from '~/components/Solutions/HowItThinks.vue'
 import FeatureCards from '~/components/Solutions/FeatureCards.vue'
 import EarlyAccess from '~/components/Solutions/EarlyAccess.vue'

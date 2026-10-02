@@ -25,7 +25,7 @@
 		"similarAlt": "Brice & Burnett wine widget after clicking Similar wines on a Bordeaux red. The search box shows the reference wine and four similar red wines are listed with prices.",
 		"speedTitle": "Same speed on any catalog size",
 		"speedText": "From a short wine list to thousands of wines, answers take a few seconds.",
-		"speedNote": "Median of 3-4 searches per catalog. Not tested above 3,344 wines.",
+		"speedNote": "Median of 3-4 searches per catalog. Not tested above {max} wines.",
 		"speedRow": "{n} wines",
 		"speedUnit": "{n} s",
 		"speedChart": "Median answer time in seconds, by catalog size",

@@ -25,7 +25,7 @@
 		"similarAlt": "Widget vin de Brice & Burnett après un clic sur Vins similaires pour un rouge de Bordeaux. Le champ de recherche affiche le vin de référence et quatre vins rouges similaires sont listés avec leurs prix.",
 		"speedTitle": "Même rapidité, quelle que soit la taille du catalogue",
 		"speedText": "D'une courte carte à des milliers de vins, les réponses prennent quelques secondes.",
-		"speedNote": "Médiane de 3 à 4 recherches par catalogue. Non testé au-delà de 3 344 vins.",
+		"speedNote": "Médiane de 3 à 4 recherches par catalogue. Non testé au-delà de {max} vins.",
 		"speedRow": "{n} vins",
 		"speedUnit": "{n} s",
 		"speedChart": "Temps de réponse médian en secondes, selon la taille du catalogue",
