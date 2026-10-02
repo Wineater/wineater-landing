@@ -8,9 +8,27 @@ const MAX_NAME = 120
 const MAX_BUSINESS = 160
 const MAX_EMAIL = 254
 
+// Per-instance throttle (serverless: best effort): 5 requests per IP per hour.
+const hits = new Map<string, number[]>()
+const WINDOW_MS = 60 * 60 * 1000
+const MAX_HITS = 5
+const throttled = (ip: string) => {
+  const now = Date.now()
+  const recent = (hits.get(ip) || []).filter(t => now - t < WINDOW_MS)
+  recent.push(now)
+  hits.set(ip, recent)
+  return recent.length > MAX_HITS
+}
+
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const body = await readBody(event)
+
+  // Honeypot: real visitors never fill the hidden "website" field. Pretend success, store nothing.
+  if (body?.website) return { success: true }
+  if (throttled(getRequestIP(event, { xForwardedFor: true }) || 'unknown')) {
+    throw createError({ statusCode: 429, message: 'Too many requests' })
+  }
 
   const name = String(body?.name ?? '').trim()
   const business = String(body?.businessName ?? '').trim()

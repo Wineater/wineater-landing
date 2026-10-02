@@ -19,9 +19,14 @@
         <input :id="`${formId}-gdpr`" v-model="form.gdprConsent" type="checkbox" :aria-invalid="gdprError ? 'true' : undefined" :aria-describedby="gdprError ? `${formId}-err` : undefined">
         <label :for="`${formId}-gdpr`">{{ $t('earlyAccess.gdpr') }} <a class="sol-link" href="mailto:hi@wineater.com">hi@wineater.com</a></label>
       </div>
+      <p v-if="invalid" class="wl__error" role="alert">{{ $t('earlyAccess.invalid') }}</p>
       <p v-if="gdprError" :id="`${formId}-err`" class="wl__error" role="alert">{{ $t('SignupForm.gdprRequired') }}</p>
       <p v-if="error" class="wl__error" role="alert">{{ $t('SignupForm.error') }}</p>
-      <Button :disabled="submitting" @btnClick="submit">{{ submitting ? $t('SignupForm.submitting') : $t('earlyAccess.submit') }}</Button>
+      <div class="wl__trap" aria-hidden="true">
+        <label :for="`${formId}-website`">Website</label>
+        <input :id="`${formId}-website`" v-model="form.website" type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <button type="submit" class="wl__submit" :disabled="submitting">{{ submitting ? $t('SignupForm.submitting') : $t('earlyAccess.submit') }}</button>
     </form>
 
     <p v-if="done" ref="successRef" class="wl__done" role="status" tabindex="-1">{{ $t('earlyAccess.done') }}</p>
@@ -43,9 +48,10 @@ const done = ref(false)
 const submitting = ref(false)
 const error = ref(false)
 const gdprError = ref(false)
+const invalid = ref(false)
 const firstField = ref(null)
 const successRef = ref(null)
-const form = reactive({ name: '', businessName: '', email: '', gdprConsent: false })
+const form = reactive({ name: '', businessName: '', email: '', gdprConsent: false, website: '' })
 
 const openForm = () => {
   open.value = true
@@ -58,13 +64,14 @@ const valid = () => form.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.e
 const submit = async () => {
   error.value = false
   gdprError.value = false
-  if (!valid()) { error.value = true; return }
+  invalid.value = false
+  if (!valid()) { invalid.value = true; return }
   if (!form.gdprConsent) { gdprError.value = true; return }
   submitting.value = true
   try {
     await $fetch('/api/waitlist', {
       method: 'POST',
-      body: { name: form.name, businessName: form.businessName, email: form.email, gdprConsent: true, feature: props.feature, locale: locale.value },
+      body: { name: form.name, businessName: form.businessName, email: form.email, gdprConsent: true, feature: props.feature, locale: locale.value, website: form.website },
     })
     done.value = true
     // Same event whatever the page: the feature is the only parameter (never name, email or business).
@@ -105,6 +112,25 @@ const submit = async () => {
 
   input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--brand-1); }
   input:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+}
+
+.wl__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.wl__submit {
+  min-height: 56px;
+  padding: 0 32px;
+  border: 1.5px solid transparent;
+  border-radius: 72px;
+  background: var(--brand-1);
+  color: #fff;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+
+  &:hover { background: #6A1FD0; transform: translateY(-1px); }
+  &:disabled { background: var(--brand-5); color: var(--ink-3); cursor: default; transform: none; }
+  &:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 }
 
 .wl__error { margin: 0; font-size: 1.4rem; color: #B3261E; }

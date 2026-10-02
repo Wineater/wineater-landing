@@ -20,7 +20,7 @@
 
     <p class="sol-actions pc__more">
       <NuxtLink class="sol-link" :to="localePath({ path: '/pricing', hash: `#${segment === 'restaurants' ? 'restaurants' : 'shops'}` })" @click="onClick">{{ $t('solutionPage.seePricing') }}</NuxtLink>
-      <span class="sol-note pc__trial">{{ $t('Footer.trial') }}</span>
+      <span v-if="segment !== 'distributors'" class="sol-note pc__trial">{{ $t('Footer.trial') }}</span>
     </p>
   </section>
 </template>

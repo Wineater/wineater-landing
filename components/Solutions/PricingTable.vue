@@ -1,5 +1,6 @@
 <template>
   <section class="sol-section ptable" aria-labelledby="pricing-title">
+    <h2 id="pricing-title" class="sol-sr">{{ $t('pricing.plansTitle') }}</h2>
     <div class="ptable__tabs" role="tablist" :aria-label="$t('pricing.switchLabel')" @keydown="onKey">
       <button
         v-for="s in segments"
@@ -58,7 +59,7 @@
         <p v-if="p.id === 'distributors'"><span class="sol-badge sol-badge--early">{{ $t('solutionPage.earlyAccess') }}</span></p>
         <div class="ptable__cta">
           <Button bg-color="outline" :href="DEMO_URL" target="_blank" @btnClick="onSales(p.id)">{{ $t('solutionPage.talkToSales') }}<span class="sol-sr">({{ $t('Header.opensNewTab') }})</span></Button>
-          <NuxtLink class="sol-link" :to="localePath(p.id === 'retail' ? '/solutions/retail' : '/solutions/distributors')">{{ $t('solutionPage.learnMore') }}</NuxtLink>
+          <NuxtLink class="sol-link" :to="localePath(p.id === 'retail' ? '/solutions/retail' : '/solutions/distributors')">{{ $t('pricing.moreLink', { name: $t(`pricing.plans.${p.id}.name`) }) }}</NuxtLink>
         </div>
       </li>
     </ul>

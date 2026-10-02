@@ -24,8 +24,7 @@
 		"retail-hero": "Floor-to-ceiling shelves of wine bottles in a wine shop",
 		"retail-shelf": "Wine bottles on wooden shelves with blank price tags in a small wine shop",
 		"distributors-hero": "Long wine cellar corridor lined with racks of bottles in warm light",
-		"distributors-tasting": "Wine being poured into a glass at a tasting bar with red wine glasses on the counter",
-		"home-sommelier": "A hand holds a tilted glass while red wine is poured into it against a grey background"
+		"distributors-tasting": "Wine being poured into a glass at a tasting bar with red wine glasses on the counter"
 	},
 	"solutionPage": {
 		"startTrial": "Start free trial",
@@ -108,14 +107,15 @@
 	},
 	"roi": {
 		"title": "Estimate your BUY clicks and your bill",
-		"lead": "Enter your monthly visits. We apply the rates from our pilot and show the BUY clicks and what Growth would cost at that volume.",
-		"visitsLabel": "Visits to your shop per month",
-		"visitsHint": "Sessions on your site, from your own analytics.",
+		"lead": "Enter the monthly sessions on the pages where the widget is shown. We apply the rates from our pilot to show how many BUY clicks that could mean and what Growth would cost at that volume.",
+		"visitsLabel": "Sessions per month on pages with the widget",
+		"visitsHint": "From your own analytics. An illustration, not a forecast.",
 		"clicks": "Estimated BUY clicks per month",
 		"clicksValue": "about {n}",
 		"cost": "Growth plan at that volume",
 		"fine": "How it is computed: visits × {search} (sessions that start a search in the pilot) × {click} (of those, sessions ending in a BUY click in the pilot) = BUY clicks. Growth costs {base} a month plus {perClick} per click. These are pilot rates; yours will differ.",
-		"after": "How many of those shoppers buy depends on your product page and checkout. We do not forecast sales."
+		"after": "How many of those shoppers buy depends on your product page and checkout. We do not forecast sales.",
+		"starterNote": "With up to {max} wines, Starter at {price} a month has no per-click fee."
 	},
 	"pricing": {
 		"hero": {
@@ -194,7 +194,9 @@
 				"name": "Distributors",
 				"catalog": "Proposals from restaurant menus, a QR menu for your restaurants, a widget for your site. In early access with design partners."
 			}
-		}
+		},
+		"plansTitle": "Plans and prices",
+		"moreLink": "Learn more about {name}"
 	},
 	"founder": {
 		"title": "A word from the founder",
@@ -215,17 +217,18 @@
 		"aiCatalog": {
 			"badge": "Early access",
 			"title": "AI-ready catalog",
-			"text": "Make your catalog readable by ChatGPT, Perplexity and Google AI agents, so assistants can find your wines.",
+			"text": "Will make your catalog readable by ChatGPT, Perplexity and Google AI agents, so assistants can find your wines.",
 			"point1": "A store MCP server that AI assistants can query",
 			"point2": "An enriched product feed with wine details"
 		},
 		"shopify": {
 			"badge": "Coming soon",
 			"title": "Shopify app",
-			"text": "Install Wineater on your Shopify store in one click.",
+			"text": "Will let you install Wineater on your Shopify store in one click.",
 			"point1": "One-click install",
 			"point2": "No script tag to paste"
-		}
+		},
+		"invalid": "Please enter your name and a valid work email."
 	},
 	"seoPages": {
 		"restaurants": {

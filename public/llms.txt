@@ -16,7 +16,6 @@
 - Measured events: widget sessions, searches, recommendations shown, wine-card interactions, BUY clicks. A BUY click is a click to the product page, not a confirmed purchase. Wineater does not receive order data from the shop.
 - Trial: 1 month free, no credit card. Prices (USD per month): online stores Starter $49 up to 500 wines, Growth $99 plus $0.10 per BUY click up to 3,000 wines, Enterprise on request; restaurants $99 per venue up to 500 wines, $149 per venue above that, chains on request; offline retail and distributors: talk to sales. Details: https://wineater.com/pricing
 - In development, not available yet: an AI-ready catalog (store MCP server and enriched product feed for AI assistants) and a Shopify app. Both have a waitlist only. Wineater for distributors (proposals from a restaurant menu) is in early access with design partners.
-- Live clients: Brice & Burnett, Intermarché.
 - One-month pilot (small sample): 20%+ of sessions with recommendations ended in a BUY click; 2+ requests per shopper. A BUY click is a click to the product page, not a purchase.
 - Wineater is operated by BACCHUSTECH OÜ, a company incorporated in Estonia (registered office in Tallinn). The website is available in English and French.
 

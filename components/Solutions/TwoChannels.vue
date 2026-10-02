@@ -43,7 +43,7 @@ const channels = ['staff', 'guest']
 }
 
 .chan__query { margin: 24px 0 0; padding: 0; }
-.chan__q { margin: 0; font-size: 2.2rem; line-height: 1.35; color: var(--ink); q { quotes: "\201C" "\201D"; } }
+.chan__q { margin: 0; font-size: 2.2rem; line-height: 1.35; color: var(--ink); q::before { content: '\201C'; } q::after { content: '\201D'; } }
 
 @media only screen and (max-width: 767px) { .chan { grid-template-columns: 1fr; gap: 16px; } .chan__q { font-size: 1.9rem; } }
 </style>

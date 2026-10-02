@@ -24,8 +24,7 @@
 		"retail-hero": "Des étagères du sol au plafond remplies de bouteilles de vin dans une cave à vins",
 		"retail-shelf": "Des bouteilles de vin sur des étagères en bois, avec des étiquettes de prix vierges, dans une petite cave à vins",
 		"distributors-hero": "Long couloir de cave à vin bordé de casiers à bouteilles sous une lumière chaude",
-		"distributors-tasting": "Du vin versé dans un verre au comptoir d’une dégustation, avec des verres de vin rouge sur le bar",
-		"home-sommelier": "Une main tient un verre incliné dans lequel on verse du vin rouge, sur un fond gris"
+		"distributors-tasting": "Du vin versé dans un verre au comptoir d’une dégustation, avec des verres de vin rouge sur le bar"
 	},
 	"solutionPage": {
 		"startTrial": "Essayer gratuitement",
@@ -108,14 +107,15 @@
 	},
 	"roi": {
 		"title": "Estimez vos clics BUY et votre facture",
-		"lead": "Saisissez vos visites mensuelles. Nous appliquons les taux de notre pilote et affichons les clics BUY ainsi que le coût du forfait Growth à ce volume.",
-		"visitsLabel": "Visites de votre boutique par mois",
-		"visitsHint": "Sessions sur votre site, d’après vos propres statistiques.",
+		"lead": "Saisissez les sessions mensuelles des pages où le widget est affiché. Nous appliquons les taux de notre pilote pour montrer ce que cela pourrait représenter en clics BUY et ce que coûterait le forfait Growth à ce volume.",
+		"visitsLabel": "Sessions par mois sur les pages avec le widget",
+		"visitsHint": "D’après vos propres statistiques. Une illustration, pas une prévision.",
 		"clicks": "Clics BUY estimés par mois",
 		"clicksValue": "environ {n}",
 		"cost": "Forfait Growth à ce volume",
 		"fine": "Mode de calcul : visites × {search} (sessions qui lancent une recherche dans le pilote) × {click} (parmi celles-ci, sessions terminées par un clic BUY dans le pilote) = clics BUY. Growth coûte {base} par mois plus {perClick} par clic. Ce sont les taux du pilote ; les vôtres seront différents.",
-		"after": "Le nombre de ces clients qui achètent dépend de votre fiche produit et de votre paiement. Nous ne prévoyons pas les ventes."
+		"after": "Le nombre de ces clients qui achètent dépend de votre fiche produit et de votre tunnel de paiement. Nous ne prévoyons pas les ventes.",
+		"starterNote": "Jusqu’à {max} vins, Starter à {price} par mois n’a pas de frais au clic."
 	},
 	"pricing": {
 		"hero": {
@@ -194,7 +194,9 @@
 				"name": "Distributeurs",
 				"catalog": "Des propositions à partir des cartes de restaurants, un menu QR pour vos restaurants, un widget pour votre site. En accès anticipé avec des partenaires de conception."
 			}
-		}
+		},
+		"plansTitle": "Formules et tarifs",
+		"moreLink": "En savoir plus sur {name}"
 	},
 	"founder": {
 		"title": "Un mot du fondateur",
@@ -215,17 +217,18 @@
 		"aiCatalog": {
 			"badge": "Accès anticipé",
 			"title": "Catalogue prêt pour l’IA",
-			"text": "Rendez votre catalogue lisible par ChatGPT, Perplexity et les agents IA de Google, pour que les assistants puissent trouver vos vins.",
+			"text": "Rendra votre catalogue lisible par ChatGPT, Perplexity et les agents IA de Google, pour que les assistants puissent trouver vos vins.",
 			"point1": "Un serveur MCP de boutique que les assistants IA peuvent interroger",
 			"point2": "Un flux produits enrichi avec des détails sur les vins"
 		},
 		"shopify": {
 			"badge": "Bientôt disponible",
 			"title": "Application Shopify",
-			"text": "Installez Wineater sur votre boutique Shopify en un clic.",
+			"text": "Vous permettra d’installer Wineater sur votre boutique Shopify en un clic.",
 			"point1": "Installation en un clic",
 			"point2": "Aucune balise script à coller"
-		}
+		},
+		"invalid": "Veuillez saisir votre nom et une adresse e-mail professionnelle valide."
 	},
 	"seoPages": {
 		"restaurants": {
