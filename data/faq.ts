@@ -1,9 +1,11 @@
 // FAQ content (EN + FR). Single source for the /faq page, the FAQPage JSON-LD and the landing teaser.
-// Every answer must be verifiable from the product docs/code; no prices, no statistics, no pilot figures.
+// Every answer must be verifiable from the product docs/code. Prices come only from data/pricing.ts,
+// the pilot figures only from data/proof.ts: never type a number for either in an answer.
 // BUY click = click to a product page, never a sale or an order.
 // Ids are identical in both locales and are public anchors (/faq#what-is-wineater): do not rename them.
 
 import { pilotProof as p } from './proof'
+import { plan, exampleInvoice, formatUsd, formatInt, TRIAL_MONTHS } from './pricing'
 
 export interface FaqLink {
   to: string
@@ -44,6 +46,26 @@ export const faqTeaserIds = [
   'how-fast-go-live',
   'how-much-does-it-cost'
 ]
+
+// Price strings for the answers below. Locale-aware, all values from data/pricing.ts.
+const priceFacts = (locale: 'en' | 'fr' | 'es') => {
+  const u = (n: number) => formatUsd(n, locale)
+  return {
+    starter: u(plan('starter').price as number),
+    growth: u(plan('growth').price as number),
+    perClick: u(plan('growth').perBuyClick as number),
+    restaurant: u(plan('restaurant').price as number),
+    restaurantPlus: u(plan('restaurantPlus').price as number),
+    shopMax: formatInt(plan('starter').maxWines as number, locale),
+    growthMax: formatInt(plan('growth').maxWines as number, locale),
+    restaurantMax: formatInt(plan('restaurant').maxWines as number, locale),
+    clicks: formatInt(exampleInvoice.clicks, locale),
+    total: u(exampleInvoice.total),
+    trial: TRIAL_MONTHS,
+  }
+}
+const pe = priceFacts('en')
+const pf = priceFacts('fr')
 
 export const faqEn: FaqContent = {
   meta: {
@@ -238,6 +260,84 @@ export const faqEn: FaqContent = {
           id: 'wines-by-the-glass',
           q: 'Can Wineater show wines by the glass?',
           a: `Yes. The widget can label a wine as available by the glass and show a glass price next to it, when that information is included in the wine list data. Tell us which wines you pour by the glass when you send your list.`
+        },
+        {
+          id: 'restaurant-pos-integration',
+          q: 'Do I need to connect Wineater to my till or POS?',
+          a: `No. The staff tool runs in a browser on any tablet or phone and does not connect to your till. It recommends wines from your list; it has no tables, orders, cart or payment.`
+        },
+        {
+          id: 'restaurant-menu-changes',
+          q: 'What if my wine list changes?',
+          a: `Send us the new list and we reload it, or change wines in the admin. Your wine list stays yours, and you can change which wines are promoted at any time.`
+        },
+        {
+          id: 'restaurant-replaces-sommelier',
+          q: 'Does Wineater replace my sommelier?',
+          a: `No. It backs up your team when the room is full and gives a new waiter a starting point. It suggests wines from your own list; your sommelier still knows your guests and your cellar.`
+        },
+        {
+          id: 'restaurant-which-tablet',
+          q: 'Which tablet do I need?',
+          a: `Any tablet or phone with a web browser. There is nothing to install: your staff open a link.`
+        }
+      ]
+    },
+    {
+      id: 'offline-retail',
+      title: 'For offline retail',
+      items: [
+        {
+          id: 'retail-wifi',
+          q: 'Does the store need Wi-Fi for the QR code?',
+          a: `No. The shopper scans the QR code with their own phone and uses their own mobile data.`
+        },
+        {
+          id: 'retail-stock-update',
+          q: 'How does stock stay up to date?',
+          a: `If stock sync is on for your account, we read your product feed once a day and hide wines marked out of stock. The sync refuses to run if the feed is empty, has shrunk by half, or would hide more than half of the catalog.`
+        },
+        {
+          id: 'retail-one-store-pilot',
+          q: 'Can we pilot in one store first?',
+          a: `Yes. A pilot in a single store is possible. Talk to us about the store and the shelf.`
+        },
+        {
+          id: 'retail-gdpr',
+          q: 'What about shopper privacy (GDPR)?',
+          a: `Shoppers do not create an account to use Wineater. For what data is processed, see the answers on shopper data and our privacy policy.`,
+          links: [{ to: '/privacy', label: 'Privacy policy' }]
+        }
+      ]
+    },
+    {
+      id: 'distributors',
+      title: 'For wine distributors',
+      items: [
+        {
+          id: 'dist-what-is',
+          q: 'What is Wineater for distributors?',
+          a: `A sales tool for your reps and a loyalty tool for your restaurants, built on the Wineater engine: a proposal generator that turns a restaurant\'s menu into wines from your portfolio, a QR menu where your wines are marked as priority, a widget for your online catalog and, in a later phase, portfolio gap analysis and a menu heatmap.`
+        },
+        {
+          id: 'dist-availability',
+          q: 'Is it available today?',
+          a: `It is in early access with design partners. The widget and the QR menu already exist as products; the proposal generator and the insights are in development. Talk to us if you want to shape them.`
+        },
+        {
+          id: 'dist-it-integration',
+          q: 'Do we need an IT integration?',
+          a: `No complex integration. We need your current price list or catalog (Excel, PDF or API), and we set the rest up with you.`
+        },
+        {
+          id: 'dist-promoted-wines',
+          q: 'How do priority wines work?',
+          a: `Wines you mark as promoted get a moderate boost in ranking. Recommendations still come only from the restaurant\'s own list, and a promoted wine ranks higher only when it fits what the guest asked.`
+        },
+        {
+          id: 'dist-interface-language',
+          q: 'In which languages does it work?',
+          a: `Recommendations are written in the language of each store. The sales tool\'s own interface is currently in English only.`
         }
       ]
     },
@@ -313,17 +413,24 @@ export const faqEn: FaqContent = {
         {
           id: 'how-much-does-it-cost',
           q: 'How much does Wineater cost?',
-          a: `You can start with a 1-month free trial, no credit card required. After the trial, pricing depends on the size of your catalog and on the channel you choose (widget, QR code or API). Write to hi@wineater.com and we will send you a clear quote.`
+          a: `Online stores: Starter is ${pe.starter} a month for up to ${pe.shopMax} wines. Growth is ${pe.growth} a month plus ${pe.perClick} per BUY click, for up to ${pe.growthMax} wines. Restaurants: ${pe.restaurant} a month per venue for up to ${pe.restaurantMax} wines, ${pe.restaurantPlus} above that. Enterprise, chains, offline retail and distributors are quoted on request. Every plan starts with a free month, no credit card. A BUY click is a click to the product page, not a purchase.`,
+          links: [{ to: '/pricing', label: 'See the pricing page' }]
         },
         {
           id: 'free-trial-and-after',
           q: 'What happens during and after the free trial?',
-          a: `During the month, your catalog and your chosen channel are set up and you can try Wineater with your own wines. No credit card is needed to start. After the month, the price depends on your catalog and channel, and we agree it with you by email. For contract length and cancellation terms, please ask us directly.`
+          a: `During the month, your catalog and your chosen channel are set up and you can try Wineater with your own wines. No credit card is needed to start. After the month, you pay the plan that fits your catalog, as listed on the pricing page. For contract length and cancellation terms, please ask us directly.`,
+          links: [{ to: '/pricing', label: 'See the pricing page' }]
         },
         {
           id: 'who-sets-it-up',
           q: 'Who sets Wineater up?',
           a: `The Wineater team does. You share your wine list or product feed, and we load and describe the wines, configure your store and language, and give you the widget snippet or QR code. You do not train or tune the AI yourself. Your part is adding the snippet to your site or printing the QR code.`
+        },
+        {
+          id: 'price-offline-retail',
+          q: 'Why is there no public price for offline retail?',
+          a: `The price depends on the number of stores and the size of the catalog. Talk to sales and we will send you a quote.`
         }
       ]
     }
@@ -523,6 +630,84 @@ export const faqFr: FaqContent = {
           id: 'wines-by-the-glass',
           q: 'Wineater peut-il afficher les vins au verre ?',
           a: `Oui. Le widget peut indiquer qu’un vin est servi au verre et afficher un prix au verre à côté, lorsque cette information figure dans les données de la carte. Précisez-nous quels vins vous servez au verre en nous envoyant votre carte.`
+        },
+        {
+          id: 'restaurant-pos-integration',
+          q: 'Faut-il connecter Wineater à ma caisse ?',
+          a: `Non. L’outil pour le personnel fonctionne dans un navigateur, sur n’importe quelle tablette ou téléphone, et ne se connecte pas à votre caisse. Il recommande des vins de votre carte ; il n’a ni tables, ni commandes, ni panier, ni paiement.`
+        },
+        {
+          id: 'restaurant-menu-changes',
+          q: 'Et si ma carte des vins change ?',
+          a: `Envoyez-nous la nouvelle carte et nous la rechargeons, ou modifiez les vins dans l’interface d’administration. Votre carte reste la vôtre, et vous pouvez changer à tout moment les vins mis en avant.`
+        },
+        {
+          id: 'restaurant-replaces-sommelier',
+          q: 'Wineater remplace-t-il mon sommelier ?',
+          a: `Non. Il épaule votre équipe quand la salle est pleine et donne un point de départ à un nouveau serveur. Il propose des vins de votre propre carte ; votre sommelier connaît toujours vos clients et votre cave.`
+        },
+        {
+          id: 'restaurant-which-tablet',
+          q: 'De quelle tablette ai-je besoin ?',
+          a: `De n’importe quelle tablette ou téléphone avec un navigateur. Rien à installer : votre équipe ouvre un lien.`
+        }
+      ]
+    },
+    {
+      id: 'offline-retail',
+      title: 'Pour le commerce physique',
+      items: [
+        {
+          id: 'retail-wifi',
+          q: 'Le magasin a-t-il besoin du Wi-Fi pour le QR code ?',
+          a: `Non. Le client scanne le QR code avec son propre téléphone et utilise sa propre connexion mobile.`
+        },
+        {
+          id: 'retail-stock-update',
+          q: 'Comment le stock reste-t-il à jour ?',
+          a: `Si la synchronisation du stock est activée sur votre compte, nous lisons votre flux produits une fois par jour et masquons les vins marqués en rupture. La synchronisation refuse de s’exécuter si le flux est vide, s’il a diminué de moitié ou s’il masquerait plus de la moitié du catalogue.`
+        },
+        {
+          id: 'retail-one-store-pilot',
+          q: 'Peut-on faire d’abord un pilote dans un seul magasin ?',
+          a: `Oui. Un pilote dans un seul magasin est possible. Parlons du magasin et du rayon.`
+        },
+        {
+          id: 'retail-gdpr',
+          q: 'Qu’en est-il de la vie privée des clients (RGPD) ?',
+          a: `Les clients n’ont pas à créer de compte pour utiliser Wineater. Pour savoir quelles données sont traitées, consultez les réponses sur les données des acheteurs et notre politique de confidentialité.`,
+          links: [{ to: '/privacy', label: 'Politique de confidentialité' }]
+        }
+      ]
+    },
+    {
+      id: 'distributors',
+      title: 'Pour les distributeurs de vin',
+      items: [
+        {
+          id: 'dist-what-is',
+          q: 'Qu’est-ce que Wineater pour les distributeurs ?',
+          a: `Un outil de vente pour vos commerciaux et un outil de fidélisation pour vos restaurants, construit sur le moteur Wineater : un générateur de propositions qui transforme le menu d’un restaurant en vins de votre portefeuille, un menu QR où vos vins sont marqués comme prioritaires, un widget pour votre catalogue en ligne et, dans une phase ultérieure, l’analyse des manques du portefeuille et une carte thermique des menus.`
+        },
+        {
+          id: 'dist-availability',
+          q: 'Est-ce disponible dès aujourd’hui ?',
+          a: `C’est en accès anticipé avec des partenaires de conception. Le widget et le menu QR existent déjà comme produits ; le générateur de propositions et les analyses sont en développement. Parlons-en si vous souhaitez les façonner avec nous.`
+        },
+        {
+          id: 'dist-it-integration',
+          q: 'Faut-il une intégration informatique ?',
+          a: `Pas d’intégration complexe. Il nous faut votre liste de prix ou votre catalogue actuel (Excel, PDF ou API), et nous configurons le reste avec vous.`
+        },
+        {
+          id: 'dist-promoted-wines',
+          q: 'Comment fonctionnent les vins prioritaires ?',
+          a: `Les vins que vous marquez comme mis en avant reçoivent un coup de pouce modéré dans le classement. Les recommandations viennent toujours uniquement de la carte du restaurant, et un vin mis en avant n’est mieux classé que s’il correspond à la demande du client.`
+        },
+        {
+          id: 'dist-interface-language',
+          q: 'Dans quelles langues cela fonctionne-t-il ?',
+          a: `Les recommandations sont rédigées dans la langue de chaque établissement. L’interface de l’outil de vente est pour l’instant disponible en anglais uniquement.`
         }
       ]
     },
@@ -598,24 +783,83 @@ export const faqFr: FaqContent = {
         {
           id: 'how-much-does-it-cost',
           q: 'Combien coûte Wineater ?',
-          a: `Vous pouvez commencer par un mois d’essai gratuit, sans carte bancaire. Après l’essai, le tarif dépend de la taille de votre catalogue et du canal choisi (widget, QR code ou API). Écrivez à hi@wineater.com et nous vous enverrons un devis clair.`
+          a: `Boutiques en ligne : Starter à ${pf.starter} par mois jusqu’à ${pf.shopMax} vins. Growth à ${pf.growth} par mois plus ${pf.perClick} par clic BUY, jusqu’à ${pf.growthMax} vins. Restaurants : ${pf.restaurant} par mois et par établissement jusqu’à ${pf.restaurantMax} vins, ${pf.restaurantPlus} au-delà. Enterprise, chaînes, commerce physique et distributeurs : sur devis. Chaque formule commence par un mois gratuit, sans carte bancaire. Un clic BUY est un clic vers la fiche produit, pas un achat.`,
+          links: [{ to: '/pricing', label: 'Voir la page des tarifs' }]
         },
         {
           id: 'free-trial-and-after',
           q: 'Que se passe-t-il pendant et après l’essai gratuit ?',
-          a: `Pendant le mois, votre catalogue et le canal choisi sont mis en place et vous pouvez essayer Wineater avec vos propres vins. Aucune carte bancaire n’est nécessaire pour commencer. Ensuite, le tarif dépend de votre catalogue et de votre canal, et nous le convenons avec vous par e-mail. Pour la durée d’engagement et les conditions de résiliation, merci de nous poser directement la question.`
+          a: `Pendant le mois, votre catalogue et le canal choisi sont mis en place et vous pouvez essayer Wineater avec vos propres vins. Aucune carte bancaire n’est nécessaire pour commencer. Ensuite, vous payez la formule adaptée à votre catalogue, telle qu’indiquée sur la page des tarifs. Pour la durée d’engagement et les conditions de résiliation, merci de nous poser directement la question.`,
+          links: [{ to: '/pricing', label: 'Voir la page des tarifs' }]
         },
         {
           id: 'who-sets-it-up',
           q: 'Qui met Wineater en place ?',
           a: `C’est l’équipe Wineater. Vous nous transmettez votre carte des vins ou votre flux produits, et nous chargeons et décrivons les vins, configurons votre boutique et votre langue, puis vous remettons le code du widget ou le QR code. Vous n’avez ni à entraîner ni à régler l’IA. De votre côté, il suffit d’ajouter le code à votre site ou d’imprimer le QR code.`
+        },
+        {
+          id: 'price-offline-retail',
+          q: 'Pourquoi n’y a-t-il pas de tarif public pour le commerce physique ?',
+          a: `Le tarif dépend du nombre de magasins et de la taille du catalogue. Parlez-en à notre équipe commerciale et nous vous enverrons un devis.`
         }
       ]
     }
   ]
 }
 
-export const faqByLocale: Record<string, FaqContent> = { en: faqEn, fr: faqFr }
+// Spanish exists for the Distributors page only (see i18n config). Same ids as the other locales.
+// Must be proofread by a native speaker before it goes live.
+export const faqEs: FaqContent = {
+  meta: { title: 'Wineater FAQ: distribuidores', description: 'Preguntas frecuentes sobre Wineater para distribuidores de vino.' },
+  h1: 'Preguntas frecuentes',
+  intro: 'Preguntas frecuentes sobre Wineater para distribuidores de vino.',
+  breadcrumbHome: 'Inicio',
+  breadcrumbFaq: 'FAQ',
+  categories: [
+    {
+      id: 'distributors',
+      title: 'Para distribuidores de vino',
+      items: [
+        {
+          id: 'dist-what-is',
+          q: '¿Qué es Wineater para distribuidores?',
+          a: `Una herramienta de ventas para sus comerciales y una herramienta de fidelización para sus restaurantes, construida sobre el motor de Wineater: un generador de propuestas que convierte el menú de un restaurante en vinos de su portafolio, un menú QR donde sus vinos se marcan como prioritarios, un widget para su catálogo online y, en una fase posterior, análisis de huecos del portafolio y un mapa de calor de menús.`
+        },
+        {
+          id: 'dist-availability',
+          q: '¿Está disponible hoy?',
+          a: `Está en acceso anticipado con socios de diseño. El widget y el menú QR ya existen como productos; el generador de propuestas y los análisis están en desarrollo. Hable con nosotros si quiere darles forma.`
+        },
+        {
+          id: 'dist-it-integration',
+          q: '¿Necesitamos una integración de TI?',
+          a: `No hay integraciones complejas. Necesitamos su lista de precios o catálogo actual (Excel, PDF o API) y configuramos el resto con usted.`
+        },
+        {
+          id: 'dist-promoted-wines',
+          q: '¿Cómo funcionan los vinos prioritarios?',
+          a: `Los vinos que usted marca como promocionados reciben un impulso moderado en el ranking. Las recomendaciones siguen saliendo únicamente de la carta del propio restaurante, y un vino promocionado sube posiciones solo si encaja con lo que pidió el comensal.`
+        },
+        {
+          id: 'dist-interface-language',
+          q: '¿En qué idiomas funciona?',
+          a: `Las recomendaciones se redactan en el idioma de cada establecimiento. La interfaz de la propia herramienta de ventas está, por ahora, solo en inglés.`
+        }
+      ]
+    }
+  ]
+}
+
+// FAQ questions shown on each segment page, in order (ids from the categories above).
+export const segmentFaqIds: Record<string, string[]> = {
+  restaurants: ['restaurant-pos-integration', 'restaurant-menu-changes', 'restaurant-replaces-sommelier', 'which-languages-are-supported', 'restaurant-which-tablet'],
+  online: ['how-to-add-the-widget', 'catalog-formats', 'small-and-very-large-catalogs', 'how-fast-go-live', 'how-much-does-it-cost'],
+  retail: ['retail-wifi', 'retail-stock-update', 'retail-one-store-pilot', 'retail-gdpr', 'price-offline-retail'],
+  distributors: ['dist-what-is', 'dist-availability', 'dist-it-integration', 'dist-promoted-wines', 'dist-interface-language'],
+  pricing: ['how-much-does-it-cost', 'free-trial-and-after', 'what-is-a-buy-click', 'price-offline-retail', 'who-sets-it-up'],
+}
+
+export const faqByLocale: Record<string, FaqContent> = { en: faqEn, fr: faqFr, es: faqEs }
 
 export function flattenFaq(content: FaqContent): FaqQuestion[] {
   return content.categories.flatMap(category => category.items)
