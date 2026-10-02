@@ -1,0 +1,169 @@
+{
+	"solutions": {
+		"restaurants": {
+			"hero": {
+				"title": "Every waiter answers like your head sommelier.",
+				"subtitle": "A guest names a dish, a mood or a budget. Your staff gets four wines from your own list to suggest. Live in 1 hour.",
+				"point1": "Works on any tablet or phone, no POS integration needed",
+				"point2": "New staff get an answer from day one",
+				"point3": "Promote the bottles you need to move"
+			},
+			"channels": {
+				"title": "Two channels, one wine list",
+				"lead": "The same list answers your staff and your guests.",
+				"query": "Ribeye steak, something not too expensive",
+				"queryNote": "The same request works in both channels.",
+				"staff": {
+					"who": "For your staff",
+					"title": "Sommelier assistant on a tablet",
+					"text": "A waiter opens a link on a tablet or phone, picks the dishes at the table and gets four wines from your list.",
+					"point1": "Any tablet or phone with a browser",
+					"point2": "No till or POS integration",
+					"point3": "Runs on your own wine list"
+				},
+				"guest": {
+					"who": "For your guests",
+					"title": "QR code on the table",
+					"text": "A guest scans the code, types a dish or a mood and gets four wines from your list, each with a short reason.",
+					"point1": "No app to download",
+					"point2": "Backs up your team when the room is full, never replaces it",
+					"point3": "Promoted wines get a moderate boost"
+				}
+			},
+			"how": {
+				"title": "How it works",
+				"lead": "You send a wine list. We set it up. Your staff and your guests start using it.",
+				"steps": {
+					"s1": { "title": "Send your wine list", "text": "In the format you have: PDF, Excel, CSV or a photo." },
+					"s2": { "title": "We set it up", "text": "We match each wine to our knowledge base and open access to your account." },
+					"s3": { "title": "Staff and guests start", "text": "Your waiter opens a link on the tablet. Your guests scan the QR code." }
+				}
+			},
+			"chains": {
+				"title": "For chains",
+				"lead": "More than one venue? Each venue keeps its own wine list.",
+				"items": {
+					"i1": { "title": "A list per venue", "text": "Every venue has its own wine list and its own prices." },
+					"i2": { "title": "Promoted wines", "text": "Agree with us the bottles you want to push. They get a moderate boost in ranking." },
+					"i3": { "title": "Priced per venue", "text": "Pricing for three or more venues is quoted on request." }
+				}
+			},
+			"proof": {
+				"title": "Already working in restaurants",
+				"text": "Wineater is used in restaurants in France and Russia. We name a venue only with its permission."
+			},
+			"cta": {
+				"title": "See it on your wine list",
+				"text": "Book a 20-minute demo and we will show you the staff tool on a tablet."
+			}
+		},
+		"onlineStores": {
+			"hero": {
+				"title": "Your shoppers type what they want. Wineater picks four bottles from your shelves.",
+				"subtitle": "An AI sommelier for your site, so a hesitating shopper gets an answer instead of leaving. In our pilot, {buy} of sessions with recommendations ended in a click through to a bottle.",
+				"point1": "Recommends only wines you stock",
+				"point2": "One script tag, live in 1 day",
+				"point3": "Every pick comes with a short reason"
+			},
+			"how": {
+				"title": "One script tag. Only what is in stock.",
+				"lead": "Shoppers describe what they want and get four wines from your catalog, each with a short reason.",
+				"steps": {
+					"s1": { "title": "Add one script tag", "text": "Paste one line of code on your wine pages. The widget matches your store's branding." },
+					"s2": { "title": "Stock syncs daily", "text": "With stock sync on, we read your product feed once a day, so recommendations follow your stock." },
+					"s3": { "title": "Only what you have", "text": "Sold-out wines are hidden from the four picks." }
+				}
+			},
+			"promote": {
+				"title": "Promote what you need to sell",
+				"lead": "Mark the products you want to push: overstock, a margin, a new arrival.",
+				"items": {
+					"i1": { "title": "You choose", "text": "Select the products to promote in the admin." },
+					"i2": { "title": "A moderate boost", "text": "Promoted products rank higher, but only when they fit what the shopper asked." },
+					"i3": { "title": "Still your catalog only", "text": "Recommendations come only from the wines you sell." }
+				}
+			},
+			"cta": {
+				"title": "Start your free month",
+				"text": "Share your catalog and see four picks on your own wines. No credit card."
+			}
+		},
+		"retail": {
+			"hero": {
+				"title": "A sommelier on every shelf.",
+				"subtitle": "A QR code in the wine aisle. The shopper types a dish or a budget and gets four bottles from this store's assortment. No app, no staff needed.",
+				"point1": "Per-store assortment and prices",
+				"point2": "Promote private label or the week's offer",
+				"point3": "See what shoppers ask for"
+			},
+			"how": {
+				"title": "How it works",
+				"lead": "A shelf with no adviser still gets an answer.",
+				"steps": {
+					"s1": { "title": "Send your assortment", "text": "A file or an API connection." },
+					"s2": { "title": "Place the QR code", "text": "On the shelf and in the wine area." },
+					"s3": { "title": "Shoppers get this store's picks", "text": "Each store runs on its own assortment, prices and stock." }
+				}
+			},
+			"manager": {
+				"title": "For category managers",
+				"lead": "Simple levers, nothing you have to build.",
+				"items": {
+					"i1": { "title": "Promote what you choose", "text": "Private label or the week's offer gets a moderate boost in ranking." },
+					"i2": { "title": "See what shoppers ask for", "text": "Shoppers' requests are logged, so you can see what they look for at the shelf." },
+					"i3": { "title": "Start with one store", "text": "A pilot in a single store is possible." }
+				}
+			},
+			"cta": {
+				"title": "See it in your wine aisle",
+				"text": "Book a demo and we will show how a QR code on the shelf works for your assortment."
+			}
+		},
+		"distributors": {
+			"hero": {
+				"title": "Turn any restaurant's menu into a wine proposal from your portfolio.",
+				"subtitle": "Upload a photo or PDF of a restaurant's food menu. Wineater matches the dishes to your catalog and drafts a proposal your sales rep can edit and send.",
+				"point1": "Built on the same engine as the widget and the QR menu",
+				"point2": "Works from your price list: Excel, PDF or API",
+				"point3": "No complex IT integration"
+			},
+			"problem": {
+				"title": "Proposals take hours. Staff avoid the wines your margin depends on.",
+				"lead": "Sales reps lose hours building a proposal for each restaurant. And restaurant staff often fear selling complex wines, so the venue sells only the basic bottles and you lose margin.",
+				"note": "Wineater for distributors is in early access with design partners. Features below are in development unless stated otherwise."
+			},
+			"modules": {
+				"title": "Four modules, one platform",
+				"lead": "A sales tool for your reps, a loyalty tool for your restaurants.",
+				"items": {
+					"i1": { "title": "B2B proposal generator", "text": "Your rep uploads a photo or PDF of a restaurant's menu. Wineater reads the dishes and groups wines from your portfolio into pairings for them." },
+					"i2": { "title": "QR loyalty menu for restaurants", "text": "Give your restaurants a QR menu with a virtual sommelier. Your wines are marked as priority, so the sommelier suggests them first when they fit the dish." },
+					"i3": { "title": "Widget for your site", "text": "A smart search on your online catalog: buyers write what they need instead of using filters." },
+					"i4": { "title": "Data insights", "text": "Portfolio gap analysis and a menu heatmap, built from the menus and requests you collect. A later phase." }
+				}
+			},
+			"flow": {
+				"title": "From a menu to a proposal",
+				"lead": "One session for your rep, from the restaurant's card to a proposal ready to send.",
+				"steps": {
+					"s1": { "title": "Add the restaurant", "text": "Create the prospect and upload a photo or PDF of its food menu." },
+					"s2": { "title": "Check the dishes", "text": "Wineater reads the menu. Your rep fixes anything it got wrong." },
+					"s3": { "title": "Review the proposal", "text": "Wines from your portfolio are grouped by dish category, each with a short reason. Replace, remove or pin any wine." },
+					"s4": { "title": "Send it", "text": "Share a link or export a PDF. After the deal, the restaurant gets a QR menu where your wines are marked as priority." }
+				}
+			},
+			"insights": {
+				"title": "See what your portfolio is missing",
+				"lead": "Two reports for the owner or the buyer. They need data to be useful, so they come after you have collected enough menus.",
+				"items": {
+					"i1": { "title": "Portfolio gap analysis", "text": "Which wines people look for in restaurants that your catalog does not have: a list of purchase opportunities." },
+					"i2": { "title": "Menu heatmap", "text": "Which dishes and ingredients recur across the menus you have analysed, so you know which wines are missing from your warehouse." }
+				}
+			},
+			"cta": {
+				"title": "Want to shape it with us?",
+				"text": "We are building this with a first group of distributors. Talk to us about your portfolio."
+			}
+		}
+	}
+}

@@ -1,0 +1,253 @@
+{
+	"solutions": {
+		"restaurants": {
+			"hero": {
+				"title": "Chaque serveur répond comme votre chef sommelier.",
+				"subtitle": "Un client évoque un plat, une envie ou un budget. Votre équipe obtient quatre vins de votre propre carte à suggérer. En ligne en 1 heure.",
+				"point1": "Fonctionne sur n’importe quelle tablette ou téléphone, sans intégration à la caisse",
+				"point2": "Le nouveau personnel a une réponse dès le premier jour",
+				"point3": "Mettez en avant les bouteilles que vous devez écouler"
+			},
+			"channels": {
+				"title": "Deux canaux, une seule carte des vins",
+				"lead": "La même carte répond à votre équipe et à vos clients.",
+				"query": "Entrecôte, quelque chose de pas trop cher",
+				"queryNote": "La même demande fonctionne dans les deux canaux.",
+				"staff": {
+					"who": "Pour votre équipe",
+					"title": "Assistant sommelier sur tablette",
+					"text": "Un serveur ouvre un lien sur une tablette ou un téléphone, choisit les plats de la table et obtient quatre vins de votre carte.",
+					"point1": "N’importe quelle tablette ou téléphone avec un navigateur",
+					"point2": "Aucune intégration à la caisse",
+					"point3": "Fonctionne sur votre propre carte des vins"
+				},
+				"guest": {
+					"who": "Pour vos clients",
+					"title": "QR code sur la table",
+					"text": "Un client scanne le code, saisit un plat ou une envie et obtient quatre vins de votre carte, chacun avec une courte explication.",
+					"point1": "Aucune application à télécharger",
+					"point2": "Seconde votre équipe quand la salle est pleine, sans jamais la remplacer",
+					"point3": "Les vins mis en avant reçoivent un coup de pouce modéré"
+				}
+			},
+			"how": {
+				"title": "Comment ça marche",
+				"lead": "Vous envoyez une carte des vins. Nous la configurons. Votre équipe et vos clients commencent à l’utiliser.",
+				"steps": {
+					"s1": {
+						"title": "Envoyez votre carte des vins",
+						"text": "Dans le format dont vous disposez : PDF, Excel, CSV ou photo."
+					},
+					"s2": {
+						"title": "Nous la configurons",
+						"text": "Nous associons chaque vin à notre base de connaissances et nous ouvrons l’accès à votre compte."
+					},
+					"s3": {
+						"title": "L’équipe et les clients démarrent",
+						"text": "Votre serveur ouvre un lien sur la tablette. Vos clients scannent le QR code."
+					}
+				}
+			},
+			"chains": {
+				"title": "Pour les chaînes",
+				"lead": "Plus d’un établissement ? Chacun garde sa propre carte des vins.",
+				"items": {
+					"i1": {
+						"title": "Une carte par établissement",
+						"text": "Chaque établissement a sa propre carte des vins et ses propres prix."
+					},
+					"i2": {
+						"title": "Vins mis en avant",
+						"text": "Convenez avec nous des bouteilles que vous voulez pousser. Elles reçoivent un coup de pouce modéré dans le classement."
+					},
+					"i3": {
+						"title": "Tarif par établissement",
+						"text": "Le tarif pour trois établissements ou plus se fait sur devis."
+					}
+				}
+			},
+			"proof": {
+				"title": "Déjà en service dans des restaurants",
+				"text": "Wineater est utilisé dans des restaurants en France et en Russie. Nous ne citons un établissement qu’avec son autorisation."
+			},
+			"cta": {
+				"title": "Voyez-le sur votre carte des vins",
+				"text": "Réservez une démo de 20 minutes et nous vous montrerons l’outil pour l’équipe sur une tablette."
+			}
+		},
+		"onlineStores": {
+			"hero": {
+				"title": "Vos clients écrivent ce qu’ils veulent. Wineater choisit quatre bouteilles dans vos rayons.",
+				"subtitle": "Un sommelier IA pour votre site, pour qu’un client qui hésite obtienne une réponse au lieu de partir. Dans notre pilote, {buy} des sessions avec recommandations se sont terminées par un clic vers une bouteille.",
+				"point1": "Ne recommande que les vins que vous avez en stock",
+				"point2": "Une balise script, en ligne en 1 jour",
+				"point3": "Chaque sélection vient avec une courte explication"
+			},
+			"how": {
+				"title": "Une balise script. Seulement ce qui est en stock.",
+				"lead": "Les clients décrivent ce qu’ils veulent et obtiennent quatre vins de votre catalogue, chacun avec une courte explication.",
+				"steps": {
+					"s1": {
+						"title": "Ajoutez une balise script",
+						"text": "Collez une ligne de code sur vos pages de vins. Le widget reprend l’identité visuelle de votre boutique."
+					},
+					"s2": {
+						"title": "Le stock se synchronise chaque jour",
+						"text": "Avec la synchronisation du stock activée, nous lisons votre flux produits une fois par jour : les recommandations suivent votre stock."
+					},
+					"s3": {
+						"title": "Seulement ce que vous avez",
+						"text": "Les vins épuisés sont exclus des quatre sélections."
+					}
+				}
+			},
+			"promote": {
+				"title": "Mettez en avant ce que vous devez vendre",
+				"lead": "Marquez les produits que vous voulez pousser : surstock, bonne marge, nouveauté.",
+				"items": {
+					"i1": {
+						"title": "Vous choisissez",
+						"text": "Sélectionnez dans l’administration les produits à mettre en avant."
+					},
+					"i2": {
+						"title": "Un coup de pouce modéré",
+						"text": "Les produits mis en avant remontent dans le classement, mais seulement quand ils correspondent à la demande du client."
+					},
+					"i3": {
+						"title": "Toujours votre catalogue uniquement",
+						"text": "Les recommandations viennent uniquement des vins que vous vendez."
+					}
+				}
+			},
+			"cta": {
+				"title": "Commencez votre mois offert",
+				"text": "Partagez votre catalogue et voyez quatre sélections sur vos propres vins. Sans carte bancaire."
+			}
+		},
+		"retail": {
+			"hero": {
+				"title": "Un sommelier à chaque rayon.",
+				"subtitle": "Un QR code dans l’allée des vins. Le client saisit un plat ou un budget et obtient quatre bouteilles de l’assortiment de ce magasin. Sans application, sans personnel nécessaire.",
+				"point1": "Assortiment et prix par magasin",
+				"point2": "Mettez en avant la marque distributeur ou l’offre de la semaine",
+				"point3": "Voyez ce que les clients demandent"
+			},
+			"how": {
+				"title": "Comment ça marche",
+				"lead": "Un rayon sans conseiller obtient quand même une réponse.",
+				"steps": {
+					"s1": {
+						"title": "Envoyez votre assortiment",
+						"text": "Un fichier ou une connexion API."
+					},
+					"s2": {
+						"title": "Placez le QR code",
+						"text": "En rayon et dans l’espace vins."
+					},
+					"s3": {
+						"title": "Les clients obtiennent les sélections de ce magasin",
+						"text": "Chaque magasin fonctionne avec son propre assortiment, ses prix et son stock."
+					}
+				}
+			},
+			"manager": {
+				"title": "Pour les responsables de catégorie",
+				"lead": "Des leviers simples, rien à développer de votre côté.",
+				"items": {
+					"i1": {
+						"title": "Mettez en avant ce que vous choisissez",
+						"text": "La marque distributeur ou l’offre de la semaine reçoit un coup de pouce modéré dans le classement."
+					},
+					"i2": {
+						"title": "Voyez ce que les clients demandent",
+						"text": "Les demandes des clients sont enregistrées : vous voyez ce qu’ils cherchent en rayon."
+					},
+					"i3": {
+						"title": "Commencez par un magasin",
+						"text": "Un pilote dans un seul magasin est possible."
+					}
+				}
+			},
+			"cta": {
+				"title": "Voyez-le dans votre allée des vins",
+				"text": "Réservez une démo et nous vous montrerons comment un QR code en rayon fonctionne avec votre assortiment."
+			}
+		},
+		"distributors": {
+			"hero": {
+				"title": "Transformez la carte de n’importe quel restaurant en proposition de vins issue de votre portefeuille.",
+				"subtitle": "Importez une photo ou un PDF de la carte des plats d’un restaurant. Wineater associe les plats à votre catalogue et rédige une proposition que votre commercial peut modifier et envoyer.",
+				"point1": "Construit sur le même moteur que le widget et le menu QR",
+				"point2": "Fonctionne à partir de votre tarif : Excel, PDF ou API",
+				"point3": "Aucune intégration informatique complexe"
+			},
+			"problem": {
+				"title": "Les propositions prennent des heures. Le personnel évite les vins dont dépend votre marge.",
+				"lead": "Vos commerciaux perdent des heures à construire une proposition pour chaque restaurant. Et le personnel des restaurants hésite souvent à vendre des vins complexes : l’établissement ne vend que les bouteilles de base et vous perdez de la marge.",
+				"note": "Wineater pour les distributeurs est en accès anticipé avec des partenaires de conception. Sauf indication contraire, les fonctionnalités ci-dessous sont en développement."
+			},
+			"modules": {
+				"title": "Quatre modules, une seule plateforme",
+				"lead": "Un outil de vente pour vos commerciaux, un outil de fidélisation pour vos restaurants.",
+				"items": {
+					"i1": {
+						"title": "Générateur de propositions B2B",
+						"text": "Votre commercial importe une photo ou un PDF de la carte d’un restaurant. Wineater lit les plats et regroupe les vins de votre portefeuille en accords pour eux."
+					},
+					"i2": {
+						"title": "Menu QR de fidélisation pour restaurants",
+						"text": "Offrez à vos restaurants un menu QR avec un sommelier virtuel. Vos vins sont marqués comme prioritaires : le sommelier les suggère en premier quand ils conviennent au plat."
+					},
+					"i3": {
+						"title": "Widget pour votre site",
+						"text": "Une recherche intelligente sur votre catalogue en ligne : les acheteurs écrivent ce dont ils ont besoin au lieu d’utiliser des filtres."
+					},
+					"i4": {
+						"title": "Analyses de données",
+						"text": "Analyse des manques du portefeuille et carte thermique des menus, construites à partir des menus et des demandes que vous collectez. Une phase ultérieure."
+					}
+				}
+			},
+			"flow": {
+				"title": "De la carte à la proposition",
+				"lead": "Une seule session pour votre commercial, de la fiche du restaurant à une proposition prête à envoyer.",
+				"steps": {
+					"s1": {
+						"title": "Ajoutez le restaurant",
+						"text": "Créez le prospect et importez une photo ou un PDF de sa carte des plats."
+					},
+					"s2": {
+						"title": "Vérifiez les plats",
+						"text": "Wineater lit la carte. Votre commercial corrige ce qui est erroné."
+					},
+					"s3": {
+						"title": "Relisez la proposition",
+						"text": "Les vins de votre portefeuille sont regroupés par catégorie de plat, chacun avec une courte explication. Remplacez, retirez ou épinglez n’importe quel vin."
+					},
+					"s4": {
+						"title": "Envoyez-la",
+						"text": "Partagez un lien ou exportez un PDF. Après la vente, le restaurant reçoit un menu QR où vos vins sont marqués comme prioritaires."
+					}
+				}
+			},
+			"insights": {
+				"title": "Voyez ce qui manque à votre portefeuille",
+				"lead": "Deux rapports pour le propriétaire ou l’acheteur. Ils ont besoin de données pour être utiles : ils arrivent donc une fois que vous avez collecté assez de menus.",
+				"items": {
+					"i1": {
+						"title": "Analyse des manques du portefeuille",
+						"text": "Quels vins sont recherchés dans les restaurants et absents de votre catalogue : une liste d’opportunités d’achat."
+					},
+					"i2": {
+						"title": "Carte thermique des menus",
+						"text": "Quels plats et ingrédients reviennent dans les menus que vous avez analysés, pour savoir quels vins manquent dans votre entrepôt."
+					}
+				}
+			},
+			"cta": {
+				"title": "Envie de le façonner avec nous ?",
+				"text": "Nous le construisons avec un premier groupe de distributeurs. Parlez-nous de votre portefeuille."
+			}
+		}
+	}
+}

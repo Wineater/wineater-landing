@@ -35,7 +35,8 @@ export default defineNuxtConfig({
   },
   css: [
     '@/assets/styles/main.scss',
-    '@/assets/styles/colors.scss'
+    '@/assets/styles/colors.scss',
+    '@/assets/styles/solutions.scss'
   ],
   plugins: [
     { src: '~/plugins/gtm.client.js', ssr: false },
@@ -50,9 +51,28 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
     defaultLocale: "en",
     locales: [
-      { code: "en", language: "en-US", file: "en.json" },
-      { code: "fr", language: "fr-FR", file: "fr.json" },
+      { code: "en", language: "en-US", files: ["en.json", "en/site.json", "en/solutions.json"] },
+      { code: "fr", language: "fr-FR", files: ["fr.json", "fr/site.json", "fr/solutions.json"] },
+      // Spanish exists only for the Distributors page (see defineI18nRoute in the other pages).
+      { code: "es", language: "es-ES", files: ["es/site.json"] },
     ],
+    customRoutes: 'config',
+    pages: {
+      'solutions/restaurants': { en: '/solutions/restaurants', fr: '/solutions/restaurants', es: false },
+      'solutions/online-stores': { en: '/solutions/online-stores', fr: '/solutions/boutiques-en-ligne', es: false },
+      'solutions/retail': { en: '/solutions/retail', fr: '/solutions/magasins', es: false },
+      'solutions/distributors': { en: '/solutions/distributors', fr: '/solutions/distributeurs', es: '/soluciones/distribuidores' },
+      pricing: { en: '/pricing', fr: '/tarifs', es: false },
+      faq: { es: false },
+      legal: { es: false },
+      privacy: { es: false },
+      terms: { es: false },
+      playground: { es: false },
+      index: { es: false },
+      'blog/index': { es: false },
+      'blog/[...slug]': { es: false },
+      'demo/[id]': { es: false },
+    },
     langDir: "./locales",
     baseUrl: 'https://wineater.com',
     detectBrowserLanguage: false,
@@ -108,6 +128,8 @@ export default defineNuxtConfig({
     supabaseUrl: '',
     supabaseServiceKey: '',
     public: {
+      // The founder note shows a visible placeholder everywhere except production.
+      showPlaceholders: process.env.VERCEL_ENV !== 'production',
       gtm: {
         id: 'GTM-NLBPMC7X'
       }

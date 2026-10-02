@@ -1,0 +1,258 @@
+{
+	"nav": {
+		"solutions": "Solutions",
+		"restaurants": "Restaurants",
+		"restaurantsDesc": "Assistant sommelier pour l’équipe, QR code pour les clients",
+		"onlineStores": "Boutiques en ligne",
+		"onlineStoresDesc": "Un widget sur votre propre site",
+		"retail": "Commerce physique",
+		"retailDesc": "Un QR code sur le rayon vins",
+		"distributors": "Distributeurs",
+		"distributorsDesc": "Des propositions de vins construites à partir de la carte d’un restaurant",
+		"pricing": "Tarifs",
+		"blog": "Blog",
+		"faq": "FAQ",
+		"bookDemo": "Réserver une démo"
+	},
+	"Footer": {
+		"language": "Langue"
+	},
+	"photos": {
+		"restaurants-hero": "Un serveur en T-shirt noir verse du vin blanc dans un verre au bar d’un restaurant",
+		"restaurants-table": "Table de restaurant avec un verre de vin blanc, un verre de vin rouge et deux plats dressés",
+		"online-stores": "Des mains tenant une carte bancaire à côté d’un ordinateur portable ouvert sur une table blanche, pour un achat en ligne",
+		"retail-hero": "Des étagères du sol au plafond remplies de bouteilles de vin dans une cave à vins",
+		"retail-shelf": "Des bouteilles de vin sur des étagères en bois, avec des étiquettes de prix vierges, dans une petite cave à vins",
+		"distributors-hero": "Long couloir de cave à vin bordé de casiers à bouteilles sous une lumière chaude",
+		"distributors-tasting": "Du vin versé dans un verre au comptoir d’une dégustation, avec des verres de vin rouge sur le bar",
+		"home-sommelier": "Une main tient un verre incliné dans lequel on verse du vin rouge, sur un fond gris"
+	},
+	"solutionPage": {
+		"startTrial": "Essayer gratuitement",
+		"talkToSales": "Parler à l’équipe commerciale",
+		"seePricing": "Voir les tarifs",
+		"learnMore": "En savoir plus",
+		"priceTitle": "Combien ça coûte",
+		"faqTitle": "Questions fréquentes",
+		"earlyAccess": "Accès anticipé",
+		"comingSoon": "Bientôt disponible",
+		"restaurantsPrice": "{standard} par mois et par établissement jusqu’à {standardMax} vins. Au-delà, {plus} par mois et par établissement. Chaînes de trois établissements ou plus : sur demande.",
+		"retailPrice": "Parlez à l’équipe commerciale. Le prix dépend du nombre de magasins et de la taille du catalogue.",
+		"distributorsPrice": "Parlez à l’équipe commerciale. Wineater pour les distributeurs est en accès anticipé avec des partenaires de conception ; nous convenons du prix avec vous."
+	},
+	"home": {
+		"hero": {
+			"headline1": "Un sommelier IA qui",
+			"headline2": "ne vend que ce que vous avez en stock.",
+			"subtitle": "Vos clients saisissent un plat, une envie ou un budget. Wineater répond avec quatre bouteilles de votre propre catalogue : sur votre site, en rayon, entre les mains de votre équipe.",
+			"point1": "Ne recommande que les vins que vous avez en stock",
+			"point2": "Chaque sélection vient avec une courte explication",
+			"point3": "QR code en ligne en 1 heure, widget en 1 jour"
+		},
+		"cards": {
+			"title": "Un seul sommelier, quatre façons de l’utiliser",
+			"lead": "Choisissez votre activité pour voir comment ça marche.",
+			"restaurants": "Chaque serveur répond comme votre sommelier.",
+			"onlineStores": "{buy} des sessions avec recommandations se terminent par un clic vers une bouteille.",
+			"retail": "Un sommelier à chaque rayon.",
+			"distributors": "Transformez la carte d’un restaurant en proposition issue de votre portefeuille.",
+			"see": "Voir comment ça marche"
+		},
+		"price": {
+			"line": "À partir de {shops} par mois pour les boutiques, {restaurants} par mois et par restaurant. 1 mois offert.",
+			"link": "Voir les tarifs"
+		}
+	},
+	"whyNow": {
+		"line": "Les clients cherchent désormais avec des phrases. Vos filtres attendent toujours un nom de cépage.",
+		"stat": "des consommateurs hésitants face au vin disent pouvoir prévoir le goût d’un vin. Pour la bière, les spiritueux et les cocktails, c’est {compare}.",
+		"source": "Source :",
+		"sourceName": "enquête du Wine Market Council, relayée par The Press Democrat",
+		"sourceDate": ", 29 mai 2026"
+	},
+	"howItThinks": {
+		"title": "Comment Wineater raisonne",
+		"lead": "Chaque demande est lue selon cinq axes et comparée à chaque vin de votre stock.",
+		"axes": {
+			"food": {
+				"name": "Plat",
+				"desc": "Le plat, la cuisson, la sauce."
+			},
+			"taste": {
+				"name": "Goût",
+				"desc": "Corps, acidité, douceur, style."
+			},
+			"origin": {
+				"name": "Origine",
+				"desc": "Pays, région, appellation."
+			},
+			"occasion": {
+				"name": "Occasion",
+				"desc": "Un dîner, un cadeau, une fête."
+			},
+			"making": {
+				"name": "Mode d’élaboration",
+				"desc": "Nature, bio, vieilli."
+			}
+		},
+		"buyers": "Quatre bouteilles sont ensuite choisies selon le profil de l’acheteur : une valeur sûre pour un novice, une découverte pour un passionné.",
+		"fact1": "Uniquement des vins de votre propre catalogue",
+		"fact2": "Un coup de pouce modéré pour les produits que vous mettez en avant",
+		"fact3": "Des réponses dans la langue de la boutique"
+	},
+	"proofChips": {
+		"title": "Ce qui s’est passé lors d’un pilote d’un mois",
+		"buy": "des sessions avec recommandations se terminent par un clic BUY",
+		"requests": "demandes par client",
+		"search": "des sessions du widget lancent une recherche"
+	},
+	"roi": {
+		"title": "Estimez vos clics BUY et votre facture",
+		"lead": "Saisissez vos visites mensuelles. Nous appliquons les taux de notre pilote et affichons les clics BUY ainsi que le coût du forfait Growth à ce volume.",
+		"visitsLabel": "Visites de votre boutique par mois",
+		"visitsHint": "Sessions sur votre site, d’après vos propres statistiques.",
+		"clicks": "Clics BUY estimés par mois",
+		"clicksValue": "environ {n}",
+		"cost": "Forfait Growth à ce volume",
+		"fine": "Mode de calcul : visites × {search} (sessions qui lancent une recherche dans le pilote) × {click} (parmi celles-ci, sessions terminées par un clic BUY dans le pilote) = clics BUY. Growth coûte {base} par mois plus {perClick} par clic. Ce sont les taux du pilote ; les vôtres seront différents.",
+		"after": "Le nombre de ces clients qui achètent dépend de votre fiche produit et de votre paiement. Nous ne prévoyons pas les ventes."
+	},
+	"pricing": {
+		"hero": {
+			"title": "Des tarifs simples, un mois offert",
+			"lead": "Choisissez votre activité. Chaque forfait commence par un mois gratuit, sans carte bancaire."
+		},
+		"switchLabel": "Choisissez votre activité",
+		"tabs": {
+			"shops": "Boutiques en ligne",
+			"restaurants": "Restaurants et bars"
+		},
+		"shops": {
+			"lead": "Un widget sur votre propre site, construit sur votre propre catalogue."
+		},
+		"restaurants": {
+			"lead": "Un assistant sommelier sur les tablettes de votre équipe et un QR code pour vos clients. Tarif par établissement."
+		},
+		"onRequest": "Sur demande",
+		"perMonth": "{price} par mois",
+		"perMonthSuffix": "/ mois",
+		"perVenueMonth": "/ mois par établissement",
+		"perClick": "+ {price} par clic BUY",
+		"example": "Exemple : {clicks} clics BUY dans le mois = {base} + {extra} = {total}.",
+		"allPlans": "Tous les forfaits : 1 mois offert, sans carte bancaire. Paiement par carte ou, dans l’UE, sur facture.",
+		"clickNote": "{caveat} Growth est facturé au clic, pas à la commande.",
+		"moreTitle": "Commerce physique et distributeurs",
+		"plans": {
+			"starter": {
+				"name": "Starter",
+				"catalog": "Jusqu’à {max} vins",
+				"inc1": "Widget sur votre site",
+				"inc2": "Synchronisation quotidienne du stock",
+				"inc3": "Dans la langue de chaque client",
+				"inc4": "Mise en avant de produits choisis"
+			},
+			"growth": {
+				"name": "Growth",
+				"catalog": "Jusqu’à {max} vins",
+				"inc1": "Tout ce qui est inclus dans Starter",
+				"inc2": "Statistiques de recherche",
+				"inc3": "Support prioritaire"
+			},
+			"enterprise": {
+				"name": "Enterprise",
+				"catalog": "Plus de {min} vins",
+				"inc1": "Accès à l’API",
+				"inc2": "Plusieurs boutiques et pays",
+				"inc3": "Accord de niveau de service",
+				"inc4": "Intégration sur mesure"
+			},
+			"restaurant": {
+				"name": "Restaurant",
+				"catalog": "Jusqu’à {max} vins",
+				"inc1": "Assistant sommelier pour votre équipe",
+				"inc2": "QR code pour vos clients",
+				"inc3": "Mise en avant de vins choisis"
+			},
+			"restaurantPlus": {
+				"name": "Restaurant Plus",
+				"catalog": "Plus de {min} vins",
+				"inc1": "Tout ce qui est inclus dans Restaurant",
+				"inc2": "Pour une carte des vins plus longue"
+			},
+			"chain": {
+				"name": "Chaînes",
+				"catalog": "Trois établissements ou plus",
+				"inc1": "Une carte des vins par établissement",
+				"inc2": "Vins mis en avant convenus avec vous",
+				"inc3": "Tarif par établissement, devis sur demande"
+			},
+			"retail": {
+				"name": "Commerce physique",
+				"catalog": "Supermarchés et caves, avec un QR code en rayon. Le prix dépend du nombre de magasins et du catalogue."
+			},
+			"distributors": {
+				"name": "Distributeurs",
+				"catalog": "Des propositions à partir des cartes de restaurants, un menu QR pour vos restaurants, un widget pour votre site. En accès anticipé avec des partenaires de conception."
+			}
+		}
+	},
+	"founder": {
+		"title": "Un mot du fondateur",
+		"placeholderTag": "Espace réservé : le propriétaire fournit le texte, la photo et le lien LinkedIn",
+		"placeholder": "Le court mot du fondateur viendra ici."
+	},
+	"earlyAccess": {
+		"title": "En développement : conçu pour les assistants IA et Shopify",
+		"lead": "Ces deux fonctionnalités ne sont pas encore disponibles. Rejoignez la liste d’attente et nous vous écrirons à l’ouverture de l’accès anticipé.",
+		"note": "Ces deux fonctionnalités sont en développement, sans date de sortie ni prix pour l’instant. Aujourd’hui, le widget fonctionne sur n’importe quel site avec une seule balise script.",
+		"join": "Rejoindre la liste d’attente",
+		"name": "Votre nom",
+		"business": "Nom de la boutique (facultatif)",
+		"email": "E-mail professionnel",
+		"gdpr": "J’accepte que Wineater conserve mes données pour me contacter au sujet de cette fonctionnalité. Je peux retirer mon consentement à tout moment en écrivant à",
+		"submit": "Rejoindre la liste d’attente",
+		"done": "Vous êtes sur la liste. Nous vous écrirons à l’ouverture de l’accès anticipé.",
+		"aiCatalog": {
+			"badge": "Accès anticipé",
+			"title": "Catalogue prêt pour l’IA",
+			"text": "Rendez votre catalogue lisible par ChatGPT, Perplexity et les agents IA de Google, pour que les assistants puissent trouver vos vins.",
+			"point1": "Un serveur MCP de boutique que les assistants IA peuvent interroger",
+			"point2": "Un flux produits enrichi avec des détails sur les vins"
+		},
+		"shopify": {
+			"badge": "Bientôt disponible",
+			"title": "Application Shopify",
+			"text": "Installez Wineater sur votre boutique Shopify en un clic.",
+			"point1": "Installation en un clic",
+			"point2": "Aucune balise script à coller"
+		}
+	},
+	"seoPages": {
+		"restaurants": {
+			"title": "IA sommelier pour restaurants {'|'} Wineater",
+			"description": "Un assistant sommelier sur les tablettes de votre équipe et un QR code pour les clients. Quatre vins de votre carte pour chaque plat. Gratuit 1 mois."
+		},
+		"onlineStores": {
+			"title": "IA sommelier pour boutiques de vin en ligne {'|'} Wineater",
+			"description": "Un widget qui recommande quatre vins de votre propre catalogue pour chaque demande. Une balise script, en ligne en 1 jour. Gratuit 1 mois."
+		},
+		"retail": {
+			"title": "IA sommelier pour cavistes et supermarchés {'|'} Wineater",
+			"description": "Un QR code sur le rayon vins. Le client saisit un plat ou un budget et obtient quatre vins de l’assortiment du magasin."
+		},
+		"distributors": {
+			"title": "Outil de vente IA pour distributeurs de vin {'|'} Wineater",
+			"description": "Transformez la carte d’un restaurant en proposition de vins issue de votre portefeuille. Accès anticipé avec des partenaires de conception."
+		},
+		"pricing": {
+			"title": "Tarifs pour cavistes et restaurants {'|'} Wineater",
+			"description": "Forfaits pour boutiques en ligne et restaurants, 1 mois offert, sans carte bancaire. Commerce physique et distributeurs : parlez à l’équipe commerciale."
+		}
+	},
+	"pricingCta": {
+		"cta": {
+			"title": "Commencez par un mois offert",
+			"text": "Partagez votre catalogue ou votre carte des vins et voyez Wineater sur vos propres vins. Sans carte bancaire."
+		}
+	}
+}
