@@ -1,61 +1,75 @@
 <template>
-  <Header :show-links="true" @get-started="showSignup = true"/>
-
-  <Transition name="fade">
-    <SignupForm v-if="showSignup" @close="showSignup = false"/>
-  </Transition>
+  <Header :show-links="true"/>
 
   <main class="main-page" role="main">
 
-    <!-- 1. Hero — "Turn wine indecision into wine sales" -->
+    <!-- 1. Hero: one message for everyone, no tabs -->
     <section aria-labelledby="hero-title">
-      <StartBanner @get-started="showSignup = true"/>
+      <StartBanner />
     </section>
 
-    <!-- 2. Demo — the product right after the hero -->
+    <!-- 2. Why now: one line and the one external statistic, with its source -->
+    <WhyNow />
+
+    <!-- 3. Demo: the product right after the hero -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
-      <WidgetHome :visible="widgetHomeVisible" @get-started="showSignup = true"/>
+      <WidgetHome :visible="widgetHomeVisible" @get-started="openSignup"/>
     </section>
 
-    <!-- 3. Trust ribbon: clients, press, supporters -->
+    <!-- 4. Four ways to use it -->
+    <SolutionCards />
+
+    <!-- 5. How the algorithm thinks (shared with every Solutions page) -->
+    <HowItThinks />
+
+    <!-- 6. Trust ribbon: clients, press, supporters -->
     <ClientLogos />
 
-    <!-- 4-5. What shoppers asked for, how the recommendation works (no CTAs) -->
-    <PilotResults />
-    <FeatureShowcase />
+    <!-- 7. Price on one line -->
+    <section class="home-price" aria-labelledby="home-price-title">
+      <h2 id="home-price-title" class="sol-sr">{{ $t('nav.pricing') }}</h2>
+      <p class="home-price__line">
+        {{ $t('home.price.line', { shops: usd(fromPrice.shops), restaurants: usd(fromPrice.restaurants) }) }}
+        <NuxtLink class="sol-link" :to="localePath('/pricing')" @click="onPricing">{{ $t('home.price.link') }}</NuxtLink>
+      </p>
+    </section>
 
-    <!-- 6. Problem + for whom (merged; #problem anchor lives inside ForWhom) -->
-    <div id="for-whom">
-      <ForWhom :visible="forWhomVisible" @get-started="showSignup = true"/>
-    </div>
+    <!-- 8. Founder note (placeholder until the owner supplies the text) -->
+    <FounderNote />
 
-    <!-- 7. How it works + how to start (id get-started lives inside) -->
+    <!-- 9. How to start (id get-started lives inside) -->
     <section aria-labelledby="how-it-works-title" id="how-it-works">
-      <HowItWorks :visible="howItWorksVisible" @get-started="showSignup = true"/>
+      <HowItWorks :visible="howItWorksVisible" @get-started="openSignup"/>
     </section>
 
     <FaqTeaser />
 
   </main>
 
-  <Footer @get-started="showSignup = true"/>
+  <Footer/>
 </template>
 
 <script setup>
 import Header from "~/components/LandingComponents/Header.vue";
 import StartBanner from "~/components/LandingComponents/StartBanner.vue";
-import SignupForm from "~/components/LandingComponents/SignupForm.vue";
 import WidgetHome from "~/components/LandingComponents/WidgetHome.vue";
 import HowItWorks from "~/components/LandingComponents/HowItWorks.vue";
 import Footer from "~/components/LandingComponents/Footer.vue";
-import ForWhom from "~/components/LandingComponents/ForWhom.vue";
 import ClientLogos from "~/components/LandingComponents/ClientLogos.vue";
-import PilotResults from "~/components/LandingComponents/PilotResults.vue";
-import FeatureShowcase from "~/components/LandingComponents/FeatureShowcase.vue";
+import WhyNow from "~/components/Solutions/WhyNow.vue";
+import SolutionCards from "~/components/Solutions/SolutionCards.vue";
+import HowItThinks from "~/components/Solutions/HowItThinks.vue";
+import FounderNote from "~/components/Solutions/FounderNote.vue";
+import { fromPrice, formatUsd, CURRENCY, shopPlans, restaurantPlans } from '~/data/pricing';
 import FaqTeaser from "~/components/FaqTeaser.vue";
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const localePath = useLocalePath();
+const { openSignup } = useSignup();
+const usd = (n) => formatUsd(n, locale.value);
+const onPricing = () => track('cta_click', { cta_label: t('home.price.link'), location: 'home_price' });
+const publicPrices = [...shopPlans, ...restaurantPlans].map(p => p.price).filter(p => p !== null);
 
 useSeoMeta({
   title: () => t('seo.title'),
@@ -93,13 +107,18 @@ useSchemaOrg([
     description: 'AI sommelier that recommends wines from a merchant\'s own catalog, via widget, QR code or API.',
     url: 'https://wineater.com',
     publisher: { '@id': 'https://wineater.com/#org' },
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', description: '1-month free trial' },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: CURRENCY,
+      lowPrice: String(Math.min(...publicPrices)),
+      highPrice: String(Math.max(...publicPrices)),
+      offerCount: publicPrices.length,
+      description: '1-month free trial, no credit card',
+    },
   },
 ]);
 
-const showSignup = ref(false);
 const widgetHomeVisible = ref(false);
-const forWhomVisible = ref(false);
 const howItWorksVisible = ref(false);
 
 const scrollToDemo = () => {
@@ -115,13 +134,12 @@ onMounted(() => {
       if (!entry.isIntersecting) return;
       const el = entry.target;
       if (el.classList.contains('widget-home')) widgetHomeVisible.value = true;
-      else if (el.classList.contains('for-whom')) forWhomVisible.value = true;
       else if (el.classList.contains('how-it-works')) howItWorksVisible.value = true;
       observer.unobserve(el);
     });
   }, { threshold: 0.05 });
 
-  ['.widget-home', '.for-whom', '.how-it-works'].forEach((sel) => {
+  ['.widget-home', '.how-it-works'].forEach((sel) => {
     const el = document.querySelector(sel);
     if (el) observer.observe(el);
   });
@@ -148,13 +166,19 @@ onUnmounted(() => {
   :where([id]) { scroll-margin-top: calc(100px - var(--section-y)); }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
+
+.home-price {
+  padding-top: var(--section-y);
+  max-width: var(--container);
+  margin: 0 auto;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.home-price__line {
+  margin: 0;
+  font-family: 'PoppinsMedium', sans-serif;
+  font-size: clamp(2rem, 2.4vw, 2.6rem);
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: balance;
 }
 </style>

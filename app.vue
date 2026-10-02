@@ -1,6 +1,9 @@
 <template>
   <div>
     <NuxtPage/>
+    <Transition name="fade">
+      <SignupForm v-if="signupOpen" @close="closeSignup"/>
+    </Transition>
     <ClientOnly>
       <CookieBanner/>
     </ClientOnly>
@@ -8,6 +11,8 @@
 </template>
 
 <script setup>
+import SignupForm from '~/components/LandingComponents/SignupForm.vue'
+const { open: signupOpen, closeSignup } = useSignup()
 const head = useLocaleHead({ dir: false, seo: true })
 const { t } = useI18n()
 
@@ -26,3 +31,10 @@ useSeoMeta({
   twitterDescription: () => t('seo.description'),
 })
 </script>
+
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active { transition: opacity 0.2s ease; }
+.fade-enter-from,
+.fade-leave-to { opacity: 0; }
+</style>

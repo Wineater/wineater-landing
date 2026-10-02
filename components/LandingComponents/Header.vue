@@ -10,14 +10,31 @@
       </NuxtLink>
 
       <nav class="header__links" v-if="showLinks" :aria-label="$t('Header.mainNav')">
-        <a v-for="item in navItems"
-           :key="item.id"
-           class="header__link"
-           :href="`${homePath}#${item.id}`"
-           @click="onNavClick($event, item.id)">
-          {{ $t(item.label) }}
-        </a>
-        <NuxtLink class="header__link" :to="localePath('/faq')">{{ $t('Header.Faq') }}</NuxtLink>
+        <div ref="solutionsRef" class="header__dd">
+          <button type="button"
+                  class="header__link header__dd-btn"
+                  :class="{ 'is-current': inSolutions }"
+                  :aria-expanded="solutionsOpen ? 'true' : 'false'"
+                  aria-controls="solutions-menu"
+                  @click="solutionsOpen = !solutionsOpen"
+                  @keydown.esc="closeSolutions(true)">
+            {{ $t('nav.solutions') }}
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">
+              <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <ul v-show="solutionsOpen" id="solutions-menu" class="header__dd-list" @keydown.esc="closeSolutions(true)">
+            <li v-for="item in solutionItems" :key="item.id">
+              <NuxtLink class="header__dd-item" :to="localePath(item.to)" @click="closeSolutions()">
+                <span class="header__dd-title">{{ $t(`nav.${item.id}`) }}</span>
+                <span class="header__dd-desc">{{ $t(`nav.${item.id}Desc`) }}</span>
+              </NuxtLink>
+            </li>
+          </ul>
+        </div>
+        <NuxtLink class="header__link" :to="localePath('/pricing')">{{ $t('nav.pricing') }}</NuxtLink>
+        <NuxtLink class="header__link" :to="localePath('/blog')">{{ $t('nav.blog') }}</NuxtLink>
+        <NuxtLink class="header__link" :to="localePath('/faq')">{{ $t('nav.faq') }}</NuxtLink>
       </nav>
 
       <div class="header__btns">
@@ -26,11 +43,10 @@
            target="_blank"
            rel="noopener"
            @click="onDemoClick">
-          {{ $t('cta.demo') }}
+          {{ $t('nav.bookDemo') }}
           <span class="header__sr-only">({{ $t('Header.opensNewTab') }})</span>
         </a>
-        <Button v-if="isHome" size="sm" class="header__cta" @btnClick="onPrimaryClick">{{ $t('cta.primary') }}</Button>
-        <Button v-else size="sm" class="header__cta" :to="`${homePath}#get-started`" @btnClick="trackPrimary">{{ $t('cta.primary') }}</Button>
+        <Button size="sm" class="header__cta" @btnClick="onPrimaryClick">{{ $t('cta.primary') }}</Button>
 
         <button v-if="showLinks"
                 ref="toggleRef"
@@ -58,20 +74,20 @@
            :aria-label="$t('Header.menuTitle')"
            @keydown="onMenuKeydown">
         <nav :aria-label="$t('Header.mainNav')">
-          <a v-for="item in navItems"
-             :key="item.id"
-             class="header__menu-link"
-             :href="`${homePath}#${item.id}`"
-             @click="onMenuNav($event, item.id)">
-            {{ $t(item.label) }}
-          </a>
-          <NuxtLink class="header__menu-link" :to="localePath('/faq')" @click="closeMenu()">{{ $t('Header.Faq') }}</NuxtLink>
+          <p class="header__menu-group">{{ $t('nav.solutions') }}</p>
+          <NuxtLink v-for="item in solutionItems"
+                    :key="item.id"
+                    class="header__menu-link header__menu-link--sub"
+                    :to="localePath(item.to)"
+                    @click="closeMenu()">{{ $t(`nav.${item.id}`) }}</NuxtLink>
+          <NuxtLink class="header__menu-link" :to="localePath('/pricing')" @click="closeMenu()">{{ $t('nav.pricing') }}</NuxtLink>
+          <NuxtLink class="header__menu-link" :to="localePath('/blog')" @click="closeMenu()">{{ $t('nav.blog') }}</NuxtLink>
+          <NuxtLink class="header__menu-link" :to="localePath('/faq')" @click="closeMenu()">{{ $t('nav.faq') }}</NuxtLink>
         </nav>
         <div class="header__menu-ctas">
-          <Button v-if="isHome" @btnClick="onMenuPrimary">{{ $t('cta.primary') }}</Button>
-          <Button v-else :to="`${homePath}#get-started`" @btnClick="trackPrimary">{{ $t('cta.primary') }}</Button>
+          <Button @btnClick="onMenuPrimary">{{ $t('cta.primary') }}</Button>
           <Button bg-color="outline" :href="demoUrl" target="_blank" @btnClick="onDemoClick">
-            {{ $t('cta.demo') }}
+            {{ $t('nav.bookDemo') }}
             <span class="header__sr-only">({{ $t('Header.opensNewTab') }})</span>
           </Button>
         </div>
@@ -102,12 +118,29 @@ const props = defineProps({
 
 const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
 
-const navItems = [
-  { id: 'ai-sommelier', label: 'Header.TryMe' },
-  { id: 'how-recommendations-work', label: 'Header.Why' },
-  { id: 'for-whom', label: 'Header.Who' },
-  { id: 'how-it-works', label: 'Header.GetStarted' }
+const solutionItems = [
+  { id: 'restaurants', to: '/solutions/restaurants' },
+  { id: 'onlineStores', to: '/solutions/online-stores' },
+  { id: 'retail', to: '/solutions/retail' },
+  { id: 'distributors', to: '/solutions/distributors' },
 ];
+
+const { openSignup } = useSignup();
+const solutionsOpen = ref(false);
+const solutionsRef = ref(null);
+const inSolutions = computed(() => String(route.name || '').startsWith('solutions-'));
+
+const closeSolutions = (returnFocus = false) => {
+  solutionsOpen.value = false;
+  if (returnFocus) nextTick(() => solutionsRef.value?.querySelector('button')?.focus());
+};
+
+const onDocPointer = (e) => {
+  if (solutionsOpen.value && solutionsRef.value && !solutionsRef.value.contains(e.target)) solutionsOpen.value = false;
+};
+const onDocFocusIn = (e) => {
+  if (solutionsOpen.value && solutionsRef.value && !solutionsRef.value.contains(e.target)) solutionsOpen.value = false;
+};
 
 const logos = {
   Wineater: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/logo.svg',
@@ -183,10 +216,14 @@ const onResize = () => {
 };
 
 onMounted(() => {
+  document.addEventListener('pointerdown', onDocPointer);
+  document.addEventListener('focusin', onDocFocusIn);
   window.addEventListener('keydown', onGlobalKey);
   window.addEventListener('resize', onResize, { passive: true });
 });
 onUnmounted(() => {
+  document.removeEventListener('pointerdown', onDocPointer);
+  document.removeEventListener('focusin', onDocFocusIn);
   window.removeEventListener('keydown', onGlobalKey);
   window.removeEventListener('resize', onResize);
 });
@@ -199,29 +236,9 @@ const onLogoClick = (e) => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-const onMenuNav = (e, id) => {
-  // Cancel the native jump now: the scroll below runs after the next tick, too late to do it.
-  if (!isModifiedClick(e) && isHome.value) e.preventDefault();
-  closeMenu();
-  // The page scroll lock is released after the next tick; scroll once it is.
-  nextTick(() => onNavClick(e, id));
-};
-
 const onMenuPrimary = () => {
   closeMenu();
   onPrimaryClick();
-};
-
-const onNavClick = (e, id) => {
-  if (isModifiedClick(e) || !isHome.value) return;
-  const element = document.getElementById(id);
-  if (!element) return;
-  e.preventDefault();
-  // Land the section heading ~100px below the viewport top, under the fixed header.
-  const anchor = element.querySelector('h2') || element;
-  const top = anchor.getBoundingClientRect().top + window.scrollY - 100;
-  window.scrollTo({ top, behavior: 'smooth' });
-  history.replaceState(history.state, '', `#${id}`);
 };
 
 const trackPrimary = () => {
@@ -231,6 +248,7 @@ const trackPrimary = () => {
 const onPrimaryClick = () => {
   trackPrimary();
   emit('getStarted');
+  openSignup();
 };
 
 const onDemoClick = () => {
@@ -327,6 +345,59 @@ const onDemoClick = () => {
   }
 }
 
+.header__dd { position: relative; }
+
+.header__dd-btn {
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  &.is-current { color: var(--brand-1); }
+}
+
+.header__dd-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  min-width: 340px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgba(26, 20, 38, 0.18);
+}
+
+.header__dd-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  color: var(--ink);
+  text-decoration: none;
+
+  &:hover { background: var(--brand-7); }
+  &:focus-visible { outline: 3px solid var(--ink); outline-offset: -3px; }
+}
+
+.header__dd-title { font-family: 'PoppinsMedium', sans-serif; font-size: 15px; }
+.header__dd-desc { font-size: 13px; line-height: 1.4; color: var(--ink-3); }
+
+.header__menu-group {
+  margin: 16px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.header__menu-link--sub { padding-left: 12px; min-height: 48px; font-size: 16px; }
+
 .header__btns {
   display: flex;
   align-items: center;
@@ -375,6 +446,7 @@ const onDemoClick = () => {
 .header__link:focus-visible,
 .header__btn-ghost:focus-visible,
 .header__burger:focus-visible,
+.header__dd-btn:focus-visible,
 .header__menu-link:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 2px;

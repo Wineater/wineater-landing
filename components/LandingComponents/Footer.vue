@@ -1,16 +1,13 @@
 <template>
   <footer class="footer">
-    <div class="footer__cta">
+    <div v-if="showCta" class="footer__cta">
       <div class="footer__cta-inner" v-reveal:stagger>
         <h2 class="footer__cta-title">{{ $t('Footer.closing') }}</h2>
         <p class="footer__cta-trial">{{ $t('Footer.trial') }}</p>
         <div class="footer__btns">
-          <button v-if="isHome" type="button" class="footer__btn footer__btn--primary" @click="onPrimaryClick">
+          <button type="button" class="footer__btn footer__btn--primary" @click="onPrimaryClick">
             {{ $t('cta.primary') }}
           </button>
-          <NuxtLink v-else :to="`${homePath}#get-started`" class="footer__btn footer__btn--primary" @click="trackPrimary">
-            {{ $t('cta.primary') }}
-          </NuxtLink>
           <a class="footer__btn footer__btn--secondary" :href="demoUrl" target="_blank" rel="noopener" @click="onDemoClick">{{ $t('cta.demo') }}</a>
         </div>
       </div>
@@ -25,9 +22,11 @@
 
         <nav class="footer__col" :aria-label="$t('Footer.navLabel')">
           <h3 class="footer__col-title">{{ $t('Footer.colProduct') }}</h3>
-          <NuxtLink class="footer__link" :to="`${homePath}#ai-sommelier`">{{ $t('Header.TryMe') }}</NuxtLink>
-          <NuxtLink class="footer__link" :to="`${homePath}#how-it-works`">{{ $t('Header.HowItWorks') }}</NuxtLink>
-          <NuxtLink class="footer__link" :to="`${homePath}#get-started`">{{ $t('Header.GetStarted') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/solutions/restaurants')">{{ $t('nav.restaurants') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/solutions/online-stores')">{{ $t('nav.onlineStores') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/solutions/retail')">{{ $t('nav.retail') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/solutions/distributors')">{{ $t('nav.distributors') }}</NuxtLink>
+          <NuxtLink class="footer__link" :to="localePath('/pricing')">{{ $t('nav.pricing') }}</NuxtLink>
         </nav>
 
         <div class="footer__col">
@@ -51,7 +50,13 @@
           <a class="footer__link" href="https://linkedin.com/company/wineater" target="_blank" rel="noopener" @click="onLinkedinClick">LinkedIn</a>
         </div>
       </div>
-      <p class="footer__copy">&copy; {{ year }} Wineater</p>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; {{ year }} Wineater</p>
+        <nav class="footer__langs" :aria-label="$t('Footer.language')">
+          <NuxtLink v-for="l in langLinks" :key="l.code" :to="l.to" :hreflang="l.code" :lang="l.code"
+                    class="footer__lang" :aria-current="l.code === locale ? 'true' : undefined">{{ l.label }}</NuxtLink>
+        </nav>
+      </div>
     </div>
   </footer>
 </template>
@@ -62,6 +67,17 @@ const localePath = useLocalePath();
 const { t } = useI18n();
 
 const emit = defineEmits(['getStarted']);
+defineProps({ showCta: { type: Boolean, default: true } });
+const { openSignup } = useSignup();
+const { locale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
+// Spanish exists only for the Distributors page.
+const langLinks = computed(() => {
+  const all = [{ code: 'en', label: 'English' }, { code: 'fr', label: 'Français' }, { code: 'es', label: 'Español' }];
+  return all
+    .map(l => ({ ...l, to: switchLocalePath(l.code) }))
+    .filter(l => l.to && (l.code !== 'es' || String(route.name || '').startsWith('solutions-distributors')));
+});
 
 const year = new Date().getFullYear();
 const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
@@ -76,6 +92,7 @@ const trackPrimary = () => {
 const onPrimaryClick = () => {
   trackPrimary();
   emit('getStarted');
+  openSignup();
 };
 
 const onDemoClick = () => {
@@ -165,6 +182,35 @@ const openCookieSettings = () => {
   }
 }
 
+.footer__bottom {
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 8px var(--gutter) 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  border-top: 1px solid var(--brand-5);
+}
+
+.footer__langs { display: flex; gap: 4px; }
+
+.footer__lang {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 22px;
+  color: var(--ink-2);
+  font-size: 1.4rem;
+  text-decoration: none;
+
+  &:hover { background: #fff; }
+  &[aria-current='true'] { color: var(--ink); font-family: 'PoppinsMedium', sans-serif; }
+  &:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+}
+
 .footer__main {
   background: var(--brand-7);
   color: var(--ink);
@@ -242,12 +288,9 @@ const openCookieSettings = () => {
 }
 
 .footer__copy {
-  max-width: calc(var(--container) + 2 * var(--gutter));
-  margin: 0 auto;
-  padding: 16px var(--gutter) 24px;
+  margin: 0;
   font-size: 1.4rem;
   color: var(--ink-3);
-  border-top: 1px solid var(--brand-5);
 }
 
 @media only screen and (max-width: 1023px) {

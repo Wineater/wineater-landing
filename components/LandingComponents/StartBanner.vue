@@ -1,37 +1,22 @@
 <template>
-  <div class="hero" :class="`hero--${audience}`">
+  <div class="hero">
     <div class="hero__main">
-      <AudienceTabs class="hero__tabs" :model-value="audience" @update:model-value="setAudience" />
+      <div class="hero__panel">
+        <h1 id="hero-title" class="hero__title">
+          {{ $t('home.hero.headline1') }}
+          <span class="hero__title-highlight">{{ $t('home.hero.headline2') }}</span>
+        </h1>
 
-      <div
-        v-for="item in AUDIENCES"
-        :id="`panel-${item}`"
-        :key="item"
-        class="hero__panel"
-        :class="{ 'is-entering': entering && audience === item }"
-        role="tabpanel"
-        :aria-labelledby="`tab-${item}`"
-        :hidden="audience !== item"
-      >
-        <component
-          :is="audience === item ? 'h1' : 'h2'"
-          :id="audience === item ? 'hero-title' : undefined"
-          class="hero__title"
-        >
-          {{ $t(`startBanner.${item}.headline1`) }}
-          <span class="hero__title-highlight">{{ $t(`startBanner.${item}.headline2`) }}</span>
-        </component>
-
-        <p class="hero__subtitle">{{ $t(`startBanner.${item}.subtitle`) }}</p>
+        <p class="hero__subtitle">{{ $t('home.hero.subtitle') }}</p>
 
         <div class="hero__ctas">
-          <Button @btnClick="onPrimary(item)">
+          <Button @btnClick="onPrimary">
             {{ $t('cta.primary') }}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </Button>
-          <Button bg-color="outline" :href="demoUrl" target="_blank" @btnClick="onDemo(item)">
+          <Button bg-color="outline" :href="DEMO_URL" target="_blank" @btnClick="onDemo">
             {{ $t('cta.demo') }}
             <span class="hero__sr">({{ $t('Header.opensNewTab') }})</span>
           </Button>
@@ -44,7 +29,7 @@
               <circle cx="12" cy="12" r="9"/>
               <path d="M8 12.500l3 3 5-6"/>
             </svg>
-            <span>{{ $t(`startBanner.${item}.point${n}`) }}</span>
+            <span>{{ $t(`home.hero.point${n}`) }}</span>
           </li>
         </ul>
       </div>
@@ -60,7 +45,6 @@
       </div>
     </div>
 
-    <!-- The owner's pattern: constant for both audiences. Only the accent card on top changes. -->
     <div class="hero__banner">
       <img
         class="hero__banner-img"
@@ -72,16 +56,15 @@
         :alt="$t('startBanner.imageAlt')"
       >
       <div class="hero__accent">
-        <AudienceScene :audience="audience" />
+        <AudienceScene audience="retail" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { AUDIENCES, DEFAULT_AUDIENCE, AUDIENCE_STORAGE_KEY, isAudience } from '~/data/demo';
 import { pilotProof } from '~/data/proof';
-import AudienceTabs from '~/components/LandingComponents/AudienceTabs.vue';
+import { DEMO_URL } from '~/data/links';
 import AudienceScene from '~/components/LandingComponents/AudienceScene.vue';
 import Button from '~/components/Buttons/Button.vue';
 
@@ -93,6 +76,7 @@ useHead({
 
 const emit = defineEmits(['getStarted']);
 const { t, locale } = useI18n();
+const { openSignup } = useSignup();
 
 const lang = computed(() => (locale.value === 'fr' ? 'fr' : 'en'));
 const chips = computed(() => [
@@ -102,79 +86,16 @@ const chips = computed(() => [
 ]);
 const proofCaveat = computed(() => pilotProof.caveat[lang.value]);
 
-const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
-
-// Shared with the demo (WidgetHome) so its example prompts follow the tab.
-// Server render and first client render are always the retail default.
-const audience = useState('audience', () => DEFAULT_AUDIENCE);
-const entering = ref(false);
-let enterTimer = null;
-
-const readStored = () => {
-  try {
-    const stored = window.localStorage.getItem(AUDIENCE_STORAGE_KEY);
-    return isAudience(stored) ? stored : null;
-  } catch {
-    return null;
-  }
-};
-
-const persist = (value) => {
-  try {
-    window.localStorage.setItem(AUDIENCE_STORAGE_KEY, value);
-  } catch {
-    /* storage unavailable: the tab still works */
-  }
-  // replaceState does not scroll and does not add history entries.
-  try {
-    window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}#${value}`);
-  } catch {
-    /* ignore */
-  }
-};
-
-const setAudience = (value, { user = true } = {}) => {
-  if (!isAudience(value) || value === audience.value) return;
-  audience.value = value;
-  entering.value = true;
-  clearTimeout(enterTimer);
-  enterTimer = setTimeout(() => (entering.value = false), 600);
-  if (user) {
-    persist(value);
-    track('audience_switch', { audience: value });
-  }
-};
-
-const fromHash = () => {
-  const hash = window.location.hash.replace('#', '');
-  return isAudience(hash) ? hash : null;
-};
-
-const onHashChange = () => {
-  const value = fromHash();
-  if (value) setAudience(value, { user: false });
-};
-
-onMounted(() => {
-  // Hash wins over the stored choice. Panel ids are prefixed ("panel-retail"), so the
-  // browser never scrolls to #retail on load.
-  const initial = fromHash() || readStored();
-  if (initial) setAudience(initial, { user: false });
-  window.addEventListener('hashchange', onHashChange);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('hashchange', onHashChange);
-  clearTimeout(enterTimer);
-});
-
-const onPrimary = (item) => {
-  track('cta_click', { cta_label: t('cta.primary'), location: 'hero', audience: item });
+const onPrimary = () => {
+  track('cta_click', { cta_label: t('cta.primary'), location: 'hero' });
   emit('getStarted');
+  openSignup();
 };
 
-const onDemo = (item) => {
-  track('cta_click', { cta_label: t('cta.demo'), location: 'hero', audience: item });
+const onDemo = () => {
+  track('cta_click', { cta_label: t('cta.demo'), location: 'hero' });
+  track('demo_click', { location: 'hero' });
+  track('outbound_link_click', { link_url: DEMO_URL });
 };
 </script>
 
@@ -370,7 +291,6 @@ $ease: cubic-bezier(0.16, 1, 0.3, 1);
   .hero__panel { display: contents; }
   .hero__panel[hidden] { display: none; }
 
-  .hero__tabs { order: 0; }
   .hero__title { order: 1; margin: 0; font-size: clamp(3rem, 7vw, 4.4rem); }
   .hero__subtitle { order: 2; max-width: 100%; margin: 0; }
   .hero__banner { order: 3; }
