@@ -1,0 +1,86 @@
+{
+  "restaurants-hero": {
+    "width": 2000,
+    "height": 1334,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "alt": "A server in a black T-shirt pours white wine into a glass at a restaurant bar, tray and glasses in the foreground",
+    "dominant": "#856a57"
+  },
+  "restaurants-table": {
+    "width": 2000,
+    "height": 1230,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "alt": "Restaurant table with a glass of white wine, a glass of red wine and two plated dishes in blue bowls",
+    "dominant": "#6f6a64"
+  },
+  "online-stores": {
+    "width": 2000,
+    "height": 1333,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "alt": "Hands holding a bank card next to an open laptop on a white table, online shopping at home",
+    "dominant": "#b0a69a"
+  },
+  "retail-hero": {
+    "width": 2000,
+    "height": 1518,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "alt": "Floor-to-ceiling shelves of wine bottles in a wine shop",
+    "dominant": "#665a50"
+  },
+  "retail-shelf": {
+    "width": 2000,
+    "height": 1326,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "alt": "Wine bottles on wooden shelves with blank price tags along the shelf edge in a small wine shop",
+    "dominant": "#3b2d1d"
+  },
+  "distributors-hero": {
+    "width": 2000,
+    "height": 1333,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "alt": "Long narrow wine cellar corridor lined with racks of bottles in warm light",
+    "dominant": "#4f210d"
+  },
+  "distributors-tasting": {
+    "width": 2000,
+    "height": 1125,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "alt": "Wine being poured into a glass at a tasting bar with red wine glasses lined up on a wooden counter",
+    "dominant": "#716f5b"
+  }
+}
