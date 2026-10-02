@@ -859,6 +859,299 @@
           }
         },
         "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "122",
+        "name": "GA4 Event - solution_view",
+        "type": "gaawe",
+        "notes": "A Solutions page was opened. segment: restaurants, online-stores, retail or distributors.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "solution_view"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "segment"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - segment}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "22"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "123",
+        "name": "GA4 Event - pricing_view",
+        "type": "gaawe",
+        "notes": "The pricing page was opened.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "pricing_view"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "23"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "124",
+        "name": "GA4 Event - pricing_toggle",
+        "type": "gaawe",
+        "notes": "The visitor switched the pricing tabs. segment: shops or restaurants.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "pricing_toggle"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "segment"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - segment}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "24"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "125",
+        "name": "GA4 Event - roi_calc_used",
+        "type": "gaawe",
+        "notes": "The visitor typed in the BUY-click estimator (sent once per page view). No values are sent.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "roi_calc_used"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "25"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "tagId": "126",
+        "name": "GA4 Event - waitlist_signup",
+        "type": "gaawe",
+        "notes": "Someone joined the waitlist for a feature that is not released yet. feature: ai-ready-catalog or shopify-app. No name or email is sent.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "sendEcommerceData",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "waitlist_signup"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "{{GA4 Measurement ID}}"
+          },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameter",
+                    "value": "feature"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "parameterValue",
+                    "value": "{{DLV - feature}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "fingerprint": "0",
+        "firingTriggerId": [
+          "26"
+        ],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "monitoringMetadata": {
+          "type": "MAP"
+        },
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [
+              {
+                "type": "TEMPLATE",
+                "value": "analytics_storage"
+              }
+            ]
+          }
+        },
+        "parentFolderId": "1"
       }
     ],
     "trigger": [
@@ -1158,6 +1451,141 @@
         "notes": "Click on a link that leaves the site (demo form, LinkedIn). link_url is the destination.",
         "parentFolderId": "1",
         "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "22",
+        "name": "CE - solution_view",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "solution_view"
+              }
+            ]
+          }
+        ],
+        "notes": "A Solutions page was opened. segment: restaurants, online-stores, retail or distributors.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "23",
+        "name": "CE - pricing_view",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "pricing_view"
+              }
+            ]
+          }
+        ],
+        "notes": "The pricing page was opened.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "24",
+        "name": "CE - pricing_toggle",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "pricing_toggle"
+              }
+            ]
+          }
+        ],
+        "notes": "The visitor switched the pricing tabs. segment: shops or restaurants.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "25",
+        "name": "CE - roi_calc_used",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "roi_calc_used"
+              }
+            ]
+          }
+        ],
+        "notes": "The visitor typed in the BUY-click estimator (sent once per page view). No values are sent.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "triggerId": "26",
+        "name": "CE - waitlist_signup",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "waitlist_signup"
+              }
+            ]
+          }
+        ],
+        "notes": "Someone joined the waitlist for a feature that is not released yet. feature: ai-ready-catalog or shopify-app. No name or email is sent.",
+        "parentFolderId": "1",
+        "fingerprint": "0"
       }
     ],
     "variable": [
@@ -1425,6 +1853,62 @@
             "type": "TEMPLATE",
             "key": "name",
             "value": "link_url"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "11",
+        "name": "DLV - segment",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'segment'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "segment"
+          }
+        ],
+        "parentFolderId": "1",
+        "fingerprint": "0",
+        "formatValue": {}
+      },
+      {
+        "accountId": "0000000000",
+        "containerId": "0000000000",
+        "variableId": "12",
+        "name": "DLV - feature",
+        "type": "v",
+        "notes": "Data Layer variable for event parameter 'feature'.",
+        "parameter": [
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "feature"
           }
         ],
         "parentFolderId": "1",

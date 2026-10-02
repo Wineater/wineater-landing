@@ -34,7 +34,8 @@ Container: `GTM-NLBPMC7X`. The site loads GTM only after the visitor accepts ana
 - IP addresses are not stored in GA4 (nothing to configure).
 - Admin > Product links > Search Console links: link the Search Console property.
 - Admin > Events: after `signup_success` has appeared once, mark it **Mark as key event**. Optionally also `demo_click`.
-- Optional: register custom dimensions (event scope) for `cta_label`, `location`, `audience`, `language` so they appear in reports.
+- Optional: register custom dimensions (event scope) for `cta_label`, `location`, `audience`, `language`, `segment`, `feature` so they appear in reports.
+- After import, mark `waitlist_signup` as a key event once it has appeared.
 
 ## 6. DebugView checklist
 Admin > DebugView (use Preview mode or the GA debugger). Accept cookies, then check each:
@@ -60,6 +61,11 @@ Admin > DebugView (use Preview mode or the GA debugger). Accept cookies, then ch
 | `widget_results_shown` | `results_count`, `language` |
 | `widget_wine_click` | `wine_title` (max 100 chars) |
 | `outbound_link_click` | `link_url` |
+| `solution_view` | `segment` (restaurants, online-stores, retail, distributors) |
+| `pricing_view` | none |
+| `pricing_toggle` | `segment` (shops, restaurants) |
+| `roi_calc_used` | none (once per page view; no values) |
+| `waitlist_signup` | `feature` (ai-ready-catalog, shopify-app); never name, email or shop name |
 
 Note: `widget_wine_click` is a click on a wine's product page link inside the demo widget (BUY-style button). It is NOT a purchase. Do not mark it as a conversion or use it as revenue.
 
@@ -68,3 +74,6 @@ Events fired before the visitor accepts analytics are dropped, not queued.
 ## 8. How to turn it off
 - Fastest: in GTM, pause the tag `Google tag - GA4` and all `GA4 Event - ...` tags (folder `Wineater GA4`) and publish.
 - Fully: remove `plugins/gtm.client.js` (and the call to `$setConsentMode` / `$loadGtm` in `composables/useConsent.ts`), then deploy. Existing `_ga` cookies in visitors' browsers expire on their own after at most 13 months.
+
+## 9. Not tracked from this site
+- `demo_booked`: the 20-minute demo is booked on an external HubSpot form (share-eu1.hsforms.com), so the site cannot see the booking. `demo_click` (click on the button) is the closest signal; a real `demo_booked` needs a HubSpot form-submit event or a HubSpot-to-GA4 integration.
