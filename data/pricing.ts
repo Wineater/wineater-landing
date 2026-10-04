@@ -3,11 +3,11 @@
 // Owner's grid of 2026-10-04 (replaces the 2026-10-02 grid). All prices are USD per month.
 // Never write a price in a template or in an i18n string: pass these values as {params}.
 // Volume metered pricing: a BUY click is a click to the product page, never a purchase.
-// No free trial and no self-serve signup are offered: never mention them next to a price.
 // public/llms.txt and data/content/facts.md repeat these prices as plain text (a static file cannot import): update them together.
 import { pilotRates } from './proof'
 
 export const CURRENCY = 'USD'
+export const TRIAL_MONTHS = 1
 
 export type Segment = 'shops' | 'restaurants' | 'distributors'
 

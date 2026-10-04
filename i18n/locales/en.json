@@ -7,7 +7,7 @@
 		"ctaLink": "See it on my catalog"
 	},
 	"cta": {
-		"primary": "See it on your catalog",
+		"primary": "Try it free for 1 month",
 		"demo": "Book a 20-min demo"
 	},
 	"features": {
@@ -54,12 +54,12 @@
 		"apiTime": "1 week",
 		"apiName": "API",
 		"apiDesc": "Your own search, white-label, inventory in sync.",
-		"startNote": "Send us your catalog. We set it up within 24 hours.",
+		"startNote": "Start with a free month. No credit card.",
 		"upload": "Upload Catalog"
 	},
 	"Footer": {
 		"text": "Stop losing shoppers to indecision",
-		"trial": "Set up by our team on your own catalog",
+		"trial": "1-month free trial · No credit card required",
 		"closing": "Ready to see your catalog in Wineater?",
 		"navLabel": "Footer",
 		"blog": "Blog",
@@ -118,7 +118,7 @@
 		"searchEmpty": "No question matches your search. Write to hi{'@'}wineater.com and we will answer.",
 		"permalink": "Link to this answer",
 		"ctaTitle": "Ready to try it on your catalog?",
-		"ctaText": "See the pricing page, book a 20-minute demo or write to hi{'@'}wineater.com.",
+		"ctaText": "1-month free trial, no credit card. See the pricing page, or write to hi{'@'}wineater.com.",
 		"relatedTitle": "Keep exploring",
 		"relatedDemo": "Try the live demo",
 		"relatedPrivacy": "Privacy policy",
@@ -152,7 +152,7 @@
 		"imageAlt": "A bottle of red wine and a plate of pasta on the Wineater purple pattern"
 	},
 	"SignupForm": {
-		"title": "See Wineater on your catalog",
+		"title": "Start your free trial",
 		"subtitle": "Share your wine list and see the four picks on your own catalog",
 		"name": "Your name",
 		"namePlaceholder": "John Smith",
@@ -164,21 +164,21 @@
 		"menuFilePlaceholder": "Upload file (PDF, CSV, Excel, image)",
 		"menuFileHint": "Accepted: PDF, CSV, XLSX, PNG, JPG — max 10 MB",
 		"optional": "(optional)",
-		"gdprText": "I agree that Wineater may store and process my data to set Wineater up on my catalog and contact me about it. I can withdraw consent at any time by writing to",
+		"gdprText": "I agree that Wineater may store and process my data to set up my trial account. I can withdraw consent at any time by writing to",
 		"gdprRequired": "Please accept the data processing agreement to continue.",
-		"submit": "Send my catalog",
+		"submit": "Start my free month",
 		"submitting": "Sending...",
 		"nextTitle": "What happens next",
 		"next1": "We set up your catalog within 24 hours.",
 		"next2": "We contact you by email at {email} to confirm everything.",
 		"successDemo": "Try the live demo while you wait",
-		"successTitle": "Thank you!",
+		"successTitle": "You're in!",
 		"close": "Close",
 		"error": "Something went wrong. Please try again."
 	},
 	"seo": {
 		"title": "AI Sommelier for Wine Shops & Restaurants - Wineater",
-		"description": "Wineater is an AI sommelier that recommends wines from your own catalog. QR code live in 1 hour, widget in 1 day."
+		"description": "Wineater is an AI sommelier that recommends wines from your own catalog. QR code live in 1 hour, widget in 1 day. Free 1-month trial."
 	},
 	"cookie": {
 		"title": "Your privacy choices",
@@ -202,7 +202,7 @@
 		"minRead": "{n} min read",
 		"sources": "Sources",
 		"ctaTitle": "See it on your own catalog",
-		"ctaText": "Share your wine list and see Wineater on your own wines.",
+		"ctaText": "Share your wine list and try Wineater free for one month.",
 		"related": "Related articles",
 		"notFound": "Article not found"
 	},

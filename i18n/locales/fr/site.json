@@ -27,7 +27,7 @@
 		"distributors-tasting": "Du vin versé dans un verre au comptoir d’une dégustation, avec des verres de vin rouge sur le bar"
 	},
 	"solutionPage": {
-		"startTrial": "Envoyer votre catalogue",
+		"startTrial": "Essayer gratuitement",
 		"talkToSales": "Parler à l’équipe commerciale",
 		"seePricing": "Voir les tarifs",
 		"learnMore": "En savoir plus",
@@ -58,7 +58,7 @@
 			"see": "Voir comment ça marche"
 		},
 		"price": {
-			"line": "À partir de {price} par mois pour les boutiques en ligne, les restaurants, les bars et les distributeurs. Commerce physique : parlez à l’équipe commerciale.",
+			"line": "À partir de {price} par mois pour les boutiques en ligne, les restaurants, les bars et les distributeurs. Commerce physique : parlez à l’équipe commerciale. 1 mois offert.",
 			"link": "Voir les tarifs"
 		}
 	},
@@ -119,8 +119,8 @@
 	},
 	"pricing": {
 		"hero": {
-			"title": "Des tarifs simples pour chaque métier du vin",
-			"lead": "Choisissez votre activité. Les prix sont en USD par mois."
+			"title": "Des tarifs simples, un mois offert",
+			"lead": "Choisissez votre activité. Chaque forfait commence par un mois gratuit, sans carte bancaire."
 		},
 		"switchLabel": "Choisissez votre activité",
 		"tabs": {
@@ -140,7 +140,7 @@
 		"perVenueMonth": "/ mois par établissement",
 		"perClick": "+ {price} par clic BUY",
 		"example": "Exemple : {clicks} clics BUY dans le mois = {base} + {extra} = {total}.",
-		"allPlans": "Paiement par carte ou, dans l’UE, sur facture.",
+		"allPlans": "Tous les forfaits : 1 mois offert, sans carte bancaire. Paiement par carte ou, dans l’UE, sur facture.",
 		"clickNote": "{caveat} La formule Boutique en ligne est facturée au clic, pas à la commande.",
 		"moreTitle": "Commerce physique",
 		"plans": {
@@ -245,11 +245,11 @@
 	"seoPages": {
 		"restaurants": {
 			"title": "IA sommelier pour restaurants {'|'} Wineater",
-			"description": "Un assistant sommelier sur les tablettes de votre équipe et un QR code pour les clients. Quatre vins de votre carte pour chaque plat."
+			"description": "Un assistant sommelier sur les tablettes de votre équipe et un QR code pour les clients. Quatre vins de votre carte pour chaque plat. Gratuit 1 mois."
 		},
 		"onlineStores": {
 			"title": "IA sommelier pour boutiques de vin en ligne {'|'} Wineater",
-			"description": "Un widget qui recommande quatre vins de votre propre catalogue pour chaque demande. Une balise script, en ligne en 1 jour."
+			"description": "Un widget qui recommande quatre vins de votre propre catalogue pour chaque demande. Une balise script, en ligne en 1 jour. Gratuit 1 mois."
 		},
 		"retail": {
 			"title": "IA sommelier pour cavistes et supermarchés {'|'} Wineater",
@@ -261,13 +261,13 @@
 		},
 		"pricing": {
 			"title": "Tarifs pour cavistes, restaurants et distributeurs {'|'} Wineater",
-			"description": "Formules pour boutiques en ligne, restaurants et bars, et distributeurs, en USD par mois. Commerce physique : parlez à l’équipe commerciale."
+			"description": "Formules pour boutiques en ligne, restaurants et bars, et distributeurs, 1 mois offert, sans carte bancaire. Commerce physique : parlez à l’équipe commerciale."
 		}
 	},
 	"pricingCta": {
 		"cta": {
-			"title": "Voyez-le sur vos propres vins",
-			"text": "Réservez une démo de 20 minutes et nous vous montrerons Wineater sur votre catalogue ou votre carte des vins."
+			"title": "Commencez par un mois offert",
+			"text": "Partagez votre catalogue ou votre carte des vins et voyez Wineater sur vos propres vins. Sans carte bancaire."
 		}
 	}
 }

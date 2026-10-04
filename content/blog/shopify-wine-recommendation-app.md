@@ -66,4 +66,4 @@ The simplest method is a website widget, implemented via a script tag on the sho
 
 Physical retail spaces and restaurants can use the same catalog data through different channels. A QR code can be placed on shelves or printed menus to let in-person customers access the recommendations on their phones. Restaurants can also deploy a dining room kiosk on a tablet. This allows diners to input their dish choices and receive wine pairings, operating entirely without a cart or payment function.
 
-Book a 20-minute demo call to discuss your [integration questions](/faq).
+Start a one-month free trial with no credit card required, or book a 20-minute demo call to discuss your [integration questions](/faq).

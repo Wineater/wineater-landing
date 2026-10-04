@@ -35,11 +35,11 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - The widget works in the shop's language; the landing is in English and French.
 
 ## Commercial
-- No free trial and no self-serve signup: never mention a trial. CTAs are a 20-minute demo or talking to sales.
+- Free trial: one month, no credit card required.
 - Demo booking: 20-minute call.
 
 ## Pricing (approved 2026-10-04; single source in data/pricing.ts)
-- All prices are USD per month. Pay by card or, in the EU, by invoice.
+- All prices are USD per month. Free trial: 1 month, no credit card, for every plan. Pay by card or, in the EU, by invoice.
 - Online stores: one plan, $99 for a catalog of up to 500 wines + $0.10 per BUY click. More than 500 wines: talk to sales (no public price).
 - Restaurants and bars: $99 per venue (up to 500 wines); $149 per venue (more than 500 wines). The staff tool (POS: wine list management, waiter access) and the guest QR page are included. Chains of 3+ venues on request.
 - Distributors: $99, includes the widget and the wine list builder (wine-list proposals for restaurants from their menu).

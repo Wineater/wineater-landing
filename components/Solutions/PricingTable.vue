@@ -42,7 +42,8 @@
           </ul>
           <p v-if="p.id === 'store'" class="ptable__example">{{ $t('pricing.example', exampleParams) }}</p>
           <div class="ptable__cta">
-            <Button :bg-color="p.contact ? 'outline' : 'black'" :href="DEMO_URL" target="_blank" @btnClick="onCta(p)">{{ ctaLabel(p) }}<span class="sol-sr">({{ $t('Header.opensNewTab') }})</span></Button>
+            <Button v-if="p.contact || p.id === 'distributors'" bg-color="outline" :href="DEMO_URL" target="_blank" @btnClick="onSales(p.id)">{{ $t('solutionPage.talkToSales') }}<span class="sol-sr">({{ $t('Header.opensNewTab') }})</span></Button>
+            <Button v-else :bg-color="p.id === 'store' || p.id === 'restaurantPlus' ? 'black' : 'outline'" @btnClick="onTrial(p.id)">{{ $t('solutionPage.startTrial') }}</Button>
           </div>
         </li>
       </ul>
@@ -86,6 +87,7 @@ const segments = ['shops', 'restaurants', 'distributors']
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
+const { openSignup } = useSignup()
 
 const active = ref('shops')
 const usd = (n) => formatUsd(n, locale.value)
@@ -99,8 +101,6 @@ const exampleParams = computed(() => ({
   total: usd(exampleInvoice.total),
 }))
 const caveat = computed(() => pilotProof.caveat[locale.value === 'fr' ? 'fr' : 'en'])
-// No self-serve signup yet: a priced plan books a demo, a plan without a public price talks to sales.
-const ctaLabel = (p) => (p.contact ? t('solutionPage.talkToSales') : t('cta.demo'))
 
 const select = (s, user = true) => {
   if (active.value === s) return
@@ -126,11 +126,9 @@ onMounted(() => {
   track('pricing_view', {})
 })
 
-const onCta = (p) => {
-  const label = ctaLabel(p)
-  track('cta_click', { cta_label: label, location: `pricing_${p.id}` })
-  track('demo_click', { location: `pricing_${p.id}` })
-  track('outbound_link_click', { link_url: DEMO_URL })
+const onTrial = (id) => {
+  track('cta_click', { cta_label: t('solutionPage.startTrial'), location: `pricing_${id}` })
+  openSignup()
 }
 const onSales = (id) => {
   track('cta_click', { cta_label: t('solutionPage.talkToSales'), location: `pricing_${id}` })

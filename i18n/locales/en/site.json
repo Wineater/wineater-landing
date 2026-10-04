@@ -27,7 +27,7 @@
 		"distributors-tasting": "Wine being poured into a glass at a tasting bar with red wine glasses on the counter"
 	},
 	"solutionPage": {
-		"startTrial": "Send your catalog",
+		"startTrial": "Start free trial",
 		"talkToSales": "Talk to sales",
 		"seePricing": "See pricing",
 		"learnMore": "Learn more",
@@ -58,7 +58,7 @@
 			"see": "See how it works"
 		},
 		"price": {
-			"line": "From {price} a month for online stores, restaurants, bars and distributors. Offline retail: talk to sales.",
+			"line": "From {price} a month for online stores, restaurants, bars and distributors. Offline retail: talk to sales. 1 month free.",
 			"link": "See pricing"
 		}
 	},
@@ -119,8 +119,8 @@
 	},
 	"pricing": {
 		"hero": {
-			"title": "Simple pricing for every kind of wine business",
-			"lead": "Pick your kind of business. Prices are in USD per month."
+			"title": "Simple pricing, one month free",
+			"lead": "Pick your kind of business. Every plan starts with a free month, no credit card."
 		},
 		"switchLabel": "Choose your kind of business",
 		"tabs": {
@@ -140,7 +140,7 @@
 		"perVenueMonth": "/ month per venue",
 		"perClick": "+ {price} per BUY click",
 		"example": "Example: {clicks} BUY clicks in a month = {base} + {extra} = {total}.",
-		"allPlans": "Pay by card or, in the EU, by invoice.",
+		"allPlans": "All plans: 1 month free, no credit card. Pay by card or, in the EU, by invoice.",
 		"clickNote": "{caveat} The Online store plan is billed on clicks, not on orders.",
 		"moreTitle": "Offline retail",
 		"plans": {
@@ -245,11 +245,11 @@
 	"seoPages": {
 		"restaurants": {
 			"title": "AI Sommelier for Restaurants {'|'} Wineater",
-			"description": "A sommelier assistant on your staff's tablets and a QR code for guests. Four wines from your own list for every dish."
+			"description": "A sommelier assistant on your staff's tablets and a QR code for guests. Four wines from your own list for every dish. Free for 1 month."
 		},
 		"onlineStores": {
 			"title": "AI Sommelier for Online Wine Stores {'|'} Wineater",
-			"description": "A widget that recommends four wines from your own catalog for every request. One script tag, live in 1 day."
+			"description": "A widget that recommends four wines from your own catalog for every request. One script tag, live in 1 day. Free for 1 month."
 		},
 		"retail": {
 			"title": "AI Sommelier for Wine Retail and Supermarkets {'|'} Wineater",
@@ -261,13 +261,13 @@
 		},
 		"pricing": {
 			"title": "Pricing for Wine Shops, Restaurants and Distributors {'|'} Wineater",
-			"description": "Plans for online stores, restaurants and bars, and distributors, in USD per month. Offline retail: talk to sales."
+			"description": "Plans for online stores, restaurants and bars, and distributors, with 1 month free and no credit card. Offline retail: talk to sales."
 		}
 	},
 	"pricingCta": {
 		"cta": {
-			"title": "See it on your own wines",
-			"text": "Book a 20-minute demo and we will show Wineater on your catalog or your wine list."
+			"title": "Start with a free month",
+			"text": "Share your catalog or your wine list and see Wineater on your own wines. No credit card."
 		}
 	}
 }

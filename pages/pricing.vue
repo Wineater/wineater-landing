@@ -7,7 +7,7 @@
     <PricingTable />
     <RoiCalculator />
     <SegmentFaq segment="pricing" />
-    <SolutionCta segment="pricing" base="pricingCta" primary="demo" />
+    <SolutionCta segment="pricing" base="pricingCta" primary="trial" />
   </SolutionPage>
 </template>
 

@@ -1,6 +1,6 @@
 {
 	"cta": {
-		"primary": "Véalo con su catálogo",
+		"primary": "Pruébelo gratis durante 1 mes",
 		"demo": "Reservar una demo de 20 min"
 	},
 	"Header": {
@@ -19,7 +19,7 @@
 	},
 	"Footer": {
 		"text": "Deje de perder clientes por indecisión",
-		"trial": "Lo configura nuestro equipo con su propio catálogo",
+		"trial": "1 mes de prueba gratuita · Sin tarjeta de crédito",
 		"closing": "¿Listo para ver su catálogo en Wineater?",
 		"navLabel": "Pie de página",
 		"blog": "Blog",
@@ -35,7 +35,7 @@
 		"language": "Idioma"
 	},
 	"SignupForm": {
-		"title": "Vea Wineater con su catálogo",
+		"title": "Empiece su prueba gratuita",
 		"subtitle": "Comparta su carta de vinos y vea las cuatro recomendaciones sobre su propio catálogo",
 		"name": "Su nombre",
 		"namePlaceholder": "Juan Pérez",
@@ -47,15 +47,15 @@
 		"menuFilePlaceholder": "Subir archivo (PDF, CSV, Excel, imagen)",
 		"menuFileHint": "Formatos admitidos: PDF, CSV, XLSX, PNG, JPG — máx. 10 MB",
 		"optional": "(opcional)",
-		"gdprText": "Acepto que Wineater almacene y trate mis datos para configurar Wineater con mi catálogo y ponerse en contacto conmigo al respecto. Puedo retirar mi consentimiento en cualquier momento escribiendo a",
+		"gdprText": "Acepto que Wineater almacene y trate mis datos para configurar mi cuenta de prueba. Puedo retirar mi consentimiento en cualquier momento escribiendo a",
 		"gdprRequired": "Acepte el acuerdo de tratamiento de datos para continuar.",
-		"submit": "Enviar mi catálogo",
+		"submit": "Empezar mi mes gratis",
 		"submitting": "Enviando...",
 		"nextTitle": "Qué ocurre a continuación",
 		"next1": "Configuramos su catálogo en un plazo de 24 horas.",
 		"next2": "Nos pondremos en contacto con usted por correo electrónico en {email} para confirmarlo todo.",
 		"successDemo": "Pruebe la demo en vivo mientras espera",
-		"successTitle": "¡Gracias!",
+		"successTitle": "¡Ya está dentro!",
 		"close": "Cerrar",
 		"error": "Algo ha salido mal. Inténtelo de nuevo."
 	},
@@ -90,7 +90,7 @@
 		"distributors-tasting": "Vino servido en una copa en una barra de cata, con copas de vino tinto sobre la barra"
 	},
 	"solutionPage": {
-		"startTrial": "Enviar su catálogo",
+		"startTrial": "Empezar prueba gratuita",
 		"talkToSales": "Hablar con ventas",
 		"seePricing": "Ver precios",
 		"learnMore": "Más información",
