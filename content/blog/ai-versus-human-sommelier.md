@@ -66,4 +66,4 @@ You do not need to choose strictly between software and people. Effective wine b
 
 You can guide the software to support your commercial goals. A shop can promote selected products, giving them a moderate boost in ranking. The system also respects direct customer inputs. If the shopper names a wine type, most of the four picks are of that type. If the shopper types a wine or producer name that exists in the catalog, those exact matches come first. 
 
-Book a twenty-minute demo or start a one-month free trial with no credit card required to explore this [AI sommelier vs chatbot](/blog/wine-shop-chatbot-vs-ai-sommelier) technology.
+Book a twenty-minute demo to explore this [AI sommelier vs chatbot](/blog/wine-shop-chatbot-vs-ai-sommelier) technology.

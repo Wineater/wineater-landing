@@ -27,7 +27,7 @@
 		"distributors-tasting": "Wine being poured into a glass at a tasting bar with red wine glasses on the counter"
 	},
 	"solutionPage": {
-		"startTrial": "Start free trial",
+		"startTrial": "Send your catalog",
 		"talkToSales": "Talk to sales",
 		"seePricing": "See pricing",
 		"learnMore": "Learn more",
@@ -35,9 +35,9 @@
 		"faqTitle": "Common questions",
 		"earlyAccess": "Early access",
 		"comingSoon": "Coming soon",
-		"restaurantsPrice": "{standard} a month per venue for up to {standardMax} wines. {plus} a month per venue above that. Chains of three or more venues: on request.",
+		"restaurantsPrice": "Restaurants and bars: {standard} a month per venue for up to {standardMax} wines, {plus} a month per venue above that. The staff tool (POS) and the guest QR page are included. Chains: on request.",
 		"retailPrice": "Talk to sales. The price depends on the number of stores and the size of the catalog.",
-		"distributorsPrice": "Talk to sales. Wineater for distributors is in early access with design partners; we agree the price with you."
+		"distributorsPrice": "{price} a month. Includes the widget for your site and the wine list builder, which drafts wine-list proposals for restaurants from their menu. In early access with design partners."
 	},
 	"home": {
 		"hero": {
@@ -58,7 +58,7 @@
 			"see": "See how it works"
 		},
 		"price": {
-			"line": "From {shops} a month for shops, {restaurants} a month per restaurant. 1 month free.",
+			"line": "From {price} a month for online stores, restaurants, bars and distributors. Offline retail: talk to sales.",
 			"link": "See pricing"
 		}
 	},
@@ -107,31 +107,32 @@
 	},
 	"roi": {
 		"title": "Estimate your BUY clicks and your bill",
-		"lead": "Enter the monthly sessions on the pages where the widget is shown. We apply the rates from our pilot to show how many BUY clicks that could mean and what Growth would cost at that volume.",
+		"lead": "Enter the monthly sessions on the pages where the widget is shown. We apply the rates from our pilot to show how many BUY clicks that could mean and what the Online store plan would cost at that volume.",
 		"visitsLabel": "Sessions per month on pages with the widget",
 		"visitsHint": "From your own analytics. An illustration, not a forecast.",
 		"clicks": "Estimated BUY clicks per month",
 		"clicksValue": "about {n}",
-		"cost": "Growth plan at that volume",
-		"fine": "How it is computed: visits × {search} (sessions that start a search in the pilot) × {click} (of those, sessions ending in a BUY click in the pilot) = BUY clicks. Growth costs {base} a month plus {perClick} per click. These are pilot rates; yours will differ.",
+		"cost": "Online store plan at that volume",
+		"fine": "How it is computed: visits × {search} (sessions that start a search in the pilot) × {click} (of those, sessions ending in a BUY click in the pilot) = BUY clicks. The Online store plan costs {base} a month plus {perClick} per click. These are pilot rates; yours will differ.",
 		"after": "How many of those shoppers buy depends on your product page and checkout. We do not forecast sales.",
-		"starterNote": "With up to {max} wines, Starter at {price} a month has no per-click fee."
+		"largeNote": "The Online store plan covers catalogs of up to {max} wines. For a larger catalog, talk to sales."
 	},
 	"pricing": {
 		"hero": {
-			"title": "Simple pricing, one month free",
-			"lead": "Pick your kind of business. Every plan starts with a free month, no credit card."
+			"title": "Simple pricing for every kind of wine business",
+			"lead": "Pick your kind of business. Prices are in USD per month."
 		},
 		"switchLabel": "Choose your kind of business",
 		"tabs": {
 			"shops": "Online stores",
-			"restaurants": "Restaurants and bars"
+			"restaurants": "Restaurants and bars",
+			"distributors": "Distributors"
 		},
 		"shops": {
 			"lead": "A widget on your own site, built on your own catalog."
 		},
 		"restaurants": {
-			"lead": "A sommelier assistant on your staff's tablets and a QR code for your guests. Priced per venue."
+			"lead": "For restaurants and bars. A sommelier assistant on your staff's tablets and a QR page for your guests, both included. Priced per venue."
 		},
 		"onRequest": "On request",
 		"perMonth": "{price} a month",
@@ -139,27 +140,21 @@
 		"perVenueMonth": "/ month per venue",
 		"perClick": "+ {price} per BUY click",
 		"example": "Example: {clicks} BUY clicks in a month = {base} + {extra} = {total}.",
-		"allPlans": "All plans: 1 month free, no credit card. Pay by card or, in the EU, by invoice.",
-		"clickNote": "{caveat} Growth is billed on clicks, not on orders.",
-		"moreTitle": "Offline retail and distributors",
+		"allPlans": "Pay by card or, in the EU, by invoice.",
+		"clickNote": "{caveat} The Online store plan is billed on clicks, not on orders.",
+		"moreTitle": "Offline retail",
 		"plans": {
-			"starter": {
-				"name": "Starter",
-				"catalog": "Up to {max} wines",
+			"store": {
+				"name": "Online store",
+				"catalog": "Catalog of up to {max} wines",
 				"inc1": "Widget on your site",
 				"inc2": "Daily stock sync",
 				"inc3": "Any shopper language",
-				"inc4": "Promote chosen products"
+				"inc4": "Promote chosen products",
+				"inc5": "Search analytics"
 			},
-			"growth": {
-				"name": "Growth",
-				"catalog": "Up to {max} wines",
-				"inc1": "Everything in Starter",
-				"inc2": "Search analytics",
-				"inc3": "Priority support"
-			},
-			"enterprise": {
-				"name": "Enterprise",
+			"storeLarge": {
+				"name": "Large catalog",
 				"catalog": "More than {min} wines",
 				"inc1": "API access",
 				"inc2": "Several shops and countries",
@@ -167,17 +162,18 @@
 				"inc4": "Custom onboarding"
 			},
 			"restaurant": {
-				"name": "Restaurant",
+				"name": "Restaurant & bar",
 				"catalog": "Up to {max} wines",
-				"inc1": "Sommelier assistant for your staff",
-				"inc2": "QR code for your guests",
+				"inc1": "Staff tool (POS): wine list management and waiter access",
+				"inc2": "QR page for your guests",
 				"inc3": "Promote chosen wines"
 			},
 			"restaurantPlus": {
-				"name": "Restaurant Plus",
+				"name": "Restaurant & bar Plus",
 				"catalog": "More than {min} wines",
-				"inc1": "Everything in Restaurant",
-				"inc2": "For a longer wine list"
+				"inc1": "Everything in Restaurant & bar",
+				"inc2": "Staff tool (POS) and guest QR page included",
+				"inc3": "For a longer wine list"
 			},
 			"chain": {
 				"name": "Chains",
@@ -188,15 +184,28 @@
 			},
 			"retail": {
 				"name": "Offline retail",
-				"catalog": "Supermarkets and wine boutiques, with a QR code on the shelf. The price depends on the number of stores and the catalog."
+				"catalog": "Supermarkets and wine shops, with a QR code on the shelf. The price depends on the number of stores and the catalog."
 			},
 			"distributors": {
 				"name": "Distributors",
-				"catalog": "Proposals from restaurant menus, a QR menu for your restaurants, a widget for your site. In early access with design partners."
+				"catalog": "For your portfolio and your sales reps",
+				"inc1": "Widget for your site",
+				"inc2": "Wine list builder: wine-list proposals for restaurants, built from their menu"
 			}
 		},
 		"plansTitle": "Plans and prices",
-		"moreLink": "Learn more about {name}"
+		"moreLink": "Learn more about {name}",
+		"distributors": {
+			"lead": "For wine distributors. A widget for your site and wine-list proposals for the restaurants you sell to."
+		},
+		"addOnsTitle": "Add-on for any plan",
+		"addOns": {
+			"aiCatalog": {
+				"name": "AI-ready catalog",
+				"text": "An enriched product feed for Google Merchant Center, with wine details such as pairing, taste and origin.",
+				"status": "In development, not available yet. Ask us to join the waitlist."
+			}
+		}
 	},
 	"founder": {
 		"title": "A word from the founder",
@@ -209,7 +218,7 @@
 	"earlyAccess": {
 		"title": "In development: built for AI assistants and Shopify",
 		"lead": "These two features are not available yet. Join the waitlist and we will write to you when early access opens.",
-		"note": "Both features are in development, with no release date and no price yet. Today the widget works on any site with one script tag.",
+		"note": "Both features are in development, with no release date yet. The AI-ready catalog will be an add-on for any plan at {price} a month. Today the widget works on any site with one script tag.",
 		"join": "Join the waitlist",
 		"name": "Your name",
 		"business": "Shop name (optional)",
@@ -236,11 +245,11 @@
 	"seoPages": {
 		"restaurants": {
 			"title": "AI Sommelier for Restaurants {'|'} Wineater",
-			"description": "A sommelier assistant on your staff's tablets and a QR code for guests. Four wines from your own list for every dish. Free for 1 month."
+			"description": "A sommelier assistant on your staff's tablets and a QR code for guests. Four wines from your own list for every dish."
 		},
 		"onlineStores": {
 			"title": "AI Sommelier for Online Wine Stores {'|'} Wineater",
-			"description": "A widget that recommends four wines from your own catalog for every request. One script tag, live in 1 day. Free for 1 month."
+			"description": "A widget that recommends four wines from your own catalog for every request. One script tag, live in 1 day."
 		},
 		"retail": {
 			"title": "AI Sommelier for Wine Retail and Supermarkets {'|'} Wineater",
@@ -251,14 +260,14 @@
 			"description": "Turn a restaurant's menu into a wine proposal from your portfolio. Early access with design partners."
 		},
 		"pricing": {
-			"title": "Pricing for Wine Shops and Restaurants {'|'} Wineater",
-			"description": "Plans for online stores and restaurants, with 1 month free and no credit card. Offline retail and distributors: talk to sales."
+			"title": "Pricing for Wine Shops, Restaurants and Distributors {'|'} Wineater",
+			"description": "Plans for online stores, restaurants and bars, and distributors, in USD per month. Offline retail: talk to sales."
 		}
 	},
 	"pricingCta": {
 		"cta": {
-			"title": "Start with a free month",
-			"text": "Share your catalog or your wine list and see Wineater on your own wines. No credit card."
+			"title": "See it on your own wines",
+			"text": "Book a 20-minute demo and we will show Wineater on your catalog or your wine list."
 		}
 	}
 }

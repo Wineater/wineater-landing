@@ -25,24 +25,24 @@
       :hidden="active !== s"
     >
       <p class="sol-lead ptable__lead">{{ $t(`pricing.${s}.lead`) }}</p>
-      <ul class="sol-grid" style="--cols: 3">
-        <li v-for="p in plansFor(s)" :key="p.id" class="sol-card ptable__plan" :class="{ 'sol-card--tint': p.id === 'growth' || p.id === 'restaurantPlus' }">
+      <ul class="sol-grid" :style="{ '--cols': Math.max(2, plansBySegment[s].length) }">
+        <li v-for="p in plansBySegment[s]" :key="p.id" class="sol-card ptable__plan" :class="{ 'sol-card--tint': !p.contact }">
           <h3 class="sol-h3">{{ $t(`pricing.plans.${p.id}.name`) }}</h3>
+          <p v-if="p.id === 'distributors'"><span class="sol-badge sol-badge--early">{{ $t('solutionPage.earlyAccess') }}</span></p>
           <p class="ptable__price">
             <template v-if="p.price !== null">
               <span class="ptable__amount">{{ usd(p.price) }}</span><span class="ptable__per">{{ perSuffix(p) }}</span>
             </template>
-            <span v-else class="ptable__amount ptable__amount--text">{{ $t('pricing.onRequest') }}</span>
+            <span v-else class="ptable__amount ptable__amount--text">{{ $t(p.id === 'chain' ? 'pricing.onRequest' : 'solutionPage.talkToSales') }}</span>
           </p>
           <p v-if="p.perBuyClick" class="ptable__extra">{{ $t('pricing.perClick', { price: usd(p.perBuyClick) }) }}</p>
           <p class="ptable__catalog">{{ $t(`pricing.plans.${p.id}.catalog`, wineParams(p)) }}</p>
           <ul class="ptable__list">
             <li v-for="n in includedCount(p.id)" :key="n">{{ $t(`pricing.plans.${p.id}.inc${n}`) }}</li>
           </ul>
-          <p v-if="p.id === 'growth'" class="ptable__example">{{ $t('pricing.example', exampleParams) }}</p>
+          <p v-if="p.id === 'store'" class="ptable__example">{{ $t('pricing.example', exampleParams) }}</p>
           <div class="ptable__cta">
-            <Button v-if="p.contact" bg-color="outline" :href="DEMO_URL" target="_blank" @btnClick="onSales(p.id)">{{ $t('solutionPage.talkToSales') }}<span class="sol-sr">({{ $t('Header.opensNewTab') }})</span></Button>
-            <Button v-else :bg-color="p.id === 'growth' || p.id === 'restaurantPlus' ? 'black' : 'outline'" @btnClick="onTrial(p.id)">{{ $t('solutionPage.startTrial') }}</Button>
+            <Button :bg-color="p.contact ? 'outline' : 'black'" :href="DEMO_URL" target="_blank" @btnClick="onCta(p)">{{ ctaLabel(p) }}<span class="sol-sr">({{ $t('Header.opensNewTab') }})</span></Button>
           </div>
         </li>
       </ul>
@@ -51,15 +51,25 @@
     <p class="ptable__all">{{ $t('pricing.allPlans') }}</p>
     <p class="sol-note">{{ $t('pricing.clickNote', { caveat }) }}</p>
 
+    <h2 id="pricing-addons" class="sol-h2 ptable__more-title">{{ $t('pricing.addOnsTitle') }}</h2>
+    <ul class="sol-grid" style="--cols: 2">
+      <li v-for="a in addOns" :key="a.id" class="sol-card">
+        <h3 class="sol-h3">{{ $t(`pricing.addOns.${a.id}.name`) }}</h3>
+        <p v-if="a.earlyAccess"><span class="sol-badge sol-badge--early">{{ $t('solutionPage.earlyAccess') }}</span></p>
+        <p class="ptable__price"><span class="ptable__amount">{{ usd(a.price) }}</span><span class="ptable__per">{{ $t('pricing.perMonthSuffix') }}</span></p>
+        <p class="sol-text">{{ $t(`pricing.addOns.${a.id}.text`) }}</p>
+        <p v-if="a.earlyAccess" class="sol-note">{{ $t(`pricing.addOns.${a.id}.status`) }}</p>
+      </li>
+    </ul>
+
     <h2 id="pricing-more" class="sol-h2 ptable__more-title">{{ $t('pricing.moreTitle') }}</h2>
     <ul class="sol-grid" style="--cols: 2">
       <li v-for="p in salesOnly" :key="p.id" class="sol-card">
         <h3 class="sol-h3">{{ $t(`pricing.plans.${p.id}.name`) }}</h3>
         <p class="sol-text">{{ $t(`pricing.plans.${p.id}.catalog`) }}</p>
-        <p v-if="p.id === 'distributors'"><span class="sol-badge sol-badge--early">{{ $t('solutionPage.earlyAccess') }}</span></p>
         <div class="ptable__cta">
           <Button bg-color="outline" :href="DEMO_URL" target="_blank" @btnClick="onSales(p.id)">{{ $t('solutionPage.talkToSales') }}<span class="sol-sr">({{ $t('Header.opensNewTab') }})</span></Button>
-          <NuxtLink class="sol-link" :to="localePath(p.id === 'retail' ? '/solutions/retail' : '/solutions/distributors')">{{ $t('pricing.moreLink', { name: $t(`pricing.plans.${p.id}.name`) }) }}</NuxtLink>
+          <NuxtLink class="sol-link" :to="localePath('/solutions/retail')">{{ $t('pricing.moreLink', { name: $t(`pricing.plans.${p.id}.name`) }) }}</NuxtLink>
         </div>
       </li>
     </ul>
@@ -68,20 +78,18 @@
 
 <script setup>
 import Button from '~/components/Buttons/Button.vue'
-import { shopPlans, restaurantPlans, salesOnly, exampleInvoice, formatUsd, formatInt } from '~/data/pricing'
+import { plansBySegment, salesOnly, addOns, exampleInvoice, formatUsd, formatInt } from '~/data/pricing'
 import { pilotProof } from '~/data/proof'
 import { DEMO_URL } from '~/data/links'
 
-const segments = ['shops', 'restaurants']
+const segments = ['shops', 'restaurants', 'distributors']
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
 const route = useRoute()
-const { openSignup } = useSignup()
 
 const active = ref('shops')
 const usd = (n) => formatUsd(n, locale.value)
-const plansFor = (s) => (s === 'shops' ? shopPlans : restaurantPlans)
-const includedCount = (id) => ({ starter: 4, growth: 3, enterprise: 4, restaurant: 3, restaurantPlus: 2, chain: 3 })[id] || 0
+const includedCount = (id) => ({ store: 5, storeLarge: 4, restaurant: 3, restaurantPlus: 3, chain: 3, distributors: 2 })[id] || 0
 const perSuffix = (p) => t(p.perVenue ? 'pricing.perVenueMonth' : 'pricing.perMonthSuffix')
 const wineParams = (p) => ({ max: p.maxWines ? formatInt(p.maxWines, locale.value) : '', min: p.minWines ? formatInt(p.minWines, locale.value) : '' })
 const exampleParams = computed(() => ({
@@ -91,6 +99,8 @@ const exampleParams = computed(() => ({
   total: usd(exampleInvoice.total),
 }))
 const caveat = computed(() => pilotProof.caveat[locale.value === 'fr' ? 'fr' : 'en'])
+// No self-serve signup yet: a priced plan books a demo, a plan without a public price talks to sales.
+const ctaLabel = (p) => (p.contact ? t('solutionPage.talkToSales') : t('cta.demo'))
 
 const select = (s, user = true) => {
   if (active.value === s) return
@@ -104,7 +114,8 @@ const select = (s, user = true) => {
 const onKey = (e) => {
   if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return
   e.preventDefault()
-  const next = active.value === 'shops' ? 'restaurants' : 'shops'
+  const i = segments.indexOf(active.value)
+  const next = segments[(i + (e.key === 'ArrowRight' ? 1 : segments.length - 1)) % segments.length]
   select(next)
   nextTick(() => document.getElementById(`tab-${next}`)?.focus())
 }
@@ -115,9 +126,11 @@ onMounted(() => {
   track('pricing_view', {})
 })
 
-const onTrial = (id) => {
-  track('cta_click', { cta_label: t('solutionPage.startTrial'), location: `pricing_${id}` })
-  openSignup()
+const onCta = (p) => {
+  const label = ctaLabel(p)
+  track('cta_click', { cta_label: label, location: `pricing_${p.id}` })
+  track('demo_click', { location: `pricing_${p.id}` })
+  track('outbound_link_click', { link_url: DEMO_URL })
 }
 const onSales = (id) => {
   track('cta_click', { cta_label: t('solutionPage.talkToSales'), location: `pricing_${id}` })
@@ -182,7 +195,7 @@ const onSales = (id) => {
 
 @media only screen and (max-width: 767px) {
   .ptable__tabs { display: flex; }
-  .ptable__tab { flex: 1; padding: 0 12px; }
+  .ptable__tab { flex: 1; padding: 6px 8px; font-size: 1.4rem; line-height: 1.2; }
   .ptable__cta :deep(.button) { width: 100%; }
 }
 </style>

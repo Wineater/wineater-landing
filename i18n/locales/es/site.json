@@ -1,6 +1,6 @@
 {
 	"cta": {
-		"primary": "Pruébelo gratis durante 1 mes",
+		"primary": "Véalo con su catálogo",
 		"demo": "Reservar una demo de 20 min"
 	},
 	"Header": {
@@ -19,7 +19,7 @@
 	},
 	"Footer": {
 		"text": "Deje de perder clientes por indecisión",
-		"trial": "1 mes de prueba gratuita · Sin tarjeta de crédito",
+		"trial": "Lo configura nuestro equipo con su propio catálogo",
 		"closing": "¿Listo para ver su catálogo en Wineater?",
 		"navLabel": "Pie de página",
 		"blog": "Blog",
@@ -35,7 +35,7 @@
 		"language": "Idioma"
 	},
 	"SignupForm": {
-		"title": "Empiece su prueba gratuita",
+		"title": "Vea Wineater con su catálogo",
 		"subtitle": "Comparta su carta de vinos y vea las cuatro recomendaciones sobre su propio catálogo",
 		"name": "Su nombre",
 		"namePlaceholder": "Juan Pérez",
@@ -47,15 +47,15 @@
 		"menuFilePlaceholder": "Subir archivo (PDF, CSV, Excel, imagen)",
 		"menuFileHint": "Formatos admitidos: PDF, CSV, XLSX, PNG, JPG — máx. 10 MB",
 		"optional": "(opcional)",
-		"gdprText": "Acepto que Wineater almacene y trate mis datos para configurar mi cuenta de prueba. Puedo retirar mi consentimiento en cualquier momento escribiendo a",
+		"gdprText": "Acepto que Wineater almacene y trate mis datos para configurar Wineater con mi catálogo y ponerse en contacto conmigo al respecto. Puedo retirar mi consentimiento en cualquier momento escribiendo a",
 		"gdprRequired": "Acepte el acuerdo de tratamiento de datos para continuar.",
-		"submit": "Empezar mi mes gratis",
+		"submit": "Enviar mi catálogo",
 		"submitting": "Enviando...",
 		"nextTitle": "Qué ocurre a continuación",
 		"next1": "Configuramos su catálogo en un plazo de 24 horas.",
 		"next2": "Nos pondremos en contacto con usted por correo electrónico en {email} para confirmarlo todo.",
 		"successDemo": "Pruebe la demo en vivo mientras espera",
-		"successTitle": "¡Ya está dentro!",
+		"successTitle": "¡Gracias!",
 		"close": "Cerrar",
 		"error": "Algo ha salido mal. Inténtelo de nuevo."
 	},
@@ -90,7 +90,7 @@
 		"distributors-tasting": "Vino servido en una copa en una barra de cata, con copas de vino tinto sobre la barra"
 	},
 	"solutionPage": {
-		"startTrial": "Empezar prueba gratuita",
+		"startTrial": "Enviar su catálogo",
 		"talkToSales": "Hablar con ventas",
 		"seePricing": "Ver precios",
 		"learnMore": "Más información",
@@ -98,9 +98,9 @@
 		"faqTitle": "Preguntas frecuentes",
 		"earlyAccess": "Acceso anticipado",
 		"comingSoon": "Próximamente",
-		"restaurantsPrice": "{standard} al mes por local, hasta {standardMax} vinos. {plus} al mes por local a partir de ahí. Cadenas de tres o más locales: bajo petición.",
+		"restaurantsPrice": "Restaurantes y bares: {standard} al mes por local, hasta {standardMax} vinos. {plus} al mes por local a partir de ahí. La herramienta para el personal (POS) y la página QR para los clientes están incluidas. Cadenas: bajo petición.",
 		"retailPrice": "Hable con ventas. El precio depende del número de tiendas y del tamaño del catálogo.",
-		"distributorsPrice": "Hable con ventas. Wineater para distribuidores está en acceso anticipado con socios de diseño; acordamos el precio con usted."
+		"distributorsPrice": "{price} al mes. Incluye el widget para su web y el creador de cartas de vinos, que propone cartas de vinos a los restaurantes a partir de su menú. En acceso anticipado con socios de diseño."
 	},
 	"howItThinks": {
 		"title": "Cómo piensa Wineater",

@@ -127,7 +127,7 @@ export function writerUser(item: PlanItem, claims: Claim[], facts: string, route
     '',
     `ALLOWED INTERNAL LINKS (use 1-3 that fit, with natural anchor text):\n${(links.length ? links.map((l) => `${l.path} (anchor idea: ${l.anchor})`) : routes).join('\n')}`,
     '',
-    'End the article with one short sentence pointing to the free trial or a demo, using an internal link. Do not add any other closing paragraph.',
+    'End the article with one short sentence pointing to a 20-minute demo or the pricing page, using an internal link. Do not add any other closing paragraph.',
     feedback ? `\nYOUR PREVIOUS DRAFT FAILED QA. Fix exactly these problems and keep everything else:\n${feedback.errors.map((e) => `- ${e}`).join('\n')}\n\nPREVIOUS BODY:\n${feedback.previous}` : '',
   ].join('\n')
 }

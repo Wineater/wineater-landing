@@ -29,20 +29,20 @@
         </div>
       </dl>
     </div>
-    <p class="sol-note roi__fine">{{ $t('roi.fine', { search: pct(roiRates.searchShare), click: pct(roiRates.buyClickRate), base: usd(plan('growth').price), perClick: usd(plan('growth').perBuyClick) }) }}</p>
+    <p class="sol-note roi__fine">{{ $t('roi.fine', { search: pct(roiRates.searchShare), click: pct(roiRates.buyClickRate), base: usd(plan('store').price), perClick: usd(plan('store').perBuyClick) }) }}</p>
     <p class="sol-note">{{ caveat }} {{ $t('roi.after') }}</p>
-    <p class="sol-note">{{ $t('roi.starterNote', { max: formatInt(plan('starter').maxWines, locale), price: usd(plan('starter').price) }) }}</p>
+    <p class="sol-note">{{ $t('roi.largeNote', { max: formatInt(plan('store').maxWines, locale) }) }}</p>
   </section>
 </template>
 
 <script setup>
-import { roiRates, estimateBuyClicks, growthMonthlyCost, plan, formatUsd, formatInt } from '~/data/pricing'
+import { roiRates, estimateBuyClicks, storeMonthlyCost, plan, formatUsd, formatInt } from '~/data/pricing'
 import { pilotProof } from '~/data/proof'
 
 const { locale } = useI18n()
 const visits = ref(20000)
 const clicks = computed(() => estimateBuyClicks(visits.value))
-const cost = computed(() => growthMonthlyCost(clicks.value))
+const cost = computed(() => storeMonthlyCost(clicks.value))
 const usd = (n) => formatUsd(n, locale.value)
 const fmt = (n) => formatInt(n, locale.value)
 const pct = (r) => `${Math.round(r * 100)}${locale.value === 'en' ? '%' : ' %'}`

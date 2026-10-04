@@ -35,15 +35,17 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - The widget works in the shop's language; the landing is in English and French.
 
 ## Commercial
-- Free trial: one month, no credit card required.
+- No free trial and no self-serve signup: never mention a trial. CTAs are a 20-minute demo or talking to sales.
 - Demo booking: 20-minute call.
 
-## Pricing (approved 2026-10-02; single source in data/pricing.ts)
-- All prices are USD per month. Free trial: 1 month, no credit card, for every plan. Pay by card or, in the EU, by invoice.
-- Online stores: Starter $49 (up to 500 wines); Growth $99 + $0.10 per BUY click (up to 3,000 wines); Enterprise (more than 3,000 wines) on request.
-- Restaurants and bars: Restaurant $99 per venue (up to 500 wines); Restaurant Plus $149 per venue (more than 500 wines); chains of 3+ venues on request.
-- Offline retail (supermarkets, wine boutiques) and distributors: no public price, "Talk to sales".
-- A BUY click is a click to the product page, never a purchase. Example Growth invoice: 500 BUY clicks in a month = $99 + $50.
+## Pricing (approved 2026-10-04; single source in data/pricing.ts)
+- All prices are USD per month. Pay by card or, in the EU, by invoice.
+- Online stores: one plan, $99 for a catalog of up to 500 wines + $0.10 per BUY click. More than 500 wines: talk to sales (no public price).
+- Restaurants and bars: $99 per venue (up to 500 wines); $149 per venue (more than 500 wines). The staff tool (POS: wine list management, waiter access) and the guest QR page are included. Chains of 3+ venues on request.
+- Distributors: $99, includes the widget and the wine list builder (wine-list proposals for restaurants from their menu).
+- Offline retail (supermarkets, wine shops in store): no public price, "Talk to sales".
+- Add-on for any plan: AI-ready catalog (enriched Google Merchant Center product feed) $49. Early access, not available yet: never say it works today.
+- A BUY click is a click to the product page, never a purchase. Example online store invoice: 500 BUY clicks in a month = $99 + $50.
 
 ## External statistic (approved with its source, always shown next to it)
 - Wine Market Council's national survey of "wine-hesitant" consumers (presented 2026-05-27, Quini blind-tasting data): only 11% say they can predict how a wine will taste, against almost half for beer, spirits and cocktails. Source: The Press Democrat, 2026-05-29. Say "wine-hesitant consumers", not "all shoppers".

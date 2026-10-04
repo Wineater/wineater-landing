@@ -58,4 +58,4 @@ Votre conseil en boutique reste le cœur du métier. Le sommelier virtuel répon
 
 ## Pour essayer
 
-Wineater propose un mois d'essai gratuit, sans carte bancaire, et une démonstration de 20 minutes pour voir l'outil sur votre propre catalogue.
+Wineater propose une démonstration de 20 minutes pour voir l'outil sur votre propre catalogue.

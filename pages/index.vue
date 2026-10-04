@@ -29,7 +29,7 @@
     <section class="home-price" aria-labelledby="home-price-title">
       <h2 id="home-price-title" class="sol-sr">{{ $t('nav.pricing') }}</h2>
       <p class="home-price__line">
-        {{ $t('home.price.line', { shops: usd(fromPrice.shops), restaurants: usd(fromPrice.restaurants) }) }}
+        {{ $t('home.price.line', { price: usd(lowestPrice) }) }}
         <NuxtLink class="sol-link" :to="localePath('/pricing')" @click="onPricing">{{ $t('home.price.link') }}</NuxtLink>
       </p>
     </section>
@@ -60,7 +60,7 @@ import WhyNow from "~/components/Solutions/WhyNow.vue";
 import SolutionCards from "~/components/Solutions/SolutionCards.vue";
 import HowItThinks from "~/components/Solutions/HowItThinks.vue";
 import FounderNote from "~/components/Solutions/FounderNote.vue";
-import { fromPrice, formatUsd, CURRENCY, shopPlans, restaurantPlans } from '~/data/pricing';
+import { lowestPrice, formatUsd, CURRENCY, pricedPlans } from '~/data/pricing';
 import FaqTeaser from "~/components/FaqTeaser.vue";
 import { ref, onMounted, onUnmounted } from 'vue';
 
@@ -69,7 +69,7 @@ const localePath = useLocalePath();
 const { openSignup } = useSignup();
 const usd = (n) => formatUsd(n, locale.value);
 const onPricing = () => track('cta_click', { cta_label: t('home.price.link'), location: 'home_price' });
-const publicPrices = [...shopPlans, ...restaurantPlans].map(p => p.price).filter(p => p !== null);
+const publicPrices = pricedPlans.map(p => p.price);
 
 useSeoMeta({
   title: () => t('seo.title'),
@@ -113,7 +113,6 @@ useSchemaOrg([
       lowPrice: String(Math.min(...publicPrices)),
       highPrice: String(Math.max(...publicPrices)),
       offerCount: publicPrices.length,
-      description: '1-month free trial, no credit card',
     },
   },
 ]);

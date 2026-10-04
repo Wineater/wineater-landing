@@ -15,12 +15,15 @@
         <WaitlistForm :feature="f.feature" :title-id="`ea-${f.id}`" />
       </li>
     </ul>
-    <p class="sol-note">{{ $t('earlyAccess.note') }}</p>
+    <p class="sol-note">{{ $t('earlyAccess.note', { price: formatUsd(addOn('aiCatalog').price, locale) }) }}</p>
   </section>
 </template>
 
 <script setup>
 import WaitlistForm from '~/components/Solutions/WaitlistForm.vue'
+import { addOn, formatUsd } from '~/data/pricing'
+
+const { locale } = useI18n()
 
 const features = [
   { id: 'aiCatalog', feature: 'ai-ready-catalog' },

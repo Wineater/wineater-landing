@@ -14,21 +14,21 @@
 - Catalog input: CSV export, product feed (XML, Google Shopping style) or API. The Wineater team sets up the catalog and the channel.
 - Typical time to go live: about 1 hour for a QR code, about 1 day for the widget, about 1 week for an API integration.
 - Measured events: widget sessions, searches, recommendations shown, wine-card interactions, BUY clicks. A BUY click is a click to the product page, not a confirmed purchase. Wineater does not receive order data from the shop.
-- Trial: 1 month free, no credit card. Prices (USD per month): online stores Starter $49 up to 500 wines, Growth $99 plus $0.10 per BUY click up to 3,000 wines, Enterprise on request; restaurants $99 per venue up to 500 wines, $149 per venue above that, chains on request; offline retail and distributors: talk to sales. Details: https://wineater.com/pricing
-- In development, not available yet: an AI-ready catalog (store MCP server and enriched product feed for AI assistants) and a Shopify app. Both have a waitlist only. Wineater for distributors (proposals from a restaurant menu) is in early access with design partners.
+- Prices (USD per month): online stores $99 for a catalog of up to 500 wines plus $0.10 per BUY click, larger catalogs: talk to sales; restaurants and bars $99 per venue up to 500 wines, $149 per venue above that, staff tool (POS) and guest QR page included, chains on request; distributors $99 (widget and wine list builder); offline retail: talk to sales. Add-on for any plan: AI-ready catalog (enriched Google Merchant Center product feed) $49, in early access, not available yet. Details: https://wineater.com/pricing
+- In development, not available yet: an AI-ready catalog (enriched product feed for AI assistants and Google Merchant Center) and a Shopify app. Both have a waitlist only. Wineater for distributors (proposals from a restaurant menu) is in early access with design partners.
 - One-month pilot (small sample): 20%+ of sessions with recommendations ended in a BUY click; 2+ requests per shopper. A BUY click is a click to the product page, not a purchase.
 - Wineater is operated by BACCHUSTECH OÜ, a company incorporated in Estonia (registered office in Tallinn). The website is available in English and French.
 
 ## Pages
 
-- [Home](https://wineater.com/): product overview, live demo and sign-up
+- [Home](https://wineater.com/): product overview and live demo
 - [Accueil (French)](https://wineater.com/fr): the same site in French
 - [Solutions: Restaurants](https://wineater.com/solutions/restaurants): sommelier assistant on a tablet for staff, QR code for guests
 - [Solutions: Online stores](https://wineater.com/solutions/online-stores): widget on the shop's site, live demo
 - [Solutions: Offline retail](https://wineater.com/solutions/retail): QR code on the wine shelf
 - [Solutions: Distributors](https://wineater.com/solutions/distributors): proposals from a restaurant's menu (early access)
 - [Pricing](https://wineater.com/pricing): plans and prices
-- [FAQ](https://wineater.com/faq): answers on how Wineater works, setup, data, measurement and the trial
+- [FAQ](https://wineater.com/faq): answers on how Wineater works, setup, data, measurement and pricing
 - [FAQ (French)](https://wineater.com/fr/faq): the FAQ in French
 - [Blog](https://wineater.com/blog): articles about AI wine recommendations for merchants
 - [Privacy policy](https://wineater.com/privacy): what data is collected and how it is handled
@@ -41,7 +41,7 @@
 - [Restaurants and bars](https://wineater.com/faq#restaurants-and-bars): QR code on tables, tablet version, wine list, wines by the glass
 - [Integration and data](https://wineater.com/faq#integration-and-data): API, white label, shopper data, security and GDPR
 - [Results and measurement](https://wineater.com/faq#results-and-measurement): what is measured, BUY clicks, linking clicks to orders
-- [Pricing and free trial](https://wineater.com/faq#pricing-and-trial): trial, pricing model, who sets it up
+- [Pricing](https://wineater.com/faq#pricing-and-trial): prices, the AI-ready catalog add-on, who sets it up
 
 ## Contact
 

@@ -71,4 +71,4 @@ Si le client mentionne un type de vin précis, la majorité des quatre choix cor
 
 L'intégration technique repose sur votre flux de produits existant. Le [sommelier virtuel caviste](/fr/blog/sommelier-virtuel-caviste) synchronise l'inventaire une fois par jour pour les boutiques ayant activé cette option. Les vins signalés en rupture disparaissent immédiatement des recommandations. Des sécurités automatiques protègent votre affichage. Le système refuse de se synchroniser si le flux est vide, s'il a diminué de moitié ou s'il risque de masquer plus de la moitié de votre catalogue. L'outil prend la forme d'un code QR posé sur vos étagères ou d'un widget ajouté sur votre site internet via une balise script.
 
-Démarrez votre essai gratuit d'un mois sans carte bancaire avec notre [sommelier virtuel pour caviste](/fr) ou réservez une démonstration de 20 minutes.
+Découvrez notre [sommelier virtuel pour caviste](/fr) ou réservez une démonstration de 20 minutes.

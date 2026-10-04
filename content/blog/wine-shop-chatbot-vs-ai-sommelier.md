@@ -57,4 +57,4 @@ You can run both: a support bot for logistics and a sommelier for the choosing p
 - Does it explain each pick in your shop's language?
 - Can a customer find the tool where they already browse: on the site, on a shelf QR code, or through an API?
 
-Wineater offers a widget for your site, a QR code for shelves, tables and menus, and an API. A one-month free trial needs no credit card.
+Wineater offers a widget for your site, a QR code for shelves, tables and menus, and an API.

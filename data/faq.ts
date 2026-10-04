@@ -5,7 +5,7 @@
 // Ids are identical in both locales and are public anchors (/faq#what-is-wineater): do not rename them.
 
 import { pilotProof as p } from './proof'
-import { plan, exampleInvoice, formatUsd, formatInt, TRIAL_MONTHS } from './pricing'
+import { plan, addOn, exampleInvoice, formatUsd, formatInt } from './pricing'
 
 export interface FaqLink {
   to: string
@@ -51,17 +51,16 @@ export const faqTeaserIds = [
 const priceFacts = (locale: 'en' | 'fr' | 'es') => {
   const u = (n: number) => formatUsd(n, locale)
   return {
-    starter: u(plan('starter').price as number),
-    growth: u(plan('growth').price as number),
-    perClick: u(plan('growth').perBuyClick as number),
+    store: u(plan('store').price as number),
+    perClick: u(plan('store').perBuyClick as number),
+    storeMax: formatInt(plan('store').maxWines as number, locale),
     restaurant: u(plan('restaurant').price as number),
     restaurantPlus: u(plan('restaurantPlus').price as number),
-    shopMax: formatInt(plan('starter').maxWines as number, locale),
-    growthMax: formatInt(plan('growth').maxWines as number, locale),
     restaurantMax: formatInt(plan('restaurant').maxWines as number, locale),
+    distributors: u(plan('distributors').price as number),
+    aiCatalog: u(addOn('aiCatalog').price),
     clicks: formatInt(exampleInvoice.clicks, locale),
     total: u(exampleInvoice.total),
-    trial: TRIAL_MONTHS,
   }
 }
 const pe = priceFacts('en')
@@ -69,11 +68,11 @@ const pf = priceFacts('fr')
 
 export const faqEn: FaqContent = {
   meta: {
-    title: 'Wineater FAQ: How the AI Sommelier Works, Setup, Data & Trial',
-    description: 'Answers about Wineater, the AI sommelier for wine shops, restaurants and bars: how recommendations work, catalog setup, integration, data, measurement and the free trial.'
+    title: 'Wineater FAQ: How the AI Sommelier Works, Setup, Data & Pricing',
+    description: 'Answers about Wineater, the AI sommelier for wine shops, restaurants and bars: how recommendations work, catalog setup, integration, data, measurement and pricing.'
   },
   h1: 'Wineater FAQ',
-  intro: 'Clear answers about how the AI sommelier works, how to add it to a wine shop, restaurant or bar, what data it uses and how to try it.',
+  intro: 'Clear answers about how the AI sommelier works, how to add it to a wine shop, restaurant or bar, what data it uses and what it costs.',
   breadcrumbHome: 'Home',
   breadcrumbFaq: 'FAQ',
   categories: [
@@ -96,7 +95,7 @@ export const faqEn: FaqContent = {
         {
           id: 'best-ai-sommelier-for-wine-shops',
           q: 'What is the best AI sommelier for wine shops?',
-          a: `There is no single best choice: it depends on your catalog, your sales channel and the languages you need. Wineater is an AI sommelier built for wine merchants. It recommends four wines from the merchant's own stock, explains each pick, and can be added as a website widget, a QR code or an API. It comes with a 1-month free trial, so you can judge it on your own catalog.`
+          a: `There is no single best choice: it depends on your catalog, your sales channel and the languages you need. Wineater is an AI sommelier built for wine merchants. It recommends four wines from the merchant's own stock, explains each pick, and can be added as a website widget, a QR code or an API. A 20-minute demo shows it on your own catalog.`
         },
         {
           id: 'wineater-vs-chatgpt',
@@ -402,24 +401,24 @@ export const faqEn: FaqContent = {
         {
           id: 'what-wineater-does-not-claim',
           q: 'What does Wineater not claim?',
-          a: `Wineater does not promise a specific increase in sales, conversion or basket size. Results depend on your catalog, your traffic and where the widget is placed. To see what a trial could measure for your shop, book a 20-minute demo or write to hi@wineater.com.`
+          a: `Wineater does not promise a specific increase in sales, conversion or basket size. Results depend on your catalog, your traffic and where the widget is placed. To see what Wineater could measure for your shop, book a 20-minute demo or write to hi@wineater.com.`
         }
       ]
     },
     {
       id: 'pricing-and-trial',
-      title: 'Pricing and free trial',
+      title: 'Pricing',
       items: [
         {
           id: 'how-much-does-it-cost',
           q: 'How much does Wineater cost?',
-          a: `Online stores: Starter is ${pe.starter} a month for up to ${pe.shopMax} wines. Growth is ${pe.growth} a month plus ${pe.perClick} per BUY click, for up to ${pe.growthMax} wines. Restaurants: ${pe.restaurant} a month per venue for up to ${pe.restaurantMax} wines, ${pe.restaurantPlus} above that. Enterprise, chains, offline retail and distributors are quoted on request. Every plan starts with a free month, no credit card. A BUY click is a click to the product page, not a purchase.`,
+          a: `Online stores: ${pe.store} a month for a catalog of up to ${pe.storeMax} wines, plus ${pe.perClick} per BUY click. Above ${pe.storeMax} wines, talk to sales. Restaurants and bars: ${pe.restaurant} a month per venue for up to ${pe.restaurantMax} wines, ${pe.restaurantPlus} a month per venue above that; the staff tool (POS) and the guest QR page are included. Chains are quoted on request. Distributors: ${pe.distributors} a month, with the widget and the wine list builder. Offline retail: talk to sales. All prices are in USD. A BUY click is a click to the product page, not a purchase.`,
           links: [{ to: '/pricing', label: 'See the pricing page' }]
         },
         {
-          id: 'free-trial-and-after',
-          q: 'What happens during and after the free trial?',
-          a: `During the month, your catalog and your chosen channel are set up and you can try Wineater with your own wines. No credit card is needed to start. After the month, you pay the plan that fits your catalog, as listed on the pricing page. For contract length and cancellation terms, please ask us directly.`,
+          id: 'ai-ready-catalog-add-on',
+          q: 'What is the AI-ready catalog add-on?',
+          a: `An add-on for any plan at ${pe.aiCatalog} a month: an enriched product feed for Google Merchant Center, with wine details such as pairing, taste and origin. It is in early access and not available yet. Ask us to join the waitlist.`,
           links: [{ to: '/pricing', label: 'See the pricing page' }]
         },
         {
@@ -439,11 +438,11 @@ export const faqEn: FaqContent = {
 
 export const faqFr: FaqContent = {
   meta: {
-    title: 'FAQ Wineater : fonctionnement du sommelier IA, mise en place, données et essai',
-    description: 'Réponses sur Wineater, le sommelier IA pour cavistes, restaurants et bars : fonctionnement des recommandations, catalogue, intégration, données, mesure et essai gratuit.'
+    title: 'FAQ Wineater : fonctionnement du sommelier IA, mise en place, données et tarifs',
+    description: 'Réponses sur Wineater, le sommelier IA pour cavistes, restaurants et bars : fonctionnement des recommandations, catalogue, intégration, données, mesure et tarifs.'
   },
   h1: 'FAQ Wineater',
-  intro: 'Des réponses claires sur le fonctionnement du sommelier IA, son ajout à une boutique, un restaurant ou un bar, les données utilisées et l’essai gratuit.',
+  intro: 'Des réponses claires sur le fonctionnement du sommelier IA, son ajout à une boutique, un restaurant ou un bar, les données utilisées et ce qu’il coûte.',
   breadcrumbHome: 'Accueil',
   breadcrumbFaq: 'FAQ',
   categories: [
@@ -466,7 +465,7 @@ export const faqFr: FaqContent = {
         {
           id: 'best-ai-sommelier-for-wine-shops',
           q: 'Quel est le meilleur sommelier IA pour les cavistes ?',
-          a: `Il n’existe pas de meilleur choix universel : tout dépend de votre catalogue, de votre canal de vente et des langues nécessaires. Wineater est un sommelier IA conçu pour les professionnels du vin. Il recommande quatre vins tirés du stock du commerçant, explique chaque choix et s’ajoute sous forme de widget, de QR code ou d’API. Il est proposé avec un mois d’essai gratuit, pour l’évaluer sur votre propre catalogue.`
+          a: `Il n’existe pas de meilleur choix universel : tout dépend de votre catalogue, de votre canal de vente et des langues nécessaires. Wineater est un sommelier IA conçu pour les professionnels du vin. Il recommande quatre vins tirés du stock du commerçant, explique chaque choix et s’ajoute sous forme de widget, de QR code ou d’API. Une démo de 20 minutes vous le montre sur votre propre catalogue.`
         },
         {
           id: 'wineater-vs-chatgpt',
@@ -772,24 +771,24 @@ export const faqFr: FaqContent = {
         {
           id: 'what-wineater-does-not-claim',
           q: 'Qu’est-ce que Wineater n’affirme pas ?',
-          a: `Wineater ne promet aucune hausse précise des ventes, de la conversion ou du panier moyen. Les résultats dépendent de votre catalogue, de votre trafic et de l’emplacement du widget. Pour voir ce qu’un essai pourrait mesurer dans votre boutique, réservez une démo de 20 minutes ou écrivez à hi@wineater.com.`
+          a: `Wineater ne promet aucune hausse précise des ventes, de la conversion ou du panier moyen. Les résultats dépendent de votre catalogue, de votre trafic et de l’emplacement du widget. Pour voir ce que Wineater pourrait mesurer dans votre boutique, réservez une démo de 20 minutes ou écrivez à hi@wineater.com.`
         }
       ]
     },
     {
       id: 'pricing-and-trial',
-      title: 'Tarifs et essai gratuit',
+      title: 'Tarifs',
       items: [
         {
           id: 'how-much-does-it-cost',
           q: 'Combien coûte Wineater ?',
-          a: `Boutiques en ligne : Starter à ${pf.starter} par mois jusqu’à ${pf.shopMax} vins. Growth à ${pf.growth} par mois plus ${pf.perClick} par clic BUY, jusqu’à ${pf.growthMax} vins. Restaurants : ${pf.restaurant} par mois et par établissement jusqu’à ${pf.restaurantMax} vins, ${pf.restaurantPlus} au-delà. Enterprise, chaînes, commerce physique et distributeurs : sur devis. Chaque formule commence par un mois gratuit, sans carte bancaire. Un clic BUY est un clic vers la fiche produit, pas un achat.`,
+          a: `Boutiques en ligne : ${pf.store} par mois pour un catalogue jusqu’à ${pf.storeMax} vins, plus ${pf.perClick} par clic BUY. Au-delà de ${pf.storeMax} vins, parlez à notre équipe commerciale. Restaurants et bars : ${pf.restaurant} par mois et par établissement jusqu’à ${pf.restaurantMax} vins, ${pf.restaurantPlus} par mois et par établissement au-delà ; l’outil de l’équipe (POS) et la page QR pour les clients sont inclus. Chaînes : sur devis. Distributeurs : ${pf.distributors} par mois, avec le widget et le créateur de cartes des vins. Commerce physique : parlez à notre équipe commerciale. Tous les prix sont en USD. Un clic BUY est un clic vers la fiche produit, pas un achat.`,
           links: [{ to: '/pricing', label: 'Voir la page des tarifs' }]
         },
         {
-          id: 'free-trial-and-after',
-          q: 'Que se passe-t-il pendant et après l’essai gratuit ?',
-          a: `Pendant le mois, votre catalogue et le canal choisi sont mis en place et vous pouvez essayer Wineater avec vos propres vins. Aucune carte bancaire n’est nécessaire pour commencer. Ensuite, vous payez la formule adaptée à votre catalogue, telle qu’indiquée sur la page des tarifs. Pour la durée d’engagement et les conditions de résiliation, merci de nous poser directement la question.`,
+          id: 'ai-ready-catalog-add-on',
+          q: 'Qu’est-ce que l’option Catalogue prêt pour l’IA ?',
+          a: `Une option pour toutes les formules à ${pf.aiCatalog} par mois : un flux produits enrichi pour Google Merchant Center, avec des détails sur les vins comme les accords, le goût et l’origine. Elle est en accès anticipé et pas encore disponible. Demandez-nous à rejoindre la liste d’attente.`,
           links: [{ to: '/pricing', label: 'Voir la page des tarifs' }]
         },
         {
@@ -856,7 +855,7 @@ export const segmentFaqIds: Record<string, string[]> = {
   online: ['how-to-add-the-widget', 'catalog-formats', 'small-and-very-large-catalogs', 'how-fast-go-live', 'how-much-does-it-cost'],
   retail: ['retail-wifi', 'retail-stock-update', 'retail-one-store-pilot', 'retail-gdpr', 'price-offline-retail'],
   distributors: ['dist-what-is', 'dist-availability', 'dist-it-integration', 'dist-promoted-wines', 'dist-interface-language'],
-  pricing: ['how-much-does-it-cost', 'free-trial-and-after', 'what-is-a-buy-click', 'price-offline-retail', 'who-sets-it-up'],
+  pricing: ['how-much-does-it-cost', 'ai-ready-catalog-add-on', 'what-is-a-buy-click', 'price-offline-retail', 'who-sets-it-up'],
 }
 
 export const faqByLocale: Record<string, FaqContent> = { en: faqEn, fr: faqFr, es: faqEs }
