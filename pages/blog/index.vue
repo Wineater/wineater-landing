@@ -43,12 +43,15 @@ const site = useSiteConfig()
 
 const isPublished = (doc) => doc.draft === false && doc.reviewed === true
 const isDraft = (doc) => !isPublished(doc)
-const isVisible = (doc) => import.meta.dev || isPublished(doc)
+const showDrafts = useRuntimeConfig().public.showDrafts
+// Nuxt Content hides `draft: true` documents unless the query names _draft. isVisible decides what is shown.
+const anyDraftState = { _draft: { $in: [true, false] } }
+const isVisible = (doc) => import.meta.dev || showDrafts || isPublished(doc)
 
 const { data } = await useAsyncData(
   () => `blog-list-${locale.value}`,
   // Filter inside the fetcher so unpublished posts never reach the payload outside dev.
-  async () => (await queryContent('blog').where({ locale: locale.value }).sort({ date: -1 }).find()).filter(isVisible),
+  async () => (await queryContent('blog').where({ locale: locale.value, ...anyDraftState }).sort({ date: -1 }).find()).filter(isVisible),
   { watch: [locale] }
 )
 

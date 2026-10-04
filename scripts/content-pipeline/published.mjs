@@ -23,9 +23,14 @@ export function publishedCount() {
   return readBlogFlags().filter((p) => !p.draft && p.reviewed).length
 }
 
+// Drafts are shown on Vercel Preview deployments (and when forced), never on Production.
+export const showDrafts = () =>
+  process.env.VERCEL_ENV === 'preview' || process.env.NUXT_CONTENT_SHOW_DRAFTS === '1'
+
 export function contentConfig() {
   const ignores = ['_rejected']
-  if (process.env.NODE_ENV === 'production' || process.env.NUXT_CONTENT_PUBLISHED_ONLY === '1') {
+  const publishedOnly = process.env.NODE_ENV === 'production' || process.env.NUXT_CONTENT_PUBLISHED_ONLY === '1'
+  if (publishedOnly && !showDrafts()) {
     for (const p of readBlogFlags()) {
       if (p.draft || !p.reviewed) ignores.push(`blog/${p.file.replace(/\./g, '\\.')}$`)
     }

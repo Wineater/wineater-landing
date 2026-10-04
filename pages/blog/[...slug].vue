@@ -62,13 +62,16 @@ const site = useSiteConfig()
 const slug = computed(() => [].concat(route.params.slug || []).join('/'))
 
 const isPublished = (d) => d.draft === false && d.reviewed === true
-const isVisible = (d) => import.meta.dev || isPublished(d)
+const showDrafts = useRuntimeConfig().public.showDrafts
+// Nuxt Content hides `draft: true` documents unless the query names _draft. isVisible decides what is shown.
+const anyDraftState = { _draft: { $in: [true, false] } }
+const isVisible = (d) => import.meta.dev || showDrafts || isPublished(d)
 
 const { data: doc } = await useAsyncData(
   () => `blog-article-${locale.value}-${slug.value}`,
   async () => {
     if (!slug.value) return null
-    const found = await queryContent('blog').where({ slug: slug.value, locale: locale.value }).findOne().catch(() => null)
+    const found = await queryContent('blog').where({ slug: slug.value, locale: locale.value, ...anyDraftState }).findOne().catch(() => null)
     return found && isVisible(found) ? found : null
   },
   { watch: [locale, slug] }
@@ -80,7 +83,7 @@ if (!doc.value) {
 
 const { data: allDocs } = await useAsyncData(
   () => `blog-all-${slug.value}`,
-  async () => (await queryContent('blog').only(['slug', 'locale', 'translationOf', 'title', 'keywords', 'date', 'draft', 'reviewed', '_path']).find()).filter(isVisible)
+  async () => (await queryContent('blog').where(anyDraftState).only(['slug', 'locale', 'translationOf', 'title', 'keywords', 'date', 'draft', 'reviewed', '_path']).find()).filter(isVisible)
 )
 
 const isDraft = computed(() => !isPublished(doc.value))

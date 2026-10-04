@@ -1,4 +1,4 @@
-import { contentConfig, blogSitemapExclude } from './scripts/content-pipeline/published.mjs'
+import { contentConfig, blogSitemapExclude, showDrafts } from './scripts/content-pipeline/published.mjs'
 
 export default defineNuxtConfig({
   app: {
@@ -130,6 +130,8 @@ export default defineNuxtConfig({
     public: {
       // The founder note shows a visible placeholder everywhere except production.
       showPlaceholders: process.env.VERCEL_ENV !== 'production',
+      // Unpublished blog drafts (marked "Draft, not published") are visible on Preview only.
+      showDrafts: showDrafts(),
       gtm: {
         id: 'GTM-NLBPMC7X'
       }
