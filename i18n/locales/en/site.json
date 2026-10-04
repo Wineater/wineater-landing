@@ -201,7 +201,10 @@
 	"founder": {
 		"title": "A word from the founder",
 		"placeholderTag": "Placeholder: the owner supplies the text, the photo and the LinkedIn link",
-		"placeholder": "The founder's short note goes here."
+		"placeholder": "The founder's short note goes here.",
+		"quote": "Wine should be easy to buy and fun to explore, not an exam. Younger shoppers want to say what they feel like drinking, in their own words, and get a straight answer. Wineater gives your own bottles that conversation, so a new generation finds your wines, trusts your shelf and comes back.",
+		"name": "Alex Olkhovoi",
+		"role": "WSET3, Winemaker and CTO"
 	},
 	"earlyAccess": {
 		"title": "In development: built for AI assistants and Shopify",

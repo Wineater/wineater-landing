@@ -201,7 +201,10 @@
 	"founder": {
 		"title": "Un mot du fondateur",
 		"placeholderTag": "Espace réservé : le propriétaire fournit le texte, la photo et le lien LinkedIn",
-		"placeholder": "Le court mot du fondateur viendra ici."
+		"placeholder": "Le court mot du fondateur viendra ici.",
+		"quote": "Le vin doit être facile à acheter et amusant à explorer, pas un examen. Les jeunes clients veulent dire ce qu’ils ont envie de boire, avec leurs mots, et obtenir une réponse franche. Wineater offre cette conversation à vos propres bouteilles : une nouvelle génération découvre vos vins, fait confiance à votre rayon et revient.",
+		"name": "Alex Olkhovoi",
+		"role": "WSET3, vigneron et CTO"
 	},
 	"earlyAccess": {
 		"title": "En développement : conçu pour les assistants IA et Shopify",

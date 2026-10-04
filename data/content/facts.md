@@ -65,10 +65,13 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - Do not state delivery times, "1 minute" as a promise, or conversion figures for the distributor module. The "20%+" conversion line in the distributor PDF is NOT approved (a BUY click is not a conversion).
 - Onboarding: price list or catalog (Excel, PDF or API), no complex IT integration.
 
+## Founder (approved by the owner 2026-10-04)
+- Attribution on the home page: Alex Olkhovoi, WSET3, Winemaker and CTO. The quote on the home page was written from the owner's direction (making wine easier and more fun to buy for the younger generation); the owner approves the wording.
+
 ## Not approved (never state)
 - Any statistic, conversion uplift, revenue figure or customer count beyond the approved ones above.
 - Customer names, logos, quotes or case-study results (exception: two logos in the trust ribbon, see data/proof.ts liveClients).
 - Revenue projections or extrapolations.
 - Claims that Shopify/WooCommerce/PrestaShop plugins or app-store listings exist (only the early-access waitlist wording above).
 - Claims that the AI-ready catalog works today.
-- Founder or investor biographies (FounderNote shows a placeholder until the owner supplies the text).
+- Founder or investor biographies beyond the approved attribution above.
