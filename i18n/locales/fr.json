@@ -57,7 +57,8 @@
 		"apiName": "Intégration API",
 		"apiFor": "Équipes avancées",
 		"apiDesc": "Connectez Wineater à votre propre moteur de recherche ou de recommandation. Marque blanche complète, inventaire synchronisé.",
-		"startNote": "Commencez par un mois gratuit. Sans carte bancaire."
+		"startNote": "Commencez par un mois gratuit. Sans carte bancaire.",
+		"upload": "Envoyer mon catalogue"
 	},
 	"Clients": {
 		"title": "Ils l'utilisent, en parlent et nous soutiennent",

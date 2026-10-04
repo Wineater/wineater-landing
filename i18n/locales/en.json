@@ -57,7 +57,8 @@
 		"apiName": "API integration",
 		"apiFor": "Advanced teams",
 		"apiDesc": "Connect Wineater to your own search or recommendation engine. Full white-label, with inventory kept in sync.",
-		"startNote": "Start with a free month. No credit card."
+		"startNote": "Start with a free month. No credit card.",
+		"upload": "Upload Catalog"
 	},
 	"Footer": {
 		"text": "Stop losing shoppers to indecision",

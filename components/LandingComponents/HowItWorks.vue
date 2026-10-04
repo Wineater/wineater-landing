@@ -1,8 +1,14 @@
 <template>
   <div class="how-it-works" :class="{ 'visible': visible }">
     <header class="how-it-works__head" v-reveal>
-      <h2 id="how-it-works-title" class="how-it-works__title">{{ $t('HowItWorks.title') }}</h2>
-      <p class="how-it-works__lead">{{ $t('HowItWorks.lead') }}</p>
+      <div class="how-it-works__intro">
+        <h2 id="how-it-works-title" class="how-it-works__title">{{ $t('HowItWorks.title') }}</h2>
+        <p class="how-it-works__lead">{{ $t('HowItWorks.lead') }}</p>
+      </div>
+      <div id="get-started" class="how-it-works__start">
+        <Button @btnClick="onCta">{{ $t('HowItWorks.upload') }}</Button>
+        <p class="how-it-works__start-note">{{ $t('HowItWorks.startNote') }}</p>
+      </div>
     </header>
 
     <ol class="how-it-works__steps" v-reveal:stagger>
@@ -10,10 +16,6 @@
         <span class="how-it-works__num" aria-hidden="true">{{ n }}</span>
         <h3 class="how-it-works__step-title">{{ $t(`HowItWorks.step${n}Title`) }}</h3>
         <p class="how-it-works__step-text">{{ $t(`HowItWorks.step${n}Text`) }}</p>
-        <div v-if="n === 3" id="get-started" class="how-it-works__start">
-          <Button @btnClick="onCta">{{ $t('cta.primary') }}</Button>
-          <p class="how-it-works__start-note">{{ $t('HowItWorks.startNote') }}</p>
-        </div>
       </li>
     </ol>
 
@@ -42,11 +44,13 @@ defineProps({
 
 const emit = defineEmits(['getStarted']);
 const { t } = useI18n();
+const { openSignup } = useSignup();
 
 const options = ['qr', 'widget', 'api'];
 function onCta() {
-  track('cta_click', { cta_label: t('cta.primary'), location: 'how_it_works' });
+  track('cta_click', { cta_label: t('HowItWorks.upload'), location: 'how_it_works' });
   emit('getStarted');
+  openSignup();
 }
 </script>
 
@@ -61,6 +65,14 @@ function onCta() {
 }
 
 .how-it-works__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 48px;
+}
+
+.how-it-works__intro {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -185,10 +197,9 @@ function onCta() {
 
 .how-it-works__start {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 16px;
-  margin-top: 12px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
   scroll-margin-top: 120px;
 }
 
@@ -197,6 +208,7 @@ function onCta() {
   font-size: 1.5rem;
   line-height: 1.4;
   color: var(--ink-2);
+  text-align: right;
 }
 
 @media only screen and (max-width: 900px) {
@@ -209,7 +221,9 @@ function onCta() {
 @media only screen and (max-width: 767px) {
   .how-it-works { gap: 24px; }
   .how-it-works__title { font-size: 3.2rem; }
+  .how-it-works__start { width: 100%; align-items: stretch; }
   .how-it-works__start :deep(.button) { width: 100%; }
+  .how-it-works__start-note { text-align: left; }
   .how-it-works__lead, .how-it-works__step-text, .how-it-works__desc { font-size: 1.6rem; }
 }
 </style>
