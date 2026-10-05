@@ -57,7 +57,9 @@
 		"apiName": "Intégration API",
 		"apiFor": "Équipes avancées",
 		"apiDesc": "Connectez Wineater à votre propre moteur de recherche ou de recommandation. Marque blanche complète, inventaire synchronisé.",
-		"startNote": "Commencez par un mois gratuit. Sans carte bancaire."
+		"startNote": "Commencez par un mois gratuit. Sans carte bancaire.",
+		"startNoteSelfServe": "Commencez un essai gratuit de 30 jours avec vos propres vins.",
+		"manualTrial": "Vous préférez que nous nous en chargions ? Envoyez-nous votre catalogue"
 	},
 	"Clients": {
 		"title": "Ils l'utilisent, en parlent et nous soutiennent",
@@ -91,7 +93,8 @@
 		"contactLabel": "Contact",
 		"colProduct": "Produit",
 		"colResources": "Ressources",
-		"colLegal": "Mentions"
+		"colLegal": "Mentions",
+		"trialSelfServe": "30 jours d'essai gratuit · Résiliable à tout moment"
 	},
 	"ForWhom": {
 		"title": "Les clients veulent du vin. Ils ne savent pas lequel choisir.",

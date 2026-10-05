@@ -3,11 +3,14 @@
     <div class="footer__cta">
       <div class="footer__cta-inner" v-reveal:stagger>
         <h2 class="footer__cta-title">{{ $t('Footer.closing') }}</h2>
-        <p class="footer__cta-trial">{{ $t('Footer.trial') }}</p>
+        <p class="footer__cta-trial">{{ selfServe ? $t('Footer.trialSelfServe') : $t('Footer.trial') }}</p>
         <div class="footer__btns">
           <button v-if="isHome" type="button" class="footer__btn footer__btn--primary" @click="onPrimaryClick">
             {{ $t('cta.primary') }}
           </button>
+          <a v-else-if="selfServe" :href="signupUrl('footer')" class="footer__btn footer__btn--primary" @click="trackPrimary">
+            {{ $t('cta.primary') }}
+          </a>
           <NuxtLink v-else :to="`${homePath}#get-started`" class="footer__btn footer__btn--primary" @click="trackPrimary">
             {{ $t('cta.primary') }}
           </NuxtLink>
@@ -62,6 +65,7 @@ const localePath = useLocalePath();
 const { t } = useI18n();
 
 const emit = defineEmits(['getStarted']);
+const { enabled: selfServe, signupUrl } = useSelfServe();
 
 const year = new Date().getFullYear();
 const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf';
@@ -75,7 +79,7 @@ const trackPrimary = () => {
 
 const onPrimaryClick = () => {
   trackPrimary();
-  emit('getStarted');
+  emit('getStarted', 'footer');
 };
 
 const onDemoClick = () => {

@@ -110,7 +110,9 @@ export default defineNuxtConfig({
     public: {
       gtm: {
         id: 'GTM-NLBPMC7X'
-      }
+      },
+      // Client cabinet sign-up; "" turns the buttons back to the manual-trial form
+      selfServeUrl: 'https://app.wineater.com/signup',
     }
   },
 })

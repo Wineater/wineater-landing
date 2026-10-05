@@ -12,7 +12,10 @@
         <p class="how-it-works__step-text">{{ $t(`HowItWorks.step${n}Text`) }}</p>
         <div v-if="n === 3" id="get-started" class="how-it-works__start">
           <Button @btnClick="onCta">{{ $t('cta.primary') }}</Button>
-          <p class="how-it-works__start-note">{{ $t('HowItWorks.startNote') }}</p>
+          <p class="how-it-works__start-note">{{ selfServe ? $t('HowItWorks.startNoteSelfServe') : $t('HowItWorks.startNote') }}</p>
+          <button v-if="selfServe" type="button" class="how-it-works__manual" @click="onManual">
+            {{ $t('HowItWorks.manualTrial') }}
+          </button>
         </div>
       </li>
     </ol>
@@ -40,17 +43,35 @@ defineProps({
   visible: Boolean,
 });
 
-const emit = defineEmits(['getStarted']);
+const emit = defineEmits(['getStarted', 'manualTrial']);
+const { enabled: selfServe } = useSelfServe();
 const { t } = useI18n();
 
 const options = ['qr', 'widget', 'api'];
 function onCta() {
   track('cta_click', { cta_label: t('cta.primary'), location: 'how_it_works' });
-  emit('getStarted');
+  emit('getStarted', 'how_it_works');
+}
+function onManual() {
+  track('cta_click', { cta_label: t('HowItWorks.manualTrial'), location: 'how_it_works_manual' });
+  emit('manualTrial');
 }
 </script>
 
 <style scoped lang="scss">
+.how-it-works__manual {
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
 .how-it-works {
   max-width: var(--container);
   margin: 0 auto;

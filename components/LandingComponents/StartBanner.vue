@@ -36,7 +36,7 @@
             <span class="hero__sr">({{ $t('Header.opensNewTab') }})</span>
           </Button>
         </div>
-        <p class="hero__trial">{{ $t('Footer.trial') }}</p>
+        <p class="hero__trial">{{ selfServe ? $t('Footer.trialSelfServe') : $t('Footer.trial') }}</p>
 
         <ul class="hero__points">
           <li v-for="n in 3" :key="n" class="hero__point">
@@ -92,6 +92,7 @@ useHead({
 });
 
 const emit = defineEmits(['getStarted']);
+const { enabled: selfServe } = useSelfServe();
 const { t, locale } = useI18n();
 
 const lang = computed(() => (locale.value === 'fr' ? 'fr' : 'en'));
@@ -170,7 +171,7 @@ onBeforeUnmount(() => {
 
 const onPrimary = (item) => {
   track('cta_click', { cta_label: t('cta.primary'), location: 'hero', audience: item });
-  emit('getStarted');
+  emit('getStarted', 'hero');
 };
 
 const onDemo = (item) => {

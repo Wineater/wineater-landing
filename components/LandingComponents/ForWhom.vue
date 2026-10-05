@@ -150,7 +150,7 @@ const columns = computed(() => {
 
 function onCta() {
   track('cta_click', { cta_label: t('cta.primary'), location: 'for_whom' });
-  emit('getStarted');
+  emit('getStarted', 'for_whom');
 }
 </script>
 

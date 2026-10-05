@@ -30,7 +30,7 @@
           <span class="header__sr-only">({{ $t('Header.opensNewTab') }})</span>
         </a>
         <Button v-if="isHome" size="sm" class="header__cta" @btnClick="onPrimaryClick">{{ $t('cta.primary') }}</Button>
-        <Button v-else size="sm" class="header__cta" :to="`${homePath}#get-started`" @btnClick="trackPrimary">{{ $t('cta.primary') }}</Button>
+        <Button v-else size="sm" class="header__cta" :href="selfServe ? signupUrl('header') : undefined" :to="selfServe ? undefined : `${homePath}#get-started`" @btnClick="trackPrimary">{{ $t('cta.primary') }}</Button>
 
         <button v-if="showLinks"
                 ref="toggleRef"
@@ -69,7 +69,7 @@
         </nav>
         <div class="header__menu-ctas">
           <Button v-if="isHome" @btnClick="onMenuPrimary">{{ $t('cta.primary') }}</Button>
-          <Button v-else :to="`${homePath}#get-started`" @btnClick="trackPrimary">{{ $t('cta.primary') }}</Button>
+          <Button v-else :href="selfServe ? signupUrl('header_menu') : undefined" :to="selfServe ? undefined : `${homePath}#get-started`" @btnClick="trackPrimary">{{ $t('cta.primary') }}</Button>
           <Button bg-color="outline" :href="demoUrl" target="_blank" @btnClick="onDemoClick">
             {{ $t('cta.demo') }}
             <span class="header__sr-only">({{ $t('Header.opensNewTab') }})</span>
@@ -94,6 +94,7 @@ const toggleRef = ref(null);
 const menuRef = ref(null);
 
 const emit = defineEmits(['getStarted']);
+const { enabled: selfServe, signupUrl } = useSelfServe();
 
 const props = defineProps({
   showLinks: Boolean,
@@ -230,7 +231,7 @@ const trackPrimary = () => {
 
 const onPrimaryClick = () => {
   trackPrimary();
-  emit('getStarted');
+  emit('getStarted', 'header');
 };
 
 const onDemoClick = () => {

@@ -1,5 +1,5 @@
 <template>
-  <Header :show-links="true" @get-started="showSignup = true"/>
+  <Header :show-links="true" @get-started="onGetStarted"/>
 
   <Transition name="fade">
     <SignupForm v-if="showSignup" @close="showSignup = false"/>
@@ -9,12 +9,12 @@
 
     <!-- 1. Hero — "Turn wine indecision into wine sales" -->
     <section aria-labelledby="hero-title">
-      <StartBanner @get-started="showSignup = true"/>
+      <StartBanner @get-started="onGetStarted"/>
     </section>
 
     <!-- 2. Demo — the product right after the hero -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
-      <WidgetHome :visible="widgetHomeVisible" @get-started="showSignup = true"/>
+      <WidgetHome :visible="widgetHomeVisible" @get-started="onGetStarted"/>
     </section>
 
     <!-- 3. Trust ribbon: clients, press, supporters -->
@@ -26,19 +26,19 @@
 
     <!-- 6. Problem + for whom (merged; #problem anchor lives inside ForWhom) -->
     <div id="for-whom">
-      <ForWhom :visible="forWhomVisible" @get-started="showSignup = true"/>
+      <ForWhom :visible="forWhomVisible" @get-started="onGetStarted"/>
     </div>
 
     <!-- 7. How it works + how to start (id get-started lives inside) -->
     <section aria-labelledby="how-it-works-title" id="how-it-works">
-      <HowItWorks :visible="howItWorksVisible" @get-started="showSignup = true"/>
+      <HowItWorks :visible="howItWorksVisible" @get-started="onGetStarted" @manual-trial="showSignup = true"/>
     </section>
 
     <FaqTeaser />
 
   </main>
 
-  <Footer @get-started="showSignup = true"/>
+  <Footer @get-started="onGetStarted"/>
 </template>
 
 <script setup>
@@ -98,6 +98,12 @@ useSchemaOrg([
 ]);
 
 const showSignup = ref(false);
+// "Try it free" → self-serve sign-up on app.wineater.com; the manual-trial form
+// opens when self-serve is switched off (or from "Prefer we set it up for you?").
+const { go: goSelfServe } = useSelfServe();
+const onGetStarted = (location = 'home') => {
+  if (!goSelfServe(typeof location === 'string' ? location : 'home')) showSignup.value = true;
+};
 const widgetHomeVisible = ref(false);
 const forWhomVisible = ref(false);
 const howItWorksVisible = ref(false);

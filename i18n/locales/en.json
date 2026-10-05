@@ -57,7 +57,9 @@
 		"apiName": "API integration",
 		"apiFor": "Advanced teams",
 		"apiDesc": "Connect Wineater to your own search or recommendation engine. Full white-label, with inventory kept in sync.",
-		"startNote": "Start with a free month. No credit card."
+		"startNote": "Start with a free month. No credit card.",
+		"startNoteSelfServe": "Start a 30-day free trial on your own wines.",
+		"manualTrial": "Prefer we set it up for you? Send us your catalog"
 	},
 	"Footer": {
 		"text": "Stop losing shoppers to indecision",
@@ -73,7 +75,8 @@
 		"contactLabel": "Contact",
 		"colProduct": "Product",
 		"colResources": "Resources",
-		"colLegal": "Legal"
+		"colLegal": "Legal",
+		"trialSelfServe": "30-day free trial · Cancel anytime"
 	},
 	"ForWhom": {
 		"title": "Shoppers want wine. They don't know which bottle.",

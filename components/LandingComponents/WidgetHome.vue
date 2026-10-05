@@ -125,7 +125,7 @@ function runExample(text, attempt = 0) {
 
 function onSignup() {
   track('cta_click', { cta_label: t('WidgetHome.ctaLink'), location: 'demo' });
-  emit('getStarted');
+  emit('getStarted', 'demo');
 }
 
 onMounted(() => {
