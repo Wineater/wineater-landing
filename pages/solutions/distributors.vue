@@ -1,11 +1,10 @@
 <template>
   <SolutionPage segment="distributors" seo-key="distributors">
-    <SolutionHero segment="distributors" base="solutions.distributors" photo="distributors-hero" primary="sales" badge="solutionPage.earlyAccess" :trial-note="false" />
+    <SolutionHero segment="distributors" base="solutions.distributors" photo="distributors-hero" primary="sales" :trial-note="false" />
     <section id="problem" class="sol-section" aria-labelledby="problem-title">
       <h2 id="problem-title" class="sol-h2" v-reveal>{{ $t('solutions.distributors.problem.title') }}</h2>
       <p class="sol-lead" v-reveal>{{ $t('solutions.distributors.problem.lead') }}</p>
       <p class="sol-note problem__note">
-        <span class="sol-badge sol-badge--early">{{ $t('solutionPage.earlyAccess') }}</span>
         {{ $t('solutions.distributors.problem.note') }}
       </p>
     </section>

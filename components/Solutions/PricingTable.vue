@@ -28,7 +28,6 @@
       <ul class="sol-grid" :style="{ '--cols': Math.max(2, plansBySegment[s].length) }">
         <li v-for="p in plansBySegment[s]" :key="p.id" class="sol-card ptable__plan" :class="{ 'sol-card--tint': !p.contact }">
           <h3 class="sol-h3">{{ $t(`pricing.plans.${p.id}.name`) }}</h3>
-          <p v-if="p.id === 'distributors'"><span class="sol-badge sol-badge--early">{{ $t('solutionPage.earlyAccess') }}</span></p>
           <p class="ptable__price">
             <template v-if="p.price !== null">
               <span class="ptable__amount">{{ usd(p.price) }}</span><span class="ptable__per">{{ perSuffix(p) }}</span>

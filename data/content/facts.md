@@ -39,7 +39,7 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - Demo booking: 20-minute call.
 
 ## Pricing (approved 2026-10-04; single source in data/pricing.ts)
-- All prices are USD per month. Free trial: 1 month, free, for every plan. Pay by card or, in the EU, by invoice.
+- All prices are USD per month. Free trial: 1 month, free, for every plan. Pay by card; anything else goes to hi@wineater.com.
 - Online stores: one plan, $99 for a catalog of up to 500 wines + $0.10 per BUY click. More than 500 wines: talk to sales (no public price).
 - Restaurants and bars: $99 per venue (up to 500 wines); $149 per venue (more than 500 wines). The staff tool (POS: wine list management, waiter access) and the guest QR page are included. Chains of 3+ venues on request.
 - Distributors: $99, includes the widget and the wine list builder (wine-list proposals for restaurants from their menu).
@@ -62,7 +62,7 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - "Shopify app": one-click install.
 - Both have a waitlist form only. No release date, no pricing.
 
-## Distributors (module in development; label "Early access", design-partner stage)
+## Distributors (proposal generator, QR loyalty menu and widget are live; data insights are a later phase)
 - Wineater for distributors turns a restaurant's food menu (photo or PDF) into a wine proposal made from the distributor's own portfolio; a QR menu for client restaurants where the distributor's wines are marked as priority; a widget for the distributor's site; portfolio gap analysis and menu heatmap (insights, later phase).
 - Do not state delivery times, "1 minute" as a promise, or conversion figures for the distributor module. The "20%+" conversion line in the distributor PDF is NOT approved (a BUY click is not a conversion).
 - Onboarding: price list or catalog (Excel, PDF or API), no complex IT integration.

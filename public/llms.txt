@@ -9,14 +9,14 @@
 - Each result shows up to four wines with a one- or two-sentence reason in the shop's language. Shoppers can ask for more wines or for similar wines.
 - Shoppers can type a request in any language (tested with Spanish and German requests on French-language and English-language shops). The wines and their explanations come back in the language set for the shop.
 - On desktop, each recommended wine's explanation appears when the shopper hovers over the card. A similar-wines button on every card returns four more wines from the same catalog, close in taste and food pairing.
-- Catalog size: works with a short wine list and with catalogs of thousands. Measured in October 2026 on live stores (wines in stock): median time to an answer 4.8 s with 29 wines, 5.1 s with 393, 6.7 s with 762, 5.3 s with 3,344. Not tested above 3,344 wines. Relevance is judged by reading results, not with an accuracy score.
+- Catalog size: works with a short wine list and with catalogs of thousands. Measured in October 2026 on live stores (wines in stock): median time to an answer 3.8 s with 29 wines, 4.2 s with 393, 4.1 s with 762, 3.9 s with 3,348 (12 fresh searches per store): about 4 seconds at any size. Not tested above 3,348 wines. Relevance is judged by reading results, not with an accuracy score.
 - Channels: website widget (script tag), QR code for tables, shelves and menus, API, and a tablet version for dining rooms (no cart, no payment).
 - Catalog input: CSV or Excel file, product feed (XML, Google Shopping style), photos or a PDF of a wine list (bars and restaurants), or API. Merchants can set it up themselves in the Wineater cabinet (a demo page on their own wines within minutes), or the Wineater team does it for them.
 - Typical time to go live: about 1 hour for a QR code, about 1 day for the widget, about 1 week for an API integration.
 - Measured events: widget sessions, searches, recommendations shown, wine-card interactions, BUY clicks. A BUY click is a click to the product page, not a confirmed purchase. Wineater does not receive order data from the shop.
 - Trial: 1 month free. Prices (USD per month): online stores $99 for a catalog of up to 500 wines plus $0.10 per BUY click, larger catalogs: talk to sales; restaurants and bars $99 per venue up to 500 wines, $149 per venue above that, staff tool (POS) and guest QR page included, chains on request; distributors $99 (widget and wine list builder); offline retail: talk to sales. Add-on for any plan: AI-ready catalog (enriched Google Merchant Center product feed) $49, in early access, not available yet. Details: https://wineater.com/pricing
-- In development, not available yet: an AI-ready catalog (enriched product feed for AI assistants and Google Merchant Center) and a Shopify app. Both have a waitlist only. Wineater for distributors (proposals from a restaurant menu) is in early access with design partners.
-- One-month pilot (small sample): 20%+ of sessions with recommendations ended in a BUY click; 2+ requests per shopper. A BUY click is a click to the product page, not a purchase.
+- In development, not available yet: an AI-ready catalog (enriched product feed for AI assistants and Google Merchant Center) and a Shopify app. Both have a waitlist only. Wineater for distributors is live: the proposal generator (a proposal from a restaurant menu), the QR loyalty menu and the widget; data insights come in a later phase.
+- One-month pilot (small sample): 15–20% of sessions with recommendations ended in a BUY click; 2+ requests per shopper. A BUY click is a click to the product page, not a purchase.
 - Wineater is operated by BACCHUSTECH OÜ, a company incorporated in Estonia (registered office in Tallinn). The website is available in English and French.
 
 ## Pages
@@ -26,7 +26,7 @@
 - [Solutions: Restaurants](https://wineater.com/solutions/restaurants): sommelier assistant on a tablet for staff, QR code for guests
 - [Solutions: Online stores](https://wineater.com/solutions/online-stores): widget on the shop's site, live demo
 - [Solutions: Offline retail](https://wineater.com/solutions/retail): QR code on the wine shelf
-- [Solutions: Distributors](https://wineater.com/solutions/distributors): proposals from a restaurant's menu (early access)
+- [Solutions: Distributors](https://wineater.com/solutions/distributors): proposal generator, QR loyalty menu and widget
 - [Pricing](https://wineater.com/pricing): plans and prices
 - [FAQ](https://wineater.com/faq): answers on how Wineater works, setup, data, measurement and the trial
 - [FAQ (French)](https://wineater.com/fr/faq): the FAQ in French

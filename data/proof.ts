@@ -19,7 +19,7 @@ export const proofSegments: Record<'buyClick' | 'requestsPerShopper' | 'search' 
 
 export const pilotProof = {
   // order shown in the hero: BUY click, requests, search
-  buyClick: { en: '20%+', fr: `20${NBSP}%+` },
+  buyClick: { en: '15–20%', fr: `15–20${NBSP}%` },
   requestsPerShopper: { en: '2+', fr: '2+' },
   search: { en: '~40%', fr: `~40${NBSP}%` },
   caveat: {
@@ -51,20 +51,21 @@ export const whyNowStat = {
   },
 } as const
 
-// Rounded pilot rates behind the published chips (20%+ is a floor, ~40% is rounded). Used only by the
+// Rounded pilot rates behind the published chips (15-20% is the range of 30-day windows measured on live data, 2026-10-05; the
+// estimator uses its middle, 18%; ~40% is rounded). Used only by the
 // BUY-click estimator on Pricing and Online stores, as an illustration and never as a forecast.
-export const pilotRates = { searchShare: 0.4, buyClickRate: 0.2 } as const
+export const pilotRates = { searchShare: 0.4, buyClickRate: 0.18 } as const
 
-// Median answer time (seconds) by catalog size, from our own timing runs on live stores (October 2026).
-// Bars use a 0-8 s scale. Not tested above `testedUpTo` wines. No client is named next to these figures.
+// Median answer time (seconds) by catalog size, from our own timing runs on live stores (re-measured 2026-10-05:
+// 12 fresh searches per store after a warm-up, full answer incl. the explanations). Bars use a 0-6 s scale. Not tested above `testedUpTo` wines. No client is named next to these figures.
 export const answerTime = {
   runs: [
-    { n: 29, s: 4.8 },
-    { n: 68, s: 4.8 },
-    { n: 393, s: 5.1 },
-    { n: 762, s: 6.7 },
-    { n: 3344, s: 5.3 },
+    { n: 29, s: 3.8 },
+    { n: 68, s: 4.1 },
+    { n: 393, s: 4.2 },
+    { n: 762, s: 4.1 },
+    { n: 3348, s: 3.9 },
   ],
-  scaleMax: 8,
-  testedUpTo: 3344,
+  scaleMax: 6,
+  testedUpTo: 3348,
 } as const

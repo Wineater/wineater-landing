@@ -28,7 +28,7 @@ const cards = [
   { id: 'restaurants', to: '/solutions/restaurants', photo: 'restaurants-hero' },
   { id: 'onlineStores', to: '/solutions/online-stores', photo: 'online-stores' },
   { id: 'retail', to: '/solutions/retail', photo: 'retail-hero' },
-  { id: 'distributors', to: '/solutions/distributors', photo: 'distributors-hero', early: true },
+  { id: 'distributors', to: '/solutions/distributors', photo: 'distributors-hero' },
 ]
 const onClick = (id) => track('cta_click', { cta_label: id, location: 'home_solution_card' })
 </script>

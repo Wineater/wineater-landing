@@ -184,7 +184,7 @@
 			"problem": {
 				"title": "Proposals take hours. Staff avoid the wines your margin depends on.",
 				"lead": "Sales reps lose hours building a proposal for each restaurant. And restaurant staff often fear selling complex wines, so the venue sells only the basic bottles and you lose margin.",
-				"note": "Wineater for distributors is in early access with design partners. Features below are in development unless stated otherwise."
+				"note": "The proposal generator, the QR loyalty menu and the widget are live. Data insights come in a later phase."
 			},
 			"modules": {
 				"title": "Four modules, one platform",
@@ -245,8 +245,8 @@
 				}
 			},
 			"cta": {
-				"title": "Want to shape it with us?",
-				"text": "We are building this with a first group of distributors. Talk to us about your portfolio."
+				"title": "See it on your portfolio",
+				"text": "Talk to us about your portfolio and we will show the proposal generator on your own wines."
 			}
 		}
 	}

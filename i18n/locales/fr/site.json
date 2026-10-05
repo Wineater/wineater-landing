@@ -37,7 +37,7 @@
 		"comingSoon": "Bientôt disponible",
 		"restaurantsPrice": "Restaurants et bars : {standard} par mois et par établissement jusqu’à {standardMax} vins, {plus} par mois et par établissement au-delà. L’outil de l’équipe (POS) et la page QR pour les clients sont inclus. Chaînes : sur demande.",
 		"retailPrice": "Parlez à l’équipe commerciale. Le prix dépend du nombre de magasins et de la taille du catalogue.",
-		"distributorsPrice": "{price} par mois. Comprend le widget pour votre site et le créateur de cartes des vins, qui propose des cartes des vins aux restaurants à partir de leur menu. En accès anticipé avec des partenaires de conception."
+		"distributorsPrice": "{price} par mois. Comprend le widget pour votre site et le créateur de cartes des vins, qui propose des cartes des vins aux restaurants à partir de leur menu."
 	},
 	"home": {
 		"hero": {
@@ -140,7 +140,7 @@
 		"perVenueMonth": "/ mois par établissement",
 		"perClick": "+ {price} par clic BUY",
 		"example": "Exemple : {clicks} clics BUY dans le mois = {base} + {extra} = {total}.",
-		"allPlans": "Tous les forfaits : 1 mois d'essai gratuit. Paiement par carte ou, dans l’UE, sur facture.",
+		"allPlans": "Tous les forfaits : 1 mois d'essai gratuit. Paiement par carte. Pour tout autre cas, écrivez à hi{'@'}wineater.com.",
 		"clickNote": "{caveat} La formule Boutique en ligne est facturée au clic, pas à la commande.",
 		"moreTitle": "Commerce physique",
 		"plans": {
@@ -257,7 +257,7 @@
 		},
 		"distributors": {
 			"title": "Outil de vente IA pour distributeurs de vin {'|'} Wineater",
-			"description": "Transformez la carte d’un restaurant en proposition de vins issue de votre portefeuille. Accès anticipé avec des partenaires de conception."
+			"description": "Transformez la carte d’un restaurant en proposition de vins issue de votre portefeuille. Une proposition à partir d’une carte en quelques minutes."
 		},
 		"pricing": {
 			"title": "Tarifs pour cavistes, restaurants et distributeurs {'|'} Wineater",

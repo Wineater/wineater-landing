@@ -184,7 +184,7 @@
 			"problem": {
 				"title": "Les propositions prennent des heures. Le personnel évite les vins dont dépend votre marge.",
 				"lead": "Vos commerciaux perdent des heures à construire une proposition pour chaque restaurant. Et le personnel des restaurants hésite souvent à vendre des vins complexes : l’établissement ne vend que les bouteilles de base et vous perdez de la marge.",
-				"note": "Wineater pour les distributeurs est en accès anticipé avec des partenaires de conception. Sauf indication contraire, les fonctionnalités ci-dessous sont en développement."
+				"note": "Le générateur de propositions, le menu QR de fidélisation et le widget sont disponibles. Les analyses de données viennent dans une phase ultérieure."
 			},
 			"modules": {
 				"title": "Quatre modules, une seule plateforme",
@@ -245,8 +245,8 @@
 				}
 			},
 			"cta": {
-				"title": "Envie de le façonner avec nous ?",
-				"text": "Nous le construisons avec un premier groupe de distributeurs. Parlez-nous de votre portefeuille."
+				"title": "Voyez-le sur votre portefeuille",
+				"text": "Parlez-nous de votre portefeuille et nous vous montrerons le générateur de propositions sur vos propres vins."
 			}
 		}
 	}

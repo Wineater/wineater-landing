@@ -37,7 +37,7 @@
 		"comingSoon": "Coming soon",
 		"restaurantsPrice": "Restaurants and bars: {standard} a month per venue for up to {standardMax} wines, {plus} a month per venue above that. The staff tool (POS) and the guest QR page are included. Chains: on request.",
 		"retailPrice": "Talk to sales. The price depends on the number of stores and the size of the catalog.",
-		"distributorsPrice": "{price} a month. Includes the widget for your site and the wine list builder, which drafts wine-list proposals for restaurants from their menu. In early access with design partners."
+		"distributorsPrice": "{price} a month. Includes the widget for your site and the wine list builder, which drafts wine-list proposals for restaurants from their menu."
 	},
 	"home": {
 		"hero": {
@@ -140,7 +140,7 @@
 		"perVenueMonth": "/ month per venue",
 		"perClick": "+ {price} per BUY click",
 		"example": "Example: {clicks} BUY clicks in a month = {base} + {extra} = {total}.",
-		"allPlans": "All plans: 1 month free. Pay by card or, in the EU, by invoice.",
+		"allPlans": "All plans: 1 month free. Pay by card. For anything else, write to hi{'@'}wineater.com.",
 		"clickNote": "{caveat} The Online store plan is billed on clicks, not on orders.",
 		"moreTitle": "Offline retail",
 		"plans": {
@@ -257,7 +257,7 @@
 		},
 		"distributors": {
 			"title": "AI Sales Tool for Wine Distributors {'|'} Wineater",
-			"description": "Turn a restaurant's menu into a wine proposal from your portfolio. Early access with design partners."
+			"description": "Turn a restaurant's menu into a wine proposal from your portfolio. Draft a proposal from a menu in minutes."
 		},
 		"pricing": {
 			"title": "Pricing for Wine Shops, Restaurants and Distributors {'|'} Wineater",

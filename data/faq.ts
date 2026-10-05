@@ -213,7 +213,7 @@ export const faqEn: FaqContent = {
         {
           id: 'small-and-very-large-catalogs',
           q: 'Does Wineater work with small and very large catalogs?',
-          a: `Yes. It works with a wine list of a few dozen wines and with a catalog of thousands. In our October 2026 tests on live stores, the median answer took 4.8 seconds with 29 wines, 5.1 with 393, 6.7 with 762 and 5.3 with 3,344 wines in stock. Below 50 wines the whole list is considered; above that, a search first narrows the choice. We have not tested catalogs above 3,344 wines, and we judge relevance by reading results, not with an accuracy score.`
+          a: `Yes. It works with a wine list of a few dozen wines and with a catalog of thousands. In our October 2026 tests on live stores (12 fresh searches each), the median answer took 3.8 seconds with 29 wines, 4.2 with 393, 4.1 with 762 and 3.9 with 3,348 wines in stock: about 4 seconds whatever the size. Below 50 wines the whole list is considered; above that, a search first narrows the choice. We have not tested catalogs above 3,348 wines, and we judge relevance by reading results, not with an accuracy score.`
         },
         {
           id: 'how-fast-go-live',
@@ -322,7 +322,7 @@ export const faqEn: FaqContent = {
         {
           id: 'dist-availability',
           q: 'Is it available today?',
-          a: `It is in early access with design partners. The widget and the QR menu already exist as products; the proposal generator and the insights are in development. Talk to us if you want to shape them.`
+          a: `The proposal generator, the QR loyalty menu and the widget for your site are live, with a wine list builder your reps use to draft a proposal from a restaurant's menu. Data insights (portfolio gaps, menu heatmap) come in a later phase. Talk to us to see it on your own portfolio.`
         },
         {
           id: 'dist-it-integration',
@@ -589,7 +589,7 @@ export const faqFr: FaqContent = {
         {
           id: 'small-and-very-large-catalogs',
           q: 'Wineater fonctionne-t-il avec de petits et de très grands catalogues ?',
-          a: `Oui. Il fonctionne avec une carte de quelques dizaines de vins comme avec un catalogue de milliers de références. Dans nos tests d’octobre 2026, la réponse médiane a pris 4,8 secondes avec 29 vins, 5,1 avec 393, 6,7 avec 762 et 5,3 avec 3 344 vins en stock. Sous 50 vins, toute la liste est examinée ; au-delà, une recherche réduit d’abord le choix. Nous n’avons pas testé au-delà de 3 344 vins, et la pertinence est jugée en lisant les résultats, sans score de précision.`
+          a: `Oui. Il fonctionne avec une carte de quelques dizaines de vins comme avec un catalogue de milliers de références. Dans nos tests d’octobre 2026 (12 recherches inédites par boutique), la réponse médiane a pris 3,8 secondes avec 29 vins, 4,2 avec 393, 4,1 avec 762 et 3,9 avec 3 348 vins en stock : environ 4 secondes quelle que soit la taille. Sous 50 vins, toute la liste est examinée ; au-delà, une recherche réduit d’abord le choix. Nous n’avons pas testé au-delà de 3 348 vins, et la pertinence est jugée en lisant les résultats, sans score de précision.`
         },
         {
           id: 'how-fast-go-live',
@@ -840,7 +840,7 @@ export const faqEs: FaqContent = {
         {
           id: 'dist-availability',
           q: '¿Está disponible hoy?',
-          a: `Está en acceso anticipado con socios de diseño. El widget y el menú QR ya existen como productos; el generador de propuestas y los análisis están en desarrollo. Hable con nosotros si quiere darles forma.`
+          a: `El generador de propuestas, el menú QR de fidelización y el widget para su web ya están disponibles, con un creador de cartas de vinos que sus comerciales usan para preparar una propuesta a partir de la carta de un restaurante. Los análisis de datos llegan en una fase posterior. Hable con nosotros para verlo con su propio portafolio.`
         },
         {
           id: 'dist-it-integration',

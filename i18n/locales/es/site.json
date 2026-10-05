@@ -101,7 +101,7 @@
 		"comingSoon": "Próximamente",
 		"restaurantsPrice": "Restaurantes y bares: {standard} al mes por local, hasta {standardMax} vinos. {plus} al mes por local a partir de ahí. La herramienta para el personal (POS) y la página QR para los clientes están incluidas. Cadenas: bajo petición.",
 		"retailPrice": "Hable con ventas. El precio depende del número de tiendas y del tamaño del catálogo.",
-		"distributorsPrice": "{price} al mes. Incluye el widget para su web y el creador de cartas de vinos, que propone cartas de vinos a los restaurantes a partir de su menú. En acceso anticipado con socios de diseño."
+		"distributorsPrice": "{price} al mes. Incluye el widget para su web y el creador de cartas de vinos, que propone cartas de vinos a los restaurantes a partir de su menú."
 	},
 	"howItThinks": {
 		"title": "Cómo piensa Wineater",
@@ -136,7 +136,7 @@
 	"seoPages": {
 		"distributors": {
 			"title": "Herramienta de ventas con IA para distribuidores de vino {'|'} Wineater",
-			"description": "Convierta la carta de un restaurante en una propuesta de vinos de su portafolio. Acceso anticipado con socios de diseño."
+			"description": "Convierta la carta de un restaurante en una propuesta de vinos de su portafolio. Una propuesta a partir de una carta en unos minutos."
 		}
 	},
 	"solutions": {
@@ -151,7 +151,7 @@
 			"problem": {
 				"title": "Las propuestas llevan horas. El personal evita los vinos de los que depende su margen.",
 				"lead": "Los comerciales pierden horas preparando una propuesta para cada restaurante. Además, el personal de sala suele temer vender vinos complejos, así que el local vende solo las botellas básicas y usted pierde margen.",
-				"note": "Wineater para distribuidores está en acceso anticipado con socios de diseño. Las funciones siguientes están en desarrollo, salvo que se indique lo contrario."
+				"note": "El generador de propuestas, el menú QR de fidelización y el widget ya están disponibles. Los análisis de datos llegan en una fase posterior."
 			},
 			"modules": {
 				"title": "Cuatro módulos, una plataforma",
@@ -212,8 +212,8 @@
 				}
 			},
 			"cta": {
-				"title": "¿Quiere dar forma a la herramienta con nosotros?",
-				"text": "Estamos construyéndola con un primer grupo de distribuidores. Hablemos de su portafolio."
+				"title": "Véalo con su portafolio",
+				"text": "Hablemos de su portafolio y le mostraremos el generador de propuestas con sus propios vinos."
 			}
 		}
 	},
