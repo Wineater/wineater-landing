@@ -413,13 +413,13 @@ export const faqEn: FaqContent = {
         {
           id: 'how-much-does-it-cost',
           q: 'How much does Wineater cost?',
-          a: `Online stores: ${pe.store} a month for a catalog of up to ${pe.storeMax} wines, plus ${pe.perClick} per BUY click. Above ${pe.storeMax} wines, talk to sales. Restaurants and bars: ${pe.restaurant} a month per venue for up to ${pe.restaurantMax} wines, ${pe.restaurantPlus} a month per venue above that; the staff tool (POS) and the guest QR page are included. Chains are quoted on request. Distributors: ${pe.distributors} a month, with the widget and the wine list builder. Offline retail: talk to sales. All prices are in USD. Every plan starts with a free month, no credit card. A BUY click is a click to the product page, not a purchase.`,
+          a: `Online stores: ${pe.store} a month for a catalog of up to ${pe.storeMax} wines, plus ${pe.perClick} per BUY click. Above ${pe.storeMax} wines, talk to sales. Restaurants and bars: ${pe.restaurant} a month per venue for up to ${pe.restaurantMax} wines, ${pe.restaurantPlus} a month per venue above that; the staff tool (POS) and the guest QR page are included. Chains are quoted on request. Distributors: ${pe.distributors} a month, with the widget and the wine list builder. Offline retail: talk to sales. All prices are in USD. Every plan starts with a free month. A BUY click is a click to the product page, not a purchase.`,
           links: [{ to: '/pricing', label: 'See the pricing page' }]
         },
         {
           id: 'free-trial-and-after',
           q: 'What happens during and after the free trial?',
-          a: `During the month, your catalog and your chosen channel are set up and you can try Wineater with your own wines. No credit card is needed to start. After the month, you pay the plan that fits your catalog, as listed on the pricing page. For contract length and cancellation terms, please ask us directly.`,
+          a: `During the month, your catalog and your chosen channel are set up and you can try Wineater with your own wines. The trial is free for one month. After the month, you pay the plan that fits your catalog, as listed on the pricing page. For contract length and cancellation terms, please ask us directly.`,
           links: [{ to: '/pricing', label: 'See the pricing page' }]
         },
         {
@@ -789,13 +789,13 @@ export const faqFr: FaqContent = {
         {
           id: 'how-much-does-it-cost',
           q: 'Combien coûte Wineater ?',
-          a: `Boutiques en ligne : ${pf.store} par mois pour un catalogue jusqu’à ${pf.storeMax} vins, plus ${pf.perClick} par clic BUY. Au-delà de ${pf.storeMax} vins, parlez à notre équipe commerciale. Restaurants et bars : ${pf.restaurant} par mois et par établissement jusqu’à ${pf.restaurantMax} vins, ${pf.restaurantPlus} par mois et par établissement au-delà ; l’outil de l’équipe (POS) et la page QR pour les clients sont inclus. Chaînes : sur devis. Distributeurs : ${pf.distributors} par mois, avec le widget et le créateur de cartes des vins. Commerce physique : parlez à notre équipe commerciale. Tous les prix sont en USD. Chaque formule commence par un mois gratuit, sans carte bancaire. Un clic BUY est un clic vers la fiche produit, pas un achat.`,
+          a: `Boutiques en ligne : ${pf.store} par mois pour un catalogue jusqu’à ${pf.storeMax} vins, plus ${pf.perClick} par clic BUY. Au-delà de ${pf.storeMax} vins, parlez à notre équipe commerciale. Restaurants et bars : ${pf.restaurant} par mois et par établissement jusqu’à ${pf.restaurantMax} vins, ${pf.restaurantPlus} par mois et par établissement au-delà ; l’outil de l’équipe (POS) et la page QR pour les clients sont inclus. Chaînes : sur devis. Distributeurs : ${pf.distributors} par mois, avec le widget et le créateur de cartes des vins. Commerce physique : parlez à notre équipe commerciale. Tous les prix sont en USD. Chaque formule commence par un mois gratuit. Un clic BUY est un clic vers la fiche produit, pas un achat.`,
           links: [{ to: '/pricing', label: 'Voir la page des tarifs' }]
         },
         {
           id: 'free-trial-and-after',
           q: 'Que se passe-t-il pendant et après l’essai gratuit ?',
-          a: `Pendant le mois, votre catalogue et le canal choisi sont mis en place et vous pouvez essayer Wineater avec vos propres vins. Aucune carte bancaire n’est nécessaire pour commencer. Ensuite, vous payez la formule adaptée à votre catalogue, telle qu’indiquée sur la page des tarifs. Pour la durée d’engagement et les conditions de résiliation, merci de nous poser directement la question.`,
+          a: `Pendant le mois, votre catalogue et le canal choisi sont mis en place et vous pouvez essayer Wineater avec vos propres vins. L’essai est gratuit pendant un mois. Ensuite, vous payez la formule adaptée à votre catalogue, telle qu’indiquée sur la page des tarifs. Pour la durée d’engagement et les conditions de résiliation, merci de nous poser directement la question.`,
           links: [{ to: '/pricing', label: 'Voir la page des tarifs' }]
         },
         {

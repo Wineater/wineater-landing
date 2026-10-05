@@ -56,7 +56,7 @@
 		"apiDesc": "Your own search, white-label, inventory in sync.",
 		"startNote": "Start with a free month. No credit card.",
 		"upload": "Upload Catalog",
-		"startNoteSelfServe": "Start a 30-day free trial on your own wines.",
+		"startNoteSelfServe": "Start your free month on your own wines.",
 		"manualTrial": "Prefer we set it up for you? Send us your catalog"
 	},
 	"Footer": {
@@ -74,7 +74,7 @@
 		"colProduct": "Product",
 		"colResources": "Resources",
 		"colLegal": "Legal",
-		"trialSelfServe": "30-day free trial · Cancel anytime"
+		"trialSelfServe": "1-month free trial"
 	},
 	"ForWhom": {
 		"title": "Shoppers want wine. They don't know which bottle.",
@@ -129,8 +129,8 @@
 		"teaserTitle": "Common questions",
 		"teaserAll": "See all questions",
 		"teaserDemo": "Still unsure? Book a 20-min demo",
-		"ctaTextSelfServe": "30-day free trial on your own wines. Card needed, cancel anytime. See the pricing page, or write to hi{'@'}wineater.com.",
-		"teaserTry": "Still unsure? Try it free for 30 days on your own wines",
+		"ctaTextSelfServe": "1-month free trial on your own wines. See the pricing page, or write to hi{'@'}wineater.com.",
+		"teaserTry": "Still unsure? Try it free for 1 month on your own wines",
 		"teaserOrDemo": "or book a 20-min demo"
 	},
 	"startBanner": {
@@ -211,7 +211,7 @@
 		"ctaText": "Share your wine list and try Wineater free for one month.",
 		"related": "Related articles",
 		"notFound": "Article not found",
-		"ctaTextSelfServe": "Upload your wine list and try Wineater free for 30 days."
+		"ctaTextSelfServe": "Upload your wine list and try Wineater free for one month."
 	},
 	"audience": {
 		"tablistLabel": "Choose your business type",

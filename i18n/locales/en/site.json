@@ -120,7 +120,7 @@
 	"pricing": {
 		"hero": {
 			"title": "Simple pricing, one month free",
-			"lead": "Pick your kind of business. Every plan starts with a 30-day free trial. Card needed, cancel anytime."
+			"lead": "Pick your kind of business. Every plan starts with a free month."
 		},
 		"switchLabel": "Choose your kind of business",
 		"tabs": {
@@ -140,7 +140,7 @@
 		"perVenueMonth": "/ month per venue",
 		"perClick": "+ {price} per BUY click",
 		"example": "Example: {clicks} BUY clicks in a month = {base} + {extra} = {total}.",
-		"allPlans": "All plans: 30 days free, cancel anytime. Pay by card or, in the EU, by invoice.",
+		"allPlans": "All plans: 1 month free. Pay by card or, in the EU, by invoice.",
 		"clickNote": "{caveat} The Online store plan is billed on clicks, not on orders.",
 		"moreTitle": "Offline retail",
 		"plans": {
@@ -261,13 +261,13 @@
 		},
 		"pricing": {
 			"title": "Pricing for Wine Shops, Restaurants and Distributors {'|'} Wineater",
-			"description": "Plans for online stores, restaurants and bars, and distributors, with a 30-day free trial. Offline retail: talk to sales."
+			"description": "Plans for online stores, restaurants and bars, and distributors, with a free month. Offline retail: talk to sales."
 		}
 	},
 	"pricingCta": {
 		"cta": {
 			"title": "Start with a free month",
-			"text": "Share your catalog or your wine list and see Wineater on your own wines. Free for 30 days, cancel anytime."
+			"text": "Share your catalog or your wine list and see Wineater on your own wines. Free for one month."
 		}
 	}
 }

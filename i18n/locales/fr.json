@@ -56,7 +56,7 @@
 		"apiDesc": "Votre propre moteur de recherche, marque blanche, inventaire synchronisé.",
 		"startNote": "Commencez par un mois gratuit. Sans carte bancaire.",
 		"upload": "Envoyer mon catalogue",
-		"startNoteSelfServe": "Commencez un essai gratuit de 30 jours avec vos propres vins.",
+		"startNoteSelfServe": "Commencez votre mois gratuit avec vos propres vins.",
 		"manualTrial": "Vous préférez que nous nous en chargions ? Envoyez-nous votre catalogue"
 	},
 	"Clients": {
@@ -92,7 +92,7 @@
 		"colProduct": "Produit",
 		"colResources": "Ressources",
 		"colLegal": "Mentions",
-		"trialSelfServe": "30 jours d'essai gratuit · Résiliable à tout moment"
+		"trialSelfServe": "1 mois d'essai gratuit"
 	},
 	"ForWhom": {
 		"title": "Les clients veulent du vin. Ils ne savent pas lequel choisir.",
@@ -129,8 +129,8 @@
 		"teaserTitle": "Questions fréquentes",
 		"teaserAll": "Voir toutes les questions",
 		"teaserDemo": "Encore un doute ? Réservez une démo de 20 min",
-		"ctaTextSelfServe": "30 jours d'essai gratuit avec vos propres vins. Carte requise, résiliable à tout moment. Consultez la page des tarifs ou écrivez à hi{'@'}wineater.com.",
-		"teaserTry": "Encore un doute ? Essayez gratuitement pendant 30 jours avec vos propres vins",
+		"ctaTextSelfServe": "1 mois d'essai gratuit avec vos propres vins. Consultez la page des tarifs ou écrivez à hi{'@'}wineater.com.",
+		"teaserTry": "Encore un doute ? Essayez gratuitement pendant 1 mois avec vos propres vins",
 		"teaserOrDemo": "ou réservez une démo de 20 min"
 	},
 	"startBanner": {
@@ -211,7 +211,7 @@
 		"ctaText": "Partagez votre carte des vins et essayez Wineater gratuitement pendant un mois.",
 		"related": "Articles similaires",
 		"notFound": "Article introuvable",
-		"ctaTextSelfServe": "Importez votre carte des vins et essayez Wineater gratuitement pendant 30 jours."
+		"ctaTextSelfServe": "Importez votre carte des vins et essayez Wineater gratuitement pendant un mois."
 	},
 	"audience": {
 		"tablistLabel": "Choisissez votre type d'activité",

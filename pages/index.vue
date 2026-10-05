@@ -113,7 +113,7 @@ useSchemaOrg([
       lowPrice: String(Math.min(...publicPrices)),
       highPrice: String(Math.max(...publicPrices)),
       offerCount: publicPrices.length,
-      description: '30-day free trial',
+      description: '1-month free trial',
     },
   },
 ]);
