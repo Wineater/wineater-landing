@@ -698,7 +698,7 @@ export const faqFr: FaqContent = {
         {
           id: 'dist-availability',
           q: 'Est-ce disponible dès aujourd’hui ?',
-          a: `C’est en accès anticipé avec des partenaires de conception. Le widget et le menu QR existent déjà comme produits ; le générateur de propositions et les analyses sont en développement. Parlons-en si vous souhaitez les façonner avec nous.`
+          a: `Le générateur de propositions, le menu QR de fidélisation et le widget pour votre site sont disponibles, avec un créateur de cartes des vins que vos commerciaux utilisent pour préparer une proposition à partir de la carte d’un restaurant. Les analyses de données (manques du portefeuille, carte thermique des menus) viennent dans une phase ultérieure. Parlons-en pour le voir sur votre propre portefeuille.`
         },
         {
           id: 'dist-it-integration',
