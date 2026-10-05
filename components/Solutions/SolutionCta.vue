@@ -13,12 +13,13 @@
           <button v-if="primary === 'demo'" type="button" class="scta__ghost scta__ghost--btn" @click="onTrial">{{ $t('cta.primary') }}</button>
         </template>
       </div>
-      <p v-if="primary !== 'sales'" class="scta__note">{{ $t('Footer.trial') }}</p>
+      <p v-if="primary !== 'sales'" class="scta__note">{{ selfServe ? $t('Footer.trialSelfServe') : $t('Footer.trial') }}</p>
     </div>
   </section>
 </template>
 
 <script setup>
+const { enabled: selfServe } = useSelfServe()
 import Button from '~/components/Buttons/Button.vue'
 import { DEMO_URL } from '~/data/links'
 
