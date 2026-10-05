@@ -130,7 +130,10 @@
 		"relatedBlog": "Blog",
 		"teaserTitle": "Common questions",
 		"teaserAll": "See all questions",
-		"teaserDemo": "Still unsure? Book a 20-min demo"
+		"teaserDemo": "Still unsure? Book a 20-min demo",
+		"teaserTry": "Still unsure? Try it free for 30 days on your own wines",
+		"teaserOrDemo": "or book a 20-min demo",
+		"ctaTextSelfServe": "30-day free trial on your own wines. Card needed, cancel anytime. Shops over 500 wines and retail chains: write to hi{'@'}wineater.com."
 	},
 	"startBanner": {
 		"retail": {
@@ -209,7 +212,8 @@
 		"ctaTitle": "See it on your own catalog",
 		"ctaText": "Share your wine list and try Wineater free for one month.",
 		"related": "Related articles",
-		"notFound": "Article not found"
+		"notFound": "Article not found",
+		"ctaTextSelfServe": "Upload your wine list and try Wineater free for 30 days."
 	},
 	"audience": {
 		"tablistLabel": "Choose your business type",
