@@ -28,17 +28,17 @@ export interface Plan {
   contact?: boolean
 }
 
-/** Online stores: one plan up to 500 wines, larger catalogs talk to sales. */
+/** Online stores: one plan up to 1000 wines (a bigger file is cut at the limit), more: Enterprise edition (talk to sales). */
 export const shopPlans: Plan[] = [
-  { id: 'store', segment: 'shops', price: 99, maxWines: 500, perBuyClick: 0.1 },
-  { id: 'storeLarge', segment: 'shops', price: null, maxWines: null, minWines: 500, contact: true },
+  { id: 'store', segment: 'shops', price: 99, maxWines: 1000, perBuyClick: 0.1 },
+  { id: 'storeLarge', segment: 'shops', price: null, maxWines: null, minWines: 1000, contact: true },
 ]
 
-/** Restaurants and bars, per venue. The staff tool (POS) and the guest QR page are included. */
+/** Restaurants and bars, per venue, wine lists up to 2000 wines; chains and longer lists: Enterprise edition. The staff tool (POS) and the guest QR page are included. */
 export const restaurantPlans: Plan[] = [
   { id: 'restaurant', segment: 'restaurants', price: 99, maxWines: 500, perVenue: true },
-  { id: 'restaurantPlus', segment: 'restaurants', price: 149, maxWines: null, minWines: 500, perVenue: true },
-  { id: 'chain', segment: 'restaurants', price: null, maxWines: null, contact: true },
+  { id: 'restaurantPlus', segment: 'restaurants', price: 149, maxWines: 2000, minWines: 500, perVenue: true },
+  { id: 'chain', segment: 'restaurants', price: null, maxWines: null, minWines: 2000, contact: true },
 ]
 
 /** Distributors: the widget and the wine list builder. */

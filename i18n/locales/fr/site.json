@@ -35,7 +35,7 @@
 		"faqTitle": "Questions fréquentes",
 		"earlyAccess": "Accès anticipé",
 		"comingSoon": "Bientôt disponible",
-		"restaurantsPrice": "Restaurants et bars : {standard} par mois et par établissement jusqu’à {standardMax} vins, {plus} par mois et par établissement au-delà. L’outil de l’équipe (POS) et la page QR pour les clients sont inclus. Chaînes : sur demande.",
+		"restaurantsPrice": "Restaurants et bars : {standard} par mois et par établissement jusqu’à {standardMax} vins, {plus} par mois et par établissement jusqu’à {plusMax} vins. L’outil de l’équipe (POS) et la page QR pour les clients sont inclus. Chaînes et cartes plus longues : édition Enterprise, sur demande.",
 		"retailPrice": "Parlez à l’équipe commerciale. Le prix dépend du nombre de magasins et de la taille du catalogue.",
 		"distributorsPrice": "{price} par mois. Comprend le widget pour votre site et le créateur de cartes des vins, qui propose des cartes des vins aux restaurants à partir de leur menu."
 	},
@@ -115,7 +115,7 @@
 		"cost": "Formule Boutique en ligne à ce volume",
 		"fine": "Mode de calcul : visites × {search} (sessions qui lancent une recherche dans le pilote) × {click} (parmi celles-ci, sessions terminées par un clic BUY dans le pilote) = clics BUY. La formule Boutique en ligne coûte {base} par mois plus {perClick} par clic. Ce sont les taux du pilote ; les vôtres seront différents.",
 		"after": "Le nombre de ces clients qui achètent dépend de votre fiche produit et de votre tunnel de paiement. Nous ne prévoyons pas les ventes.",
-		"largeNote": "La formule Boutique en ligne couvre les catalogues jusqu’à {max} vins. Pour un catalogue plus grand, parlez à l’équipe commerciale."
+		"largeNote": "La formule Boutique en ligne couvre les catalogues jusqu’à {max} vins, vins en rupture compris ; un fichier plus grand est coupé à cette limite. Pour plus, demandez l’édition Enterprise."
 	},
 	"pricing": {
 		"hero": {
@@ -154,7 +154,7 @@
 				"inc5": "Statistiques de recherche"
 			},
 			"storeLarge": {
-				"name": "Grand catalogue",
+				"name": "Édition Enterprise",
 				"catalog": "Plus de {min} vins",
 				"inc1": "Accès à l’API",
 				"inc2": "Plusieurs boutiques et pays",
@@ -170,14 +170,14 @@
 			},
 			"restaurantPlus": {
 				"name": "Restaurant & bar Plus",
-				"catalog": "Plus de {min} vins",
+				"catalog": "Plus de {min}, jusqu’à {max} vins",
 				"inc1": "Tout ce qui est inclus dans Restaurant & bar",
 				"inc2": "Outil de l’équipe (POS) et page QR inclus",
 				"inc3": "Pour une carte des vins plus longue"
 			},
 			"chain": {
-				"name": "Chaînes",
-				"catalog": "Trois établissements ou plus",
+				"name": "Chaînes et Enterprise",
+				"catalog": "Trois établissements ou plus, ou plus de {min} vins",
 				"inc1": "Une carte des vins par établissement",
 				"inc2": "Vins mis en avant convenus avec vous",
 				"inc3": "Tarif par établissement, devis sur demande"

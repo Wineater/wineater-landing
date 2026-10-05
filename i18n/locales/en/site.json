@@ -35,7 +35,7 @@
 		"faqTitle": "Common questions",
 		"earlyAccess": "Early access",
 		"comingSoon": "Coming soon",
-		"restaurantsPrice": "Restaurants and bars: {standard} a month per venue for up to {standardMax} wines, {plus} a month per venue above that. The staff tool (POS) and the guest QR page are included. Chains: on request.",
+		"restaurantsPrice": "Restaurants and bars: {standard} a month per venue for up to {standardMax} wines, {plus} a month per venue for up to {plusMax} wines. The staff tool (POS) and the guest QR page are included. Chains and longer wine lists: Enterprise edition, on request.",
 		"retailPrice": "Talk to sales. The price depends on the number of stores and the size of the catalog.",
 		"distributorsPrice": "{price} a month. Includes the widget for your site and the wine list builder, which drafts wine-list proposals for restaurants from their menu."
 	},
@@ -115,7 +115,7 @@
 		"cost": "Online store plan at that volume",
 		"fine": "How it is computed: visits × {search} (sessions that start a search in the pilot) × {click} (of those, sessions ending in a BUY click in the pilot) = BUY clicks. The Online store plan costs {base} a month plus {perClick} per click. These are pilot rates; yours will differ.",
 		"after": "How many of those shoppers buy depends on your product page and checkout. We do not forecast sales.",
-		"largeNote": "The Online store plan covers catalogs of up to {max} wines. For a larger catalog, talk to sales."
+		"largeNote": "The Online store plan covers catalogs of up to {max} wines, out-of-stock wines included; a larger file is cut at that limit. For more, ask for the Enterprise edition."
 	},
 	"pricing": {
 		"hero": {
@@ -154,7 +154,7 @@
 				"inc5": "Search analytics"
 			},
 			"storeLarge": {
-				"name": "Large catalog",
+				"name": "Enterprise edition",
 				"catalog": "More than {min} wines",
 				"inc1": "API access",
 				"inc2": "Several shops and countries",
@@ -170,14 +170,14 @@
 			},
 			"restaurantPlus": {
 				"name": "Restaurant & bar Plus",
-				"catalog": "More than {min} wines",
+				"catalog": "More than {min}, up to {max} wines",
 				"inc1": "Everything in Restaurant & bar",
 				"inc2": "Staff tool (POS) and guest QR page included",
 				"inc3": "For a longer wine list"
 			},
 			"chain": {
-				"name": "Chains",
-				"catalog": "Three or more venues",
+				"name": "Chains and Enterprise",
+				"catalog": "Three or more venues, or more than {min} wines",
 				"inc1": "A wine list per venue",
 				"inc2": "Promoted wines agreed with you",
 				"inc3": "Priced per venue, quoted on request"

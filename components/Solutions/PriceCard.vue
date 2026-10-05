@@ -49,6 +49,7 @@ const priceParams = computed(() => ({
   standard: usd(plan('restaurant').price),
   standardMax: formatInt(plan('restaurant').maxWines, locale.value),
   plus: usd(plan('restaurantPlus').price),
+  plusMax: formatInt(plan('restaurantPlus').maxWines, locale.value),
 }))
 // The pricing page has tabs for shops, restaurants and distributors; offline retail is in the "more" block.
 const pricingHash = computed(() => (props.segment === 'retail' ? 'pricing-more' : props.segment))

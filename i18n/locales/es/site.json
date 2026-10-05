@@ -99,7 +99,7 @@
 		"faqTitle": "Preguntas frecuentes",
 		"earlyAccess": "Acceso anticipado",
 		"comingSoon": "Próximamente",
-		"restaurantsPrice": "Restaurantes y bares: {standard} al mes por local, hasta {standardMax} vinos. {plus} al mes por local a partir de ahí. La herramienta para el personal (POS) y la página QR para los clientes están incluidas. Cadenas: bajo petición.",
+		"restaurantsPrice": "Restaurantes y bares: {standard} al mes por local, hasta {standardMax} vinos. {plus} al mes por local hasta {plusMax} vinos. La herramienta para el personal (POS) y la página QR para los clientes están incluidas. Cadenas y cartas más largas: edición Enterprise, bajo petición.",
 		"retailPrice": "Hable con ventas. El precio depende del número de tiendas y del tamaño del catálogo.",
 		"distributorsPrice": "{price} al mes. Incluye el widget para su web y el creador de cartas de vinos, que propone cartas de vinos a los restaurantes a partir de su menú."
 	},

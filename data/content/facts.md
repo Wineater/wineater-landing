@@ -40,8 +40,8 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 
 ## Pricing (approved 2026-10-04; single source in data/pricing.ts)
 - All prices are USD per month. Free trial: 1 month, free, for every plan. Pay by card; anything else goes to hi@wineater.com.
-- Online stores: one plan, $99 for a catalog of up to 500 wines + $0.10 per BUY click. More than 500 wines: talk to sales (no public price).
-- Restaurants and bars: $99 per venue (up to 500 wines); $149 per venue (more than 500 wines). The staff tool (POS: wine list management, waiter access) and the guest QR page are included. Chains of 3+ venues on request.
+- Online stores: one plan, $99 for a catalog of up to 1,000 wines (out-of-stock wines count too; a larger file is cut at 1,000) + $0.10 per BUY click. More than 1,000 wines: Enterprise edition, talk to sales (no public price).
+- Restaurants and bars: $99 per venue (up to 500 wines); $149 per venue (501 to 2,000 wines). The staff tool (POS: wine list management, waiter access) and the guest QR page are included. Chains of 3+ venues and wine lists above 2,000 wines: Enterprise edition, on request.
 - Distributors: $99, includes the widget and the wine list builder (wine-list proposals for restaurants from their menu).
 - Offline retail (supermarkets, wine shops in store): no public price, "Talk to sales".
 - Add-on for any plan: AI-ready catalog (enriched Google Merchant Center product feed) $49. Early access, not available yet: never say it works today.

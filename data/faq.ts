@@ -57,6 +57,7 @@ const priceFacts = (locale: 'en' | 'fr' | 'es') => {
     restaurant: u(plan('restaurant').price as number),
     restaurantPlus: u(plan('restaurantPlus').price as number),
     restaurantMax: formatInt(plan('restaurant').maxWines as number, locale),
+    restaurantPlusMax: formatInt(plan('restaurantPlus').maxWines as number, locale),
     distributors: u(plan('distributors').price as number),
     aiCatalog: u(addOn('aiCatalog').price),
     clicks: formatInt(exampleInvoice.clicks, locale),
@@ -413,7 +414,7 @@ export const faqEn: FaqContent = {
         {
           id: 'how-much-does-it-cost',
           q: 'How much does Wineater cost?',
-          a: `Online stores: ${pe.store} a month for a catalog of up to ${pe.storeMax} wines, plus ${pe.perClick} per BUY click. Above ${pe.storeMax} wines, talk to sales. Restaurants and bars: ${pe.restaurant} a month per venue for up to ${pe.restaurantMax} wines, ${pe.restaurantPlus} a month per venue above that; the staff tool (POS) and the guest QR page are included. Chains are quoted on request. Distributors: ${pe.distributors} a month, with the widget and the wine list builder. Offline retail: talk to sales. All prices are in USD. Every plan starts with a free month. A BUY click is a click to the product page, not a purchase.`,
+          a: `Online stores: ${pe.store} a month for a catalog of up to ${pe.storeMax} wines, plus ${pe.perClick} per BUY click. Wines that are out of stock count too, and a larger file is cut at ${pe.storeMax} wines; for more, ask for the Enterprise edition. Restaurants and bars: ${pe.restaurant} a month per venue for up to ${pe.restaurantMax} wines, ${pe.restaurantPlus} a month per venue for up to ${pe.restaurantPlusMax} wines; the staff tool (POS) and the guest QR page are included. Chains and longer wine lists: Enterprise edition, quoted on request. Distributors: ${pe.distributors} a month, with the widget and the wine list builder. Offline retail: talk to sales. All prices are in USD. Every plan starts with a free month. A BUY click is a click to the product page, not a purchase.`,
           links: [{ to: '/pricing', label: 'See the pricing page' }]
         },
         {
