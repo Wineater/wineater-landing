@@ -203,12 +203,12 @@ export const faqEn: FaqContent = {
         {
           id: 'how-to-add-the-widget',
           q: 'How do I add the Wineater widget to my website?',
-          a: `You add one script tag and a container element to your site, together with your store's token, and the widget appears where you place it. Our team gives you the snippet and sets up your catalog first, so you do not configure the AI yourself. If you would rather not use the widget, you can connect through the API or use a QR code.`
+          a: `You add one script tag and a container element to your site, together with your store's token, and the widget appears where you place it. You find the ready-made snippet in your Wineater cabinet once your free month starts, with step-by-step instructions for Shopify, WooCommerce, Wix, PrestaShop and plain HTML. If you prefer, our team sets it up for you. Either way you do not configure the AI yourself. If you would rather not use the widget, you can connect through the API or use a QR code.`
         },
         {
           id: 'catalog-formats',
           q: 'Which catalog formats does Wineater accept?',
-          a: `You can share your catalog as a CSV export, as a product feed (Wineater reads XML feeds in the Google Shopping style) or through an API connection. A basic feed with title, brand, price and link is enough to identify wines: Wineater fills in details such as region, grape and type, and your own data always takes priority over what it adds. Your prices, stock and images remain yours.`
+          a: `You can upload your catalog as a CSV or Excel file, share it as a product feed (Wineater reads XML feeds in the Google Shopping style) or connect through the API. Bars and restaurants can also upload photos or a PDF of their wine list. A basic file or feed with the wine name and price is enough to identify wines, and brand and link help: Wineater fills in details such as region, grape and type, and your own data always takes priority over what it adds. Your prices, stock and images remain yours.`
         },
         {
           id: 'small-and-very-large-catalogs',
@@ -218,7 +218,7 @@ export const faqEn: FaqContent = {
         {
           id: 'how-fast-go-live',
           q: 'How fast can I go live?',
-          a: `Typically about 1 hour for a QR code, about 1 day for the website widget and about 1 week for an API integration. The Wineater team configures your catalog, usually within 24 hours of receiving it. Actual timing depends on the state of your catalog and on your own website team.`
+          a: `Typically about 1 hour for a QR code, about 1 day for the website widget and about 1 week for an API integration. After you upload your catalog, you see a demo page on your own wines within minutes. If you prefer, the Wineater team configures your catalog, usually within 24 hours of receiving it. Actual timing depends on the state of your catalog and on your own website team.`
         },
         {
           id: 'branding-and-theme',
@@ -254,7 +254,7 @@ export const faqEn: FaqContent = {
         {
           id: 'restaurant-wine-list-import',
           q: 'How does a restaurant give Wineater its wine list?',
-          a: `You send your wine list, for example as a CSV export, and the Wineater team loads it for you. Each wine is matched to a wine record and described on pairing, taste, origin, occasion and production, while your prices and stock stay yours. The widget also has a bar and restaurant mode.`
+          a: `You upload your wine list as a CSV or Excel file, or as photos or a PDF, and Wineater reads the wines and prices; or you send it to the Wineater team and we load it for you. Each wine is matched to a wine record and described on pairing, taste, origin, occasion and production, while your prices and stock stay yours. The widget also has a bar and restaurant mode.`
         },
         {
           id: 'wines-by-the-glass',
@@ -431,7 +431,7 @@ export const faqEn: FaqContent = {
         {
           id: 'who-sets-it-up',
           q: 'Who sets Wineater up?',
-          a: `The Wineater team does. You share your wine list or product feed, and we load and describe the wines, configure your store and language, and give you the widget snippet or QR code. You do not train or tune the AI yourself. Your part is adding the snippet to your site or printing the QR code.`
+          a: `You can do it yourself: sign up, upload your wine list or product feed, and Wineater describes the wines and builds a demo page on your own wines. When your free month starts, the widget snippet or the QR code is in your cabinet. If you prefer, the Wineater team does it for you: you share your catalog, and we load and describe the wines, configure your store and language, and hand over the snippet or QR code. Either way you do not train or tune the AI yourself. Your part is adding the snippet to your site or printing the QR code.`
         },
         {
           id: 'price-offline-retail',
@@ -579,12 +579,12 @@ export const faqFr: FaqContent = {
         {
           id: 'how-to-add-the-widget',
           q: 'Comment ajouter le widget Wineater à mon site ?',
-          a: `Vous ajoutez une balise script et un conteneur à votre site, avec le jeton de votre boutique, et le widget apparaît à l’endroit choisi. Notre équipe vous fournit le code et configure d’abord votre catalogue : vous n’avez pas à paramétrer l’IA. Si vous préférez ne pas utiliser le widget, vous pouvez passer par l’API ou par un QR code.`
+          a: `Vous ajoutez une balise script et un conteneur à votre site, avec le jeton de votre boutique, et le widget apparaît à l’endroit choisi. Vous trouvez le code prêt à l’emploi dans votre espace Wineater dès le début de votre mois gratuit, avec des instructions pas à pas pour Shopify, WooCommerce, Wix, PrestaShop et le HTML simple. Si vous préférez, notre équipe s’en charge pour vous. Dans les deux cas, vous n’avez pas à paramétrer l’IA. Si vous préférez ne pas utiliser le widget, vous pouvez passer par l’API ou par un QR code.`
         },
         {
           id: 'catalog-formats',
           q: 'Quels formats de catalogue Wineater accepte-t-il ?',
-          a: `Vous pouvez fournir votre catalogue sous forme d’export CSV, de flux produits (Wineater lit les flux XML de type Google Shopping) ou via une connexion API. Un flux simple avec titre, marque, prix et lien suffit pour identifier les vins : Wineater complète les informations comme la région, le cépage et le type, et vos propres données priment toujours sur ce qu’il ajoute. Vos prix, votre stock et vos images restent les vôtres.`
+          a: `Vous pouvez importer votre catalogue sous forme de fichier CSV ou Excel, le partager sous forme de flux produits (Wineater lit les flux XML de type Google Shopping) ou le connecter via l’API. Les bars et restaurants peuvent aussi envoyer des photos ou un PDF de leur carte des vins. Un fichier ou un flux simple avec le nom du vin et le prix suffit pour identifier les vins, la marque et le lien aident : Wineater complète les informations comme la région, le cépage et le type, et vos propres données priment toujours sur ce qu’il ajoute. Vos prix, votre stock et vos images restent les vôtres.`
         },
         {
           id: 'small-and-very-large-catalogs',
@@ -594,7 +594,7 @@ export const faqFr: FaqContent = {
         {
           id: 'how-fast-go-live',
           q: 'En combien de temps puis-je être en ligne ?',
-          a: `En général, environ 1 heure pour un QR code, environ 1 jour pour le widget sur votre site et environ 1 semaine pour une intégration API. L’équipe Wineater configure votre catalogue, le plus souvent dans les 24 heures suivant sa réception. Le délai réel dépend de l’état de votre catalogue et de votre équipe web.`
+          a: `En général, environ 1 heure pour un QR code, environ 1 jour pour le widget sur votre site et environ 1 semaine pour une intégration API. Après l’envoi de votre catalogue, vous voyez une page de démonstration avec vos propres vins en quelques minutes. Si vous préférez, l’équipe Wineater configure votre catalogue, le plus souvent dans les 24 heures suivant sa réception. Le délai réel dépend de l’état de votre catalogue et de votre équipe web.`
         },
         {
           id: 'branding-and-theme',
@@ -630,7 +630,7 @@ export const faqFr: FaqContent = {
         {
           id: 'restaurant-wine-list-import',
           q: 'Comment un restaurant transmet-il sa carte des vins à Wineater ?',
-          a: `Vous envoyez votre carte des vins, par exemple sous forme d’export CSV, et l’équipe Wineater la charge pour vous. Chaque vin est associé à une fiche vin et décrit sur les accords, le goût, l’origine, l’occasion et l’élaboration, tandis que vos prix et votre stock restent les vôtres. Le widget propose aussi un mode bar et restaurant.`
+          a: `Vous importez votre carte des vins sous forme de fichier CSV ou Excel, ou de photos ou d’un PDF, et Wineater lit les vins et les prix ; ou vous l’envoyez à l’équipe Wineater et nous la chargeons pour vous. Chaque vin est associé à une fiche vin et décrit sur les accords, le goût, l’origine, l’occasion et l’élaboration, tandis que vos prix et votre stock restent les vôtres. Le widget propose aussi un mode bar et restaurant.`
         },
         {
           id: 'wines-by-the-glass',
@@ -807,7 +807,7 @@ export const faqFr: FaqContent = {
         {
           id: 'who-sets-it-up',
           q: 'Qui met Wineater en place ?',
-          a: `C’est l’équipe Wineater. Vous nous transmettez votre carte des vins ou votre flux produits, et nous chargeons et décrivons les vins, configurons votre boutique et votre langue, puis vous remettons le code du widget ou le QR code. Vous n’avez ni à entraîner ni à régler l’IA. De votre côté, il suffit d’ajouter le code à votre site ou d’imprimer le QR code.`
+          a: `Vous pouvez le faire vous-même : vous vous inscrivez, vous importez votre carte des vins ou votre flux produits, et Wineater décrit les vins et construit une page de démonstration avec vos propres vins. Dès le début de votre mois gratuit, le code du widget ou le QR code se trouve dans votre espace. Si vous préférez, l’équipe Wineater s’en charge : vous nous transmettez votre catalogue, et nous chargeons et décrivons les vins, configurons votre boutique et votre langue, puis vous remettons le code du widget ou le QR code. Dans les deux cas, vous n’avez ni à entraîner ni à régler l’IA. De votre côté, il suffit d’ajouter le code à votre site ou d’imprimer le QR code.`
         },
         {
           id: 'price-offline-retail',
