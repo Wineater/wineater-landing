@@ -46,7 +46,7 @@
 			"subtitle": "Shoppers and guests type a dish, a mood or a budget. Wineater answers with four bottles from your own catalog: on your site, on the shelf, in your staff's hands.",
 			"point1": "Recommends only wines you stock",
 			"point2": "Every pick comes with a short reason",
-			"point3": "QR code live in 1 hour, widget in 1 day"
+			"point3": "Demo page and QR code in about 5 minutes"
 		},
 		"cards": {
 			"title": "One sommelier, four ways to use it",
@@ -56,10 +56,6 @@
 			"retail": "A sommelier on every shelf.",
 			"distributors": "Turn a restaurant's menu into a proposal from your portfolio.",
 			"see": "See how it works"
-		},
-		"price": {
-			"line": "From {price} a month for online stores, restaurants, bars and distributors. Offline retail: talk to sales. 1 month free.",
-			"link": "See pricing"
 		}
 	},
 	"whyNow": {
@@ -249,7 +245,7 @@
 		},
 		"onlineStores": {
 			"title": "AI Sommelier for Online Wine Stores {'|'} Wineater",
-			"description": "A widget that recommends four wines from your own catalog for every request. One script tag, live in 1 day. Free for 1 month."
+			"description": "A widget that recommends four wines from your own catalog for every request. One script tag, live in minutes. Free for 1 month."
 		},
 		"retail": {
 			"title": "AI Sommelier for Wine Retail and Supermarkets {'|'} Wineater",

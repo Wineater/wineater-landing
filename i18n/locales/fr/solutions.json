@@ -3,7 +3,7 @@
 		"restaurants": {
 			"hero": {
 				"title": "Chaque serveur répond comme votre chef sommelier.",
-				"subtitle": "Un client évoque un plat, une envie ou un budget. Votre équipe obtient quatre vins de votre propre carte à suggérer. En ligne en 1 heure.",
+				"subtitle": "Un client évoque un plat, une envie ou un budget. Votre équipe obtient quatre vins de votre propre carte à suggérer. En ligne en quelques minutes.",
 				"point1": "Fonctionne sur n’importe quelle tablette ou téléphone, sans intégration à la caisse",
 				"point2": "Le nouveau personnel a une réponse dès le premier jour",
 				"point3": "Mettez en avant les bouteilles que vous devez écouler"
@@ -80,7 +80,7 @@
 				"title": "Vos clients écrivent ce qu’ils veulent. Wineater choisit quatre bouteilles dans vos rayons.",
 				"subtitle": "Un sommelier IA pour votre site, pour qu’un client qui hésite obtienne une réponse au lieu de partir. Dans notre pilote, {buy} des sessions avec recommandations se sont terminées par un clic vers une bouteille.",
 				"point1": "Ne recommande que les vins que vous avez en stock",
-				"point2": "Une balise script, en ligne en 1 jour",
+				"point2": "Une balise script, en ligne en quelques minutes",
 				"point3": "Chaque sélection vient avec une courte explication"
 			},
 			"how": {

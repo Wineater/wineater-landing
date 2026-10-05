@@ -3,7 +3,7 @@
 		"restaurants": {
 			"hero": {
 				"title": "Every waiter answers like your head sommelier.",
-				"subtitle": "A guest names a dish, a mood or a budget. Your staff gets four wines from your own list to suggest. Live in 1 hour.",
+				"subtitle": "A guest names a dish, a mood or a budget. Your staff gets four wines from your own list to suggest. Live in minutes.",
 				"point1": "Works on any tablet or phone, no POS integration needed",
 				"point2": "New staff get an answer from day one",
 				"point3": "Promote the bottles you need to move"
@@ -80,7 +80,7 @@
 				"title": "Your shoppers type what they want. Wineater picks four bottles from your shelves.",
 				"subtitle": "An AI sommelier for your site, so a hesitating shopper gets an answer instead of leaving. In our pilot, {buy} of sessions with recommendations ended in a click through to a bottle.",
 				"point1": "Recommends only wines you stock",
-				"point2": "One script tag, live in 1 day",
+				"point2": "One script tag, live in minutes",
 				"point3": "Every pick comes with a short reason"
 			},
 			"how": {

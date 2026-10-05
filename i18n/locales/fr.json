@@ -36,27 +36,27 @@
 		"pause": "Mettre les diapositives en pause"
 	},
 	"HowItWorks": {
-		"title": "Envoyez votre liste de vins. Nous faisons le reste.",
-		"lead": "Vos clients décrivent ce qu’ils veulent et reçoivent quatre vins de votre catalogue, chacun avec une courte raison.",
-		"step1Title": "Partagez votre catalogue",
-		"step1Text": "Un CSV, un flux produits ou l’API. Moins d’une journée.",
-		"step2Title": "Nous configurons tout",
-		"step2Text": "Wineater est paramétré sur votre inventaire en 24 heures.",
-		"step3Title": "Mise en ligne",
-		"step3Text": "Choisissez le canal qui vous convient.",
+		"title": "En ligne en 5 minutes environ.",
+		"lead": "Inscrivez-vous, montrez-nous vos vins et ouvrez votre propre sommelier IA avant de payer.",
+		"step1Title": "Inscrivez-vous",
+		"step1Text": "Le nom, le type et le site de votre boutique. Environ une minute.",
+		"step2Title": "Montrez-nous vos vins",
+		"step2Text": "Votre site, un fichier CSV ou Excel, ou un flux produits. Wineater déguste 50 de vos vins en quelques minutes.",
+		"step3Title": "Ouvrez votre démo, puis lancez-vous",
+		"step3Text": "Vous obtenez une page de démo et un QR code avec vos propres vins. Lancez le mois gratuit pour importer tout le catalogue et ajouter le widget à votre site.",
 		"optionsTitle": "Choisissez comment vos clients y accèdent",
-		"qrTime": "1 heure",
-		"qrName": "QR code",
-		"qrDesc": "Aux tables et près des rayons. Aucune application à télécharger.",
-		"widgetTime": "1 jour",
+		"qrTime": "5 min",
+		"qrName": "Page de démo et QR code",
+		"qrDesc": "Votre propre page sur votre-boutique.wineater.com et un QR code pour les tables et les rayons. Aucune application à télécharger.",
+		"widgetTime": "5 min",
 		"widgetName": "Widget",
-		"widgetDesc": "Une balise script sur vos pages vin, à vos couleurs.",
-		"apiTime": "1 semaine",
+		"widgetDesc": "Une balise script sur vos pages vin. Le code prêt à coller vous attend dans votre espace.",
+		"apiTime": "Avec notre équipe",
 		"apiName": "API",
 		"apiDesc": "Votre propre moteur de recherche, marque blanche, inventaire synchronisé.",
 		"startNote": "Commencez par un mois gratuit. Sans carte bancaire.",
-		"upload": "Envoyer mon catalogue",
-		"startNoteSelfServe": "Commencez votre mois gratuit avec vos propres vins.",
+		"upload": "Commencer gratuitement",
+		"startNoteSelfServe": "Commencez votre mois gratuit avec vos propres vins. Carte bancaire requise, résiliable à tout moment.",
 		"manualTrial": "Vous préférez que nous nous en chargions ? Envoyez-nous votre catalogue"
 	},
 	"Clients": {
@@ -79,7 +79,7 @@
 	},
 	"Footer": {
 		"text": "Arrêtez de perdre des clients par indécision",
-		"trial": "1 mois d'essai gratuit · Sans carte bancaire",
+		"trial": "1 mois d'essai gratuit · Résiliable à tout moment",
 		"closing": "Prêt à voir votre catalogue dans Wineater ?",
 		"navLabel": "Pied de page",
 		"blog": "Blog",
@@ -139,7 +139,7 @@
 			"headline2": "Wineater choisit quatre bouteilles parmi vos références.",
 			"subtitle": "Un sommelier IA pour votre boutique ou votre site : un client qui hésite obtient une réponse au lieu de repartir.",
 			"point1": "Ne recommande que les vins que vous avez en stock",
-			"point2": "Un seul script, en ligne en 1 jour",
+			"point2": "Un seul script, en ligne en quelques minutes",
 			"point3": "Chaque sélection vient avec une courte explication"
 		},
 		"restaurants": {
@@ -148,7 +148,7 @@
 			"subtitle": "La voix de votre sommelier à chaque table. Un QR code donne à chaque client quatre vins de votre propre carte, avec une courte explication pour chacun.",
 			"point1": "QR code sur la table, aucune application à télécharger",
 			"point2": "Seconde votre équipe quand la salle est pleine, sans la remplacer",
-			"point3": "En ligne en 1 heure, avec un outil sur tablette pour votre personnel"
+			"point3": "QR code en quelques minutes, avec un outil sur tablette pour votre personnel"
 		},
 		"proof": {
 			"buy": "des sessions avec recommandations finissent par un clic BUY",
@@ -184,7 +184,7 @@
 	},
 	"seo": {
 		"title": "Sommelier IA pour cavistes et restaurants - Wineater",
-		"description": "Wineater est un sommelier IA qui recommande les vins de votre propre catalogue. QR code en 1 heure, widget en 1 jour. 1 mois d'essai gratuit."
+		"description": "Wineater est un sommelier IA qui recommande les vins de votre propre catalogue. En ligne en 5 minutes environ : inscription, vos vins, votre démo. 1 mois d'essai gratuit."
 	},
 	"cookie": {
 		"title": "Vos choix de confidentialité",

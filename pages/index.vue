@@ -16,28 +16,19 @@
       <WidgetHome :visible="widgetHomeVisible" @get-started="openSignup('demo')"/>
     </section>
 
+    <!-- 3b. Trust ribbon right after the demo: clients, press, supporters -->
+    <ClientLogos />
+
     <!-- 4. Four ways to use it -->
     <SolutionCards />
 
     <!-- 5. How the algorithm thinks (shared with every Solutions page) -->
     <HowItThinks />
 
-    <!-- 6. Trust ribbon: clients, press, supporters -->
-    <ClientLogos />
-
-    <!-- 7. Price on one line -->
-    <section class="home-price" aria-labelledby="home-price-title">
-      <h2 id="home-price-title" class="sol-sr">{{ $t('nav.pricing') }}</h2>
-      <p class="home-price__line">
-        {{ $t('home.price.line', { price: usd(lowestPrice) }) }}
-        <NuxtLink class="sol-link" :to="localePath('/pricing')" @click="onPricing">{{ $t('home.price.link') }}</NuxtLink>
-      </p>
-    </section>
-
-    <!-- 8. Founder note (placeholder until the owner supplies the text) -->
+    <!-- 7. Founder note (placeholder until the owner supplies the text) -->
     <FounderNote />
 
-    <!-- 9. How to start (id get-started lives inside) -->
+    <!-- 8. How to start (id get-started lives inside) -->
     <section aria-labelledby="how-it-works-title" id="how-it-works">
       <HowItWorks :visible="howItWorksVisible"/>
     </section>
@@ -60,15 +51,12 @@ import WhyNow from "~/components/Solutions/WhyNow.vue";
 import SolutionCards from "~/components/Solutions/SolutionCards.vue";
 import HowItThinks from "~/components/Solutions/HowItThinks.vue";
 import FounderNote from "~/components/Solutions/FounderNote.vue";
-import { lowestPrice, formatUsd, CURRENCY, pricedPlans } from '~/data/pricing';
+import { CURRENCY, pricedPlans } from '~/data/pricing';
 import FaqTeaser from "~/components/FaqTeaser.vue";
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
+const { t } = useI18n();
 const { openSignup } = useSignup();
-const usd = (n) => formatUsd(n, locale.value);
-const onPricing = () => track('cta_click', { cta_label: t('home.price.link'), location: 'home_price' });
 const publicPrices = pricedPlans.map(p => p.price);
 
 useSeoMeta({
@@ -167,18 +155,4 @@ onUnmounted(() => {
 }
 
 
-.home-price {
-  padding-top: var(--section-y);
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.home-price__line {
-  margin: 0;
-  font-family: 'PoppinsMedium', sans-serif;
-  font-size: clamp(2rem, 2.4vw, 2.6rem);
-  line-height: 1.35;
-  color: var(--ink);
-  text-wrap: balance;
-}
 </style>

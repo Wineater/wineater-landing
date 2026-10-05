@@ -46,7 +46,7 @@
 			"subtitle": "Vos clients saisissent un plat, une envie ou un budget. Wineater répond avec quatre bouteilles de votre propre catalogue : sur votre site, en rayon, entre les mains de votre équipe.",
 			"point1": "Ne recommande que les vins que vous avez en stock",
 			"point2": "Chaque sélection vient avec une courte explication",
-			"point3": "QR code en ligne en 1 heure, widget en 1 jour"
+			"point3": "Page de démo et QR code en 5 minutes environ"
 		},
 		"cards": {
 			"title": "Un seul sommelier, quatre façons de l’utiliser",
@@ -56,10 +56,6 @@
 			"retail": "Un sommelier à chaque rayon.",
 			"distributors": "Transformez la carte d’un restaurant en proposition issue de votre portefeuille.",
 			"see": "Voir comment ça marche"
-		},
-		"price": {
-			"line": "À partir de {price} par mois pour les boutiques en ligne, les restaurants, les bars et les distributeurs. Commerce physique : parlez à l’équipe commerciale. 1 mois offert.",
-			"link": "Voir les tarifs"
 		}
 	},
 	"whyNow": {
@@ -249,7 +245,7 @@
 		},
 		"onlineStores": {
 			"title": "IA sommelier pour boutiques de vin en ligne {'|'} Wineater",
-			"description": "Un widget qui recommande quatre vins de votre propre catalogue pour chaque demande. Une balise script, en ligne en 1 jour. Gratuit 1 mois."
+			"description": "Un widget qui recommande quatre vins de votre propre catalogue pour chaque demande. Une balise script, en ligne en quelques minutes. Gratuit 1 mois."
 		},
 		"retail": {
 			"title": "IA sommelier pour cavistes et supermarchés {'|'} Wineater",

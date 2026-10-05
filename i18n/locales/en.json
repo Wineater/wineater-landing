@@ -36,32 +36,32 @@
 		"pause": "Pause slides"
 	},
 	"HowItWorks": {
-		"title": "Send your wine list. We do the rest.",
-		"lead": "Shoppers describe what they want and get four wines from your catalog, each with a short reason.",
-		"step1Title": "Share your catalog",
-		"step1Text": "A CSV, a product feed or the API. Less than a day.",
-		"step2Title": "We set it up",
-		"step2Text": "Wineater is configured on your inventory within 24 hours.",
-		"step3Title": "Go live",
-		"step3Text": "Pick the channel that suits you.",
+		"title": "Live in about 5 minutes.",
+		"lead": "Sign up, show us your wines and open your own AI sommelier before you pay.",
+		"step1Title": "Sign up",
+		"step1Text": "Your shop name, type and website. About a minute.",
+		"step2Title": "Show us your wines",
+		"step2Text": "Your website, a CSV or Excel file, or a product feed. Wineater tastes 50 of your wines in a few minutes.",
+		"step3Title": "Open your demo, then go live",
+		"step3Text": "You get a demo page and a QR code on your own wines. Start the free month to import the whole catalog and add the widget to your site.",
 		"optionsTitle": "Pick how shoppers reach it",
-		"qrTime": "1 hour",
-		"qrName": "QR code",
-		"qrDesc": "At tables and wine shelves. No app to download.",
-		"widgetTime": "1 day",
+		"qrTime": "5 min",
+		"qrName": "Demo page and QR code",
+		"qrDesc": "Your own page at your-shop.wineater.com and a QR code for tables and shelves. No app to download.",
+		"widgetTime": "5 min",
 		"widgetName": "Widget",
-		"widgetDesc": "One script tag on your wine pages, in your branding.",
-		"apiTime": "1 week",
+		"widgetDesc": "One script tag on your wine pages. The ready snippet is waiting in your cabinet.",
+		"apiTime": "With our team",
 		"apiName": "API",
 		"apiDesc": "Your own search, white-label, inventory in sync.",
 		"startNote": "Start with a free month. No credit card.",
-		"upload": "Upload Catalog",
-		"startNoteSelfServe": "Start your free month on your own wines.",
+		"upload": "Start free",
+		"startNoteSelfServe": "Start your free month on your own wines. Card required, cancel any time.",
 		"manualTrial": "Prefer we set it up for you? Send us your catalog"
 	},
 	"Footer": {
 		"text": "Stop losing shoppers to indecision",
-		"trial": "1-month free trial · No credit card required",
+		"trial": "1-month free trial · Cancel any time",
 		"closing": "Ready to see your catalog in Wineater?",
 		"navLabel": "Footer",
 		"blog": "Blog",
@@ -139,7 +139,7 @@
 			"headline2": "Wineater picks four bottles from your shelves.",
 			"subtitle": "An AI sommelier for your store or site, so a hesitating shopper gets an answer instead of leaving.",
 			"point1": "Recommends only wines you stock",
-			"point2": "One script tag, live in 1 day",
+			"point2": "One script tag, live in minutes",
 			"point3": "Every pick comes with a short reason"
 		},
 		"restaurants": {
@@ -148,7 +148,7 @@
 			"subtitle": "Your sommelier's voice at every table. A QR code gives each guest four wines from your own list, with a short reason for each.",
 			"point1": "QR code on the table, no app to download",
 			"point2": "Backs up your team when the room is full, never replaces it",
-			"point3": "Live in 1 hour, plus a tablet tool for your staff"
+			"point3": "QR code in minutes, plus a tablet tool for your staff"
 		},
 		"proof": {
 			"buy": "of sessions with recommendations end in a BUY click",
@@ -184,7 +184,7 @@
 	},
 	"seo": {
 		"title": "AI Sommelier for Wine Shops & Restaurants - Wineater",
-		"description": "Wineater is an AI sommelier that recommends wines from your own catalog. QR code live in 1 hour, widget in 1 day. Free 1-month trial."
+		"description": "Wineater is an AI sommelier that recommends wines from your own catalog. Live in about 5 minutes: sign up, add your wines, see your demo. Free 1-month trial."
 	},
 	"cookie": {
 		"title": "Your privacy choices",

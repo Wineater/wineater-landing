@@ -25,6 +25,12 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - If the shopper types a wine or producer name that exists in the catalog, those exact matches come first.
 - A shop can promote selected products; promoted products get a moderate boost in ranking.
 
+## Self-serve onboarding (live 2026-10-05; the owner states it takes about 5 minutes)
+- Sign up with shop name, type and website; then give Wineater the shop website (Shopify, WooCommerce and most shops that describe products for search engines), a CSV or Excel file or a Google Shopping product feed (bars and restaurants can also upload photos or a PDF).
+- Wineater tastes 50 of the wines for free and builds a demo page `<shop>.wineater.com` and a QR code on the shop's own wines, in the shop's colours when they can be read from its website.
+- The free month starts with the owner's card; the whole catalog is imported only when the owner presses the button, and the widget snippet is in the cabinet.
+- After that the owner can check the shop website from the cabinet (stock and new wines, same rules as the XML feed); it runs only on a button press, never on a schedule. Prices are not changed by it.
+
 ## Channels
 - Website widget: a script tag on the shop's site.
 - QR code: for tables, shelves and printed menus.
@@ -35,7 +41,7 @@ Source: wineater-backend/docs/OVERVIEW.md (state 2026-09-30) and the approved la
 - The widget works in the shop's language; the landing is in English and French.
 
 ## Commercial
-- Free trial: one month, free.
+- Free trial: one month, free. Self-serve: a card is required to start, nothing is charged during the month, cancel any time.
 - Demo booking: 20-minute call.
 
 ## Pricing (approved 2026-10-04; single source in data/pricing.ts)
