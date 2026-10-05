@@ -33,7 +33,7 @@
           </ul>
         </div>
         <NuxtLink class="header__link" :to="localePath('/pricing')">{{ $t('nav.pricing') }}</NuxtLink>
-        <NuxtLink class="header__link" :to="localePath('/blog')">{{ $t('nav.blog') }}</NuxtLink>
+        <!-- Blog hidden until it has images and a content brief: <NuxtLink class="header__link" :to="localePath('/blog')">{{ $t('nav.blog') }}</NuxtLink> -->
         <NuxtLink class="header__link" :to="localePath('/faq')">{{ $t('nav.faq') }}</NuxtLink>
       </nav>
 
@@ -81,7 +81,7 @@
                     :to="localePath(item.to)"
                     @click="closeMenu()">{{ $t(`nav.${item.id}`) }}</NuxtLink>
           <NuxtLink class="header__menu-link" :to="localePath('/pricing')" @click="closeMenu()">{{ $t('nav.pricing') }}</NuxtLink>
-          <NuxtLink class="header__menu-link" :to="localePath('/blog')" @click="closeMenu()">{{ $t('nav.blog') }}</NuxtLink>
+          <!-- Blog hidden until it has images and a content brief: <NuxtLink class="header__menu-link" :to="localePath('/blog')" @click="closeMenu()">{{ $t('nav.blog') }}</NuxtLink> -->
           <NuxtLink class="header__menu-link" :to="localePath('/faq')" @click="closeMenu()">{{ $t('nav.faq') }}</NuxtLink>
         </nav>
         <div class="header__menu-ctas">

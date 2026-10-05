@@ -31,7 +31,7 @@
 
         <div class="footer__col">
           <h3 class="footer__col-title">{{ $t('Footer.colResources') }}</h3>
-          <NuxtLink class="footer__link" :to="localePath('/blog')">{{ $t('Footer.blog') }}</NuxtLink>
+          <!-- Blog hidden until it has images and a content brief: <NuxtLink class="footer__link" :to="localePath('/blog')">{{ $t('Footer.blog') }}</NuxtLink> -->
           <NuxtLink class="footer__link" :to="localePath('/faq')">{{ $t('Footer.faq') }}</NuxtLink>
         </div>
 

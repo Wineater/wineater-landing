@@ -87,7 +87,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/demo/**', '/playground', '/api/**', ...blogSitemapExclude()],
+    exclude: ['/demo/**', '/playground', '/api/**', '/blog', '/blog/**', '/fr/blog', '/fr/blog/**', ...blogSitemapExclude()],
   },
 
   robots: {

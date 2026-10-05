@@ -82,7 +82,7 @@
           <h2 class="faq-related__title">{{ $t('faq.relatedTitle') }}</h2>
           <ul>
             <li><NuxtLink class="pg-link" :to="localePath('/privacy')">{{ $t('faq.relatedPrivacy') }}</NuxtLink></li>
-            <li><NuxtLink class="pg-link" :to="localePath('/blog')">{{ $t('faq.relatedBlog') }}</NuxtLink></li>
+            <!-- Blog hidden until it has images and a content brief: <li><NuxtLink class="pg-link" :to="localePath('/blog')">{{ $t('faq.relatedBlog') }}</NuxtLink></li> -->
           </ul>
         </nav>
       </div>
