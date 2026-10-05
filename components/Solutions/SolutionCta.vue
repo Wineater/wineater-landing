@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-const { enabled: selfServe } = useSelfServe()
+const { enabled: selfServeOn } = useSelfServe()
 import Button from '~/components/Buttons/Button.vue'
 import { DEMO_URL } from '~/data/links'
 
@@ -28,8 +28,10 @@ const props = defineProps({
   base: { type: String, required: true },
   primary: { type: String, default: 'demo' },
 })
-const { openSignup } = useSignup()
+const { openSignup, openManualTrial } = useSignup()
 const { t } = useI18n()
+// offline retail is always arranged with the team: manual-trial form, not self-serve
+const selfServe = computed(() => selfServeOn && props.segment !== 'retail')
 const onDemo = () => {
   track('cta_click', { cta_label: t('cta.demo'), location: `${props.segment}_cta` })
   track('demo_click', { location: `${props.segment}_cta` })
@@ -37,7 +39,8 @@ const onDemo = () => {
 }
 const onTrial = () => {
   track('cta_click', { cta_label: t('cta.primary'), location: `${props.segment}_cta` })
-  openSignup(`${props.segment}_cta`)
+  if (props.segment === 'retail') openManualTrial()
+  else openSignup(`${props.segment}_cta`)
 }
 </script>
 

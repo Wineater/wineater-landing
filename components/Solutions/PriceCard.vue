@@ -25,13 +25,13 @@
 
     <p class="sol-actions pc__more">
       <NuxtLink class="sol-link" :to="localePath({ path: '/pricing', hash: `#${pricingHash}` })" @click="onClick">{{ $t('solutionPage.seePricing') }}</NuxtLink>
-      <span v-if="segment !== 'distributors'" class="sol-note pc__trial">{{ selfServe ? $t('Footer.trialSelfServe') : $t('Footer.trial') }}</span>
+      <span v-if="segment !== 'distributors'" class="sol-note pc__trial">{{ selfServeOn && segment !== 'retail' ? $t('Footer.trialSelfServe') : $t('Footer.trial') }}</span>
     </p>
   </section>
 </template>
 
 <script setup>
-const { enabled: selfServe } = useSelfServe()
+const { enabled: selfServeOn } = useSelfServe()
 import { shopPlans as shopPlanList, plan, formatUsd, formatInt } from '~/data/pricing'
 
 const props = defineProps({ segment: { type: String, required: true } }) // shops | restaurants | retail | distributors
