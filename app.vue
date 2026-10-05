@@ -16,10 +16,14 @@ const { open: signupOpen, closeSignup } = useSignup()
 const head = useLocaleHead({ dir: false, seo: true })
 const { t } = useI18n()
 
+// Spanish exists only for the distributors page: advertise es_ES as an alternate locale only where an
+// es hreflang alternate is really emitted, so the OG tags agree with hreflang.
+const hasSpanishVersion = computed(() => (head.value.link ?? []).some(l => l.rel === 'alternate' && /^es(-|$)/i.test(l.hreflang ?? '')))
+
 useHead(() => ({
   htmlAttrs: { lang: head.value.htmlAttrs?.lang },
   link: head.value.link,
-  meta: head.value.meta,
+  meta: (head.value.meta ?? []).filter(m => hasSpanishVersion.value || !(m.property === 'og:locale:alternate' && m.content === 'es_ES')),
 }))
 
 useSeoMeta({

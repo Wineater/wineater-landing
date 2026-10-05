@@ -97,6 +97,14 @@ export default defineNuxtConfig({
     ],
   },
 
+  // Static images from public/ are not content-hashed, so a month (not "immutable") with a day of stale reuse
+  routeRules: Object.fromEntries(
+    ['photos', 'brand', 'features', 'clients', 'press'].map(dir => [
+      `/${dir}/**`,
+      { headers: { 'cache-control': 'public, max-age=2592000, stale-while-revalidate=86400' } },
+    ]),
+  ),
+
   // Performance optimizations for Core Web Vitals
   nitro: {
     compressPublicAssets: true,

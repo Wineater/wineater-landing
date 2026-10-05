@@ -50,6 +50,8 @@ const logos = {
   Weinpoint: 'https://czvgkhagwvmknscoerfy.supabase.co/storage/v1/object/public/static-media/Weinpoint.png'
 };
 
+useSeoMeta({ robots: 'noindex, nofollow' })
+
 const route = useRoute()
 const store = route.params.id;
 const storeKey = (store || '').toString().charAt(0).toUpperCase() + store.slice(1);
