@@ -248,7 +248,7 @@ const trackPrimary = () => {
 const onPrimaryClick = () => {
   trackPrimary();
   emit('getStarted');
-  openSignup();
+  openSignup('header');
 };
 
 const onDemoClick = () => {

@@ -128,7 +128,7 @@ onMounted(() => {
 
 const onTrial = (id) => {
   track('cta_click', { cta_label: t('solutionPage.startTrial'), location: `pricing_${id}` })
-  openSignup()
+  openSignup(`pricing_${id}`)
 }
 const onSales = (id) => {
   track('cta_click', { cta_label: t('solutionPage.talkToSales'), location: `pricing_${id}` })

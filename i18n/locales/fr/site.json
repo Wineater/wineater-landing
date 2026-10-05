@@ -120,7 +120,7 @@
 	"pricing": {
 		"hero": {
 			"title": "Des tarifs simples, un mois offert",
-			"lead": "Choisissez votre activité. Chaque forfait commence par un mois gratuit, sans carte bancaire."
+			"lead": "Choisissez votre activité. Chaque forfait commence par 30 jours d'essai gratuit. Carte requise, résiliable à tout moment."
 		},
 		"switchLabel": "Choisissez votre activité",
 		"tabs": {
@@ -140,7 +140,7 @@
 		"perVenueMonth": "/ mois par établissement",
 		"perClick": "+ {price} par clic BUY",
 		"example": "Exemple : {clicks} clics BUY dans le mois = {base} + {extra} = {total}.",
-		"allPlans": "Tous les forfaits : 1 mois offert, sans carte bancaire. Paiement par carte ou, dans l’UE, sur facture.",
+		"allPlans": "Tous les forfaits : 30 jours d'essai gratuit. Paiement par carte ou, dans l’UE, sur facture.",
 		"clickNote": "{caveat} La formule Boutique en ligne est facturée au clic, pas à la commande.",
 		"moreTitle": "Commerce physique",
 		"plans": {
@@ -261,13 +261,13 @@
 		},
 		"pricing": {
 			"title": "Tarifs pour cavistes, restaurants et distributeurs {'|'} Wineater",
-			"description": "Formules pour boutiques en ligne, restaurants et bars, et distributeurs, 1 mois offert, sans carte bancaire. Commerce physique : parlez à l’équipe commerciale."
+			"description": "Formules pour boutiques en ligne, restaurants et bars, et distributeurs, 30 jours d'essai gratuit. Commerce physique : parlez à l’équipe commerciale."
 		}
 	},
 	"pricingCta": {
 		"cta": {
 			"title": "Commencez par un mois offert",
-			"text": "Partagez votre catalogue ou votre carte des vins et voyez Wineater sur vos propres vins. Sans carte bancaire."
+			"text": "Partagez votre catalogue ou votre carte des vins et voyez Wineater sur vos propres vins. Gratuit 30 jours, résiliable à tout moment."
 		}
 	}
 }

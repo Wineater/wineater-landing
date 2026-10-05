@@ -7,7 +7,8 @@
       </div>
       <div id="get-started" class="how-it-works__start">
         <Button @btnClick="onCta">{{ $t('HowItWorks.upload') }}</Button>
-        <p class="how-it-works__start-note">{{ $t('HowItWorks.startNote') }}</p>
+        <p class="how-it-works__start-note">{{ selfServe ? $t('HowItWorks.startNoteSelfServe') : $t('HowItWorks.startNote') }}</p>
+        <button v-if="selfServe" type="button" class="how-it-works__manual" @click="onManual">{{ $t('HowItWorks.manualTrial') }}</button>
       </div>
     </header>
 
@@ -41,17 +42,36 @@ defineProps({
 
 const emit = defineEmits(['getStarted']);
 const { t } = useI18n();
-const { openSignup } = useSignup();
+const { openSignup, openManualTrial } = useSignup();
+const { enabled: selfServe } = useSelfServe();
+const onManual = () => {
+  track('cta_click', { cta_label: t('HowItWorks.manualTrial'), location: 'how_it_works_manual' });
+  openManualTrial();
+};
 
 const options = ['qr', 'widget', 'api'];
 function onCta() {
   track('cta_click', { cta_label: t('HowItWorks.upload'), location: 'how_it_works' });
   emit('getStarted');
-  openSignup();
+  openSignup('how_it_works');
 }
 </script>
 
 <style scoped lang="scss">
+.how-it-works__manual {
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  font-size: 1.5rem;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
 .how-it-works {
   max-width: var(--container);
   margin: 0 auto;

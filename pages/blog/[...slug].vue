@@ -33,7 +33,7 @@
 
       <aside class="article-cta" aria-labelledby="cta-title">
         <h2 id="cta-title">{{ t('blog.ctaTitle') }}</h2>
-        <p class="prose">{{ t('blog.ctaText') }}</p>
+        <p class="prose">{{ selfServe ? t('blog.ctaTextSelfServe') : t('blog.ctaText') }}</p>
         <Button :href="ctaPath" @btnClick="onCta">{{ t('cta.primary') }}</Button>
       </aside>
 
@@ -163,7 +163,8 @@ useSchemaOrg([
   },
 ])
 
-const ctaPath = computed(() => localePath({ path: '/', hash: '#get-started' }))
+const { enabled: selfServe, signupUrl } = useSelfServe()
+const ctaPath = computed(() => (selfServe ? signupUrl('blog_article') : localePath({ path: '/', hash: '#get-started' })))
 const onCta = () => track('cta_click', { location: 'blog_article', slug: doc.value.slug })
 </script>
 

@@ -21,7 +21,7 @@
             <span class="hero__sr">({{ $t('Header.opensNewTab') }})</span>
           </Button>
         </div>
-        <p class="hero__trial">{{ $t('Footer.trial') }}</p>
+        <p class="hero__trial">{{ selfServe ? $t('Footer.trialSelfServe') : $t('Footer.trial') }}</p>
 
         <ul class="hero__points">
           <li v-for="n in 3" :key="n" class="hero__point">
@@ -84,6 +84,7 @@ useHead({
 const emit = defineEmits(['getStarted']);
 const { t, locale } = useI18n();
 const { openSignup } = useSignup();
+const { enabled: selfServe } = useSelfServe();
 
 const lang = computed(() => (locale.value === 'fr' ? 'fr' : 'en'));
 const chips = computed(() => [
@@ -96,7 +97,7 @@ const proofCaveat = computed(() => pilotProof.caveat[lang.value]);
 const onPrimary = () => {
   track('cta_click', { cta_label: t('cta.primary'), location: 'hero' });
   emit('getStarted');
-  openSignup();
+  openSignup('hero');
 };
 
 const onDemo = () => {

@@ -71,9 +71,9 @@
 
         <section class="faq-cta" aria-labelledby="faq-cta-title">
           <h2 id="faq-cta-title">{{ $t('faq.ctaTitle') }}</h2>
-          <p class="prose">{{ $t('faq.ctaText') }}</p>
+          <p class="prose">{{ selfServe ? $t('faq.ctaTextSelfServe') : $t('faq.ctaText') }}</p>
           <div class="pg-actions">
-            <Button :href="localePath({ path: '/', hash: '#get-started' })" @btnClick="trackCta">{{ $t('cta.primary') }}</Button>
+            <Button :href="selfServe ? signupUrl('faq_page') : localePath({ path: '/', hash: '#get-started' })" @btnClick="trackCta">{{ $t('cta.primary') }}</Button>
             <NuxtLink class="pg-btn-secondary" :to="localePath({ path: '/', hash: '#ai-sommelier' })">{{ $t('faq.relatedDemo') }}</NuxtLink>
           </div>
         </section>
@@ -99,6 +99,7 @@ const ORIGIN = 'https://wineater.com'
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
+const { enabled: selfServe, signupUrl } = useSelfServe()
 
 const content = computed(() => faqByLocale[locale.value] || faqByLocale.en)
 

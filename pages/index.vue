@@ -13,7 +13,7 @@
 
     <!-- 3. Demo: the product right after the hero -->
     <section aria-labelledby="demo-title" id="ai-sommelier">
-      <WidgetHome :visible="widgetHomeVisible" @get-started="openSignup"/>
+      <WidgetHome :visible="widgetHomeVisible" @get-started="openSignup('demo')"/>
     </section>
 
     <!-- 4. Four ways to use it -->
@@ -39,7 +39,7 @@
 
     <!-- 9. How to start (id get-started lives inside) -->
     <section aria-labelledby="how-it-works-title" id="how-it-works">
-      <HowItWorks :visible="howItWorksVisible" @get-started="openSignup"/>
+      <HowItWorks :visible="howItWorksVisible"/>
     </section>
 
     <FaqTeaser />

@@ -3,7 +3,7 @@
     <div v-if="showCta" class="footer__cta">
       <div class="footer__cta-inner" v-reveal:stagger>
         <h2 class="footer__cta-title">{{ $t('Footer.closing') }}</h2>
-        <p class="footer__cta-trial">{{ $t('Footer.trial') }}</p>
+        <p class="footer__cta-trial">{{ selfServe ? $t('Footer.trialSelfServe') : $t('Footer.trial') }}</p>
         <div class="footer__btns">
           <button type="button" class="footer__btn footer__btn--primary" @click="onPrimaryClick">
             {{ $t('cta.primary') }}
@@ -69,6 +69,7 @@ const { t } = useI18n();
 const emit = defineEmits(['getStarted']);
 defineProps({ showCta: { type: Boolean, default: true } });
 const { openSignup } = useSignup();
+const { enabled: selfServe } = useSelfServe();
 const { locale } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 // Spanish exists only for the Distributors page.
@@ -92,7 +93,7 @@ const trackPrimary = () => {
 const onPrimaryClick = () => {
   trackPrimary();
   emit('getStarted');
-  openSignup();
+  openSignup('footer');
 };
 
 const onDemoClick = () => {

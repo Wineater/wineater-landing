@@ -36,7 +36,7 @@ const onDemo = () => {
 }
 const onTrial = () => {
   track('cta_click', { cta_label: t('cta.primary'), location: `${props.segment}_cta` })
-  openSignup()
+  openSignup(`${props.segment}_cta`)
 }
 </script>
 

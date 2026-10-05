@@ -32,7 +32,8 @@
 		"colProduct": "Producto",
 		"colResources": "Recursos",
 		"colLegal": "Legal",
-		"language": "Idioma"
+		"language": "Idioma",
+		"trialSelfServe": "30 días de prueba gratuita · Cancele cuando quiera"
 	},
 	"SignupForm": {
 		"title": "Empiece su prueba gratuita",
@@ -215,5 +216,9 @@
 				"text": "Estamos construyéndola con un primer grupo de distribuidores. Hablemos de su portafolio."
 			}
 		}
+	},
+	"HowItWorks": {
+		"startNoteSelfServe": "Empiece una prueba gratuita de 30 días con sus propios vinos.",
+		"manualTrial": "¿Prefiere que lo configuremos nosotros? Envíenos su catálogo"
 	}
 }

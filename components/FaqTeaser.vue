@@ -24,7 +24,13 @@
           </div>
         </details>
       </div>
-      <p class="faq-teaser__demo" v-reveal>
+      <p v-if="selfServe" class="faq-teaser__demo" v-reveal>
+        <a class="faq-teaser__demo-link" :href="signupUrl('faq_teaser')" @click="onTry">{{ $t('faq.teaserTry') }}</a>
+        <span class="faq-teaser__or">
+          {{ ' ' }}<a :href="demoUrl" target="_blank" rel="noopener" @click="onDemo">{{ $t('faq.teaserOrDemo') }}<span class="faq-teaser__sr">({{ $t('Header.opensNewTab') }})</span></a>
+        </span>
+      </p>
+      <p v-else class="faq-teaser__demo" v-reveal>
         <a class="faq-teaser__demo-link" :href="demoUrl" target="_blank" rel="noopener" @click="onDemo">
           {{ $t('faq.teaserDemo') }}
           <span class="faq-teaser__sr">({{ $t('Header.opensNewTab') }})</span>
@@ -40,6 +46,8 @@ import { faqByLocale, faqTeaserIds, flattenFaq } from '~/data/faq'
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const demoUrl = 'https://share-eu1.hsforms.com/1kziM_bz_TDqsB5emVJbReA2ehswf'
+const { enabled: selfServe, signupUrl } = useSelfServe()
+const onTry = () => track('cta_click', { cta_label: t('faq.teaserTry'), location: 'faq_teaser' })
 
 const onDemo = () => {
   track('cta_click', { cta_label: t('faq.teaserDemo'), location: 'faq_teaser' })
@@ -157,6 +165,20 @@ const items = computed(() => {
   &__demo {
     grid-column: 2;
     margin: 0;
+  }
+
+  &__or {
+    font-size: 1.5rem;
+    color: var(--ink-3);
+
+    a {
+      color: var(--ink-3);
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--link);
+    }
   }
 
   &__demo-link {

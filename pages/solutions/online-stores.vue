@@ -3,7 +3,7 @@
     <SolutionHero segment="online-stores" base="solutions.onlineStores" photo="online-stores" primary="trial" :params="{ buy }" />
     <!-- Live demo: same widget and demo store as before, now on the page that sells it -->
     <section aria-labelledby="demo-title" id="ai-sommelier" class="demo-wrap">
-      <WidgetHome :visible="true" @get-started="openSignup" />
+      <WidgetHome :visible="true" @get-started="openSignup('demo')" />
     </section>
     <ProofChips />
     <RoiCalculator />

@@ -134,7 +134,9 @@ export default defineNuxtConfig({
       showDrafts: showDrafts(),
       gtm: {
         id: 'GTM-NLBPMC7X'
-      }
+      },
+      // Client cabinet sign-up; "" turns every "Try it free" back to the manual-trial form
+      selfServeUrl: 'https://app.wineater.com/signup',
     }
   },
 })
